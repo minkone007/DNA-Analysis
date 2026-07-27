@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ClinPGx</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="/site.webmanifest">
+  <!-- favicon should be in the root directory -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32"/>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#33669a">
+  <meta name="application-name" content="ClinPGx">
+  <meta name="apple-mobile-web-app-title" content="ClinPGx">
+
+  <meta property="og:site_name" content="ClinPGx" />
+  <meta property="og:publisher" content="https://www.facebook.com/ClinPGx" />
+
+  <!-- for stylesheets from typekit -->
+  <link rel="preconnect" href="//p.typekit.net" />
+  <!-- for fonts from typekit (must specify cross-origin) -->
+  <link rel="preconnect" href="//use.typekit.net" crossorigin />
+  <!-- dns-prefetch only applies to cross-origin requests; fallback for older browsers -->
+  <link rel="dns-prefetch" href="//use.typekit.net" />
+  <!-- for api requests (must specify cross-origin) -->
+  <link rel="preconnect" href="//api.clinpgx.org" crossorigin />
+  <!-- dns-prefetch only applies to cross-origin requests; fallback for older browsers -->
+  <link rel="dns-prefetch" href="//api.clinpgx.org" />
+  <link rel="preload" as="style" href="//use.typekit.net/fhh1bra.css" />
+  <link rel="stylesheet" type="text/css" href="//use.typekit.net/fhh1bra.css" />
+
+  <link rel="search" type="application/opensearchdescription+xml" href="/osdd.xml" title="ClinPGx Search" />
+  <script type="module" crossorigin src="/assets/main-Dg1ARHyg.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-C_kQKZdE.css">
+</head>
+<body>
+<noscript>
+  <div class="page">
+    <div class="page-content">
+      <div class="container">
+         <div class="error-box island-md static">
+           <h3>Javascript Is Disabled!</h3>
+           <p>
+             ClinPGx requires Javascript.
+           </p>
+           <p>
+             Here are the <a href="https://www.whatismybrowser.com/guides/how-to-enable-javascript/">
+             instructions on how to enable JavaScript in your web browser</a>.
+           </p>
+         </div>
+      </div>
+    </div>
+  </div>
+</noscript>
+<div id="app"></div>
+<script async src="//api.clinpgx.org/analytics/u.js" data-website-id="2f8a7e92-a277-4a84-8d90-432a01474242"></script>
+</body>
+</html>
