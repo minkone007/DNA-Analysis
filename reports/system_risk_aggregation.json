@@ -1,0 +1,168 @@
+{
+  "Lifestyle & Metabolism": {
+    "trait_count": 3,
+    "high_confidence_count": 0,
+    "total_pgs": 43.2413,
+    "traits": [
+      "Alcohol Consumption",
+      "Caffeine Metabolism",
+      "Lactase Persistence"
+    ],
+    "avg_pgs": 14.413766666666668,
+    "risk_level": "Low"
+  },
+  "Data Metadata": {
+    "trait_count": 10,
+    "high_confidence_count": 0,
+    "total_pgs": 3.4714,
+    "traits": [
+      "Gwas-Association-Downloaded 2026-07-02-Efo 0002508",
+      "Gwas-Association-Downloaded 2026-07-02-Efo 0000305",
+      "Gwas-Association-Downloaded 2026-07-02-Efo 0006340",
+      "Gwas-Association-Downloaded 2026-07-02-Efo 0000712",
+      "Gwas-Association-Downloaded 2026-07-02-Efo 0005842",
+      "Gwas-Association-Downloaded 2026-07-02-Efo 0001663",
+      "Gwas-Association-Downloaded 2026-07-02-Efo 0000249",
+      "Gwas-Association-Downloaded 2026-07-02-Efo 0000389",
+      "Gwas-Association-Downloaded 2026-07-02-Efo 0001645",
+      "Gwas-Association-Downloaded 2026-07-02-Efo 0000275"
+    ],
+    "avg_pgs": 0.34714,
+    "risk_level": "Low"
+  },
+  "Dermatology": {
+    "trait_count": 1,
+    "high_confidence_count": 0,
+    "total_pgs": 10.8948,
+    "traits": [
+      "Skin Color"
+    ],
+    "avg_pgs": 10.8948,
+    "risk_level": "Low"
+  },
+  "Immune/Inflammatory Axis": {
+    "trait_count": 8,
+    "high_confidence_count": 0,
+    "total_pgs": 298.3988,
+    "traits": [
+      "Rheumatoid Arthritis",
+      "Lupus",
+      "Crohn Disease",
+      "Celiac Disease",
+      "Psoriasis",
+      "Inflammatory Bowel",
+      "Asthma",
+      "Multiple Sclerosis"
+    ],
+    "avg_pgs": 37.29985,
+    "risk_level": "Low"
+  },
+  "Pharmacology": {
+    "trait_count": 1,
+    "high_confidence_count": 0,
+    "total_pgs": 6.3739,
+    "traits": [
+      "Pharmacogenomics"
+    ],
+    "avg_pgs": 6.3739,
+    "risk_level": "Low"
+  },
+  "Cardiometabolic Axis": {
+    "trait_count": 10,
+    "high_confidence_count": 2,
+    "total_pgs": 967.2573,
+    "traits": [
+      "Triglycerides",
+      "Type1 Diabetes",
+      "Cholesterol",
+      "Blood Pressure",
+      "Stroke",
+      "Diabetes",
+      "Atrial Fibrillation",
+      "Heart Failure",
+      "Bmi",
+      "Coronary Artery Disease"
+    ],
+    "avg_pgs": 96.72573,
+    "risk_level": "Moderate"
+  },
+  "Oncological Axis": {
+    "trait_count": 6,
+    "high_confidence_count": 0,
+    "total_pgs": 255.80319999999998,
+    "traits": [
+      "Lung Cancer",
+      "Prostate Cancer",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Bladder Cancer",
+      "Melanoma"
+    ],
+    "avg_pgs": 42.63386666666666,
+    "risk_level": "Low"
+  },
+  "Physiology & Fitness": {
+    "trait_count": 3,
+    "high_confidence_count": 0,
+    "total_pgs": 7.7834,
+    "traits": [
+      "Vo2 Max",
+      "Sleep Duration",
+      "Muscle Strength"
+    ],
+    "avg_pgs": 2.594466666666667,
+    "risk_level": "Low"
+  },
+  "Neuro-Cognitive Axis": {
+    "trait_count": 8,
+    "high_confidence_count": 1,
+    "total_pgs": 1496.2366,
+    "traits": [
+      "Autism",
+      "Bipolar Disorder",
+      "Intelligence",
+      "Schizophrenia",
+      "Depression",
+      "Alzheimer",
+      "Parkinson",
+      "Adhd"
+    ],
+    "avg_pgs": 187.029575,
+    "risk_level": "Low"
+  },
+  "Bone & Mineral Metabolism": {
+    "trait_count": 3,
+    "high_confidence_count": 0,
+    "total_pgs": 54.1992,
+    "traits": [
+      "Gout",
+      "Chronic Kidney Disease",
+      "Vitamin D"
+    ],
+    "avg_pgs": 18.066399999999998,
+    "risk_level": "Low"
+  },
+  "Appearance & Physical Traits": {
+    "trait_count": 4,
+    "high_confidence_count": 1,
+    "total_pgs": 424.5092,
+    "traits": [
+      "Hair Color",
+      "Eye Color",
+      "Height",
+      "Hair Loss"
+    ],
+    "avg_pgs": 106.1273,
+    "risk_level": "Low"
+  },
+  "Longevity & Aging": {
+    "trait_count": 1,
+    "high_confidence_count": 0,
+    "total_pgs": 62.4053,
+    "traits": [
+      "Longevity"
+    ],
+    "avg_pgs": 62.4053,
+    "risk_level": "Low"
+  }
+}

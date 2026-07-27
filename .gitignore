@@ -1,5 +1,118 @@
+<<<<<<< HEAD
+# Raw DNA data — NEVER commit
+data/
+*.zip
 
-data/variant_summary.txt
-data/SNPedia2025/SNPedia2025.db
-data/gwas_catalog_full.tsv
-data/traits/*.zip
+# Large reference databases
+=======
+# ── Raw DNA data — NEVER commit ──────────────────────────────────────────────
+data/
+*.csv
+*.zip
+
+# ── Large reference databases ─────────────────────────────────────────────────
+>>>>>>> 3b12e08459419592ee1adbeb120ff696f757975e
+*.db
+*.tsv
+*.vcf
+*.bam
+*.bed
+
+<<<<<<< HEAD
+# Generated results — large JSON files, intermediate outputs
+# scripts/results
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+.AppleDouble
+._*
+scripts/.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
+
+# Misc
+references.txt
+scripts/clinvar_all_risks.json
+=======
+# ── Generated results — large JSON files ─────────────────────────────────────
+# scripts/results
+
+# ── Python cache ──────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# ── macOS ─────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ── Editors ───────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Environment ───────────────────────────────────────────────────────────────
+.env
+venv/
+env/
+*.egg
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+
+# ── What IS committed ─────────────────────────────────────────────────────────
+# scripts/*.py          pipeline code
+# scripts/traits/*.json per-trait configs
+# scripts/traits_library.json  curated SNP interpretations
+# people.json           person config (no personal data)
+# reports/*.html        generated reports (no raw genotypes)
+# README.md
+# .gitignore
+>>>>>>> 3b12e08459419592ee1adbeb120ff696f757975e
+.DS_Store
+**/.DS_Store
+
+# R files
+.RData
+.Rhistory
+*.R
+
+# Legacy docs
+docs/my_*
+docs/athletic*
+docs/formatted_data.txt
+docs/full_bio_report.txt
+docs/master_panel.txt
+docs/mthfr_health_data.txt
+docs/trait_list.txt
+docs/Global25_*
+docs/references.txt
+
+# Legacy scripts
+scripts/dna_health_report.py
+scripts/trait_library.json
+scripts/.gitignore
+
+# Protected reports
+reports/*_protected.html

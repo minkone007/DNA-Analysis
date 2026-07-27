@@ -1,0 +1,46 @@
+{
+  "rs4680": {
+    "name": "COMT (Dopamine Speed)",
+    "category": "Neurotransmitter",
+    "priority": "high",
+    "pmids": ["15146186", "12140781"],
+    "interpretations": {
+      "GG": "Warrior. Val — higher COMT enzymatic activity, lower dopamine levels; higher pain threshold, better stress resiliency.",
+      "AA": "Worrier. Met — lower COMT enzymatic activity, higher baseline dopamine; lower pain threshold, enhanced vulnerability to stress.",
+      "AG": "Intermediate dopamine breakdown — mixed Warrior/Worrier profile."
+    }
+  },
+  "rs6265": {
+    "name": "BDNF (Val66Met)",
+    "category": "Neurology",
+    "priority": "medium",
+    "pmids": ["11224535"],
+    "interpretations": {
+      "CC": "Val/Val — higher BDNF secretion; better episodic memory, lower anxiety tendency.",
+      "TT": "Met/Met — reduced BDNF secretion; associated with higher anxiety and depression susceptibility.",
+      "CT": "Val/Met — intermediate BDNF secretion."
+    }
+  },
+  "rs67890": {
+    "name": "IL-6 (Inflammation)",
+    "category": "Immune & Inflammation",
+    "priority": "normal",
+    "pmids": [],
+    "interpretations": {
+      "CC": "Standard inflammatory response profile.",
+      "GG": "Elevated sensitivity to inflammatory triggers.",
+      "CG": "Intermediate inflammatory profile."
+    }
+  },
+  "rs12345": {
+    "name": "CYP2C19 (Drug Metabolism)",
+    "category": "Pharmacogenomics",
+    "priority": "high",
+    "pmids": [],
+    "interpretations": {
+      "GG": "Normal CYP2C19 metabolizer — standard drug dosing applies.",
+      "AA": "Poor CYP2C19 metabolizer — reduced activation of prodrugs like clopidogrel.",
+      "AG": "Intermediate CYP2C19 metabolizer."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "people": [
+    {
+      "name": "Minko",
+      "data_file": "data/Minko/MyHeritage_raw_dna_data.csv",
+      "results_dir": "scripts/results/Minko",
+      "sex": "M"
+    },
+    {
+      "name": "Stayko",
+      "data_file": "data/Stayko/MyHeritage_raw_dna_data.csv",
+      "results_dir": "scripts/results/Stayko",
+      "sex": "M"
+    },
+    {
+      "name": "Julian",
+      "data_file": "data/Julian/MyHeritage_raw_dna_data.csv",
+      "results_dir": "scripts/results/Julian",
+      "sex": "M"
+    }
+  ],
+  "shared": {
+    "snpedia_db":  "data/SNPedia2025/SNPedia2025.db",
+    "gwas_dir":    "data/traits",
+    "traits_lib":  "scripts/traits_library.json",
+    "traits_dir":  "scripts/traits"
+  }
+}

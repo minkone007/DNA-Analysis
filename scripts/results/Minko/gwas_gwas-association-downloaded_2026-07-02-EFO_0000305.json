@@ -1,0 +1,11 @@
+{
+  "trait": "Gwas-Association-Downloaded 2026-07-02-Efo 0000305",
+  "is_quantitative": false,
+  "total_gwas_snps": 0,
+  "on_chip": 0,
+  "elevated_hits": 0,
+  "pgs_score": 0.0,
+  "pgs_snps_used": 0,
+  "results": [],
+  "context": ""
+}

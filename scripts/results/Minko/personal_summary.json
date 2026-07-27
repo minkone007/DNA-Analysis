@@ -1,0 +1,1676 @@
+{
+  "Neurotransmitter": {
+    "comt_(dopamine_speed)": {
+      "rsid": "rs4680",
+      "genotype": "GG",
+      "finding": "Warrior. Val \u2014 higher COMT enzymatic activity, lower dopamine levels; higher pain threshold, better stress resiliency.",
+      "priority": "high",
+      "source": "curated"
+    }
+  },
+  "GWAS - Adhd": {
+    "MSR1 - RN7SL474P_rs1521365": {
+      "rsid": "rs1521365",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 41.30, 95% CI [23.84-58.76] unit decrease for Attention function in attention def...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 10.3787
+    },
+    "MIR3924 - MRPS35P3_rs72796654": {
+      "rsid": "rs72796654",
+      "genotype": "AC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 3.16, 95% CI [1.79-4.53] unit increase for Aggressiveness in attention deficit hy...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 10.3787
+    },
+    "MIR99AHG_rs2823819": {
+      "rsid": "rs2823819",
+      "genotype": "AA",
+      "finding": "You do not carry the risk allele -- OR 1.65, 95% CI [NR] for Attention deficit hyperactivity disorder. Variant near MIR99AHG (intron variant...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 10.3787
+    },
+    "EMP2_rs11074889": {
+      "rsid": "rs11074889",
+      "genotype": "GG",
+      "finding": "You do not carry the risk allele -- OR 1.68, 95% CI [NR] for Attention deficit hyperactivity disorder. Variant near EMP2 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 10.3787
+    },
+    "NTM_rs35974940": {
+      "rsid": "rs35974940",
+      "genotype": "GG",
+      "finding": "You do not carry the risk allele -- OR 3.23, 95% CI [1.92-4.54] unit increase for Aggressiveness in attention deficit hyperactivity disorder...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 10.3787
+    }
+  },
+  "GWAS - Alcohol Consumption": {
+    "ADH1B_rs1229984": {
+      "rsid": "rs1229984",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 17.21, 95% CI NR z score increase for Alcohol consumption (heavy vs. light/non-dr...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 37.7648
+    },
+    "SLC39A8_rs13107325": {
+      "rsid": "rs13107325",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 11.45, 95% CI NR z score increase for Alcohol use disorder (consumption score). V...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 37.7648
+    },
+    "GCKR_rs1260326": {
+      "rsid": "rs1260326",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 7.39, 95% CI NR z score increase for Alcohol consumption (heavy vs. light/non-dri...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 37.7648
+    }
+  },
+  "GWAS - Alzheimer": {
+    "APOE_rs7412": {
+      "rsid": "rs7412",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.17, 95% CI [1.89-2.44] for Alzheimer's disease (onset between ages 58 and 79). ...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 171.646
+    },
+    "BIN1 - NIFKP9_rs4663105": {
+      "rsid": "rs4663105",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 119.86, 95% CI z score increase for Alzheimer's disease or educational attainment...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 171.646
+    },
+    "CLU_rs9331896": {
+      "rsid": "rs9331896",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 8.82, 95% CI NR z-score decrease for Alzheimer's disease (late onset). Variant ne...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 171.646
+    },
+    "RNU6-560P - LINC02695_rs10792832": {
+      "rsid": "rs10792832",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 8.56, 95% CI NR z-score decrease for Alzheimer's disease (late onset). Variant ne...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 171.646
+    }
+  },
+  "GWAS - Asthma": {
+    "TACR1 - GAPDHP57_rs7588010": {
+      "rsid": "rs7588010",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.72, 95% CI [1.93-3.84] for Diisocyanate-induced asthma. Variant near TACR1 - GA...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 40.3543
+    },
+    "NPBWR1 - OPRK1_rs1425902": {
+      "rsid": "rs1425902",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.14, 95% CI [1.56-2.94] for IgE levels in asthmatics (D.p. specific). Variant ne...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 40.3543
+    },
+    "ACOT7_rs11121611": {
+      "rsid": "rs11121611",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.82, 95% CI [1.43-2.33] for Asthma exacerbations in inhaled corticosteroid treat...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 40.3543
+    },
+    "IL33_rs146597587": {
+      "rsid": "rs146597587",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.45, 95% CI [1.36-1.54] for Asthma. Variant near IL33 (splice acceptor variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 40.3543
+    },
+    "IL18R1_rs3771175": {
+      "rsid": "rs3771175",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.73, 95% CI [1.32-2.13] unit decrease for Asthma (age of onset). Variant near IL...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 40.3543
+    }
+  },
+  "GWAS - Atrial Fibrillation": {
+    "LINC01875 - TMEM18_rs2903492": {
+      "rsid": "rs2903492",
+      "genotype": "AG",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 7.25, 95% CI z-score increase for Atrial fibrillation (MTAG). Variant near LINC01...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 13.0951
+    },
+    "LINC01438_rs6843082": {
+      "rsid": "rs6843082",
+      "genotype": "AA",
+      "finding": "You do not carry the risk allele -- OR 1.45, 95% CI [1.41-1.99] for Atrial fibrillation. Variant near LINC01438 (non coding transcript exon ...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 13.0951
+    },
+    "ZFHX3_rs2106261": {
+      "rsid": "rs2106261",
+      "genotype": "CC",
+      "finding": "You do not carry the risk allele -- OR 1.20, 95% CI [1.19-1.22] for Atrial fibrillation. Variant near ZFHX3 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 13.0951
+    }
+  },
+  "GWAS - Autism": {
+    "QPCT - CDC42EP3-AS1_rs888096": {
+      "rsid": "rs888096",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 3.02, 95% CI [1.885\u20134.828] for Autism spectrum disorder. Variant near QPCT - CDC4...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 8.1999
+    },
+    "MYO9B_rs1545620": {
+      "rsid": "rs1545620",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.87, 95% CI [1.796\u20134.586] for Autism spectrum disorder. Variant near MYO9B (miss...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 8.1999
+    },
+    "PKIA-AS1_rs28703878": {
+      "rsid": "rs28703878",
+      "genotype": "GA",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 3.40, 95% CI [2.08\u20135.544] for Autism spectrum disorder. Variant near PKIA-AS1 (in...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 8.1999
+    },
+    "Y_RNA - RPS27P11_rs9854207": {
+      "rsid": "rs9854207",
+      "genotype": "AC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 3.00, 95% CI [1.848\u20134.869] for Autism spectrum disorder. Variant near Y_RNA - RPS...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 8.1999
+    },
+    "MSNP1 - RNU4-43P_rs4307059": {
+      "rsid": "rs4307059",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.19, 95% CI [NR] for Autism. Variant near MSNP1 - RNU4-43P (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 8.1999
+    }
+  },
+  "GWAS - Bipolar Disorder": {
+    "GFRA2_rs7833426": {
+      "rsid": "rs7833426",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 3.66, 95% CI [2.37-4.94] unit increase for Response to lithium treatment in bipol...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 16.6821
+    },
+    "PARD6B - BCAS4_rs6122972": {
+      "rsid": "rs6122972",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.02, 95% CI [1.46-2.80] for Bipolar disorder. Variant near PARD6B - BCAS4 (regul...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 16.6821
+    },
+    "PALB2-AS1_rs420259": {
+      "rsid": "rs420259",
+      "genotype": "GA",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 2.08, 95% CI [1.60-2.71] for Bipolar disorder. Variant near PALB2-AS1 (intron var...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 16.6821
+    },
+    "RPL23AP68 - CYCSP30_rs10858583": {
+      "rsid": "rs10858583",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 1.84, 95% CI [NR] for Bipolar disorder and eating disorder. Variant near RPL23AP6...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 16.6821
+    },
+    "NFIA; NFIA_rs1125777": {
+      "rsid": "rs1125777",
+      "genotype": "CT",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 2.34, 95% CI [NR] for Bipolar disorder. Variant near NFIA; NFIA (intron variant; ...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 16.6821
+    }
+  },
+  "GWAS - Bladder Cancer": {
+    "UGT1A8_rs17863783": {
+      "rsid": "rs17863783",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.75, 95% CI [1.55-1.98] for Bladder cancer. Variant near UGT1A8 (synonymous vari...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 13.0177
+    },
+    "CLK3_rs11543198": {
+      "rsid": "rs11543198",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.41, 95% CI [1.26-1.59] for Bladder cancer. Variant near CLK3 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 13.0177
+    },
+    "KIAA0825_rs6869388": {
+      "rsid": "rs6869388",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 72.70, 95% CI [11.19-472.10] for Gallbladder cancer. Variant near KIAA0825 (intro...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 13.0177
+    },
+    "CASC11_rs9642880": {
+      "rsid": "rs9642880",
+      "genotype": "GT",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 1.24, 95% CI [1.20-1.28] for Bladder cancer. Variant near CASC11 (intron variant)...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 13.0177
+    },
+    "CASC11_rs10094872": {
+      "rsid": "rs10094872",
+      "genotype": "AT",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 1.24, 95% CI [1.2-1.28] for Bladder cancer. Variant near CASC11 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 13.0177
+    }
+  },
+  "GWAS - Blood Pressure": {
+    "LINC01677 - MTATP6P14_rs1330225": {
+      "rsid": "rs1330225",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 5.16, 95% CI [3.42-6.90] mmHg decrease for Blood pressure measurement (low sodium...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 3.4714
+    },
+    "HNRNPA1L3_rs2030114": {
+      "rsid": "rs2030114",
+      "genotype": "AG",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 4.12, 95% CI [2.43-5.81] mmHg decrease for Blood pressure measurement (high sodiu...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 3.4714
+    },
+    "PRDM8 - FGF5_rs16998073": {
+      "rsid": "rs16998073",
+      "genotype": "AA",
+      "finding": "You do not carry the risk allele -- OR 1.28, 95% CI [1.16-1.41] unit increase for Mean arterial pressure (BMI unadjusted). Variant near PRDM...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 3.4714
+    },
+    "FBXL13_rs17135875": {
+      "rsid": "rs17135875",
+      "genotype": "TT",
+      "finding": "You do not carry the risk allele -- OR 3.44, 95% CI [2.30-4.58] mmHg decrease for Blood pressure measurement (cold pressor test). Variant ne...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 3.4714
+    }
+  },
+  "GWAS - Bmi": {
+    "SHBG_rs6258": {
+      "rsid": "rs6258",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Sex hormone-binding globulin levels adjusted for BMI (beta +0...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 492.3905
+    },
+    "RGL3_rs167479": {
+      "rsid": "rs167479",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Mean arterial pressure (BMI adjusted) (beta +0.591). Variant ...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 492.3905
+    },
+    "COBLL1_rs7607980": {
+      "rsid": "rs7607980",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Type 2 diabetes (adjusted for BMI) (beta +1.09). Variant near...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 492.3905
+    },
+    "PPARG_rs1801282": {
+      "rsid": "rs1801282",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Type 2 diabetes (adjusted for BMI) (beta +1.1). Variant near ...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 492.3905
+    }
+  },
+  "GWAS - Breast Cancer": {
+    "MPHOSPH6-DT - CDH13_rs3844412": {
+      "rsid": "rs3844412",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 5.22, 95% CI [2.67-10.2] for Adverse response to chemotherapy in breast cancer (a...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 80.8627
+    },
+    "LINC01924 - LINC01916_rs637644": {
+      "rsid": "rs637644",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 32.50, 95% CI [4.08-259] for Adverse response to chemotherapy in breast cancer (a...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 80.8627
+    },
+    "LINC00877 - RYBP_rs73095511": {
+      "rsid": "rs73095511",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.82, 95% CI [1.77-4.5] for Breast cancer (early onset). Variant near LINC00877 -...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 80.8627
+    },
+    "CCDC170 - ESR1_rs140068132": {
+      "rsid": "rs140068132",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.67, 95% CI [1.49-1.89] for Breast cancer. Variant near CCDC170 - ESR1.",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 80.8627
+    },
+    "CYP2A6_rs56113850": {
+      "rsid": "rs56113850",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 4693.72, 95% CI [3102.87-6284.57] unit decrease for Plasma letrozole concentratio...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 80.8627
+    }
+  },
+  "GWAS - Caffeine Metabolism": {
+    "CYP2A6_rs56113850": {
+      "rsid": "rs56113850",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 4.59, 95% CI Z-score increase for Caffeine metabolism (plasma 3,7-dimethylxanthin...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 5.4765
+    },
+    "CYP1A1 - CYP1A2_rs2472297": {
+      "rsid": "rs2472297",
+      "genotype": "CC",
+      "finding": "You do not carry the risk allele -- OR 9.34, 95% CI Z-score decrease for Caffeine metabolism (plasma 1,3,7-trimethylxanthine (caffeine) leve...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 5.4765
+    }
+  },
+  "GWAS - Celiac Disease": {
+    "IL2 - IL21_rs6822844": {
+      "rsid": "rs6822844",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.59, 95% CI [1.41-1.75] for Celiac disease. Variant near IL2 - IL21.",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 2.9911
+    },
+    "HLA-DQA1_rs2187668": {
+      "rsid": "rs2187668",
+      "genotype": "TC",
+      "finding": "You do not carry the risk allele -- OR 6.23, 95% CI [5.95-6.52] for Celiac disease. Variant near HLA-DQA1 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 2.9911
+    },
+    "LINC03004_rs17264332": {
+      "rsid": "rs17264332",
+      "genotype": "AA",
+      "finding": "You do not carry the risk allele -- OR 1.29 for Celiac disease. Variant near LINC03004 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 2.9911
+    },
+    "IL12A-AS1_rs17810546": {
+      "rsid": "rs17810546",
+      "genotype": "AA",
+      "finding": "You do not carry the risk allele -- OR 1.36, 95% CI [1.29-1.44] for Celiac disease. Variant near IL12A-AS1 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 2.9911
+    },
+    "BLTP1_rs13151961": {
+      "rsid": "rs13151961",
+      "genotype": "AA",
+      "finding": "You do not carry the risk allele -- OR 1.35, 95% CI [1.28-1.43] for Celiac disease. Variant near BLTP1 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 2.9911
+    }
+  },
+  "GWAS - Chronic Kidney Disease": {
+    "SLC13A3_rs6066043": {
+      "rsid": "rs6066043",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.13, 95% CI [NR] for Chronic kidney disease. Variant near SLC13A3 (intron varian...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 18.5924
+    },
+    "CXCL8_rs188378669": {
+      "rsid": "rs188378669",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 4.35 for Chronic kidney disease. Variant near CXCL8 (stop gained).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 18.5924
+    },
+    "ADGRL3_rs192210727": {
+      "rsid": "rs192210727",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 4.00 for Chronic kidney disease. Variant near ADGRL3 (missense variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 18.5924
+    },
+    "COL6A3_rs146092501": {
+      "rsid": "rs146092501",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 4.17 for Chronic kidney disease. Variant near COL6A3 (missense variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 18.5924
+    },
+    "PYROXD2_rs2147896": {
+      "rsid": "rs2147896",
+      "genotype": "AG",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 1.82, 95% CI [1.75-1.89] unit decrease for Urinary metabolite levels in chronic k...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 18.5924
+    }
+  },
+  "GWAS - Colorectal Cancer": {
+    "MGAT4A_rs885036": {
+      "rsid": "rs885036",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.13, 95% CI [1.64-2.78] for Progression free survival in metastatic colorectal c...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 55.0896
+    },
+    "PTPA - IER5L_rs4837345": {
+      "rsid": "rs4837345",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 4.72, 95% CI [2.40-9.05] for Mucinous adenocarcinoma in colorectal cancer. Varian...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 55.0896
+    },
+    "RASGRF2_rs716897": {
+      "rsid": "rs716897",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 3.70, 95% CI [2.13-6.67] for Mucinous adenocarcinoma in colorectal cancer. Varian...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 55.0896
+    },
+    "CECR3 - CECR9_rs5749032": {
+      "rsid": "rs5749032",
+      "genotype": "GA",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 9.55, 95% CI [4.44-20.55] for Metastasis in stage I-III microsatellite instabilit...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 55.0896
+    },
+    "BRINP3_rs10920654": {
+      "rsid": "rs10920654",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 76.85, 95% CI [16.51-357.84] for Metastasis in stage I-III microsatellite instabi...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 55.0896
+    }
+  },
+  "GWAS - Coronary Artery Disease": {
+    "CXCL8_rs188378669": {
+      "rsid": "rs188378669",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 100.00 for Myocardial infarction. Variant near CXCL8 (stop gained).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 110.9614
+    },
+    "COL6A3_rs146092501": {
+      "rsid": "rs146092501",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 50.00 for Myocardial infarction. Variant near COL6A3 (missense variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 110.9614
+    },
+    "ADGRL3_rs192210727": {
+      "rsid": "rs192210727",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 14.29 for Myocardial infarction. Variant near ADGRL3 (missense variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 110.9614
+    }
+  },
+  "GWAS - Crohn Disease": {
+    "IL23R_rs11209026": {
+      "rsid": "rs11209026",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.84, 95% CI [NR] for Crohn's disease. Variant near IL23R (missense variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 48.6087
+    },
+    "IL23R_rs11465804": {
+      "rsid": "rs11465804",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.50, 95% CI [NR] for Crohn's disease. Variant near IL23R (intron variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 48.6087
+    },
+    "TNFSF15 - DELEC1_rs6478109": {
+      "rsid": "rs6478109",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.08, 95% CI [1.82-2.38] for Crohn's disease. Variant near TNFSF15 - DELEC1 (TF b...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 48.6087
+    }
+  },
+  "GWAS - Depression": {
+    "PTAR1_rs139747326": {
+      "rsid": "rs139747326",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.08, 95% CI [1.43-2.73] unit increase for Cognitive function (global cognition) ...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 71.7784
+    },
+    "MEF2C-AS2_rs2304607": {
+      "rsid": "rs2304607",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 6.06, 95% CI z score decrease for Depression. Variant near MEF2C-AS2 (intron vari...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 71.7784
+    },
+    "RNU6-133P - CNKSR2_rs1378559": {
+      "rsid": "rs1378559",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 5.87, 95% CI NR z score increase for Neuropsychiatric disorders. Variant near RNU...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 71.7784
+    },
+    "EFNB1 - PJA1_rs5937157": {
+      "rsid": "rs5937157",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 5.75, 95% CI NR z score decrease for Neuropsychiatric disorders. Variant near EFN...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 71.7784
+    },
+    "MIR9-2HG_rs6882046": {
+      "rsid": "rs6882046",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 5.66, 95% CI z score decrease for Depression. Variant near MIR9-2HG (regulatory r...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 71.7784
+    }
+  },
+  "GWAS - Diabetes": {
+    "DTX2P1-UPK3BP1-PMS2P11_rs3095447": {
+      "rsid": "rs3095447",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.16, 95% CI [7.64-2.84] for Macrovascular complications in type 2 diabetes. Vari...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 116.8269
+    },
+    "CCND2-AS1_rs76895963": {
+      "rsid": "rs76895963",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.84 for Type 2 diabetes. Variant near CCND2-AS1 (non coding transcript exon vari...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 116.8269
+    },
+    "LINC02630 - MTND5P17_rs1631619": {
+      "rsid": "rs1631619",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 5.00 for Type 2 diabetes. Variant near LINC02630 - MTND5P17.",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 116.8269
+    },
+    "TCERG1L_rs10741243": {
+      "rsid": "rs10741243",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.75, 95% CI [1.38-2.23] for Type 2 diabetes. Variant near TCERG1L (intron varian...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 116.8269
+    }
+  },
+  "GWAS - Eye Color": {
+    "HERC2_rs1129038": {
+      "rsid": "rs1129038",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.61, 95% CI [2.59-2.62] unit decrease for Eye color. Variant near HERC2 (3 prime...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 11.4535
+    },
+    "HERC2_rs12913832": {
+      "rsid": "rs12913832",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.84, 95% CI [2.62-3.06] unit decrease for Eye color. Variant near HERC2 (intron ...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 11.4535
+    },
+    "PDE4D_rs62370541": {
+      "rsid": "rs62370541",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 5.82, 95% CI NR z score decrease for Eye color. Variant near PDE4D (intron varian...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 11.4535
+    },
+    "RNU6-366P - SLC24A4_rs12896399": {
+      "rsid": "rs12896399",
+      "genotype": "TG",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 2.06, 95% CI [1.76-2.42] for Blue vs. green eyes. Variant near RNU6-366P - SLC24A...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 11.4535
+    },
+    "JAZF1_rs849142": {
+      "rsid": "rs849142",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 5.93, 95% CI NR z score decrease for Eye color. Variant near JAZF1 (intron varian...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 11.4535
+    }
+  },
+  "GWAS - Gout": {
+    "ALDH2_rs671": {
+      "rsid": "rs671",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.93, 95% CI [1.78-2.10] for Gout. Variant near ALDH2 (missense variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 24.2029
+    },
+    "ABCG2_rs3114020": {
+      "rsid": "rs3114020",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.89, 95% CI [1.71-2.09] for Gout. Variant near ABCG2.",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 24.2029
+    },
+    "MYL2_rs2188380": {
+      "rsid": "rs2188380",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.75, 95% CI [1.57-1.96] for Gout. Variant near MYL2 (intron variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 24.2029
+    },
+    "ABCG2_rs1871744": {
+      "rsid": "rs1871744",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.81, 95% CI [1.60-2.04] for Renal underexcretion gout. Variant near ABCG2 (intro...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 24.2029
+    },
+    "ZNF730 - ZNF724_rs12980365": {
+      "rsid": "rs12980365",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.77, 95% CI [1.43-2.18] for Gout vs. Hyperuricemia. Variant near ZNF730 - ZNF724...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 24.2029
+    }
+  },
+  "GWAS - Gwas-Association-Downloaded 2026-07-02-Efo 0006340": {
+    "LINC01677 - MTATP6P14_rs1330225": {
+      "rsid": "rs1330225",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 5.16, 95% CI [3.42-6.90] mmHg decrease for Blood pressure measurement (low sodium...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 3.4714
+    },
+    "HNRNPA1L3_rs2030114": {
+      "rsid": "rs2030114",
+      "genotype": "AG",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 4.12, 95% CI [2.43-5.81] mmHg decrease for Blood pressure measurement (high sodiu...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 3.4714
+    },
+    "PRDM8 - FGF5_rs16998073": {
+      "rsid": "rs16998073",
+      "genotype": "AA",
+      "finding": "You do not carry the risk allele -- OR 1.28, 95% CI [1.16-1.41] unit increase for Mean arterial pressure (BMI unadjusted). Variant near PRDM...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 3.4714
+    },
+    "FBXL13_rs17135875": {
+      "rsid": "rs17135875",
+      "genotype": "TT",
+      "finding": "You do not carry the risk allele -- OR 3.44, 95% CI [2.30-4.58] mmHg decrease for Blood pressure measurement (cold pressor test). Variant ne...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 3.4714
+    }
+  },
+  "GWAS - Hair Color": {
+    "FANCA_rs12931267": {
+      "rsid": "rs12931267",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 4.25, 95% CI [3.81-4.68] decrease for Red vs. brown/black hair color. Variant nea...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 9.157
+    },
+    "HERC2_rs12913832": {
+      "rsid": "rs12913832",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.61, 95% CI [1.4-1.82] unit increase for Blond vs. brown/black hair color. Varia...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 9.157
+    },
+    "RNU6-366P - SLC24A4_rs12896399": {
+      "rsid": "rs12896399",
+      "genotype": "TG",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 2.56, 95% CI [2.12-3.09] for Blond vs. brown hair color. Variant near RNU6-366P -...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 9.157
+    },
+    "RNU1-117P - LINC02458_rs12821256": {
+      "rsid": "rs12821256",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 2.32, 95% CI [1.86-2.92] for Blond vs. brown hair color. Variant near RNU1-117P -...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 9.157
+    },
+    "TPCN2_rs35264875": {
+      "rsid": "rs35264875",
+      "genotype": "TA",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 2.49, 95% CI [1.96-3.15] for Blond vs. brown hair color. Variant near TPCN2 (miss...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 9.157
+    }
+  },
+  "GWAS - Hair Loss": {
+    "RPL41P1 - LINC01432_rs2180439": {
+      "rsid": "rs2180439",
+      "genotype": "CC",
+      "finding": "You do not carry the risk allele -- OR 2.08, 95% CI [1.76-2.47] for Male-pattern baldness. Variant near RPL41P1 - LINC01432.",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 2.8399
+    },
+    "RNU6-394P - AR_rs2497938": {
+      "rsid": "rs2497938",
+      "genotype": "CC",
+      "finding": "You do not carry the risk allele -- OR 6.50, 95% CI [4.30-9.82] for Male-pattern baldness. Variant near RNU6-394P - AR.",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 2.8399
+    },
+    "LINC01432_rs6047844": {
+      "rsid": "rs6047844",
+      "genotype": "CC",
+      "finding": "You do not carry the risk allele -- OR 1.60, 95% CI [1.49-1.72] for Male-pattern baldness. Variant near LINC01432 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 2.8399
+    }
+  },
+  "GWAS - Heart Failure": {
+    "CELSR2_rs12740374": {
+      "rsid": "rs12740374",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 10.41, 95% CI z-score increase for Heart failure (MTAG). Variant near CELSR2 (3 p...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 61.4422
+    },
+    "LDLR_rs6511720": {
+      "rsid": "rs6511720",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 7.57, 95% CI z-score increase for Heart failure (MTAG). Variant near LDLR (intron...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 61.4422
+    },
+    "CAV1_rs11773845": {
+      "rsid": "rs11773845",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 7.69, 95% CI z-score increase for Heart failure (MTAG). Variant near CAV1 (intron...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 61.4422
+    }
+  },
+  "GWAS - Height": {
+    "DLEU1_rs3118906": {
+      "rsid": "rs3118906",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Height (beta +1.26). Variant near DLEU1.",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 401.0588
+    },
+    "HHIP_rs7689420": {
+      "rsid": "rs7689420",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Height (beta +1.33). Variant near HHIP (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 401.0588
+    },
+    "ADGRG6_rs7741741": {
+      "rsid": "rs7741741",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Height (beta +1.24). Variant near ADGRG6 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 401.0588
+    },
+    "RNA5SP56 - PSMC1P12_rs7534091": {
+      "rsid": "rs7534091",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Height (beta +1.22). Variant near RNA5SP56 - PSMC1P12.",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 401.0588
+    },
+    "PCSK5_rs11144688": {
+      "rsid": "rs11144688",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Height (beta +1.48). Variant near PCSK5 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 401.0588
+    }
+  },
+  "GWAS - Inflammatory Bowel": {
+    "IL23R_rs11209026": {
+      "rsid": "rs11209026",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.01, 95% CI [1.885-2.15] for Inflammatory bowel disease. Variant near IL23R (mis...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 56.6067
+    },
+    "NUDT15_rs116855232": {
+      "rsid": "rs116855232",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 3.90, 95% CI [2.90-5.30] for Thiopurine-induced leukopenia in inflammatory bowel ...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 56.6067
+    },
+    "HLA-DRB9_rs2395185": {
+      "rsid": "rs2395185",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.92, 95% CI [1.68-2.19] for Ulcerative colitis. Variant near HLA-DRB9 (intron va...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 56.6067
+    },
+    "MTCO3P1 - HLA-DQB3_rs6935723": {
+      "rsid": "rs6935723",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.46, 95% CI [2.04-2.98] for Response to thiopurine immunosuppressants in inflamm...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 56.6067
+    },
+    "C1orf141_rs76418789": {
+      "rsid": "rs76418789",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.75 for Ulcerative colitis. Variant near C1orf141 (missense variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 56.6067
+    }
+  },
+  "GWAS - Intelligence": {
+    "BIN1 - NIFKP9_rs4663105": {
+      "rsid": "rs4663105",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Alzheimer's disease or educational attainment (pleiotropy) (b...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 1064.482
+    },
+    "RNU6-560P - LINC02695_rs10792832": {
+      "rsid": "rs10792832",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Alzheimer's disease or educational attainment (pleiotropy) (b...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 1064.482
+    },
+    "MIR9-2HG_rs6882046": {
+      "rsid": "rs6882046",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Alzheimer's disease or educational attainment (pleiotropy) (b...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 1064.482
+    },
+    "IKZF4_rs2456973": {
+      "rsid": "rs2456973",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Alzheimer's disease or educational attainment (pleiotropy) (b...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 1064.482
+    },
+    "AFF3 - LINC01104_rs4851266": {
+      "rsid": "rs4851266",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- associated with higher Educational attainment (beta +1.05). Variant near AFF3 - LINC...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 1064.482
+    }
+  },
+  "GWAS - Longevity": {
+    "MRFAP1P1 - DUSP9_rs3761536": {
+      "rsid": "rs3761536",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 7.33, 95% CI z score increase for White matter microstructure (tract mean) Superi...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 62.4053
+    }
+  },
+  "GWAS - Lung Cancer": {
+    "CHEK2_rs17879961": {
+      "rsid": "rs17879961",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.54, 95% CI [1.373-1.74] for Lung cancer. Variant near CHEK2 (missense variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 31.6025
+    },
+    "CAMK2D_rs10023113": {
+      "rsid": "rs10023113",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.30, 95% CI [1.67-3.17] for Non-small cell lung cancer (survival). Variant near ...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 31.6025
+    },
+    "BRCA2_rs11571818": {
+      "rsid": "rs11571818",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.59, 95% CI [1.42-1.78] for Lung cancer. Variant near BRCA2 (splice polypyrimidi...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 31.6025
+    }
+  },
+  "GWAS - Lupus": {
+    "STAT4_rs7574865": {
+      "rsid": "rs7574865",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.77, 95% CI [1.57-1.99] for Systemic lupus erythematosus. Variant near STAT4 (in...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 49.3927
+    },
+    "STAT4_rs7582694": {
+      "rsid": "rs7582694",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.81, 95% CI [NR] for Systemic lupus erythematosus. Variant near STAT4 (intron va...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 49.3927
+    },
+    "STAT4_rs11889341": {
+      "rsid": "rs11889341",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.73, 95% CI (1.65\u20131.81] for Systemic lupus erythematosus. Variant near STAT4 (in...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 49.3927
+    },
+    "IRF5 - TNPO3_rs10488631": {
+      "rsid": "rs10488631",
+      "genotype": "CT",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 1.92, 95% CI [1.81\u20132.03] for Systemic lupus erythematosus. Variant near IRF5 - TN...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 49.3927
+    }
+  },
+  "GWAS - Melanoma": {
+    "SLC45A2_rs16891982": {
+      "rsid": "rs16891982",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.07 for Cutaneous malignant melanoma. Variant near SLC45A2 (missense variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 14.0555
+    },
+    "SLC45A2_rs35407": {
+      "rsid": "rs35407",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.08, 95% CI [1.79-2.44] for Melanoma. Variant near SLC45A2 (3 prime UTR variant)...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 14.0555
+    },
+    "ARL6IP6 - UBQLN4P2_rs11692707": {
+      "rsid": "rs11692707",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.05 for Uveal melanoma (TNM stage 3 or 4). Variant near ARL6IP6 - UBQLN4P2.",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 14.0555
+    },
+    "IRF4_rs12203592": {
+      "rsid": "rs12203592",
+      "genotype": "CT",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 1.76, 95% CI [1.44-2.16] for Uveal melanoma. Variant near IRF4 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 14.0555
+    }
+  },
+  "GWAS - Multiple Sclerosis": {
+    "PADI1_rs3003482": {
+      "rsid": "rs3003482",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.83 for Depression in multiple sclerosis. Variant near PADI1 (intron variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 28.0671
+    },
+    "TSBP1_rs3129934": {
+      "rsid": "rs3129934",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 3.30, 95% CI [2.3-4.9] for Multiple sclerosis. Variant near TSBP1 (intron variant...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 28.0671
+    },
+    "HLA-DRB1 - HLA-DQA1_rs522308": {
+      "rsid": "rs522308",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 2.60, 95% CI [2.05-3.29] for Neutralising antibody response to interferon beta th...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 28.0671
+    },
+    "CD58_rs2300747": {
+      "rsid": "rs2300747",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.37, 95% CI [NR] for Multiple sclerosis. Variant near CD58 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 28.0671
+    }
+  },
+  "GWAS - Muscle Strength": {
+    "SIPA1L2_rs10910527": {
+      "rsid": "rs10910527",
+      "genotype": "CC",
+      "finding": "You do not carry the risk allele -- OR 12.79, 95% CI [5.083-32.206] for Reduced foot dorsiflexion strength in Charcot-Marie-Tooth disease ty...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 0.0
+    },
+    "ACER2 - MAP1LC3BP1_rs7022373": {
+      "rsid": "rs7022373",
+      "genotype": "CC",
+      "finding": "You do not carry the risk allele -- OR 7.34 for Low hand grip strength. Variant near ACER2 - MAP1LC3BP1.",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 0.0
+    },
+    "LINC02101_rs79444246": {
+      "rsid": "rs79444246",
+      "genotype": "AA",
+      "finding": "You do not carry the risk allele -- OR 8.33 for Low skeletal muscle mass index. Variant near LINC02101 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 0.0
+    },
+    "GSTA8P - GSTA7P_rs6905523": {
+      "rsid": "rs6905523",
+      "genotype": "AA",
+      "finding": "You do not carry the risk allele -- OR 4.85 for Low hand grip strength. Variant near GSTA8P - GSTA7P (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 0.0
+    }
+  },
+  "GWAS - Parkinson": {
+    "P2RX5 - ITGAE_rs117672332": {
+      "rsid": "rs117672332",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 7.69, 95% CI [4.7648-12.5073} for Parkinson's disease. Variant near P2RX5 - ITGAE...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 27.8891
+    },
+    "RNA5SP74 - LRRN2_rs16854023": {
+      "rsid": "rs16854023",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 7.52, 95% CI [NR] for Levodopa wearing off effect (time symptoms uncontrolled) in...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 27.8891
+    },
+    "LINC00648_rs1956307": {
+      "rsid": "rs1956307",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.01, 95% CI [-2.882--1.142] unit decrease for Parkinson's disease (age of onset)...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 27.8891
+    },
+    "HLA-DRA_rs3129882": {
+      "rsid": "rs3129882",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.38, 95% CI [1.24-1.52] for Parkinson's disease. Variant near HLA-DRA (intron va...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 27.8891
+    },
+    "NUCKS1_rs823128": {
+      "rsid": "rs823128",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.52, 95% CI [NR] for Parkinson's disease. Variant near NUCKS1 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 27.8891
+    }
+  },
+  "GWAS - Pharmacogenomics": {
+    "JAK2_rs77375493": {
+      "rsid": "rs77375493",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.94, 95% CI [1.62-2.25] unit decrease for Takes medication for other cancer?. Va...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 6.3739
+    },
+    "ZNF646_rs749671": {
+      "rsid": "rs749671",
+      "genotype": "GA",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 20.40, 95% CI [14.3-29.0] for Warfarin maintenance dose. Variant near ZNF646 (mis...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 6.3739
+    },
+    "CPVL_rs245880": {
+      "rsid": "rs245880",
+      "genotype": "AG",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 4.69, 95% CI [NR] for Warfarin maintenance dose. Variant near CPVL (regulatory re...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 6.3739
+    },
+    "APOB_rs5742904": {
+      "rsid": "rs5742904",
+      "genotype": "CC",
+      "finding": "You do not carry the risk allele -- OR 4.76, 95% CI [3.76-5.76] unit increase for Treatment or medication use - atorvastatin (UKB data field...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 6.3739
+    },
+    "VKORC1_rs9934438": {
+      "rsid": "rs9934438",
+      "genotype": "GA",
+      "finding": "You do not carry the risk allele -- OR 2.34, 95% CI [1.89-2.8] unit increase for Stable warfarin dose. Variant near VKORC1 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 6.3739
+    }
+  },
+  "GWAS - Prostate Cancer": {
+    "KLK3_rs17632542": {
+      "rsid": "rs17632542",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.85, 95% CI [1.61-2.09] for Prostate cancer (early onset). Variant near KLK3 (mi...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 61.1752
+    },
+    "KLK3_rs62113212": {
+      "rsid": "rs62113212",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.36, 95% CI [1.33-1.39] for Prostate cancer. Variant near KLK3 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 61.1752
+    },
+    "HOXB13_rs138213197": {
+      "rsid": "rs138213197",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.38, 95% CI [1.35-1.4] unit decrease for Cancer of prostate (PheCode 185). Varia...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 61.1752
+    }
+  },
+  "GWAS - Psoriasis": {
+    "TYK2_rs34536443": {
+      "rsid": "rs34536443",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.78 for Psoriasis vulgaris. Variant near TYK2 (missense variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 31.9842
+    },
+    "IL12B-AS1_rs7709212": {
+      "rsid": "rs7709212",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.38, 95% CI [1.31-1.46] for Psoriasis. Variant near IL12B-AS1.",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 31.9842
+    },
+    "UBLCP1 - IL12B-AS1_rs2082412": {
+      "rsid": "rs2082412",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.44, 95% CI [NR] for Psoriasis. Variant near UBLCP1 - IL12B-AS1.",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 31.9842
+    }
+  },
+  "GWAS - Rheumatoid Arthritis": {
+    "HLA-DQB1 - MTCO3P1_rs6457617": {
+      "rsid": "rs6457617",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.36, 95% CI [1.97-2.84] for Rheumatoid arthritis. Variant near HLA-DQB1 - MTCO3P...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 40.394
+    },
+    "SERTM1_rs7323558": {
+      "rsid": "rs7323558",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.31, 95% CI [1.6-3.33] for Ayurvedic pitta prakriti specific rheumatoid arthriti...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 40.394
+    },
+    "DPP4_rs12617656": {
+      "rsid": "rs12617656",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.56, 95% CI [NR] for Rheumatoid arthritis. Variant near DPP4 (3 prime UTR varian...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 40.394
+    },
+    "TYK2_rs34536443": {
+      "rsid": "rs34536443",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.46, 95% CI [1.33-1.60] for Rheumatoid arthritis. Variant near TYK2 (missense va...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 40.394
+    },
+    "CCR6_rs1854853": {
+      "rsid": "rs1854853",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.42, 95% CI [NR] for Rheumatoid arthritis. Variant near CCR6 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 40.394
+    }
+  },
+  "GWAS - Schizophrenia": {
+    "MIR100HG_rs117752187": {
+      "rsid": "rs117752187",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 8.00, 95% CI [NR] unit decrease for Response to paliperidone in schizophrenia (ne...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 125.1804
+    },
+    "PCDH7_rs9291547": {
+      "rsid": "rs9291547",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 3.18, 95% CI [2.12-4.24] unit decrease for Response to antipsychotic treatment in...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 125.1804
+    },
+    "SLC1A1_rs16921385": {
+      "rsid": "rs16921385",
+      "genotype": "AA",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 6.80, 95% CI [4.37-9.23] unit increase for Response to risperidone in schizophren...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 125.1804
+    },
+    "PRKN_rs117673608": {
+      "rsid": "rs117673608",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 6.96, 95% CI [NR] unit decrease for Response to paliperidone in schizophrenia (ne...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 125.1804
+    }
+  },
+  "GWAS - Skin Color": {
+    "HERC2_rs12913832": {
+      "rsid": "rs12913832",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 6.88, 95% CI [6.37-7.38] unit decrease for Skin phototype score. Variant near HER...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 10.8948
+    },
+    "SLC45A2_rs16891982": {
+      "rsid": "rs16891982",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.85, 95% CI [3.77-1.94] unit decrease for Skin pigmentation. Variant near SLC45A...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 10.8948
+    },
+    "HERC2_rs11636232": {
+      "rsid": "rs11636232",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 5.84, 95% CI [5.15-6.53] unit decrease for Skin phototype score. Variant near HER...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 10.8948
+    },
+    "TYR_rs1042602": {
+      "rsid": "rs1042602",
+      "genotype": "CA",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 4.36, 95% CI [2.64-7.20] for Skin pigmentation. Variant near TYR (missense varian...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 10.8948
+    },
+    "GRM5 - TYR_rs2187128": {
+      "rsid": "rs2187128",
+      "genotype": "TC",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 2.42, 95% CI [1.63-3.2] unit increase for Skin phototype score. Variant near GRM5...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 10.8948
+    }
+  },
+  "GWAS - Sleep Duration": {
+    "C2CD3_rs7116582": {
+      "rsid": "rs7116582",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 3.08, 95% CI [2.01-4.14] mins/night decrease for REM sleep duration. Variant near...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 7.7834
+    },
+    "MIR548A1HG - RPL21P61_rs112507172": {
+      "rsid": "rs112507172",
+      "genotype": "AG",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 1.95, 95% CI [1.32-2.59] mins/night increase for Sleep duration. Variant near MIR...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 7.7834
+    },
+    "KCNK9_rs2545432": {
+      "rsid": "rs2545432",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.65, 95% CI [1.09-2.22] mins/night increase for REM sleep duration. Variant near...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 7.7834
+    },
+    "EBF3_rs9804200": {
+      "rsid": "rs9804200",
+      "genotype": "CT",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 8.39, 95% CI [4.74-12.04] unit increase for Sleep time. Variant near EBF3 (intron...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 7.7834
+    },
+    "LINC02966_rs1823125": {
+      "rsid": "rs1823125",
+      "genotype": "AA",
+      "finding": "You do not carry the risk allele -- OR 3.14, 95% CI [NR] unit increase for Sleep duration. Variant near LINC02966 (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 7.7834
+    }
+  },
+  "GWAS - Stroke": {
+    "TBX5_rs883079": {
+      "rsid": "rs883079",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 10.96, 95% CI z score increase for Cardioembolic stroke (MTAG). Variant near TBX5...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 31.4084
+    },
+    "CXCL8_rs188378669": {
+      "rsid": "rs188378669",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 14.29 for Ischemic stroke. Variant near CXCL8 (stop gained).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 31.4084
+    },
+    "ADGRL3_rs192210727": {
+      "rsid": "rs192210727",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 14.29 for Ischemic stroke. Variant near ADGRL3 (missense variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 31.4084
+    },
+    "COL6A3_rs146092501": {
+      "rsid": "rs146092501",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 12.50 for Ischemic stroke. Variant near COL6A3 (missense variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 31.4084
+    },
+    "ARNT2-DT_rs12908004": {
+      "rsid": "rs12908004",
+      "genotype": "AG",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 7.35, 95% CI z score decrease for Cardioembolic stroke (MTAG). Variant near ARNT2...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 31.4084
+    }
+  },
+  "GWAS - Triglycerides": {
+    "GCKR_rs1260326": {
+      "rsid": "rs1260326",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 9.23, 95% CI [8.45-10.01] unit decrease for Triglyceride levels. Variant near GCK...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 113.841
+    },
+    "SNX17_rs4665972": {
+      "rsid": "rs4665972",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 8.38, 95% CI [7.6-9.16] unit decrease for Triglyceride levels. Variant near SNX17...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 113.841
+    },
+    "LPL - RPL30P9_rs10503669": {
+      "rsid": "rs10503669",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 11.57, 95% CI [NR] mg/dl increase for Triglycerides. Variant near LPL - RPL30P9.",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 113.841
+    },
+    "TBL2_rs17145738": {
+      "rsid": "rs17145738",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.82, 95% CI [1.41-2.38] for Hypertriglyceridemia. Variant near TBL2 (3 prime UTR...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 113.841
+    },
+    "ALDH1A2_rs1532085": {
+      "rsid": "rs1532085",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.99, 95% CI [2.11-3.87] mg/dL increase for Triglycerides. Variant near ALDH1A2.",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 113.841
+    }
+  },
+  "GWAS - Type1 Diabetes": {
+    "INS-IGF2_rs689": {
+      "rsid": "rs689",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 2.38 for Type 1 diabetes. Variant near INS-IGF2 (splice region variant).",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 23.3804
+    },
+    "ACSL1_rs12644905": {
+      "rsid": "rs12644905",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.91, 95% CI [1.45-2.52] for Fulminant type 1 diabetes. Variant near ACSL1 (regul...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 23.3804
+    },
+    "IL2RA_rs61839660": {
+      "rsid": "rs61839660",
+      "genotype": "CC",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.61 for Type 1 diabetes. Variant near IL2RA (intron variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 23.3804
+    },
+    "TYK2_rs34536443": {
+      "rsid": "rs34536443",
+      "genotype": "GG",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 1.49 for Type 1 diabetes. Variant near TYK2 (missense variant).",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 23.3804
+    }
+  },
+  "GWAS - Vitamin D": {
+    "GC_rs2282679": {
+      "rsid": "rs2282679",
+      "genotype": "TT",
+      "finding": "You carry two copies of the risk allele (homozygous) -- OR 4.90, 95% CI (z-score) increase for Serum 25-Hydroxyvitamin D levels. Variant nea...",
+      "priority": "high",
+      "source": "gwas",
+      "pgs": 11.4039
+    },
+    "CYP2R1 - CALCB_rs10741657": {
+      "rsid": "rs10741657",
+      "genotype": "GA",
+      "finding": "You carry one copy of the risk allele (heterozygous) -- OR 2.10, 95% CI mmol/L increase for Serum 25-Hydroxyvitamin D levels. Variant near C...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 11.4039
+    },
+    "GC_rs7041": {
+      "rsid": "rs7041",
+      "genotype": "CA",
+      "finding": "You do not carry the risk allele -- OR 2109.34, 95% CI [1985.17-2233.51] nmol/L decrease for Serum vitamin D-binding protein levels. Variant...",
+      "priority": "medium",
+      "source": "gwas",
+      "pgs": 11.4039
+    }
+  },
+  "Pigmentation (SNPedia)": {
+    "eye_color": {
+      "rsid": "rs12913832",
+      "genotype": "GG",
+      "finding": "Blue eyes -- strongest genetic predictor of blue eye color in Europeans",
+      "priority": "high",
+      "source": "snpedia"
+    },
+    "hair_color_--_red_(arg160trp)": {
+      "rsid": "rs1805008",
+      "genotype": "CC",
+      "finding": "No Arg160Trp MC1R variant",
+      "priority": "medium",
+      "source": "snpedia"
+    },
+    "hair_color_--_red_(arg163gln)": {
+      "rsid": "rs11547464",
+      "genotype": "GG",
+      "finding": "No Arg163Gln MC1R variant",
+      "priority": "medium",
+      "source": "snpedia"
+    },
+    "skin_/_hair_color": {
+      "rsid": "rs16891982",
+      "genotype": "GG",
+      "finding": "Darker skin / hair -- ancestral allele at SLC45A2",
+      "priority": "medium",
+      "source": "snpedia"
+    },
+    "skin_color_(slc24a5)": {
+      "rsid": "rs1426654",
+      "genotype": "AA",
+      "finding": "Lighter skin -- derived European/South Asian allele at SLC24A5, the largest-effect skin color locus known",
+      "priority": "high",
+      "source": "snpedia"
+    }
+  }
+}

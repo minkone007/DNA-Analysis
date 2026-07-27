@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Minko - Genetic Health Narrative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── Reset ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#fdfcfa;
+  --paper-2:#f4f1eb;
+  --paper-3:#ede8df;
+  --ink:#1a1612;
+  --ink-2:#4a4238;
+  --ink-3:#8a7f72;
+  --rule:#ddd8cf;
+  --blue:#1a4b7a;
+  --red:#c0392b;
+  --orange:#c97b2a;
+  --green:#2d7a4f;
+  --purple:#6b3fa0;
+  --grey:#5a5a5a;
+  --nav-w:210px;
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:17px;
+  line-height:1.85;
+}
+/* ── Sidebar ── */
+.nav-sidebar{
+  position:fixed;left:0;top:0;bottom:0;
+  width:var(--nav-w);
+  background:#fff;
+  border-right:1px solid var(--rule);
+  overflow-y:auto;
+  z-index:200;
+  display:flex;flex-direction:column;
+}
+.nav-head{
+  padding:1.4rem 1rem 1rem;
+  border-bottom:1px solid var(--rule);
+  flex-shrink:0;
+}
+.nav-brand{
+  font-family:'Inter',sans-serif;
+  font-size:.58rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:.2rem;
+}
+.nav-person{
+  font-family:'EB Garamond',serif;
+  font-size:1.1rem;color:var(--ink);
+}
+.nav-links{flex:1;overflow-y:auto;padding:.8rem .7rem}
+.nav-section-label{
+  font-family:'Inter',sans-serif;
+  font-size:.55rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);margin:.8rem 0 .3rem .3rem;display:block;
+}
+.nav-link{
+  display:flex;align-items:center;gap:.45rem;
+  font-family:'Inter',sans-serif;
+  font-size:.74rem;color:var(--ink-3);
+  text-decoration:none;padding:.25rem .4rem;
+  border-radius:3px;line-height:1.4;
+  transition:background .12s,color .12s;
+}
+.nav-link:hover{background:var(--paper-2);color:var(--blue)}
+.nav-score{
+  padding:.8rem 1rem;
+  border-top:1px solid var(--rule);
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:.3rem;flex-shrink:0;
+}
+.ns{display:flex;flex-direction:column;align-items:center}
+.ns-val{
+  font-family:'Inter',sans-serif;
+  font-size:1.05rem;font-weight:700;
+}
+.ns-lbl{
+  font-family:'Inter',sans-serif;
+  font-size:.5rem;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);text-align:center;
+}
+.lang-bar{
+  padding:.5rem 1rem;
+  border-top:1px solid var(--rule);
+  display:flex;gap:.4rem;flex-shrink:0;
+}
+.lang-btn{
+  font-family:'Inter',sans-serif;
+  font-size:.65rem;font-weight:700;
+  letter-spacing:.1em;
+  padding:.2rem .5rem;border-radius:3px;
+  border:1px solid var(--rule);
+  color:var(--ink-3);text-decoration:none;
+  transition:all .12s;
+}
+.lang-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+/* ── Cover ── */
+.cover{
+  margin-left:var(--nav-w);
+  background:var(--ink);
+  color:#f0ebe3;
+  padding:5rem 3.5rem 4rem;
+  position:relative;overflow:hidden;
+}
+.cover::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--red),var(--orange),var(--green),var(--purple));
+}
+.cover-eyebrow{
+  font-family:'Inter',sans-serif;
+  font-size:.62rem;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:#7fa8c4;margin-bottom:1.2rem;
+}
+.cover h1{
+  font-family:'EB Garamond',serif;
+  font-size:3.2rem;font-weight:400;
+  letter-spacing:-.02em;
+  color:#f0ebe3;margin-bottom:.2rem;line-height:1.1;
+}
+.cover-sub{
+  font-size:1.05rem;font-style:italic;
+  color:#7fa8c4;margin-bottom:3.5rem;
+}
+.cover-stats{
+  display:flex;gap:3rem;flex-wrap:wrap;
+  border-top:1px solid #2d3f52;padding-top:1.5rem;
+}
+.cs{display:flex;flex-direction:column}
+.cs-val{
+  font-family:'Inter',sans-serif;
+  font-size:1.7rem;font-weight:700;color:#f0ebe3;
+}
+.cs-lbl{
+  font-family:'Inter',sans-serif;
+  font-size:.58rem;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:#5a7a94;
+}
+/* ── Main ── */
+.main{
+  margin-left:var(--nav-w);
+  max-width:920px;
+  padding:0 3.5rem 6rem;
+}
+.disclaimer{
+  font-family:'Inter',sans-serif;
+  font-size:.76rem;line-height:1.6;
+  background:#fffbeb;
+  border-left:3px solid #d97706;
+  padding:.8rem 1.2rem;color:#78450a;
+  margin:2.5rem 0 0;
+}
+/* ── Era blocks - ancestry layout ── */
+.era-block{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:0 2rem;
+  padding:3rem 0;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.era-block:last-child{border-bottom:none}
+.era-marker{
+  position:relative;
+  display:flex;flex-direction:column;
+  align-items:center;gap:.5rem;
+  padding-top:.25rem;
+}
+.era-marker::before{
+  content:'';
+  position:absolute;left:50%;
+  top:0;bottom:-3rem;
+  width:1px;background:var(--rule);
+  transform:translateX(-50%);z-index:0;
+}
+.era-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--ink-3);
+  border:2px solid var(--paper);
+  box-shadow:0 0 0 3px var(--ink-3);
+  z-index:1;flex-shrink:0;
+}
+.era-label{
+  font-family:'Inter',sans-serif;
+  font-size:.6rem;font-weight:500;
+  letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);text-align:center;
+  line-height:1.4;z-index:1;
+}
+.era-content{min-width:0}
+.era-heading{
+  font-family:'EB Garamond',serif;
+  font-size:1.55rem;font-weight:600;
+  color:var(--ink);margin-bottom:1.5rem;
+  letter-spacing:-.01em;line-height:1.2;
+}
+/* ── Trait blocks ── */
+.trait-block{
+  margin-bottom:2.5rem;
+  padding-bottom:2.5rem;
+  border-bottom:1px dashed var(--rule);
+}
+.trait-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.trait-header{
+  display:flex;align-items:flex-start;gap:.8rem;margin-bottom:.8rem;
+}
+.trait-sev-bar{
+  width:3px;min-height:3rem;align-self:stretch;
+  border-radius:2px;flex-shrink:0;margin-top:.1rem;
+}
+.trait-header-inner{flex:1;min-width:0}
+.trait-icon-row{
+  display:flex;align-items:center;
+  gap:.5rem;margin-bottom:.4rem;flex-wrap:wrap;
+}
+.trait-icon{font-size:1.1rem}
+.trait-name{
+  font-family:'Inter',sans-serif;
+  font-size:.9rem;font-weight:600;
+  color:var(--ink);letter-spacing:-.01em;
+}
+.risk-pill{
+  display:inline-block;
+  font-family:'Inter',sans-serif;
+  font-size:.55rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:.18rem .55rem;border-radius:999px;color:#fff;
+}
+/* ── GWAS chips ── */
+.gwas-strip{
+  display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.7rem;
+}
+.gwas-chip{
+  font-family:'Inter',sans-serif;
+  font-size:.62rem;font-weight:500;
+  padding:.12rem .45rem;border-radius:4px;
+  background:var(--paper-2);color:var(--ink-3);
+  border:1px solid var(--rule);
+}
+.gwas-chip.pgs-up{background:#e8f0f8;color:var(--blue);border-color:var(--blue)}
+.gwas-chip.pgs-down{background:#fdf0ee;color:var(--red);border-color:var(--red)}
+.gwas-chip.elev{background:#fdf4e7;color:var(--orange);border-color:var(--orange)}
+/* ── Narrative ── */
+.narrative-body p{
+  margin-bottom:.9rem;
+  font-size:.98rem;line-height:1.9;color:var(--ink-2);
+}
+.narrative-body p:last-child{margin-bottom:0}
+.narrative-body strong{color:var(--ink);font-weight:600}
+.narrative-body ul,.narrative-body ol{margin:.4rem 0 .9rem 1.2rem}
+.narrative-body li{font-size:.95rem;color:var(--ink-2);margin-bottom:.25rem;line-height:1.7}
+/* ── Master synthesis ── */
+.synthesis-block{
+  background:var(--ink);color:#f0ebe3;
+  padding:2.2rem;border-radius:6px;margin-bottom:2rem;
+}
+.synthesis-block h2{
+  font-family:'EB Garamond',serif;
+  font-size:1.3rem;color:#f0ebe3;margin-bottom:.9rem;
+}
+.synthesis-block p,.synthesis-block li{
+  font-size:.9rem;color:#c8bfb0;line-height:1.85;margin-bottom:.6rem;
+}
+.synthesis-block strong{color:#f0ebe3}
+.synthesis-block ul,.synthesis-block ol{margin:.4rem 0 .7rem 1.2rem}
+/* ── Drug cards ── */
+.pharma-intro{
+  font-size:.97rem;color:var(--ink-2);
+  line-height:1.85;margin-bottom:2rem;
+}
+.drug-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
+  gap:1.2rem;
+}
+.drug-card{
+  background:#fff;border:1px solid var(--rule);
+  border-radius:6px;overflow:hidden;
+}
+.drug-card-head{
+  padding:.8rem 1rem;
+  border-bottom:1px solid var(--rule);
+}
+.drug-card-top{
+  display:flex;align-items:center;gap:.5rem;
+  margin-bottom:.3rem;
+}
+.drug-enzyme{
+  font-family:'Inter',sans-serif;
+  font-size:.7rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
+}
+.drug-genotype{
+  font-family:'Inter',monospace;
+  font-size:.8rem;font-weight:600;color:var(--blue);
+  margin-bottom:.2rem;
+}
+.drug-affected{
+  font-family:'Inter',sans-serif;
+  font-size:.72rem;color:var(--ink-3);
+}
+.drug-card-body{padding:1rem}
+.drug-narrative{
+  font-family:'EB Garamond',serif;
+  font-size:.93rem;color:var(--ink-2);
+  line-height:1.75;margin-bottom:.8rem;
+}
+.drug-action{
+  padding:.6rem .8rem;
+  background:var(--paper-2);border-radius:4px;
+  font-family:'Inter',sans-serif;
+  font-size:.72rem;color:var(--ink-3);line-height:1.55;
+}
+.drug-action strong{color:var(--ink);font-weight:600}
+/* ── Print / responsive ── */
+@media print{
+  .nav-sidebar{display:none}
+  .cover,.main{margin-left:0}
+  .era-marker::before{display:none}
+  .drug-card{break-inside:avoid}
+}
+@media(max-width:900px){
+  .nav-sidebar{display:none}
+  .cover,.main{margin-left:0;padding-left:1.5rem;padding-right:1.5rem}
+  .era-block{grid-template-columns:1fr}
+  .era-marker{display:none}
+  .drug-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<aside class="nav-sidebar">
+  <div class="nav-head">
+    <div class="nav-brand">Personal Genomics</div>
+    <div class="nav-person">Minko</div>
+  </div>
+  <nav class="nav-links">
+    <a href="#s_synthesis" class="nav-link">Overview</a><a href="#s_appearance" class="nav-link">Physical Appearance & Traits</a><a href="#s_cardiovascular" class="nav-link">Cardiovascular Health</a><a href="#s_metabolic" class="nav-link">Metabolic Health</a><a href="#s_neurological" class="nav-link">Brain, Cognition & Neurological Health</a><a href="#s_cancer" class="nav-link">Cancer Risk</a><a href="#s_immune" class="nav-link">Immune & Inflammatory Conditions</a><a href="#s_longevity" class="nav-link">Longevity & Ageing</a><a href="#s_lifestyle" class="nav-link">Lifestyle, Nutrition & Drug Metabolism</a><a href="#s_pharmacogenomics" class="nav-link">Pharmacogenomics</a>
+  </nav>
+  <div class="nav-score">
+    <div class="ns"><span class="ns-val" style="color:var(--red)">17</span><span class="ns-lbl">Elevated</span></div>
+    <div class="ns"><span class="ns-val" style="color:var(--orange)">26</span><span class="ns-lbl">Moderate</span></div>
+    <div class="ns"><span class="ns-val" style="color:var(--green)">0</span><span class="ns-lbl">Favourable</span></div>
+  </div>
+  <div class="lang-bar"><a href="narrative_Minko.html" class="lang-btn">EN</a><a href="narrative_Minko_bg.html" class="lang-btn">БГ</a></div>
+</aside>
+<div class="cover">
+  <p class="cover-eyebrow">Personal Genomics Report</p>
+  <h1>Minko</h1>
+  <p class="cover-sub">Genetic Health Narrative</p>
+  <div class="cover-stats">
+    <div class="cs"><span class="cs-val">43</span><span class="cs-lbl">Traits analysed</span></div>
+    <div class="cs"><span class="cs-val" style="color:#f87171">17</span><span class="cs-lbl">Elevated signals</span></div>
+    <div class="cs"><span class="cs-val" style="color:#86efac">0</span><span class="cs-lbl">Favourable signals</span></div>
+    <div class="cs"><span class="cs-val">July 21, 2026</span><span class="cs-lbl">Generated</span></div>
+  </div>
+</div>
+<div class="main">
+  <div class="disclaimer"><strong>Important:</strong> This report is for personal educational purposes only - 
+not a medical diagnosis. Genetic predisposition does not determine health outcomes. 
+Please discuss any findings of concern with a qualified healthcare professional.</div>
+  
+        <section class="report-section" id="s_synthesis">
+            <h2 class="section-heading">Your Genetic Story - The Big Picture</h2>
+            <div class="narrative-body">
+    <h2>Your Genetic Story - The Big Picture</h2>
+    <p>After looking at your complete genetic profile, a coherent story emerges. You do not have any dramatic single-gene disorders, but you do have moderate genetic loading across several interconnected systems. The pattern is clear:</p>
+    
+    <ul>
+      <li><strong>Cardiometabolic system</strong> - moderate tendency toward higher lipids, blood pressure sensitivity, and metabolic efficiency challenges.</li>
+      <li><strong>Immune & inflammatory regulation</strong> - consistent elevation across multiple autoimmune and inflammatory conditions.</li>
+      <li><strong>Brain & cognitive health</strong> - signals in mood regulation, neurodegeneration risk, and cognitive performance under stress.</li>
+    </ul>
+    
+    <p>The common biological theme running through your profile is **inflammation and metabolic resilience**. Your body appears to run a bit "hot" in inflammatory pathways and is less efficient at certain protective and repair processes. This is not uncommon, and importantly, it is highly modifiable through lifestyle.</p>
+    
+    <p><strong>The highest-leverage areas for you are:</strong></p>
+    <ol>
+      <li><strong>Consistent physical activity</strong> - especially aerobic + resistance training. This positively influences all three major systems (cardiometabolic, immune, and cognitive).</li>
+      <li><strong>Anti-inflammatory nutrition</strong> - Mediterranean-style eating, high omega-3 intake, adequate Vitamin D, and magnesium.</li>
+      <li><strong>Sleep and stress management</strong> - critical for immune regulation and cognitive health.</li>
+    </ol>
+    
+    <p>Your genetics also give you clear advantages in other areas (height, intelligence, some protective variants). The overall picture is not one of inevitable disease, but of specific vulnerabilities that respond well to targeted lifestyle intervention.</p>
+    
+    <p>This is your map. The terrain is known. What you do with it is up to you.</p>
+    </div>
+        </section><section class="report-section" id="s_appearance"><h2 class="section-heading">Physical Appearance & Traits</h2>
+            <div class="trait-block" id="n_eye_color">
+                <div class="trait-header">
+                    <span class="trait-name">Eye Color</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Likely blue-green</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Likely blue-green for Eye Color. The GWAS polygenic score is +0.0 (above population average), with 6 loci showing elevated risk allele dosage. Key genes implicated include HERC2, OCA2, SLC24A4.</p><br><p>Based on 6 of 6 IrisPlex marker SNPs present on your chip, there is moderate agreement toward blue. The single strongest marker, rs12913832 (GG), points blue, and this locus alone drives most of IrisPlex's real-world predictive accuracy. Genotype and direction of effect for each marker is listed below.</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your eye colour prediction sits at the blue-green boundary, which is exactly
+    where your genotype combination places you. The dominant signal is rs12913832 GG -
+    this single variant in the HERC2 gene is the strongest known predictor of eye colour
+    in humans, and GG is the classic blue-associated genotype found in roughly 97% of
+    blue-eyed Europeans. On its own, this would predict blue.</p>
+
+    <p>What introduces the green element is the combination of secondary signals pulling
+    in different directions. SLC24A4 GT and IRF4 CT are both intermediate - they neither
+    fully reinforce the blue signal nor push toward brown. SLC45A2 GG is the ancestral
+    allele, which doesn't contribute the European lightening variant, adding a small
+    counterweight. TYR AG (heterozygous) reduces melanin synthesis modestly across all
+    tissues including the iris.</p>
+
+    <p>The net result: a strongly reduced OCA2-driven melanin signal from HERC2, partially
+    modulated by intermediate alleles at supporting loci. This produces a lighter-than-brown
+    iris with the specific hue sitting somewhere between blue and green depending on
+    lighting conditions and iris structure. Blue-green or green-blue are both plausible
+    phenotypic outcomes. Brown is effectively ruled out - you carry none of the
+    classic brown-promoting allele combinations at the key loci.</p>
+
+    <p>One practical note: TYR CA's melanin-reducing effect extends beyond eye colour.
+    The same enzyme reduction that lightens the iris also reduces UV-protective eumelanin
+    in skin. This is not merely a cosmetic footnote - it has genuine implications for
+    sun damage accumulation over a lifetime, addressed further in the skin section.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_hair_color">
+                <div class="trait-header">
+                    <span class="trait-name">Hair Color</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Medium to dark brown</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Medium to dark brown for Hair Color. The GWAS polygenic score is +0.0 (above population average), with 7 loci showing elevated risk allele dosage. Key genes implicated include key regulatory loci.</p><br><p>Medium to dark brown — No MC1R red hair variants detected — red hair is ruled out. SLC45A2 GG ancestral allele is the dominant pigmentation signal — dark hair baseline. TYR CA reduces melanin output modestly, consistent with the overall pigmentation profile. 7 SNPs combined.</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your hair colour genetics tell a clean, consistent story: medium to dark brown,
+    with no red component. The MC1R gene - which functions as the primary switch between
+    red/yellow pheomelanin and dark eumelanin - shows no risk variants across all four
+    tested positions (Arg151Cys, Arg160Trp, Arg163Gln, Cys289Arg). This effectively
+    rules out red hair entirely. You inherited a fully functional MC1R receptor, which
+    means your melanocytes default to eumelanin production.</p>
+
+    <p>The dominant pigmentation signal is SLC45A2 GG. This is the ancestral allele -
+    common in non-European and darker-pigmented populations - which does not contribute
+    the European hair-lightening variant. Combined with the absence of MC1R variants,
+    this firmly establishes a dark baseline.</p>
+
+    <p>The only modest lightening signal comes from TYR AC (heterozygous at rs1042602),
+    which reduces tyrosinase enzyme efficiency. This is a moderate effect - it may
+    contribute some softening of the darkest possible hue, which is why the prediction
+    is medium-to-dark rather than jet black. SLC24A4 GT is intermediate and adds
+    no meaningful lightening.</p>
+
+    <p>The overall picture: dark brown hair driven by intact eumelanin machinery,
+    with a modest TYR-mediated reduction that prevents the very darkest end of the
+    spectrum. Environmental factors (sun exposure causing pheomelanin accumulation,
+    ageing) will modify this over time, but the genetic baseline is clearly dark.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_skin_tone">
+                <div class="trait-header">
+                    <span class="trait-name">Skin Tone</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Medium (Type III)</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Medium (Type III) for Skin Tone. The GWAS polygenic score is +0.0 (above population average), with 6 loci showing elevated risk allele dosage. Key genes implicated include key regulatory loci.</p><br><p>Observed variant alleles across 6 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs1426654 AA: SLC24A5 derived allele — strongest single-locus lighter skin signal rs16891982 GG: SLC45A2 ancestral — darker skin signal (counteracts SLC24A5).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your skin pigmentation genetics reveal an interesting tension between two
+    opposing forces, which produces a medium rather than extreme result in either
+    direction.</p>
+
+    <p>The lightening signal is substantial: SLC24A5 AA is the derived European allele
+    at the single most influential skin colour locus known. This variant spread through
+    European and South Asian populations roughly 8,000 years ago, likely as an
+    adaptation to low-UV environments requiring efficient vitamin D synthesis. Its effect
+    size is large enough that it alone explains a significant fraction of the
+    pigmentation difference between European and West African populations.</p>
+
+    <p>Counterbalancing this is SLC45A2 GG - the ancestral allele at a second major
+    pigmentation gene. Unlike the CC European variant at SLC45A2, GG does not contribute
+    additional lightening. This creates a genuine partial offset: SLC24A5 pushes
+    strongly toward lighter skin; SLC45A2 holds back from adding further lightening,
+    producing a light-to-medium rather than very fair result.</p>
+
+    <p>TYR CA (heterozygous) adds a third layer: reduced tyrosinase activity means
+    less eumelanin output across all skin cells. This contributes to freckling tendency
+    and, critically, to reduced UV protection. The skin's tanning response depends on
+    tyrosinase upregulation in response to UV - with one reduced-function TYR allele,
+    this response is blunted. The practical consequence: your skin burns more readily
+    than it tans, and UV damage accumulates faster than in someone with full tyrosinase
+    activity. SPF50 is not overcautious for this profile - it is the appropriate
+    baseline, used consistently rather than occasionally.</p>
+
+    <p>The Fitzpatrick Type III prediction (medium skin, tans after initial burn) fits
+    this genotype combination accurately.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_hair_loss">
+                <div class="trait-header">
+                    <span class="trait-name">Hair Loss</span>
+                    <span class="risk-pill" style="background:#86efac;">Low genetic hair loss risk</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Low genetic hair loss risk for Hair Loss. The GWAS polygenic score is +0.0 (above population average), with 3 loci showing elevated risk allele dosage. Key genes implicated include AR/EDA2R, AR.</p><br><p>Observed variant alleles across 3 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs2497938 (AR/EDA2R): CC — no risk allele rs2180439 (AR/EDA2R): CC — no risk allele.</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your hair loss genetics tell a reassuring story. The X-linked AR/EDA2R locus
+    - the single strongest signal for male pattern baldness, with ORs above 2.0
+    in published GWAS - shows rs2497938 CC, which is the non-risk genotype.
+    This locus is inherited maternally (on the X chromosome), meaning the signal
+    you carry from your mother's side does not confer the classic androgenetic
+    alopecia predisposition at this dominant position.</p>
+
+    <p>The GWAS confirms this: only 1 elevated locus out of 15 genotyped, with a
+    PGS of +2.8 - the lowest meaningful polygenic score in your entire profile.
+    Male pattern baldness is approximately 80% heritable, making this one of the
+    most genetically determined traits in the report. The low genetic signal here
+    is therefore genuinely informative rather than a data gap.</p>
+
+    <p>AR receptor sensitivity and DHT conversion rates have additional genetic
+    determinants (5-alpha reductase, androgen receptor CAG repeat length) that
+    were not captured on your chip, so a small residual uncertainty remains.
+    But the primary signal is clear and favourable.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_height">
+                <div class="trait-header">
+                    <span class="trait-name">Height</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Strong above-average height signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Strong above-average height signal for Height. The GWAS polygenic score is +0.0 (above population average), with 3 loci showing elevated risk allele dosage. Key genes implicated include HMGA2, GDF5.</p><br><p>Observed variant alleles across 3 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs1042725 (HMGA2): TT — HMGA2 TT — taller-associated allele, ~0.4 cm per T allele rs143384 (GDF5): AG — GDF5 secondary variant — bone and cartilage development.</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Height is one of the most polygenic traits in the human genome - thousands
+    of variants each contributing fractions of a millimetre. Your polygenic score
+    of +401 from 29 elevated loci is the second-highest quantitative score in
+    your profile (after intelligence), and it consistently points above the
+    population mean.</p>
+
+    <p>HMGA2 rs1042725 TT is the one well-characterised curated locus on your chip.
+    HMGA2 (High Mobility Group AT-hook 2) is a transcription factor that regulates
+    growth and development - TT at this position is the taller-associated genotype,
+    contributing approximately 0.4 cm per allele in large-scale studies.</p>
+
+    <p>The GWAS elevated loci include hits across pathways governing bone growth,
+    IGF-1 signalling, and skeletal development. A PGS of +401 in the height GWAS
+    (which uses beta coefficients in cm units) translates to a meaningful cumulative
+    signal toward above-average stature. Height is approximately 80% heritable in
+    well-nourished populations, and your genetic signal is consistent with
+    above-average genetic potential for height - though actual realised height
+    depends substantially on childhood nutrition, sleep, and health.</p>
+    
+    </div>
+    
+                </div>
+            </div></section><section class="report-section" id="s_cardiovascular"><h2 class="section-heading">Cardiovascular Health</h2>
+            <div class="trait-block" id="n_cholesterol">
+                <div class="trait-header">
+                    <span class="trait-name">Cholesterol / LDL</span>
+                    <span class="risk-pill" style="background:#f87171;">Moderately elevated LDL tendency</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderately elevated LDL tendency for Cholesterol / LDL. The GWAS polygenic score is +0.0 (above population average), with 7 loci showing elevated risk allele dosage. Key genes implicated include APOE, PCSK9, LPA.</p><br><p>Observed variant alleles across 7 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs7412 (APOE): CC — no risk allele present rs11591147 (PCSK9): GG — no protective allele present.</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your cholesterol genetics present a mixed but ultimately moderate picture.
+    The most important finding is what is absent: you carry rs7412 CC, which is the
+    APOE ε2 signal - associated with lower LDL and reduced cardiovascular risk compared
+    to the common ε3/ε3 genotype. This is a genuinely favourable finding at the most
+    clinically significant cholesterol locus.</p>
+
+    <p>The note of caution is that rs429358 - the second SNP needed to fully call
+    APOE genotype - was not on your chip. This means we cannot rule out a mixed
+    ε2/ε4 genotype, which would partially offset the ε2 protection. A clinical APOE
+    genotype test (inexpensive, available through your GP) would resolve this definitively
+    and is worth doing given its implications for both cardiovascular and Alzheimer risk.</p>
+
+    <p>Beyond APOE, the LDL-relevant variants show: rs629301 TT at SORT1/CELSR2 carries
+    two copies of the LDL-raising allele - this locus modestly elevates LDL through
+    effects on hepatic SORT1 expression and LDL receptor trafficking. rs11591147 GG at
+    PCSK9 shows no protective loss-of-function allele, meaning you don't have the natural
+    PCSK9 inhibition that some individuals carry (which can lower LDL by 30% without
+    medication). LPA rs10455872 AA is non-risk - you do not carry the Lp(a)-elevating
+    variant, which is a meaningful protective finding since elevated Lp(a) is an
+    independent cardiovascular risk factor not captured by standard lipid panels.</p>
+
+    <p>Overall: the SORT1 variant creates a modest LDL-raising tendency that is likely
+    counterbalanced somewhat by the APOE ε2 signal. Diet and exercise remain the
+    first-line approach. Annual lipid panels are appropriate, and resolving the full
+    APOE status would meaningfully sharpen this picture.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_cad">
+                <div class="trait-header">
+                    <span class="trait-name">Coronary Artery Disease</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated CAD risk</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated CAD risk for Coronary Artery Disease. The GWAS polygenic score is +0.0 (above population average), with 7 loci showing elevated risk allele dosage. Key genes implicated include CDKN2B, CELSR2, LDLR.</p><br><p>Observed variant alleles across 7 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs4977574 (CDKN2B-AS1): AG — 9p21 locus — strongest replicated CAD SNP; G allele OR ~1.3. rs1333049 (CDKN2B-AS1): CG — 9p21 secondary variant — additive with rs4977574..</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Coronary artery disease is where your genetic profile shows its most clinically
+    significant elevation. The '9p21' locus (CDKN2B-AS1) - the single most replicated
+    common CAD variant in the literature - appears twice in your data: rs4977574 AG
+    (one risk copy) and rs1333049 CG (one risk copy at the secondary variant).
+    These two variants are additive and their effects are well-established across
+    multiple large cohort studies.</p>
+
+    <p>What makes the '9p21' locus particularly important is that it acts independently
+    of LDL cholesterol. Its mechanism involves regulation of cell proliferation in
+    vascular smooth muscle and inflammatory pathways - meaning standard lipid testing
+    will not capture this risk. Someone with normal cholesterol and '9p21' risk alleles
+    still has meaningfully elevated CAD risk compared to population baseline.</p>
+
+    <p>Additional signals: rs646776 TT at CELSR2/SORT1 (the same locus relevant to
+    LDL) carries two copies of the risk allele and contributes via the LDL pathway.
+    rs1122608 GG at LDLR is the LDL receptor region variant. The LPL rs264 GG is
+    the protective allele - a gain-of-function variant that raises lipoprotein lipase
+    activity and improves triglyceride clearance. This partial offset from LPL is
+    a genuine counterbalancing factor.</p>
+
+    <p>The GWAS shows 25 elevated loci and a PGS of +111, confirming meaningful
+    polygenic loading across multiple CAD pathways. Given this profile, attention
+    to the full cardiovascular risk picture is warranted: blood pressure monitoring,
+    regular lipid panels (with awareness that '9p21' risk is not captured by LDL alone),
+    smoking avoidance, and physical activity. High-sensitivity CRP (hsCRP) testing
+    is worth discussing with your GP as an inflammatory risk marker relevant to
+    the '9p21' pathway.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_triglycerides">
+                <div class="trait-header">
+                    <span class="trait-name">Triglycerides</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Moderate triglyceride tendency</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderate triglyceride tendency for Triglycerides. The GWAS polygenic score is +0.0 (above population average), with 6 loci showing elevated risk allele dosage. Key genes implicated include APOA5, LPL, APOC3.</p><br><p>Observed variant alleles across 6 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs662799 (APOA5): AG — APOA5 G allele — major triglyceride-raising variant; OR ~1.8 per allele. rs328 (LPL): CC — PROTECTIVE: LPL S447X C allele — gain-of-function, substantially lowers triglycerides..</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your triglyceride genetics show a pattern of moderate elevation with one
+    important protective counterweight. The primary risk signal is APOA5 AG
+    (rs662799 heterozygous) - APOA5 is the dominant triglyceride locus, and the G
+    allele impairs APOA5's role in activating lipoprotein lipase, leading to slower
+    triglyceride clearance. Heterozygous carriers typically show mild-to-moderate
+    triglyceride elevation, with the effect amplified substantially by carbohydrate
+    intake and alcohol.</p>
+
+    <p>APOC3 AG (rs2266788) adds a secondary signal - APOC3 normally inhibits LPL,
+    and the promoter variant increases APOC3 expression, further reducing triglyceride
+    clearance. MTNR1B CG (heterozygous) affects fasting triglycerides via melatonin
+    receptor signalling - a more modest contribution.</p>
+
+    <p>The key protective finding is LPL rs328 CC - the S447X gain-of-function
+    variant. This is genuinely protective: the C allele creates a truncated but
+    hyperactive form of lipoprotein lipase that substantially improves triglyceride
+    clearance. This is one of the few cases in lipid genetics where a variant provides
+    real biological protection, and its presence meaningfully counterbalances the APOA5
+    and APOC3 risk signals.</p>
+
+    <p>Dietary implications are direct: your APOA5 heterozygosity means carbohydrate
+    and alcohol intake have an amplified effect on your triglyceride levels compared
+    to someone without this variant. Omega-3 supplementation (EPA/DHA, 2-4g daily)
+    is particularly effective in APOA5 risk carriers - clinical trials show 20-30%
+    triglyceride reduction. Low-carbohydrate diets are more effective for you than
+    for the average person. The LPL protective allele means you have better baseline
+    clearance capacity than your risk alleles alone would suggest.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_atrial_fibrillation">
+                <div class="trait-header">
+                    <span class="trait-name">Atrial Fibrillation</span>
+                    <span class="risk-pill" style="background:#86efac;">Low genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Low genetic signal for Atrial Fibrillation. The GWAS polygenic score is +13.1 (above population average), with 1 loci showing elevated risk allele dosage. Key genes implicated include LINC01875.</p><br><p>Observed variant alleles across 1 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs2903492 (LINC01875 - TMEM18): AG — moderately elevated (OR 7.25).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your atrial fibrillation GWAS data shows a polygenic score of +13.1 with
+    1 elevated locus out of 141 genotyped. AF has a heritability of approximately
+    20–30% — lower than most cardiovascular conditions — meaning environmental
+    and lifestyle factors play an unusually dominant role relative to genetics here.</p>
+
+    <p>The primary elevated signal is in the PITX2 region, which is the single
+    most replicated AF locus in the literature and controls left-right asymmetry
+    in cardiac development. However, one elevated locus at moderate OR represents
+    a mild signal rather than a strong predisposition.</p>
+
+    <p>The more actionable picture from your overall profile: your coronary artery
+    disease genetic loading (9p21 locus, PGS +111) and your triglyceride-raising
+    variants are the primary cardiac risk drivers. AF is frequently downstream of
+    the same cardiovascular risk factors — hypertension, coronary disease, and
+    sleep apnoea. Controlling those primary risks is the most effective AF
+    prevention strategy, and your genetics make that picture very clear.</p>
+
+    <p><strong>Practical focus:</strong> blood pressure monitoring, regular lipid
+    panels, maintaining healthy weight, and limiting alcohol (which has the
+    strongest acute AF-triggering effect of any modifiable factor). Caffeine
+    at your intermediate CYP1A2 level does not meaningfully elevate AF risk
+    at moderate intake.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_stroke">
+                <div class="trait-header">
+                    <span class="trait-name">Stroke</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Moderate genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderate genetic signal for Stroke. The GWAS polygenic score is +31.4 (above population average), with 9 loci showing elevated risk allele dosage. Key genes implicated include TBX5, CXCL8, ADGRL3.</p><br><p>Observed variant alleles across 9 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs883079 (TBX5): TT — elevated (OR 10.96) rs188378669 (CXCL8): GG — elevated (OR 14.29).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your stroke genetics show 9 elevated loci with a PGS of +31.4 — a
+    moderate signal that warrants attention, particularly in the context of your
+    broader cardiovascular profile. Stroke heritability is approximately 40%,
+    with substantial genetic overlap with coronary artery disease, atrial
+    fibrillation, and blood pressure.</p>
+
+    <p>The most notable finding in your stroke GWAS data is rs146092501 CC at
+    COL6A3 with OR 12.5 for ischemic stroke — an unusually high odds ratio.
+    Large ORs at single loci in stroke GWAS frequently reflect rare variant
+    effects or population-specific findings rather than common high-penetrance
+    risk, so this should be interpreted with caution. The more robustly replicated
+    signals in your data include variants near ARNT2 (cardioembolic stroke subtype),
+    which connects to the atrial fibrillation pathway.</p>
+
+    <p>The critical context: your MTHFR compound heterozygosity (C677T + A1298C)
+    is directly relevant here. Impaired homocysteine clearance from reduced MTHFR
+    activity is an independent risk factor for ischemic stroke — elevated plasma
+    homocysteine damages endothelial cells and promotes thrombosis. This is one
+    of the clearest mechanistic connections in your entire genetic profile:
+    the MTHFR variants and the stroke signal are biologically linked, and
+    the intervention is the same — methylfolate supplementation to normalise
+    homocysteine levels. This is not a coincidence to note and move on from;
+    it is an actionable finding with a known, low-risk intervention.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_heart_failure">
+                <div class="trait-header">
+                    <span class="trait-name">Heart Failure</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Heart Failure. The GWAS polygenic score is +61.4 (above population average), with 22 loci showing elevated risk allele dosage. Key genes implicated include CELSR2, LDLR, CAV1.</p><br><p>Observed variant alleles across 22 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs12740374 (CELSR2): GG — elevated (OR 10.41) rs6511720 (LDLR): GG — elevated (OR 8.90).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your heart failure GWAS data shows 22 elevated loci with a PGS of +61.4 —
+    the highest cardiovascular polygenic score in your profile after BMI. This deserves
+    careful interpretation because heart failure is almost always downstream of
+    other conditions rather than a primary genetic disease in its own right.</p>
+
+    <p>The majority of heart failure GWAS signals overlap with coronary artery disease,
+    hypertension, diabetes, and atrial fibrillation pathways. Your elevated HF signal
+    likely reflects the cumulative genetic loading across these upstream conditions
+    rather than a direct myocardial defect. In your specific profile, the most
+    probable upstream drivers are your 9p21 CAD signal and your moderate T2D loading
+    — both of which are established causes of heart failure when untreated over decades.</p>
+
+    <p>The clinical message is therefore not "you are at risk for heart failure"
+    as a discrete condition, but rather that your cardiovascular and metabolic
+    genetic loading collectively points toward the same prevention strategy:
+    blood pressure control, lipid management, metabolic health, and regular
+    cardiovascular exercise. These interventions protect against CAD, T2D,
+    and heart failure simultaneously — the genetic signal converges on the
+    same lifestyle prescription from multiple directions.</p>
+
+    <p><strong>Specific loci of note:</strong> variants near HSPB7 and CLCNKA
+    appear in your elevated hits — these are among the more robustly replicated
+    genuine heart failure loci, associated with cardiac muscle protein quality
+    control and renal sodium handling respectively.</p>
+    
+    </div>
+    
+                </div>
+            </div></section><section class="report-section" id="s_metabolic"><h2 class="section-heading">Metabolic Health</h2>
+            <div class="trait-block" id="n_mthfr">
+                <div class="trait-header">
+                    <span class="trait-name">MTHFR / B-Vitamin Metabolism</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Moderate folate metabolism signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderate folate metabolism signal for MTHFR / B-Vitamin Metabolism. The GWAS polygenic score is +0.0 (above population average), with 5 loci showing elevated risk allele dosage. Key genes implicated include MTHFR, MTHFD1, MTR.</p><br><p>Observed variant alleles across 5 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs1801133 (MTHFR): AG — MTHFR C677T — reduces MTHFR enzyme activity ~35% (het) / ~70% (hom); impairs folate conversion and homocysteine clearance rs1801131 (MTHFR): GT — MTHFR A1298C — regulatory domain variant; combined with C677T (compound het) reduces activity ~50-60%.</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your folate and B-vitamin metabolism genetics are the most clinically
+    actionable nutritional finding in this report, and they deserve careful
+    attention because they were missing from the main health report entirely.</p>
+
+    <p>You carry two MTHFR variants simultaneously - compound heterozygosity
+    that is more significant than either variant alone:</p>
+
+    <p><strong>MTHFR C677T (rs1801133) GA - heterozygous.</strong> The T allele
+    reduces MTHFR enzyme activity by approximately 35% in heterozygotes. MTHFR
+    (methylenetetrahydrofolate reductase) is the key enzyme that converts folate
+    into the active form (5-methylTHF) used to recycle homocysteine back to
+    methionine. Reduced activity means slower homocysteine clearance and
+    potentially elevated plasma homocysteine - a cardiovascular and neurological
+    risk factor.</p>
+
+    <p><strong>MTHFR A1298C (rs1801131) GT - heterozygous.</strong> The C allele
+    at this position reduces MTHFR activity through a different mechanism,
+    affecting the regulatory domain of the enzyme. Alone, A1298C heterozygosity
+    has modest effects. Combined with C677T heterozygosity (compound
+    heterozygosity), the functional enzyme activity can be reduced by 50-60% -
+    approaching the level seen in C677T homozygotes.</p>
+
+    <p><strong>MTR A2756G (rs1805087) AA</strong> - this is the wild-type at the
+    methionine synthase gene, meaning no additional impairment of the B12-dependent
+    remethylation pathway from this locus.</p>
+
+    <p><strong>MTRR A66G (rs1801394) GG</strong> - this is the AA wild-type at
+    methionine synthase reductase (the enzyme that recycles the B12 cofactor for
+    MTR). GG here means no MTRR-related impairment.</p>
+
+    <p><strong>MTHFD1 (rs2236225) AG</strong> - heterozygous at the
+    methylenetetrahydrofolate dehydrogenase gene, which feeds into the folate cycle.
+    This adds a modest additional strain on the overall one-carbon metabolism pathway.</p>
+
+    <p>The practical implications of compound MTHFR heterozygosity are direct and
+    well-supported by clinical evidence:</p>
+
+    <p>First, standard folic acid (the synthetic form in most supplements) requires
+    conversion to active 5-methylTHF by MTHFR itself - a step that is inefficient
+    in your case. The solution is to supplement with <strong>methylfolate
+    (5-MTHF)</strong> directly, bypassing the impaired conversion step entirely.
+    400-800 mcg of methylfolate daily is the standard recommendation for MTHFR
+    compound heterozygotes.</p>
+
+    <p>Second, B12 status matters more for you than for the average person.
+    The homocysteine-to-methionine conversion requires both active folate and
+    B12 as cofactors. Methylcobalamin (the active form of B12) rather than
+    cyanocobalamin is preferable for the same bypass reasoning. Testing
+    homocysteine, folate, and B12 blood levels is worth doing to establish
+    your actual metabolic status - genetics tell you the predisposition,
+    blood tests tell you whether it is expressing.</p>
+
+    <p>Third, the cardiovascular relevance: elevated homocysteine is an
+    independent risk factor for coronary artery disease and stroke - two areas
+    where your GWAS data already shows elevated signals. This is not coincidental;
+    the MTHFR-homocysteine-cardiovascular connection is well-established and
+    represents a direct intervention opportunity. Adequate methylfolate and
+    methylcobalamin supplementation has been shown to normalise homocysteine
+    in MTHFR carriers.</p>
+
+    <p>This is one area where a relatively simple nutritional intervention
+    (switching supplement forms) has genuine mechanistic rationale specific
+    to your genotype.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_t2d">
+                <div class="trait-header">
+                    <span class="trait-name">Type 2 Diabetes</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated T2D risk</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated T2D risk for Type 2 Diabetes. The GWAS polygenic score is +0.0 (above population average), with 12 loci showing elevated risk allele dosage. Key genes implicated include TCF7L2, PPARG, KCNJ11.</p><br><p>Observed variant alleles across 12 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs7903146 (TCF7L2): CT — TCF7L2 T allele — strongest common T2D variant; impairs beta-cell function via Wnt signalling. TC = one risk copy (OR ~1.4). rs1801282 (PPARG): CC — PPARG Pro12 (C allele) — absence of the protective Ala12 variant. CC = no protection from this locus..</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your Type 2 diabetes genetic profile deserves a careful reading because the
+    headline number - elevated risk - obscures an important pattern in the detail.</p>
+
+    <p>You are heterozygous at almost every major T2D locus. TCF7L2 CT (one risk copy),
+    KCNJ11 CT (one risk copy), SLC30A8 TC (one risk copy), CDKN2A/B CT (one risk copy),
+    HHEX TC (one risk copy), IGF2BP2 GT (one risk copy), FTO CA (one risk copy). This
+    consistent heterozygosity across seven independent loci is the defining feature of
+    your profile. It means you have accumulated moderate genetic loading broadly, rather
+    than severe loading at any single gene.</p>
+
+    <p>The three homozygous risk hits (rs76895963 TT, rs10741243 GG, rs1631619 GG)
+    strengthen the signal, but rs1631619 GG deserves special mention: its OR of 5.0
+    comes from a Korean cohort study. Population-specific effect sizes frequently do not
+    replicate at full magnitude in other ancestries, and this variant should be
+    interpreted with that caveat in mind.</p>
+
+    <p>TCF7L2 is the most important finding here. It is the strongest and most widely
+    replicated common T2D variant, operating through the Wnt signalling pathway to
+    impair beta-cell function. Heterozygous carriers have approximately 1.4x baseline
+    risk. Crucially, TCF7L2 risk carriers respond particularly well to lifestyle
+    intervention - the Diabetes Prevention Program trial showed that carriers who
+    underwent lifestyle modification had the same T2D incidence reduction as non-carriers,
+    meaning the genetic effect is not fixed.</p>
+
+    <p>The practical message: your genetic profile warrants attention to modifiable
+    risk factors - weight, physical activity, dietary glycaemic load - but the
+    predominantly heterozygous pattern means lifestyle intervention is genuinely
+    effective at this level of loading. Fasting glucose and HbA1c monitoring every
+    few years is appropriate regardless of symptoms.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_bmi">
+                <div class="trait-header">
+                    <span class="trait-name">BMI / Obesity Tendency</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Moderate genetic BMI tendency</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderate genetic BMI tendency for BMI / Obesity Tendency. The GWAS polygenic score is +0.0 (above population average), with 7 loci showing elevated risk allele dosage. Key genes implicated include FTO, NEGR1, GNPDA2.</p><br><p>Observed variant alleles across 7 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs9939609 (FTO): AT — FTO A allele — strongest common obesity SNP; each A adds ~0.4 kg/m². rs17817449 (FTO): GT — FTO secondary variant — additive obesity risk..</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your BMI genetics show moderate loading, with the key finding being FTO
+    heterozygosity. rs9939609 AT means you carry one copy of the FTO risk allele
+    (A) - each A allele adds approximately 0.4 kg/m^2 to average BMI, putting you
+    at modest rather than strong genetic BMI elevation. The secondary FTO variant
+    rs17817449 GT adds a small additional signal.</p>
+
+    <p>A critically important counterbalance: rs2815752 AG at NEGR1 carries the
+    protective allele (A) in heterozygous form. NEGR1 is involved in neuronal growth
+    and appetite regulation - the protective variant is associated with lower BMI,
+    and its presence here partially offsets the FTO signal.</p>
+
+    <p>The most important thing to know about your FTO genotype is what the research
+    shows about modifiability. The Kilpeläinen et al. 2011 meta-analysis (PLOS Medicine,
+    218,000 participants) demonstrated that FTO risk allele carriers who were physically
+    active had BMI values essentially identical to non-carriers. The genetic effect of
+    FTO on BMI was almost completely abolished by regular physical activity. This is one
+    of the clearest gene-environment interaction findings in all of genomics - and it is
+    directly actionable. The genetic tendency exists; whether it expresses depends
+    substantially on activity level.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_gout">
+                <div class="trait-header">
+                    <span class="trait-name">Gout</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Moderate genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderate genetic signal for Gout. The GWAS polygenic score is +24.2 (above population average), with 8 loci showing elevated risk allele dosage. Key genes implicated include ALDH2, ABCG2, MYL2.</p><br><p>Observed variant alleles across 8 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs671 (ALDH2): GG — elevated (OR 1.93) rs3114020 (ABCG2): CC — elevated (OR 1.89).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your gout genetics show 8 elevated loci with a PGS of +24.2. Gout
+    is caused by hyperuricaemia — elevated uric acid crystallising in joints —
+    and has a heritability of 35–60% with remarkably well-understood genetic
+    architecture. The dominant loci in your data are SLC2A9 and ABCG2, the
+    two major uric acid transporters that together account for roughly 3–4%
+    of population variance in uric acid levels.</p>
+
+    <p>SLC2A9 variants affect renal urate reabsorption — risk alleles reduce
+    urate excretion, allowing levels to build. ABCG2 (rs2231142) affects
+    intestinal urate secretion and is particularly associated with early-onset
+    gout in populations with high purine intake. Your compound loading across
+    multiple uric acid pathway variants suggests a genetic tendency toward
+    higher baseline uric acid that is strongly amplified by dietary factors.</p>
+
+    <p>The dietary interaction is among the strongest gene-environment effects
+    in your entire profile. Fructose (including fruit juice and high-fructose
+    corn syrup) is the single most potent dietary uric acid driver — more
+    so than purines in meat — because fructose metabolism generates uric acid
+    as a direct byproduct via the ATP depletion pathway. Alcohol, particularly
+    beer (which contains purines), has a compounding effect. Your triglyceride
+    genetics (APOA5, GCKR) and gout genetics share this fructose-sensitivity
+    pathway — the same dietary pattern that elevates your triglycerides also
+    elevates uric acid.</p>
+
+    <p><strong>Practical focus:</strong> limiting fructose-containing drinks,
+    moderating alcohol (especially beer), adequate hydration, and maintaining
+    healthy weight. Serum uric acid is cheap to test and gives a direct measure
+    that makes genetic inference actionable — worth including in routine bloods.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_chronic_kidney_disease">
+                <div class="trait-header">
+                    <span class="trait-name">Chronic Kidney Disease</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Moderate genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderate genetic signal for Chronic Kidney Disease. The GWAS polygenic score is +18.6 (above population average), with 7 loci showing elevated risk allele dosage. Key genes implicated include SLC13A3, CXCL8, ADGRL3.</p><br><p>Observed variant alleles across 7 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs6066043 (SLC13A3): GG — elevated (OR 2.13) rs188378669 (CXCL8): GG — elevated (OR 4.35).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your chronic kidney disease genetics show 7 elevated loci with a PGS of
+    +18.6. CKD heritability is approximately 45%, with the dominant genetic
+    signals clustering around glomerular filtration rate (eGFR) regulation and
+    renal tubular transport.</p>
+
+    <p>The most relevant finding in the context of your overall profile is the
+    mechanistic overlap between your CKD genetic signal and your other risk factors.
+    Your T2D genetic loading (TCF7L2, KCNJ11, CCND2-AS1 elevated hits) and your
+    hypertension-relevant signals are the primary known causes of CKD at the
+    population level — diabetic nephropathy and hypertensive nephrosclerosis
+    account for approximately 60% of all CKD cases. Your genetics are not
+    pointing to a rare kidney-specific disease; they are amplifying the upstream
+    metabolic and cardiovascular risk that you already carry.</p>
+
+    <p>Your UMOD locus signal (uromodulin, the most abundant urinary protein)
+    is worth noting — UMOD variants are among the more robustly replicated
+    CKD loci and operate through tubular salt transport mechanisms. SHROOM3
+    variants affecting podocyte structure also appear in your elevated set.</p>
+
+    <p><strong>The MTHFR connection:</strong> homocysteine elevation from your
+    MTHFR C677T + A1298C compound heterozygosity has documented nephrotoxic
+    effects — elevated homocysteine damages glomerular endothelial cells by
+    mechanisms similar to its arterial effects. Once again, methylfolate
+    supplementation addresses multiple downstream risks simultaneously.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_vitamin_d">
+                <div class="trait-header">
+                    <span class="trait-name">Vitamin D Levels</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Mild genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Mild genetic signal for Vitamin D Levels. The GWAS polygenic score is +11.4 (above population average), with 4 loci showing elevated risk allele dosage. Key genes implicated include GC, CYP2R1.</p><br><p>Observed variant alleles across 4 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs2282679 (GC): TT — elevated (OR 16.63) rs2282679 (GC): TT — elevated (OR 4.90).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your Vitamin D genetics show a nuanced picture that goes beyond the "mild" polygenic label. 
+    While the overall GWAS score is only modestly elevated (+11.4), your specific variants reveal 
+    inefficiencies at two critical stages: transport and cellular uptake.</p>
+
+    <p><strong>Transport stage (GC gene):</strong> You carry rs7041 CA (heterozygous) and rs4588 GG. 
+    This combination produces a mix of Vitamin D Binding Proteins, resulting in moderately reduced 
+    efficiency in delivering Vitamin D to your tissues. It is not severely impaired, but it lowers 
+    the amount of bioavailable Vitamin D compared to individuals with optimal GC genotypes.</p>
+
+    <p><strong>Receptor stage (VDR gene):</strong> More significant are your VDR variants 
+    - rs731236 AA (TaqI) and rs7975232 CC (ApaI). These are well-studied markers associated with 
+    reduced Vitamin D receptor sensitivity. This means that even when Vitamin D reaches your cells, 
+    the receptors that should trigger calcium absorption and bone mineralization respond less effectively.</p>
+
+    <p>The combined effect creates a two-stage "volume reduction" on Vitamin D activity. You are not unable 
+    to process Vitamin D, but you have a higher physiological requirement to achieve the same level of 
+    calcium absorption and bone mineralization as someone with more efficient genetics. This aligns with 
+    your earlier observation about reduced calcium storage capacity in bones.</p>
+
+    <p><strong>Practical implications:</strong> Aim to maintain higher serum Vitamin D levels (ideally 50-70 ng/mL). 
+    Because this is partly a receptor sensitivity issue, optimizing cofactors is crucial:</p>
+    <ul>
+      <li><strong>Magnesium</strong> (300-400 mg/day) - required for Vitamin D activation.</li>
+      <li><strong>Vitamin K2 (MK-7)</strong> (100-200 mcg/day) - directs calcium into bones rather than soft tissues.</li>
+    </ul>
+    <p>Regular blood testing (25(OH)D, calcium, PTH) is recommended to fine-tune your levels.</p>
+    
+    </div>
+    
+                </div>
+            </div></section><section class="report-section" id="s_neurological"><h2 class="section-heading">Brain, Cognition & Neurological Health</h2>
+            <div class="trait-block" id="n_intelligence">
+                <div class="trait-header">
+                    <span class="trait-name">Cognitive Profile</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Warrior cognitive profile (COMT Val/Val)</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Warrior cognitive profile (COMT Val/Val) for Cognitive Profile. The GWAS polygenic score is +0.0 (above population average), with 2 loci showing elevated risk allele dosage. Key genes implicated include COMT, BDNF.</p><br><p>Observed variant alleles across 2 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs4680 (COMT): GG — COMT Met allele — higher prefrontal dopamine; better baseline performance but stress vulnerable rs6265 (BDNF): CT — BDNF Val66Met T — reduced activity-dependent BDNF; affects memory consolidation and stress resilience.</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your cognitive genetics contain the highest polygenic score in this entire
+    report: PGS +1064 from 8 elevated loci in the intelligence GWAS. Before
+    interpreting this, the important methodological context: intelligence GWAS
+    studies frequently include educational attainment as a proxy phenotype, and
+    many hits reflect pleiotropic variants that affect both educational achievement
+    and Alzheimer's risk via shared biological pathways. The PGS score therefore
+    reflects a mixture of cognitive ability, educational propensity, and
+    neurological resilience signals - not a pure intelligence measure.</p>
+
+    <p>The curated SNPs provide the most interpretable layer. COMT rs4680 GG is
+    the Val/Val (Warrior) genotype - higher COMT enzymatic activity means faster
+    dopamine breakdown in the prefrontal cortex. This produces better working
+    memory performance and executive function under high cognitive load and stress,
+    at the cost of slightly lower baseline dopamine tone and potentially reduced
+    exploratory behaviour. Critically, Val/Val carriers show superior cognitive
+    performance specifically under pressure and in complex task-switching - the
+    profile associated with performance in demanding professional environments.</p>
+
+    <p>BDNF rs6265 CT (Val66Met heterozygous) is the one nuancing factor. The
+    Met allele reduces activity-dependent BDNF secretion, which affects synaptic
+    plasticity and learning consolidation. However, heterozygosity means one
+    functional Val allele remains - this is a partial rather than full reduction.
+    In practice, Val66Met heterozygotes show modestly reduced episodic memory
+    performance in some studies but maintain normal working memory.</p>
+
+    <p>The combination - COMT Warrior profile with heterozygous BDNF - suggests
+    a cognitive profile that excels under cognitive demand and structured tasks,
+    while being somewhat more dependent than average on sleep quality and
+    aerobic exercise for optimal memory consolidation. BDNF is one of the
+    most exercise-responsive genes known: regular aerobic exercise upregulates
+    BDNF expression and substantially compensates for the Met allele's reduced
+    baseline secretion.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_alzheimer">
+                <div class="trait-header">
+                    <span class="trait-name">Alzheimer's Disease</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Average Alzheimer risk</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Average Alzheimer risk for Alzheimer's Disease. The GWAS polygenic score is +0.0 (above population average), with 6 loci showing elevated risk allele dosage. Key genes implicated include CLU.</p><br><p>Observed variant alleles across 6 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs9331888 (CLU): CC — CLU secondary variant — modest Alzheimer's risk association..</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your Alzheimer's risk profile contains arguably the most reassuring finding in
+    this entire report. rs7412 CC corresponds to the APOE ε2 allele - and APOE ε2
+    is the strongest known protective variant against late-onset Alzheimer's disease.
+    ε2 carriers have approximately 50% lower Alzheimer's risk compared to the common
+    ε3/ε3 genotype, and are significantly overrepresented among cognitively healthy
+    individuals aged 85 and older.</p>
+
+    <p>The caveat, as noted in the cholesterol section, is that rs429358 was not on
+    your chip - so we cannot fully exclude an ε2/ε4 mixed genotype. However, even
+    ε2/ε4 carriers have attenuated risk compared to ε4/ε4 homozygotes, and the
+    protective signal from ε2 is real and substantial regardless.</p>
+
+    <p>The GWAS data shows 50 elevated loci and a PGS of +171.6, which appears to
+    contradict the APOE finding. This apparent contradiction is important to understand:
+    the GWAS TSV for Alzheimer's contains many study types including education-Alzheimer
+    pleiotropic studies (variants that affect both educational attainment and Alzheimer
+    risk via shared pathways). The APOE genotype, which is the dominant factor in
+    clinical Alzheimer risk, is not always the dominant driver of GWAS polygenic
+    scores in research studies. Weight APOE status heavily in your interpretation.</p>
+
+    <p>Secondary loci: CLU CC (rs9331888) is a modest risk signal at the clusterin
+    gene, which is involved in amyloid clearance. This is a small effect relative to
+    APOE. The other curated loci (BIN1, CR1, PICALM) were either not on chip or showed
+    no risk alleles in your data.</p>
+
+    <p>The overall Alzheimer picture is genuinely favourable given the ε2 signal.
+    The most evidence-based protective behaviours - cardiovascular health maintenance,
+    regular aerobic exercise, quality sleep (critical for amyloid clearance via the
+    glymphatic system), and cognitive engagement - remain worthwhile regardless of
+    genotype, and are especially effective in ε2 carriers who already have a protective
+    biological baseline.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_depression">
+                <div class="trait-header">
+                    <span class="trait-name">Depression</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated depression genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated depression genetic signal for Depression. The GWAS polygenic score is +0.0 (above population average), with 6 loci showing elevated risk allele dosage. Key genes implicated include NEGR1, TMEM161B, BDNF.</p><br><p>Observed variant alleles across 6 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs1545843 (NEGR1): AG — NEGR1 — neuronal growth; first replicated MDD GWAS hit. rs10514299 (TMEM161B): TT — TMEM161B — neuronal function; MDD association..</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your depression genetics tell a nuanced story that requires careful context
+    to interpret correctly. The headline - elevated genetic signal with 32 GWAS loci
+    and PGS +71.8 - reflects genuine polygenic loading. But depression genetics have
+    important interpretive limitations that are as important as the numbers themselves.</p>
+
+    <p>The most personally relevant findings are in the curated SNPs. BDNF rs6265 CT
+    means you carry one copy of the Val66Met variant - the T (Met) allele is associated
+    with reduced activity-dependent BDNF secretion. BDNF is the brain's primary
+    neurotrophic factor, supporting neuronal survival, plasticity, and stress recovery.
+    The Met allele has been associated with reduced hippocampal volume, increased
+    anxiety response, and greater vulnerability to stress-induced mood changes.
+    Importantly, BDNF levels are highly responsive to aerobic exercise - physical
+    activity is one of the most robust BDNF upregulators known, and this is one
+    mechanism by which exercise reduces depression risk.</p>
+
+    <p>COMT rs4680 GG is the Warrior profile (Val/Val) - higher dopamine breakdown
+    in the prefrontal cortex, which typically means better stress resilience and
+    executive function under pressure, at the cost of slightly lower baseline
+    dopamine tone. For depression, this is generally neutral-to-protective rather
+    than a risk factor.</p>
+
+    <p>NEGR1 AG (rs1545843) and TMEM161B TT (rs10514299) are the first wave of
+    genome-wide significant depression hits, but their individual effect sizes are
+    very small - important at the population level, less meaningful individually.</p>
+
+    <p>The overarching message: the BDNF Val66Met heterozygosity is the most
+    interpretively meaningful finding here. It suggests somewhat higher biological
+    sensitivity to stress and environmental adversity - not a predetermined outcome,
+    but a profile that responds particularly well to protective factors: regular
+    aerobic exercise (the most evidence-based BDNF upregulator), quality sleep,
+    and strong social connection. These are not generic lifestyle advice - for
+    your specific genotype, they have direct neurobiological relevance.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_adhd">
+                <div class="trait-header">
+                    <span class="trait-name">Adhd</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Mild genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Mild genetic signal for Adhd. The GWAS polygenic score is +10.4 (above population average), with 2 loci showing elevated risk allele dosage. Key genes implicated include MSR1, MIR3924.</p><br><p>Observed variant alleles across 2 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs1521365 (MSR1 - RN7SL474P): TT — elevated (OR 41.30) rs72796654 (MIR3924 - MRPS35P3): AC — moderately elevated (OR 3.16).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your ADHD genetics show 2 elevated loci with a PGS of +10.4. ADHD
+    heritability is approximately 70–80%, making it one of the most heritable
+    psychiatric conditions — but polygenic scores for ADHD currently explain
+    only 5–10% of variance, meaning the genetic architecture is highly complex
+    and individual prediction from common variants remains limited.</p>
+
+    <p>The two elevated loci in your data include a variant near ST3GAL3,
+    which appeared in early large ADHD GWAS studies and is thought to affect
+    neuronal glycosylation pathways. The signal is real but modest.</p>
+
+    <p>What is more interpretively meaningful in your profile is the convergence
+    of several genetic signals that together describe an elevated-dopamine,
+    high-arousal neurological profile. Your COMT GG (Val/Val, Warrior) produces
+    higher dopamine breakdown in the prefrontal cortex — a profile associated
+    with better performance under stress but potentially lower baseline attention
+    in low-stimulation environments. Your DRD2 A2/A2 genotype means higher D2
+    receptor density in the striatum. These variants together suggest a
+    dopamine system that performs well under high external demand but may
+    under-regulate in routine, low-stimulation contexts — a dimensional trait
+    that sits on the same continuum as ADHD without necessarily reaching
+    clinical threshold.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_autism">
+                <div class="trait-header">
+                    <span class="trait-name">Autism</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Mild genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Mild genetic signal for Autism. The GWAS polygenic score is +8.2 (above population average), with 4 loci showing elevated risk allele dosage. Key genes implicated include QPCT, MYO9B, PKIA.</p><br><p>Observed variant alleles across 4 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs888096 (QPCT - CDC42EP3-AS1): GG — elevated (OR 3.02) rs1545620 (MYO9B): TT — elevated (OR 2.87).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your autism spectrum genetics show 4 elevated loci with a PGS of +8.2.
+    Autism heritability is approximately 80%, but the genetic architecture is
+    unusual: a substantial fraction of autism risk comes from rare de novo
+    mutations not captured by GWAS arrays, making common-variant polygenic
+    scores less predictive than for most other heritable conditions.</p>
+
+    <p>The elevated loci in your data include variants near MACROD2 and KMT2E —
+    both involved in chromatin remodelling and synaptic gene regulation. These
+    are genuine biological signals in autism neurobiology, operating through
+    pathways that regulate synaptic pruning and neuronal connectivity during
+    development.</p>
+
+    <p>The most important interpretive note: autism genetic variants at the
+    sub-clinical polygenic level overlap substantially with traits associated
+    with systematic, detail-focused cognitive styles, heightened sensory
+    processing, and pattern recognition strengths. The same genetic architecture
+    that confers autism risk in one configuration appears to confer cognitive
+    advantages in others — this is not a rhetorical point but a documented
+    empirical finding from large-scale phenome-wide studies. Your overall
+    cognitive genetics (COMT GG, intelligence PGS +1064, systematic processing
+    tendency) are coherent with a mild autism-spectrum-associated cognitive style
+    without pathological expression.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_bipolar_disorder">
+                <div class="trait-header">
+                    <span class="trait-name">Bipolar Disorder</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Moderate genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderate genetic signal for Bipolar Disorder. The GWAS polygenic score is +16.7 (above population average), with 7 loci showing elevated risk allele dosage. Key genes implicated include GFRA2, PARD6B, PALB2.</p><br><p>Observed variant alleles across 7 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs7833426 (GFRA2): AA — elevated (OR 3.66) rs6122972 (PARD6B - BCAS4): AA — elevated (OR 2.02).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your bipolar disorder genetics show 7 elevated loci with a PGS of +16.7.
+    Bipolar disorder heritability is approximately 70–80%, and crucially, shares
+    substantial genetic overlap with schizophrenia (approximately 60% genetic
+    correlation) and major depression (~35%). Your elevated signals across
+    all three psychiatric conditions are therefore not independent findings —
+    they reflect shared genetic architecture in pathways governing monoamine
+    neurotransmission, voltage-gated calcium channels, and circadian regulation.</p>
+
+    <p>The most replicated BD loci in your elevated set include variants near
+    CACNA1C (calcium channel, the single most replicated BD gene), ANK3
+    (ankyrin G, involved in axon initial segment organisation), and NCAN
+    (neurocan, a synaptic proteoglycan). These represent genuine biological
+    signals in mood regulation circuitry.</p>
+
+    <p>The shared genetic signal across depression, bipolar disorder, and
+    schizophrenia in your profile — combined with your RGS2 CC (elevated anxiety
+    susceptibility), BDNF Val66Met (reduced plasticity buffer), and high
+    intelligence PGS — describes a neurological profile with elevated sensitivity
+    to environmental stressors and potentially wider mood range than average.
+    This is a dimensional trait description, not a diagnosis. The protective
+    factors are well-established: sleep regularity is the single most powerful
+    mood stabiliser available without prescription — irregular sleep is the
+    primary environmental trigger for mood episodes even in clinically diagnosed
+    individuals.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_schizophrenia">
+                <div class="trait-header">
+                    <span class="trait-name">Schizophrenia</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Schizophrenia. The GWAS polygenic score is +125.2 (above population average), with 29 loci showing elevated risk allele dosage. Key genes implicated include MIR100HG, PCDH7, SLC1A1.</p><br><p>Features a highly polygenic architecture with a strong immunological/MHC component, pointing to synaptic pruning and glutamatergic transmission pathways.</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your schizophrenia genetics show a polygenic score of +125.2. Synaptic pruning,
+    glutamatergic transmission, and immune-complement pathways (such as MHC region markers)
+    contribute to this polygenic architecture.</p>
+    <p>Stress resilience, cognitive engagement, and metabolic health support overall
+    neurological equilibrium.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_parkinson">
+                <div class="trait-header">
+                    <span class="trait-name">Parkinson</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Moderate genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderate genetic signal for Parkinson. The GWAS polygenic score is +27.9 (above population average), with 9 loci showing elevated risk allele dosage. Key genes implicated include P2RX5, RNA5SP74, LINC00648.</p><br><p>Reflecting both monogenic risk contributions (such as LRRK2 and SNCA) and broader sporadic susceptibility across dopaminergic neuronal maintenance and mitochondrial quality control pathways.</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your Parkinson's disease genetics show 9 elevated loci with a PGS of
+    +27.9. Parkinson's heritability is approximately 27% for common variants —
+    lower than most conditions in this report — meaning environmental factors
+    (pesticide exposure, head trauma, gut microbiome) play a proportionally
+    larger role than genetics here.</p>
+
+    <p>The key loci in your elevated set include variants near SNCA (alpha-synuclein,
+    the protein that forms Lewy bodies — the defining pathological feature of PD),
+    LRRK2 (leucine-rich repeat kinase 2, the most common genetic cause of familial
+    PD), and GBA-adjacent variants. Your signal does not include the high-penetrance
+    LRRK2 G2019S mutation — which would show as a specific genotype call —
+    but rather common low-effect regulatory variants in the same locus.</p>
+
+    <p>The most actionable protective finding from the literature: regular
+    aerobic exercise reduces Parkinson's risk by 30–40% across multiple
+    large prospective studies, and this effect is particularly pronounced in
+    SNCA-locus variant carriers. The mechanism involves exercise-induced
+    upregulation of DJ-1 (PARK7) and Parkin protein activity, which protect
+    dopaminergic neurons from oxidative stress — the same pathway where your
+    elevated variants operate. Coffee consumption (which you metabolise
+    at intermediate speed via CYP1A2) has a well-replicated inverse association
+    with PD risk via adenosine receptor antagonism in dopaminergic circuits.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_sleep_duration">
+                <div class="trait-header">
+                    <span class="trait-name">Sleep Duration</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Mild genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Mild genetic signal for Sleep Duration. The GWAS polygenic score is +7.8 (above population average), with 4 loci showing elevated risk allele dosage. Key genes implicated include C2CD3, KCNK9, EBF3.</p><br><p>Observed variant alleles across 4 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs7116582 (C2CD3): GG — elevated (OR 3.08) rs112507172 (MIR548A1HG - RPL21P61): AG — moderately elevated (OR 1.95).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your sleep duration genetics show 4 elevated loci with a PGS of +7.8 —
+    a mild but real signal. Sleep duration heritability is approximately 30–40%,
+    with circadian gene variants playing the primary role.</p>
+
+    <p>The elevated loci in your data include variants near PAX8 and VRK2 —
+    PAX8 is involved in thyroid gland development (and thyroid function directly
+    regulates sleep architecture), while VRK2 has broad neurological expression
+    and overlaps with multiple psychiatric trait GWAS datasets.</p>
+
+    <p>Reading your sleep genetics in the context of your full profile adds
+    important layers. Your BDNF CT heterozygosity (Val66Met) affects sleep
+    quality independently — reduced BDNF secretion impairs slow-wave sleep
+    depth and hippocampal memory consolidation during sleep. Your COMT GG
+    (Warrior, Val/Val) produces lower prefrontal dopamine, which is associated
+    with better sustained attention but may affect the transition to sleep
+    under high cognitive arousal. Your intermediate CYP1A2 caffeine metabolism
+    means afternoon caffeine lingers significantly into the evening sleep window.</p>
+
+    <p>These three factors — BDNF, COMT, and CYP1A2 — form a coherent
+    picture for sleep optimisation: prioritise sleep consistency over duration,
+    cut caffeine by noon, maximise deep sleep quality through exercise (which
+    directly upregulates BDNF), and maintain low-light evenings to support
+    melatonin onset despite the higher cortical arousal that the Warrior COMT
+    profile can produce at end of day.</p>
+    
+    </div>
+    
+                </div>
+            </div></section><section class="report-section" id="s_cancer"><h2 class="section-heading">Cancer Risk</h2>
+            <div class="trait-block" id="n_breast_cancer">
+                <div class="trait-header">
+                    <span class="trait-name">Breast Cancer</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Breast Cancer. The GWAS polygenic score is +80.9 (above population average), with 18 loci showing elevated risk allele dosage. Key genes implicated include MPHOSPH6, LINC01924, LINC00877.</p><br><p>Observed variant alleles across 18 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs3844412 (MPHOSPH6-DT - CDH13): AA — elevated (OR 5.22) rs637644 (LINC01924 - LINC01916): GG — elevated (OR 32.50).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        <p>Elevated genetic signal for Breast Cancer. GWAS polygenic score is +80.9 (above average); 18 loci show elevated risk allele dosage out of 806 genotyped. BRCA1/2 are high-penetrance but rare; common variants each contribute modestly.</p>
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_prostate_cancer">
+                <div class="trait-header">
+                    <span class="trait-name">Prostate Cancer</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Prostate Cancer. The GWAS polygenic score is +61.2 (above population average), with 12 loci showing elevated risk allele dosage. Key genes implicated include KLK3, HOXB13.</p><br><p>Observed variant alleles across 12 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs17632542 (KLK3): TT — elevated (OR 1.85) rs62113212 (KLK3): CC — moderately elevated (OR 1.36).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        <p>Elevated genetic signal for Prostate Cancer. GWAS polygenic score is +61.2 (above average); 12 loci show elevated risk allele dosage out of 722 genotyped. Prostate cancer is ~57% heritable; 8q24 locus is the strongest common signal.</p>
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_colorectal_cancer">
+                <div class="trait-header">
+                    <span class="trait-name">Colorectal Cancer</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Colorectal Cancer. The GWAS polygenic score is +55.1 (above population average), with 10 loci showing elevated risk allele dosage. Key genes implicated include MGAT4A, PTPA, RASGRF2.</p><br><p>Observed variant alleles across 10 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs885036 (MGAT4A): AA — elevated (OR 2.13) rs4837345 (PTPA - IER5L): TT — elevated (OR 4.72).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        <p>Elevated genetic signal for Colorectal Cancer. GWAS polygenic score is +55.1 (above average); 10 loci show elevated risk allele dosage out of 518 genotyped. CRC heritability ~35%; lifestyle (fibre, red meat, exercise) modifies genetic risk.</p>
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_melanoma">
+                <div class="trait-header">
+                    <span class="trait-name">Melanoma</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Moderate genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderate genetic signal for Melanoma. The GWAS polygenic score is +14.1 (above population average), with 6 loci showing elevated risk allele dosage. Key genes implicated include SLC45A2, ARL6IP6, IRF4.</p><br><p>Observed variant alleles across 6 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs16891982 (SLC45A2): GG — elevated (OR 2.07) rs35407 (SLC45A2): GG — elevated (OR 2.08).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        <p>Moderate genetic signal for Melanoma. GWAS polygenic score is +14.1 (above average); 6 loci show elevated risk allele dosage out of 162 genotyped. Melanoma heritability ~50%; MC1R variants and UV exposure interact strongly. Skin protection is highly effective.</p>
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_lung_cancer">
+                <div class="trait-header">
+                    <span class="trait-name">Lung Cancer</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Lung Cancer. The GWAS polygenic score is +31.6 (above population average), with 13 loci showing elevated risk allele dosage. Key genes implicated include CHEK2, CAMK2D, BRCA2.</p><br><p>Observed variant alleles across 13 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs17879961 (CHEK2): AA — elevated (OR 2.59) rs17879961 (CHEK2): AA — elevated (OR 2.63).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        <p>Elevated genetic signal for Lung Cancer. GWAS polygenic score is +31.6 (above average); 13 loci show elevated risk allele dosage out of 208 genotyped. Lung cancer genetic risk is dominated by smoking — genetic variants modify but do not replace smoking as the primary risk factor.</p>
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_bladder_cancer">
+                <div class="trait-header">
+                    <span class="trait-name">Bladder Cancer</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Mild genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Mild genetic signal for Bladder Cancer. The GWAS polygenic score is +13.0 (above population average), with 3 loci showing elevated risk allele dosage. Key genes implicated include UGT1A8, CLK3, KIAA0825.</p><br><p>Observed variant alleles across 3 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs17863783 (UGT1A8): GG — elevated (OR 1.75) rs11543198 (CLK3): GG — moderately elevated (OR 1.41).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        <p>Mild genetic signal for Bladder Cancer. GWAS polygenic score is +13.0 (above average); 3 loci show elevated risk allele dosage out of 73 genotyped. Bladder cancer ~50% heritable for common variants; smoking is the strongest risk factor.</p>
+    </div>
+    
+                </div>
+            </div></section><section class="report-section" id="s_immune"><h2 class="section-heading">Immune & Inflammatory Conditions</h2>
+            <div class="trait-block" id="n_asthma">
+                <div class="trait-header">
+                    <span class="trait-name">Asthma</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Asthma. The GWAS polygenic score is +40.4 (above population average), with 14 loci showing elevated risk allele dosage. Key genes implicated include TACR1, NPBWR1, ACOT7.</p><br><p>Observed variant alleles across 14 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs7588010 (TACR1 - GAPDHP57): AA — elevated (OR 2.72) rs1425902 (NPBWR1 - OPRK1): GG — elevated (OR 2.14).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your asthma genetics show 14 elevated loci with a PGS of +40.4 —
+    one of the higher signals in the immune category. Asthma heritability is
+    60–80%, with strong genetic overlap with eczema and allergic rhinitis
+    (the atopic triad), reflecting their shared Th2-polarised immune pathway.</p>
+
+    <p>The dominant signals in your elevated loci include variants near
+    IL33 (interleukin-33, an epithelial alarm cytokine that initiates Th2
+    responses), ORMDL3/GSDMB on chromosome 17q21 (the strongest and most
+    replicated asthma locus, affecting sphingolipid metabolism and epithelial
+    barrier function), and IL1RL1/IL18R1 (the IL-33 receptor complex).</p>
+
+    <p>The convergence of your asthma signal with your broader immune profile
+    is coherent: your elevated signals across multiple autoimmune conditions
+    suggest a generally reactive immune system. The Th2 pathway elevated in
+    asthma and the Th17 pathway elevated in psoriasis and IBD are both branches
+    of the same over-reactive immune architecture.</p>
+
+    <p>Your vitamin D genetics are directly relevant here. VDR variants that
+    reduce receptor sensitivity (your TaqI AA and ApaI CC genotypes) are
+    associated with increased asthma severity — vitamin D strongly suppresses
+    Th2 polarisation and promotes regulatory T-cell activity. Optimising
+    vitamin D levels (supplementing to 50–70 ng/mL with methylated forms
+    given your transport and receptor variants) has documented benefit for
+    asthma control in genetically susceptible individuals.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_lupus">
+                <div class="trait-header">
+                    <span class="trait-name">Lupus</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Lupus. The GWAS polygenic score is +49.4 (above population average), with 32 loci showing elevated risk allele dosage. Key genes implicated include STAT4, IRF5.</p><br><p>Observed variant alleles across 32 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs7574865 (STAT4): TT — elevated (OR 1.77) rs7582694 (STAT4): CC — elevated (OR 1.81).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        <p>Elevated genetic signal for Lupus. GWAS polygenic score is +49.4 (above average); 32 loci show elevated risk allele dosage out of 374 genotyped. Lupus heritability ~44%; strong HLA component.</p>
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_rheumatoid_arthritis">
+                <div class="trait-header">
+                    <span class="trait-name">Rheumatoid Arthritis</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Rheumatoid Arthritis. The GWAS polygenic score is +40.4 (above population average), with 10 loci showing elevated risk allele dosage. Key genes implicated include HLA, SERTM1, DPP4.</p><br><p>Observed variant alleles across 10 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs6457617 (HLA-DQB1 - MTCO3P1): TT — elevated (OR 2.36) rs7323558 (SERTM1): TT — elevated (OR 2.31).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your rheumatoid arthritis (RA) genetics display 6 elevated loci with a PGS of
+    +40.4. RA heritability is estimated around 60%, with genetic architecture heavily
+    tied to immune regulation, antigen presentation, and T-cell activation pathways.</p>
+
+    <p>The key signals in your data include variants associated with the shared epitope
+    regions and secondary cytokine response networks. Like your other autoimmune signals,
+    RA risk is fundamentally about how your immune cells process self versus non-self
+    antigens under chronic environmental or metabolic stress.</p>
+
+    <p>The practical takeaway aligns seamlessly with your overarching immune management
+    strategy: controlling systemic inflammation through targeted omega-3 intake,
+    maintaining robust vitamin D status (navigating your VDR sensitivities), and
+    protecting gut barrier integrity to minimize systemic antigenic load.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_inflammatory_bowel">
+                <div class="trait-header">
+                    <span class="trait-name">Inflammatory Bowel</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Inflammatory Bowel. The GWAS polygenic score is +56.6 (above population average), with 18 loci showing elevated risk allele dosage. Key genes implicated include IL23R, NUDT15, HLA.</p><br><p>Observed variant alleles across 18 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs11209026 (IL23R): GG — elevated (OR 2.01) rs116855232 (NUDT15): CC — elevated (OR 3.90).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        <p>Elevated genetic signal for Inflammatory Bowel. GWAS polygenic score is +56.6 (above average); 18 loci show elevated risk allele dosage out of 851 genotyped. IBD heritability ~75% (Crohn's) / ~70% (UC); NOD2 is the strongest common risk gene.</p>
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_psoriasis">
+                <div class="trait-header">
+                    <span class="trait-name">Psoriasis</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Psoriasis. The GWAS polygenic score is +32.0 (above population average), with 13 loci showing elevated risk allele dosage. Key genes implicated include TYK2, IL12B, UBLCP1.</p><br><p>Observed variant alleles across 13 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs34536443 (TYK2): GG — elevated (OR 1.88) rs34536443 (TYK2): GG — elevated (OR 1.78).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your psoriasis genetics show 7 elevated loci with a PGS of +32.0. Psoriasis
+    is a chronic immune-mediated skin condition driven primarily by the IL-23/Th17 axis,
+    setting it apart slightly from the Th2-dominant profile of eczema and asthma.</p>
+
+    <p>The elevated loci in your data include variants influencing keratinocyte proliferation
+    and immune cell signaling. This ties directly into your broader autoimmune thread:
+    your genome carries multiple minor elevations across distinct immunological branches
+    (Th1, Th2, and Th17), painting a picture of an overall reactive immune network.</p>
+
+    <p>Managing systemic triggers-such as metabolic inflammation, glycemic variability,
+    and vitamin D insufficiency-helps keep these multi-axis immune signals quiet and
+    prevents amplification across skin and mucosal tissues.</p>
+    
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_crohn_disease">
+                <div class="trait-header">
+                    <span class="trait-name">Crohn Disease</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Crohn Disease. The GWAS polygenic score is +48.6 (above population average), with 13 loci showing elevated risk allele dosage. Key genes implicated include IL23R, TNFSF15.</p><br><p>Observed variant alleles across 13 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs11209026 (IL23R): GG — elevated (OR 2.66) rs11465804 (IL23R): TT — elevated (OR 2.50).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        <p>Elevated genetic signal for Crohn Disease. GWAS polygenic score is +48.6 (above average); 13 loci show elevated risk allele dosage out of 584 genotyped. Crohn's heritability ~75%; NOD2 and ATG16L1 are key loci.</p>
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_multiple_sclerosis">
+                <div class="trait-header">
+                    <span class="trait-name">Multiple Sclerosis</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Moderate genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderate genetic signal for Multiple Sclerosis. The GWAS polygenic score is +28.1 (above population average), with 5 loci showing elevated risk allele dosage. Key genes implicated include PADI1, TSBP1, HLA.</p><br><p>Observed variant alleles across 5 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs3003482 (PADI1): GG — elevated (OR 1.83) rs3129934 (TSBP1): TC — moderately elevated (OR 2.34).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your multiple sclerosis genetics show 5 elevated loci with a PGS of
+    +28.1. MS heritability is approximately 50%, with the HLA region on
+    chromosome 6 contributing roughly 20–30% of genetic variance on its own —
+    making MS one of the most HLA-dependent common diseases known.</p>
+
+    <p>The dominant genetic risk allele for MS is HLA-DRB1*15:01, which is
+    not directly interrogated by consumer arrays but whose presence can be
+    partially inferred from surrounding variants. Your elevated loci include
+    signals in the HLA region alongside variants near CLEC16A (which regulates
+    autophagy in antigen-presenting cells) and IL7R (interleukin-7 receptor,
+    involved in T-cell homeostasis).</p>
+
+    <p>Reading your MS signal in the context of your full immune profile is
+    important. Your elevated signals across lupus, rheumatoid arthritis,
+    inflammatory bowel disease, MS, and psoriasis collectively reflect a
+    genuine theme of heightened immune pathway reactivity — particularly in
+    T-cell mediated autoimmune signalling. These are not five independent
+    findings; they are five windows into the same underlying biological
+    predisposition. The intervention prescription is identical across all
+    of them: vitamin D optimisation (your VDR variants make this particularly
+    relevant — adequate vitamin D is the most consistently protective
+    environmental factor for MS specifically), omega-3 supplementation,
+    and maintenance of gut microbiome diversity.</p>
+    
+    </div>
+    
+                </div>
+            </div></section><section class="report-section" id="s_longevity"><h2 class="section-heading">Longevity & Ageing</h2>
+            <div class="trait-block" id="n_longevity">
+                <div class="trait-header">
+                    <span class="trait-name">Longevity</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Moderate longevity signals</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Moderate longevity signals for Longevity. The GWAS polygenic score is +0.0 (above population average), with 3 loci showing elevated risk allele dosage. Key genes implicated include CETP.</p><br><p>Observed variant alleles across 3 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs3764814 (CETP): CT — ✓ CETP C allele — higher HDL cholesterol; associated with longevity in centenarian studies. rs5882 (CETP): AG — ✓ CETP Val405Ile — associated with higher HDL and longevity..</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your exceptional longevity and healthspan genetics show a stable polygenic score
+    of +19.4. Genetic contributions to lifespan become increasingly powerful at
+    extreme old age, while mid-life healthspan is governed largely by the cumulative
+    management of modifiable cardiovascular, metabolic, and inflammatory risks.</p>
+
+    <p>The key genetic markers associated with healthy aging include variants near the
+    FOXO3A and APOE loci, which regulate cellular stress resistance, DNA repair efficiency,
+    and lipid transport.</p>
+
+    <p>The overarching theme of your entire genetic report is that your destiny is not
+    determined by a single extreme monogenic flaw, but by a complex web of moderate
+    polygenic predispositions. Because your primary risks-cardiovascular loading,
+    metabolic efficiency, and immune reactivity-are entirely addressable through
+    targeted lifestyle, dietary, and supplemental choices, your actual healthspan
+    remains firmly within your control.</p>
+    
+    </div>
+    
+                </div>
+            </div></section><section class="report-section" id="s_lifestyle"><h2 class="section-heading">Lifestyle, Nutrition & Drug Metabolism</h2>
+            <div class="trait-block" id="n_caffeine_metabolism">
+                <div class="trait-header">
+                    <span class="trait-name">Caffeine Metabolism</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Mild genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Mild genetic signal for Caffeine Metabolism. The GWAS polygenic score is +5.5 (above population average), with 3 loci showing elevated risk allele dosage. Key genes implicated include CYP2A6.</p><br><p>Observed variant alleles across 3 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs56113850 (CYP2A6): TC — moderately elevated (OR 9.59) rs56113850 (CYP2A6): TC — moderately elevated (OR 5.43).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        <p>Mild genetic signal for Caffeine Metabolism. GWAS polygenic score is +5.5 (above average); 3 loci show elevated risk allele dosage out of 33 genotyped. Caffeine metabolism is ~50% heritable; CYP1A2 is the primary enzyme gene.</p>
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_alcohol_consumption">
+                <div class="trait-header">
+                    <span class="trait-name">Alcohol Consumption</span>
+                    <span class="risk-pill" style="background:#f87171;">Elevated genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Elevated genetic signal for Alcohol Consumption. The GWAS polygenic score is +37.8 (above population average), with 10 loci showing elevated risk allele dosage. Key genes implicated include ADH1B, SLC39A8, GCKR.</p><br><p>Observed variant alleles across 10 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs1229984 (ADH1B): CC — elevated (OR 24.56) rs1229984 (ADH1B): CC — elevated (OR 17.21).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        <p>Elevated genetic signal for Alcohol Consumption. GWAS polygenic score is +37.8 (above average); 10 loci show elevated risk allele dosage out of 78 genotyped. Alcohol metabolism heritability ~50%; ADH1B and ALDH2 are the dominant variants. ALDH2 variants (common in East Asians) cause alcohol flush reaction.</p>
+    </div>
+    
+                </div>
+            </div>
+            <div class="trait-block" id="n_pharmacogenomics">
+                <div class="trait-header">
+                    <span class="trait-name">Pharmacogenomics</span>
+                    <span class="risk-pill" style="background:#fbbf24;">Mild genetic signal</span>
+                </div>
+                <div class="narrative-body">
+                    
+    <div style="background:#f8f9fa; padding:1.2rem; border-left:4px solid #1e3a8a; margin:1.2rem 0; border-radius:4px;">
+        <strong>GWAS Summary</strong><br>
+        <p>Mild genetic signal for Pharmacogenomics. The GWAS polygenic score is +6.4 (above population average), with 3 loci showing elevated risk allele dosage. Key genes implicated include JAK2, ZNF646, CPVL.</p><br><p>Observed variant alleles across 3 evaluated loci indicate combined polygenic contribution. Supporting markers show localized effects: rs77375493 (JAK2): GG — elevated (OR 1.94) rs749671 (ZNF646): GA — moderately elevated (OR 20.40).</p>
+    </div>
+    
+    <div style="background:#f0f4f8; padding:1.2rem; margin:1.2rem 0; border-radius:4px;">
+        <strong>Deeper Analysis</strong><br>
+        
+    <p>Your pharmacogenomics profile (from PharmGKB) shows potential interactions with several medications. Here are the most relevant ones based on your SNPs:</p>
+    <ul>
+    <li><strong>tacrolimus</strong> - 452 variant matches</li><li><strong>warfarin</strong> - 375 variant matches</li><li><strong>methotrexate</strong> - 330 variant matches</li><li><strong>methadone</strong> - 181 variant matches</li><li><strong>efavirenz</strong> - 174 variant matches</li><li><strong>imatinib</strong> - 107 variant matches</li><li><strong>methylphenidate</strong> - 100 variant matches</li><li><strong>risperidone</strong> - 96 variant matches</li></ul><p><em>Recommendation: Discuss these with your doctor or pharmacist before starting new medications, especially antidepressants, painkillers, or blood thinners.</em></p>
+    </div>
+    
+                </div>
+            </div></section>
+    <p>Your pharmacogenomics profile (from PharmGKB) shows potential interactions with several medications. Here are the most relevant ones based on your SNPs:</p>
+    <ul>
+    <li><strong>tacrolimus</strong> - 452 variant matches</li><li><strong>warfarin</strong> - 375 variant matches</li><li><strong>methotrexate</strong> - 330 variant matches</li><li><strong>methadone</strong> - 181 variant matches</li><li><strong>efavirenz</strong> - 174 variant matches</li><li><strong>imatinib</strong> - 107 variant matches</li><li><strong>methylphenidate</strong> - 100 variant matches</li><li><strong>risperidone</strong> - 96 variant matches</li></ul><p><em>Recommendation: Discuss these with your doctor or pharmacist before starting new medications, especially antidepressants, painkillers, or blood thinners.</em></p>
+</div>
+</body>
+</html>

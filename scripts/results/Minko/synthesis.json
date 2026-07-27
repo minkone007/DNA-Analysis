@@ -1,0 +1,837 @@
+{
+  "eye_color": {
+    "trait": "Eye Color",
+    "prediction": "Likely blue-green",
+    "confidence": null,
+    "agreement": "moderate agreement toward blue",
+    "snps_used": 6,
+    "narrative": "Based on 6 of 6 IrisPlex marker SNPs present on your chip, there is moderate agreement toward blue. The single strongest marker, rs12913832 (GG), points blue, and this locus alone drives most of IrisPlex's real-world predictive accuracy. Genotype and direction of effect for each marker is listed below.",
+    "markers": [
+  { "rsid": "rs12913832", "gene": "HERC2", "genotype": "GG", "direction": "blue", "role": "primary", "note": "Single strongest known predictor of blue vs brown eye color. GG is associated with blue; AA with brown; AG intermediate. Accounts for the majority of IrisPlex's predictive power on its own." },
+  { "rsid": "rs1800407", "gene": "OCA2", "genotype": "CC", "direction": "brown", "role": "minor", "note": "Minor contributor; T allele associated with lighter eye color." },
+  { "rsid": "rs12896399", "gene": "SLC24A4", "genotype": "GT", "direction": "intermediate (leans blue)", "role": "secondary", "note": "Modulates iris and hair pigmentation; G allele leans lighter." },
+  { "rsid": "rs16891982", "gene": "SLC45A2", "genotype": "GG", "direction": "brown", "role": "secondary", "note": "Primarily a skin/hair pigmentation gene; C allele leans lighter across all three traits in IrisPlex/HIrisPlex panels." },
+  { "rsid": "rs1393350", "gene": "TYR", "genotype": "AG", "direction": "intermediate (leans blue)", "role": "modifier", "note": "Affects tyrosinase activity / melanin synthesis; A allele leans lighter." },
+  { "rsid": "rs12203592", "gene": "IRF4", "genotype": "CT", "direction": "intermediate (leans blue)", "role": "modifier", "note": "Modulates overall pigmentation intensity; T allele leans lighter." }
+],
+    "supporting": [
+      "rs12913832 (HERC2): GG \u2192 blue",
+      "rs1800407 (OCA2): CC \u2192 brown",
+      "rs12896399 (SLC24A4): GT \u2192 intermediate (leans blue)",
+      "rs16891982 (SLC45A2): GG \u2192 brown",
+      "rs1393350 (TYR): AG \u2192 intermediate (leans blue)",
+      "rs12203592 (IRF4): CT \u2192 intermediate (leans blue)"
+    ],
+    "method_note": "IrisPlex 6-SNP panel (Walsh et al. 2011). Directional concordance shown; full published regression model not implemented \u2014 no fabricated confidence score."
+  },
+  "hair_color": {
+    "trait": "Hair Color",
+    "prediction": "Medium to dark brown",
+    "confidence": null,
+    "red_score": 0.0,
+    "light_score": 0.9,
+    "dark_score": 1.5,
+    "mc1r_hits": 0,
+    "snps_used": 7,
+    "total_snps": 8,
+    "narrative": "Medium to dark brown — No MC1R red hair variants detected — red hair is ruled out. SLC45A2 GG ancestral allele is the dominant pigmentation signal — dark hair baseline. TYR CA reduces melanin output modestly, consistent with the overall pigmentation profile. 7 SNPs combined.",
+    "markers": [
+  { "rsid": "rs1805008", "gene": "MC1R", "genotype": "CC", "direction": "wild-type", "role": "rule_out", "note": "Arg160Trp — no red hair allele detected." },
+  { "rsid": "rs11547464", "gene": "MC1R", "genotype": "GG", "direction": "wild-type", "role": "rule_out", "note": "Arg163Gln — no red hair allele detected." },
+  { "rsid": "rs1110400", "gene": "MC1R", "genotype": "TT", "direction": "wild-type", "role": "rule_out", "note": "Cys289Arg — no red hair allele detected." },
+  { "rsid": "rs2228479", "gene": "MC1R", "genotype": "GG", "direction": "wild-type", "role": "rule_out", "note": "Val92Met — no red hair allele detected; confirmed wild-type (G is the ancestral, non-risk allele)." },
+  { "rsid": "rs12896399", "gene": "SLC24A4", "genotype": "GT", "direction": "intermediate", "role": "secondary", "note": "Secondary modifier — intermediate lightening effect." },
+  { "rsid": "rs16891982", "gene": "SLC45A2", "genotype": "GG", "direction": "dark", "role": "primary", "note": "True primary driver of the dark baseline — ancestral darker allele." },
+  { "rsid": "rs1042602", "gene": "TYR", "genotype": "AC", "direction": "intermediate", "role": "modifier", "note": "Enzymatic output modifier — moderate melanin reduction." }
+],
+    "supporting": [
+      "rs1805008 CC: MC1R Arg160Trp (wild-type)",
+      "rs11547464 GG: MC1R Arg163Gln (wild-type)",
+      "rs1110400 TT: MC1R Cys289Arg (wild-type)",
+      "rs2228479 GG: MC1R Val92Met (wild-type)",
+      "rs12896399 GT: SLC24A4 intermediate",
+      "rs16891982 GG: SLC45A2 ancestral darker allele",
+      "rs1042602 AC: TYR moderate melanin reduction"
+    ]
+  },
+  "skin_tone": {
+    "trait": "Skin Tone",
+    "prediction": "Medium (Type III)",
+    "confidence": null,
+    "uv_risk": 1.7,
+    "uv_label": "Moderate UV sensitivity \u2014 burns before tanning",
+    "light_score": 4.5,
+    "dark_score": 2.5,
+    "snps_used": 6,
+    "total_snps": 6,
+    "narrative": "Medium (Type III). SLC24A5 AA is the dominant signal \u2014 this locus alone explains the majority of pigmentation difference between European and African populations and strongly predicts lighter skin. However, SLC45A2 GG (ancestral allele) partially counteracts this, suggesting a light-to-medium result rather than very fair. TYR CA reduces melanin output further, adding freckling tendency and UV sensitivity. Combined picture: skin that tans moderately but burns more readily than average. Moderate UV sensitivity \u2014 burns before tanning. 6 SNPs combined.",
+    "markers": [
+      { "rsid": "rs1426654", "gene": "SLC24A5", "genotype": "AA", "direction": "lighter", "role": "primary", "note": "Dominant signal — this locus alone explains the majority of pigmentation difference between European and African populations." },
+      { "rsid": "rs16891982", "gene": "SLC45A2", "genotype": "GG", "direction": "darker", "role": "secondary", "note": "Ancestral allele — partially counteracts SLC24A5's lightening effect." },
+      { "rsid": "rs1042602", "gene": "TYR", "genotype": "AC", "direction": "lighter", "role": "modifier", "note": "Reduces melanin output further — adds freckling tendency and UV sensitivity." },
+      { "rsid": "rs1393350", "gene": "TYR", "genotype": "AG", "direction": "intermediate", "role": "modifier", "note": "Intermediate tanning ability." }
+    ],
+    "supporting": [
+      "rs1426654 AA: SLC24A5 derived allele \u2014 strongest single-locus lighter skin signal",
+      "rs16891982 GG: SLC45A2 ancestral \u2014 darker skin signal (counteracts SLC24A5)",
+      "rs1042602 AC: TYR moderate melanin reduction \u2014 moderate UV sensitivity",
+      "rs1393350 AG: TYR intermediate tanning ability"
+    ]
+  },
+  "hair_loss": {
+    "trait": "Hair Loss",
+    "prediction": "Low genetic hair loss risk",
+    "confidence": null,
+    "snps_used": 3,
+    "total_snps": 6,
+    "narrative": "Low genetic hair loss risk. GWAS: 1 elevated loci, PGS +2.8. Male pattern baldness is ~80% heritable \u2014 one of the most genetically determined traits in the report. The X-linked AR/EDA2R locus is inherited from your mother. 3 SNPs combined.",
+    "markers": [
+      { "rsid": "rs2497938", "gene": "AR/EDA2R", "genotype": "CC", "direction": "no risk allele", "role": "rule_out", "note": "No risk allele present at this X-linked locus." },
+      { "rsid": "rs2180439", "gene": "AR/EDA2R", "genotype": "CC", "direction": "no risk allele", "role": "rule_out", "note": "No risk allele present at this X-linked locus." },
+      { "rsid": "rs6497540", "gene": "AR", "genotype": "TT", "direction": "no risk allele", "role": "rule_out", "note": "No risk allele present." }
+    ],
+    "supporting": [
+      "rs2497938 (AR/EDA2R): CC \u2014 no risk allele",
+      "rs2180439 (AR/EDA2R): CC \u2014 no risk allele",
+      "rs6497540 (AR): TT \u2014 no risk allele"
+    ],
+    "icon": "\ud83d\udc88"
+  },
+  "height": {
+    "trait": "Height",
+    "prediction": "Strong above-average height signal",
+    "confidence": null,
+    "snps_used": 3,
+    "total_snps": 4,
+    "narrative": "Strong above-average height signal. GWAS PGS +401.1 from 29 elevated loci. Height is ~80% heritable in well-nourished populations. The GWAS polygenic score of +401 is the second highest in your profile, consistently pointing toward above-average stature. Realised height depends substantially on childhood nutrition and health. 3 curated SNPs combined.",
+    "supporting": [
+      "rs1042725 (HMGA2): TT \u2014 HMGA2 TT \u2014 taller-associated allele, ~0.4 cm per T allele",
+      "rs143384 (GDF5): AG \u2014 GDF5 secondary variant \u2014 bone and cartilage development"
+    ],
+    "markers": [
+      { "rsid": "rs1042725", "gene": "HMGA2", "genotype": "TT", "direction": "taller", "role": "primary", "note": "Taller-associated allele, ~0.4 cm per T allele — one of the few markers in this report with a quantified per-allele effect size." },
+      { "rsid": "rs143384", "gene": "GDF5", "genotype": "AG", "direction": "neutral", "role": "secondary", "note": "Secondary variant — bone and cartilage development, no stated height direction." }
+    ],
+    "icon": "\ud83d\udccf"
+},
+  "intelligence": {
+    "trait": "Cognitive Profile",
+    "prediction": "Warrior cognitive profile (COMT Val/Val)",
+    "confidence": null,
+    "snps_used": 2,
+    "total_snps": 4,
+    "gwas_based": true,
+    "pgs_score": 1064.5,
+    "gwas_elevated": 8,
+    "narrative": "Warrior cognitive profile (COMT Val/Val). GWAS PGS +1064.5 from 8 elevated loci. COMT GG (Val/Val) \u2014 Warrior profile: higher dopamine breakdown in PFC, better executive function under load and stress.BDNF CT heterozygous \u2014 partial reduction in activity-dependent BDNF; sleep and aerobic exercise are particularly important for memory consolidation. Intelligence GWAS PGS is the highest in your profile at +1064, though this includes educational attainment and Alzheimer pleiotropic signals. 2 curated SNPs combined.",
+    "supporting": [
+      "rs4680 (COMT): GG \u2014 COMT Met allele \u2014 higher prefrontal dopamine; better baseline performance but stress vulnerable",
+      "rs6265 (BDNF): CT \u2014 BDNF Val66Met T \u2014 reduced activity-dependent BDNF; affects memory consolidation and stress resilience"
+    ],
+    "icon": "\ud83e\udde0"
+  },
+  "mthfr": {
+    "trait": "MTHFR / B-Vitamin Metabolism",
+    "prediction": "Moderate folate metabolism signal",
+    "confidence": null,
+    "snps_used": 5,
+    "total_snps": 5,
+    "narrative": "Moderate folate metabolism signal. You carry both MTHFR C677T (GA heterozygous) and MTHFR A1298C (GT heterozygous) \u2014 compound heterozygosity that reduces MTHFR enzyme activity by approximately 50-60%. This impairs conversion of dietary folate to active 5-methylTHF and slows homocysteine clearance. Practical action: supplement with methylfolate (5-MTHF) rather than folic acid, and methylcobalamin rather than cyanocobalamin. Test homocysteine, folate, and B12 blood levels to confirm metabolic status. 5 SNPs combined.",
+    "supporting": [
+      "rs1801133 (MTHFR): AG \u2014 MTHFR C677T \u2014 reduces MTHFR enzyme activity ~35% (het) / ~70% (hom); impairs folate conversion and homocysteine clearance",
+      "rs1801131 (MTHFR): GT \u2014 MTHFR A1298C \u2014 regulatory domain variant; combined with C677T (compound het) reduces activity ~50-60%",
+      "rs2236225 (MTHFD1): AG \u2014 MTHFD1 \u2014 feeds into folate one-carbon cycle; AG adds modest strain",
+      "rs1805087 (MTR): AA \u2014 MTR A2756G \u2014 methionine synthase; AA is wild-type (no impairment)",
+      "rs1801394 (MTRR): GG \u2014 MTRR A66G \u2014 B12 recycling enzyme; GG is wild-type (no impairment)"
+    ],
+    "icon": "\ud83e\uddec"
+  },
+  "cholesterol": {
+    "trait": "Cholesterol / LDL",
+    "prediction": "Moderately elevated LDL tendency",
+    "confidence": null,
+    "apoe_status": "APOE status: rs429358 not on chip \u2014 partial APOE data only",
+    "ldl_risk_score": 3.0,
+    "ldl_prot_score": 0.0,
+    "net_score": 3.0,
+    "snps_used": 7,
+    "total_snps": 8,
+    "narrative": "Moderately elevated LDL tendency. APOE status: APOE status: rs429358 not on chip \u2014 partial APOE data only. rs7412 CC \u2014 \u03b52 signal, protective for LDL (lowers risk). PCSK9 and SORT1 variants show modest LDL-raising tendency. LPA rs10455872 AA \u2014 non-risk genotype at this locus (G is the risk allele). Diet and exercise are likely sufficient; monitor annually. 7 SNPs combined.",
+    "supporting": [
+      "rs7412 (APOE): CC \u2014 no risk allele present",
+      "rs11591147 (PCSK9): GG \u2014 no protective allele present",
+      "rs629301 (SORT1/CELSR2): TT \u2014 SORT1/CELSR2 T allele \u2014 associated with higher LDL cholesterol [risk allele copies: 2]",
+      "rs10455872 (LPA): AA \u2014 no risk allele present",
+      "rs445925 (LPA): GG \u2014 no risk allele present",
+      "rs7528419 (SORT1): AA \u2014 no risk allele present",
+      "rs13306194 (APOB): GG \u2014 no risk allele present"
+    ]
+  },
+  "t2d": {
+    "trait": "Type 2 Diabetes",
+    "prediction": "Elevated T2D risk",
+    "confidence": null,
+    "risk_score": 18.4,
+    "prot_score": 0.4,
+    "gwas_pgs": 116.8269,
+    "gwas_elevated": 26,
+    "snps_used": 12,
+    "total_snps": 12,
+    "narrative": "Elevated T2D risk. GWAS polygenic score is +116.8 (above average across 26 elevated loci). Note: rs1631619 GG (OR 5.0) is a population-specific finding from a Korean cohort and may inflate the PGS for non-Korean ancestries. Genotype pattern: 4 loci homozygous risk, 7 heterozygous (one risk copy). Heterozygosity at TCF7L2, KCNJ11, FTO and others indicates moderate rather than severe genetic loading \u2014 you carry one risk copy at most major loci, not two. Important: T2D is 40\u201370% heritable but lifestyle factors (weight, diet, exercise) interact strongly \u2014 genetic risk is not destiny. 12 SNPs combined.",
+    "supporting": [
+      "rs7903146 (TCF7L2): CT \u2014 TCF7L2 T allele \u2014 strongest common T2D variant; impairs beta-cell function via Wnt signalling. TC = one risk copy (OR ~1.4).",
+      "rs1801282 (PPARG): CC \u2014 PPARG Pro12 (C allele) \u2014 absence of the protective Ala12 variant. CC = no protection from this locus.",
+      "rs5219 (KCNJ11): CT \u2014 KCNJ11 E23K T allele \u2014 affects ATP-sensitive potassium channel in beta cells; impairs insulin secretion. CT = one risk copy.",
+      "rs13266634 (SLC30A8): CT \u2014 SLC30A8 C allele \u2014 zinc transporter variant affecting beta-cell insulin processing. TC = one risk copy.",
+      "rs10811661 (CDKN2A/B): CT \u2014 CDKN2A/B T allele \u2014 affects beta-cell proliferation and mass. CT = one risk copy.",
+      "rs1111875 (HHEX): CT \u2014 HHEX/IDE C allele \u2014 affects insulin secretion pathway. TC = one risk copy.",
+      "rs4402960 (IGF2BP2): GT \u2014 IGF2BP2 T allele \u2014 RNA-binding protein affecting insulin signalling. GT = one risk copy.",
+      "rs8050136 (FTO): AC \u2014 FTO A allele \u2014 obesity/energy balance gene, indirect T2D risk via BMI pathway. CA = one risk copy.",
+      "rs76895963 (CCND2-AS1): TT \u2014 CCND2-AS1 T allele \u2014 TT homozygous in your data; OR 2.84 for T2D in published GWAS. Strong signal.",
+      "rs1631619 (LINC02630): GG \u2014 LINC02630 G allele \u2014 GG homozygous; OR 5.0 in Korean cohort GWAS. Note: high OR may reflect population-specific effect.",
+      "rs10741243 (TCERG1L): GG \u2014 TCERG1L G allele \u2014 GG homozygous; OR 1.75, 95% CI [1.38\u20132.23]. Intron variant with replicated T2D association."
+    ]
+  },
+  "alzheimer": {
+    "trait": "Alzheimer's Disease",
+    "prediction": "Average Alzheimer risk",
+    "confidence": null,
+    "snps_used": 6,
+    "total_snps": 8,
+    "gwas_based": true,
+    "pgs_score": 171.6,
+    "gwas_elevated": 50,
+    "narrative": "Average Alzheimer risk. APOE status: \u03b52/\u03b52 or \u03b52/\u03b53 \u2014 very low Alzheimer risk (rs429358 not on chip). GWAS: 50 elevated loci, PGS +171.6. APOE genotype is by far the strongest genetic factor \u2014 it alone accounts for ~50% of genetic Alzheimer risk. Other loci (CLU, BIN1, CR1, PICALM) each contribute modestly. Lifestyle factors (cardiovascular health, cognitive engagement, sleep) meaningfully modify genetic risk. 6 SNPs combined.",
+    "supporting": [
+      "rs9331888 (CLU): CC \u2014 CLU secondary variant \u2014 modest Alzheimer's risk association."
+    ],
+    "icon": "\ud83e\udde0"
+  },
+  "cad": {
+    "trait": "Coronary Artery Disease",
+    "prediction": "Elevated CAD risk",
+    "confidence": null,
+    "snps_used": 7,
+    "total_snps": 7,
+    "gwas_based": true,
+    "pgs_score": 111.0,
+    "gwas_elevated": 25,
+    "narrative": "Elevated CAD risk. GWAS: 25 elevated loci, PGS +111.0. The 9p21 locus (CDKN2B-AS1) is the strongest common CAD variant \u2014 it acts independently of LDL. Standard cardiovascular risk factors (blood pressure, smoking, diabetes, LDL) interact multiplicatively with genetic risk. Statins and lifestyle modification are effective regardless of genotype. 7 SNPs combined.",
+    "supporting": [
+      "rs4977574 (CDKN2B-AS1): AG \u2014 9p21 locus \u2014 strongest replicated CAD SNP; G allele OR ~1.3.",
+      "rs1333049 (CDKN2B-AS1): CG \u2014 9p21 secondary variant \u2014 additive with rs4977574.",
+      "rs646776 (CELSR2): TT \u2014 CELSR2/SORT1 \u2014 LDL pathway, raises CAD risk.",
+      "rs1122608 (LDLR): GG \u2014 LDLR region \u2014 LDL receptor pathway.",
+      "rs9818870 (MRAS): CT \u2014 MRAS secondary variant.",
+      "rs264 (LPL): GG \u2014 PROTECTIVE: LPL G allele \u2014 lipoprotein lipase, higher activity, protective."
+    ],
+    "icon": "\u2764\ufe0f"
+},
+  "bmi": {
+    "trait": "BMI / Obesity Tendency",
+    "prediction": "Moderate genetic BMI tendency",
+    "confidence": null,
+    "snps_used": 7,
+    "total_snps": 7,
+    "gwas_based": true,
+    "pgs_score": 492.4,
+    "gwas_elevated": 48,
+    "narrative": "Moderate genetic BMI tendency. GWAS: 48 elevated loci, PGS +492.4. FTO and MC4R are the strongest common BMI loci. Importantly, BMI genetic effects are highly modifiable by physical activity \u2014 FTO risk allele carriers who exercise regularly show substantially attenuated obesity risk (Kilpel\u00e4inen et al. 2011). Genetic BMI tendency is not fixed destiny. 7 SNPs combined.",
+    "supporting": [
+      "rs9939609 (FTO): AT \u2014 FTO A allele \u2014 strongest common obesity SNP; each A adds ~0.4 kg/m\u00b2.",
+      "rs17817449 (FTO): GT \u2014 FTO secondary variant \u2014 additive obesity risk.",
+      "rs2815752 (NEGR1): AG \u2014 PROTECTIVE: NEGR1 A allele \u2014 neuronal growth regulator; protective for BMI.",
+      "rs10938397 (GNPDA2): AG \u2014 GNPDA2 G allele \u2014 modest BMI increase association."
+    ],
+    "icon": "\u2696\ufe0f"
+  },
+  "triglycerides": {
+    "trait": "Triglycerides",
+    "prediction": "Moderate triglyceride tendency",
+    "confidence": null,
+    "snps_used": 6,
+    "total_snps": 6,
+    "gwas_based": true,
+    "pgs_score": 113.8,
+    "gwas_elevated": 57,
+    "narrative": "Moderate triglyceride tendency. GWAS: 57 elevated loci, PGS +113.8. APOA5 and LPL are the dominant loci. Dietary carbohydrate and alcohol intake interact strongly with genetic triglyceride risk \u2014 omega-3 supplementation and low-carbohydrate diets are particularly effective in carriers of APOA5 risk alleles. 6 SNPs combined.",
+    "supporting": [
+      "rs662799 (APOA5): AG \u2014 APOA5 G allele \u2014 major triglyceride-raising variant; OR ~1.8 per allele.",
+      "rs328 (LPL): CC \u2014 PROTECTIVE: LPL S447X C allele \u2014 gain-of-function, substantially lowers triglycerides.",
+      "rs2266788 (APOC3): AG \u2014 APOC3 promoter variant \u2014 increased APOC3 expression.",
+      "rs10830963 (MTNR1B): CG \u2014 MTNR1B G allele \u2014 melatonin receptor; affects fasting triglycerides."
+    ],
+    "icon": "\ud83e\uddea"
+},
+  "depression": {
+    "trait": "Depression",
+    "prediction": "Elevated depression genetic signal",
+    "confidence": null,
+    "snps_used": 6,
+    "total_snps": 6,
+    "gwas_based": true,
+    "pgs_score": 71.8,
+    "gwas_elevated": 32,
+    "narrative": "Elevated depression genetic signal. GWAS: 32 elevated loci, PGS +71.8. Depression heritability is ~35\u201340%; most genetic variance is polygenic with very small individual effects. BDNF Val66Met and COMT Val158Met are the best-studied candidates \u2014 but effect sizes are modest and gene-environment interaction (stress, trauma, social support) dominates. Genetic risk for depression is not predictive at the individual level. 6 SNPs combined.",
+    "supporting": [
+      "rs1545843 (NEGR1): AG \u2014 NEGR1 \u2014 neuronal growth; first replicated MDD GWAS hit.",
+      "rs10514299 (TMEM161B): TT \u2014 TMEM161B \u2014 neuronal function; MDD association.",
+      "rs6265 (BDNF): CT \u2014 BDNF Val66Met T allele \u2014 reduced BDNF secretion; associated with depression vulnerability and stress response."
+    ],
+    "icon": "\ud83e\udde9"
+  },
+  "longevity": {
+    "trait": "Longevity",
+    "prediction": "Moderate longevity signals",
+    "confidence": null,
+    "snps_used": 3,
+    "total_snps": 7,
+    "narrative": "Moderate longevity signals. GWAS: 18 longevity loci, PGS +62.4. APOE and FOXO3 are the two most replicated longevity loci. FOXO3 G allele (if present) is associated with exceptional longevity across Japanese, American, Danish and other cohorts \u2014 it's the most robust non-APOE longevity signal known. CETP variants that raise HDL are also overrepresented in centenarians. Lifestyle (exercise, diet, sleep, not smoking) remains the dominant modifiable longevity factor. 3 SNPs combined.",
+    "supporting": [
+      "rs3764814 (CETP): CT \u2014 \u2713 CETP C allele \u2014 higher HDL cholesterol; associated with longevity in centenarian studies.",
+      "rs5882 (CETP): AG \u2014 \u2713 CETP Val405Ile \u2014 associated with higher HDL and longevity."
+    ],
+    "icon": "\u23f3"
+  },
+  "adhd": {
+    "trait": "Adhd",
+    "prediction": "Mild genetic signal",
+    "confidence": null,
+    "snps_used": 2,
+    "total_snps": 141,
+    "pgs_score": 10.3787,
+    "narrative": "Mild genetic signal for Adhd. GWAS polygenic score is +10.4 (above average); 2 loci show elevated risk allele dosage out of 141 genotyped. ADHD heritability ~70\u201380%; highly polygenic.",
+    "supporting": [
+      "rs1521365 (MSR1 - RN7SL474P): TT \u2014 elevated (OR 41.30)",
+      "rs72796654 (MIR3924 - MRPS35P3): AC \u2014 moderately elevated (OR 3.16)"
+    ],
+    "icon": "\ud83e\udde0",
+    "gwas_based": true
+  },
+  "autism": {
+    "trait": "Autism",
+    "prediction": "Mild genetic signal",
+    "confidence": null,
+    "snps_used": 4,
+    "total_snps": 42,
+    "pgs_score": 8.1999,
+    "narrative": "Mild genetic signal for Autism. GWAS polygenic score is +8.2 (above average); 4 loci show elevated risk allele dosage out of 42 genotyped. Autism heritability ~80%; de novo variants play a major role.",
+    "supporting": [
+      "rs888096 (QPCT - CDC42EP3-AS1): GG \u2014 elevated (OR 3.02)",
+      "rs1545620 (MYO9B): TT \u2014 elevated (OR 2.87)",
+      "rs28703878 (PKIA-AS1): GA \u2014 moderately elevated (OR 3.40)",
+      "rs9854207 (Y_RNA - RPS27P11): AC \u2014 moderately elevated (OR 3.00)"
+    ],
+    "icon": "\ud83e\udde9",
+    "gwas_based": true
+  },
+  "bipolar_disorder": {
+    "trait": "Bipolar Disorder",
+    "prediction": "Moderate genetic signal",
+    "confidence": null,
+    "snps_used": 7,
+    "total_snps": 190,
+    "pgs_score": 16.6821,
+    "narrative": "Moderate genetic signal for Bipolar Disorder. GWAS polygenic score is +16.7 (above average); 7 loci show elevated risk allele dosage out of 190 genotyped. Bipolar disorder heritability ~70\u201380%; shares genetic overlap with schizophrenia.",
+    "supporting": [
+      "rs7833426 (GFRA2): AA \u2014 elevated (OR 3.66)",
+      "rs6122972 (PARD6B - BCAS4): AA \u2014 elevated (OR 2.02)",
+      "rs420259 (PALB2-AS1): GA \u2014 moderately elevated (OR 2.08)",
+      "rs10858583 (RPL23AP68 - CYCSP30): TC \u2014 moderately elevated (OR 1.84)",
+      "rs1125777 (NFIA; NFIA): CT \u2014 moderately elevated (OR 2.34)",
+      "rs1990042 (PURB - MYO1G): CC \u2014 moderately elevated (OR 1.41)",
+      "rs17079247 (LINC00375): TC \u2014 moderately elevated (OR 1.75)"
+    ],
+    "icon": "\ud83d\udd04",
+    "gwas_based": true
+  },
+  "schizophrenia": {
+    "trait": "Schizophrenia",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 29,
+    "total_snps": 965,
+    "pgs_score": 125.1804,
+    "narrative": "Elevated genetic signal for Schizophrenia. GWAS polygenic score is +125.2 (above average); 29 loci show elevated risk allele dosage out of 965 genotyped. Schizophrenia heritability ~80%; major MHC/HLA component.",
+    "supporting": [
+      "rs117752187 (MIR100HG): GG \u2014 elevated (OR 8.00)",
+      "rs9291547 (PCDH7): AA \u2014 elevated (OR 3.18)",
+      "rs16921385 (SLC1A1): AA \u2014 elevated (OR 6.80)",
+      "rs117673608 (PRKN): GG \u2014 elevated (OR 26.32)",
+      "rs117673608 (PRKN): GG \u2014 elevated (OR 6.96)",
+      "rs78309295 (TRIB1AL): AA \u2014 elevated (OR 6.59)",
+      "rs5020196 (RBFOX1 - LINC02152): CC \u2014 elevated (OR 2.56)",
+      "rs7116879 (DKK3): TT \u2014 elevated (OR 14.70)"
+    ],
+    "icon": "\ud83e\uddec",
+    "gwas_based": true
+  },
+  "asthma": {
+    "trait": "Asthma",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 14,
+    "total_snps": 588,
+    "pgs_score": 40.3543,
+    "narrative": "Elevated genetic signal for Asthma. GWAS polygenic score is +40.4 (above average); 14 loci show elevated risk allele dosage out of 588 genotyped. Asthma heritability ~60\u201380%; strong gene-environment (allergen) interaction.",
+    "supporting": [
+      "rs7588010 (TACR1 - GAPDHP57): AA \u2014 elevated (OR 2.72)",
+      "rs1425902 (NPBWR1 - OPRK1): GG \u2014 elevated (OR 2.14)",
+      "rs11121611 (ACOT7): TT \u2014 elevated (OR 1.82)",
+      "rs146597587 (IL33): GG \u2014 moderately elevated (OR 1.45)",
+      "rs3771175 (IL18R1): TT \u2014 moderately elevated (OR 1.73)",
+      "rs61894547 (EMSY): TC \u2014 moderately elevated (OR 2.23)",
+      "rs12365699 (Y_RNA - CXCR5): GG \u2014 moderately elevated (OR 1.40)",
+      "rs10189629 (CFAP144P2 - IL1RL1): CC \u2014 moderately elevated (OR 1.40)"
+    ],
+    "icon": "\ud83e\udec1",
+    "gwas_based": true
+  },
+  "atrial_fibrillation": {
+    "trait": "Atrial Fibrillation",
+    "prediction": "Low genetic signal",
+    "confidence": null,
+    "snps_used": 1,
+    "total_snps": 141,
+    "pgs_score": 13.0951,
+    "narrative": "Low genetic signal for Atrial Fibrillation. GWAS polygenic score is +13.1 (above average); 1 loci show elevated risk allele dosage out of 141 genotyped. AF heritability ~20\u201330%; PITX2 locus is the strongest signal.",
+    "supporting": [
+      "rs2903492 (LINC01875 - TMEM18): AG \u2014 moderately elevated (OR 7.25)"
+    ],
+    "icon": "\ud83d\udc93",
+    "gwas_based": true
+  },
+  "breast_cancer": {
+    "trait": "Breast Cancer",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 18,
+    "total_snps": 806,
+    "pgs_score": 80.8627,
+    "narrative": "Elevated genetic signal for Breast Cancer. GWAS polygenic score is +80.9 (above average); 18 loci show elevated risk allele dosage out of 806 genotyped. BRCA1/2 are high-penetrance but rare; common variants each contribute modestly.",
+    "supporting": [
+      "rs3844412 (MPHOSPH6-DT - CDH13): AA \u2014 elevated (OR 5.22)",
+      "rs637644 (LINC01924 - LINC01916): GG \u2014 elevated (OR 32.50)",
+      "rs73095511 (LINC00877 - RYBP): TT \u2014 elevated (OR 2.82)",
+      "rs140068132 (CCDC170 - ESR1): AA \u2014 moderately elevated (OR 1.67)",
+      "rs56113850 (CYP2A6): TC \u2014 moderately elevated (OR 4693.72)",
+      "rs9383938 (ESR1): GG \u2014 moderately elevated (OR 1.47)",
+      "rs10509373 (LRMDA): CT \u2014 moderately elevated (OR 4.51)",
+      "rs78378222 (TP53): TT \u2014 moderately elevated (OR 1.45)"
+    ],
+    "icon": "\ud83c\udf97\ufe0f",
+    "gwas_based": true
+  },
+  "prostate_cancer": {
+    "trait": "Prostate Cancer",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 12,
+    "total_snps": 722,
+    "pgs_score": 61.1752,
+    "narrative": "Elevated genetic signal for Prostate Cancer. GWAS polygenic score is +61.2 (above average); 12 loci show elevated risk allele dosage out of 722 genotyped. Prostate cancer is ~57% heritable; 8q24 locus is the strongest common signal.",
+    "supporting": [
+      "rs17632542 (KLK3): TT \u2014 elevated (OR 1.85)",
+      "rs62113212 (KLK3): CC \u2014 moderately elevated (OR 1.36)",
+      "rs62113212 (KLK3): CC \u2014 moderately elevated (OR 1.36)",
+      "rs138213197 (HOXB13): CC \u2014 moderately elevated (OR 1.41)",
+      "rs138213197 (HOXB13): CC \u2014 moderately elevated (OR 1.38)",
+      "rs138213197 (HOXB13): CC \u2014 moderately elevated (OR 1.43)",
+      "rs138213197 (HOXB13): CC \u2014 moderately elevated (OR 1.43)",
+      "rs1456315 (PCAT1): CT \u2014 moderately elevated (OR 1.79)"
+    ],
+    "icon": "\ud83e\ude7a",
+    "gwas_based": true
+  },
+  "colorectal_cancer": {
+    "trait": "Colorectal Cancer",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 10,
+    "total_snps": 518,
+    "pgs_score": 55.0896,
+    "narrative": "Elevated genetic signal for Colorectal Cancer. GWAS polygenic score is +55.1 (above average); 10 loci show elevated risk allele dosage out of 518 genotyped. CRC heritability ~35%; lifestyle (fibre, red meat, exercise) modifies genetic risk.",
+    "supporting": [
+      "rs885036 (MGAT4A): AA \u2014 elevated (OR 2.13)",
+      "rs4837345 (PTPA - IER5L): TT \u2014 elevated (OR 4.72)",
+      "rs716897 (RASGRF2): TT \u2014 elevated (OR 3.70)",
+      "rs5749032 (CECR3 - CECR9): GA \u2014 moderately elevated (OR 9.55)",
+      "rs10920654 (BRINP3): TC \u2014 moderately elevated (OR 76.85)",
+      "rs78144988 (LINC01709): CT \u2014 moderately elevated (OR 54.90)",
+      "rs9481067 (SLC22A16): AG \u2014 moderately elevated (OR 4.17)",
+      "rs7314811 (ETV6): CT \u2014 moderately elevated (OR 5.97)"
+    ],
+    "icon": "\ud83e\ude7a",
+    "gwas_based": true
+  },
+  "melanoma": {
+    "trait": "Melanoma",
+    "prediction": "Moderate genetic signal",
+    "confidence": null,
+    "snps_used": 6,
+    "total_snps": 162,
+    "pgs_score": 14.0555,
+    "narrative": "Moderate genetic signal for Melanoma. GWAS polygenic score is +14.1 (above average); 6 loci show elevated risk allele dosage out of 162 genotyped. Melanoma heritability ~50%; MC1R variants and UV exposure interact strongly. Skin protection is highly effective.",
+    "supporting": [
+      "rs16891982 (SLC45A2): GG \u2014 elevated (OR 2.07)",
+      "rs35407 (SLC45A2): GG \u2014 elevated (OR 2.08)",
+      "rs35407 (SLC45A2): GG \u2014 elevated (OR 2.08)",
+      "rs11692707 (ARL6IP6 - UBQLN4P2): AA \u2014 elevated (OR 2.05)",
+      "rs12203592 (IRF4): CT \u2014 moderately elevated (OR 1.76)",
+      "rs78378222 (TP53): TT \u2014 moderately elevated (OR 1.45)"
+    ],
+    "icon": "\u2600\ufe0f",
+    "gwas_based": true
+  },
+  "lung_cancer": {
+    "trait": "Lung Cancer",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 13,
+    "total_snps": 208,
+    "pgs_score": 31.6025,
+    "narrative": "Elevated genetic signal for Lung Cancer. GWAS polygenic score is +31.6 (above average); 13 loci show elevated risk allele dosage out of 208 genotyped. Lung cancer genetic risk is dominated by smoking \u2014 genetic variants modify but do not replace smoking as the primary risk factor.",
+    "supporting": [
+      "rs17879961 (CHEK2): AA \u2014 elevated (OR 2.59)",
+      "rs17879961 (CHEK2): AA \u2014 elevated (OR 2.63)",
+      "rs10023113 (CAMK2D): AA \u2014 elevated (OR 2.30)",
+      "rs11571818 (BRCA2): TT \u2014 moderately elevated (OR 1.59)",
+      "rs17879961 (CHEK2): AA \u2014 moderately elevated (OR 1.54)",
+      "rs17879961 (CHEK2): AA \u2014 moderately elevated (OR 1.67)",
+      "rs17879961 (CHEK2): AA \u2014 moderately elevated (OR 1.62)",
+      "rs716274 (DYNC2H1 - PDGFDDN): AG \u2014 moderately elevated (OR 1.83)"
+    ],
+    "icon": "\ud83e\udec1",
+    "gwas_based": true
+  },
+  "stroke": {
+    "trait": "Stroke",
+    "prediction": "Moderate genetic signal",
+    "confidence": null,
+    "snps_used": 9,
+    "total_snps": 206,
+    "pgs_score": 31.4084,
+    "narrative": "Moderate genetic signal for Stroke. GWAS polygenic score is +31.4 (above average); 9 loci show elevated risk allele dosage out of 206 genotyped. Stroke heritability ~40%; many variants overlap with CAD and AF. Blood pressure control is the most effective intervention.",
+    "supporting": [
+      "rs883079 (TBX5): TT \u2014 elevated (OR 10.96)",
+      "rs188378669 (CXCL8): GG \u2014 elevated (OR 14.29)",
+      "rs192210727 (ADGRL3): GG \u2014 elevated (OR 14.29)",
+      "rs146092501 (COL6A3): CC \u2014 elevated (OR 12.50)",
+      "rs12908004 (ARNT2-DT): AG \u2014 moderately elevated (OR 7.35)",
+      "rs6598541 (IGF1R): GA \u2014 moderately elevated (OR 5.81)",
+      "rs114019667 (RPL21P41 - KBTBD8): TG \u2014 moderately elevated (OR 1.89)",
+      "rs6808554 (GRM7): TC \u2014 moderately elevated (OR 2.31)"
+    ],
+    "icon": "\ud83e\udde0",
+    "gwas_based": true
+  },
+  "heart_failure": {
+    "trait": "Heart Failure",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 22,
+    "total_snps": 49,
+    "pgs_score": 61.4422,
+    "narrative": "Elevated genetic signal for Heart Failure. GWAS polygenic score is +61.4 (above average); 22 loci show elevated risk allele dosage out of 49 genotyped. Heart failure is largely downstream of CAD, hypertension, and diabetes \u2014 primary prevention of those conditions is key.",
+    "supporting": [
+      "rs12740374 (CELSR2): GG \u2014 elevated (OR 10.41)",
+      "rs6511720 (LDLR): GG \u2014 elevated (OR 8.90)",
+      "rs11773845 (CAV1): AA \u2014 elevated (OR 8.00)",
+      "rs11773845 (CAV1): AA \u2014 elevated (OR 7.69)",
+      "rs6511720 (LDLR): GG \u2014 elevated (OR 7.57)",
+      "rs577676 (GORAB - PRRX1): CC \u2014 elevated (OR 7.18)",
+      "rs7412 (APOE): CC \u2014 elevated (OR 6.94)",
+      "rs11591147 (PCSK9): GG \u2014 elevated (OR 6.93)"
+    ],
+    "icon": "\u2764\ufe0f",
+    "gwas_based": true
+  },
+  "parkinson": {
+    "trait": "Parkinson",
+    "prediction": "Moderate genetic signal",
+    "confidence": null,
+    "snps_used": 9,
+    "total_snps": 180,
+    "pgs_score": 27.8891,
+    "narrative": "Moderate genetic signal for Parkinson. GWAS polygenic score is +27.9 (above average); 9 loci show elevated risk allele dosage out of 180 genotyped. Parkinson's heritability ~27%; LRRK2 and SNCA are major monogenic loci.",
+    "supporting": [
+      "rs117672332 (P2RX5 - ITGAE): TT \u2014 elevated (OR 7.69)",
+      "rs16854023 (RNA5SP74 - LRRN2): TT \u2014 elevated (OR 7.52)",
+      "rs1956307 (LINC00648): TT \u2014 elevated (OR 2.01)",
+      "rs3129882 (HLA-DRA): GG \u2014 moderately elevated (OR 1.38)",
+      "rs823128 (NUCKS1): AA \u2014 moderately elevated (OR 1.52)",
+      "rs7532024 (CAMTA1): TC \u2014 moderately elevated (OR 3.31)",
+      "rs4418897 (CD69 - GCNAP1): AG \u2014 moderately elevated (OR 6.62)",
+      "rs1998049 (VSTM2L): TC \u2014 moderately elevated (OR 5.83)"
+    ],
+    "icon": "\ud83e\udde0",
+    "gwas_based": true
+  },
+  "lupus": {
+    "trait": "Lupus",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 32,
+    "total_snps": 374,
+    "pgs_score": 49.3927,
+    "narrative": "Elevated genetic signal for Lupus. GWAS polygenic score is +49.4 (above average); 32 loci show elevated risk allele dosage out of 374 genotyped. Lupus heritability ~44%; strong HLA component.",
+    "supporting": [
+      "rs7574865 (STAT4): TT \u2014 elevated (OR 1.77)",
+      "rs7582694 (STAT4): CC \u2014 elevated (OR 1.81)",
+      "rs11889341 (STAT4): TT \u2014 moderately elevated (OR 1.41)",
+      "rs11889341 (STAT4): TT \u2014 moderately elevated (OR 1.73)",
+      "rs10488631 (IRF5 - TNPO3): CT \u2014 moderately elevated (OR 1.92)",
+      "rs11889341 (STAT4): TT \u2014 moderately elevated (OR 1.68)",
+      "rs7574865 (STAT4): TT \u2014 moderately elevated (OR 1.57)",
+      "rs4728142 (IRF5): AG \u2014 moderately elevated (OR 1.76)"
+    ],
+    "icon": "\ud83d\udd34",
+    "gwas_based": true
+  },
+  "rheumatoid_arthritis": {
+    "trait": "Rheumatoid Arthritis",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 10,
+    "total_snps": 757,
+    "pgs_score": 40.394,
+    "narrative": "Elevated genetic signal for Rheumatoid Arthritis. GWAS polygenic score is +40.4 (above average); 10 loci show elevated risk allele dosage out of 757 genotyped. RA heritability ~60%; HLA-DRB1 accounts for ~30% of genetic variance.",
+    "supporting": [
+      "rs6457617 (HLA-DQB1 - MTCO3P1): TT \u2014 elevated (OR 2.36)",
+      "rs7323558 (SERTM1): TT \u2014 elevated (OR 2.31)",
+      "rs12617656 (DPP4): TT \u2014 moderately elevated (OR 1.56)",
+      "rs34536443 (TYK2): GG \u2014 moderately elevated (OR 1.46)",
+      "rs1854853 (CCR6): AA \u2014 moderately elevated (OR 1.42)",
+      "rs7624766 (SNORA72 - PPM1L-DT): GA \u2014 moderately elevated (OR 2.28)",
+      "rs4956041 (LEF1-AS1): CT \u2014 moderately elevated (OR 1.92)",
+      "rs8066891 (CDRT8): AA \u2014 moderately elevated (OR 1.72)"
+    ],
+    "icon": "\ud83e\uddb4",
+    "gwas_based": true
+  },
+  "inflammatory_bowel": {
+    "trait": "Inflammatory Bowel",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 18,
+    "total_snps": 851,
+    "pgs_score": 56.6067,
+    "narrative": "Elevated genetic signal for Inflammatory Bowel. GWAS polygenic score is +56.6 (above average); 18 loci show elevated risk allele dosage out of 851 genotyped. IBD heritability ~75% (Crohn's) / ~70% (UC); NOD2 is the strongest common risk gene.",
+    "supporting": [
+      "rs11209026 (IL23R): GG \u2014 elevated (OR 2.01)",
+      "rs116855232 (NUDT15): CC \u2014 elevated (OR 3.90)",
+      "rs2395185 (HLA-DRB9): GG \u2014 elevated (OR 1.92)",
+      "rs6935723 (MTCO3P1 - HLA-DQB3): CC \u2014 elevated (OR 2.46)",
+      "rs76418789 (C1orf141): GG \u2014 elevated (OR 1.75)",
+      "rs9268853 (HLA-DRB9): TT \u2014 moderately elevated (OR 1.40)",
+      "rs11209026 (IL23R): GG \u2014 moderately elevated (OR 1.74)",
+      "rs2395185 (HLA-DRB9): GG \u2014 moderately elevated (OR 1.49)"
+    ],
+    "icon": "\ud83d\udd25",
+    "gwas_based": true
+  },
+  "psoriasis": {
+    "trait": "Psoriasis",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 13,
+    "total_snps": 310,
+    "pgs_score": 31.9842,
+    "narrative": "Elevated genetic signal for Psoriasis. GWAS polygenic score is +32.0 (above average); 13 loci show elevated risk allele dosage out of 310 genotyped. Psoriasis heritability ~60\u201370%; HLA-C*06:02 is the major risk allele.",
+    "supporting": [
+      "rs34536443 (TYK2): GG \u2014 elevated (OR 1.88)",
+      "rs34536443 (TYK2): GG \u2014 elevated (OR 1.78)",
+      "rs7709212 (IL12B-AS1): TT \u2014 moderately elevated (OR 1.36)",
+      "rs7709212 (IL12B-AS1): TT \u2014 moderately elevated (OR 1.38)",
+      "rs2082412 (UBLCP1 - IL12B-AS1): GG \u2014 moderately elevated (OR 1.44)",
+      "rs9988642 (IL23R - RNU4ATAC4P): TT \u2014 moderately elevated (OR 1.52)",
+      "rs2546890 (IL12B-AS1): AA \u2014 moderately elevated (OR 1.54)",
+      "rs7709212 (IL12B-AS1): TT \u2014 moderately elevated (OR 1.37)"
+    ],
+    "icon": "\ud83d\udd34",
+    "gwas_based": true
+  },
+  "crohn_disease": {
+    "trait": "Crohn Disease",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 13,
+    "total_snps": 584,
+    "pgs_score": 48.6087,
+    "narrative": "Elevated genetic signal for Crohn Disease. GWAS polygenic score is +48.6 (above average); 13 loci show elevated risk allele dosage out of 584 genotyped. Crohn's heritability ~75%; NOD2 and ATG16L1 are key loci.",
+    "supporting": [
+      "rs11209026 (IL23R): GG \u2014 elevated (OR 2.66)",
+      "rs11465804 (IL23R): TT \u2014 elevated (OR 2.50)",
+      "rs6478109 (TNFSF15 - DELEC1): GG \u2014 elevated (OR 2.08)",
+      "rs11209026 (IL23R): GG \u2014 elevated (OR 2.20)",
+      "rs11209026 (IL23R): GG \u2014 elevated (OR 2.84)",
+      "rs76418789 (C1orf141): GG \u2014 elevated (OR 2.06)",
+      "rs11195128 (DUSP5-DT): TT \u2014 moderately elevated (OR 1.55)",
+      "rs9891119 (STAT3): AA \u2014 moderately elevated (OR 1.37)"
+    ],
+    "icon": "\ud83d\udd25",
+    "gwas_based": true
+  },
+  "multiple_sclerosis": {
+    "trait": "Multiple Sclerosis",
+    "prediction": "Moderate genetic signal",
+    "confidence": null,
+    "snps_used": 5,
+    "total_snps": 347,
+    "pgs_score": 28.0671,
+    "narrative": "Moderate genetic signal for Multiple Sclerosis. GWAS polygenic score is +28.1 (above average); 5 loci show elevated risk allele dosage out of 347 genotyped. MS heritability ~50%; HLA-DRB1*15:01 is the strongest risk allele.",
+    "supporting": [
+      "rs3003482 (PADI1): GG \u2014 elevated (OR 1.83)",
+      "rs3129934 (TSBP1): TC \u2014 moderately elevated (OR 2.34)",
+      "rs522308 (HLA-DRB1 - HLA-DQA1): TC \u2014 moderately elevated (OR 2.60)",
+      "rs3129934 (TSBP1): TC \u2014 moderately elevated (OR 3.30)",
+      "rs2300747 (CD58): AA \u2014 moderately elevated (OR 1.37)"
+    ],
+    "icon": "\ud83e\uddec",
+    "gwas_based": true
+  },
+  "gout": {
+    "trait": "Gout",
+    "prediction": "Moderate genetic signal",
+    "confidence": null,
+    "snps_used": 8,
+    "total_snps": 195,
+    "pgs_score": 24.2029,
+    "narrative": "Moderate genetic signal for Gout. GWAS polygenic score is +24.2 (above average); 8 loci show elevated risk allele dosage out of 195 genotyped. Gout heritability ~35\u201360%; SLC2A9 and ABCG2 are dominant uric acid loci. Dietary purine reduction and alcohol avoidance are effective interventions.",
+    "supporting": [
+      "rs671 (ALDH2): GG \u2014 elevated (OR 1.93)",
+      "rs3114020 (ABCG2): CC \u2014 elevated (OR 1.89)",
+      "rs2188380 (MYL2): TT \u2014 elevated (OR 1.75)",
+      "rs1871744 (ABCG2): TT \u2014 elevated (OR 1.81)",
+      "rs12980365 (ZNF730 - ZNF724): AA \u2014 elevated (OR 1.77)",
+      "rs12801636 (PCNX3): GG \u2014 elevated (OR 6.47)",
+      "rs13129697 (SLC2A9): GT \u2014 moderately elevated (OR 28.99)",
+      "rs200113 (MTCYBP37 - LINC02199): CT \u2014 moderately elevated (OR 28.59)"
+    ],
+    "icon": "\ud83e\uddb4",
+    "gwas_based": true
+  },
+  "bladder_cancer": {
+    "trait": "Bladder Cancer",
+    "prediction": "Mild genetic signal",
+    "confidence": null,
+    "snps_used": 3,
+    "total_snps": 73,
+    "pgs_score": 13.0177,
+    "narrative": "Mild genetic signal for Bladder Cancer. GWAS polygenic score is +13.0 (above average); 3 loci show elevated risk allele dosage out of 73 genotyped. Bladder cancer ~50% heritable for common variants; smoking is the strongest risk factor.",
+    "supporting": [
+      "rs17863783 (UGT1A8): GG \u2014 elevated (OR 1.75)",
+      "rs11543198 (CLK3): GG \u2014 moderately elevated (OR 1.41)",
+      "rs6869388 (KIAA0825): TC \u2014 moderately elevated (OR 72.70)"
+    ],
+    "icon": "\ud83e\ude7a",
+    "gwas_based": true
+  },
+  "chronic_kidney_disease": {
+    "trait": "Chronic Kidney Disease",
+    "prediction": "Moderate genetic signal",
+    "confidence": null,
+    "snps_used": 7,
+    "total_snps": 95,
+    "pgs_score": 18.5924,
+    "narrative": "Moderate genetic signal for Chronic Kidney Disease. GWAS polygenic score is +18.6 (above average); 7 loci show elevated risk allele dosage out of 95 genotyped. CKD heritability ~45%; blood pressure and diabetes control are primary interventions.",
+    "supporting": [
+      "rs6066043 (SLC13A3): GG \u2014 elevated (OR 2.13)",
+      "rs188378669 (CXCL8): GG \u2014 elevated (OR 4.35)",
+      "rs192210727 (ADGRL3): GG \u2014 elevated (OR 4.00)",
+      "rs146092501 (COL6A3): CC \u2014 elevated (OR 4.17)",
+      "rs2147896 (PYROXD2): AG \u2014 moderately elevated (OR 1.82)",
+      "rs2147896 (PYROXD2): AG \u2014 moderately elevated (OR 1.79)",
+      "rs9895232 (LINC01996): CC \u2014 moderately elevated (OR 1.62)"
+    ],
+    "icon": "\ud83e\uded8",
+    "gwas_based": true
+  },
+  "sleep_duration": {
+    "trait": "Sleep Duration",
+    "prediction": "Mild genetic signal",
+    "confidence": null,
+    "snps_used": 4,
+    "total_snps": 136,
+    "pgs_score": 7.7834,
+    "narrative": "Mild genetic signal for Sleep Duration. GWAS polygenic score is +7.8 (above average); 4 loci show elevated risk allele dosage out of 136 genotyped. Sleep duration heritability ~30\u201340%; circadian gene variants play a role.",
+    "supporting": [
+      "rs7116582 (C2CD3): GG \u2014 elevated (OR 3.08)",
+      "rs112507172 (MIR548A1HG - RPL21P61): AG \u2014 moderately elevated (OR 1.95)",
+      "rs2545432 (KCNK9): GG \u2014 moderately elevated (OR 1.65)",
+      "rs9804200 (EBF3): CT \u2014 moderately elevated (OR 8.39)"
+    ],
+    "icon": "\ud83d\ude34",
+    "gwas_based": true
+  },
+  "vitamin_d": {
+    "trait": "Vitamin D Levels",
+    "prediction": "Mild genetic signal",
+    "confidence": null,
+    "snps_used": 4,
+    "total_snps": 71,
+    "pgs_score": 11.4039,
+    "narrative": "Mild genetic signal for Vitamin D Levels. GWAS polygenic score is +11.4 (above average); 4 loci show elevated risk allele dosage out of 71 genotyped. Vitamin D levels are ~50% heritable; GC and CYP2R1 are the major loci.",
+    "supporting": [
+      "rs2282679 (GC): TT \u2014 elevated (OR 16.63)",
+      "rs2282679 (GC): TT \u2014 elevated (OR 4.90)",
+      "rs10741657 (CYP2R1 - CALCB): GA \u2014 moderately elevated (OR 2.10)",
+      "rs7041 (GC): CA \u2014 moderately elevated (OR 5.30)"
+    ],
+    "icon": "\u2600\ufe0f",
+    "gwas_based": true
+  },
+  "caffeine_metabolism": {
+    "trait": "Caffeine Metabolism",
+    "prediction": "Mild genetic signal",
+    "confidence": null,
+    "snps_used": 3,
+    "total_snps": 33,
+    "pgs_score": 5.4765,
+    "narrative": "Mild genetic signal for Caffeine Metabolism. GWAS polygenic score is +5.5 (above average); 3 loci show elevated risk allele dosage out of 33 genotyped. Caffeine metabolism is ~50% heritable; CYP1A2 is the primary enzyme gene.",
+    "supporting": [
+      "rs56113850 (CYP2A6): TC \u2014 moderately elevated (OR 9.59)",
+      "rs56113850 (CYP2A6): TC \u2014 moderately elevated (OR 5.43)",
+      "rs56113850 (CYP2A6): TC \u2014 moderately elevated (OR 4.59)"
+    ],
+    "icon": "\u2615",
+    "gwas_based": true
+  },
+  "alcohol_consumption": {
+    "trait": "Alcohol Consumption",
+    "prediction": "Elevated genetic signal",
+    "confidence": null,
+    "snps_used": 10,
+    "total_snps": 78,
+    "pgs_score": 37.7648,
+    "narrative": "Elevated genetic signal for Alcohol Consumption. GWAS polygenic score is +37.8 (above average); 10 loci show elevated risk allele dosage out of 78 genotyped. Alcohol metabolism heritability ~50%; ADH1B and ALDH2 are the dominant variants. ALDH2 variants (common in East Asians) cause alcohol flush reaction.",
+    "supporting": [
+      "rs1229984 (ADH1B): CC \u2014 elevated (OR 24.56)",
+      "rs1229984 (ADH1B): CC \u2014 elevated (OR 17.21)",
+      "rs13107325 (SLC39A8): CC \u2014 elevated (OR 11.45)",
+      "rs1260326 (GCKR): CC \u2014 elevated (OR 8.22)",
+      "rs1260326 (GCKR): CC \u2014 elevated (OR 7.39)",
+      "rs13107325 (SLC39A8): CC \u2014 elevated (OR 5.80)",
+      "rs4898641 (MIPOL1): GG \u2014 elevated (OR 4.88)",
+      "rs55872725 (FTO): CT \u2014 moderately elevated (OR 9.42)"
+    ],
+    "icon": "\ud83c\udf77",
+    "gwas_based": true
+  },
+  "pharmacogenomics": {
+    "trait": "Pharmacogenomics",
+    "prediction": "Mild genetic signal",
+    "confidence": null,
+    "snps_used": 3,
+    "total_snps": 32,
+    "pgs_score": 6.3739,
+    "narrative": "Mild genetic signal for Pharmacogenomics. GWAS polygenic score is +6.4 (above average); 3 loci show elevated risk allele dosage out of 32 genotyped. Drug metabolism varies substantially by genotype; CYP2D6, CYP2C19, and TPMT are clinically actionable.",
+    "supporting": [
+      "rs77375493 (JAK2): GG \u2014 elevated (OR 1.94)",
+      "rs749671 (ZNF646): GA \u2014 moderately elevated (OR 20.40)",
+      "rs245880 (CPVL): AG \u2014 moderately elevated (OR 4.69)"
+    ],
+    "icon": "\ud83d\udc8a",
+    "gwas_based": true
+  }
+}

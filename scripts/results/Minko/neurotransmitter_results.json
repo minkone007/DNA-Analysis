@@ -1,0 +1,15 @@
+{
+  "category": "Neurotransmitter",
+  "results": [
+    {
+      "rsid": "rs4680",
+      "name": "COMT (Dopamine Speed)",
+      "genotype": "GG",
+      "interpretation": "Warrior. Val \u2014 higher COMT enzymatic activity, lower dopamine levels; higher pain threshold, better stress resiliency.",
+      "category": "Neurotransmitter",
+      "priority": "high",
+      "pmid_count": 2,
+      "found": true
+    }
+  ]
+}
