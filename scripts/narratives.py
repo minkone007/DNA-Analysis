@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
 
+from deep_translator import GoogleTranslator
+
+def translate_to_bg(text: str) -> str:
+    """Translate English text to Bulgarian using Google Translate."""
+    if not text or not text.strip():
+        return text
+    try:
+        return GoogleTranslator(source='en', target='bg').translate(text)
+    except Exception as e:
+        print(f"Translation failed: {e}")
+        return text  # fallback to original if something goes wrong
+    
 # ─────────────────────────────────────────────────────────────────────────────
 # SECTIONS CONFIGURATION
 # ─────────────────────────────────────────────────────────────────────────────
@@ -33,6 +45,60 @@ RISK_LABELS = {
     "Typical": "Типичен"
 }
 
+SPINE_LABELS = {
+    "en": {
+        "elevated": "Elevated genetic signal",
+        "moderate": "Moderate genetic signal",
+        "favourable": "Low genetic signal",
+    },
+    "bg": {
+        "elevated": "Повишен генетичен сигнал",
+        "moderate": "Умерен генетичен сигнал",
+        "favourable": "Нисък генетичен сигнал",
+    },
+}
+
+def spine_risk_label(prediction, lang="en"):
+    pred_lower = str(prediction).lower()
+    if "elevated" in pred_lower or "повишен" in pred_lower:
+        tier = "elevated"
+    elif "low" in pred_lower or "favourable" in pred_lower or "нисък" in pred_lower or "благоприятен" in pred_lower:
+        tier = "favourable"
+    else:
+        tier = "moderate"
+    return SPINE_LABELS.get(lang, SPINE_LABELS["en"])[tier]
+
+PREDICTION_TRANSLATIONS_BG = {
+    "Likely blue-green": "Вероятно синьо-зелени",
+    "Medium to dark brown": "Средно до тъмнокафява",
+    "Medium (Type III)": "Среден (Тип III)",
+    "Low genetic hair loss risk": "Нисък генетичен риск от косопад",
+    "Strong above-average height signal": "Силно надсредно ниво на ръста",
+    "Warrior cognitive profile (COMT Val/Val)": "Когнитивен профил Войн (COMT Val/Val)",
+    "Moderate folate metabolism signal": "Умерен сигнал за метаболизъм на фолатите",
+    "Moderately elevated LDL tendency": "Умерено повишена тенденция на LDL",
+    "Elevated T2D risk": "Повишен риск от захарен диабет тип 2",
+    "Average Alzheimer risk": "Среден риск от Алцхаймер",
+    "Elevated CAD risk": "Повишен риск от коронарна болест на сърцето",
+    "Moderate genetic BMI tendency": "Умерена генетична тенденция за ИТМ",
+    "Moderate triglyceride tendency": "Умерена тенденция на триглицеридите",
+    "Elevated depression genetic signal": "Повишен генетичен сигнал за депресия",
+    "Moderate longevity signals": "Умерени сигнали за дълголетие",
+    "Mild genetic signal": "Лек генетичен сигнал",
+    "Elevated genetic signal": "Повишен генетичен сигнал",
+    "Low genetic signal": "Нисък генетичен сигнал",
+}
+
+def translate_prediction(pred, lang="en"):
+    if lang == "bg":
+        # Check direct lookup first
+        if pred in PREDICTION_TRANSLATIONS_BG:
+            return PREDICTION_TRANSLATIONS_BG[pred]
+        # Check risk labels lookup
+        if pred in RISK_LABELS:
+            return RISK_LABELS[pred]
+    return pred
+
 # ─────────────────────────────────────────────────────────────────────────────
 # HELPER & SYNTHESIS FUNCTIONS
 # ─────────────────────────────────────────────────────────────────────────────
@@ -49,9 +115,11 @@ def risk_label_bg(pred):
 def n_gwas_summary(r, trait_name):
     pred = r.get("prediction", "Standard")
     elevated = r.get("snps_used", 0)
-    pgs = r.get("pgs_score", 0.0)
+    pgs = r.get("pgs_score", r.get("gwas_pgs"))
     narrative = r.get("narrative", "")
-    
+
+    pgs_clause = f" (PGS: {pgs:+.1f} across {elevated} loci analyzed in genome-wide association studies)." if pgs is not None else "."
+
     support = r.get("supporting", [])
     if support:
         clean_support = [s.replace(" \u2192 ", " — ").replace("→", " — ").replace(" -> ", " — ") for s in support]
@@ -61,26 +129,45 @@ def n_gwas_summary(r, trait_name):
         locus_details = "Detailed locus breakdown indicates polygenic load distributed across multiple regulatory blocks."
 
     return f"""
-    <p><strong>Prediction:</strong> {pred} (PGS: {pgs:+.1f} across {elevated} loci analyzed in genome-wide association studies).</p>
+    <p><strong>Prediction:</strong> {pred}{pgs_clause}</p>
     <p>{narrative}</p>
     <p><em>{locus_details}</em></p>
     """
 
 def n_gwas_summary_bg(r, trait_name):
-    pred = r.get("prediction", "N/A")
+    pred = translate_prediction(r.get("prediction", "N/A"), "bg")
     elevated = r.get("snps_used", 0)
     pgs = r.get("pgs_score", r.get("gwas_pgs"))
-    narrative = r.get("narrative", "")
 
-    pgs_clause = f" (PGS: {pgs:+.1f} за {elevated} анализирани локуса в геномни асоциационни изследвания)." if pgs is not None else "."
+    narrative = r.get("narrative", "")
+    if narrative:
+        narrative = translate_to_bg(narrative)
+
+    pgs_clause = (
+        f" (PGS: {pgs:+.1f} за {elevated} анализирани локуса в геномни асоциационни изследвания)."
+        if pgs is not None else "."
+    )
 
     support = r.get("supporting", [])
     if support:
-        clean_support = [s.replace(" \u2192 ", " — ").replace("→", " — ").replace(" -> ", " — ") for s in support]
+        clean_support = [
+            s.replace(" \u2192 ", " — ")
+             .replace("→", " — ")
+             .replace(" -> ", " — ")
+            for s in support
+        ]
         sample_support = " ".join(clean_support[:2])
-        locus_details = f"Наблюдаваните варианти алели в {elevated} оценени локуса показват комбиниран полигенен принос. Поддържащи маркери показват локализирани ефекти: {sample_support}"
+
+        locus_details = (
+            f"Наблюдаваните варианти алели в {elevated} оценени локуса "
+            f"показват комбиниран полигенен принос. "
+            f"Поддържащи маркери показват локализирани ефекти: {sample_support}"
+        )
     else:
-        locus_details = "Подробната разбивка по локуси показва полигенно натоварване, разпределено в множество регулаторни блокове."
+        locus_details = (
+            "Подробната разбивка по локуси показва полигенно натоварване, "
+            "разпределено в множество регулаторни блокове."
+        )
 
     return f"""
     <p><strong>Прогноза:</strong> {pred}{pgs_clause}</p>
@@ -3085,6 +3172,19 @@ TRAIT_NAMES = {
 # ─────────────────────────────────────────────────────────────────────────────
 UI = {
     "en": {
+        "personal_genomics": "Personal Genomics",
+        "total_traits": "Traits Analyzed",
+        "elevated_signals": "Elevated",
+        "favourable_signals": "Favourable",
+        "generated": "Generated",
+        "overview_title": "Overview & Master Synthesis",
+        "big_picture_title": "Your Genetic Story - The Big Picture",
+        "disclaimer_sources": "Sources: GWAS Catalog, ClinVar, dbSNP, pharmacogenomic literature, polygenic risk scoring models. Genetic risk scores and predictions are statistical approximations based on current population studies and do not constitute a clinical diagnosis.",
+        "disclaimer_important": "Important: This report is for personal educational purposes only - not a medical diagnosis.",
+        "page_title": "Genetic Synthesis & Trait Report",
+        "nav_overview": "Overview",
+        "nav_synthesis": "Master Synthesis",
+        "header_subtitle": "Comprehensive Genomic Analysis & Polygenic Scores",
         "gwas_summary_label": "GWAS Summary",
         "deep_analysis_label": "Deeper Analysis",
         "pgs_label": "GWAS PGS",
@@ -3102,6 +3202,19 @@ UI = {
         },
     },
     "bg": {
+        "personal_genomics": "Персонален геномичен доклад",
+        "total_traits": "Анализирани черти",
+        "elevated_signals": "Повишени",
+        "favourable_signals": "Благоприятни",
+        "generated": "Генериран",
+        "overview_title": "Преглед и главен синтез",
+        "big_picture_title": "Вашата генетична история - голямата картина",
+        "disclaimer_sources": "Източници: GWAS Catalog, ClinVar, dbSNP, фармакогеномна литература, модели за полигенен рисков скор. Генетичните рискови резултати и предсказания са статистически приближения въз основа на текущи популационни проучвания и не представляват клинична диагноза.",
+        "disclaimer_important": "Важно: Този доклад е само за лични образователни цели - не е медицинска диагноза.",
+        "page_title": "Генетичен синтез и доклад за признаци",
+        "nav_overview": "Преглед",
+        "nav_synthesis": "Главен синтез",
+        "header_subtitle": "Цялостен геномен анализ и полигенни резултати",
         "gwas_summary_label": "GWAS Резюме",
         "deep_analysis_label": "По-задълбочен анализ",
         "pgs_label": "GWAS PGS",
@@ -3128,26 +3241,92 @@ UI = {
 # ─────────────────────────────────────────────────────────────────────────────
 def get_localized_narrative_html(key, r, lang="en"):
     ui = UI.get(lang, UI["en"])
-    trait_name = TRAIT_NAMES.get(lang, TRAIT_NAMES["en"]).get(key, r.get("trait", key.replace("_", " ").title()))
-    if lang == "bg" and key in BG:
-        summary_html = n_gwas_summary_bg(r, trait_name)
-    else:
-        summary_html = n_gwas_summary(r, trait_name)
-    gwas_html = f"""<div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">{ui['gwas_summary_label']}</div><div class="narrative-text">{summary_html}</div></div>"""
 
-    bespoke_content = ""
+    trait_name = TRAIT_NAMES.get(
+        lang,
+        TRAIT_NAMES["en"]
+    ).get(
+        key,
+        r.get("trait", key.replace("_", " ").title())
+    )
+
+    print(f"Rendering {key} ({lang})")
+
+    # -------------------------
+    # GWAS Summary
+    # -------------------------
+    try:
+        if lang == "bg" and key in BG:
+            summary_html = n_gwas_summary_bg(r, trait_name)
+        else:
+            summary_html = n_gwas_summary(r, trait_name)
+    except Exception as e:
+        print(f"GWAS SUMMARY FAILED: {key} ({lang}) -> {e}")
+        raise
+
+    gwas_html = f"""
+    <div class="narrative-unit narrative-unit--gwas">
+        <div class="narrative-kicker">{ui['gwas_summary_label']}</div>
+        <div class="narrative-text">
+            {summary_html}
+        </div>
+    </div>
+    """
+
+    # -------------------------
+    # Deep narrative
+    # -------------------------
     norm_key = key.strip().lower().replace(" ", "_")
     alt_key = key.strip().lower().replace("_", " ")
-    if lang == "bg":
-        if norm_key in BG: bespoke_content = BG[norm_key](r)
-        elif alt_key in BG: bespoke_content = BG[alt_key](r)
-        elif norm_key in BESPOKE: bespoke_content = BESPOKE[norm_key](r)
-        else: bespoke_content = f"<p>{r.get('narrative', ui['no_deep_analysis'])}</p>"
-    else:
-        if norm_key in BESPOKE: bespoke_content = BESPOKE[norm_key](r)
-        elif alt_key in BESPOKE: bespoke_content = BESPOKE[alt_key](r)
-        else: bespoke_content = f"<p>{r.get('narrative', ui['no_deep_analysis'])}</p>"
-    deep_html = f"""<div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">{ui['deep_analysis_label']}</div><div class="narrative-text">{bespoke_content}</div></div>"""
+
+    try:
+        if lang == "bg":
+            if norm_key in BG:
+                print(f"Using BG narrative: {norm_key}")
+                bespoke_content = BG[norm_key](r)
+
+            elif alt_key in BG:
+                print(f"Using BG narrative: {alt_key}")
+                bespoke_content = BG[alt_key](r)
+
+            elif norm_key in BESPOKE:
+                print(f"Using EN fallback: {norm_key}")
+                bespoke_content = BESPOKE[norm_key](r)
+
+            elif alt_key in BESPOKE:
+                print(f"Using EN fallback: {alt_key}")
+                bespoke_content = BESPOKE[alt_key](r)
+
+            else:
+                print(f"No narrative found: {key}")
+                bespoke_content = f"<p>{r.get('narrative', ui['no_deep_analysis'])}</p>"
+
+        else:
+            if norm_key in BESPOKE:
+                print(f"Using EN narrative: {norm_key}")
+                bespoke_content = BESPOKE[norm_key](r)
+
+            elif alt_key in BESPOKE:
+                print(f"Using EN narrative: {alt_key}")
+                bespoke_content = BESPOKE[alt_key](r)
+
+            else:
+                print(f"No narrative found: {key}")
+                bespoke_content = f"<p>{r.get('narrative', ui['no_deep_analysis'])}</p>"
+
+    except Exception as e:
+        print(f"DEEP NARRATIVE FAILED: {key} ({lang}) -> {e}")
+        raise
+
+    deep_html = f"""
+    <div class="narrative-unit narrative-unit--deep">
+        <div class="narrative-kicker">{ui['deep_analysis_label']}</div>
+        <div class="narrative-text">
+            {bespoke_content}
+        </div>
+    </div>
+    """
+
     return gwas_html, deep_html
 
 

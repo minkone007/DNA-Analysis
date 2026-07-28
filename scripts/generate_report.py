@@ -3,21 +3,80 @@ import json
 import argparse
 from pathlib import Path
 from datetime import date
+import re
 
-from narratives import (
-    TRAIT_NAMES, BG, BESPOKE, risk_label_bg, n_gwas_summary,
-    get_localized_narrative_html, get_marker_votes_html,
-    get_risk_balance_html, get_pgs_badge_html, get_loci_bar_html,
+def get_localized_metadata(lang):
+    if lang == "bg":
+        name = "Минко Ненов"
+        months_bg = [
+            "януари", "февруари", "март", "април", "май", "юни",
+            "юли", "август", "септември", "октомври", "ноември", "декември"
+        ]
+        import datetime
+        today = datetime.date.today()
+        formatted_date = f"{today.day} {months_bg[today.month - 1]} {today.year} г."
+        ui = {
+            "personal_genomics": "Персонална геномика",
+            "elevated_signals": "Повишени",
+            "favourable_signals": "Благоприятни",
+            "header_subtitle": "Цялостен ДНК анализ и здравни насоки",
+            "total_traits": "Общо белези",
+            "generated": "Генерирано",
+            "disclaimer_sources": "Източници и аналитичен контекст:",
+            "disclaimer_sources_text": "GWAS Catalog, ClinVar, dbSNP, фармакогеномична литература, модели за полигенна оценка на риска. Генетичните оценки на риска и прогнозите са статистически приблизителни оценки, базирани на съвременни популационни проучвания и не представляват клинична диагноза.",
+            "disclaimer_important": "Важно:",
+            "disclaimer_important_text": "Този доклад е само за лични образователни цели, а не медицинска диагноза."
+        }
+    else:
+        name = "Minko Nenov"
+        import datetime
+        formatted_date = datetime.date.today().strftime("%B %d, %Y")
+        ui = {
+            "personal_genomics": "Personal Genomics",
+            "elevated_signals": "Elevated",
+            "favourable_signals": "Favourable",
+            "header_subtitle": "Comprehensive DNA Analysis & Health Insights",
+            "total_traits": "Total Traits",
+            "generated": "Generated",
+            "disclaimer_sources": "Sources and analytical context:",
+            "disclaimer_sources_text": "GWAS Catalog, ClinVar, dbSNP, pharmacogenomic literature, polygenic risk scoring models. Genetic risk scores and predictions are statistical approximations based on current population studies and do not constitute a clinical diagnosis.",
+            "disclaimer_important": "Important:",
+            "disclaimer_important_text": "This report is for personal educational purposes only - not a medical diagnosis."
+        }
+        
+    return name, formatted_date, ui
+
+from scripts.narratives import (
+    UI, 
+    TRAIT_NAMES, 
+    BG, 
+    BESPOKE, 
+    risk_label_bg, 
+    n_gwas_summary,
+    get_localized_narrative_html, 
+    get_marker_votes_html,
+    get_risk_balance_html, 
+    get_pgs_badge_html, 
+    get_loci_bar_html,
+    translate_prediction,
 )
-from templates import LANG_CONFIG, n_master_synthesis, n_pharmacogenomics
+from scripts.templates import (
+    LANG_CONFIG, 
+    n_master_synthesis, 
+    n_pharmacogenomics,
+)
 
 ROOT_DIR = Path(".")
 CONFIG = "config.json"
 
+def strip_html_tags(text):
+    return re.sub('<[^<]+?>', '', text)
 
 def build_sections(synthesis, lang="en"):
     config = LANG_CONFIG.get(lang, LANG_CONFIG["en"])
-    html_output = f"""<section class="report-section" id="s_synthesis"><h2 class="section-heading">Overview & Master Synthesis</h2><div class="narrative-body">{n_master_synthesis()}</div></section>"""
+    ui = UI.get(lang, UI["en"])
+    
+    html_output = f"""<section class="report-section" id="s_synthesis"><h2 class="section-heading">{ui['overview_title']}</h2><div class="narrative-body">{n_master_synthesis(lang)}</div></section>"""
     for sid, stitle, keys in config["sections"]:
         section_traits = {k: v for k, v in synthesis.items() if k in keys}
         if not section_traits:
@@ -25,24 +84,49 @@ def build_sections(synthesis, lang="en"):
         html_output += f'<section class="report-section" id="s_{sid}"><h2 class="section-heading">{stitle}</h2>'
         for key, trait in section_traits.items():
             prediction = trait.get("prediction", "N/A")
+            prediction = translate_prediction(prediction, lang)
+            
             pred_lower = prediction.lower()
-            if "elevated" in pred_lower:
+            if "elevated" in pred_lower or "повишен" in pred_lower:
                 color = "var(--risk-elevated)"
-            elif "low" in pred_lower or "favourable" in pred_lower:
+                spine_label = "Elevated" if lang == "en" else "Повишен"
+            elif "low" in pred_lower or "favourable" in pred_lower or "нисък" in pred_lower or "благоприятен" in pred_lower:
                 color = "var(--risk-favourable)"
+                spine_label = "Favourable" if lang == "en" else "Благоприятен"
             else:
                 color = "var(--risk-moderate)"
-            gwas_html, deep_html = get_localized_narrative_html(key, trait, lang)
-            trait_title = TRAIT_NAMES.get(lang, TRAIT_NAMES["en"]).get(key, trait.get("trait", key.replace("_", " ").title()))
+                spine_label = "Moderate" if lang == "en" else "Умерен"
+                
+            trait_title = TRAIT_NAMES.get(
+                lang,
+                TRAIT_NAMES["en"]
+            ).get(
+                key,
+                trait.get("trait", key.replace("_", " ").title())
+            )
+
+            try:
+                gwas_html, deep_html = get_localized_narrative_html(key, trait, lang)
+            except Exception as e:
+                print(f"ERROR in {key} ({lang}): {e}")
+                gwas_html = ""
+                deep_html = f"<p style='color:red'>ERROR: {e}</p>"
+            
+            # Generate pgs_badge first so it's defined
             pgs_badge = get_pgs_badge_html(trait, lang)
+            pgs_badge_plain = strip_html_tags(pgs_badge)
+            prediction_full = f"{prediction} ({pgs_badge_plain})" if pgs_badge_plain else prediction
+            
             risk_balance = get_risk_balance_html(trait, lang)
             loci_bar = get_loci_bar_html(trait, color, lang)
             marker_votes = get_marker_votes_html(trait, lang)
+            
             html_output += f"""<div class="trait-row" id="n_{key}">
     <div class="trait-spine" style="color:{color}">
         <span class="spine-dot"></span>
         <span class="spine-line"></span>
-        <span class="spine-risk">{prediction}</span>
+        <span class="spine-risk">{spine_label}</span>
+
     </div>
     <div class="trait-content">
         <h3 class="trait-title">{trait_title}</h3>
@@ -61,20 +145,28 @@ def build_sections(synthesis, lang="en"):
 
 def render(person, synthesis, results_dir, lang="en"):
     config = LANG_CONFIG.get(lang, LANG_CONFIG["en"])
-    today = date.today().strftime("%d %B %Y" if lang == "bg" else "%B %d, %Y")
-    sections_html = build_sections(synthesis, lang) + n_pharmacogenomics(synthesis)
-    total = len(synthesis)
-    elevated = sum(1 for r in synthesis.values() if "elevated" in (r.get("prediction", "")).lower())
-    favourable = sum(1 for r in synthesis.values() if any(w in (r.get("prediction", "")).lower() for w in ["favourable", "below average", "low risk"]))
-    moderate = total - elevated - favourable
     
-    nav = '<a href="#s_synthesis" class="nav-link">Overview</a>'
+    # 1. Define nav_ui first
+    ui_nav = {
+        "en": {"overview": "Overview", "pgx": "Pharmacogenomics"},
+        "bg": {"overview": "Преглед", "pgx": "Фармакогеномика"}
+    }
+    nav_ui = ui_nav.get(lang, ui_nav["en"])
+    
+    # 2. Initialize nav using nav_ui immediately after
+    nav = f'<a href="#s_synthesis" class="nav-link">{nav_ui["overview"]}</a>'
     for sid, stitle, keys in config["sections"]:
         if any(k in synthesis for k in keys):
             nav += f'<a href="#s_{sid}" class="nav-link">{stitle}</a>'
-    nav += '<a href="#s_pharmacogenomics" class="nav-link">Pharmacogenomics</a>'
-    lang_switch = f'<a href="narrative_{person}.html" class="lang-btn">EN</a> <a href="narrative_{person}_bg.html" class="lang-btn">БГ</a>'
-    
+    nav += f'<a href="#s_pharmacogenomics" class="nav-link">{nav_ui["pgx"]}</a>'
+    en_file = "narrative_Minko Nenov.html"
+    bg_file = "narrative_Минко Ненов_bg.html"
+
+    lang_switch = f'''
+    <a href="{en_file}" class="lang-btn">EN</a>
+    <a href="{bg_file}" class="lang-btn">БГ</a>
+    '''
+
     css_styles = """
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -220,7 +312,19 @@ def render(person, synthesis, results_dir, lang="en"):
         .drug-grid { grid-template-columns: 1fr; }
     }
     """
-
+    name_display, formatted_date, ui = get_localized_metadata(lang)
+    name_display, formatted_date, ui = get_localized_metadata(lang)
+    file_name_person = name_display
+    
+    total = len(synthesis)
+    elevated = sum(1 for r in synthesis.values() if "elevated" in (r.get("prediction", "")).lower())
+    favourable = sum(1 for r in synthesis.values() if any(w in (r.get("prediction", "")).lower() for w in ["favourable", "below average", "low risk"]))
+    moderate = total - elevated - favourable
+    
+    sections_html = build_sections(synthesis, lang) + n_pharmacogenomics(synthesis, lang)
+    
+    today = formatted_date
+    
     html = f"""<!DOCTYPE html>
 <html lang="{config['html_lang']}">
 <head>
@@ -241,33 +345,33 @@ def render(person, synthesis, results_dir, lang="en"):
 </div>
     <aside class="nav-sidebar">
         <div class="nav-head">
-            <div class="nav-brand">Personal Genomics</div>
+            <div class="nav-brand">{ui['personal_genomics']}</div>
             <div class="nav-person">{person}</div>
         </div>
         <nav class="nav-links">{nav}</nav>
         <div class="nav-score">
-            <div class="ns"><span class="ns-val" style="color:#c0392b">{elevated}</span><span class="ns-lbl">Elevated</span></div>
+            <div class="ns"><span class="ns-val" style="color:#c0392b">{elevated}</span><span class="ns-lbl">{ui['elevated_signals']}</span></div>
             <div class="ns"><span class="ns-val" style="color:#c97b2a">{moderate}</span><span class="ns-lbl">Moderate</span></div>
-            <div class="ns"><span class="ns-val" style="color:#2d7a4f">{favourable}</span><span class="ns-lbl">Favourable</span></div>
+            <div class="ns"><span class="ns-val" style="color:#2d7a4f">{favourable}</span><span class="ns-lbl">{ui['favourable_signals']}</span></div>
         </div>
         <div class="lang-bar">{lang_switch}</div>
     </aside>
     <div class="cover">
         <p class="cover-eyebrow">{config['eyebrow']}</p>
         <h1>{person}</h1>
-        <p class="cover-sub">{config['subtitle']}</p>
+        <p class="cover-sub">{ui['header_subtitle']}</p>
         <div class="cover-stats">
-            <div class="cs"><span class="cs-val">{total}</span><span class="cs-lbl">{config['traits_label']}</span></div>
-            <div class="cs"><span class="cs-val" style="color:#f87171">{elevated}</span><span class="cs-lbl">{config['elevated_label']}</span></div>
-            <div class="cs"><span class="cs-val" style="color:#86efac">{favourable}</span><span class="cs-lbl">{config['favourable_label']}</span></div>
-            <div class="cs"><span class="cs-val">{today}</span><span class="cs-lbl">{config['generated_label']}</span></div>
+            <div class="cs"><span class="cs-val">{total}</span><span class="cs-lbl">{ui['total_traits']}</span></div>
+            <div class="cs"><span class="cs-val" style="color:#f87171">{elevated}</span><span class="cs-lbl">{ui['elevated_signals']}</span></div>
+            <div class="cs"><span class="cs-val" style="color:#86efac">{favourable}</span><span class="cs-lbl">{ui['favourable_signals']}</span></div>
+            <div class="cs"><span class="cs-val">{today}</span><span class="cs-lbl">{ui['generated']}</span></div>
         </div>
     </div>
    <div class="main">
         <div class="main-inner">
             <div class="disclaimer">
-                <strong>Sources:</strong> GWAS Catalog, ClinVar, dbSNP, pharmacogenomic literature, polygenic risk scoring models. Genetic risk scores and predictions are statistical approximations based on current population studies and do not constitute a clinical diagnosis.<br>
-                <strong>Important:</strong> This report is for personal educational purposes only - not a medical diagnosis. Generated {today}.
+                <strong>{ui['disclaimer_sources']}</strong> {ui['disclaimer_sources_text']}<br><br>
+                <strong>{ui['disclaimer_important']}</strong> {ui['disclaimer_important_text']}
             </div>
             {sections_html}
         </div>
@@ -276,29 +380,40 @@ def render(person, synthesis, results_dir, lang="en"):
 </html>"""
     
     suffix = "_bg" if lang == "bg" else ""
-    out = results_dir / f"narrative_{person}{suffix}.html"
+    out = results_dir / f"narrative_{file_name_person}{suffix}.html"
     out.write_text(html, encoding="utf-8")
     return out
 
 # Change these lines at the top of scripts/generate_report.py
 ROOT_DIR = Path(".")
 
-def generate(person_cfg, lang="en", verbose=True):
-    name = person_cfg["name"]
-    # Update results_dir to point directly to your actual results folder
-    results_dir = ROOT_DIR / "scripts" / "results" / "Minko"
-    synth_path = results_dir / "synthesis.json"
+def generate(pcfg, lang="en"):
+    name = pcfg["name"]
+    base_results_dir = Path(pcfg.get("results_dir", "scripts/results"))
     
+    # If results_dir doesn't contain the person's name, append it
+    if name.lower() not in str(base_results_dir).lower():
+        results_dir = base_results_dir / name.split()[0]
+    else:
+        results_dir = base_results_dir
+        
+    results_dir.mkdir(parents=True, exist_ok=True)
+    
+    synth_path = results_dir / "synthesis.json"
     if not synth_path.exists():
-        if verbose: print(f"  WARN: synthesis.json not found at {synth_path}")
-        return None
+        # Fallback: check current directory or scripts/results/Minko directly
+        synth_path = Path("scripts/results/Minko/synthesis.json")
+        results_dir = Path("scripts/results/Minko")
+        if not synth_path.exists():
+            print(f"[-] Synthesis JSON not found at {synth_path}")
+            return
         
-    with open(synth_path, "r", encoding="utf-8") as f:
-        synthesis = json.load(f)
-        
-    out = render(name, synthesis, results_dir, lang)
-    if verbose: print(f"  OK   Narrative ({lang}) → {out.name}")
-    return out
+    synthesis = json.load(open(synth_path, encoding="utf-8"))
+    
+    display_name = "Минко Ненов" if lang == "bg" else name
+    
+    out = render(display_name, synthesis, results_dir, lang)
+    print(f"[+] Generated {lang.upper()} report: {out}")
 
 def main():
     parser = argparse.ArgumentParser()
