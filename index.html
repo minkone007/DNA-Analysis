@@ -1,3 +1,4 @@
+cat > index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,33 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Family DNA Reports</title>
     <style>
-        body { 
-            font-family: system-ui, sans-serif; 
-            text-align: center; 
-            padding: 60px; 
-            background: #f8f9fa; 
-            line-height: 1.6; 
-        }
+        body { font-family: system-ui, sans-serif; text-align: center; padding: 60px; background: #f8f9fa; line-height: 1.6; }
         h1 { color: #1e3a8a; }
-        .report-card { 
-            display: inline-block; 
-            margin: 20px; 
-            padding: 24px; 
-            background: white; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 280px; 
-            text-align: left;
+        .report-card {
+            display: inline-block; margin: 20px; padding: 24px;
+            background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 280px; text-align: left;
         }
-        .report-link { 
-            display: block; 
-            margin-top: 16px; 
-            padding: 12px; 
-            background: #1e3a8a; 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 8px; 
-            text-align: center;
+        .report-link {
+            display: block; margin-top: 16px; padding: 12px;
+            background: #1e3a8a; color: white; text-decoration: none;
+            border-radius: 8px; text-align: center;
         }
     </style>
 </head>
@@ -42,13 +27,15 @@
     <div class="report-card">
         <h3>Minko</h3>
         <p>Latest report • July 2026</p>
-        <a href="narrative_Minko.html" class="report-link">View Report</a>
+        <a href="narrative_Minko%20Nenov.html" class="report-link">Health Report (EN)</a>
+        <a href="narrative_Minko%20Nenov_bg.html" class="report-link" style="margin-top:8px;">Здравен доклад (BG)</a>
+        <a href="ancestry_deep_narrative_Minko.html" class="report-link" style="margin-top:8px; background:#7a3a1a;">Ancestry Report</a>
     </div>
 
     <div class="report-card">
         <h3>Julian</h3>
-        <p>Latest report • July 2026</p>
-        <a href="narrative_Julian.html" class="report-link">View Report</a>
+        <p>Ancestry report • July 2026</p>
+        <a href="ancestry_deep_narrative_Julian.html" class="report-link" style="background:#7a3a1a;">Ancestry Report</a>
     </div>
 
     <div class="report-card">
@@ -59,3 +46,4 @@
 
 </body>
 </html>
+EOF
