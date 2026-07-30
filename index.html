@@ -1,147 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family DNA Reports</title>
 
-<title>Family DNA Reports</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            text-align: center;
+            padding: 60px;
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
 
-<style>
-body {
-    font-family: system-ui, -apple-system, sans-serif;
-    text-align: center;
-    padding: 50px 20px;
-    background: #f8f9fa;
-    line-height: 1.6;
-    color: #1f2937;
-}
+        h1 {
+            color: #1e3a8a;
+        }
 
-h1 {
-    color: #1e3a8a;
-    margin-bottom: 5px;
-}
+        .report-card {
+            display: inline-block;
+            margin: 20px;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 280px;
+            text-align: left;
+            vertical-align: top;
+        }
 
-.subtitle {
-    margin-bottom: 40px;
-    color: #64748b;
-}
+        .report-link {
+            display: block;
+            margin-top: 12px;
+            padding: 12px;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+        }
 
-.container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-}
+        .ancestry {
+            background: #7a3a1a;
+        }
 
-.report-card {
-    background: white;
-    border-radius: 16px;
-    padding: 28px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
+        .bulgarian {
+            background: #166534;
+        }
 
-.report-card h2 {
-    margin-top: 0;
-    color: #1e3a8a;
-}
-
-.report-card p {
-    color: #64748b;
-}
-
-.button {
-    display: block;
-    margin-top: 12px;
-    padding: 12px;
-    border-radius: 10px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.2s;
-}
-
-.button:hover {
-    opacity: 0.85;
-}
-
-.health {
-    background: #1e3a8a;
-}
-
-.ancestry {
-    background: #7a3a1a;
-}
-
-.bulgarian {
-    background: #166534;
-}
-
-</style>
+        h3 {
+            color: #1e3a8a;
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>Family DNA Reports</h1>
-<p class="subtitle">Personal genetic and ancestry analyses</p>
-
-<div class="container">
-
-    <div class="report-card">
-        <h2>Minko</h2>
-        <p>DNA analysis • July 2026</p>
-
-        <a href="ancestry_deep_narrative_Minko.html" class="button ancestry">
-            Ancestry Report
-        </a>
-
-        <a href="narrative_Minko%20Nenov.html" class="button health">
-            Health Report (EN)
-        </a>
-
-        <a href="narrative_Minko%20Nenov_bg.html" class="button bulgarian">
-            Здравен доклад (BG)
-        </a>
-    </div>
+<h1>Family DNA Health & Ancestry Reports</h1>
+<p>Personal genetic analyses</p>
 
 
-    <div class="report-card">
-        <h2>Julian</h2>
-        <p>DNA analysis • July 2026</p>
+<div class="report-card">
+    <h3>Minko</h3>
+    <p>Latest reports • July 2026</p>
 
-        <a href="ancestry_deep_narrative_Julian.html" class="button ancestry">
-            Ancestry Report
-        </a>
+    <a href="ancestry_deep_narrative_Minko.html" class="report-link ancestry">
+        Ancestry Report
+    </a>
 
-        <a href="narrative_Julian.html" class="button health">
-            Health Report (EN)
-        </a>
+    <a href="narrative_Minko%20Nenov.html" class="report-link">
+        Health Report (EN)
+    </a>
 
-        <a href="narrative_Julian_bg.html" class="button bulgarian">
-            Здравен доклад (BG)
-        </a>
-    </div>
-
-
-    <div class="report-card">
-        <h2>Stayko</h2>
-        <p>DNA analysis • July 2026</p>
-
-        <a href="ancestry_deep_narrative_Stayko.html" class="button ancestry">
-            Ancestry Report
-        </a>
-
-        <a href="narrative_Stayko.html" class="button health">
-            Health Report (EN)
-        </a>
-
-        <a href="narrative_Stayko_bg.html" class="button bulgarian">
-            Здравен доклад (BG)
-        </a>
-    </div>
-
+    <a href="narrative_Minko%20Nenov_bg.html" class="report-link bulgarian">
+        Здравен доклад (BG)
+    </a>
 </div>
+
+
+<div class="report-card">
+    <h3>Julian</h3>
+    <p>Latest reports • July 2026</p>
+
+    <a href="ancestry_deep_narrative_Julian.html" class="report-link ancestry">
+        Ancestry Report
+    </a>
+
+    <a href="narrative_Julian.html" class="report-link">
+        Health Report (EN)
+    </a>
+
+    <a href="narrative_Julian_bg.html" class="report-link bulgarian">
+        Здравен доклад (BG)
+    </a>
+</div>
+
+
+<div class="report-card">
+    <h3>Stayko</h3>
+    <p>Latest reports • July 2026</p>
+
+    <a href="ancestry_deep_narrative_Stayko.html" class="report-link ancestry">
+        Ancestry Report
+    </a>
+
+    <a href="narrative_Stayko.html" class="report-link">
+        Health Report (EN)
+    </a>
+
+    <a href="narrative_Stayko_bg.html" class="report-link bulgarian">
+        Здравен доклад (BG)
+    </a>
+</div>
+
 
 </body>
 </html>
