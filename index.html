@@ -3,78 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Family DNA Reports</title>
 
 <style>
 
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: linear-gradient(135deg, #f8fafc, #eef2ff);
-    min-height: 100vh;
-    margin: 0;
-    padding: 50px 20px;
-    color: #1f2937;
+body{
+    margin:0;
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:#eef2f7;
+    color:#1e293b;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-h1 {
-    color: #1e3a8a;
-    font-size: 38px;
-    margin-bottom: 8px;
-}
-
-.subtitle {
-    color: #64748b;
-    font-size: 18px;
-}
-
-
-.container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-
-.card {
-
-    background: rgba(255,255,255,0.9);
-    width: 320px;
-    padding: 30px;
-    border-radius: 20px;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.08);
-
-    transition: transform 0.2s ease;
-}
-
-
-.card:hover {
-    transform: translateY(-6px);
-}
-
-
-.card h2 {
-    color: #1e3a8a;
-    margin-top:0;
+header{
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    color:white;
+    padding:50px 20px;
     text-align:center;
 }
 
+header h1{
+    margin:0;
+    font-size:2.3rem;
+}
 
-.card p {
+header p{
+    margin-top:10px;
+    opacity:.9;
+}
+
+.container{
+    max-width:1200px;
+    margin:50px auto;
+    padding:0 20px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:28px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.card h2{
+    margin-top:0;
+    color:#1e3a8a;
+}
+
+.section-title{
+    margin-top:20px;
+    margin-bottom:10px;
+    font-size:.9rem;
+    font-weight:bold;
+    color:#64748b;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+}
+
+.button{
+    display:block;
+    text-decoration:none;
+    color:white;
+    padding:12px;
+    border-radius:10px;
+    margin:8px 0;
+    text-align:center;
+    font-weight:600;
+    transition:.2s;
+}
+
+.button:hover{
+    filter:brightness(110%);
+}
+
+.health{
+    background:#2563eb;
+}
+
+.ancestry{
+    background:#8b5e34;
+}
+
+.disabled{
+    background:#94a3b8;
+    pointer-events:none;
+}
+
+footer{
     text-align:center;
     color:#64748b;
-    margin-bottom:25px;
+    padding:40px;
+    font-size:.9rem;
 }
 
+</style>
+</head>
 
+<body>
+
+<header>
+
+<h1>🧬 Family DNA Reports</h1>
+
+<p>Health & Ancestry Analyses</p>
+
+</header>
+
+<div class="container">
+
+<div class="cards">
+
+<!-- Minko -->
+
+<div class="card">
+
+<h2>Minko</h2>
+
+<p>Latest reports • July 2026</p>
+
+<div class="section-title">Health Report</div>
+
+<a class="button health" href="narrative_Minko_en.html">
+🇬🇧 English
+</a>
+
+<a class="button health" href="narrative_Minko_bg.html">
+🇧🇬 Български
+</a>
+
+<div class="section-title">Ancestry Report</div>
+
+<a class="button ancestry" href="ancestry_deep_narrative_Minko.html">
+🇬🇧 English
+</a>
+
+<a class="button ancestry" href="ancestry_deep_narrative_Minko_bg.html">
+🇧🇬 Български
+</a>
+
+<a class="button ancestry" href="ancestry_deep_narrative_Minko_ja.html">
+🇯🇵 日本語
+</a>
+
+</div>
+
+
+<!-- Julian -->
+
+<div class="card">
+
+<h2>Julian</h2>
+
+<p>Latest reports • July 2026</p>
+
+<div class="section-title">Health Report</div>
+
+<a class="button health" href="narrative_Julian_en.html">
+🇬🇧 English
+</a>
+
+<a class="button health" href="narrative_Julian_bg.html">
+🇧🇬 Български
+</a>
+
+<div class="section-title">Ancestry Report</div>
+
+<a class="button ancestry" href="ancestry_deep_narrative_Julian.html">
+🇬🇧 English
+</a>
+
+<a class="button ancestry" href="ancestry_deep_narrative_Julian_bg.html">
+🇧🇬 Български
+</a>
+
+<a class="button ancestry" href="ancestry_deep_narrative_Julian_ja.html">
+🇯🇵 日本語
+</a>
+
+</div>
+
+
+<!-- Stayko -->
+
+<div class="card">
+
+<h2>Stayko</h2>
+
+<p>Coming soon</p>
+
+<div class="section-title">Health Report</div>
+
+<a class="button disabled">
+Not available
+</a>
+
+<div class="section-title">Ancestry Report</div>
+
+<a class="button disabled">
+Not available
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+DNA Virtual Lab • Personal Genomics Project
+
+</footer>
+
+</body>
+</html>
 .button {
 
     display:block;
