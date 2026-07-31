@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Джулиан — Дълбок Родов Разказ</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --parchment: #f5efe4;
+  --parchment-dark: #ede3d0;
+  --ink: #1c1610;
+  --ink-mid: #4a3f30;
+  --ink-light: #8a7a65;
+  --accent: #7a3a1a;
+  --accent-light: #c4845a;
+  --gold: #b89a5a;
+  --gold-light: #e8d5a0;
+  --east: #2a6b5a;
+  --east-light: #5aab8a;
+  --east-pale: #d4ede5;
+  --steppe: #6b8a6b;
+  --sea: #3a6b8a;
+  --stone: #8a8a7a;
+  --cinnabar: #8a2a1a;
+  --era-line: #c8b89a;
+}
+
+body{
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+/* ── Корица ── */
+.cover{
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 6rem 4rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before{
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,.012) 40px,
+      rgba(255,255,255,.012) 41px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 80px,
+      rgba(90,171,138,.04) 80px,
+      rgba(90,171,138,.04) 81px
+    );
+  pointer-events: none;
+}
+.cover::after{
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 3.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--east) 30%, var(--gold) 60%, transparent 100%);
+  opacity: .35;
+}
+.cover-eyebrow{
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.cover h1{
+  font-size: 3.5rem;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  color: var(--parchment);
+  line-height: 1.1;
+  margin-bottom: .5rem;
+}
+.cover-sub{
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--gold-light);
+  margin-bottom: .8rem;
+}
+.cover-sub2{
+  font-family: 'Inter', sans-serif;
+  font-size: .78rem;
+  color: var(--east-light);
+  letter-spacing: .08em;
+  margin-bottom: 3.5rem;
+}
+.cover-meta{
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: .78rem;
+  color: var(--ink-light);
+  border-top: 1px solid #3a3020;
+  padding-top: 1.5rem;
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+.cover-stat{display:flex;flex-direction:column}
+.cover-stat-val{font-size:1.8rem;font-weight:600;color:var(--gold-light);font-family:'EB Garamond',serif}
+.cover-stat-val--east{color:var(--east-light)}
+.cover-stat-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light)}
+
+/* ── Навигация ── */
+.nav-sidebar{
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 200px;
+  background: var(--ink);
+  padding: 2rem 1rem;
+  overflow-y: auto;
+  z-index: 100;
+}
+.nav-sidebar h4{
+  font-family: 'Inter', sans-serif;
+  font-size: .6rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid #3a3020;
+}
+.nav-link{
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: .73rem;
+  color: var(--ink-light);
+  text-decoration: none;
+  padding: .3rem .4rem;
+  border-radius: 3px;
+  margin-bottom: .1rem;
+  line-height: 1.4;
+  transition: color .15s, background .15s;
+}
+.nav-link:hover{color:var(--gold-light);background:rgba(255,255,255,.05)}
+.nav-link--east{color:#5aab8a}
+.nav-link--east:hover{color:#a0dfc0}
+.nav-divider{border:none;border-top:1px solid #2a2218;margin:.8rem 0}
+
+/* ── Language switcher ── */
+.lang-bar{
+  position: fixed;
+  top: 1rem;
+  right: 1.2rem;
+  z-index: 200;
+  display: flex;
+  gap: .4rem;
+}
+.lang-btn{
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-decoration: none;
+  padding: .3rem .7rem;
+  border-radius: 3px;
+  background: rgba(28,22,16,.85);
+  color: var(--ink-light);
+  border: 1px solid #3a3020;
+  backdrop-filter: blur(4px);
+  transition: color .15s, border-color .15s;
+}
+.lang-btn:hover{color:var(--gold-light);border-color:var(--gold)}
+.lang-btn--active{color:var(--gold);border-color:var(--gold);pointer-events:none}
+
+.main-content{margin-left:200px}
+
+/* ── Ера — хронология ── */
+.era-block{
+  display: flex;
+  gap: 0;
+  padding: 3.5rem 4rem 3.5rem 0;
+  border-bottom: 1px solid var(--parchment-dark);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.era-marker{
+  width: 120px;
+  flex-shrink: 0;
+  position: relative;
+  padding-top: .35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+}
+.era-marker::before{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: -3.5rem;
+  width: 1px;
+  background: var(--era-line);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+.era-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--gold);border:2px solid var(--parchment);
+  box-shadow:0 0 0 3px var(--gold);z-index:1;flex-shrink:0;
+}
+.era-dot--east{background:var(--east);box-shadow:0 0 0 3px var(--east)}
+.era-dot--mid{background:var(--steppe);box-shadow:0 0 0 3px var(--steppe)}
+.era-dot--ancient{background:var(--stone);box-shadow:0 0 0 3px var(--stone)}
+.era-dot--special{background:var(--accent);box-shadow:0 0 0 3px var(--accent)}
+.era-dot--dual{
+  background:linear-gradient(135deg,var(--gold) 50%,var(--east) 50%);
+  box-shadow:0 0 0 3px var(--era-line);
+}
+.era-label{
+  font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);
+  text-align:center;line-height:1.4;z-index:1;
+}
+
+.era-content{flex:1;padding-left:2.5rem}
+.era-content h2{
+  font-size:1.7rem;font-weight:600;color:var(--ink);
+  margin-bottom:1.2rem;letter-spacing:-.01em;line-height:1.2;
+}
+.era-content p{
+  margin-bottom:1.1rem;color:var(--ink-mid);
+  font-size:1rem;line-height:1.85;
+}
+.sub-heading{
+  font-size:1.15rem;font-weight:600;color:var(--ink);
+  margin:2rem 0 .8rem;padding-bottom:.3rem;
+  border-bottom:1px solid var(--parchment-dark);
+}
+
+/* ── Информационни полета ── */
+.insight-box{
+  background:var(--parchment-dark);
+  border-left:4px solid var(--gold);
+  padding:1.1rem 1.4rem;margin:1.5rem 0;
+  border-radius:0 6px 6px 0;
+}
+.insight-box--east{background:var(--east-pale);border-left-color:var(--east)}
+.insight-box--final{background:var(--ink);color:var(--parchment);border-color:var(--gold)}
+.insight-box--dual{background:var(--ink);border:none;border-image:linear-gradient(135deg,var(--gold),var(--east)) 1;border-left:4px solid}
+.insight-label{
+  font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--gold);
+  display:block;margin-bottom:.5rem;
+}
+.insight-label--east{color:var(--east)}
+.insight-label--white{color:var(--gold-light)}
+.equation{
+  font-family:'Inter',sans-serif;font-size:.88rem;
+  line-height:2.1;color:var(--gold-light);
+}
+.equation strong{color:#fff;font-size:1rem}
+.equation .eq-east{color:var(--east-light)}
+
+/* ── Таблици с разстояния ── */
+.dist-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1.2rem 0}
+.dist-table th{
+  font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);
+  padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left;
+}
+.dist-table td{padding:.32rem .5rem;border-bottom:1px solid var(--parchment-dark);vertical-align:middle}
+.dist-table tr:first-child td{font-weight:600;color:var(--ink)}
+.dist-bar-bg{width:160px;height:6px;background:var(--parchment-dark);border-radius:3px;display:inline-block;vertical-align:middle;margin-right:.5rem}
+.dist-bar-fill{height:100%;border-radius:3px;background:var(--east);display:block}
+.dist-bar-fill--gold{background:var(--gold)}
+.dist-val{font-family:'Inter',monospace;font-size:.78rem;color:var(--ink-light)}
+
+/* ── Двуколонен макет ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0}
+.table-heading{
+  font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.6rem;
+}
+.data-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.data-table td{padding:.3rem .4rem;border-bottom:1px solid var(--parchment-dark);vertical-align:middle}
+.pct-cell{width:70%}
+.pct-bar{display:inline-block;height:6px;border-radius:3px;vertical-align:middle;margin-right:.4rem;opacity:.75}
+.pct-bar--west{background:var(--gold)}
+.pct-bar--east{background:var(--east)}
+.pct-bar--steppe{background:var(--steppe)}
+.pct-val{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--ink-light)}
+
+/* ── SNP таблица ── */
+.snp-table-wrap{margin:1.5rem 0;overflow-x:auto}
+.snp-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.snp-table th{
+  font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);
+  padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left;
+}
+.snp-table td{padding:.35rem .5rem;border-bottom:1px solid var(--parchment-dark);vertical-align:top}
+.snp-gene{font-family:'Inter',sans-serif;font-weight:600;font-size:.82rem}
+.snp-geno{font-family:'Inter',monospace;font-weight:700;font-size:.9rem}
+.snp-found{color:var(--east)}
+.snp-found--west{color:var(--gold)}
+.snp-found--het{color:var(--accent-light)}
+.snp-missing{color:var(--ink-light);font-weight:400;font-size:.78rem}
+.snp-desc{font-size:.82rem;color:var(--ink-light)}
+
+/* ── Родови значки ── */
+.heritage-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:.3rem .8rem;border-radius:2px;margin:.2rem;
+}
+.badge--west{background:rgba(184,154,90,.15);color:var(--gold);border:1px solid rgba(184,154,90,.3)}
+.badge--east{background:rgba(42,107,90,.12);color:var(--east);border:1px solid rgba(42,107,90,.25)}
+.badge--steppe{background:rgba(107,138,107,.12);color:var(--steppe);border:1px solid rgba(107,138,107,.25)}
+.badge--archaic{background:rgba(138,42,26,.08);color:var(--cinnabar);border:1px solid rgba(138,42,26,.2)}
+
+/* ── Отказ от отговорност ── */
+.disclaimer{
+  font-family:'Inter',sans-serif;font-size:.78rem;
+  color:var(--ink-light);background:var(--parchment-dark);
+  padding:1rem 1.4rem;margin:0;line-height:1.6;
+  border-top:1px solid var(--era-line);
+}
+
+@media print{
+  .nav-sidebar{display:none}
+  .main-content,.cover{margin-left:0}
+}
+@media(max-width:900px){
+  .nav-sidebar{display:none}
+  .main-content,.cover{margin-left:0}
+  .era-block{padding:2rem 1.5rem;flex-direction:column}
+  .era-marker{width:100%;flex-direction:row;padding-top:0}
+  .era-marker::before{display:none}
+  .era-content{padding-left:0}
+  .two-col{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="lang-bar">
+  <a href="ancestry_deep_narrative_Julian.html" class="lang-btn">EN</a>
+  <a href="ancestry_deep_narrative_Julian_bg.html" class="lang-btn lang-btn--active">БГ</a>
+  <a href="ancestry_deep_narrative_Julian_ja.html" class="lang-btn">日本語</a>
+</div>
+<nav class="nav-sidebar">
+  <h4>Хронология</h4>
+  <a href="#s_myheritage" class="nav-link">MyHeritage — тълкуване</a>
+  <a href="#s_modern" class="nav-link">Съвременни популации</a>
+  <a href="#s_okinawa" class="nav-link nav-link--east">Наследството на Джомон</a>
+  <a href="#s_mongol" class="nav-link nav-link--east">Монголският степен пласт</a>
+  <a href="#s_denisovan" class="nav-link nav-link--east">Денисованската нишка</a>
+  <hr class="nav-divider">
+  <a href="#s_paternal" class="nav-link">Бащината балканска линия</a>
+  <a href="#s_bronze" class="nav-link">Бронзовата епоха — Ямная</a>
+  <a href="#s_neolithic" class="nav-link">Неолит — земеделците</a>
+  <a href="#s_mesolithic" class="nav-link">Мезолит — ловците</a>
+  <hr class="nav-divider">
+  <a href="#s_convergence" class="nav-link">Срещата на два свята</a>
+  <a href="#s_snps" class="nav-link">Родови SNP маркери</a>
+  <a href="#s_synthesis" class="nav-link">Пълната картина</a>
+</nav>
+
+<div class="main-content">
+
+<div class="cover">
+  <p class="cover-eyebrow">Доклад за дълбок родов произход</p>
+  <h1>Джулиан Ненов</h1>
+  <p class="cover-sub">Два свята на генетичния кръстопът</p>
+  <p class="cover-sub2">Източни Балкани · Архипелагът Рюкю · Евразийската степ · 50 000 години</p>
+  <div class="cover-meta">
+    <div class="cover-stat">
+      <span class="cover-stat-val cover-stat-val--east">61,6%</span>
+      <span class="cover-stat-label">Японски (MyHeritage)</span>
+    </div>
+    <div class="cover-stat">
+      <span class="cover-stat-val">32%</span>
+      <span class="cover-stat-label">Балкански европейски</span>
+    </div>
+    <div class="cover-stat">
+      <span class="cover-stat-val cover-stat-val--east">0,250</span>
+      <span class="cover-stat-label">G25 разстояние до Джомон</span>
+    </div>
+    <div class="cover-stat">
+      <span class="cover-stat-val">0,189</span>
+      <span class="cover-stat-label">Най-близко древно съответствие</span>
+    </div>
+    <div class="cover-stat">
+      <span class="cover-stat-val">юли 2026</span>
+      <span class="cover-stat-label">Генериран</span>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  Източници: G25 координати (Vahaduo / Eurogenes Global25), GEDmatch Eurogenes K36, K13, EUtest K15, Dodecad K12b, HarappaWorld, puntDNAL K10 Ancient, MyHeritage етнически оценки.
+  Моделите за древен ДНК произход са статистически приближения — те описват генетични връзки, а не пряко генеалогично потекло.
+  Археогенетични източници: Haak et al. 2015, Gakuhari et al. 2020 (Джомон), McColl et al. 2018, Jinam et al. 2015, Reich et al. 2011 (денисовани).
+  Генериран юли 2026.
+</div>
+
+
+<!-- ══ РАЗДЕЛ 1: MyHeritage — тълкуване ══ -->
+<div class="era-block" id="s_myheritage">
+  <div class="era-marker">
+    <span class="era-dot era-dot--dual"></span>
+    <span class="era-label">Съвременни<br>оценки</span>
+  </div>
+  <div class="era-content">
+    <h2>Какво всъщност ни казва MyHeritage</h2>
+
+    <p>Резултатите на Джулиан в MyHeritage показват 61,6% японски произход
+    (с конкретно посочен Окинава), 21,2% балкански, 10,8% гръцки и албански,
+    3,9% източноевропейски и 2,5% централноазиатски. Взети буквално, тези категории
+    могат да въведат в заблуждение — сякаш Джулиан е „отчасти японски" и „отчасти
+    балкански", като че ли става дума за отделни етнически произходи. Не е така.
+    Ето какво действително кодират тези проценти.</p>
+
+    <p><strong>Японски (61,6%) с посочен Окинава</strong> е най-важният единичен
+    детайл в целия доклад. MyHeritage не маркира регионални подгрупи случайно.
+    Окинава и архипелагът Рюкю са генетично различими от континентална Япония —
+    не само в културно отношение. Жителите на Окинава носят приблизително 30–40%
+    наследство от ловците-събирачи Джомон, в сравнение с 10–15% при жителите на
+    Хоншу. Разширяването на земеделската култура Яйои от Корейския полуостров, което
+    преобрази Хоншу преди около 2 300 години, достигна островите Рюкю по-късно и
+    по-непълно, запазвайки древния субстрат Джомон в много по-голяма степен.
+    Когато MyHeritage посочва именно Окинава, алгоритъмът улавя този засилен сигнал
+    от Джомон — генетично наследство, хиляди години по-старо от формирането на
+    „японската" идентичност в каквото и да е културно или политическо отношение.</p>
+
+    <p><strong>Балкански (21,2%) и гръцки и албански (10,8%)</strong> заедно
+    съставляват приблизително 32% от генома на Джулиан и представляват същия
+    генетичен кръстопът на Източните Балкани, описан подробно в доклада на баща му.
+    Това не са отделни популации — те са съседни точки в едно непрекъснато
+    югоизточноевропейско генетично пространство, отразяващи анатолийския неолитен
+    земеделски субстрат, пастирите от Понтийската степ и палеобалканското
+    население, сляло се в българско-румънския коридор в продължение на 8 000 години.</p>
+
+    <p><strong>Централноазиатски (2,5%)</strong> е най-финият, но може би
+    исторически най-значимият компонент в резултатите от MyHeritage. Той е
+    прекалено голям, за да бъде случаен шум, и присъства едновременно от двете
+    страни на наследството на Джулиан — като следа от бащината балканска страна
+    (чрез степните връзки на Ямная) и като по-съществен сигнал от майчината
+    източноазиатска страна. Анализът с G25 ще разкрие точно откъде идва това
+    централноазиатско привличане — и отговорът е изненадващ.</p>
+
+    <div class="insight-box insight-box--east">
+      <span class="insight-label insight-label--east">Маркерът „Окинава" — защо е важен</span>
+      Нито един съвременен японец не е „японски" в генетично еднородния смисъл
+      на думата. Жителите на континентална Япония са приблизително 80–90% потомци
+      на континенталните земеделци Яйои, с 10–20% наследство от древните ловци-събирачи
+      Джомон. Жителите на Окинава носят до 40% Джомон — сред най-високите стойности
+      при съвременните популации. Маркерът „Окинава" в резултатите на Джулиан е сигнал,
+      че майчиното му източноазиатско наследство е богато на Джомон, а не предимно
+      континентално Яйои. Геномът му съхранява непропорционално голяма част от едно
+      от най-древните и генетично изолирани наследства на ловци-събирачи в света.
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ РАЗДЕЛ 2: Съвременни популации ══ -->
+<div class="era-block" id="s_modern">
+  <div class="era-marker">
+    <span class="era-dot"></span>
+    <span class="era-label">Популационно<br>съответствие</span>
+  </div>
+  <div class="era-content">
+    <h2>Съответствие с модерни популации — защо калкулаторите казват „уйгур"</h2>
+
+    <p>Всеки калкулатор за единична популация връща един и същ смущаващ резултат:
+    най-близката съвременна популация на Джулиан е <strong>уйгурската</strong>,
+    следвана от узбеки, казахи и хазарейци. На пръв поглед това изглежда в
+    противоречие с всичко останало в профила му. Не е така — това е математически
+    най-честният отговор, който калкулаторите могат да дадат, и разбирането му
+    разкрива нещо важно за структурата на неговия геном.</p>
+
+    <p>Уйгурите и узбеките сами по себе си са генетично смесени популации —
+    приблизително 40–55% западноевразийски (иранско-неолитно / степно наследство)
+    и 45–60% източноазиатски. Когато алгоритъмът търси в базата данни единствената
+    съвременна популация, която най-много наподобява генетично някой с около 50%
+    балканско европейско и 50% богато на Джомон източноазиатско наследство,
+    най-близкото налично приближение е централноазиатска популация, която сама по себе
+    си е около 50/50 западно-източна смес. Джулиан не е генеалогично свързан с
+    уйгурите — калкулаторът просто ги използва като най-близкото математическо
+    приближение за комбинация, която не съществува като именована съвременна популация.</p>
+
+    <p>Оракулите за две популации веднага разсейват тази неяснота и дават точния 
+    отговор: <strong>50% японски + 50% румънски</strong> (Eurogenes K13, разстояние 3,84) 
+    и <strong>50% корейски + 50% румънски</strong> (Dodecad K12b, разстояние 4,91). 
+    Те не си противоречат — отразяват една и съща реалност от различни ъгли на референтните 
+    панели, като в трипопулационните изчисления българският профил се появява като 
+    най-близкото съответствие за бащиния принос.</p>
+    <div class="two-col">
+      <div>
+        <h3 class="table-heading">Етнически оценки на MyHeritage</h3>
+        <table class="data-table">
+          <tr><td>Японски (Окинава)</td><td class="pct-cell"><span class="pct-bar pct-bar--east" style="width:92%"></span><span class="pct-val">61,6%</span></td></tr>
+          <tr><td>Балкански</td><td class="pct-cell"><span class="pct-bar pct-bar--west" style="width:32%"></span><span class="pct-val">21,2%</span></td></tr>
+          <tr><td>Гръцки и албански</td><td class="pct-cell"><span class="pct-bar pct-bar--west" style="width:16%"></span><span class="pct-val">10,8%</span></td></tr>
+          <tr><td>Източноевропейски</td><td class="pct-cell"><span class="pct-bar pct-bar--steppe" style="width:6%"></span><span class="pct-val">3,9%</span></td></tr>
+          <tr><td>Централноазиатски</td><td class="pct-cell"><span class="pct-bar pct-bar--steppe" style="width:4%"></span><span class="pct-val">2,5%</span></td></tr>
+        </table>
+      </div>
+      <div>
+        <h3 class="table-heading">G25 разстояния до съвременни популации</h3>
+        <table class="dist-table">
+          <tr>
+            <td>Монголска</td>
+            <td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:30%"></div></div></td>
+            <td class="dist-val">0,205</td>
+          </tr>
+          <tr>
+            <td>Българска</td>
+            <td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--gold" style="width:44%"></div></div></td>
+            <td class="dist-val">0,302</td>
+          </tr>
+          <tr>
+            <td>Японска</td>
+            <td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:45%"></div></div></td>
+            <td class="dist-val">0,310</td>
+          </tr>
+          <tr>
+            <td>Корейска</td>
+            <td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:46%"></div></div></td>
+            <td class="dist-val">0,318</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <p>Разстоянията от G25 Изчисление 2 разкриват ключов детайл:
+    <strong>монголската популация (0,205) е най-близката съвременна популация
+    на Джулиан</strong> — по-близо от българската (0,302), японската (0,310)
+    или корейската (0,318). Ако майчиното му наследство беше изцяло окинавско
+    Джомон, японската популация щеше да е на първо място. Фактът, че монголската
+    се нарежда най-близо — и в древни, и в съвременни сравнения — показва, че
+    майчиното му наследство съдържа съществен североизточноазиатски континентален
+    пласт, генетично различен от Джомон и по-близо до света на вътрешноазиатската степ.</p>
+
+    <div class="insight-box">
+      <span class="insight-label">Компонентът K36 „Източноазиатски" — 45,29%</span>
+      Калкулаторът Eurogenes K36 приписва на Джулиан 45,29% източноазиатски —
+      най-голямата единична компонента в целия му профил. Заедно с 2,25% сибирски
+      и 0,85% океански, общият му Изток/Югоизток + Океански сигнал достига около 48%.
+      Европейските компоненти — Източнобалкански (8,24%), Източносредиземноморски (7,65%),
+      Източноевропейски (7,06%), Италиански (6,00%), Иберийски (4,45%),
+      Северноатлантически (4,66%), Френски (2,80%), Западносредиземноморски (2,57%),
+      Централноевропейски (0,42%),Източноцентралноевропейски (4,94%) и
+      Северокавказки (1,76%) — възстановяват пълния Източнобалкански бащин профил
+      на около 50% от генома му, точно съответстващо на очаквания 50% бащин принос.
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ РАЗДЕЛ 3: Наследството на Джомон ══ -->
+<div class="era-block" id="s_okinawa">
+  <div class="era-marker">
+    <span class="era-dot era-dot--east"></span>
+    <span class="era-label">Джомон<br>~16 000 г. пр. Хр.</span>
+  </div>
+  <div class="era-content">
+    <h2>Наследството на окинавските Джомон — древният свят на майка му</h2>
+
+    <p>Най-научно прецизната находка в целия геномен масив на Джулиан идва от
+    класирането по генетично разстояние в древната ДНК база данни на G25
+    Изчисление Б. Когато неговите координати се сравняват с всяка древна популация
+    в базата, резултатите образуват недвусмислена йерархия:</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Древна популация</th><th>Разстояние</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Япония Джомон SG (древни)</td><td class="dist-val">0,24991</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:35%"></div></div></td></tr>
+        <tr><td>Япония Хоншу — ранен Джомон SG</td><td class="dist-val">0,25464</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:37%"></div></div></td></tr>
+        <tr><td>Япония — ловец-събирач Джомон</td><td class="dist-val">0,25494</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:37%"></div></div></td></tr>
+        <tr><td>Япония Хоншу — среден/късен Джомон SG</td><td class="dist-val">0,25572</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:38%"></div></div></td></tr>
+        <tr><td>Русия — езеро Байкал N SG</td><td class="dist-val">0,27107</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:40%"></div></div></td></tr>
+        <tr><td>Хан Хенан</td><td class="dist-val">0,30859</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--gold" style="width:45%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <p>Разликата между генетичното разстояние на Джулиан до древните Джомон (0,250)
+    и до съвременните китайци хан (0,309) не е незначителна — тя е 24% разлика
+    в генетичната близост. Неговият източноазиатски компонент се групира безспорно
+    по-близо до доземеделските ловци-събирачи Джомон, отколкото до каквато и да е
+    континентална източноазиатска популация. Това е геномният отпечатък на засилено
+    Джомон наследство — именно това характеризира окинавските и рюкюанските популации.</p>
+
+    <p>Народът Джомон е сред най-генетично изолираните ловци-събирачи в историята
+    на човечеството. Те са пристигнали в японския архипелаг преди около 30 000–16 000
+    години в периоди на по-ниско морско равнище, когато сухоземни мостове свързвали
+    островите с азиатския континент. След покачването на морето те са живели в
+    изолация с хилядолетия, развивайки изключително отличителен генетичен профил,
+    неоткриваем другаде в света. Те са морски ловци и рибари, строители на черупкови
+    могили и създатели на най-старата известна керамика в света. Анализите на древна
+    ДНК показват, че са имали тъмна кожа, вълниста коса и двойни клепачи —
+    фенотип, различен от съвременните континентални източноазиатци.</p>
+
+    <p>Островите Рюкю — Окинава, Амами, Мияко, Яейама — са населени от
+    популации, свързани с Джомон, и са останали сравнително изолирани от
+    континенталната вълна на Яйои, преобразила Хоншу от около 300 г. пр. Хр.
+    нататък. Съвременните генетични изследвания неизменно показват, че жителите
+    на Окинава носят най-голямо Джомон наследство от всяка жива популация —
+    до 40% в някои оценки. Майчината линия на Джулиан носи това древно рюкюанско
+    наследство и то се регистрира ясно в неговите G25 координати.</p>
+
+    <div class="insight-box insight-box--east">
+      <span class="insight-label insight-label--east">Древна ДНК от жива родова линия</span>
+      Джомон не са само история — те са живо генетично наследство. Когато G25
+      координатите на Джулиан го поставят по-близо до 16 000-годишни древни японски
+      ловци-събирачи, отколкото до съвременните китайци хан, алгоритъмът улавя факта,
+      че майчиното му наследство е запазило непропорционално голямо количество
+      доземеделска източноазиатска ДНК — от рода, който континенталните японски
+      популации са разредили с хилядолетия яйойска примес, но който островната
+      география на Окинава е защитила. Джулиан носи в генома си генетичния спомен
+      на едни от най-древните морски ловци-събирачи в историята на човечеството.
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ РАЗДЕЛ 4: Монголският степен пласт ══ -->
+<div class="era-block" id="s_mongol">
+  <div class="era-marker">
+    <span class="era-dot era-dot--east"></span>
+    <span class="era-label">Вътрешна<br>Азия<br>500–1300 г. сл. Хр.</span>
+  </div>
+  <div class="era-content">
+    <h2>Монголският степен пласт — неочакваното най-близко съответствие</h2>
+
+    <p>Най-изненадващата находка в G25 анализа на Джулиан е резултатът от
+    Изчисление 1: <strong>Монголия — Архангай, ранно средновековие,
+    разстояние 0,189</strong> — неговото най-близко древно съответствие в
+    цялата база данни, надминаващо Джомон (0,250), Ямная (0,314) и всяка
+    европейска древна популация. Монголия Архангай — ранно средновековие
+    се отнася до индивиди от централна Монголия, датирани приблизително
+    500–900 г. сл. Хр. — периода на ранните тюркски каганати и
+    прото-монголски степни конфедерации, предхождащи Чингис хан с няколко века.</p>
+
+    <p>Резултатът е независимо потвърден от разстоянията до съвременни популации
+    в Изчисление 2: монголската (0,205) е най-близката съвременна популация на
+    Джулиан — значително по-близо от японската (0,310) и корейската (0,318).
+    Ако неговото източноазиатско наследство беше изцяло окинавско Джомон,
+    японската щеше да е на първо място. Фактът, че монголската се нарежда
+    най-близо — и в древни, и в съвременни сравнения — показва, че майчиното
+    му наследство съдържа съществен североизточноазиатски континентален компонент,
+    генетично различен от Джомон и по-близо до вътрешноазиатския степен свят.</p>
+
+    <p>Съществуват две невзаимоизключващи се обяснения за този монголски сигнал:</p>
+
+    <p><strong>1. Рюкюански популации с континентална примес, медиирана от Яйои.</strong>
+    Разширяването на Яйои към Рюкю, макар и по-непълно от това на Хоншу, действително
+    е настъпило и е внесло континентално-източноазиатско наследство от Корейския
+    полуостров в островите. Корейските популации сами по себе си носят значително
+    древно степно-свързано североизточноазиатско наследство — от тунгуски и
+    прото-монголски популации, населявали Манджурия и Корейския полуостров в
+    праисторически и исторически времена. Този Яйои пласт, филтриран
+    чрез корейско-свързано континентално наследство, би могъл да обясни
+    монголско-проксималния сигнал в G25 координатите му.</p>
+
+    <p><strong>2. Семейна история на майката с североизточноазиатски произход.</strong>
+    Ако семейството на майка му включва предци от континентална Япония, Корея
+    или региони, исторически повлияни от монголски или тунгуски популации —
+    включително наследство, близко до айните от Хокайдо, или какъвто и да е
+    произход от Корейския полуостров — това директно би увеличило близостта
+    до вътрешноазиатски популации и би обяснило монголското класиране.</p>
+
+    <div class="insight-box">
+      <span class="insight-label">Южна Корея — Кимхе Тэсондон, разстояние 0,215</span>
+      Второто най-близко древно съответствие в Изчисление 1 е от древен корейски
+      обект. Тези индивиди представляват ранни източноазиатски популации от
+      Корейския полуостров. Тяхното класиране между Монголия Архангай (0,189)
+      и Джомон (0,250) поставя източноазиатския генетичен профил на Джулиан
+      в конкретна географска зона: границата между североизточноазиатския степен
+      свят и древния морски свят на Джомон. Именно това е генетичното пространство,
+      което окинавските популации заемат — получавайки континентален яйоиски принос
+      от корейска посока, като същевременно запазват дълбокия субстрат Джомон.
+    </div>
+
+    <p>Калкулаторът HarappaWorld независимо потвърждава тази доминация на
+    Североизток: <strong>североизточноазиатски (32,33%)</strong> е най-голямата единична
+    компонента на Джулиан в световен мащаб, с ЮИ-азиатски (7,59%) и сибирски
+    (7,10%) като вторични сигнали. Комбинираният североизточноазиатски + Сибирски сигнал
+    от около 40% отразява едновременно монголско-проксималния континентален пласт
+    и древните байкалски неолитни популации, допринесли за Джомон и за
+    вътрешноазиатските степни популации чрез дълбоко споделено наследство.</p>
+  </div>
+</div>
+
+
+<!-- ══ РАЗДЕЛ 5: Денисованската нишка ══ -->
+<div class="era-block" id="s_denisovan">
+  <div class="era-marker">
+    <span class="era-dot era-dot--ancient"></span>
+    <span class="era-label">Денисовани<br>&gt;50 000 г. пр. н. е.</span>
+  </div>
+  <div class="era-content">
+    <h2>Денисованската нишка — архаично наследство чрез канала на Джомон</h2>
+
+    <p>Тестът за архаично наследство по Модел D дава най-забележителния резултат
+    в целия геномен масив на Джулиан. Когато неговите G25 координати се сравняват
+    с древни популации, избрани специално за засичане на денисованско-свързано
+    наследство — Онге (Андамански острови), папуанци и Джомон —
+    класирането е следното:</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Древна популация</th><th>Разстояние</th><th>Значение</th></tr></thead>
+      <tbody>
+        <tr><td>Индия — Велики Андамански острови 100 г. пр. н. е. SG (Онге-свързани)</td><td class="dist-val">0,24235</td><td style="font-size:.82rem;color:var(--ink-mid)">Най-висок денисовански сигнал извън Меланезия</td></tr>
+        <tr><td>Япония — ловец-събирач Джомон</td><td class="dist-val">0,25494</td><td style="font-size:.82rem;color:var(--ink-mid)">Джомон носи Онге-свързано наследство</td></tr>
+        <tr><td>Русия — Самара EBA Ямная</td><td class="dist-val">0,31404</td><td style="font-size:.82rem;color:var(--ink-mid)">Бащина бронзова епоха — степта</td></tr>
+        <tr><td>Турция — Бонджуклу N</td><td class="dist-val">0,35649</td><td style="font-size:.82rem;color:var(--ink-mid)">Бащин анатолийски неолит</td></tr>
+        <tr><td>Папуанец HGDP</td><td class="dist-val">0,70883</td><td style="font-size:.82rem;color:var(--ink-mid)">Най-висок денисовански дял — много отдалечен</td></tr>
+      </tbody>
+    </table>
+
+    <p>Онге — древните жители на Андаманските острови — класирани като
+    единственото най-близко съответствие на Джулиан в този модел, над
+    дори Джомон, е забележителна находка. Онге са сред най-генетично
+    изолираните популации на планетата — преки потомци на първите анатомично
+    съвременни хора, напуснали Африка по южен крайбрежен маршрут преди около
+    60 000–70 000 години. Те са живели на Андаманските острови с минимален
+    контакт с останалия свят в продължение на десетки хиляди години, запазвайки
+    изключително древен генетичен профил. Критично важно е, че носят вторите
+    по величина денисовански примеси след папуанците — около 0,5–1,0%.</p>
+
+    <p>Самите Джомон са носили Онге-свързано наследство. Анализите на
+    древна ДНК от индивиди Джомон показват, че те са получили генен поток
+    от популация, предково свързана с днешните жители на Андаманските острови
+    и с други древни ловци-събирачи от Югоизточна Азия — популации, които
+    по време на дългото си южно придвижване са се кръстосвали с денисовани.
+    Това Онге-свързано наследство е пренесено в японския архипелаг от
+    първите заселници Джомон и е запазено най-силно в рюкюанските популации,
+    получили най-малко разреждане от последващи континентални миграции.</p>
+
+    <p>Голямото разстояние до папуанеца (0,709) е критично информативно:
+    то е много голямо, което означава, че Джулиан <em>няма</em> пряко меланезийско
+    или новогвинейско наследство. Денисованският сигнал пристига чрез канала
+    Джомон-Онге, а не от какъвто и да е пряк океански източник. Това е
+    очакваният модел за рюкюанско наследство — денисованското наследство е
+    древно, разредено и предадено чрез верига от посреднически популации.</p>
+
+    <p>Резултатът от K10 Ancient независимо потвърждава това: <strong>3,26%
+    Берингийски + 1,16% Океански</strong>. В популационно-генетичните модели
+    берингийският компонент е свързан с древните северноевразийски и
+    Джомон-свързани популации, споделящи дълбоко наследство с групите,
+    преминали сухоземния мост на Беринг — групи, носили и по-висока степен
+    на денисовански примеси в сравнение със западноевразийците.</p>
+
+    <div class="insight-box insight-box--east">
+      <span class="insight-label insight-label--east">Денисованското наследство — какво означава</span>
+      За разлика от неандерталските примеси, разпределени приблизително равномерно
+      сред всички неафрикански популации (~1,5–2,5%), денисованските примеси са
+      географски неравномерни. Континенталните източноазиатци носят около 0,2%
+      денисовански ДНК. Популациите, свързани с Джомон и океански, носят значително
+      повече — до 5% при папуанците. Богатото на Джомон майчино наследство на
+      Джулиан означава, че той почти сигурно носи повече денисованска ДНК от средния
+      европеец или континентален източноазиатец. Това не е закръглена грешка —
+      това е реално архаично наследство от отделен вид хора, предадено чрез
+      конкретна верига: денисовани → древен ЮИ-азиатски ловец-събирач → ранни
+      заселници Джомон → рюкюанска популация → майка му → Джулиан.
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ РАЗДЕЛ 6: Бащина балканска линия ══ -->
+<div class="era-block" id="s_paternal">
+  <div class="era-marker">
+    <span class="era-dot"></span>
+    <span class="era-label">Бащина<br>линия<br>Съвременност</span>
+  </div>
+  <div class="era-content">
+    <h2>Бащината балканска линия — наследството от баща му</h2>
+
+    <p>Бащиният принос на Джулиан е документиран в изключителна подробност
+    чрез собствения дълбок родов анализ на баща му. Профилът на генетичния
+    кръстопът на Източните Балкани — с ядро в съвременните български и румънски
+    популации и G25 разстояния под 0,020 до българите, румънците и гагаузите —
+    преминава към Джулиан като около 50% от целия му геном.</p>
+
+    <p>Европейските компоненти в K36 резултатите на Джулиан точно възстановяват
+    това бащино наследство. Неговите Източнобалкански (8,24%), Източносредиземноморски
+    (7,65%), Източноевропейски (7,06%), Италиански (6,00%), Иберийски (4,45%),
+    Северноатлантически (4,66%), Френски (2,80%), Западносредиземноморски (2,57%),
+    Северокавказки (1,76%), Източноцентралноевропейски (4,94%) и Централноевропейски
+    (0,42%) съставляват заедно около 50% от генома му — пълният Източнобалкански
+    подпис, пристигнал непокътнат чрез бащината линия.</p>
+
+    <p>Допълнителните генетични групи в MyHeritage — България, Румъния,
+    Сърбия/Хърватия/Босна и Херцеговина — са алгоритъмът, разпознаващ
+    бащиния сигнал и поставящ го точно в Източнобалканския коридор, откъдето
+    произхожда наследството на баща му.</p>
+
+    <div class="insight-box">
+      <span class="insight-label">Какво разкрива оракулът с три популации</span>
+      Най-доброто съответствие при три популации в Dodecad K12b —
+      50% Bulgarians_Yunusbayev + 25% Korean_Dodecad + 25% Naga_Metspalu
+      при разстояние 3,98 — е съвършена рекапитулация на генома на Джулиан
+      в три заместителни популации. Българската представлява бащиния Източнобалкански
+      принос. Корейската представлява яйоиски-медиирания континентален Източноазиатски
+      компонент от майчина страна. Нага — тибето-бирманска група от Североизточна Индия —
+      представлява древния Юг/Югоизток-азиатски субстрат, свързан с Онге-свързаното
+      и Джомон-дълбокото наследство, открито в денисованския модел.
+      И трите нишки са реални и и трите са закодирани в тези три заместителни популации.
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ РАЗДЕЛ 7: Бронзова епоха — Ямная ══ -->
+<div class="era-block" id="s_bronze">
+  <div class="era-marker">
+    <span class="era-dot era-dot--mid"></span>
+    <span class="era-label">Бронзова<br>епоха<br>3000–1200 г. пр. Хр.</span>
+  </div>
+  <div class="era-content">
+    <h2>Вълната на Ямная — 25% от целия геном на Джулиан</h2>
+
+    <p>Сведен до древните си основи, около <strong>25% от целия геном на Джулиан</strong>
+    проследява произхода си до пастирите от Понтийската степ в Бронзовата епоха —
+    Ямная и техните културни наследници — пристигнали чрез бащината му
+    Източнобалканска линия. Това е очакваното ~50% от неговия бащин принос.</p>
+
+    <p>Сигналът от Ямная се вижда ясно в G25 Изчисление 1:
+    Русия — Самара EBA Ямная се нарежда на разстояние 0,314, поставено между
+    неговите Източноазиатски древни съответствия и Анатолийско-Неолитното. Това
+    класиране отразява математическото разреждане на сигнала от Ямная — присъстващ
+    и реален, но конкуриращ се за близост с много по-големия Източноазиатски
+    компонент, доминиращ в общите му координати.</p>
+
+    <p>Ямная носели праиндоевропейски език, предшественик на съвременния
+    български — езикът, на който баща му вероятно говори. Всяка българска дума,
+    всяка славянска граматична структура, всеки наследен индоевропейски корен
+    в езика на баща му е културното ехо на тази степна експанзия от Бронзовата
+    епоха, запазено в езикова форма в продължение на 5 000 години.</p>
+
+    <p>Съществува и степно-свързан сигнал, пристигащ от майчина страна.
+    Монголската ранносредновековна древна популация, класирана като единственото
+    най-близко древно съответствие на Джулиан (0,189), сама по себе си носи
+    съществено степно наследство. Вътрешноазиатските монголски популации са
+    наследили своя собствен вариант на древното северноевразийско степно наследство
+    чрез различен маршрут — чрез Източната степ, а не чрез Западната Понтийска.
+    Джулиан носи степно-свързана ДНК от <em>двете</em> страни: западна степ
+    чрез бащината му балканска линия, и източна степ чрез майчината му
+    Североизточноазиатска линия.</p>
+  </div>
+</div>
+
+
+<!-- ══ РАЗДЕЛ 8: Неолит ══ -->
+<div class="era-block" id="s_neolithic">
+  <div class="era-marker">
+    <span class="era-dot era-dot--ancient"></span>
+    <span class="era-label">Неолит<br>7000–3000 г. пр. Хр.</span>
+  </div>
+  <div class="era-content">
+    <h2>Анатолийските земеделци — ~17% от основата на Джулиан</h2>
+
+    <p>Калкулаторът K10 Ancient приписва на Джулиан <strong>19,48% ENF
+    (ранен неолитен земеделец)</strong> наследство — анатолийски неолитни
+    земеделски популации, разпространили земеделието в Европа преди около
+    8 000 години. В контекста на смесения геном на Джулиан тази цифра
+    представлява около 40% от неговия европейски бащин принос — очакваната
+    пропорция за Източнобалкански индивид, чиито предци са получили множество
+    вълни степни примеси, разреждащи първоначалната неолитна земеделска основа.</p>
+
+    <p>Сигналът от Анатолийските земеделци се появява в G25 резултатите на
+    Джулиан като Турция — Бонджуклу N на разстояние 0,356 — присъстващ и
+    идентифицируем, но класиран значително под неговите Източноазиатски древни
+    съответствия, отразявайки математическата реалност, че този компонент
+    съставлява около 17% от общия му геном, а не 35-те процента, каквито
+    представлява при баща му.</p>
+
+    <p>Наследството от Анатолийските земеделци е генетичният субстрат на
+    онова, което MyHeritage означава като Гръцки и Албански (10,8%) компонент —
+    споделената средиземноморска основа, свързваща Югоизточноевропейските
+    популации с древния Егейски свят, пристигнала на Балканите с първите
+    земеделци, преминали от Анатолия през днешна България и Гърция преди
+    около 8 000 години.</p>
+  </div>
+</div>
+
+
+<!-- ══ РАЗДЕЛ 9: Мезолит ══ -->
+<div class="era-block" id="s_mesolithic">
+  <div class="era-marker">
+    <span class="era-dot era-dot--ancient"></span>
+    <span class="era-label">Мезолит<br>10 000–7000 г. пр. Хр.</span>
+  </div>
+  <div class="era-content">
+    <h2>Ловците-събирачи — европейски и Джомон</h2>
+
+    <p>Джулиан носи наследство от ловци-събирачи от два напълно независими
+    извора — единия европейски, другия източноазиатски — които се срещат
+    в неговия геном, без никога преди да са се срещнали в историята на
+    човечеството.</p>
+
+    <p><strong>Европейският WHG компонент (16,70%)</strong> в резултата от
+    K10 Ancient пристига чрез бащината му балканска линия — следледниковите
+    ловци-събирачи на Европа, свързани с Ла Браня (Испания), Лошбур
+    (Люксембург) и индивидите от Мотала (Швеция). Това е около половината от
+    WHG дела в генома на баща му (~35%), отразявайки очакваното 50% бащино
+    разреждане. Люксембург Лошбур се нарежда на разстояние 0,500 в G25
+    Модел C — присъстващ, но математически отдалечен поради доминиращото
+    привличане на Източноазиатското наследство върху общите координати.</p>
+
+    <p><strong>Компонентът Джомон</strong> — древното наследство на ловци-събирачи
+    от майка му — е сам по себе си своеобразен Източен еквивалент на WHG:
+    древна, доземеделска, геномно изолирана популация от ловци-събирачи,
+    живяла извън главните неолитни земеделски експанзии и запазила архаичен
+    генетичен профил с хилядолетия. В този смисъл Джулиан носи два набора
+    наследство от ловци-събирачи — единия от Атлантическия ръб на Евразия,
+    другия от Тихоокеанския — и двата пристигащи като древни реликви от
+    доземеделския свят, срещащи се за пръв път в неговия геном.</p>
+
+    <div class="insight-box insight-box--east">
+      <span class="insight-label insight-label--east">Две родови линии на ловци-събирачи</span>
+      Западноевропейските ловци-събирачи (Ла Браня, Лошбур, Мотала) и
+      ловците-събирачи Джомон са споделяли общ предшественик преди около
+      40 000–50 000 години, когато анатомично съвременните хора за пръв път
+      са се разпространили от Африка и са започнали да се диференцират в
+      популациите, станали впоследствие европейци и Източноазиатци. Те са
+      еволюирали в пълна генетична изолация в продължение на десетки хиляди
+      години в противоположните краища на Евразийския континент.
+      Геномът на Джулиан ги събира отново.
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ РАЗДЕЛ 10: Срещата на два свята ══ -->
+<div class="era-block" id="s_convergence">
+  <div class="era-marker">
+    <span class="era-dot era-dot--dual"></span>
+    <span class="era-label">Срещата<br>на два<br>свята</span>
+  </div>
+  <div class="era-content">
+    <h2>Срещата на два свята — свидетелството на SNP маркерите</h2>
+
+    <p>Най-елегантното потвърждение на двойствеността на Джулиан не идва от
+    популационни статистики или разстояния до древна ДНК — то идва от единичен
+    нуклеотиден полиморфизъм, четим директно от неговия суров ДНК файл.
+    На позиция rs17822931 в гена ABCC11 генотипът на Джулиан е <strong>TC</strong>
+    — хетерозиготен.</p>
+
+    <p>Баща му носи <strong>CC</strong> на тази позиция — влажна ушна кал,
+    предковият западноевразийски вариант, среден при близо 100% честота при
+    европейските популации. Майка му почти сигурно носи <strong>TT</strong>
+    — суха ушна кал, производният Източноазиатски вариант, открит при близо
+    100% честота при японски, корейски и китайски популации (и почти отсъстващ
+    при европейците). Алелът T при ABCC11 е част от същото хаплотипно блокче
+    на селективно размитие, произвело и варианта EDAR за дебелина на косата —
+    координиран набор от адаптации, преминали през Източноазиатски популации
+    преди около 30 000 години и засягащи косата, потните жлези, ушната кал
+    и плътността на млечната тъкан едновременно.</p>
+
+    <p>Генотипът TC на Джулиан е съвършен молекулярен хетерозигот —
+    един алел, наследен от всеки родител: западноевразийският C от
+    Източнобалканската линия на баща му, източноазиатският T от
+    рюкюанското наследство на майка му. На единична позиция в генома му
+    двете родови нишки са четими една до друга.</p>
+
+    <p>SNP маркерите на пигментацията разказват същата история паралелно:</p>
+
+    <p>Неговият генотип <strong>HERC2 GA</strong> при главния превключвател
+    на цвета на очите (rs12913832) съчетава GG на баща му (хаплотип за сини очи,
+    с произход от древните WHG ловци-събирачи) с вероятния алел A на майка му
+    (предковият вариант за тъмни очи). Джулиан вероятно има лешникови или
+    междинни очи — алелът за сини очи от европейските мезолитни ловци-събирачи,
+    срещащ се с алела за тъмни очи от Джомон източноазиатското наследство,
+    хетерозиготни в един индивид.</p>
+
+    <p>Неговият генотип <strong>SLC45A2 CG</strong> показва същия модел —
+    алелът G на баща му (европейски вариант за по-светла кожа), съчетан с
+    предковия алел C от майка му. Очаква се междинна пигментация, отразяваща
+    математическото средно на два дълбоко различни родови потока на всеки
+    пигментационен локус.</p>
+
+    <div class="insight-box insight-box--dual">
+      <span class="insight-label insight-label--white">Молекулярното доказателство за двойствеността</span>
+      <p style="color:var(--gold-light);font-size:.95rem;line-height:1.8;margin:0">
+        Всеки хетерозиготен SNP маркер в генома на Джулиан на позиции, където
+        баща му и майка му носят противоположни предкови спрямо производни алели,
+        е молекулярен запис на срещата на две линии. ABCC11 TC, HERC2 GA,
+        SLC45A2 CG — те не са статистически абстракции. Те са точните нуклеотиди,
+        където Източнобалканският кръстопът и Рюкюанският архипелаг се докосват,
+        написани на езика на ДНК, четими в единична двойка основи.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ РАЗДЕЛ 11: SNP маркери ══ -->
+<div class="era-block" id="s_snps">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+    <span class="era-label">Родови<br>SNP маркери</span>
+  </div>
+  <div class="era-content">
+    <h2>Ключови родово-информативни и фенотипни генотипи</h2>
+    <p>Директни генотипни отчитания от суровия ДНК файл на Джулиан от MyHeritage.
+    Хетерозиготните позиции при родово-информативни локуси са биологически
+    най-значимите — те отбелязват кой алел идва от всяка родителска линия.</p>
+
+    <div class="snp-table-wrap">
+      <table class="snp-table">
+        <thead>
+          <tr>
+            <th>Ген</th>
+            <th>Генотип</th>
+            <th>Произход</th>
+            <th>Значение</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="snp-gene">ABCC11</td>
+            <td class="snp-geno snp-found--het">TC</td>
+            <td><span class="heritage-badge badge--west">Запад C</span><span class="heritage-badge badge--east">Изток T</span></td>
+            <td class="snp-desc">Вид ушна кал/пот — T от Източноазиатската майка, C от Балканския баща. Молекулярното доказателство за двойното наследство.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">HERC2</td>
+            <td class="snp-geno snp-found--het">GA</td>
+            <td><span class="heritage-badge badge--west">WHG G</span><span class="heritage-badge badge--east">Изток A</span></td>
+            <td class="snp-desc">Главен превключвател на цвета на очите — G (сини очи, произход WHG) от баща, A (тъмни) от майка. Вероятно лешникови/междинни очи.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">SLC45A2</td>
+            <td class="snp-geno snp-found--het">CG</td>
+            <td><span class="heritage-badge badge--west">Запад G</span><span class="heritage-badge badge--east">Изток C</span></td>
+            <td class="snp-desc">Меланинов път — G (европейски вариант за по-светла кожа) от баща, C (предков) от майка. Очаква се междинна пигментация.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">HERC2 (OCA2)</td>
+            <td class="snp-geno snp-found--het">GA</td>
+            <td><span class="heritage-badge badge--west">Бащин</span><span class="heritage-badge badge--east">Майчин</span></td>
+            <td class="snp-desc">OCA2 регулатор — хетерозиготен, в съответствие с профила на междинна пигментация.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">TYR</td>
+            <td class="snp-geno snp-found--het">AC</td>
+            <td><span class="heritage-badge badge--west">Бащин</span><span class="heritage-badge badge--east">Майчин</span></td>
+            <td class="snp-desc">Тирозиназна меланинова продукция — хетерозиготен, смесен UV-чувствителен профил.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">LCT</td>
+            <td class="snp-geno snp-found--west">AG</td>
+            <td><span class="heritage-badge badge--west">Бащин T</span></td>
+            <td class="snp-desc">Лактазна персистентност — наследил европейски алел за поносимост към лактоза от баща. Очаква се пълна поносимост към лактоза.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">MTHFR</td>
+            <td class="snp-geno snp-found--west">GG</td>
+            <td><span class="heritage-badge badge--west">Норма</span></td>
+            <td class="snp-desc">Метаболизъм на фолат — хомозиготно нормален. Не е наследил алела C677T с редуцирана активност от баща. Без притеснения за фолатния метаболизъм.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">BDNF</td>
+            <td class="snp-geno snp-found--west">CC</td>
+            <td><span class="heritage-badge badge--west">Val/Val</span></td>
+            <td class="snp-desc">Стандартен вариант за висока невропластичност. Не е наследил алела Met66 от баща. Оптимална активност-зависима BDNF секреция.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">COMT</td>
+            <td class="snp-geno snp-found--het">GG</td>
+            <td><span class="heritage-badge badge--east">Met/Met</span></td>
+            <td class="snp-desc">Бавен катаболизъм на допамин в префронталния кортекс — свързан с по-силна работна памет, по-голяма чувствителност към стрес при висок когнитивен натиск.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">CYP1A2</td>
+            <td class="snp-geno snp-found--west">AA</td>
+            <td><span class="heritage-badge badge--west">Бърз</span></td>
+            <td class="snp-desc">Бърз метаболизатор на кофеин — ефективно преработва кофеин, по-нисък сърдечносъдов риск от консумацията на кафе.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">TCF7L2</td>
+            <td class="snp-geno snp-found--het">CT</td>
+            <td><span class="heritage-badge badge--archaic">Наблюдение</span></td>
+            <td class="snp-desc">Най-добре репликираният рисков вариант за диабет тип 2 — CT хетерозиготен носи умерено завишен риск. Препоръчително дългосрочно наблюдение на хранителния режим.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">FTO</td>
+            <td class="snp-geno snp-found--het">AT</td>
+            <td><span class="heritage-badge badge--archaic">Смесен</span></td>
+            <td class="snp-desc">Риск за затлъстяване/диабет тип 2 — AT хетерозиготен, междинен риск. В комбинация с TCF7L2 CT, метаболитното здраве заслужава наблюдение.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">APOE</td>
+            <td class="snp-geno snp-found--west">CC</td>
+            <td><span class="heritage-badge badge--west">Благоприятен</span></td>
+            <td class="snp-desc">Риск за болест на Алцхаймер — CC на тази позиция е свързан със стандартен/по-нисък рисков профил. Не е засечен повишен APOE ε4 риск.</td>
+          </tr>
+          <tr>
+            <td class="snp-gene">ADH1B</td>
+            <td class="snp-geno snp-found--west">CC</td>
+            <td><span class="heritage-badge badge--east">Бележка</span></td>
+            <td class="snp-desc">Метаболизъм на алкохол — CC е стандартният европейски вариант. Джулиан не е наследил Източноазиатския ADH1B вариант — в съответствие с богато-на-Джомон наследство, при което честотата на алела се различава от тази при континенталните хан.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ РАЗДЕЛ 12: Пълната картина ══ -->
+<div class="era-block" id="s_synthesis" style="border-bottom:none">
+  <div class="era-marker">
+    <span class="era-dot era-dot--dual"></span>
+    <span class="era-label">Пълната<br>картина</span>
+  </div>
+  <div class="era-content">
+    <h2>Пълната история — геном без прецедент</h2>
+
+    <p>Данните за произхода на Джулиан разказват история, за чието моделиране
+    нито един популационно-генетичен калкулатор не е бил проектиран, защото
+    нито една референтна популация в нито една база данни не комбинира тези
+    конкретни нишки. Той е първото поколение генетична комбинация, каквато
+    никога преди не е съществувала — и данните го показват на всяко ниво
+    от анализа.</p>
+
+    <p>Най-старите нишки са споделени с цялото човечество: <strong>неандерталски
+    примеси</strong> от срещата в Леванта преди 50 000–60 000 години, присъстващи
+    в приблизително равна мярка от двете страни на неговото наследство. И от
+    майчина страна — по-дълбок архаичен сигнал: <strong>денисовански примеси</strong>,
+    предадени чрез канала Джомон-Онге, пристигащи от отделен архаичен човешки
+    вид чрез древните Югоизточноазиатски ловци-събирачи, били най-дълбоките
+    предци на Джомон.</p>
+
+    <p>Оттам двете линии се разминават в противоположните краища на Евразийския
+    континент. В западния край <strong>Западноевропейските ловци-събирачи</strong> —
+    синеокият горски народ на следледникова Европа — допринасят хаплотипа за сини
+    очи HERC2, намиращ се сега хетерозиготно в генома на Джулиан. В източния край
+    <strong>ловците-събирачи Джомон</strong> — морските строители на черупкови
+    могили от японския архипелаг, сред най-изолираните популации в историята на
+    човечеството — допринасят своя древен тихоокеански генетичен подпис,
+    запазен най-пълно на островите Рюкю, откъдето произхожда семейството
+    на майка му.</p>
+
+    <p><strong>Анатолийските неолитни земеделци</strong> пристигат следващи от
+    западната страна, носейки алела SLC24A5 за по-светла кожа чрез Балканския
+    коридор. <strong>Континенталните земеделци Яйои</strong> пристигат от
+    източната страна, носейки производно от Корейския полуостров
+    континентално-Източноазиатско наследство към Рюкю — непълно, запазвайки
+    субстрата Джомон на по-високи нива, отколкото на континентален Хоншу.</p>
+
+    <p><strong>Пастирите от Ямная в Бронзовата епоха</strong> преминават
+    Западната степ, допринасяйки половината от бащиния му геном и
+    праиндоевропейския език, предшественик на българския. От Източната страна,
+    вътрешноазиатски степни популации — отразени в найближкото древно
+    съответствие Монголия Архангай — допринасят паралелен Североизточноазиатски
+    степен пласт към майчиния му геном, пристигащ чрез напълно различен
+    степен свят на хиляди километри на Изток.</p>
+
+    <p><strong>Славянските миграции</strong> от VI–VIII в. сл. Хр. завършват
+    бащината картина, пристигащи чрез Панонския коридор в Източните Балкани
+    и сливайки се с съществуващия Палеобалкански субстрат и Византийски
+    средиземноморски популации, за да произведат Българско-Румънския профил,
+    носен от баща му и наследен от Джулиан в 50%.</p>
+
+    <p>Резултатът е геном, който нито един алгоритъм не може да постави —
+    защото той стои точно по средата между два от най-отдалечените генетични
+    свята в Евразия: Източнобалканският кръстопът, където Европа, Азия и
+    древното Средиземноморие се срещат, и Рюкюанският архипелаг, където
+    най-древната тихоокеанска човешка линия е запазена в почти пълна
+    изолация от 16 000 години.</p>
+
+    <div class="insight-box insight-box--final">
+      <span class="insight-label insight-label--white">Родовото уравнение на Джулиан</span>
+      <div class="equation">
+        <span class="eq-east">~30% Джомон Рюкюански (Окинавски майчин субстрат)</span><br>
+        + <span class="eq-east">~15% Континентален североизточноазиатски / Монголско-проксимален</span><br>
+        + <span class="eq-east">~3% Древен Сибирски / Берингийски (Джомон-медииран)</span><br>
+        + <span class="eq-east">~1% Денисовански (чрез канала Онге/Джомон)</span><br>
+        = <strong>Майчин Източноазиатски общо ~49%</strong>
+        <br><br>
+        35% Анатолийски Неолитни Земеделци (чрез Балканите)<br>
+        + 15% Западноевропейски Ловци-събирачи<br>
+        + 25% Ямнайски Степни Пастири (ИЛГ + КЛГ)<br>
+        + Славянска миграционна примес<br>
+        = <strong>Бащин Източнобалкански общо ~50%</strong>
+        <br><br>
+        <strong>= Геном без прецедент</strong><br>
+        <span style="font-size:.82rem;color:var(--ink-light);">
+          Източни Балкани × Рюкюански архипелаг × Вътрешноазиатска степ<br>
+          Две линии на ловци-събирачи · Два степни свята · Един архаичен вид
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main-content -->
+</body>
+</html>
