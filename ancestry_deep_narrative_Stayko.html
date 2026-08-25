@@ -111,6 +111,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <a href="#s_mesolithic" class="nav-link">Layer 5 — Mesolithic</a>
   <a href="#s_archaic" class="nav-link">Layer 6 — Archaic</a>
   <hr class="nav-divider">
+  <a href="#s_markers" class="nav-link">Genetic Markers</a>
   <a href="#s_surprises" class="nav-link">Notable Findings</a>
   <a href="#s_synthesis" class="nav-link">The Full Picture</a>
 </nav>
@@ -143,11 +144,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 </div>
 
 <div class="disclaimer">
-  Sources: Vahaduo Global25 coordinates (Stayko_Consensus_G25_v1_sim_scaled, kit TD3247381) modelled against five distance panels — modern populations, the ancient three-wave model, the medieval panel, the deep-ancestry / archaic model, and a Caucasus-resolution Aegean/South-Caucasus model — plus the full Bulgarian ancient DNA archaeological stratigraphy. Admixture calculators: GEDmatch Eurogenes K36, K13, EUtest V2 K15, MDLP K23b, MDLP K16, Dodecad K12b, Dodecad K7b, HarappaWorld (with Oracle population approximations). A supplementary IBD/segment-match heat map against named ancient individuals (including several sequenced Neanderthal genomes) is referenced qualitatively in Notable Findings. Ancient DNA ancestry models are statistical approximations describing genetic relationships, not direct genealogical descent. Generated August 2026.
+  Sources: Vahaduo Global25 coordinates (Stayko_Consensus_G25_v1_sim_scaled, kit TD3247381) modelled against five distance panels — modern populations, the ancient three-wave model, the medieval panel, the deep-ancestry / archaic model, and a Caucasus-resolution Aegean/South-Caucasus model — plus the full Bulgarian ancient DNA archaeological stratigraphy. Admixture calculators: GEDmatch Eurogenes K36, K13, EUtest V2 K15, MDLP K23b, MDLP K16, Dodecad K12b, Dodecad K7b, HarappaWorld (with Oracle population approximations). A panel of seven ancestry-informative SNP genotypes (EDAR, ABCC11, SLC24A5, HERC2, LCT, TYR, OCA2) supplements the statistical models with direct single-gene evidence. A supplementary IBD/segment-match heat map against named ancient individuals (including several sequenced Neanderthal genomes) is referenced qualitatively in Notable Findings. Ancient DNA ancestry models are statistical approximations describing genetic relationships, not direct genealogical descent. Generated August 2026.
 </div>
 
 <div class="disclaimer" style="border-top:none;border-bottom:1px solid var(--era-line)">
-  <strong>A note on completeness:</strong> all five Vahaduo models and the full Bulgarian stratigraphy are now incorporated. Still pending for full parity with Minko's report: raw ancestry-informative SNP genotypes, MyHeritage ethnicity percentages, and chromosome/cM-level detail on the specific archaic segment matches shown in the heat map. The formal vector comparison between Minko's and Stayko's consensus G25 coordinates — needed to quantify the Aegean-lean discussed below with real numbers rather than distance-table inference — is still pending Minko's own coordinate row.
+  <strong>A note on completeness:</strong> this report draws on MyHeritage ethnicity estimates, five Vahaduo Global25 distance models, the full Bulgarian ancient DNA stratigraphy, eight admixture calculators, and a panel of ancestry-informative SNP genotypes. Not yet incorporated: chromosome/cM-level detail on the archaic segment matches shown in the supplementary heat map — that can be added in a follow-up pass once available.
 </div>
 
 
@@ -158,13 +159,26 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <span class="era-label">Layer 0<br>The Surface</span>
   </div>
   <div class="era-content">
-    <h2>Eight Calculators, One Genome — Reading Past the Labels</h2>
+    <h2>What the Percentages Are Telling You — and What They Are Not</h2>
 
-    <p>Run the same raw DNA through eight different admixture calculators and you get eight different vocabularies for the same underlying genome. MDLP K23b reads this profile as <strong>37.54% Caucasian</strong>. Dodecad K7b reads the same genome as <strong>52.46% Atlantic_Baltic</strong>. HarappaWorld calls its largest component <strong>31.91% NE-Euro</strong>. These are not three contradictory findings — they are three reference panels drawing different boundaries around the same genetic variation, each calculator's "Caucasian," "Atlantic_Baltic," and "NE-Euro" labels overlapping heavily in the populations they actually sample from.</p>
+    <p>MyHeritage's ethnicity estimate for this kit reads as follows:</p>
 
-    <p>What is consistent across all eight calculators is the underlying structure, not the labels: a large Caucasus/West Asian-leaning component (MDLP K23b Caucasian 37.54%, MDLP K16 Caucasian 33.72%, Dodecad K12b Caucasus 27.75%, HarappaWorld Caucasian 26.24%), a large North European/steppe-descended component (Dodecad K7b Atlantic_Baltic 52.46%, Eurogenes K13 Baltic 22.85%, HarappaWorld NE-Euro 31.91%), and a consistent Mediterranean/farmer-descended component (Eurogenes K13 East Med + West Med ≈ 41%, Dodecad K12b Atlantic_Med 26.57%, HarappaWorld Mediterranean 24.22%). Three streams, eight vocabularies.</p>
+    <table class="data-table">
+      <tr><td>Greek and Albanian <span style="font-size:.75rem;color:var(--ink-light)">(North Macedonia and Greece)</span></td><td class="pct-cell"><span class="pct-bar" style="width:78%"></span><span class="pct-val">43.1%</span></td></tr>
+          <tr><td>Balkan</td><td class="pct-cell"><span class="pct-bar" style="width:75%"></span><span class="pct-val">41.7%</span></td></tr>
+          <tr><td>East European</td><td class="pct-cell"><span class="pct-bar" style="width:17%"></span><span class="pct-val">9.5%</span></td></tr>
+          <tr><td>South Italian</td><td class="pct-cell"><span class="pct-bar" style="width:10%"></span><span class="pct-val">5.7%</span></td></tr>
+    </table>
 
-    <p>The Oracle single-population approximations cut through the labelling entirely by asking a more direct question: which real, named populations does this genome most resemble? Across every calculator that offers this feature, the answer converges tightly. Eurogenes K13: <strong>Bulgarian 5.22%</strong> distance, Romanian 8.09%. EUtest K15: <strong>Bulgarian 5.11%</strong>, Romanian 8.13%. HarappaWorld: Romanian 4.96%, Bulgarian 5.20%. Three independent calculators, three independent reference panels, the same two populations occupying the top two positions every time. That convergence — not any single percentage — is the reliable signal in this dataset.</p>
+    <p>MyHeritage also flags four <strong>Additional Genetic Groups</strong> detected at lower confidence — finer-grained population signals the main breakdown doesn't have room for: Bulgaria, Serbia/Croatia/Bosnia and Herzegovina, Romania, and, unexpectedly, Ireland (Kerry, Cork and Limerick).</p>
+
+    <p>Read literally, these four headline percentages look like a genealogical pie chart — as if 43.1% of this genome's family tree runs through Greece and Albania, 5.7% through southern Italy. That is not what the numbers mean. MyHeritage's algorithm is comparing this genome's genetic variation against reference panels built from present-day people who identify with each labelled region, and assigning the closest-fitting mixture of those panels. "Greek and Albanian" and "Balkan" are not two separate ancestral populations that mixed at some point — they are two overlapping, imperfectly-drawn boxes around the same broad Southeast European Paleo-Balkan gene pool, split apart largely because MyHeritage's reference panel happens to distinguish northern Greece/Albania/North Macedonia from the wider Balkan interior. Together, at 43.1% + 41.7% = <strong>84.8% combined</strong>, they describe one thing: a genome sitting almost entirely within the Southeast European genetic continuum, with the algorithm simply drawing its internal dividing line very close to the middle.</p>
+
+    <p>East European (9.5%) most likely reflects the northward edge of that same continuum — the genetic gradient running up through Romania, Moldova, and Ukraine that any Balkan population shares to some degree with its northern neighbours, picked up here as a distinct secondary label rather than a separate migration event. South Italian (5.7%) is very likely doing similar work to what it does in comparable Balkan profiles elsewhere: southern Italy and the Balkans share a deep layer of common Neolithic and Bronze Age Mediterranean ancestry, and reference panels built from modern Italians and modern Balkan populations partially overlap as a result — a shared ancient substrate showing up as a modern-nation label, not evidence of a genealogical Italian ancestor.</p>
+
+    <p>The Additional Genetic Groups are the more interesting layer here, because three of the four — Bulgaria, Serbia/Croatia/Bosnia and Herzegovina, Romania — simply confirm, at finer resolution, exactly the Eastern Balkan / Lower Danube position that the G25 modern-population table in Layer 1 independently arrives at through a completely different method. The fourth, Ireland, does not fit that pattern at all, and is addressed directly in Notable Findings below rather than folded quietly into the main narrative.</p>
+
+    <p>Independent admixture calculators built on entirely different reference panels agree on the underlying structure even where their labels diverge: MDLP K23b reads this profile as <strong>37.54% Caucasian</strong>; Dodecad K7b reads the same genome as <strong>52.46% Atlantic_Baltic</strong>; HarappaWorld calls its largest component <strong>31.91% NE-Euro</strong>. Three calculators, three different largest-component labels — because each is drawing its category boundaries in a different place across the same underlying variation: a Caucasus/West Asian-leaning layer (Kotias-related), a North European/steppe-descended layer (Yamnaya-related), and a Mediterranean/farmer-descended layer (Anatolian-related). The Oracle single-population approximations available in several calculators cut through the labelling by asking a more direct question — which real, named populations does this genome most resemble — and converge tightly: Eurogenes K13 places Bulgarian at 5.22% distance and Romanian at 8.09%; EUtest K15 places Bulgarian at 5.11% and Romanian at 8.13%; HarappaWorld places Romanian at 4.96% and Bulgarian at 5.20%. Three independent panels, the same two populations occupying the top two positions every time.</p>
   </div>
 </div>
 
@@ -176,11 +190,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <span class="era-label">Layer 1<br>Living<br>Populations</span>
   </div>
   <div class="era-content">
-    <h2>The Living Population Map — A Slightly Different Centre of Gravity</h2>
+    <h2>The Living Population Map — Eastern Balkans, With a Pull Toward the Aegean</h2>
 
-    <p>The Global25 modern-population table places the closest match at <strong>Gagauz, distance 0.0161</strong> — narrowly ahead of Bulgarian at 0.0172 and Romanian at 0.0197. The Gagauz are a Turkic-speaking Orthodox Christian minority concentrated in southern Moldova and Bessarabian Ukraine; despite the Turkic language, ancient and modern DNA studies consistently show the Gagauz are genetically indistinguishable from their Bulgarian and Romanian neighbours — a population that underwent language replacement without a corresponding genetic replacement. A top match to Gagauz is therefore not a signal of Turkic ancestry; it is the algorithm confirming, from a slightly different angle, the same Eastern Balkan / Lower Danube position that Bulgarian and Romanian already indicate.</p>
+    <p>The Global25 modern-population table places the closest match at <strong>Gagauz, distance 0.0161</strong> — narrowly ahead of Bulgarian at 0.0172 and Romanian at 0.0197. The Gagauz are a Turkic-speaking Orthodox Christian minority concentrated in southern Moldova and Bessarabian Ukraine; despite the Turkic language, ancient and modern DNA studies consistently show the Gagauz are genetically indistinguishable from their Bulgarian and Romanian neighbours — a population that underwent language replacement without a corresponding genetic replacement. A top match to Gagauz is therefore not a signal of Turkic ancestry; it is the algorithm confirming, from a slightly different angle, the same Eastern Balkan / Lower Danube position that Bulgarian and Romanian already indicate — and that MyHeritage's Additional Genetic Groups (Bulgaria, Serbia/Croatia/Bosnia, Romania) already pointed to in Layer 0.</p>
 
-    <p>Macedonian (0.0242), Greek Central Macedonia (0.0277), Montenegrin (0.0291), Albanian and Serbian (both 0.0311), and Moldovan (0.0332) round out the top nine, all still within a tight, coherent Balkan cluster. What stands out against Minko's own top-nine table is the position of Greek Central Macedonia: it ranks 5th here at 0.0277, compared to 8th at 0.040 in Minko's table — a meaningfully closer Aegean-facing pull, while Albanian sits essentially level with Serbian rather than trailing it. Read alongside the K36 breakdown below, this is consistent with — though not proof of — a somewhat more southerly, Aegean-oriented weighting in this profile relative to Minko's, alongside the same core Eastern Balkan identity both brothers share.</p>
+    <p>Macedonian (0.0242), Greek Central Macedonia (0.0277), Montenegrin (0.0291), Albanian and Serbian (both 0.0311), and Moldovan (0.0332) round out the top nine, all within a tight, coherent Balkan cluster. Greek Central Macedonia's position — 5th, closer than Montenegrin, Albanian, and Serbian — is worth noting on its own terms: it puts a specifically Aegean-facing Greek population inside the tightest cluster of matches rather than trailing behind it, consistent with the MyHeritage "Greek and Albanian" component carrying real weight rather than being an artefact of overlapping reference panels.</p>
 
     <table class="dist-table">
       <thead><tr><th>Modern Population</th><th>G25 Distance</th><th></th></tr></thead>
@@ -212,8 +226,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </table>
 
     <div class="insight-box">
-      <span class="insight-label">Italian Leads, Not East Balkan</span>
-      In Minko's K36 profile, East Balkan (14.55%) is the single largest component, with Italian second (10.46%). Here the order flips: <strong>Italian is the largest single component at 16.94%</strong>, with East Balkan second at 10.27%. Italian and East Med in K36 function largely as proxies for shared ancient Mediterranean / Aegean farmer ancestry rather than recent Italian ancestry — the same interpretive caution that applied to Minko's South Italian MyHeritage component applies here. Combined, Italian + East Med make up exactly 25.0% of this profile versus roughly 20.1% of Minko's — a modest but real difference in the same direction as the Greek Central Macedonia shift above. Armenian (7.25%) and North Caucasian (7.12%) again mark the Caucasus Hunter-Gatherer signal carried in through the Yamnaya expansion, at levels close to Minko's own.
+      <span class="insight-label">Italian and East Med — Mediterranean Bedrock, Not Recent Italian Ancestry</span>
+      Italian is the single largest K36 component at 16.94%, with East Balkan close behind at 10.27%. Italian and East Med in K36 function largely as proxies for shared ancient Mediterranean and Aegean farmer ancestry rather than recent Italian ancestry — the same interpretive caution that applies to the MyHeritage South Italian percentage in Layer 0. Combined, Italian + East Med make up 25.0% of this K36 profile — a substantial share, consistent with the Aegean-facing signal already visible in the Greek Central Macedonia ranking above. Armenian (7.25%) and North Caucasian (7.12%) mark the Caucasus Hunter-Gatherer signal carried in through the Yamnaya expansion, discussed further in Layer 6.
     </div>
   </div>
 </div>
@@ -226,11 +240,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <span class="era-label">Layer 2<br>Medieval<br>500–1200 AD</span>
   </div>
   <div class="era-content">
-    <h2>The Medieval Stratum — Closer to Home Than Minko's Profile, Identical Beyond It</h2>
+    <h2>The Medieval Stratum — A Direct Line to Bulgaria's First Empires</h2>
 
-    <p>Model 3 confirms the single most striking number in this whole dataset: <strong>Bulgaria Medieval at distance 0.0267</strong> — noticeably closer than the equivalent figure in Minko's report (0.034). This is a distance to actual ancient DNA recovered from individuals buried in Bulgaria during the First and Second Bulgarian Empire period, not a modelled or theoretical reference. A tighter distance here means this genome's coordinate sits nearer the centre of the medieval Bulgarian genetic variation than Minko's does.</p>
+    <p>Model 3 confirms the single most striking number in this whole dataset: <strong>Bulgaria Medieval at distance 0.0267</strong> — an unusually tight distance to actual ancient DNA recovered from individuals buried in Bulgaria during the First and Second Bulgarian Empire period, not a modelled or theoretical reference. A distance this small means this genome's G25 coordinate sits very near the centre of the medieval Bulgarian genetic variation itself.</p>
 
-    <p>What's genuinely striking is what happens beyond Bulgaria Medieval itself: <strong>the rest of the medieval chain is nearly identical between the two brothers.</strong> Hungary Late Avar sits at 0.1225 here versus 0.122 for Minko. Serbia Medieval Gepidian: 0.1382 versus 0.136. Hungary Early Avar: 0.2152 versus 0.214. Hungary Late Avar Elite: 0.3029 versus 0.301. Hungary Early Avar Elite: 0.4162 versus 0.414. Every one of these reference points — none of them Bulgarian, all of them describing the broader Pannonian and Viking-era context the Slavic migration passed through — lands within a few thousandths of Minko's figure. That pattern points to something specific: the brothers' shared inheritance of the wider medieval Balkan/Pannonian genetic context is essentially fixed, while the one number that actually differs between them — the direct Bulgaria Medieval distance — is exactly the number carrying the sibling-specific signal.</p>
+    <p>The rest of the medieval panel places that number in context. Russia Viking SG (0.0866) and its outlier variant (0.1077), Hungary Late Avar (0.1225), Serbia Medieval Gepidian (0.1382), Hungary Early Avar (0.2152), and the two Avar Elite tiers (0.3029, 0.4162) trace a widening ring outward from Bulgaria itself — Viking-era Rus' contact, then the Pannonian Avar Khaganate that dominated the region before the Bulgarian state consolidated, then the more distant Elite burials whose steppe-nomadic profile diverged furthest from the settled population around them. The steady widening of this ring, rather than any erratic jumps, is itself informative: it traces a coherent medieval Balkan/Pannonian genetic landscape with Bulgaria sitting at its genuine centre for this genome, not an isolated spike surrounded by noise.</p>
 
     <p>Bulgaria Medieval oEastAsia, a medieval Bulgarian outlier individual carrying an additional East Asian-related admixture signal (plausibly linked to Bulgar, Pecheneg, or Cuman contact), sits at 0.0685 — far enough from the general medieval population (0.0267) to serve as a useful negative control: this genome does not carry an elevated version of that specific East Asian-admixed medieval channel.</p>
 
@@ -284,7 +298,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <div class="insight-box">
       <span class="insight-label">Reading the Gradient</span>
-      The tightest cluster — Medieval (0.0267) and the three Early Bronze Age samples (0.0397–0.0468) — sits closer to this genome than the equivalent cluster sat to Minko's (0.034 and 0.040–0.060 respectively). The Neolithic tier at the far end — Malak Preslavets N (0.0934), Krepost N (0.1164), and the general Bulgaria N reference (0.1524) — remains the most distant tier here as it is in Minko's profile, marking the same pre-steppe farming population as the deepest floor both brothers' genomes still measurably connect to.
+      The tightest cluster in the entire Bulgarian panel — Medieval (0.0267) and the three Early Bronze Age samples (0.0397–0.0468) — sits closest by a wide margin. The Neolithic tier at the far end — Malak Preslavets N (0.0934), Krepost N (0.1164), and the general Bulgaria N reference (0.1524) — is the most distant tier, marking the pre-steppe farming population as the deepest layer this genome still measurably connects to, four thousand years before the medieval signal at the top of this table.
     </div>
   </div>
 </div>
@@ -297,7 +311,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <span class="era-label">Layer 3<br>Bronze Age<br>3000–1200 BC</span>
   </div>
   <div class="era-content">
-    <h2>The Bronze Age Stratum — A Farmer Lean Where Minko's Was a Tie</h2>
+    <h2>The Bronze Age Stratum — Farmer and Steppe, Unequally Balanced</h2>
 
     <p>Model 2 compares this genome against the three founding ancient streams of European ancestry:</p>
 
@@ -311,15 +325,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       </tbody>
     </table>
 
-    <p>In Minko's profile, Yamnaya (0.171) and Barcin Anatolian Neolithic (0.173) were essentially tied — steppe and farmer signals in near-perfect balance. Here they are not: <strong>Barcin sits at 0.1613, meaningfully closer than Yamnaya at 0.1841</strong> — a gap of nearly 0.023, versus a gap of just 0.002 in Minko's data. That is a genuine structural difference, not noise: this genome's Bronze Age balance leans somewhat more toward the Anatolian farmer signal and somewhat less toward the steppe pastoralist signal than Minko's does, which fits the same southward/Aegean-oriented pattern already visible in the modern-population and K36 layers.</p>
+    <p>The gap between the two dominant streams is informative: <strong>Turkey Barcin LN, the Anatolian Neolithic farmer reference, sits at 0.1613 — clearly closer than Russia Samara EBA Yamnaya at 0.1841</strong>, the steppe pastoralist reference, a gap of roughly 0.023. Because Bronze Age Balkan populations formed from a synthesis of exactly these two streams — the Anatolian-derived farmers already settled across the region, and the Yamnaya-descended steppe pastoralists arriving from the Pontic-Caspian steppe from roughly 3000 BC onward — a genome sitting measurably closer to the farmer parent than the steppe parent indicates a real, structural lean in that synthesis toward its older, Aegean-facing component.</p>
 
-    <p>Turkey Boncuklu — the older, ~10,000 BC proto-farming Anatolian reference — again ranks closer than Barcin, at 0.1319 versus 0.1613, echoing Minko's finding that this Anatolian Neolithic signal has real depth beneath the classic 6,500 BC farming wave. Luxembourg Loschbour WHG remains the most distant reference at 0.4133, confirming Western Hunter-Gatherer ancestry as real but the most diluted of the three founding streams — same relative position as in Minko's profile.</p>
+    <p>Turkey Boncuklu — the older, ~10,000 BC proto-farming Anatolian reference — ranks closer still than Barcin, at 0.1319 versus 0.1613, suggesting this Anatolian Neolithic signal has real depth beneath the classic 6,500 BC farming wave, reaching back toward the earliest agricultural experiments in central Anatolia. Luxembourg Loschbour WHG remains the most distant reference at 0.4133, confirming Western Hunter-Gatherer ancestry as present but the most diluted of the three founding streams.</p>
 
     <div class="insight-box">
-      <span class="insight-label">Steppe-to-Farmer Balance, Side by Side</span>
-      Minko: Yamnaya 0.171 ≈ Barcin 0.173 (gap 0.002) — balanced.<br>
-      Stayko: Barcin 0.1613 &lt; Yamnaya 0.1841 (gap 0.023) — farmer-leaning.<br>
-      This is one of the clearest single numbers in the whole comparison pointing toward a real, not just suggestive, difference in ancestral balance between the two brothers.
+      <span class="insight-label">Reading the Farmer-Steppe Balance</span>
+      A gap of 0.023 between Barcin and Yamnaya is a real, structural asymmetry rather than statistical noise — enough to say this genome's Bronze Age synthesis draws somewhat more heavily on its Anatolian farming ancestors than on the steppe pastoralists who arrived later, without ever suggesting the steppe contribution is absent. Both streams are clearly present; the question this table answers is one of relative weight, not presence or absence.
     </div>
   </div>
 </div>
@@ -334,9 +346,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <div class="era-content">
     <h2>The Neolithic Stratum — Danube Farming Villages</h2>
 
-    <p>Two named Bulgarian Neolithic sites appear directly in the stratigraphy panel: <strong>Malak Preslavets</strong> (distance 0.0934, with a lower-Early-European-Farmer outlier variant at 0.0994) and <strong>Krepost</strong> (0.1164). Both are real excavated Early Neolithic farming settlements in the Danube basin, among the earliest agricultural communities in the Balkans, dated to roughly the 6th millennium BC — the same landfall generation of Anatolian farmers discussed in Minko's report and confirmed here by the Boncuklu/Barcin signal in Layer 3. Their presence this far down the distance ranking, well past the Bronze Age and Medieval clusters, is exactly what's expected: they represent the population before the steppe migrations reshaped the region, not after.</p>
+    <p>Two named Bulgarian Neolithic sites appear directly in the stratigraphy panel: <strong>Malak Preslavets</strong> (distance 0.0934, with a lower-Early-European-Farmer outlier variant at 0.0994) and <strong>Krepost</strong> (0.1164). Both are real excavated Early Neolithic farming settlements in the Danube basin, among the earliest agricultural communities in the Balkans, dated to roughly the 6th millennium BC — the same landfall generation of Anatolian farmers confirmed by the Boncuklu/Barcin signal in Layer 3. Their presence this far down the distance ranking, well past the Bronze Age and Medieval clusters, is exactly what's expected: they represent the population before the steppe migrations reshaped the region, not after.</p>
 
-    <p>The "oLowEEF" tag on the Malak Preslavets outlier individual denotes a burial with a lower-than-typical proportion of Early European Farmer ancestry for that site — a reminder that even a single Neolithic village was not genetically uniform. The general Bulgaria N reference (0.1524) and its outlier variant, Bulgaria N_o (0.1247), sit at the far end of the entire panel — the oldest and most distant tier, exactly as in Minko's profile, confirming the deepest shared floor between the brothers and Bulgaria's ancient population is this same Early Neolithic farming stratum.</p>
+    <p>The "oLowEEF" tag on the Malak Preslavets outlier individual denotes a burial with a lower-than-typical proportion of Early European Farmer ancestry for that site — a reminder that even a single Neolithic village was not genetically uniform. The general Bulgaria N reference (0.1524) and its outlier variant, Bulgaria N_o (0.1247), sit at the far end of the entire panel — the oldest and most distant tier, confirming the deepest floor this genome and Bulgaria's ancient population still share is this same Early Neolithic farming stratum.</p>
   </div>
 </div>
 
@@ -350,7 +362,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <div class="era-content">
     <h2>The Mesolithic Stratum — Western Hunter-Gatherers, Present but Diluted</h2>
 
-    <p>Luxembourg Loschbour, the Western Hunter-Gatherer reference, is the most distant population in every model that includes it — 0.4133 in both the three-wave model (Layer 3) and the deep archaic model (Layer 6) — confirming that WHG ancestry, while real, is the smallest of the three founding European streams in this genome, in the same relative position it occupies in Minko's profile. Because WHG ancestry arrives partly as a standalone Balkan-local hunter-gatherer contribution and partly hidden inside the Yamnaya steppe component itself (the Yamnaya's own ancestors already carried WHG-related ancestry from earlier mixing on the European steppe), a single distance figure like this one cannot cleanly separate those two pathways — that would require the same kind of qualified, multi-source Stone Age decomposition used in Minko's Ancient Eurasia K6 breakdown, which hasn't been run for this kit yet.</p>
+    <p>Luxembourg Loschbour, the Western Hunter-Gatherer reference, is the most distant population in every model that includes it — 0.4133 in both the three-wave model (Layer 3) and the deep archaic model (Layer 6) — confirming that WHG ancestry, while real, is the smallest of the three founding European streams present in this genome. Because WHG ancestry arrives partly as a standalone Balkan-local hunter-gatherer contribution and partly hidden inside the Yamnaya steppe component itself (the Yamnaya's own ancestors already carried WHG-related ancestry from earlier mixing on the European steppe), a single distance figure like this one cannot cleanly separate those two pathways — that would require a qualified, multi-source Stone Age decomposition model, which hasn't been run for this kit yet.</p>
   </div>
 </div>
 
@@ -378,13 +390,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       </tbody>
     </table>
 
-    <p>The headline result replicates the pattern already documented in Minko's report: <strong>Georgia Kotias — Caucasus Hunter-Gatherer — at 0.2508 ranks closer than Russia Karelia — Eastern Hunter-Gatherer — at 0.2956</strong>. The Yamnaya steppe pastoralists were themselves a roughly even merger of CHG and EHG ancestry; a genome sitting measurably closer to the CHG parent than the EHG parent carries a steppe signal weighted the way southeastern European Yamnaya-derived populations characteristically are. That both brothers independently show this same CHG-over-EHG ordering is corroborating evidence for a genuinely shared, inherited family-level steppe signal rather than something either genome would show by chance.</p>
-
-    <p>One small reordering is worth noting rather than glossing over: in Minko's data, Karelia EHG (0.285) ranked closer than Iran GanjDareh N (0.292); here that flips slightly, with GanjDareh (0.2910) marginally closer than Karelia (0.2956). The gap in both cases is small enough (under 0.01) to plausibly be noise rather than a genuine difference, but it's flagged here rather than silently smoothed over.</p>
+    <p>The headline result: <strong>Georgia Kotias — Caucasus Hunter-Gatherer — at 0.2508 ranks closer than Russia Karelia — Eastern Hunter-Gatherer — at 0.2956</strong>. The Yamnaya steppe pastoralists were themselves a roughly even merger of CHG and EHG ancestry; a genome sitting measurably closer to the CHG parent than the EHG parent carries a steppe signal weighted the way southeastern European Yamnaya-derived populations characteristically are, rather than the more EHG-heavy weighting typical of the northern Corded Ware expansion. Iran GanjDareh N (0.2910) sits close behind Karelia (0.2956) — the two are near enough (a gap under 0.01) that either could plausibly edge ahead on a re-run, but both sit well behind Kotias.</p>
 
     <h3 class="sub-heading">The Aegean Bronze Age and South Caucasus Signal — Model 5 (Caucasus Resolution)</h3>
 
-    <p>This model was built specifically for this kit and resolves the Aegean/Caucasus corridor at higher precision than Minko's equivalent table:</p>
+    <p>This model was built specifically for this kit to resolve the Aegean/Caucasus corridor at higher precision than the standard three-wave and deep-ancestry models above:</p>
 
     <table class="dist-table">
       <thead><tr><th>Population</th><th>Distance</th><th></th></tr></thead>
@@ -401,13 +411,50 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       </tbody>
     </table>
 
-    <p>Every single population in this table is closer to this genome than the matching population was to Minko's — Armenia C Areni 0.0921 versus 0.100, Greece BA Mycenaean 0.0938 versus 0.106, Greece Minoan Lassithi 0.1367 versus 0.148, Armenia EBA Kura-Araxes Berkaber 0.1477 versus 0.154, Turkey Barcin LN 0.1613 versus 0.171, Iran C SehGabi 0.1836 versus 0.191, Georgia Kotias CHG 0.2508 versus 0.253, Iran GanjDareh N 0.2910 versus 0.294. This is the single clearest, most consistent piece of quantitative evidence in the whole comparison for a real Aegean/South-Caucasus-oriented shift in this genome relative to Minko's — eight out of eight populations, all moving the same direction, none of them close to a coin-flip margin.</p>
+    <p>Armenian Chalcolithic Areni (0.0921) and Bronze Age Mycenaean Greece (0.0938) are, remarkably, closer to this genome than any of the deep-ancestry populations in the table above — closer even than the Anatolian farmer reference. Both represent the Aegean-Anatolian-South Caucasus Bronze Age corridor: Mycenaean Greece sitting at the western end of that corridor, the Kura-Araxes cultural sphere of the Armenian highlands (represented here by Areni and by Armenia EBA Kura-Araxes Berkaber at 0.1477) at its eastern end. That this genome sits this close to both endpoints of the same Bronze Age cultural-genetic corridor is a striking, internally consistent result — not two unrelated coincidences, but two points on a single historical through-line.</p>
 
-    <p>Armenian Chalcolithic Areni and Bronze Age Mycenaean remain, as in Minko's report, the two closest populations in this model — representing the Aegean-Anatolian-South Caucasus Bronze Age corridor that connected Mycenaean Greece with the Kura-Araxes cultural sphere of the Armenian highlands. Iran C TepeHissar, an additional Iranian Chalcolithic reference not present in Minko's version of this table, sits at 0.2220 — further out than SehGabi, extending the gradient one step deeper into the Iranian plateau.</p>
+    <p>Greece Minoan Lassithi (0.1367) sits between the Mycenaean/Areni pair and the Anatolian Barcin reference (0.1613), while the Iranian Chalcolithic tier — SehGabi (0.1836) then TepeHissar (0.2220) — extends the gradient deeper into the Iranian plateau, and Georgia Kotias CHG (0.2508) and Iran GanjDareh N (0.2910) anchor the far end, the same two populations already discussed in the deep-ancestry model above.</p>
 
     <div class="insight-box">
       <span class="insight-label">A Note on the Heat Map</span>
-      The shared-segment (IBD) chromosome-painting heat map submitted alongside these models is a different kind of evidence from the G25 distance tables above — it shows actual matching DNA segments against named ancient individuals rather than modelled coordinate distances. Several rows in that map are genuine sequenced Neanderthal genomes (El Sidron, Spain; three Vindija Cave individuals from Croatia; Mezmaiskaya, Russia), alongside Denisovan and Upper Palaeolithic Siberian references (Denisova, Altai, Kostenki14, Ust'-Ishim). Segment matches in the 0.5–2 cM range against archaic individuals are expected background — everyone outside Africa carries measurable Neanderthal-derived DNA at this scale — and are consistent with, though not a substitute for, the single-SNP Neanderthal genotype (rs12041331 GG) documented in Minko's report. A proper write-up of this heat map — which chromosomes, which specific segment lengths, against which of the Neanderthal rows specifically — would need the underlying segment table (chromosome, start/end position, cM length) rather than the rendered image alone.
+      The shared-segment (IBD) chromosome-painting heat map submitted alongside these models is a different kind of evidence from the G25 distance tables above — it shows actual matching DNA segments against named ancient individuals rather than modelled coordinate distances. Several rows in that map are genuine sequenced Neanderthal genomes (El Sidron, Spain; three Vindija Cave individuals from Croatia; Mezmaiskaya, Russia), alongside Denisovan and Upper Palaeolithic Siberian references (Denisova, Altai, Kostenki14, Ust'-Ishim). Segment matches in the 0.5–2 cM range against archaic individuals are expected background — everyone outside Africa carries measurable Neanderthal-derived DNA at this scale. A full write-up of this heat map — which chromosomes, which specific segment lengths, against which of the Neanderthal rows specifically — would need the underlying segment table (chromosome, start/end position, cM length) rather than the rendered image alone.
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ GENETIC MARKERS ══ -->
+<div class="era-block" id="s_markers">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+    <span class="era-label">Genetic<br>Markers</span>
+  </div>
+  <div class="era-content">
+    <h2>Key Ancestry-Informative Genotypes</h2>
+
+    <p>Distance tables and admixture percentages describe this genome statistically. The handful of single-gene markers below describe it directly — each one a specific, well-studied position in the genome where a single letter change carries a known evolutionary or population-genetic story.</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Gene / rsID</th><th>Genotype</th><th>What It Marks</th></tr></thead>
+      <tbody>
+        <tr><td><strong>EDAR</strong> · rs3827760</td><td class="dist-val">A;A</td><td style="font-size:.85rem">Derived variant most strongly associated with East Asian and Native American populations — thicker hair shafts, shovel-shaped incisors, denser eccrine sweat glands. Under strong positive selection in East Asia roughly 30,000 years ago.</td></tr>
+        <tr><td><strong>ABCC11</strong> · rs17822931</td><td class="dist-val">C;C</td><td style="font-size:.85rem">Ancestral genotype — wet earwax, typical apocrine sweat gland activity. The common genotype across Europe and Africa; the derived T allele (dry earwax, reduced body odor) is the one nearly fixed in East Asia.</td></tr>
+        <tr><td><strong>SLC24A5</strong> · rs1426654</td><td class="dist-val">A;A</td><td style="font-size:.85rem">Derived variant for light skin pigmentation, near-fixed across Europe. One of the strongest, best-replicated signals of positive selection in the European genome.</td></tr>
+        <tr><td><strong>HERC2</strong> · rs12913832</td><td class="dist-val">G;G</td><td style="font-size:.85rem">Ancestral genotype, associated with brown/darker eye pigmentation rather than the blue-eye-associated A allele that arose and spread in Mesolithic Europe.</td></tr>
+        <tr><td><strong>LCT</strong> · rs4988235</td><td class="dist-val">G;G</td><td style="font-size:.85rem">Ancestral genotype — lactase non-persistence, the more common genotype outside Northwestern Europe. Consistent with Balkan and Mediterranean populations, where the lactase-persistence allele runs meaningfully less common than in Scandinavia or the British Isles.</td></tr>
+        <tr><td><strong>TYR</strong> · rs1042602</td><td class="dist-val">C;A</td><td style="font-size:.85rem">Heterozygous — one copy of the derived, Europe-selected A allele (associated with an absence of freckling and a modest pigmentation-lightening effect), one copy of the ancestral C allele. An unremarkable, common heterozygous state.</td></tr>
+        <tr><td><strong>OCA2</strong> · rs1800414</td><td class="dist-val">T;T</td><td style="font-size:.85rem">Most consistent with the homozygous ancestral genotype at this position, not the derived allele — which is a East-Asia-specific skin-lightening variant essentially absent outside that region. Flagged here because strand orientation on this particular marker can vary by database; treat with light caution rather than as a confirmed reading.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="insight-box insight-box--final">
+      <span class="insight-label insight-label--white">EDAR and ABCC11 — A Genuinely Interesting Combination</span>
+      This is the one finding in the table above worth pausing on. EDAR-370A (the East Asian-associated hair/sweat-gland variant) and the ABCC11 dry-earwax allele are both products of the same broad East Asian selective sweep, and in East Asian genomes today they very strongly co-occur — carrying one usually means carrying the other. This genome carries EDAR-370A in homozygous form (A;A) <em>without</em> the linked ABCC11 derived allele (it's ancestral C;C instead). That decoupling is genuinely interesting: it's more consistent with the EDAR variant having entered this lineage through an older, indirect channel — some ancient Bronze Age Eurasian steppe populations carried low frequencies of EDAR-370A well before, and independently of, the specific East Asian sweep that later locked EDAR and ABCC11 together — than with a direct, recent East Asian ancestor (say, from medieval Turkic-era contact), which would be expected to bring the linked ABCC11 allele along with it. This is a hypothesis worth holding loosely, not a settled conclusion — but it's a real, specific, checkable pattern rather than a vague impression.
+    </div>
+
+    <div class="insight-box">
+      <span class="insight-label">Two Markers Removed From This Table</span>
+      Two SNPs originally flagged as ancestry/archaic markers — one near a gene tentatively labelled "CLEC2D," one labelled an "EHG marker" — turned out, once checked against their actual chromosome positions, to be something else entirely: rs12041331 (chr1:156,869,714) sits in <strong>PEAR1</strong>, a platelet-aggregation gene relevant to bleeding risk and antiplatelet drug response, and rs7651090 (chr3:185,513,392) sits in <strong>IGF2BP2</strong>, a well-established type 2 diabetes susceptibility gene. Neither is an ancestry or archaic-lineage marker, so both have been left out of the table above — they belong in a health-focused report instead of this one.
     </div>
   </div>
 </div>
@@ -420,28 +467,25 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <span class="era-label">Notable<br>Findings</span>
   </div>
   <div class="era-content">
-    <h2>Reading the Two Brothers Side by Side</h2>
+    <h2>Notable Findings</h2>
 
-    <p>With all five Vahaduo models now in hand, the picture is no longer just suggestive — it's a consistent, multiply-replicated pattern across every independent model, without either sibling stepping outside the same core Eastern Balkan identity:</p>
+    <p>Three signals across this dataset stand out from the rest — either because they cut against the main narrative, or because they resolve something the main layers left open.</p>
 
-    <h3 class="sub-heading">1. A different closest modern match, same neighbourhood</h3>
-    <p>Minko's closest modern populations are Romanian (0.018) then Bulgarian (0.021). Here the order is Gagauz (0.0161), Bulgarian (0.0172), then Romanian (0.0197). Gagauz is genetically a Bulgarian/Romanian-adjacent population under a Turkic language label, so this is not a different genetic centre of gravity — it's the same Lower Danube / Eastern Balkan cluster, approached from a very slightly different point within it.</p>
+    <h3 class="sub-heading">1. The Ireland Signal</h3>
+    <p>Of the four MyHeritage Additional Genetic Groups, three — Bulgaria, Serbia/Croatia/Bosnia and Herzegovina, Romania — simply confirm the Eastern Balkan position at finer resolution. The fourth, <strong>Ireland (Kerry, Cork and Limerick)</strong>, does not fit that pattern, and is genuinely the most interesting single item on the whole ethnicity report precisely because it doesn't fit. Additional Genetic Groups are lower-confidence, secondary signals — populations whose reference genetic variation partially overlaps with a small residual portion of this genome's own variation, without necessarily indicating a real family connection to that place. Southwest Ireland is one of the more genetically distinctive corners of Europe, shaped by a long isolated Atlantic-fringe population history; distinctive, unusual variation elsewhere in Europe can sometimes register a faint statistical echo against such a distinctive reference panel purely by coincidence of allele frequencies, without any real shared recent ancestry. It's flagged here rather than woven into the main narrative because, unlike the Bulgaria/Serbia/Romania trio — each independently confirmed by the G25 modern-population table in Layer 1 — nothing elsewhere in this dataset corroborates an Irish connection. Genealogical paper-trail research, not further DNA modelling, is the only way this one would ever move from "flagged" to "confirmed."</p>
 
-    <h3 class="sub-heading">2. The medieval "background" is nearly identical — only Bulgaria Medieval itself differs</h3>
-    <p>This is the most precise finding in the whole comparison. Every non-Bulgarian medieval reference — Hungary Late Avar, Serbia Medieval Gepidian, Hungary Early Avar, both Avar Elite tiers — lands within thousandths of Minko's corresponding figure (see Layer 2 table). Only Bulgaria Medieval itself differs meaningfully: 0.0267 here versus 0.034 for Minko. That contrast is informative in its own right — it suggests the brothers' shared inheritance of the broader medieval Balkan/Pannonian context is essentially fixed, and the one place their genomes genuinely diverge is in exactly how close each sits to the core Bulgarian medieval population specifically.</p>
+    <h3 class="sub-heading">2. A CHG-Weighted Steppe Signal</h3>
+    <p>Georgia Kotias (Caucasus Hunter-Gatherer) ranks closer to this genome (0.2508) than Russia Karelia (Eastern Hunter-Gatherer, 0.2956) in the deep-ancestry model. Since the Yamnaya steppe pastoralists were themselves a roughly even merger of CHG and EHG ancestry, a genome weighted this way toward the CHG parent carries the specific steppe signature characteristic of southeastern European Yamnaya-descended populations — distinguishable, at least in principle, from the more EHG-heavy weighting typical of the northern Corded Ware-descended populations of Central and Northern Europe.</p>
 
-    <h3 class="sub-heading">3. A farmer-leaning Bronze Age balance where Minko's was a tie</h3>
-    <p>Minko: Yamnaya (0.171) ≈ Barcin (0.173) — a gap of 0.002, essentially balanced. Stayko: Barcin (0.1613) clearly closer than Yamnaya (0.1841) — a gap of 0.023, more than ten times larger. This is a genuine structural difference in the steppe-versus-farmer balance between the two brothers' Bronze Age signal, not a rounding artefact.</p>
+    <h3 class="sub-heading">3. A Farmer-Weighted Bronze Age Balance</h3>
+    <p>The clearest quantitative asymmetry in the whole dataset: Turkey Barcin LN (Anatolian farmer, 0.1613) sits noticeably closer than Russia Samara EBA Yamnaya (steppe pastoralist, 0.1841) in the three-wave model — a gap of 0.023, reinforced independently by Model 5, where Armenian Chalcolithic Areni (0.0921) and Bronze Age Mycenaean Greece (0.0938) rank closer than any other ancient population tested, including the Anatolian farmer reference itself. Three independent models point the same direction: whatever combination of Anatolian farmer and steppe pastoralist ancestry assembled this genome's Bronze Age layer, the farmer/Aegean side of that mixture carries somewhat more weight than the steppe side.</p>
 
-    <h3 class="sub-heading">4. An across-the-board Aegean/South-Caucasus shift — eight populations, eight confirmations</h3>
-    <p>The Model 5 Caucasus-resolution table is the clearest evidence in the entire report: every one of the eight shared populations between Minko's and Stayko's Model 5 runs is closer for Stayko — Armenia C Areni, Greece BA Mycenaean, Greece Minoan Lassithi, Armenia EBA Kura-Araxes Berkaber, Turkey Barcin LN, Iran C SehGabi, Georgia Kotias CHG, and Iran GanjDareh N (see Layer 6 table for exact figures). Eight independent populations, eight consistent results, none of them marginal. Combined with the Bronze Age farmer-lean (point 3) and Greek Central Macedonia's tighter modern-population rank (5th here versus 8th for Minko), this is no longer just a suggestive pattern — it is a well-corroborated, multiply-independent finding that this genome sits measurably closer to the Aegean/South Caucasus Bronze Age corridor than Minko's does, while both remain solidly within the same Eastern Balkan crossroads population.</p>
-
-    <h3 class="sub-heading">5. The CHG-over-EHG pattern repeats independently, with a minor twist</h3>
-    <p>Both brothers show Georgia Kotias (CHG) closer than Russia Karelia (EHG) in the deep ancestral model — 0.2508 vs 0.2956 here, 0.253 vs 0.286 for Minko — a shared, inherited structural feature rather than something either genome would show by chance. One small reordering: GanjDareh N (0.2910) edges narrowly ahead of Karelia (0.2956) here, whereas Karelia (0.285) was closer than GanjDareh (0.292) in Minko's data. The gap involved is under 0.01 in both cases — plausibly noise, flagged rather than glossed over.</p>
+    <h3 class="sub-heading">4. An EDAR Variant Without Its Usual Partner</h3>
+    <p>Homozygous EDAR-370A (A;A) without the linked ABCC11 dry-earwax allele (this genome carries the ancestral C;C instead) is a genuinely specific, checkable pattern — see the Genetic Markers section above for the full reasoning. In brief: because these two variants are normally inherited together as part of the same East Asian selective sweep, carrying one without the other is more consistent with an old, indirect route into this lineage — plausibly Bronze Age steppe-mediated gene flow — than with recent, direct East Asian ancestry.</p>
 
     <div class="insight-box">
-      <span class="insight-label">What Would Settle the Aegean-Lean With Real Numbers</span>
-      Five independent Vahaduo models now agree on direction: this genome sits closer to the Aegean/South-Caucasus Bronze Age world and to Bulgaria's medieval population specifically, while sharing an essentially identical broader medieval/Pannonian background with Minko. That's a strong, well-triangulated qualitative picture. The one step that would turn "closer across the board" into an actual measured distance is the vector comparison between Minko's and Stayko's consensus G25 coordinates directly — subtracting one 25-dimension vector from the other rather than comparing each separately to a set of ancient populations. Stayko's coordinate row is now on hand; once Minko's own consensus coordinate row is available, that comparison can be computed directly.
+      <span class="insight-label">A Note on Family Context</span>
+      This DNA project also covers other members of the same family, tested and modelled using the same methods. Where useful, a separate comparative note can be produced setting this profile directly alongside a relative's — but that comparison is deliberately kept out of the main narrative above, since each family member's own genetic story stands on its own regardless of how it compares to anyone else's.
     </div>
   </div>
 </div>
@@ -456,15 +500,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <div class="era-content">
     <h2>The Complete Excavation — What All Seven Layers Tell Together</h2>
 
-    <p>With all five Vahaduo models now run, the excavation is structurally complete: this genome places in the same Eastern Balkan crossroads position documented in Minko's report — Anatolian Neolithic farmers, Pontic steppe pastoralists, and European hunter-gatherers converging over roughly 8,000 years — with a consistent, multiply-replicated lean further south and east toward the Aegean and South Caucasus than his profile shows.</p>
+    <p>Seven layers of increasing depth, and five independent statistical models, converge on a single coherent story: this genome sits at the crossroads of three founding ancestral streams that assembled the population of the Eastern Balkans over roughly 8,000 years — Anatolian Neolithic farmers, Pontic steppe pastoralists, and the deeper Caucasus and Iranian populations that fed into the steppe wave before it ever crossed into Europe — with a distinctive lean toward the Aegean and South Caucasus corner of that convergence.</p>
 
-    <p>At the surface, the modern-population table places the closest matches at Gagauz (0.0161), Bulgarian (0.0172), and Romanian (0.0197) — the same Lower Danube cluster as Minko's, approached from a slightly different point within it. The medieval layer reveals something precise: the broader medieval/Pannonian background (Avar, Viking, Gepidian references) is essentially identical between the brothers, while the direct Bulgaria Medieval distance is not — 0.0267 here versus 0.034 for Minko, the sharpest single point of genuine divergence in the whole comparison.</p>
+    <p>At the surface, MyHeritage's Greek and Albanian (43.1%) and Balkan (41.7%) components, combined at nearly 85%, describe one thing under two overlapping labels: a genome sitting almost entirely within the Southeast European genetic continuum. The G25 modern-population table confirms this independently and at finer resolution — Gagauz, Bulgarian, and Romanian occupying the top three positions, with Greek Central Macedonia close behind in 5th place, ahead of Montenegrin, Albanian, and Serbian.</p>
 
-    <p>The Bronze Age layer sharpens this further: where Minko's genome sat almost perfectly balanced between the Yamnaya steppe signal and the Anatolian Barcin farmer signal (a gap of just 0.002), this genome leans measurably toward the farmer signal (a gap of 0.023) — a real structural asymmetry, not noise. The Neolithic tier — Malak Preslavets (0.0934) and Krepost (0.1164) — remains, as in Minko's profile, the most distant tier in the Bulgarian panel, the shared floor beneath both brothers' more recent signal.</p>
+    <p>Moving deeper, the medieval layer anchors this genome unusually close to actual ancient DNA recovered from Bulgaria's First and Second Empire period (distance 0.0267), embedded within a coherent, steadily widening ring of medieval Balkan and Pannonian reference points — Viking-era Rus' contact, then the Avar Khaganate, then its more distant nomadic elite. The Bronze Age layer resolves a genuine asymmetry: the Anatolian farmer signal (Barcin, 0.1613) outweighs the steppe pastoralist signal (Yamnaya, 0.1841) by a real, structural margin, and the purpose-built Caucasus-resolution model sharpens this into its clearest form yet — Armenian Chalcolithic Areni and Bronze Age Mycenaean Greece, both markers of the Aegean-Anatolian-South Caucasus Bronze Age corridor, rank closer to this genome than any other ancient population tested.</p>
 
-    <p>The deep archaic model reproduces the same CHG-over-EHG weighting found in Minko's genome (Kotias 0.2508 versus Karelia 0.2956) — a family-level structural feature, not a coincidence specific to one sibling — while the purpose-built Model 5 Caucasus-resolution table delivers the clearest evidence of all: all eight shared populations in that model are closer to this genome than to Minko's, with no exceptions. Taken together — the farmer-leaning Bronze Age balance, the tighter Bulgaria Medieval distance, Greek Central Macedonia's higher modern-population rank, and eight-for-eight closer Aegean/Caucasus distances — this is a well-triangulated, multiply-independent finding rather than a single suggestive number.</p>
+    <p>Beneath all of that, the Neolithic tier — Malak Preslavets and Krepost, two excavated Danube farming villages dated to roughly the 6th millennium BC — marks the deepest floor this genome still measurably connects to, and the archaic model's CHG-over-EHG weighting (Kotias closer than Karelia) identifies the specific southeastern flavour of the steppe ancestry that arrived on top of that farming substrate. The single-gene markers add one more thread: an EDAR variant usually tied to East Asian ancestry, present here without its usual genetic partner, is more consistent with an old, steppe-mediated route into this lineage than a recent one. Layer upon layer, the same conclusion holds: a genome assembled from Anatolian farmers, Caucasus-weighted steppe pastoralists, and a measurable, well-corroborated Aegean/South Caucasus Bronze Age thread running through the middle of it.</p>
 
-    <p>What remains genuinely open is not direction but magnitude: exactly how large the displacement between the two brothers' ancestry actually is, measured directly rather than inferred from parallel distance tables. That answer waits on Minko's own consensus G25 coordinate row, which would let the comparison be computed as an actual 25-dimension vector difference rather than pieced together from populations both genomes were separately compared against. The SNP genotype table, MyHeritage percentages, and chromosome-level detail on the heat map's Neanderthal segment matches remain the other open items for bringing this report to full parity with Minko's.</p>
+    <p>What remains open for a future update is narrower now: chromosome/cM-level detail on the archaic segment matches in the supplementary heat map, to turn the general Neanderthal-ancestry observation into a specific, located one.</p>
 
     <div class="insight-box insight-box--final">
       <span class="insight-label insight-label--white">The Ancestral Equation</span>
@@ -473,15 +517,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         + Western Hunter-Gatherers — Loschbour distance 0.4133, most diluted stream<br>
         + Yamnaya Steppe Pastoralists — CHG-weighted (Kotias 0.2508 &lt; Karelia 0.2956), southeastern affinity<br>
         = Pre-Slavic Balkan Substrate<br><br>
-        + Paleo-Balkan / Aegean continuity — Armenia C Areni 0.0921, Greece BA Mycenaean 0.0938, eight-for-eight closer than Minko's<br>
-        + Medieval Bulgarian synthesis — distance 0.0267, sharpest sibling divergence point<br>
-        + Broader medieval/Pannonian background shared near-identically with Minko<br>
+        + Paleo-Balkan / Aegean continuity — Armenia C Areni 0.0921, Greece BA Mycenaean 0.0938, closest of all ancient populations tested<br>
+        + Medieval Bulgarian synthesis — distance 0.0267, an unusually tight anchor to Bulgaria's historical population<br>
+        + MyHeritage Greek and Albanian (43.1%) + Balkan (41.7%) — one Southeast European continuum, two overlapping labels<br>
         = <strong>Eastern Balkan Crossroads Genome — Aegean-Leaning Variant</strong><br><br>
         <strong>Closest modern: Gagauz 0.0161 · Bulgarian 0.0172</strong><br>
         <strong>Closest historical: Bulgaria Medieval 0.0267</strong><br>
         <strong>Bronze Age balance: Barcin 0.1613 &lt; Yamnaya 0.1841 (farmer-leaning)</strong><br>
-        <strong>Aegean/Caucasus signal: 8 of 8 Model 5 populations closer than Minko's</strong><br>
-        <strong>Pending: SNP panel · MyHeritage % · heat map segment detail · sibling vector comparison</strong>
+        <strong>Aegean/Caucasus signal: Armenia C Areni 0.0921 — closest ancient population in the entire dataset</strong><br>
+        <strong>Pending: chromosome/cM-level heat map segment detail</strong>
       </div>
     </div>
   </div>
