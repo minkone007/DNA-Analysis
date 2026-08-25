@@ -455,8 +455,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
 
     <div class="insight-box">
-      <span class="insight-label">A Discrepancy Worth Checking — OCA2 rs1800414</span>
-      This genome and Minko's both show TT at rs1800414, but the two reports currently interpret that genotype in opposite directions. Published sources describe this SNP's alleles as A (ancestral, common) versus G (derived, the East-Asian-specific skin-lightening variant); SNPedia's own write-up frames the lightening effect around the letter "C" rather than "G," which is the telltale sign of a reverse-complement convention (A↔T, G↔C on the opposite strand). Read that way, TT corresponds to the ancestral AA — not the derived, East-Asian-linked genotype. Minko's report currently reads the same TT the other way, as the derived variant. Worth reconciling directly against whatever reference (SNPedia local database vs. raw dbSNP) the pipeline used, since only one direction can be right and the shared genotype means whichever way it goes, it should go the same way in both reports.
+      <span class="insight-label">A Correction Worth Flagging — OCA2 rs1800414</span>
+      This genome and Minko's both show TT at rs1800414. SNPedia's documentation on genotype orientation explains that consumer DNA chips report genotypes on the GRCh37 plus strand regardless of which strand dbSNP itself defines the SNP on — and SNPedia's own entry for this SNP attributes its skin-lightening effect specifically to the letter "C," where the wider literature describes the same effect using "G." That combination only makes sense if the chip-reported plus-strand letters are the complement of the literature's A(ancestral)/G(derived) pair — meaning plus-strand T is ancestral, C is derived. Read that way, <strong>TT is the ancestral genotype, not the derived, East-Asian-linked one.</strong> Minko's report currently reads this same TT the other way, as the derived variant — worth correcting there directly rather than leaving the two reports in disagreement about a shared genotype.
     </div>
 
     <div class="insight-box">
@@ -476,7 +476,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <div class="era-content">
     <h2>Notable Findings</h2>
 
-    <p>Three signals across this dataset stand out from the rest — either because they cut against the main narrative, or because they resolve something the main layers left open.</p>
+    <p>Four signals across this dataset stand out from the rest — either because they cut against the main narrative, because they resolve something the main layers left open, or because they sharpen into focus once set beside a close relative's profile.</p>
 
     <h3 class="sub-heading">1. The Ireland Signal</h3>
     <p>Of the four MyHeritage Additional Genetic Groups, three — Bulgaria, Serbia/Croatia/Bosnia and Herzegovina, Romania — simply confirm the Eastern Balkan position at finer resolution. The fourth, <strong>Ireland (Kerry, Cork and Limerick)</strong>, does not fit that pattern, and is genuinely the most interesting single item on the whole ethnicity report precisely because it doesn't fit. Additional Genetic Groups are lower-confidence, secondary signals — populations whose reference genetic variation partially overlaps with a small residual portion of this genome's own variation, without necessarily indicating a real family connection to that place. Southwest Ireland is one of the more genetically distinctive corners of Europe, shaped by a long isolated Atlantic-fringe population history; distinctive, unusual variation elsewhere in Europe can sometimes register a faint statistical echo against such a distinctive reference panel purely by coincidence of allele frequencies, without any real shared recent ancestry. It's flagged here rather than woven into the main narrative because, unlike the Bulgaria/Serbia/Romania trio — each independently confirmed by the G25 modern-population table in Layer 1 — nothing elsewhere in this dataset corroborates an Irish connection. Genealogical paper-trail research, not further DNA modelling, is the only way this one would ever move from "flagged" to "confirmed."</p>
@@ -490,26 +490,24 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <h3 class="sub-heading">4. An EDAR Variant Without Its Usual Partner</h3>
     <p>Homozygous EDAR-370A (A;A) without the linked ABCC11 dry-earwax allele (this genome carries the ancestral C;C instead) is a genuinely specific, checkable pattern — see the Genetic Markers section above for the full reasoning. In brief: because these two variants are normally inherited together as part of the same East Asian selective sweep, carrying one without the other is more consistent with an old, indirect route into this lineage — plausibly Bronze Age steppe-mediated gene flow — than with recent, direct East Asian ancestry.</p>
 
-    <div class="insight-box">
-      <span class="insight-label">A Note on Family Context</span>
-      Stayko and his brother Minko Nenov were analysed using the same overall framework, including MyHeritage-derived ancestry information, Global25 modelling, ancient-population distance panels, Bulgarian archaeological references, admixture calculators, and selected ancestry-informative SNPs.
-      The comparison is useful precisely because the two genomes share the overwhelming majority of their recent ancestry while showing measurable differences in how that shared ancestry is distributed across the genetic reference space.
-      Stayko's profile is particularly notable for a somewhat stronger southern/Aegean–Mediterranean and Caucasus-facing signal. His modern-population matches remain firmly within the Balkan continuum, but his position within that continuum is shifted somewhat toward the southern end: Gagauz 0.0161, Bulgarian 0.0172, Romanian 0.0197, Macedonian 0.0243, and Greek Central Macedonia 0.0277.
-      Stayko occupies a tighter southeastern/Eastern-Balkan position with a stronger Aegean–Caucasus-facing pull, whereas Minko sits somewhat farther from the southern Balkan references and relatively closer to the broader northern Balkan/Romanian–Bulgarian cluster.
-     <div class="snp-table-wrap">
-      <table class="snp-table">
-        <thead><tr><th>Reference</th><th>Minko</th><th>Stayko</th></thead>
-        <tbody>
-          <tr><td class="snp-rsid">Romanian</td><td class="snp-gene">0.0212</td><td class="snp-gene">0.0197</td></tr>
-          <tr><td class="snp-rsid">Bulgarian</td><td class="snp-gene">0.0237</td><td class="snp-gene">0.0172</td></tr>
-          <tr><td class="snp-rsid">Macedonian</td><td class="snp-gene">0.0398</td><td class="snp-gene">0.0243</td></tr>
-          <tr><td class="snp-rsid">Greek Central Macedonia</td><td class="snp-gene">0.0422</td><td class="snp-gene">0.0277</td></tr>
-          <tr><td class="snp-rsid">Albanian</td><td class="snp-gene">0.0422</td><td class="snp-gene">0.0311</td></tr>
-          <tr><td class="snp-rsid">Gagauz</td><td class="snp-gene">0.0248</td><td class="snp-gene">0.0161</td></tr>
-        </tbody>
-      </table>	
-    </div>
-      </div>
+    <h3 class="sub-heading">5. A Note on Family Context</h3>
+    <p>Stayko and his brother Minko Nenov were analysed using the same overall framework — MyHeritage-derived ancestry information, Global25 modelling, ancient-population distance panels, Bulgarian archaeological references, admixture calculators, and selected ancestry-informative SNPs. The comparison is useful precisely because the two genomes share the overwhelming majority of their recent ancestry while showing measurable differences in how that shared ancestry is distributed across the genetic reference space.</p>
+
+    <p>Stayko's profile is particularly notable for a somewhat stronger southern/Aegean–Mediterranean and Caucasus-facing signal. His modern-population matches remain firmly within the Balkan continuum, but his position within that continuum is shifted somewhat toward the southern end: Gagauz 0.0161, Bulgarian 0.0172, Romanian 0.0197, Macedonian 0.0243, and Greek Central Macedonia 0.0277. Stayko occupies a tighter southeastern/Eastern-Balkan position with a stronger Aegean–Caucasus-facing pull, whereas Minko sits somewhat farther from the southern Balkan references and relatively closer to the broader northern Balkan/Romanian–Bulgarian cluster.</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Reference Population</th><th>Minko</th><th>Stayko</th></tr></thead>
+      <tbody>
+        <tr><td>Gagauz</td><td class="dist-val">0.0248</td><td class="dist-val">0.0161</td></tr>
+        <tr><td>Bulgarian</td><td class="dist-val">0.0237</td><td class="dist-val">0.0172</td></tr>
+        <tr><td>Romanian</td><td class="dist-val">0.0212</td><td class="dist-val">0.0197</td></tr>
+        <tr><td>Macedonian</td><td class="dist-val">0.0398</td><td class="dist-val">0.0243</td></tr>
+        <tr><td>Greek Central Macedonia</td><td class="dist-val">0.0422</td><td class="dist-val">0.0277</td></tr>
+        <tr><td>Albanian</td><td class="dist-val">0.0422</td><td class="dist-val">0.0311</td></tr>
+      </tbody>
+    </table>
+
+    <p>One genotype-level difference from the marker panel fits this same picture: Minko carries LCT/MCM6 rs4988235 as A;G — one copy of the lactase-persistence allele — while Stayko carries G;G, the fully ancestral, lactase-non-persistent genotype. A real, direct genetic difference between the brothers, sitting alongside the same southward-leaning pattern visible across the modern-population table above.</p>
   </div>
 </div>
 
