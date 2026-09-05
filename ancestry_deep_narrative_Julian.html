@@ -63,6 +63,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .insight-box--final{background:var(--ink);color:var(--parchment);border-color:var(--gold)}
 .insight-box--dual{background:var(--ink);border:none;border-image:linear-gradient(135deg,var(--gold),var(--east)) 1;border-left:4px solid}
 .insight-label{font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.5rem}
+.plain-box{background:rgba(58,107,138,.07);border-left:4px solid var(--sea);padding:1.1rem 1.4rem;margin:1.6rem 0;border-radius:0 6px 6px 0;color:var(--ink-mid)}
+.plain-box strong{color:var(--ink);font-weight:600}
+.plain-box em{font-style:italic;color:var(--ink)}
+.plain-box mark{background:var(--gold-light);color:var(--ink);padding:.05em .25em;border-radius:3px;font-style:normal}
+.plain-label{font-family:'Inter',sans-serif;font-style:normal;font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sea);display:block;margin-bottom:.45rem}
 .insight-label--east{color:var(--east)}
 .insight-label--white{color:var(--gold-light)}
 .equation{font-family:'Inter',sans-serif;font-size:.88rem;line-height:2.1;color:var(--gold-light)}
@@ -166,7 +171,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 </div>
 
 <div class="disclaimer">
-  <strong>Sources:</strong> G25 coordinates projected from raw MyHeritage SNP data onto the Global25 PCA reference space, scaled format (Global25_PCA_pop_averages_scaled). GEDmatch Eurogenes K36, K13, EUtest K15, Dodecad K12b, HarappaWorld, puntDNAL K10 Ancient, MyHeritage ethnicity estimates. References: Haak et al. 2015, Gakuhari et al. 2020, McColl et al. 2018, Jinam et al. 2015, Reich et al. 2011. Ancient DNA ancestry models are statistical approximations describing genetic relationships, not direct genealogical descent. Generated July 2026.
+  <strong>Sources:</strong> G25 coordinates estimated via a custom optimization script fitting admixture-calculator output to Global25 reference population coordinates (scaled format), not a direct PCA projection of raw genotype data. GEDmatch Eurogenes K36, K13, EUtest K15, Dodecad K12b, HarappaWorld, puntDNAL K10 Ancient, MyHeritage ethnicity estimates. References: Haak et al. 2015, Gakuhari et al. 2020, McColl et al. 2018, Jinam et al. 2015, Reich et al. 2011. Ancient DNA ancestry models are statistical approximations describing genetic relationships, not direct genealogical descent. Generated July 2026.
 </div>
 
 
@@ -193,6 +198,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       <span class="insight-label insight-label--east">Why the Numbers Differ Across Calculators</span>
       Julian's results from different GEDmatch calculators appear to contradict each other: one says 40% East Asian, another says 32%, another 29%. None of them is wrong. Each calculator uses a different set of reference populations and measures different genetic dimensions. What matters is not the precise percentage from any single tool, but what is consistent across all of them. Across every calculator run on Julian's DNA, two things remain constant: a strong Eastern Balkan European signal, and a strong East Asian signal that clusters closer to Jomon-related populations than to mainland Han Chinese. Everything else is a question of how finely each tool can resolve the picture.
     </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      The single idea to take from this layer is: <mark>the label is not the finding</mark>. A percentage next to a country name looks precise, but it's really the output of a computer program comparing DNA to a reference panel someone else built, using categories that program's designers happened to choose. What's actually reliable here is something the percentages alone don't show you directly: this genome is a genuine, roughly even blend of <strong>two ancestries that almost never meet</strong> — Eastern Balkan and Ryukyuan Japanese — rather than a small trace of one inside a mostly-the-other profile. The <strong>Okinawa flag</strong> specifically matters because it's not a vague "Japanese" label; it's the algorithm noticing a genetically older, more isolated signal than mainland Japan would show, the same way "Greek and Albanian" pointed at something older than modern Greece in the Balkan reports. Different calculators disagreeing on the exact percentage (40% vs 32% vs 29%) isn't a contradiction — it's four different rulers measuring the same real thing with different levels of precision.
+    </div>
   </div>
 </div>
 
@@ -208,7 +218,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <p>When Julian's DNA coordinates — projected directly from his raw MyHeritage data onto a standardised genetic reference space used by researchers worldwide — are compared against modern population averages, the closest match is <strong>Bulgarian, at a distance of 0.126</strong>. This is not a marginal or ambiguous result. It is a clear signal that his paternal Eastern Balkan ancestry is the strongest single pole in his genetic profile, visible and measurable even against a background of approximately 61% East Asian ancestry.</p>
 
-    <p>The father-son comparison is striking. His father's closest modern match is also Bulgarian, at a distance of 0.016 — one of the tightest possible fits to a modern population. Julian's distance to Bulgarian is 0.126 — roughly eight times greater, consistent with the expected effect of 50% admixture from a completely different part of the world. The same population is pulling at both of them from the same direction. The paternal anchor has not shifted; it has simply been diluted by exactly the amount his mother's ancestry contributes.</p>
+    <p>The father-son comparison is striking. His father's closest modern matches are Romanian at 0.018 and Bulgarian at 0.021 — among the tightest possible fits to a modern population. Julian's distance to Bulgarian is 0.126 — roughly six times greater, consistent with the expected effect of substantial admixture from a completely different part of the world. The same population is pulling at both of them from the same direction. The paternal anchor has not shifted; it has simply been diluted by exactly the amount his mother's ancestry contributes.</p>
 
     <p>The second closest modern population is <strong>Mongolian, at distance 0.356</strong>, followed by Japanese at 0.479 and Korean at 0.487. The Mongolian ranking — ahead of Japanese despite Julian's MyHeritage result flagging Japanese ancestry — is a finding worth noting. It does not mean Julian has Mongolian ancestors. It means that the East Asian component of his genome, whatever its specific source, sits closer in genetic space to Mongolian than to modern Japanese averages. The ancient DNA picture in the layers below will provide context for this finding.</p>
 
@@ -235,6 +245,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
 
     <p>The GEDmatch two-population oracles confirm the same picture from a different angle. Eurogenes K13 finds the best two-population fit as 50% Japanese + 50% Romanian at a distance of 3.84. Dodecad K12b finds 50% Korean + 50% Romanian at distance 4.91. These are not contradictory — they reflect the same underlying reality through different reference lenses, with the Korean and Japanese populations serving as interchangeable proxies for the East Asian component, and Romanian as the closest available proxy for his father's Eastern Balkan genome. The single-population calculators return Uyghur or Uzbek as the closest match — not because Julian has Central Asian ancestry, but because those populations are themselves approximately 50% West Eurasian and 50% East Asian, making them the closest available single-population approximation to a profile that is genuinely and equally both.</p>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      Every reference population that comes up here is a <strong>proxy, not an ancestor</strong>. When a calculator says "closest match: Uyghur," it doesn't mean a Central Asian great-grandparent — it means Uyghur people happen to sit at roughly the same 50/50 East-West genetic midpoint that this genome does, so they're the nearest existing population to compare against, purely by coincidence of geography. The real, underlying picture is much simpler than the specific population names suggest: <mark>a Balkan signal and an East Asian signal, present in close to equal measure</mark>, with every oracle result — Japanese+Romanian, Korean+Romanian, Uyghur, Uzbek — just different ways of describing that same even split.
+    </div>
   </div>
 </div>
 
@@ -270,6 +285,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           <tr><td>Han Henan</td><td class="dist-val">0.478</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--gold" style="width:73%"></div></div></td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      The number worth sitting with here is <mark>0.094</mark> — Julian's single closest ancient match anywhere in this whole report, and it's a medieval Mongolian population, not a Bulgarian or Japanese one. That's genuinely surprising, and the honest answer is that it doesn't point to a hidden Mongolian ancestor. Medieval Inner Asia sat at a genetic crossroads much like the Balkans did — it absorbed influences from both the West Eurasian steppe world and the East Asian world, which makes it an unusually good <strong>midpoint match</strong> for anyone whose own genome is itself a blend of those same two worlds, even if that person's actual ancestors never set foot there. Think of it like a translator who speaks two languages fluently — many find that person "the easiest to talk to" from either side, without being from either side's ancestry. The Balkan and East Asian layers below are what actually built this genome; the Mongolia match is the geometry of the blend recognizing another population that sits at a similar crossroads.
     </div>
   </div>
 </div>
@@ -363,6 +383,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         Bar widths represent qualitative signal strength based on observed allele overlap density in the GEDmatch chromosome painting. They are not percentages of ancestry and should not be read as such.
       </div>
     </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      This layer is where the two-sided story becomes visually obvious rather than just statistical. Picture the chromosome painting like two rivers running down the page side by side — on the left, Anatolian farmers and steppe herders lighting up chromosome after chromosome; on the right, Jomon and Northeast Asian references doing the same, at <mark>comparable strength</mark> to the paternal side. Neither river is a trace amount hiding in the other — they're roughly equal partners. And on the paternal side specifically, the Anatolian farmer signal (Barcin) runs noticeably stronger than the steppe-herder signal (Yamnaya), the same farmer-leaning pattern that shows up in Eastern Balkan genomes generally, now inherited straight down from father to son.
+    </div>
   </div>
 </div>
 
@@ -383,6 +408,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <p>This Anatolian Neolithic ancestry is what MyHeritage is partially capturing in the Greek and Albanian (10.8%) component. Modern Greeks carry a high proportion of Early European Farmer ancestry — among the highest of any European population — and when the algorithm identifies a Mediterranean farming-related signal in Julian's genome, it maps it to the modern population that most expresses that signal. It is not Italian or Greek ancestry in any genealogical sense. It is the shared agricultural bedrock of the entire eastern Mediterranean, arriving in the Balkans thousands of years before the concept of "Greek" or "Italian" nationhood existed.</p>
 
     <p>On the maternal side, there is a parallel to the Neolithic story, though it operated independently and thousands of kilometres away. The Yayoi people — farmers and metalworkers from the Korean peninsula — arrived in Japan approximately 2,300 years ago and transformed the archipelago, absorbing and largely replacing the existing Jomon population in most regions. In the Ryukyu islands, this transformation was less complete. Julian's mother carries a Ryukyuan genetic profile in which the Yayoi continental layer is present but has not overwritten the older Jomon foundation to the same degree as on the mainland. The Korea Changhang ancient distance of 0.382 — ranking between Mongolia Medieval and Jomon in the ancient DNA comparisons — reflects this Yayoi-mediated continental layer in his mother's ancestry.</p>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      Two farming revolutions, on opposite sides of the planet, both echoing forward into one genome. On the paternal side: farmers who left <strong>Anatolia</strong> (today's Turkey) around eight thousand years ago and walked their crops into the Balkans. On the maternal side: the <strong>Yayoi</strong>, who brought farming from Korea into Japan a few thousand years later, transforming the mainland almost completely — but the Ryukyu Islands, where Julian's mother's family is from, held onto more of the older hunter-gatherer foundation than mainland Japan did. It's the same historical pattern — new farmers arriving and mixing with, rather than fully erasing, whoever was already there — playing out independently on two different continents, both leaving their mark on this one person.
+    </div>
   </div>
 </div>
 
@@ -408,6 +438,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       <span class="insight-label insight-label--east">Two Hunter-Gatherer Worlds, One Genome</span>
       Western Hunter-Gatherers and Jomon hunter-gatherers last shared a common ancestor approximately 40,000–50,000 years ago, when the first anatomically modern humans spread out of Africa and began differentiating into the populations that would eventually inhabit opposite ends of the Eurasian continent. They evolved in complete genetic isolation for tens of thousands of years — the WHG in the forests and plains of Ice Age Europe, the Jomon ancestors on the Pacific fringe of Asia. Neither population knew the other existed. Julian's genome brings them together for the first time, the one contributing the blue-eye allele on chromosome 15, the other the deep Pacific ancestry on the opposing strand, both arriving intact through parents whose own ancestry had never previously intersected.
     </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      This is the <strong>oldest solid ground</strong> on both sides of the family tree, and the two grounds never touched until now. Western Hunter-Gatherers in Ice Age Europe and Jomon hunter-gatherers on the Pacific coast of Asia split apart from a shared ancestor <mark>forty to fifty thousand years ago</mark> and then had zero contact with each other for the entire span of human history since — two completely separate branches of the same original family tree, growing in total isolation on opposite sides of the planet. They finally meet again in one person: the blue-eye gene from one branch, deep Pacific island ancestry from the other, both intact, both real, sitting together in the same genome for the first time since that split.
+    </div>
   </div>
 </div>
 
@@ -431,7 +466,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <p>What the chromosome painting reveals far more powerfully is everything that follows the Neanderthal rows. The orange bands expand dramatically and continuously through the Western Hunter-Gatherer, Anatolian Neolithic farmer, Bell Beaker, Yamnaya steppe, and European Bronze Age reference genomes on the paternal side — and through Jomon, Ainu, and Northeast Asian reference genomes further down. This overwhelming signal from the normal West Eurasian population sequence and from Jomon-related East Asian populations is the true headline of the painting. It is a visual confirmation of exactly what the G25 models found: Julian's genome is coherently and completely explained by the archaeological excavation already described — WHG and farmers and steppe on the paternal side, Jomon and Northeast Asian on the maternal side — with the Neanderthal rows at the top representing the oldest and most universal human inheritance that both lineages share.</p>
 
-    <p>Julian inherits Neanderthal-introgressed segments from both parents. His father carries a homozygous GG genotype at rs12041331 in the CLEC2D region of Chromosome 1, matching the Vindija Cave Neanderthal reference — the Neanderthal-derived allele inherited from both of his own parents. These introgressed Neanderthal variants, accumulated across the genome from both parental lineages, most commonly affect keratin and skin function, immune response, and blood coagulation — adaptations that proved useful when modern humans entered environments where Neanderthals had lived for hundreds of thousands of years.</p>
+    <p>Julian inherits Neanderthal-introgressed segments from both parents, visible as scattered allele-sharing against the Vindija and Mezmaiskaya reference rows described above. These introgressed segments, accumulated across the genome from both parental lineages, most commonly affect keratin and skin function, immune response, and blood coagulation — adaptations that proved useful when modern humans entered environments where Neanderthals had lived for hundreds of thousands of years.</p>
 
     <h3 class="sub-heading">The Denisovan Inheritance — The Deeper Signal</h3>
 
@@ -458,6 +493,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       <span class="insight-label insight-label--east">Two Archaic Species — A Note on What the Data Shows</span>
       The chromosome painting and the G25 archaic model point in the same direction: Julian carries introgressed segments from both Neanderthals and Denisovans, as inferred from allele overlap with reference genomes and from the presence of Onge-related ancestry in his coordinates. These are population-level inferences, not genealogical claims about specific ancient individuals. What can be said with confidence is that both archaic signals are present, that the Neanderthal signal is shared across both his paternal and maternal lineages as a universal human inheritance, and that the Denisovan-related signal arrives specifically through the Jomon channel on his maternal side — making it the one archaic thread that distinguishes his genome from a purely European profile. The Neanderthal rows at the top of his chromosome painting confirm the first; the Onge distance of 0.351 in Model D confirms the second.
     </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      Two extinct human relatives, two completely different routes into one genome. <strong>Neanderthal</strong> DNA is here the ordinary way — virtually everyone outside Africa carries some, inherited from interbreeding tens of thousands of years ago, and it shows up on both the Balkan and Japanese sides because both of those ancestral populations passed through that same ancient event. <strong>Denisovan</strong> DNA is the more unusual thread, and it only got here through one specific, long chain: Denisovans mixed with ancient Southeast Asian hunter-gatherers, those hunter-gatherers' descendants became the Onge people of the Andaman Islands and, separately, ancestors of the Jomon, the Jomon passed it down through the Ryukyu Islands, and it reached Julian through his mother. It's faint — the Onge, the closest proxy for this thread, are still fairly distant in the numbers (0.351) — but it's the one archaic signal in this whole report that couldn't have arrived from the Balkan side no matter what, which makes it a genuine, distinguishing mark of the Japanese half of the family tree.
+    </div>
   </div>
 </div>
 
@@ -482,6 +522,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       <p style="color:var(--gold-light);font-size:.95rem;line-height:1.85;margin:0">
         Every heterozygous SNP in Julian's genome at a position where his father and mother carry opposite alleles is a molecular record of two lineages meeting for the first time. The ABCC11 TC, the HERC2 GA, the SLC45A2 CG — these are not abstractions or estimates. They are the specific nucleotides where the Eastern Balkan crossroads and the Ryukyuan archipelago touch each other, written in the language of DNA at single-letter precision, readable from his raw data file.
       </p>
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      Everything else in this report is statistics and population comparisons — this layer is different. These are individual letters in Julian's actual DNA, one from each parent, sitting right next to each other. At <strong>ABCC11</strong>, he has one letter that means "wet earwax, European-style" and one that means "dry earwax, East Asian-style" — literally his father's contribution and his mother's contribution, visible side by side at a single spot in his genome. Same story at the eye-colour and skin-colour genes: one letter says "blue eyes, ancient European," the other says "dark eyes, ancient East Asian," and having one of each is exactly why hazel or in-between eye colour is the expected result. This is about as close as genetics gets to literally showing you two family trees meeting in one person.
     </div>
   </div>
 </div>
@@ -533,8 +578,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           <tr>
             <td class="snp-gene">LCT / MCM6</td>
             <td class="snp-geno snp-found--west">AG</td>
-            <td><span class="heritage-badge badge--west">Paternal T</span></td>
-            <td class="snp-desc">Lactase persistence — the European lactose-tolerance allele inherited from father. Full lactose tolerance expected. This variant spread with Bronze Age pastoralist populations and is rare outside Europe and related groups.</td>
+            <td><span class="heritage-badge badge--west">Paternal allele</span></td>
+            <td class="snp-desc">Lactase persistence — heterozygous, one copy of the European lactose-tolerance allele inherited from father. Full lactose tolerance expected. This variant spread with Bronze Age pastoralist populations and is rare outside Europe and related groups.</td>
           </tr>
           <tr>
             <td class="snp-gene">ADH1B</td>
@@ -557,8 +602,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           <tr>
             <td class="snp-gene">COMT</td>
             <td class="snp-geno snp-found--het">GG</td>
-            <td><span class="heritage-badge badge--east">Met/Met</span></td>
-            <td class="snp-desc">Dopamine catabolism in the prefrontal cortex — Met/Met means dopamine lingers longer, associated with stronger working memory performance and greater stress sensitivity under high cognitive load.</td>
+            <td><span class="heritage-badge badge--west">Val/Val</span></td>
+            <td class="snp-desc">Dopamine catabolism in the prefrontal cortex — Val/Val means faster dopamine breakdown, associated with lower baseline prefrontal dopamine and often described as greater resilience under acute stress, at some cost to working-memory performance compared to the Met/Met profile.</td>
           </tr>
           <tr>
             <td class="snp-gene">CYP1A2</td>
@@ -587,6 +632,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         </tbody>
       </table>
     </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      The first four rows of this table — ABCC11, HERC2, SLC45A2, TYR — are the real ancestry story: places where father and mother clearly handed down different versions of the same gene, and both are visible at once. The rows after that shift into a different kind of information entirely — genes tied to health and daily biology (caffeine metabolism, diabetes risk, Alzheimer's risk) rather than ancestry. They're accurate reads of the raw data, but worth keeping mentally separate: a genotype that flags "moderately elevated diabetes risk" or "no elevated Alzheimer's signal" is a health note, not a heritage one, and neither of those specific rows says anything about which parent it came from or where in the world that version of the gene originated.
+    </div>
   </div>
 </div>
 
@@ -611,6 +661,12 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <p>At the base of the excavation, the archaic sediment: Neanderthal DNA from both parental lines, arriving through different geographic routes but from the same ancient interbreeding event in the Levant. And a Denisovan signal on the maternal side — transmitted through a chain reaching from Denisovan introgression in Southeast Asia through the Jomon to the Ryukyuan population to Julian's mother to Julian himself. The Onge of the Andaman Islands appear at distance 0.351 as the closest ancient proxy for this deepest thread — a population that has been living on isolated islands for 60,000 years and still carries a measurable trace of the same archaic ancestry.</p>
 
     <p>No single population genetics calculator was designed to describe this combination, because the combination has not existed before as a named modern population. Every tool approaches it from a different angle and produces a different numerical answer. But every tool finds the same two poles: a strong Eastern Balkan European signal and a strong Jomon-proximate East Asian signal. The specific distances, the specific ancient populations, and the specific SNP genotypes all point in the same direction. The excavation is coherent. The layers are consistent. The story is complete.</p>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms — Two Family Trees, One Genome</span>
+      <p>Most ancestry stories run in one direction, back through time along a single line. This one runs in two directions at once, because it's really two separate stories meeting in the middle. Follow the <strong>paternal side</strong> back: modern Bulgarian and Romanian relatives, then Slavic migrants who came through Hungary in the early Middle Ages, then the Thracians and other old Balkan peoples who were already there, then further back still to Anatolian farmers who walked into the Balkans eight thousand years ago and the Yamnaya steppe herders who arrived after them, and beneath even that, Western Hunter-Gatherers whose blue-eye gene survives intact today. Follow the <strong>maternal side</strong> back, completely independently: Ryukyuan and Okinawan relatives, carrying an unusually strong dose of <strong>Jomon</strong> ancestry — hunter-gatherers who lived in near-total isolation on the Japanese archipelago for tens of thousands of years, absorbed only partially by Yayoi farmers arriving from Korea a couple of thousand years ago.</p>
+      <p style="margin-top:.8rem">These two lines split from a common human ancestor <mark>forty to fifty thousand years ago</mark> and then had no further contact whatsoever — one branch heading into Ice Age Europe, the other out along the Pacific coast of Asia — until they met in one person. That's what makes the medieval Mongolian match worth explaining rather than ignoring: it's not a hidden third ancestor, it's what happens when a genome that's genuinely half-European and half-East-Asian gets compared against populations that sit at a similar historical crossroads. And it's also why the <strong>Denisovan</strong> trace is worth noting specifically — unlike Neanderthal DNA, which arrived through the same ancient event on both sides and is common to nearly everyone outside Africa, this thread could only have traveled in from one specific direction: through the Jomon, by way of the Ryukyu Islands, from mother to son.</p>
+    </div>
 
     <div class="insight-box insight-box--final">
       <span class="insight-label insight-label--white">Julian's Ancestral Equation</span>
