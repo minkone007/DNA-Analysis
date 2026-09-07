@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stayko Nenov - Genetic Health Narrative</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+        --paper: #fdfcfa; --paper-2: #f4f1eb; --ink: #1a1612; --ink-2: #4a4238; --ink-3: #8a7f72;
+        --rule: #ddd8cf; --blue: #1a4b7a; --nav-w: 210px;
+        --risk-elevated: #c0392b; --risk-moderate: #c97b2a; --risk-favourable: #2d7a4f;
+        --blue-tint: rgba(26, 75, 122, 0.05);
+        --cat-a: #5a7290; --cat-b: #8a6a4a; --cat-c: #a89464; --cat-d: #8a7f72; --cat-e: #6b8a7a;
+    }
+    body { background: var(--paper); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.85; }
+    .narrative-body em, .narrative-body i, .narrative-text em, .narrative-text i { font-style: normal; }
+
+    .nav-sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: var(--nav-w); background: #fff; border-right: 1px solid var(--rule); overflow-y: auto; z-index: 200; display: flex; flex-direction: column; }
+    .nav-head { padding: 1.4rem 1rem 1rem; border-bottom: 1px solid var(--rule); }
+    .nav-brand { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 600; letter-spacing: .04em; color: var(--ink-3); margin-bottom: .2rem; }
+    .nav-person { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--ink); }
+    .nav-links { flex: 1; overflow-y: auto; padding: .8rem .7rem; }
+    .nav-link { display: flex; align-items: center; gap: .45rem; font-family: 'EB Garamond', serif; font-size: .92rem; color: var(--ink-3); text-decoration: none; padding: .25rem .4rem; border-radius: 3px; line-height: 1.4; margin-bottom: .1rem; }
+    .nav-link:hover { background: var(--paper-2); color: var(--blue); }
+    .nav-score { padding: .8rem 1rem; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .3rem; }
+    .ns { display: flex; flex-direction: column; align-items: center; }
+    .ns-val { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 700; }
+    .ns-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .72rem; font-weight: 600; color: var(--ink-3); }
+    .lang-bar { padding: .5rem 1rem; border-top: 1px solid var(--rule); display: flex; gap: .4rem; }
+    .lang-btn { font-family: 'EB Garamond', serif; font-weight: 700; font-size: .8rem; padding: .2rem .5rem; border-radius: 3px; border: 1px solid var(--rule); color: var(--ink-3); text-decoration: none; }
+    .lang-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+    .mobile-bar { display: none; }
+
+    .cover { margin-left: var(--nav-w); background: var(--ink); color: #f0ebe3; padding: 5rem 3.5rem 4rem; position: relative; }
+    .cover-eyebrow { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 600; letter-spacing: .04em; color: #7fa8c4; margin-bottom: 1.2rem; }
+    .cover h1 { font-family: 'EB Garamond', serif; font-size: 3.2rem; font-weight: 400; color: #f0ebe3; margin-bottom: .2rem; }
+    .cover-sub { font-size: 1.05rem; font-style: italic; color: #7fa8c4; margin-bottom: 3.5rem; }
+    .cover-stats { display: flex; gap: 3rem; flex-wrap: wrap; border-top: 1px solid #2d3f52; padding-top: 1.5rem; }
+    .cs { display: flex; flex-direction: column; }
+    .cs-val { font-family: 'EB Garamond', serif; font-size: 1.85rem; font-weight: 700; color: #f0ebe3; }
+    .cs-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .78rem; font-weight: 500; color: #5a7a94; }
+
+    .main { margin-left: var(--nav-w); width: calc(100vw - var(--nav-w)); padding: 0 3.5rem 6rem; }
+    .main-inner { max-width: 920px; margin-left: auto; margin-right: auto; }
+    .disclaimer { font-family: 'EB Garamond', serif; font-size: .92rem; line-height: 1.6; background: #fffbeb; border-left: 3px solid #d97706; padding: .8rem 1.2rem; color: #78450a; margin: 2.5rem 0 0; }
+    .report-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+    .section-heading { font-family: 'EB Garamond', serif; font-size: 1.8rem; font-weight: 600; margin-bottom: .5rem; color: var(--ink); }
+
+    .narrative-body p { margin-bottom: .9rem; font-size: .98rem; line-height: 1.9; color: var(--ink-2); }
+
+    .trait-row { display: grid; grid-template-columns: 78px 1fr; column-gap: 1.8rem; padding: 2.6rem 0; border-bottom: 1px solid var(--rule); }
+    .trait-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .trait-spine { position: relative; display: flex; flex-direction: column; align-items: center; padding-top: .4rem; }
+    .spine-dot { width: 13px; height: 13px; border-radius: 50%; background: currentColor; border: 2px solid var(--paper); box-shadow: 0 0 0 2px currentColor; flex-shrink: 0; z-index: 1; }
+    .spine-line { position: absolute; top: 15px; bottom: -2.6rem; left: 50%; width: 1px; background: var(--rule); transform: translateX(-50%); }
+    .spine-risk { margin-top: .6rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .74rem; font-weight: 600; text-align: center; line-height: 1.3; }
+    .trait-title { font-family: 'EB Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink); margin-bottom: 1.4rem; letter-spacing: -.01em; }
+
+    .trait-narrative { display: flex; flex-direction: column; gap: 2rem; }
+    .narrative-unit { display: grid; grid-template-columns: 118px 1fr; gap: 1.4rem; }
+    .narrative-kicker { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .9rem; line-height: 1.3rem; font-weight: 600; color: var(--ink-3); padding-top: .1rem; }
+    .narrative-text p { font-size: 1rem; line-height: 1.9; color: var(--ink-2); margin-bottom: .9rem; }
+    .narrative-text p:last-child { margin-bottom: 0; }
+    .narrative-unit--gwas .narrative-kicker { position: relative; color: var(--blue); padding-left: 1.5rem; }
+    .narrative-unit--gwas .narrative-kicker::before { content: ""; position: absolute; left: 0; top: .35rem; width: 9px; height: 9px; border-radius: 50%; background: var(--blue); border: 2px solid var(--paper); box-shadow: 0 0 0 2px var(--blue); z-index: 1; }
+    .narrative-unit--gwas .narrative-kicker::after { content: ""; position: absolute; left: 4px; top: 1.15rem; bottom: 0; width: 1px; background: var(--rule); }
+    .narrative-unit--gwas .narrative-text { padding-left: 1.6rem; }
+    .narrative-unit--gwas .narrative-text strong { color: var(--blue); font-weight: 700; }
+    .risk-pill { display: inline-block; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 700; padding: .25rem .75rem; border-radius: 4px; color: #fff; white-space: nowrap; }
+    .narrative-unit--deep { display: block; }
+    .narrative-unit--deep .narrative-kicker { margin-bottom: .6rem; }
+
+    .pgs-badge { display: inline-block; font-family: 'Inter', monospace; font-size: .78rem; font-weight: 600; color: var(--blue); background: var(--blue-tint); padding: .3rem .7rem; border-radius: 4px; margin-bottom: 0; }
+    .risk-balance { margin: 0 0 1.4rem; }
+    .risk-balance-track { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+    .risk-balance-prot { background: var(--risk-favourable); }
+    .risk-balance-risk { background: var(--risk-elevated); }
+    .risk-balance-labels { display: flex; justify-content: space-between; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+    .rb-risk { color: var(--risk-elevated); font-weight: 600; }
+    .rb-prot { color: var(--risk-favourable); font-weight: 600; }
+    .loci-bar { margin: 0 0 1.4rem; }
+    .loci-bar-track { height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+    .loci-bar-fill { height: 100%; }
+    .loci-bar-label { display: block; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+
+    .drug-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+    .drug-card { background: #fff; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+    .drug-card-head { padding: .8rem 1rem; border-bottom: 1px solid var(--rule); }
+    .drug-card-top { display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem; }
+    .drug-enzyme { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 700; color: var(--ink-3); }
+    .drug-genotype { font-family: 'Inter', monospace; font-size: .8rem; font-weight: 600; color: var(--blue); margin-bottom: .2rem; }
+    .drug-affected { font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-3); }
+    .drug-card-body { padding: 1rem; }
+    .drug-narrative { font-family: 'EB Garamond', serif; font-size: .93rem; color: var(--ink-2); line-height: 1.75; margin-bottom: .8rem; }
+    .drug-action { padding: .6rem .8rem; background: var(--paper-2); border-radius: 4px; font-family: 'EB Garamond', serif; font-size: .88rem; color: var(--ink-3); line-height: 1.55; }
+
+    .marker-votes { margin: 0 0 1.4rem; }
+    .marker-tally { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: .8rem; }
+    .marker-tally-item { display: flex; align-items: center; gap: .4rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .85rem; color: var(--ink-3); }
+    .marker-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .marker-tag-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .marker-tag-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .marker-tag-gene { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .8rem; color: var(--ink-2); }
+    .marker-tag-rsid { font-family: 'Inter', monospace; font-size: .72rem; color: var(--ink-3); }
+    .marker-tag-geno { font-family: 'Inter', monospace; font-weight: 700; font-size: .78rem; color: var(--blue); }
+    .marker-tag { display: flex; align-items: flex-start; gap: .4rem; background: var(--paper-2); border-radius: 4px; padding: .3rem .6rem; cursor: default; }
+    .marker-tag-main { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+    .marker-tag--primary { border: 1.5px solid var(--blue); background: var(--blue-tint); }
+    .marker-tag--primary .marker-tag-gene { font-weight: 700; }
+    .marker-tag--minor { opacity: .62; }
+    .marker-tag-weight { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .68rem; font-weight: 600; color: var(--blue); }
+    .marker-tag--minor .marker-tag-weight { color: var(--ink-3); }
+    .marker-tag--primary .marker-tag-gene { font-weight: 700; }
+    .marker-tag--ruleout { opacity: .75; }
+    .marker-tag--secondary { border: 1px solid var(--rule); }
+    .marker-tag--modifier { border: 1px dashed var(--rule); }
+
+    @media(max-width: 768px) {
+        .nav-sidebar { display: none; }
+        .cover, .main { margin-left: 0; }
+        .cover { padding: 3rem 1.2rem 2.5rem; }
+        .cover h1 { font-size: 2.1rem; }
+        .cover-sub { font-size: .95rem; margin-bottom: 2rem; }
+        .cover-stats { gap: 1.5rem 2rem; }
+        .cs-val { font-size: 1.4rem; }
+        .main { padding: 0 1.2rem 4rem; width: 100vw; }
+        body { font-size: 16px; }
+
+        .mobile-bar {
+            display: flex; align-items: center; justify-content: space-between; gap: .8rem;
+            position: sticky; top: 0; z-index: 150;
+            background: #fff; border-bottom: 1px solid var(--rule);
+            padding: .7rem 1.2rem;
+        }
+        .mobile-person { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .95rem; }
+        .mobile-nav-select {
+            font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-2);
+            border: 1px solid var(--rule); border-radius: 4px; padding: .3rem .5rem; background: #fff;
+        }
+
+        .trait-row { grid-template-columns: 44px 1fr; column-gap: 1rem; }
+        .spine-risk { display: none; }
+        .narrative-unit { grid-template-columns: 1fr; gap: .5rem; }
+        .narrative-unit--gwas .narrative-kicker::after { display: none; }
+        .narrative-unit--gwas .narrative-text { padding-left: 0; }
+
+        .drug-grid { grid-template-columns: 1fr; }
+    }
+    </style>
+</head>
+<body>
+<div class="mobile-bar">
+    <span class="mobile-person">Stayko Nenov</span>
+    <select class="mobile-nav-select" onchange="if(this.value) location.hash=this.value;">
+        <option value="">Jump to…</option>
+    </select>
+</div>
+    <aside class="nav-sidebar">
+        <div class="nav-head">
+            <div class="nav-brand">Personal Genomics</div>
+            <div class="nav-person">Stayko Nenov</div>
+        </div>
+        <nav class="nav-links"><a href="#s_synthesis" class="nav-link">Overview</a><a href="#s_appearance" class="nav-link">Physical Appearance & Traits</a><a href="#s_cardiovascular" class="nav-link">Cardiovascular Health</a><a href="#s_metabolic" class="nav-link">Metabolic Health</a><a href="#s_neurological" class="nav-link">Brain, Cognition & Neurological Health</a><a href="#s_cancer" class="nav-link">Cancer Risk</a><a href="#s_immune" class="nav-link">Immune & Inflammatory Conditions</a><a href="#s_longevity" class="nav-link">Longevity & Ageing</a><a href="#s_lifestyle" class="nav-link">Lifestyle, Nutrition & Drug Metabolism</a><a href="#s_pharmacogenomics" class="nav-link">Pharmacogenomics</a></nav>
+        <div class="nav-score">
+            <div class="ns"><span class="ns-val" style="color:#c0392b">—</span><span class="ns-lbl">Elevated</span></div>
+            <div class="ns"><span class="ns-val" style="color:#c97b2a">—</span><span class="ns-lbl">Moderate</span></div>
+            <div class="ns"><span class="ns-val" style="color:#2d7a4f">—</span><span class="ns-lbl">Favourable</span></div>
+        </div>
+        <div class="lang-bar"><a href="narrative_Stayko_en.html" class="lang-btn">EN</a> <a href="narrative_Stayko_bg.html" class="lang-btn">БГ</a></div>
+    </aside>
+    <div class="cover">
+        <p class="cover-eyebrow">Personal Genomics Report</p>
+        <h1>Stayko Nenov</h1>
+        <p class="cover-sub">Comprehensive Genetic Health Narrative</p>
+        <div class="cover-stats">
+            <div class="cs"><span class="cs-val">43</span><span class="cs-lbl">Traits analysed</span></div>
+            <div class="cs"><span class="cs-val" style="color:#f87171">—</span><span class="cs-lbl">Elevated signals</span></div>
+            <div class="cs"><span class="cs-val" style="color:#86efac">—</span><span class="cs-lbl">Favourable signals</span></div>
+        </div>
+    </div>
+    <div class="main"><div class="main-inner">
+    <div class="disclaimer">This report is a personal genomics narrative built from raw autosomal genotyping data and published GWAS associations. It is not a clinical diagnosis. Polygenic scores (PGS) reflect relative genetic tendency, not certainty, and are only as good as the underlying discovery studies. Consult a physician or genetic counsellor for any decisions affecting your health. Section-by-section build in progress — Physical Appearance & Traits is complete; remaining sections to follow.</div>
+
+    <section class="report-section" id="s_synthesis"><h2 class="section-heading">Overview & Master Synthesis</h2><div class="narrative-body"><h2>Your Genetic Story - The Big Picture</h2><p>Stayko's multi-system genetic profile shares its core architecture with his brother Minko's — both drawing on the same Eastern Balkan ancestral pool — while diverging in specific, meaningful ways across pigmentation, cognition, and disease-risk loci. As with Minko, there is no high-penetrance single-gene disorder in this profile; what's present instead is moderate, polygenic loading distributed across several biological networks, with the specific pattern of loading differing from his brother's in identifiable places:</p><ul><li><strong>Cardiometabolic system</strong> — polygenic tendencies concerning lipid handling and glycemic efficiency, requiring the full cardiovascular and metabolic sections to characterise properly.</li><li><strong>Pigmentation and physical traits</strong> — a broadly similar profile to Minko's at the shared loci (skin tone, hair colour), with real divergence at the hair-loss and secondary eye-colour markers.</li><li><strong>Cognitive architecture</strong> — a COMT genotype (Val/Met, heterozygous) distinct from Minko's Val/Val, placing Stayko at the intermediate point on the classic dopamine-clearance spectrum rather than at Minko's fast-clearance end.</li></ul><p>The sections below build out this picture system by system, using the same GWAS Summary / Deeper Analysis structure as Minko's report, with fresh analysis reflecting Stayko's own genotypes throughout.</p></div></section>
+
+    <section class="report-section" id="s_appearance"><h2 class="section-heading">Physical Appearance & Traits</h2>
+
+    <div class="trait-row" id="n_eye_color">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Likely blue-green</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Eye Color</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Summary</div><div class="narrative-text">
+    <p><strong>Prediction:</strong> Likely blue-green (6 of 6 IrisPlex marker SNPs present on chip).</p>
+    <p>Based on all 6 IrisPlex marker SNPs, there is moderate agreement toward blue. The single strongest marker, rs12913832 (GG), points blue, and this locus alone drives most of IrisPlex's real-world predictive accuracy. Genotype and direction of effect for each marker is listed below.</p>
+    <p><em>Observed variant alleles across 6 evaluated loci indicate combined polygenic contribution.</em></p>
+    </div></div>
+            <div class="marker-votes">
+        <div class="marker-tally"><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-a)"></span>blue · 1</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-b)"></span>intermediate (leans blue) · 2</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-c)"></span>brown · 3</span></div>
+        <div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Single strongest known predictor of blue vs brown eye color. GG is associated with blue; AA with brown; AG intermediate. Accounts for the majority of IrisPlex's predictive power on its own."><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HERC2</span><span class="marker-tag-rsid">rs12913832</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Primary driver</span></div></div><div class="marker-tag marker-tag--secondary" title="Modulates iris pigmentation; CT is intermediate, leaning blue relative to CC."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">OCA2</span><span class="marker-tag-rsid">rs1800407</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Minor contributor</span></div></div><div class="marker-tag marker-tag--secondary" title="Modulates iris and hair pigmentation; GT is intermediate, leaning blue."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC24A4</span><span class="marker-tag-rsid">rs12896399</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">Secondary modifier</span></div></div><div class="marker-tag marker-tag--modifier" title="Primarily a skin/hair pigmentation gene; GG (ancestral) leans darker across IrisPlex/HIrisPlex panels."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs16891982</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Secondary modifier</span></div></div><div class="marker-tag marker-tag--modifier" title="Affects tyrosinase activity/melanin synthesis; GG (ancestral) leans darker, unlike Minko's intermediate AG at this position."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1393350</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Enzymatic modifier</span></div></div><div class="marker-tag marker-tag--modifier" title="Modulates overall pigmentation intensity; CT is intermediate."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IRF4</span><span class="marker-tag-rsid">rs12203592</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Enzymatic modifier</span></div></div></div>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
+    <p>Stayko's eye colour prediction lands at the same blue-green boundary as his brother's, but arrives there through a slightly different genetic path. HERC2 rs12913832 GG is identical between the two brothers — the single strongest known determinant of human eye colour, and the genotype responsible for roughly 97% of blue-eyed Europeans carrying it. On its own, this predicts blue clearly.</p>
+
+    <p>What differs is the secondary pigmentation layer. Minko carries OCA2 CC and TYR AG; Stayko carries OCA2 CT and TYR GG — a different specific combination, though one that lands in a comparable overall place. OCA2 CT is intermediate, leaning blue, essentially the same directional pull as Minko's CC. TYR GG, however, is the ancestral (non-lightening) genotype, in contrast to Minko's heterozygous AG — meaning Stayko's tyrosinase enzyme runs at a slightly higher baseline activity than his brother's at this specific position, a modest push toward more melanin than Minko's version carries here.</p>
+
+    <p>The net effect is still a lighter-than-brown iris — HERC2's dominant signal is too strong to be overridden by the secondary loci in either brother's case — but the exact shade this produces may sit a shade further from pure blue and a shade closer to green or hazel-green than Minko's prediction, precisely because the TYR genotype isn't pulling in the same lightening direction. Brown is still effectively ruled out for both brothers; the real question, as with Minko, is exactly where on the blue-to-green spectrum the final result lands, and that depends on iris structure and lighting as much as genotype.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_hair_color">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Medium to dark brown</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Hair Color</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Summary</div><div class="narrative-text">
+    <p><strong>Prediction:</strong> Medium to dark brown (7 of 8 markers agree).</p>
+    <p>No MC1R red hair variants detected — red hair is ruled out. SLC45A2 GG ancestral allele is the dominant pigmentation signal — dark hair baseline. TYR AC reduces melanin output modestly, consistent with the overall pigmentation profile. 7 SNPs combined.</p>
+    </div></div>
+            <div class="marker-votes">
+        <div class="marker-tally"><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-a)"></span>dark · 1</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-b)"></span>intermediate · 2</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-c)"></span>wild-type · 4</span></div>
+        <div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="True primary driver of the dark baseline — ancestral darker allele."><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs16891982</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Primary driver</span></div></div><div class="marker-tag marker-tag--secondary" title="Secondary modifier — intermediate lightening effect."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC24A4</span><span class="marker-tag-rsid">rs12896399</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">Secondary modifier</span></div></div><div class="marker-tag marker-tag--modifier" title="Enzymatic output modifier — moderate melanin reduction."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1042602</span><span class="marker-tag-geno">AC</span><span class="marker-tag-weight">Enzymatic modifier</span></div></div><div class="marker-tag marker-tag--ruleout" title="Arg160Trp — no red hair allele detected."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs1805008</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Rule-out check</span></div></div><div class="marker-tag marker-tag--ruleout" title="Arg163Gln — no red hair allele detected."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs11547464</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Rule-out check</span></div></div><div class="marker-tag marker-tag--ruleout" title="Cys289Arg — no red hair allele detected."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs1110400</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Rule-out check</span></div></div><div class="marker-tag marker-tag--ruleout" title="Val92Met — no red hair allele detected."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs2228479</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Rule-out check</span></div></div></div>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
+    <p>Stayko's hair colour genetics are, at every tested locus, identical to his brother's — the same clean, consistent medium-to-dark brown story with no red component. All four MC1R positions (Arg151Cys, Arg160Trp, Arg163Gln, Cys289Arg) come back wild-type, ruling out red hair entirely and confirming a fully functional MC1R receptor defaulting to eumelanin production.</p>
+
+    <p>SLC45A2 GG — the ancestral, non-lightening allele — is again the dominant signal, and TYR AC contributes the same modest melanin reduction seen in Minko's profile. Given that Stayko and Minko share every genotype at this trait's tested loci, this is one of the clearest examples in either brother's report of a trait inherited essentially unchanged down the paternal line: both brothers should show very similar natural hair colour, likely within the same medium-to-dark brown range, absent environmental factors like sun exposure or greying.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_skin_tone">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Medium (Type III)</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Skin Tone</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Summary</div><div class="narrative-text">
+    <p><strong>Prediction:</strong> Medium (Type III) (6 of 6 markers agree).</p>
+    <p>SLC24A5 AA is the dominant signal — this locus alone explains the majority of pigmentation difference between European and African populations and strongly predicts lighter skin. SLC45A2 GG (ancestral allele) partially counteracts this, suggesting a light-to-medium result rather than very fair. TYR AC reduces melanin output further, adding freckling tendency and UV sensitivity. Combined picture: skin that tans moderately but burns more readily than average. 6 SNPs combined.</p>
+    </div></div>
+            <div class="marker-votes">
+        <div class="marker-tally"><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-a)"></span>lighter · 2</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-b)"></span>darker · 1</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-c)"></span>intermediate · 1</span></div>
+        <div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Dominant signal — this locus alone explains the majority of pigmentation difference between European and African populations."><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC24A5</span><span class="marker-tag-rsid">rs1426654</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Primary driver</span></div></div><div class="marker-tag marker-tag--secondary" title="Ancestral allele — partially counteracts SLC24A5's lightening effect."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs16891982</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Secondary modifier</span></div></div><div class="marker-tag marker-tag--modifier" title="Reduces melanin output further — adds freckling tendency and UV sensitivity."><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1042602</span><span class="marker-tag-geno">AC</span><span class="marker-tag-weight">Enzymatic modifier</span></div></div><div class="marker-tag marker-tag--modifier" title="Good tanning ability."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1393350</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Minor contributor</span></div></div></div>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
+    <p>Skin tone is the second trait where Stayko's genotypes match his brother's exactly at every tested position — SLC24A5 AA, SLC45A2 GG, and TYR AC all identical. The biological story is therefore the same: a strong lightening signal from SLC24A5 (the single locus responsible for most of the pigmentation difference between European and African populations), partially offset by the ancestral SLC45A2 allele, with TYR AC adding a further modest reduction in melanin output.</p>
+
+    <p>The practical result for both brothers is Fitzpatrick Type III — medium skin that tans over time but is more prone to burning on initial sun exposure than a Type IV or V skin type would be. The shared TYR AC genotype also carries a shared freckling tendency and the same UV-sensitivity profile discussed in Minko's report: sensible, proactive sun protection is worth the same emphasis here.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_hair_loss">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Elevated hair loss risk</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Hair Loss</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Summary</div><div class="narrative-text">
+    <p><strong>Prediction:</strong> Elevated hair loss risk (3 of 6 markers agree; GWAS: 2 elevated loci, PGS +4.0).</p>
+    <p>Male pattern baldness is approximately 80% heritable — one of the most genetically determined traits in this report. The X-linked AR/EDA2R locus is inherited from the mother. 3 SNPs combined.</p>
+    </div></div>
+            <div class="marker-votes">
+        <div class="marker-tally"><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-a)"></span>risk · 1</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-c)"></span>no risk · 2</span></div>
+        <div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="X-linked AR/EDA2R secondary variant, maternally inherited — the risk allele at this position."><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AR/EDA2R</span><span class="marker-tag-rsid">rs2180439</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Primary driver</span></div></div><div class="marker-tag marker-tag--ruleout" title="No risk allele present at this AR/EDA2R position."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AR/EDA2R</span><span class="marker-tag-rsid">rs2497938</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Rule-out check</span></div></div><div class="marker-tag marker-tag--modifier" title="Androgen receptor region — modulates DHT sensitivity."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AR</span><span class="marker-tag-rsid">rs6497540</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Modifier</span></div></div></div>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
+    <p>This is the clearest divergence between the two brothers anywhere in the Physical Appearance section, and it comes down to a single X-linked position. Minko carries rs2497938 CC — the non-risk genotype at the dominant AR/EDA2R marker — and his report accordingly reads a reassuringly low hair-loss signal. Stayko is CC at that same rs2497938 position too, but carries TT at a second AR/EDA2R marker, rs2180439, which is the risk allele there.</p>
+
+    <p>Because this locus sits on the X chromosome, it is inherited exclusively from the mother — this is not a paternal-line trait, and the difference between the brothers reflects the specific combination of maternal X-chromosome alleles each of them happened to inherit, not any difference in their father's contribution. Male pattern baldness is roughly 80% heritable, making it one of the most strongly genetically determined traits covered in either report, and this particular X-linked signal is one of its best-replicated components.</p>
+
+    <p>The overall GWAS picture is modest in absolute terms — 2 elevated loci and a PGS of +4.0, a small polygenic score in the context of this report's full range — but the specific risk allele at rs2180439 is worth being aware of. As with any polygenic prediction, this describes a statistical tendency, not a certainty, and plenty of men carrying this exact genotype combination do not experience significant androgenetic alopecia.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_height">
+    <div class="trait-spine" style="color:var(--cat-d)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Moderate above-average height signal</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Height</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Summary</div><div class="narrative-text">
+    <p><strong>Prediction:</strong> Moderate above-average height signal (3 of 4 markers agree; GWAS PGS +415.5 from 27 elevated loci).</p>
+    <p>Height is approximately 80% heritable in well-nourished populations. The polygenic score of +415.5 is among the higher scores in this profile, consistently pointing toward above-average stature. Realised height depends substantially on childhood nutrition and health. 1 curated SNP plus 27 GWAS-elevated loci combined.</p>
+    </div></div>
+            <div class="marker-votes">
+        <div class="marker-tally"><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-b)"></span>intermediate · 1</span></div>
+        <div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="HMGA2 growth-regulation locus; CT is heterozygous, intermediate between the shorter CC and taller TT genotypes."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HMGA2</span><span class="marker-tag-rsid">rs1042725</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Primary curated driver</span></div></div></div>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
+    <p>Height remains one of the most polygenic traits in the human genome, and Stayko's overall genome-wide signal — a PGS of +415.5 from 27 elevated loci — is directionally consistent with Minko's own above-average height score, though the two brothers differ at the one well-characterised curated locus available on the chip.</p>
+
+    <p>Minko carries HMGA2 rs1042725 as TT, the homozygous taller-associated genotype. Stayko carries CT — heterozygous, meaning he has inherited one copy of the taller-associated T allele and one copy of the shorter-associated C allele. Each T allele contributes approximately 0.4 cm in large studies, so this single locus alone would predict Stayko sitting slightly below Minko's height contribution from this specific gene, all else being equal.</p>
+
+    <p>That said, HMGA2 is only one contributor among thousands across the genome, and the aggregate polygenic score — built from the 27 elevated GWAS loci — is where most of the real predictive signal lives. With a broadly similar overall PGS to his brother, Stayko's realised height is likely to land in a similar above-average range, shaped as much by shared childhood nutrition and environment as by this one differing locus.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    </section>
+
+    </div></div>
+</body>
+</html>
