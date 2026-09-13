@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стайко Ненов - Генетичен здравен разказ</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+        --paper: #fdfcfa; --paper-2: #f4f1eb; --ink: #1a1612; --ink-2: #4a4238; --ink-3: #8a7f72;
+        --rule: #ddd8cf; --blue: #1a4b7a; --nav-w: 210px;
+        --risk-elevated: #c0392b; --risk-moderate: #c97b2a; --risk-favourable: #2d7a4f;
+        --blue-tint: rgba(26, 75, 122, 0.05);
+        --cat-a: #5a7290; --cat-b: #8a6a4a; --cat-c: #a89464; --cat-d: #8a7f72; --cat-e: #6b8a7a;
+    }
+    body { background: var(--paper); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.85; }
+    .narrative-body em, .narrative-body i, .narrative-text em, .narrative-text i { font-style: normal; }
+
+    .nav-sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: var(--nav-w); background: #fff; border-right: 1px solid var(--rule); overflow-y: auto; z-index: 200; display: flex; flex-direction: column; }
+    .nav-head { padding: 1.4rem 1rem 1rem; border-bottom: 1px solid var(--rule); }
+    .nav-brand { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 600; letter-spacing: .04em; color: var(--ink-3); margin-bottom: .2rem; }
+    .nav-person { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--ink); }
+    .nav-links { flex: 1; overflow-y: auto; padding: .8rem .7rem; }
+    .nav-link { display: flex; align-items: center; gap: .45rem; font-family: 'EB Garamond', serif; font-size: .92rem; color: var(--ink-3); text-decoration: none; padding: .25rem .4rem; border-radius: 3px; line-height: 1.4; margin-bottom: .1rem; }
+    .nav-link:hover { background: var(--paper-2); color: var(--blue); }
+    .nav-score { padding: .8rem 1rem; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .3rem; }
+    .ns { display: flex; flex-direction: column; align-items: center; }
+    .ns-val { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 700; }
+    .ns-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .72rem; font-weight: 600; color: var(--ink-3); }
+    .lang-bar { padding: .5rem 1rem; border-top: 1px solid var(--rule); display: flex; gap: .4rem; }
+    .lang-btn { font-family: 'EB Garamond', serif; font-weight: 700; font-size: .8rem; padding: .2rem .5rem; border-radius: 3px; border: 1px solid var(--rule); color: var(--ink-3); text-decoration: none; }
+    .lang-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+    .mobile-bar { display: none; }
+
+    .cover { margin-left: var(--nav-w); background: var(--ink); color: #f0ebe3; padding: 5rem 3.5rem 4rem; position: relative; }
+    .cover-eyebrow { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 600; letter-spacing: .04em; color: #7fa8c4; margin-bottom: 1.2rem; }
+    .cover h1 { font-family: 'EB Garamond', serif; font-size: 3.2rem; font-weight: 400; color: #f0ebe3; margin-bottom: .2rem; }
+    .cover-sub { font-size: 1.05rem; font-style: italic; color: #7fa8c4; margin-bottom: 3.5rem; }
+    .cover-stats { display: flex; gap: 3rem; flex-wrap: wrap; border-top: 1px solid #2d3f52; padding-top: 1.5rem; }
+    .cs { display: flex; flex-direction: column; }
+    .cs-val { font-family: 'EB Garamond', serif; font-size: 1.85rem; font-weight: 700; color: #f0ebe3; }
+    .cs-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .78rem; font-weight: 500; color: #5a7a94; }
+
+    .main { margin-left: var(--nav-w); width: calc(100vw - var(--nav-w)); padding: 0 3.5rem 6rem; }
+    .main-inner { max-width: 920px; margin-left: auto; margin-right: auto; }
+    .disclaimer { font-family: 'EB Garamond', serif; font-size: .92rem; line-height: 1.6; background: #fffbeb; border-left: 3px solid #d97706; padding: .8rem 1.2rem; color: #78450a; margin: 2.5rem 0 0; }
+    .report-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+    .section-heading { font-family: 'EB Garamond', serif; font-size: 1.8rem; font-weight: 600; margin-bottom: .5rem; color: var(--ink); }
+
+    .narrative-body p { margin-bottom: .9rem; font-size: .98rem; line-height: 1.9; color: var(--ink-2); }
+
+    .trait-row { display: grid; grid-template-columns: 78px 1fr; column-gap: 1.8rem; padding: 2.6rem 0; border-bottom: 1px solid var(--rule); }
+    .trait-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .trait-spine { position: relative; display: flex; flex-direction: column; align-items: center; padding-top: .4rem; }
+    .spine-dot { width: 13px; height: 13px; border-radius: 50%; background: currentColor; border: 2px solid var(--paper); box-shadow: 0 0 0 2px currentColor; flex-shrink: 0; z-index: 1; }
+    .spine-line { position: absolute; top: 15px; bottom: -2.6rem; left: 50%; width: 1px; background: var(--rule); transform: translateX(-50%); }
+    .spine-risk { margin-top: .6rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .74rem; font-weight: 600; text-align: center; line-height: 1.3; }
+    .trait-title { font-family: 'EB Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink); margin-bottom: 1.4rem; letter-spacing: -.01em; }
+
+    .trait-narrative { display: flex; flex-direction: column; gap: 2rem; }
+    .narrative-unit { display: grid; grid-template-columns: 118px 1fr; gap: 1.4rem; }
+    .narrative-kicker { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .9rem; line-height: 1.3rem; font-weight: 600; color: var(--ink-3); padding-top: .1rem; }
+    .narrative-text p { font-size: 1rem; line-height: 1.9; color: var(--ink-2); margin-bottom: .9rem; }
+    .narrative-text p:last-child { margin-bottom: 0; }
+    .narrative-unit--gwas .narrative-kicker { position: relative; color: var(--blue); padding-left: 1.5rem; }
+    .narrative-unit--gwas .narrative-kicker::before { content: ""; position: absolute; left: 0; top: .35rem; width: 9px; height: 9px; border-radius: 50%; background: var(--blue); border: 2px solid var(--paper); box-shadow: 0 0 0 2px var(--blue); z-index: 1; }
+    .narrative-unit--gwas .narrative-kicker::after { content: ""; position: absolute; left: 4px; top: 1.15rem; bottom: 0; width: 1px; background: var(--rule); }
+    .narrative-unit--gwas .narrative-text { padding-left: 1.6rem; }
+    .narrative-unit--gwas .narrative-text strong { color: var(--blue); font-weight: 700; }
+    .risk-pill { display: inline-block; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 700; padding: .25rem .75rem; border-radius: 4px; color: #fff; white-space: nowrap; }
+    .narrative-unit--deep { display: block; }
+    .narrative-unit--deep .narrative-kicker { margin-bottom: .6rem; }
+
+    .pgs-badge { display: inline-block; font-family: 'Inter', monospace; font-size: .78rem; font-weight: 600; color: var(--blue); background: var(--blue-tint); padding: .3rem .7rem; border-radius: 4px; margin-bottom: 0; }
+    .risk-balance { margin: 0 0 1.4rem; }
+    .risk-balance-track { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+    .risk-balance-prot { background: var(--risk-favourable); }
+    .risk-balance-risk { background: var(--risk-elevated); }
+    .risk-balance-labels { display: flex; justify-content: space-between; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+    .rb-risk { color: var(--risk-elevated); font-weight: 600; }
+    .rb-prot { color: var(--risk-favourable); font-weight: 600; }
+    .loci-bar { margin: 0 0 1.4rem; }
+    .loci-bar-track { height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+    .loci-bar-fill { height: 100%; }
+    .loci-bar-label { display: block; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+
+    .drug-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+    .drug-card { background: #fff; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+    .drug-card-head { padding: .8rem 1rem; border-bottom: 1px solid var(--rule); }
+    .drug-card-top { display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem; }
+    .drug-enzyme { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 700; color: var(--ink-3); }
+    .drug-genotype { font-family: 'Inter', monospace; font-size: .8rem; font-weight: 600; color: var(--blue); margin-bottom: .2rem; }
+    .drug-affected { font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-3); }
+    .drug-card-body { padding: 1rem; }
+    .drug-narrative { font-family: 'EB Garamond', serif; font-size: .93rem; color: var(--ink-2); line-height: 1.75; margin-bottom: .8rem; }
+    .drug-action { padding: .6rem .8rem; background: var(--paper-2); border-radius: 4px; font-family: 'EB Garamond', serif; font-size: .88rem; color: var(--ink-3); line-height: 1.55; }
+
+    .marker-votes { margin: 0 0 1.4rem; }
+    .marker-tally { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: .8rem; }
+    .marker-tally-item { display: flex; align-items: center; gap: .4rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .85rem; color: var(--ink-3); }
+    .marker-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .marker-tag-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .marker-tag-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .marker-tag-gene { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .8rem; color: var(--ink-2); }
+    .marker-tag-rsid { font-family: 'Inter', monospace; font-size: .72rem; color: var(--ink-3); }
+    .marker-tag-geno { font-family: 'Inter', monospace; font-weight: 700; font-size: .78rem; color: var(--blue); }
+    .marker-tag { display: flex; align-items: flex-start; gap: .4rem; background: var(--paper-2); border-radius: 4px; padding: .3rem .6rem; cursor: default; }
+    .marker-tag-main { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+    .marker-tag--primary { border: 1.5px solid var(--blue); background: var(--blue-tint); }
+    .marker-tag--primary .marker-tag-gene { font-weight: 700; }
+    .marker-tag--minor { opacity: .62; }
+    .marker-tag-weight { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .68rem; font-weight: 600; color: var(--blue); }
+    .marker-tag--minor .marker-tag-weight { color: var(--ink-3); }
+    .marker-tag--primary .marker-tag-gene { font-weight: 700; }
+    .marker-tag--ruleout { opacity: .75; }
+    .marker-tag--secondary { border: 1px solid var(--rule); }
+    .marker-tag--modifier { border: 1px dashed var(--rule); }
+
+    @media(max-width: 768px) {
+        .nav-sidebar { display: none; }
+        .cover, .main { margin-left: 0; }
+        .cover { padding: 3rem 1.2rem 2.5rem; }
+        .cover h1 { font-size: 2.1rem; }
+        .cover-sub { font-size: .95rem; margin-bottom: 2rem; }
+        .cover-stats { gap: 1.5rem 2rem; }
+        .cs-val { font-size: 1.4rem; }
+        .main { padding: 0 1.2rem 4rem; width: 100vw; }
+        body { font-size: 16px; }
+
+        .mobile-bar {
+            display: flex; align-items: center; justify-content: space-between; gap: .8rem;
+            position: sticky; top: 0; z-index: 150;
+            background: #fff; border-bottom: 1px solid var(--rule);
+            padding: .7rem 1.2rem;
+        }
+        .mobile-person { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .95rem; }
+        .mobile-nav-select {
+            font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-2);
+            border: 1px solid var(--rule); border-radius: 4px; padding: .3rem .5rem; background: #fff;
+        }
+
+        .trait-row { grid-template-columns: 44px 1fr; column-gap: 1rem; }
+        .spine-risk { display: none; }
+        .narrative-unit { grid-template-columns: 1fr; gap: .5rem; }
+        .narrative-unit--gwas .narrative-kicker::after { display: none; }
+        .narrative-unit--gwas .narrative-text { padding-left: 0; }
+
+        .drug-grid { grid-template-columns: 1fr; }
+    }
+    </style>
+</head>
+<body>
+<div class="mobile-bar">
+    <span class="mobile-person">Стайко Ненов</span>
+    <select class="mobile-nav-select" onchange="if(this.value) location.hash=this.value;">
+        <option value="">Към…</option>
+    </select>
+</div>
+    <aside class="nav-sidebar">
+        <div class="nav-head">
+            <div class="nav-brand">Персонална геномика</div>
+            <div class="nav-person">Стайко Ненов</div>
+        </div>
+        <nav class="nav-links"><a href="#s_synthesis" class="nav-link">Преглед</a><a href="#s_appearance" class="nav-link">Физически особености</a><a href="#s_cardiovascular" class="nav-link">Сърдечно-съдово здраве</a><a href="#s_metabolic" class="nav-link">Метаболитно здраве</a><a href="#s_neurological" class="nav-link">Мозък, познание и неврологично здраве</a><a href="#s_cancer" class="nav-link">Онкологичен риск</a><a href="#s_immune" class="nav-link">Имунни и възпалителни състояния</a><a href="#s_longevity" class="nav-link">Дълголетие и стареене</a><a href="#s_lifestyle" class="nav-link">Начин на живот, хранене и метаболизъм на лекарства</a><a href="#s_pharmacogenomics" class="nav-link">Фармакогеномика</a></nav>
+        <div class="nav-score">
+            <div class="ns"><span class="ns-val" style="color:#c0392b">21</span><span class="ns-lbl">Повишени</span></div>
+            <div class="ns"><span class="ns-val" style="color:#c97b2a">17</span><span class="ns-lbl">Умерени</span></div>
+            <div class="ns"><span class="ns-val" style="color:#2d7a4f">1</span><span class="ns-lbl">Благоприятни</span></div>
+        </div>
+        <div class="lang-bar"><a href="health_guide_Stayko_en.html" class="lang-btn">EN</a> <a href="health_guide_Stayko_bg.html" class="lang-btn">БГ</a></div>
+    </aside>
+    <div class="cover">
+        <p class="cover-eyebrow">Персонален геномен доклад</p>
+        <h1>Стайко Ненов</h1>
+        <p class="cover-sub">Цялостен генетичен здравен разказ</p>
+        <div class="cover-stats">
+            <div class="cs"><span class="cs-val">43</span><span class="cs-lbl">Анализирани белези</span></div>
+            <div class="cs"><span class="cs-val" style="color:#f87171">21</span><span class="cs-lbl">Повишени сигнали</span></div>
+            <div class="cs"><span class="cs-val" style="color:#86efac">1</span><span class="cs-lbl">Благоприятни сигнали</span></div>
+        </div>
+    </div>
+    <div class="main"><div class="main-inner">
+    <div class="disclaimer">Този доклад е личен геномен разказ, изграден въз основа на сурови автозомни генотипни данни и публикувани GWAS асоциации. Той не е клинична диагноза. Полигенните оценки (PGS) отразяват относителна генетична предразположеност, а не сигурност, и са толкова точни, колкото и изследванията, върху които се основават. Консултирайте се с лекар или генетичен консултант преди да вземете решения, засягащи здравето ви. Броят Повишени/Умерени/Благоприятни (21/17/1) се отнася за 39-те същински здравно-рискови белега в този доклад; 4-те белега, свързани с външния вид и ръста (цвят на очите, цвят на косата, тон на кожата, ръст), са описателни прогнози, а не рискови категории, и са изключени от това броене.</div>
+
+    <section class="report-section" id="s_synthesis"><h2 class="section-heading">Преглед и главен синтез</h2><div class="narrative-body"><h2>Твоята генетична история — общата картина</h2><p>Многосистемният генетичен профил на Стайко споделя основната си архитектура с този на брат му Минко — и двамата черпят от един и същ източноблакански родов пул — но се разграничава по конкретни, значими начини в пигментацията, познанието и локусите за риск от заболявания. Както при Минко, в този профил няма високопроникващо едногенно нарушение; вместо това е налице умерено, полигенно натоварване, разпределено в няколко биологични мрежи, като конкретният модел на натоварване се различава от този на брат му в разпознаваеми точки:</p><ul><li><strong>Кардиометаболитна система</strong> — полигенни тенденции по отношение на обработката на липидите и гликемичната ефективност, изискващи пълните раздели за сърдечно-съдово и метаболитно здраве за точна характеристика.</li><li><strong>Пигментация и физически белези</strong> — профил, до голяма степен сходен с този на Минко в общите локуси (тон на кожата, цвят на косата), с реално разграничение при маркерите за косопад и вторичния цвят на очите.</li><li><strong>Когнитивна архитектура</strong> — COMT генотип (Val/Met, хетерозиготен), различен от Val/Val на Минко, който поставя Стайко в междинната точка на класическия спектър на разграждане на допамина, а не в бързия край, където е Минко.</li></ul><p>Разделите по-долу изграждат тази картина система по система, използвайки същата структура GWAS Резюме / По-задълбочен анализ като доклада на Минко, с нов анализ, отразяващ собствените генотипи на Стайко навсякъде.</p></div></section>
+
+    <section class="report-section" id="s_appearance"><h2 class="section-heading">Физически особености</h2>
+
+    <div class="trait-row" id="n_eye_color">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Вероятно синьо-зелени</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Цвят на очите</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Вероятно синьо-зелени (6 от 6 IrisPlex маркерни SNP присъстват на чипа).</p>
+    <p>Въз основа на всичките 6 IrisPlex маркерни SNP има умерено съгласие в посока синьо. Единственият най-силен маркер, rs12913832 (GG), сочи към синьо и само този локус движи по-голямата част от реалната предсказваща точност на IrisPlex. Генотипът и посоката на ефекта за всеки маркер са изброени по-долу.</p>
+    <p><em>Наблюдаваните варианти на алели в 6-те оценени локуса показват комбиниран полигенен принос.</em></p>
+    </div></div>
+            <div class="marker-votes">
+        <div class="marker-tally"><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-a)"></span>синьо · 1</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-b)"></span>междинно (клони към синьо) · 2</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-c)"></span>кафяво · 3</span></div>
+        <div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Единственият най-силен известен предиктор на синьо срещу кафяво. GG се свързва със синьо; AA — с кафяво; AG — междинно. Сам по себе си обяснява по-голямата част от предсказващата сила на IrisPlex."><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HERC2</span><span class="marker-tag-rsid">rs12913832</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Основен фактор</span></div></div><div class="marker-tag marker-tag--secondary" title="Модулира пигментацията на ириса; CT е междинно, с наклон към синьо."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">OCA2</span><span class="marker-tag-rsid">rs1800407</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Второстепенен принос</span></div></div><div class="marker-tag marker-tag--secondary" title="Модулира пигментацията на ириса и косата; GT е междинно, с наклон към синьо."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC24A4</span><span class="marker-tag-rsid">rs12896399</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">Вторичен модификатор</span></div></div><div class="marker-tag marker-tag--modifier" title="Основно ген за пигментация на кожата/косата; GG (предшестващ алел) клони по-тъмно в IrisPlex/HIrisPlex панелите."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs16891982</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Вторичен модификатор</span></div></div><div class="marker-tag marker-tag--modifier" title="Влияе на активността на тирозиназата/синтеза на меланин; GG (предшестващ) клони по-тъмно, за разлика от междинния AG на Минко на тази позиция."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1393350</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Ензимен модификатор</span></div></div><div class="marker-tag marker-tag--modifier" title="Модулира общата интензивност на пигментацията; CT е междинно."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IRF4</span><span class="marker-tag-rsid">rs12203592</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Ензимен модификатор</span></div></div></div>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Прогнозата за цвета на очите на Стайко достига същата синьо-зелена граница като тази на брат му, но по малко по-различен генетичен път. HERC2 rs12913832 GG е идентичен при двамата братя — единственият най-силен известен определящ фактор за цвета на човешките очи, генотипът, отговорен за около 97% от синеоките европейци, които го носят. Сам по себе си той ясно предсказва синьо.</p>
+
+    <p>Разликата е във вторичния слой на пигментация. Минко носи OCA2 CC и TYR AG; Стайко носи OCA2 CT и TYR GG — различна конкретна комбинация, която обаче достига до сравнимо цялостно място. OCA2 CT е междинно, с наклон към синьо, по същество същото направление като CC на Минко. TYR GG обаче е предшестващият (нелекотиниращ) генотип, за разлика от хетерозиготния AG на Минко — което означава, че тирозиназният ензим на Стайко работи с малко по-висока базова активност от тази на брат му на тази конкретна позиция, лек тласък към повече меланин, отколкото носи версията на Минко тук.</p>
+
+    <p>Крайният ефект остава по-светъл от кафяв ирис — доминантният сигнал на HERC2 е твърде силен, за да бъде преодолян от вторичните локуси и при двамата братя — но точният нюанс, който това произвежда, може да лежи малко по-далече от чисто синьо и малко по-близо до зелено или лешниково-зелено, отколкото прогнозата на Минко, именно защото генотипът на TYR не тегли в същата осветляваща посока. Кафявото остава на практика изключено и за двамата братя; истинският въпрос, както и при Минко, е точно къде по спектъра от синьо до зелено пада крайният резултат, а това зависи от структурата на ириса и осветлението точно толкова, колкото и от генотипа.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_hair_color">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Средно до тъмнокафяв</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Цвят на косата</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Средно до тъмнокафяв (7 от 8 маркера съвпадат).</p>
+    <p>Не са открити MC1R варианти за червена коса — червена коса е изключена. Предшестващият алел SLC45A2 GG е доминантният пигментационен сигнал — тъмна коса като базова линия. TYR AC умерено намалява отделянето на меланин, съответствайки на общия пигментационен профил. 7 SNP комбинирани.</p>
+    </div></div>
+            <div class="marker-votes">
+        <div class="marker-tally"><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-a)"></span>тъмно · 1</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-b)"></span>междинно · 2</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-c)"></span>див тип · 4</span></div>
+        <div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Истинският основен фактор за тъмната базова линия — предшестващ по-тъмен алел."><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs16891982</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Основен фактор</span></div></div><div class="marker-tag marker-tag--secondary" title="Вторичен модификатор — междинен осветляващ ефект."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC24A4</span><span class="marker-tag-rsid">rs12896399</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">Вторичен модификатор</span></div></div><div class="marker-tag marker-tag--modifier" title="Ензимен модификатор на изхода — умерено намаление на меланина."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1042602</span><span class="marker-tag-geno">AC</span><span class="marker-tag-weight">Ензимен модификатор</span></div></div><div class="marker-tag marker-tag--ruleout" title="Arg160Trp — не е открит алел за червена коса."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs1805008</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Проверка за изключване</span></div></div><div class="marker-tag marker-tag--ruleout" title="Arg163Gln — не е открит алел за червена коса."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs11547464</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Проверка за изключване</span></div></div><div class="marker-tag marker-tag--ruleout" title="Cys289Arg — не е открит алел за червена коса."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs1110400</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Проверка за изключване</span></div></div><div class="marker-tag marker-tag--ruleout" title="Val92Met — не е открит алел за червена коса."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs2228479</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Проверка за изключване</span></div></div></div>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Генетиката на цвета на косата на Стайко е, във всеки тестван локус, идентична с тази на брат му — същата ясна, последователна история за средно до тъмнокафяв цвят без червен компонент. И четирите позиции на MC1R (Arg151Cys, Arg160Trp, Arg163Gln, Cys289Arg) се връщат като див тип, изцяло изключвайки червената коса и потвърждавайки напълно функционален MC1R рецептор, преминаващ по подразбиране към производство на еумеланин.</p>
+
+    <p>SLC45A2 GG — предшестващият, неосветляващ алел — отново е доминантният сигнал, а TYR AC допринася за същото умерено намаление на меланина, наблюдавано в профила на Минко. Тъй като Стайко и Минко споделят всеки генотип на тестваните локуси за този белег, това е един от най-ясните примери в докладите и на двамата братя за белег, унаследен по същество непроменен по бащина линия: и двамата братя би трябвало да имат много сходен естествен цвят на косата, вероятно в същия диапазон средно до тъмнокафяво, при отсъствие на фактори на средата като слънчево излагане или прошарване.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_skin_tone">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Средно (тип III)</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Тон на кожата</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Средно (тип III) (6 от 6 маркера съвпадат).</p>
+    <p>SLC24A5 AA е доминантният сигнал — само този локус обяснява по-голямата част от разликата в пигментацията между европейските и африканските популации и силно предсказва по-светла кожа. SLC45A2 GG (предшестващ алел) частично противодейства на това, предполагайки резултат от светъл до среден, а не много светъл тип. TYR AC допълнително намалява отделянето на меланин, добавяйки склонност към лунички и UV чувствителност. Обща картина: кожа, която потъмнява умерено, но изгаря по-лесно от средното. 6 SNP комбинирани.</p>
+    </div></div>
+            <div class="marker-votes">
+        <div class="marker-tally"><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-a)"></span>по-светло · 2</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-b)"></span>по-тъмно · 1</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-c)"></span>междинно · 1</span></div>
+        <div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Доминантен сигнал — само този локус обяснява по-голямата част от разликата в пигментацията между европейски и африкански популации."><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC24A5</span><span class="marker-tag-rsid">rs1426654</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Основен фактор</span></div></div><div class="marker-tag marker-tag--secondary" title="Предшестващ алел — частично противодейства на осветляващия ефект на SLC24A5."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs16891982</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Вторичен модификатор</span></div></div><div class="marker-tag marker-tag--modifier" title="Допълнително намалява отделянето на меланин — добавя склонност към лунички и UV чувствителност."><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1042602</span><span class="marker-tag-geno">AC</span><span class="marker-tag-weight">Ензимен модификатор</span></div></div><div class="marker-tag marker-tag--modifier" title="Добра способност за потъмняване."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1393350</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Второстепенен принос</span></div></div></div>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Тонът на кожата е вторият белег, при който генотипите на Стайко съвпадат точно с тези на брат му на всяка тествана позиция — SLC24A5 AA, SLC45A2 GG и TYR AC са напълно идентични. Следователно биологичната история е същата: силен осветляващ сигнал от SLC24A5 (единственият локус, отговорен за по-голямата част от разликата в пигментацията между европейски и африкански популации), частично компенсиран от предшестващия алел на SLC45A2, като TYR AC добавя допълнително умерено намаление на отделянето на меланин.</p>
+
+    <p>Практическият резултат за двамата братя е Fitzpatrick тип III — средна кожа, която потъмнява с времето, но е по-склонна към изгаряне при първоначално слънчево излагане, отколкото би била кожа тип IV или V. Общият генотип TYR AC носи и обща склонност към лунички, и същия профил на UV чувствителност, обсъден в доклада на Минко: разумната, проактивна слънчева защита заслужава същото внимание и тук.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_hair_loss">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен риск от косопад</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Косопад</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен риск от косопад (3 от 6 маркера съвпадат; GWAS: 2 повишени локуса, PGS +4.0).</p>
+    <p>Мъжкото плешивеене е унаследимо приблизително 80% — един от най-силно генетично определените белези в този доклад. X-свързаният локус AR/EDA2R се унаследява от майката. 3 SNP комбинирани.</p>
+    </div></div>
+            <div class="marker-votes">
+        <div class="marker-tally"><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-a)"></span>риск · 1</span><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-c)"></span>без риск · 2</span></div>
+        <div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Вторичен вариант на X-свързания AR/EDA2R, унаследен по майчина линия — рисковият алел на тази позиция."><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AR/EDA2R</span><span class="marker-tag-rsid">rs2180439</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Основен фактор</span></div></div><div class="marker-tag marker-tag--ruleout" title="Не е налице рисков алел на тази позиция от AR/EDA2R."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AR/EDA2R</span><span class="marker-tag-rsid">rs2497938</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Проверка за изключване</span></div></div><div class="marker-tag marker-tag--modifier" title="Регион на андрогенния рецептор — модулира чувствителността към DHT."><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AR</span><span class="marker-tag-rsid">rs6497540</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Модификатор</span></div></div></div>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Това е най-ясното разграничение между двамата братя навсякъде в раздела за физически особености, и то се свежда до една-единствена X-свързана позиция. Минко носи rs2497938 CC — генотипът без риск на доминантния маркер AR/EDA2R — и докладът му съответно отчита успокояващо нисък сигнал за косопад. Стайко също е CC на същата позиция rs2497938, но носи TT на втори маркер от AR/EDA2R, rs2180439, който е рисковият алел там.</p>
+
+    <p>Тъй като този локус се намира на X хромозомата, той се унаследява изключително от майката — това не е белег по бащина линия, а разликата между братята отразява конкретната комбинация от майчини X-хромозомни алели, които всеки от тях случайно е наследил, а не някаква разлика в приноса на баща им. Мъжкото плешивеене е унаследимо приблизително 80%, което го прави един от най-силно генетично определените белези, разгледани в който и да е от двата доклада, а този конкретен X-свързан сигнал е един от най-добре потвърдените му компоненти.</p>
+
+    <p>Общата GWAS картина е скромна в абсолютни стойности — 2 повишени локуса и PGS от +4.0, малка полигенна оценка в контекста на пълния диапазон на този доклад — но конкретният рисков алел на rs2180439 заслужава внимание. Както при всяка полигенна прогноза, това описва статистическа тенденция, а не сигурност, и много мъже с точно тази генотипна комбинация не изпитват значимо андрогенетично облисняване.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_height">
+    <div class="trait-spine" style="color:var(--cat-d)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерен сигнал за ръст над средния</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Ръст</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерен сигнал за ръст над средния (3 от 4 маркера съвпадат; GWAS PGS +415.5 от 27 повишени локуса).</p>
+    <p>Ръстът е унаследим приблизително 80% в добре хранени популации. Полигенната оценка от +415.5 е сред по-високите в този профил, последователно сочейки към ръст над средния. Реализираният ръст зависи в значителна степен от храненето и здравето в детството. 1 курирана SNP плюс 27 GWAS-повишени локуса комбинирани.</p>
+    </div></div>
+            <div class="marker-votes">
+        <div class="marker-tally"><span class="marker-tally-item"><span class="marker-dot" style="background:var(--cat-b)"></span>междинно · 1</span></div>
+        <div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Локус на HMGA2 за регулиране на растежа; CT е хетерозиготно, междинно между по-нискорастящия CC и по-високорастящия TT генотип."><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HMGA2</span><span class="marker-tag-rsid">rs1042725</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Основен куриран фактор</span></div></div></div>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Ръстът остава един от най-полигенните белези в човешкия геном, а общият геномен сигнал на Стайко — PGS от +415.5 от 27 повишени локуса — е насочено съгласуван с оценката на Минко за ръст над средния, макар двамата братя да се различават на единствения добре характеризиран куриран локус, наличен на чипа.</p>
+
+    <p>Минко носи HMGA2 rs1042725 като TT, хомозиготния генотип, свързан с по-висок ръст. Стайко носи CT — хетерозиготно, което означава, че е наследил едно копие на T алела, свързан с по-висок ръст, и едно копие на C алела, свързан с по-нисък ръст. Всяко T копие допринася приблизително 0,4 см в големи изследвания, така че само този локус би предсказал Стайко да е малко под приноса на Минко за ръста от този конкретен ген, при равни други условия.</p>
+
+    <p>Въпреки това HMGA2 е само един принос сред хиляди в целия геном, а съвкупната полигенна оценка — изградена от 27-те повишени GWAS локуса — е там, където се съдържа по-голямата част от реалния предсказващ сигнал. С общо сходна PGS с тази на брат си, реализираният ръст на Стайко вероятно ще попадне в сходен диапазон над средния, оформен колкото от общото хранене и среда в детството, толкова и от този единствен различаващ се локус.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    </section>
+
+    <section class="report-section" id="s_cardiovascular"><h2 class="section-heading">Сърдечно-съдово здраве</h2>
+
+    <div class="trait-row" id="n_cholesterol">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерено повишена LDL тенденция</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Холестерол / LDL</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерено повишена LDL тенденция (7 от 8 маркера съвпадат).</p>
+    <p>APOE статус: rs429358 не е на чипа — само частични APOE данни. rs7412 CC — сигнал ε2, защитен за LDL. Вариантите на PCSK9 и SORT1 показват умерена тенденция за повишаване на LDL. LPA rs10455872 AA — генотип без риск. Диетата и физическата активност вероятно са достатъчни; проследяване веднъж годишно. 7 SNP комбинирани.</p>
+    </div></div>
+            <div class="risk-balance">
+        <div class="risk-balance-track">
+            <div class="risk-balance-prot" style="width:0.0%"></div>
+            <div class="risk-balance-risk" style="width:100.0%"></div>
+        </div>
+        <div class="risk-balance-labels">
+            <span class="rb-prot">Защитно 0.0</span>
+            <span class="rb-risk">Риск 3.0</span>
+        </div>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Генетиката на холестерола на Стайко по същество огледално отразява тази на брат му, позиция по позиция. И двамата носят rs7412 CC — сигналът APOE ε2, свързан с по-нисък LDL и намален сърдечно-съдов риск спрямо обичайния генотип ε3/ε3 — и на двамата им липсва rs429358, вторият SNP, необходим за пълно определяне на APOE, което означава, че клиничен APOE тест би изяснил пълната картина еднакво и за двамата братя.</p>
+
+    <p>Останалата част от панела също съвпада: SORT1/CELSR2 rs629301 TT (две копия на LDL-повишаващия алел) и при двамата братя, PCSK9 rs11591147 GG (без защитния алел с загуба на функция) и при двамата, и LPA rs10455872 AA (без рисков алел — истински защитна находка, тъй като повишеният Lp(a) е независим сърдечно-съдов рисков фактор, който не се улавя от стандартните липидни панели) — също споделен. Данните на Стайко добавят два допълнителни потвърдени локуса без риск — LPA rs445925 и APOB rs13306194, и двата GG без рисков алел — които не са изброени в панела на Минко, подсилвайки същата като цяло благоприятна вторична картина.</p>
+
+    <p>Предвид колко близко следват генетиката на холестерола на двамата братя, същата практическа препоръка важи и за двамата: диетата и физическата активност вероятно са достатъчни като първа линия на управление, годишни липидни панели са подходящи, а изясняването на пълния APOE статус (прост, евтин клиничен тест) би изострило картината за всеки от тях.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_cad">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен риск от ИБС</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Исхемична болест на сърцето</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен риск от ИБС (GWAS: 28 повишени локуса, PGS +112.3).</p>
+    <p>Локусът 9p21 (CDKN2B-AS1) е най-силният общ вариант за ИБС — действа независимо от LDL. Стандартните сърдечно-съдови рискови фактори взаимодействат мултипликативно с генетичния риск. Статините и промяната в начина на живот са ефективни независимо от генотипа. 7 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +112.3 · 7 от 7 генотипирани локуса показват повишен риск</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:100.0%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">7 от 7 генотипирани локуса показват повишен риск (100.0%)</span>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Това е най-значимото разграничение между братята навсякъде в сърдечно-съдовия раздел и се съсредоточава върху единствения най-често потвърждаван общ вариант за ИБС в литературата: локуса 9p21 (CDKN2B-AS1). Минко носи по едно рисково копие на всяка от двете тествани позиции — rs4977574 AG, rs1333049 CG. Стайко носи <strong>две</strong> рискови копия и на двете — rs4977574 GG, rs1333049 CC. Хомозиготен риск на този локус представлява значимо по-високо генетично натоварване от хетерозиготния риск, а тъй като 9p21 действа независимо от LDL холестерола — чрез пролиферация на гладката мускулатура на съдовете и възпалителни пътища, а не чрез обработка на липидите — това не е нещо, което обичаен холестеролов панел би разкрил.</p>
+
+    <p>Общата полигенна картина отразява това: PGS на Стайко от +112.3 в 28 повишени локуса е малко по-висока от +111.0 на Минко в 25 локуса, съответстваща на удвоената доза на 9p21. Има частичен противовес — Стайко носи LPL rs264 като AG (едно копие на защитния алел с придобита функция, който подобрява изчистването на триглицеридите), докато Минко носи напълно защитния GG — което означава, че Минко получава малко повече полза от този конкретен компенсиращ фактор, отколкото Стайко. Панелът на Стайко включва и допълнителен вторичен сигнал, MRAS rs9818870 CT, който не присъства в отчетения набор на Минко.</p>
+
+    <p>Предвид конкретно хомозиготната находка на 9p21, същата основна стратегия за превенция важи с малко по-голяма тежест за Стайко: проследяване на кръвното налягане, редовни липидни панели (с изричното разбиране, че рискът от 9p21 не се улавя само от числата на LDL), избягване на тютюнопушенето и поддържане на редовна физическа активност. Обсъждането на високочувствителен CRP тест с лекар е разумна стъпка предвид възпалителния механизъм на 9p21.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_triglycerides">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишена тенденция за триглицериди</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Триглицериди</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишена тенденция за триглицериди (GWAS: 66 повишени локуса, PGS +124.9).</p>
+    <p>APOA5 и LPL са доминантните локуси. Приемът на въглехидрати и алкохол в диетата силно взаимодейства с генетичния риск за триглицериди — добавките с омега-3 и нисковъглехидратните диети са особено ефективни при носителите на рисковите алели на APOA5. 6 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +124.9 · 6 от 6 генотипирани локуса показват повишен риск</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:100.0%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">6 от 6 генотипирани локуса показват повишен риск (100.0%)</span>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Профилът на триглицеридите на Стайко носи същата основна рискова архитектура като този на Минко — APOA5 rs662799 AG (хетерозиготен, доминантният сигнал за повишаване на триглицеридите) и APOC3 rs2266788 AG (промоторният вариант, който увеличава експресията на APOC3 и допълнително намалява изчистването на триглицеридите) са идентични при двамата братя — но с една значима разлика в защитната част на баланса. Минко носи LPL rs328 като CC, хомозиготен за защитния вариант S447X с придобита функция. Стайко носи CG, хетерозиготно — едно защитно копие вместо две, което означава по-малко от компенсиращото усилване на липопротеин липазата, което частично компенсира рисковия сигнал на APOA5/APOC3 в профила на Минко.</p>
+
+    <p>Тази разлика в защитната доза, съчетана с допълнителен вторичен рисков сигнал в панела на Стайко — GCKR rs1260326 CT, който повишава триглицеридите донякъде, като парадоксално понижава глюкозата на гладно (добре документиран плейотропен ефект) — вероятно е причината общата оценка на Стайко да се чете като „повишена“, а не „умерена“ както при Минко: PGS +124.9 в 66 повишени локуса срещу +113.8 на Минко в 57. Стайко носи и MTNR1B rs10830963 като GG (хомозиготно), докато Минко е CG (хетерозиготно) — по-малък принос, но отново в посока на малко по-висока тенденция за триглицериди чрез сигнализирането на мелатониновия рецептор.</p>
+
+    <p>Практическата препоръка е същата като при Минко, вероятно с малко по-силен акцент: приемът на въглехидрати и алкохол ще има усилен ефект върху нивата на триглицеридите предвид генотипа на APOA5, добавките с омега-3 (EPA/DHA, 2-4 г дневно) са добре подкрепени специфично при носителите на рисковите алели на APOA5, а нисковъглехидратните диетични подходи вероятно ще бъдат по-ефективни от средното. Частичната защита от LPL все още е налице и все още помага — просто в по-малка степен, отколкото при напълно хомозиготния защитен случай на Минко.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_atrial_fibrillation">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Лек генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Предсърдно мъждене</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Лек генетичен сигнал (GWAS PGS +15.2; 2 от 141 генотипирани локуса повишени).</p>
+    <p>Унаследимост на предсърдното мъждене ~20–30%; локусът PITX2 е най-силният сигнал. 2 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +15.2 · 2 от 141 генотипирани локуса показват повишен риск</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:1.4%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">2 от 141 генотипирани локуса показват повишен риск (1.4%)</span>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Докато Минко е хетерозиготен (AG) на основния повишен локус за предсърдно мъждене, rs2903492 (близо до LINC01875/TMEM18), Стайко е хомозиготен (AA) — две рискови копия вместо едно — и носи допълнителен вторичен сигнал, rs12967135 близо до MC4R, който не присъства в отчетения панел на Минко. Това повдига общата оценка на Стайко от „нисък генетичен сигнал“ на Минко до „лек“, а неговата PGS — от +13.1 на +15.2.</p>
+
+    <p>Контекстът, който има най-голямо значение обаче, е един и същ за двамата братя: предсърдното мъждене има унаследимост от само около 20-30% — по-ниска от повечето сърдечно-съдови състояния — което означава, че начинът на живот и факторите на средата играят непропорционално голяма роля спрямо генетиката тук, в сравнение с, да речем, ИБС или триглицеридите. Два повишени локуса от 141 генотипирани все още са малка част от панела, дори при удвоената доза на основния локус.</p>
+
+    <p>Както при Минко, по-практически приложимата картина идва от по-широкия сърдечно-съдов профил на Стайко, а не от сигнала за предсърдно мъждене изолирано — а тук картината на Стайко е малко по-натоварена, предвид хомозиготната му находка за ИБС на 9p21 и повишената тенденция за триглицериди. Предсърдното мъждене често е следствие точно от тези по-ранни състояния (хипертония, коронарна болест, сънна апнея), така че същият практически фокус важи, вероятно с малко по-голяма тежест: проследяване на кръвното налягане, редовни липидни панели, поддържане на здравословно тегло и ограничаване на алкохола, който има най-силния остър ефект за отключване на предсърдно мъждене сред всички модифицируеми фактори.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_stroke">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Мозъчен инсулт</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (GWAS PGS +31.6; 13 от 206 генотипирани локуса повишени).</p>
+    <p>Унаследимост на инсулта ~40%; много варианти се припокриват с ИБС и предсърдно мъждене. Контролът на кръвното налягане е най-ефективната интервенция. 8 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +31.6 · 13 от 206 генотипирани локуса показват повишен риск</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:6.3%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">13 от 206 генотипирани локуса показват повишен риск (6.3%)</span>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Генетиката на инсулта на Стайко показва по-широко разпределение от тази на Минко — 13 повишени локуса срещу 9 при Минко, от същия панел от 206 позиции — макар общата полигенна оценка да е почти идентична (+31.6 срещу +31.4). Това е случай, в който броят на локусите и PGS разказват малко различни истории: за Стайко допринасят повече позиции, но не с драматично по-големи индивидуални размери на ефекта.</p>
+
+    <p>Същата крайно висока стойност на OR се появява и в данните на Стайко, както и при Минко — COL6A3 rs146092501, OR 12.5 за исхемичен инсулт — носена като CC и при двамата братя. Както и при доклада на Минко, такова екстремно съотношение на шансовете на единичен локус в GWAS за инсулт често отразява ефекти от редки варианти или специфични за популацията ефекти, а не стабилен общ рисков сигнал, и заслужава да се третира предпазливо, а не като водеща находка. По-полезни са допълнителните позиции, уникални за панела на Стайко: CXCL8 rs188378669 и ADGRL3 rs192210727, и двете GG с OR 14.29, плюс вариант на Фактор V (rs6025, TC), релевантен за склонността към съсирване, и сигнал на IGF1R (rs6598541, AG) — по-широк, но индивидуално скромен набор от приноси.</p>
+
+    <p>Унаследимостта на инсулта е около 40%, със значително генетично припокриване с ИБС, предсърдно мъждене и регулацията на кръвното налягане — и трите вече повишени или отбелязани в собствения профил на Стайко, което прави това по-скоро потвърждение на по-широк сърдечно-съдов модел, преминаващ през този доклад, отколкото самостоятелна находка. Ако Стайко носи същата комбинирана хетерозиготност на MTHFR, обсъдена в раздела за инсулт на Минко, тази връзка — нарушено изчистване на хомоцистеина като независим рисков фактор за исхемичен инсулт — би заслужавала директна проверка спрямо собствения генотип на MTHFR на Стайко, а не да се приема по аналогия с брат му.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_heart_failure">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Сърдечна недостатъчност</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (GWAS PGS +69.3; 22 от 49 генотипирани локуса повишени).</p>
+    <p>Сърдечната недостатъчност е предимно следствие от ИБС, хипертония и диабет — първичната превенция на тези състояния е ключова. 8 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +69.3 · 22 от 49 генотипирани локуса показват повишен риск</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:44.9%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">22 от 49 генотипирани локуса показват повишен риск (44.9%)</span>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Стайко и Минко показват идентичен брой повишени локуси тук — 22 от 49 — с еднакви два водещи варианта: CELSR2 rs12740374 GG (OR 10.41) и LDLR rs6511720 GG (OR 8.90). Полигенната оценка на Стайко е малко по-висока, +69.3 срещу +61.4 на Минко, отразявайки същия по-широк модел на малко по-тежко кардиометаболитно натоварване, наблюдаван в резултатите му за ИБС и триглицериди.</p>
+
+    <p>Както и в доклада на Минко, тази находка се чете най-добре като следствие от по-ранен сърдечно-съдов и метаболитен риск, а не като самостоятелна диагноза за сърдечна недостатъчност. GWAS сигналите за сърдечна недостатъчност силно се припокриват с пътищата на ИБС, хипертонията и диабета, а в конкретния случай на Стайко хомозиготният сигнал за ИБС на 9p21 и повишеният профил на триглицеридите са по-вероятните по-ранни двигатели на тази повишена оценка за сърдечна недостатъчност, отразявайки и вероятно усилвайки същата връзка, описана в собствения доклад на Минко.</p>
+
+    <p>Клиничното послание остава последователно между братята: това не е „риск от сърдечна недостатъчност“ като изолиран проблем, а точка на сближаване на сърдечно-съдовото и метаболитното генетично натоварване, документирано в целия този раздел. Контролът на кръвното налягане, управлението на липидите, метаболитното здраве и редовните сърдечно-съдови упражнения адресират едновременно риска от ИБС, триглицериди и сърдечна недостатъчност — важи същата препоръка за начин на живот, като малко по-високото кардиометаболитно натоварване на Стайко в този раздел прави последователното придържане към нея вероятно още по-ценно конкретно за него.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    </section>
+
+    <section class="report-section" id="s_metabolic"><h2 class="section-heading">Метаболитно здраве</h2>
+
+    <div class="trait-row" id="n_mthfr">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен сигнал за фолатен метаболизъм</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">MTHFR / Метаболизъм на витамин B</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен сигнал за фолатен метаболизъм — потвърдено хомозиготен по C677T (5 от 5 маркера съвпадат).</p>
+    <p>Комбинираният статус на MTHFR C677T и A1298C влияе на превръщането на фолата и изчистването на хомоцистеина. Практическа стъпка: добавка с метилфолат (5-MTHF) вместо фолиева киселина и метилкобаламин вместо цианокобаламин. Изследвайте нивата на хомоцистеин, фолат и B12 в кръвта, за да потвърдите метаболитния статус. 5 SNP комбинирани.</p>
+    </div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p><strong>Потвърдено директно спрямо суровите генотипни данни:</strong> Стайко е хомозиготен GG по MTHFR C677T (rs1801133) — не хетерозиготен, като по този начин се разрешава несъответствие между текстовото резюме на изходния файл и собственото му структурирано поле за генотип. Хомозиготният C677T намалява активността на ензима MTHFR с приблизително 70%, приблизително двойно спрямо ~35%-ното намаление, наблюдавано при хетерозиготни носители. Това прави находката на Стайко тук по-значима от собствения комбинирано хетерозиготен профил на Минко (GA по C677T, GT по A1298C), а не еквивалентна на него.</p>
+
+    <p>Съчетано с потвърдената хетерозиготност по A1298C (rs1801131 GT — съвпадаща точно с генотипа на Минко на тази позиция), Стайко носи хомозиготно увреждане на едната позиция на MTHFR и хетерозиготно увреждане на другата. Тази комбинация — понякога описвана като комбинирано хомозиготна/хетерозиготна — обикновено произвежда по-съществено намаление на функционалната активност на MTHFR от хетерозиготно/хетерозиготната комбинация на Минко, което означава, че последващите ефекти върху превръщането на фолата и изчистването на хомоцистеина вероятно са по-изразени при Стайко.</p>
+
+    <p>Останалите маркери са идентични с тези на Минко: MTR rs1805087 AA (див тип, без допълнително увреждане на B12-зависимия път на реметилиране) и MTHFD1 rs2236225 AG (хетерозиготно, добавящо умерено допълнително натоварване на пътя на едновъглеродния метаболизъм). Още една бележка за данните: записът за MTRR (rs1801394) посочва генотип AG в структурираното поле, въпреки че съпътстващият текст на описанието споменава „GG е див тип“ — несъответствие в етикетирането, подобно на току-що разрешеното за C677T, макар и с по-ниска значимост, тъй като хетерозиготният AG при MTRR носи по-малък функционален ефект, отколкото би имал хомозиготен резултат.</p>
+
+    <p><strong>Практическа препоръка, вече на по-солидна основа предвид потвърдения генотип:</strong> метилфолат (5-MTHF) вместо фолиева киселина и метилкобаламин вместо цианокобаламин са показани тук с по-голяма увереност, отколкото в случая на Минко — хомозиготната находка C677T прави стандартната стъпка на превръщане от фолиева киселина в 5-метилTHF значително по-нарушена, не просто умерено. Изследването на нивата на хомоцистеин, фолат и B12 в кръвта заслужава приоритет за установяване на действителния метаболитен статус, а връзките с повишен хомоцистеин, обсъдени другаде в този доклад — конкретно към сърдечно-съдовото и бъбречното здраве — носят съответно по-голяма тежест за Стайко, отколкото за Минко.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_t2d">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен риск от диабет тип 2</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Диабет тип 2</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен риск от диабет тип 2 (GWAS полигенна оценка +121.3 в 31 повишени локуса).</p>
+    <p>Забележка: rs1631619 GG (OR 5.0) е специфична за популацията находка от корейска кохорта и може да завиши PGS за некорейски произход. Модел на генотипите: 4 локуса с хомозиготен риск, 6 хетерозиготни. Диабет тип 2 е унаследим 40–70%, но факторите на начина на живот взаимодействат силно — генетичният риск не е съдба. 12 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +121.3 · 31 повишени локуса</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Профилът на Стайко за диабет тип 2 следва същата обща архитектура като на Минко — хетерозиготен на почти всеки основен локус, вместо хомозиготен на който и да е от тях — с малко по-висок съвкупен сигнал: PGS +121.3 в 31 повишени локуса, срещу +116.8 на Минко в 26. Основните двигатели са идентични при братята: TCF7L2 rs7903146 CT (едно рисково копие на единствения най-силен и най-често потвърждаван общ вариант за диабет тип 2, действащ чрез Wnt сигнализирането, за да наруши функцията на бета-клетките), PPARG rs1801282 CC (без наличния защитен вариант Ala12) и KCNJ11 rs5219 CT (едно рисково копие, засягащо АТФ-чувствителния калиев канал на бета-клетките).</p>
+
+    <p>Същата специфична за популацията предпазна бележка важи еднакво за двамата братя: rs1631619 GG носи OR от 5.0, извлечено от корейско кохортно изследване, а толкова големи размери на ефекта от изследвания на единична популация често не се възпроизвеждат в пълна степен при други произходи — трябва да се претегля предпазливо, а не да се приема буквално в който и да е от двата доклада.</p>
+
+    <p>Определящата особеност — последователна хетерозиготност на основните локуси, а не концентриран хомозиготен риск — носи същата практическа последица за Стайко, както и за Минко: това е генетичният модел, показал да реагира особено добре на интервенция в начина на живот. Изпитването Diabetes Prevention Program установи, че носителите на рисковия вариант на TCF7L2, преминали през промяна в начина на живот, постигат същото намаление на честотата на диабет тип 2 като неносителите. Теглото, физическата активност и гликемичният товар на диетата остават истински ефективните лостове тук, като периодичното проследяване на глюкозата на гладно и HbA1c е разумна изходна точка, независимо от симптомите.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_bmi">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишена генетична тенденция за ИТМ</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">ИТМ / Тенденция към затлъстяване</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишена генетична тенденция за ИТМ (GWAS: 54 повишени локуса, PGS +527.8).</p>
+    <p>FTO и MC4R са най-силните общи локуси за ИТМ. Генетичните ефекти върху ИТМ са силно модифицируеми чрез физическа активност — носителите на рисковия алел на FTO, които спортуват редовно, показват значително намален риск от затлъстяване (Kilpeläinen и кол., 2011). Генетичната тенденция за ИТМ не е предопределена съдба. 7 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +527.8 · 7 от 7 генотипирани локуса показват повишен риск</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:100.0%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">7 от 7 генотипирани локуса показват повишен риск (100.0%)</span>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Това е реална прекрачваща точка, не просто разлика в етикетирането: тенденцията на Минко за ИТМ се чете като „умерена“ (PGS +492.4), докато при Стайко тя преминава в „повишена“ (PGS +527.8) — значимо по-висока геномна оценка, не закръгляне. Основните генотипи са споделени: FTO rs9939609 AT (едно копие от най-силния общ рисков алел за затлъстяване, добавящ приблизително 0,4 кг/м² към средния ИТМ), FTO rs17817449 GT (по-малък допълнителен вторичен сигнал) и — важно — същият защитен противовес, NEGR1 rs2815752 AG, присъстващ и при двамата братя.</p>
+
+    <p>Това, което повдига оценката на Стайко, е допълнителен потвърден локус, който не е изброен в панела на Минко: GNPDA2 rs10938397 AG, скромен, но реален допълнителен принос за повишаване на ИТМ. Съчетано с двата варианта на MC4R (rs6567160 CT и rs571312 AC), засягащи регулацията на апетита чрез меланокортиновия път — присъстващи в данните и на двамата братя — съвкупната полигенна картина премества общата оценка на Стайко с една категория нагоре.</p>
+
+    <p>Единственият най-важен контекст остава непроменен спрямо доклада на Минко и важи, ако не друго, с още по-голяма релевантност тук: мета-анализът на Kilpeläinen и кол. от 2011 г. (218 000 участници) установи, че носителите на рисковия алел на FTO, които са физически активни, имат стойности на ИТМ практически идентични с тези на неносителите — една от най-ясните находки за взаимодействие ген-среда в цялата геномика. Генетичната тенденция към по-висок ИТМ е реална и малко по-силна тук, отколкото в профила на Минко, но доказателствата еднакво ясно сочат, че тя не е предопределена, а нивото на активност е доминиращият модифицируем фактор.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_gout">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Подагра</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (GWAS полигенна оценка +27.5; 11 от 195 генотипирани локуса повишени).</p>
+    <p>Унаследимост на подаграта ~35–60%; SLC2A9 и ABCG2 са доминантните локуси за пикочна киселина. Намаляването на пурините в диетата и избягването на алкохол са ефективни интервенции. 8 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +27.5 · 11 от 195 генотипирани локуса показват повишен риск</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:5.6%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">11 от 195 генотипирани локуса показват повишен риск (5.6%)</span>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Сигналът за подагра на Стайко е по-широк и малко по-силен от този на Минко — 11 повишени локуса срещу 8 при Минко, PGS +27.5 срещу +24.2 — преминавайки от „умерен“ в „повишен“. Споделеният локус между двамата братя, ALDH2 rs671 GG (OR 1.93), е потвърдено идентичен.</p>
+
+    <p>Една стойност в панела на Стайко изисква същото внимание, което докладът на Минко прилага другаде към екстремни съотношения на шансовете при единичен локус: SLC2A9 rs13129697 показва OR от 28.99, а втори локус, PCNX3 rs12801636, показва OR 6.47. Толкова големи съотношения на шансовете от единичен общ вариант са необичайни за полигенен белег като регулацията на пикочната киселина, и — както при корейския вариант за диабет тип 2 и находката за COL6A3 при инсулт, обсъдени другаде в този доклад — този модел често отразява ефект от откриване, специфичен за популацията, който не се възпроизвежда напълно при други произходи, а не стабилно установен универсален риск. Заслужава внимание, без да се третира като водеща находка.</p>
+
+    <p>Оставяйки тази предпазна бележка настрана, допълнителните потвърдени локуси — ABCG2 rs1871744 TT и rs3114020 TC, и двата засягащи чревната секреция на урат — подсилват същия основен механизъм, обсъден в доклада на Минко: SLC2A9 и ABCG2 заедно обясняват по-голямата част от вариацията на нивата на пикочна киселина на популационно ниво, а същото диетично взаимодействие е доминиращият модифицируем фактор. Фруктозата (включително плодов сок и царевичен сироп с високо съдържание на фруктоза) е единственият най-мощен диетичен двигател на пикочната киселина, повече дори от директния прием на пурини, а алкохолът — конкретно бирата — усилва ефекта. Предвид малко по-силния сигнал на Стайко тук, същите практически мерки (ограничаване на напитките с фруктоза, умереност с алкохола, адекватна хидратация, здравословно тегло) носят малко по-голяма тежест, а периодичното изследване на серумната пикочна киселина е разумен, евтин начин да се проследи дали генетичната тенденция се изявява.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_chronic_kidney_disease">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Хронично бъбречно заболяване</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерен генетичен сигнал (GWAS полигенна оценка +13.8; 5 от 95 генотипирани локуса повишени).</p>
+    <p>Унаследимост на ХБЗ ~45%; контролът на кръвното налягане и диабета са основните интервенции. 5 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +13.8 · 5 от 95 генотипирани локуса показват повишен риск</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:5.3%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">5 от 95 генотипирани локуса показват повишен риск (5.3%)</span>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Това е едно от малкото места в метаболитния панел, където сигналът на Стайко е реално по-нисък от този на Минко: PGS +13.8 в 5 повишени локуса, срещу +18.6 на Минко в 7. Двамата братя споделят находката CXCL8 rs188378669 GG (OR 4.35 в данните на Стайко), но панелът на Стайко не включва сигналите на Минко за UMOD или SHROOM3, а вместо това добавя различен вторичен локус — GBA3 rs358231 TA, по-скромен принос.</p>
+
+    <p>Интерпретативната рамка се пренася директно от доклада на Минко: унаследимостта на ХБЗ е около 45%, а генетичният сигнал тук се чете най-добре като усилване на по-ранния метаболитен и сърдечно-съдов риск, а не като указание за самостоятелен бъбречно-специфичен болестен процес — диабетната нефропатия и хипертензивната нефросклероза заедно обясняват около 60% от всички случаи на ХБЗ на популационно ниво. Предвид повишените сигнали на Стайко за диабет тип 2 и ИБС, обсъдени другаде в този доклад, тези по-ранни пътища остават по-релевантната цел от изолираната оценка за ХБЗ, макар самата тази оценка сама по себе си да е сравнително благоприятна.</p>
+
+    <p>Предвид потвърдената хомозиготна находка на Стайко за MTHFR C677T (вижте раздела за MTHFR по-горе), същият нефротоксичен механизъм на хомоцистеина, описан в доклада на Минко — повишеният хомоцистеин, увреждащ гломерулните ендотелни клетки — важи тук с реална релевантност, не само хипотетично, което прави интервенцията с метилфолат/метилкобаламин заслужаваща приоритет наред със стандартното проследяване на ХБЗ.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_vitamin_d">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Лек генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Нива на витамин D</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Лек генетичен сигнал (GWAS полигенна оценка +11.4; 4 от 71 генотипирани локуса повишени).</p>
+    <p>Нивата на витамин D са унаследими ~50%; GC и CYP2R1 са основните локуси. 4 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +11.4 · 4 от 71 генотипирани локуса показват повишен риск</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:5.6%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">4 от 71 генотипирани локуса показват повишен риск (5.6%)</span>
+    </div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>На етапа на транспорт генетиката на витамин D на Стайко е идентична с тази на Минко: GC rs7041 CA (хетерозиготно) и CYP2R1 rs10741657 GA съвпадат точно и при двамата, произвеждайки същата умерено намалена ефективност в доставянето на витамин D до тъканите, описана в доклада на Минко — не тежко нарушена, но по-нисък бионаличен витамин D, отколкото би осигурил оптимален генотип на GC.</p>
+
+    <p><strong>Актуализирано с потвърдени резултати от суровите данни:</strong> и двата рецепторни варианта на VDR вече са проверени директно от суровите генотипни файлове на всеки от братята, което разрешава по-ранната липса на данни. Стайко носи rs731236 (VDR TaqI) като GA (хетерозиготно) и rs7975232 (VDR ApaI) като AA. Минко носи rs731236 като AA и rs7975232 като CC — различни генотипи и на двете позиции, не споделен резултат.</p>
+
+    <p>Заслужава пряко да се каже какво това сравнение може и какво не може да ни каже: публикуваните находки за независимата функционална посока на TaqI и ApaI са наистина непоследователни в различните изследвания. Едно изследване на костна плътност при жени в постменопауза установи, че хетерозиготите AG имат *най-ниската* минерална костна плътност от трите генотипа при TaqI — нелинеен, специфичен за хетерозиготите модел, а не проста връзка от типа „повече от един алел е по-лошо“ — докато други популационни изследвания обозначават различни алели като „рисков“ вариант както при TaqI, така и при ApaI. И двата полиморфизма исторически се разбират по-скоро като маркери за свързване, проследяващи близък функционален хаплотипен блок на VDR (по-конкретно елемент в 3' UTR, засягащ стабилността на mRNA), отколкото като самостоятелно причинни варианти сами по себе си. Предвид това, този раздел представя генотипите като потвърдени факти, без да твърди, че комбинацията на единия брат е ясно по-благоприятна или по-неблагоприятна от тази на другия — доказателствата към момента не подкрепят това твърдение убедително в никоя от двете посоки.</p>
+
+    <p>Това, което може да се каже с по-голяма увереност, е споделената картина на етапа на транспорт: и двамата братя носят едни и същи генотипи на GC и CYP2R1, произвеждайки същата умерено намалена ефективност на транспорта на витамин D, описана по-рано в този раздел. Генотипите на рецепторния етап се различават между братята, но без надеждна, последователно потвърждавана функционална посока за която и да е от двете позиции, практическата препоръка остава една и съща за двамата: да се цели по-висока целева серумна стойност на витамин D предвид потвърденото намаление на етапа на транспорт, подкрепа с магнезий и витамин K2 като кофактори, и използване на директно кръвно изследване (25(OH)D, калций, PTH), а не само генотип, за проследяване на реалния статус.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    </section>
+
+    <section class="report-section" id="s_neurological"><h2 class="section-heading">Мозък, познание и неврологично здраве</h2>
+
+    <div class="trait-row" id="n_intelligence">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Междинен когнитивен профил (COMT Val/Met)</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Когнитивен профил</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Междинен когнитивен профил (COMT Val/Met) (GWAS PGS +1147.2 от 7 повишени локуса).</p>
+    <p>COMT AG (Val/Met) — междинен профил: балансирано префронтално разграждане на допамина, между бързоразграждащия Val/Val и бавноразграждащия Met/Met краен вариант. BDNF CC — пълна активност-зависима BDNF, без намаление от Met алела. 2 курирани SNP комбинирани.</p>
+    </div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Когнитивната генетика на Стайко се различава от тази на Минко и на двата курирани локуса, в противоположни посоки. Минко е COMT GG — хомозиготен Val/Val, „войнският“ профил с бързо разграждане на допамина, благоприятстващ представянето под остър стрес и когнитивен товар за сметка на малко по-нисък базов допаминов тонус. Стайко е COMT AG — хетерозиготен Val/Met, междинният профил, който се намира между бързоразграждащия „войн“ и бавноразграждащия „тревожен“ (Met/Met) краен вариант. Нито една от позициите не е по-добра или по-лоша сама по себе си; те представляват различни точки върху реална крива на компромис между устойчивост на стрес и базова когнитивна гъвкавост, добре документирана в литературата за работната памет и изпълнителните функции.</p>
+
+    <p>При BDNF rs6265 разликата пряко облагодетелства Стайко: той е CC, хомозиготен за пълноактивния Val алел, без намаление от Met алела в активност-зависимото отделяне на BDNF. Минко е CT, хетерозиготен, носещ едно копие на Met алела, който частично намалява отделянето на BDNF и се свързва с известно намаление на консолидацията на епизодичната памет. Това е истинска благоприятна разлика — синаптичната пластичност и капацитетът за буфериране на стреса на Стайко чрез този конкретен път не са ограничени по начина, по който отчасти са тези на Минко, макар версията на Минко да е само частично, а не пълно намаление.</p>
+
+    <p>Самата PGS за интелигентност е малко по-висока за Стайко (+1147.2 от 7 локуса), отколкото за Минко (+1064.5 от 8 локуса) — заслужава да се повтори същата методологична предпазна бележка, приложима и за доклада на Минко: GWAS оценките за интелигентност са силно объркани с образователното постижение и плейотропни варианти за Алцхаймер, така че това число не бива да се чете като чиста мярка за когнитивна способност при който и да е от братята. Курираната двойка COMT/BDNF остава по-лесно тълкуваният слой, и тук комбинацията — междинен COMT съчетан с пълен BDNF — предполага когнитивен профил със силна базова невропластичност и по-балансиран (а не стрес-оптимизиран) допаминов отговор от този, който осигурява „войнският“ профил на Минко.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_alzheimer">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Среден риск от Алцхаймер</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Болест на Алцхаймер</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Среден риск от Алцхаймер (GWAS: 49 повишени локуса, PGS +174.2).</p>
+    <p>APOE статус: ε2/ε2 или ε2/ε3 — много нисък риск от Алцхаймер (rs429358 не е на чипа). Генотипът на APOE далеч е най-силният генетичен фактор — сам по себе си обяснява ~50% от генетичния риск от Алцхаймер. 6 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +174.2 · 6 от 8 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Профилът на Стайко за Алцхаймер по същество съвпада с този на Минко — същият защитен rs7412 CC (сигнал APOE ε2, свързан с приблизително 50% по-нисък риск от Алцхаймер спрямо обичайния генотип ε3/ε3), същият липсващ rs429358 (което означава, че пълно определяне на APOE ε-алела не е възможно от тези данни за никого от братята), и същата вторична находка CLU rs9331888 CC.</p>
+
+    <p>GWAS полигенната оценка също е почти идентична — +174.2 в 49 повишени локуса за Стайко, +171.6 в 50 за Минко — и същата интерпретативна предпазливост важи еднакво: тази оценка е завишена от плейотропни варианти образование-Алцхаймер в откриващото GWAS изследване и трябва да се тегли значително по-ниско от директната находка APOE ε2, която е доминиращият двигател на реалния клиничен риск. Общата картина остава истински благоприятна за двамата братя, а същите защитни поведения (сърдечно-съдово здраве, аеробни упражнения, качество на съня, когнитивна ангажираност) важат еднакво за всеки от тях.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_depression">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерен генетичен сигнал за депресия</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Депресия</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерен генетичен сигнал за депресия (GWAS: 31 повишени локуса, PGS +73.5).</p>
+    <p>Унаследимостта на депресията е ~35–40%; по-голямата част от генетичната вариация е полигенна с много малки индивидуални ефекти. Взаимодействието ген-среда (стрес, травма, социална подкрепа) доминира. Генетичният риск за депресия не е предсказващ на индивидуално ниво. 6 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +73.5 · 6 от 6 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Заслужава да се отбележи първо: полигенната оценка на Стайко тук (+73.5) всъщност е малко по-висока от тази на Минко (+71.8), но общата му категория се чете „умерена“ срещу „повишена“ на Минко — напомняне, че тези категорийни етикети седят на прагове, които не винаги следват суровото число на PGS по очевиден начин, а самото число е по-информативно от прикачения му етикет.</p>
+
+    <p>На конкретните локуси Стайко носи TMEM161B rs10514299 като CT (хетерозиготно), а не TT (хомозиготно) на Минко — едно рисково копие по-малко на тази конкретна позиция. Но профилът на Стайко добавя фактор, който Минко не носи в този раздел: неговият хетерозиготен COMT AG (Val/Met) е отбелязан в собствените му данни конкретно като допринасящ за повишена стрес уязвимост („тревожната“ страна на спектъра на COMT) към картината на депресията — връзка, която не важи за Минко, чийто пълен генотип Val/Val на COMT е описан като неутрален до защитен за риска от депресия, а не допринасящ за него.</p>
+
+    <p>NEGR1 rs1545843 AG е споделен идентично между братята. Както и в доклада на Минко, най-важна е общата интерпретативна мисъл: генетичните рискови оценки за депресия имат много ограничена индивидуална предсказваща стойност, а взаимодействието ген-среда доминира. Конкретната комбинация тук — умерено полигенно натоварване, едно рисково копие по-малко на TMEM161B, но генотип на COMT, който добавя собствен път на чувствителност към стрес — все пак сочи към същите защитни приоритети: редовни аеробни упражнения (стабилен усилвател на BDNF, особено ценен за Стайко предвид вече благоприятната му базова стойност BDNF CC), качествен сън и силна социална връзка.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_adhd">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Нисък генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">ADHD (Хиперактивност с дефицит на вниманието)</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Нисък генетичен сигнал (GWAS полигенна оценка +9.7; 1 от 141 генотипирани локуса повишен).</p>
+    <p>Унаследимост на ADHD ~70–80%; силно полигенно. 1 SNP комбиниран.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +9.7 · 1 от 141 генотипирани локуса показва повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Това е истински благоприятна разлика: Стайко носи само 1 от 141 генотипирани локуса за ADHD с повишен риск, срещу 2 при Минко, със съответно по-ниска PGS (+9.7 срещу +10.4). Единственият споделен повишен локус, близо до ST3GAL3, е потвърдено идентичен между братята, но данните на Стайко не включват втория локус, наличен в панела на Минко.</p>
+
+    <p>Полигенните оценки за ADHD в момента обясняват само 5-10% от вариацията дори в най-добрия случай, така че разлика от един локус не бива да се пренатоварва с тълкувания в никоя посока. По-релевантен е същият по-широк модел на допаминовата система, обсъден в доклада на Минко — но тук се проявява различно: бързоразграждащият „войнски“ профил на COMT на Минко е описан като допринасящ за високо-възбуден, допамин-зависим стил на внимание. Междинният генотип на COMT на Стайко го поставя в различна точка на същия спектър, което, съчетано с по-ниското му специфично за ADHD полигенно натоварване, предполага, че този конкретен измерителен модел е по-слабо изразен при него, отколкото при брат му.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_autism">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Аутизъм</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерен генетичен сигнал (GWAS полигенна оценка +8.3; 5 от 42 генотипирани локуса повишени).</p>
+    <p>Унаследимост на аутизма ~80%; de novo варианти играят голяма роля. 5 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +8.3 · 5 от 42 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Тук разликата е в обратната посока: Стайко показва 5 повишени локуса срещу 4 при Минко, от същия панел от 42 позиции, преминавайки от „лек“ на Минко в „умерен“ — макар основните стойности на PGS да са почти идентични (+8.3 срещу +8.2), още един случай, в който категорийният етикет се измества на праг, който суровата оценка едва прекрачва.</p>
+
+    <p>Конкретните локуси се различават значимо между братята: панелът на Стайко включва PKIA-AS1, AG (вместо хомозиготния GG на Минко) при QPCT, и три допълнителни позиции (RNU6-1060P, Y_RNA/RPS27P11 и MYO9B като GT, вместо TT на Минко), които не съвпадат с отчетения набор на Минко. Както и в доклада на Минко, интерпретативната предпазливост е същата: значителна част от унаследимостта на аутизма идва от редки de novo мутации, невидими за GWAS панели, изследващи общи варианти, което прави полигенните оценки тук по-малко предсказващи, отколкото за повечето други белези в този доклад.</p>
+
+    <p>Същата по-обща идея от доклада на Минко важи и за Стайко, приспособена към собствения му когнитивен профил: свързаните с аутизъм общи варианти на подклинично ниво се припокриват със систематичен, ориентиран към детайла когнитивен стил и силни страни в разпознаването на модели, а не с патологична изява, а собствената комбинация на Стайко от пълен BDNF, междинен COMT и този умерен сигнал на аутистичен локус е съгласувана с когнитивен стил, а не с клиничен проблем.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_bipolar_disorder">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Биполярно разстройство</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерен генетичен сигнал (GWAS полигенна оценка +15.3; 7 от 190 генотипирани локуса повишени).</p>
+    <p>Унаследимост на биполярното разстройство ~70–80%; споделя генетично припокриване с шизофренията. 7 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +15.3 · 7 от 190 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Сигналът на Стайко за биполярно разстройство съвпада с този на Минко по обща форма — същите 7 от 190 повишени локуса и много сходна PGS (+15.3 срещу +16.7) — макар конкретните вторични локуси да се различават. GFRA2 rs7833426 AA е потвърдено идентичен между братята, най-потвърденият от споделените сигнали. Отвъд него панелът на Стайко включва варианти на NFIA, PALB2-AS1, RPL23AP68, ATP6V1G1P7 и PURB/MYO1G, които не съвпадат с отчетения вторичен набор на Минко.</p>
+
+    <p>Същата основна интерпретативна мисъл от доклада на Минко се пренася директно: биполярното разстройство споделя приблизително 60% генетична корелация с шизофренията и около 35% с депресията, което означава, че повишени сигнали и в трите състояния в профила на един човек отразяват споделена основна биология (моноаминна невротрансмисия, функция на калциевите канали, циркадна регулация), а не три независими находки. Предвид че Стайко показва умерен до повишен сигнал както при депресия, така и при биполярно разстройство и шизофрения, същият защитен приоритет важи с реална релевантност: редовността на съня е единственият най-мощен фактор за стабилизиране на настроението, наличен без рецепта.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_schizophrenia">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Шизофрения</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (GWAS полигенна оценка +125.5; 28 от 965 генотипирани локуса повишени).</p>
+    <p>Унаследимост на шизофренията ~80%; голям MHC/HLA компонент. 8 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +125.5 · 28 от 965 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p><strong>Бележка за записа на PRKN, вече разрешена:</strong> поддържащият списък от SNP на Стайко включва rs117673608 (PRKN) с две различни съотношения на шансовете (26.32 и 6.96) в една и съща таблица. Проверено директно спрямо суровите генотипни данни: самият генотип е потвърдено постоянен като GG и в двата случая, така че това не е грешка в данните — най-вероятно става дума за две отделни асоциации от GWAS каталога за същата позиция, взети от различни откриващи изследвания, което е обичайно, когато локус е бил независимо потвърждаван (или опроверган) в множество кохорти. И двете съотношения на шансовете се отнасят за един и същ реален генотип GG.</p>
+
+    <p>Оставяйки това настрана, профилът на Стайко за шизофрения е почти огледален на този на Минко: 28 повишени локуса срещу 29 при Минко, от същия панел от 965 позиции, и почти идентична PGS (+125.5 срещу +125.2). MIR100HG rs117752187 GG и PCDH7 rs9291547 AA са потвърдено идентични между братята. Панелът на Стайко допълнително назовава изрично CACNA1C и CNTN4 сред повишените си локуси — и двата истински значими гени за шизофрения (CACNA1C е и единственият най-често потвърждаван ген за биполярно разстройство, подсилвайки припокриването между състоянията, обсъдено по-горе).</p>
+
+    <p>Същите две корекции, приложени в доклада на Минко, са също толкова необходими и тук: PGS за шизофрения има много слаба индивидуална предсказваща сила (дори носителите на PGS от най-горния дециал имат само 3-4% доживотна честота, срещу ~1% популационна база), а няколко от най-големите съотношения на шансовете в тези данни — OR от 26.32 на PRKN, което и от двете да се окаже точното отчитане — почти сигурно отразяват завишение от малко изследване или специфично за популацията, а не стабилен универсален риск. Както и при Минко, тази споделена генетична архитектура с няколко от вече повишените имунни находки на Стайко другаде в този доклад сочи към истинска тема на чувствителност в имунния път, а не изолиран психиатричен проблем.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_parkinson">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Паркинсон</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерен генетичен сигнал (GWAS полигенна оценка +21.4; 6 от 180 генотипирани локуса повишени).</p>
+    <p>Унаследимост на Паркинсон ~27%; LRRK2 и SNCA са основните моногенни локуси. 6 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +21.4 · 6 от 180 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Сигналът на Стайко за Паркинсон е истински по-нисък от този на Минко: 6 повишени локуса срещу 9 при Минко от същия панел от 180 позиции, и съответно по-ниска PGS (+21.4 срещу +27.9). Двата най-силни споделени локуса, P2RX5-ITGAE rs117672332 TT (OR 7.69) и RNA5SP74-LRRN2 rs16854023 TT (OR 7.52), са потвърдено идентични между братята — те са основните двигатели и за двамата.</p>
+
+    <p>Отвъд тези два, панелът на Стайко включва четири допълнителни потвърдени локуса (HLA-DRA, NUCKS1, PRRG4-QSER1, CAMTA1), които добавят скромен допълнителен сигнал, но общото натоварване остава по-ниско от това на Минко. Унаследимостта на Паркинсон е около 27% — една от по-ниските стойности на унаследимост в целия доклад — което означава, че факторите на средата (изложение на пестициди, черепно-мозъчна травма, състав на чревния микробиом) носят пропорционално по-голяма тежест от генетиката за двамата братя, и още повече предвид сравнително по-лекото генетично натоварване на Стайко тук.</p>
+
+    <p>Същите защитни доказателства важат с пълна релевантност независимо от по-ниската изходна база: редовните аеробни упражнения намаляват риска от Паркинсон с 30-40% в множество големи проспективни изследвания, действайки отчасти чрез повишаване на активността на протеините DJ-1 и Parkin — защитавайки допаминергичните неврони чрез същия път, в който действат тези повишени варианти.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_sleep_duration">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Лек генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Продължителност на съня</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Лек генетичен сигнал (GWAS полигенна оценка +7.9; 4 от 136 генотипирани локуса повишени).</p>
+    <p>Унаследимост на продължителността на съня ~30–40%; циркадните генни варианти играят роля. 4 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +7.9 · 4 от 136 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Генетиката на продължителността на съня на Стайко следва отблизо тази на Минко — същите 4 от 136 повишени локуса и почти идентична PGS (+7.9 срещу +7.8) — със споделения водещ локус, C2CD3 rs7116582 GG, потвърдено идентичен между братята. Вторичните локуси се различават донякъде: панелът на Стайко включва варианти на KCNK9 и EBF3, вместо каквато и да е комбинация да се появява на останалите позиции на Минко.</p>
+
+    <p>Четенето на това наред със собствения когнитивен и метаболитен профил на Стайко добавя същия вид полезен контекст, който докладът на Минко изгражда за него. Напълно благоприятният генотип BDNF CC на Стайко би трябвало, ако въобще има ефект, да подкрепя малко по-добра консолидация на паметта, зависима от съня, отколкото осигурява частично намаленият профил CT на Минко. Междинният му генотип на COMT се намира между високо-възбудения „войнски“ профил на Минко и по-склонния към сън „тревожен“ краен вариант, предполагайки по-малко от затрудненията при заспиване, движени от кортикалната възбуда, описани в доклада на Минко. Практическата препоръка остава същата независимо от това: постоянство в съня, управлявано време на приема на кофеин, упражнения в подкрепа на качеството на дълбокия сън и слабо осветени вечери в подкрепа на отделянето на мелатонин.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    </section>
+
+    <section class="report-section" id="s_cancer"><h2 class="section-heading">Онкологичен риск</h2>
+
+    <div class="trait-row" id="n_breast_cancer">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Рак на гърдата</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (PGS: +93.8 в 19 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Повишен генетичен сигнал за рак на гърдата. GWAS полигенната оценка е +93.8 (над средното); 19 локуса показват повишена доза на рисков алел от общо 806 генотипирани. BRCA1/2 са с висока проникваемост, но редки; общите варианти допринасят умерено всеки поотделно.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +93.8 · 19 от 806 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p><strong>Една стойност в тези данни трябва да се отбележи преди всичко останало:</strong> rs56113850 (CYP2A6) е посочен със съотношение на шансовете от 4693.72, прикачено към потвърден генотип TC (хетерозиготен, потвърден директно спрямо суровите генотипни данни). Определянето на генотипа е реално и коректно — съотношението на шансовете не е. Типичните размери на ефекта на обичайните варианти на CYP2A6 са в диапазона 1.0-1.5; четирицифрено OR на този локус е учебникарски пример за грешка при парсиране на база данни, най-вероятно от скрипт, делящ на почти нулева стандартна грешка или объркващ суров регресионен коефициент с мащаб на съотношение на шансовете при обединяване на данни от множество изследвания — същият модел на некуриран дубликат, отговорен за повтарящите се записи на KLK3, HOXB13, CHEK2 и PRKN, наблюдавани другаде в този доклад. Генотипът (TC) заслужава да се запази; стойността 4693.72 трябва да се отхвърли изцяло, а не да се тегли дори леко.</p>
+
+    <p>Оставяйки това настрана, сигналът на Стайко за рак на гърдата е малко по-висок от този на Минко — PGS +93.8 в 19 локуса срещу +80.9 на Минко в 18 — движен от допълнителни локуси в панела на Стайко: BCL9 rs594206 (OR 36.30, само по себе си достатъчно голямо, за да заслужи същата предпазливост относно специфични за популацията изследвания, която докладът на Минко прилага към собствените си най-високи стойности), SMARCA2 rs6475600, SERPINB5 rs2032224 и ERBB4 rs13393577. Споделеният локус между братята, съседен на CDH13 rs3844412 AA, е потвърдено идентичен.</p>
+
+    <p>Една връзка, налична в профила на Минко, не се пренася ясно тук: неговият доклад откроява rs78378222 (TP53) като сигнал, свързващ тъканите на резултатите му за рак на гърдата и белия дроб. Този конкретен вариант не се появява в панела на Стайко за рак на гърдата, макар — забележително — Стайко да го носи вместо това в резултатите си за меланом (обсъдени по-долу), което предполага, че същият вариант на TP53 допринася за различна част от картината на онкологичния риск при него, отколкото при Минко. Находката на Стайко за ESR1, rs140068132 AA, съвпада точно с генотипа на Минко — релевантният за естрогенния рецептор сигнал е споделен.</p>
+
+    <p>Както и в доклада на Минко, най-клинично приложимата точка остава непроменена: мутациите със загуба на функция на BRCA1/2 са редки, с висока проникваемост и не се улавят от този тип потребителски масив — фамилна история на рак на гърдата или яйчниците изисква директен клиничен BRCA тест независимо какво показва полигенната оценка. Стандартният скрининг с мамография от 40-годишна възраст, поддържането на здравословно тегло и умереността с алкохола остават същите практически приоритети, с малко по-голяма тежест предвид малко по-високата съвкупна оценка на Стайко.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_prostate_cancer">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Рак на простатата</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (PGS: +64.6 в 13 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Повишен генетичен сигнал за рак на простатата. GWAS полигенната оценка е +64.6 (над средното); 13 локуса показват повишена доза на рисков алел от общо 722 генотипирани. Ракът на простатата е унаследим ~57%; локусът 8q24 е най-силният общ сигнал.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +64.6 · 13 от 722 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Профилът на Стайко за рак на простатата следва отблизо този на Минко, с малко по-висока PGS (+64.6 срещу +61.2) и един допълнителен локус (13 срещу 12). Двете клинично значими позиции съвпадат точно: KLK3 rs17632542 TT и rs62113212 CC — същите PSA-генни варианти, които пряко влияят на нивата на PSA независимо от реалния риск от рак на простатата, което означава, че същата предпазливост важи еднакво за двамата братя: базовите стойности на PSA може да се различават от популационните референтни граници, заслужаващо отбелязване пред уролог преди PSA-скрининг.</p>
+
+    <p>HOXB13 rs138213197 е потвърден CC и за Стайко — обичайният генотип без риск на позицията, съседна на редкия, но с висока проникваемост вариант G84E, което означава, че никой от братята не изглежда да носи тази конкретна високорискова мутация, макар този локус все още да заслужава директно клинично запитване, ако рак на простатата има в бащината фамилна линия. Допълнителният нов локус в панела на Стайко, PCAT1 rs1456315 (дълга некодираща РНК близо до същия регион 8q24, доминиращ профилите и на двамата братя), подсилва, а не променя основната картина: далекодействащото регулаторно влияние на 8q24 върху MYC остава централният споделен сигнал.</p>
+
+    <p>Същата практическа препоръка важи за двамата: обсъждане на PSA с уролог от 45-50 годишна възраст с изрично отбелязан ефекта на генотипа на KLK3, и диета, богата на ликопен, като диетичния фактор с най-силна епидемиологична подкрепа за превенция.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_colorectal_cancer">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Колоректален рак</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерен генетичен сигнал (PGS: +44.4 в 9 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Умерен генетичен сигнал за колоректален рак. GWAS полигенната оценка е +44.4 (над средното); 9 локуса показват повишена доза на рисков алел от общо 518 генотипирани. Унаследимостта на КРР е ~35%; начинът на живот (фибри, червено месо, физическа активност) модифицира генетичния риск.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +44.4 · 9 от 518 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Това е истинска благоприятна разлика: сигналът на Стайко за колоректален рак се чете „умерен“, докато на Минко се чете „повишен“ — PGS +44.4 в 9 локуса, срещу +55.1 на Минко в 10. Споделеният локус, MGAT4A rs885036 AA (участващ в мукозното гликозилиране на червата, част от защитната мукозна бариера на дебелото черво), е потвърдено идентичен, но общото натоварване на Стайко е значимо по-леко.</p>
+
+    <p>Панелът на Стайко все пак включва едно много голямо съотношение на шансовете, изискващо същата предпазливост относно специфични за популацията изследвания, която докладът на Минко прилага към собствените си отклонения: rs78144988 с OR 54.90, наред с MACROD2 rs2327990 с OR 21.97 — и двете вероятно ефекти от малко изследване или специфични за популацията, а не широко приложим риск. По-стабилно тълкуваеми сигнали са SLC22A16 rs9481067, RASGRF2 rs716897 (съвпадащ точно с находката на Минко — фактор за обмен на гуанинови нуклеотиди, засягащ RAS сигнализирането в чревния епител), ETV6 rs7314811 и TRPM1 rs919001.</p>
+
+    <p>Предвид собствените повишени имунни находки на Стайко и находката за шизофрения другаде в този доклад, същата връзка с чревно възпаление, която докладът на Минко изгражда, заслужава внимание и тук, дори при това по-леко общо натоварване — хроничното чревно възпаление остава признат път към колоректален рак. Стандартните, добре подкрепени защитни мерки важат с пълна релевантност: диетични фибри, редовна физическа активност (документирано 30% намаление на риска при сравнение на активни срещу заседнали хора), ограничаване на червеното и преработено месо, и колоноскопски скрининг от 45-годишна възраст.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_melanoma">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Меланом</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерен генетичен сигнал (PGS: +12.7 в 6 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Умерен генетичен сигнал за меланом. GWAS полигенната оценка е +12.7 (над средното); 6 локуса показват повишена доза на рисков алел от общо 162 генотипирани. Унаследимостта на меланома е ~50%; вариантите на MC1R и UV изложението силно взаимодействат. Защитата на кожата е силно ефективна.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +12.7 · 6 от 162 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Сигналът на Стайко за меланом отблизо съвпада с този на Минко — същите 6 повишени локуса и много сходна PGS (+12.7 срещу +14.1). SLC45A2 rs16891982 GG и rs35407 GG са и двата потвърдено идентични, а IRF4 rs12203592 CT съвпада също — същата хетерозиготна находка на IRF4, която се свързва пряко с генетиката на пигментацията, обсъдена в раздела за физически особености, тъй като IRF4 наистина регулира както цвета на ириса, така и биологията на меланоцитите.</p>
+
+    <p>Една връзка всъщност се проявява по-пряко в данните на Стайко за меланом, отколкото при Минко: TP53 rs78378222 TT се появява тук с OR 1.45 — същият вариант на TP53, който докладът на Минко обсъжда основно в контекста на резултатите му за рак на гърдата и белия дроб, но който вместо това допринася за риска от меланом при Стайко. TP53 остава главната контролна точка на генома срещу тумори, а появата му на различна тъканно-специфична позиция за Стайко, отколкото за Минко, е съгласувана със същата основна идея, която докладът на Минко изтъква: вариантите в контролната точка за увреждане на ДНК влияят на риска в множество типове тъкани, вместо да носят чисто тъканно-специфични ефекти, а коя тъкан показва сигнала най-силно може да се различава между двама души, носещи един и същ вариант.</p>
+
+    <p>Четенето на това наред със собствения пигментационен профил на Стайко — TYR GG, SLC45A2 GG, HERC2 GG (всички обсъдени в раздела за физически особености) — произвежда същата съгласувана картина, която докладът на Минко описва за себе си: геном с намалена UV-защитна пигментация, действащ потенциално в среда с по-високо UV излъчване от тази, за която е еволюирал. Същите високоефективни интервенции важат без уговорки: постоянна употреба на SPF50 (не само от време на време), годишни прегледи на кожата при дерматолог и търсене на сянка през пиковите часове на UV — меланом, открит на етап I, носи над 95% петгодишна преживяемост.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_lung_cancer">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Рак на белия дроб</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (PGS: +32.7 в 12 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Повишен генетичен сигнал за рак на белия дроб. GWAS полигенната оценка е +32.7 (над средното); 12 локуса показват повишена доза на рисков алел от общо 208 генотипирани. Генетичният риск от рак на белия дроб се доминира от тютюнопушенето — генетичните варианти модифицират, но не заменят тютюнопушенето като основен рисков фактор.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +32.7 · 12 от 208 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Профилът на Стайко за рак на белия дроб е почти идентичен с този на Минко по обща тежест (+32.7 срещу +31.6), с един по-малко локус (12 срещу 13). CHEK2 rs17879961 AA се появява многократно в панела на Стайко с няколко различни съотношения на шансовете (2.59, 2.63, 1.54, 1.67) — същият модел, вече разрешен за записа PRKN при шизофренията: това отразява множество независими асоциации от GWAS каталога за един и същ потвърден генотип, а не грешка в данните. BRCA2 rs11571818 TT е потвърдено идентичен с находката на Минко, свързвайки се със същата тема на пътя за ДНК-възстановяване.</p>
+
+    <p>Панелът на Стайко добавя локус, който липсва в този на Минко: TERT rs2853677 GG. TERT кодира теломеразната обратна транскриптаза, ензимът, поддържащ дължината на теломерите в краищата на хромозомите — един от най-широко значимите гени в биологията на рака като цяло, тъй като дисрегулацията на теломерите допринася за геномна нестабилност в много типове рак, не специфично за рака на белия дроб. Появата му тук е истински забележително допълнение към профила на Стайко, което няма пряк аналог в отчетените сигнали на Минко за рак на белия дроб.</p>
+
+    <p>Интерпретативният приоритет е идентичен за двамата братя и заслужава ясно преповтаряне: тютюнопушенето напълно доминира генетичния риск от рак на белия дроб. При непушач абсолютният риск от целия този панел — включително CHEK2, съседния на BRCA2 и TERT — остава нисък независимо от полигенната оценка. За всеки, който е пушил, тези варианти умножават вече значително излагане на средата, правейки отказването единствената интервенция с най-голямо въздействие, налична без изключение.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_bladder_cancer">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Лек генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Рак на пикочния мехур</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Лек генетичен сигнал (PGS: +13.7 в 3 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Лек генетичен сигнал за рак на пикочния мехур. GWAS полигенната оценка е +13.7 (над средното); 3 локуса показват повишена доза на рисков алел от общо 73 генотипирани. Ракът на пикочния мехур е унаследим ~50% за общите варианти; тютюнопушенето е най-силният рисков фактор.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +13.7 · 3 от 73 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Сигналът на Стайко за рак на пикочния мехур отблизо съвпада с този на Минко — същите 3 от 73 повишени локуса и почти идентична PGS (+13.7 срещу +13.0). UGT1A8 rs17863783 GG и CLK3 rs11543198 GG са и двата потвърдено идентични между братята — UGT1A8 в частност релевантен за начина, по който пикочният мехур обработва определени метаболитни и диетични съединения.</p>
+
+    <p>Третият локус се различава и изисква същата предпазливост, отбелязана другаде в този раздел: панелът на Стайко показва KIAA0825 rs6869388 с OR 72.70, съотношение на шансовете, достатъчно голямо, за да заслужи реален скептицизъм относно широка приложимост, вместо да се третира като стабилна находка — докато третият локус на Минко беше вариант на NAT2, релевантен за метаболизма на ароматни амини от тютюневия дим и професионални изложения. Тъй като панелът на Стайко не включва този конкретен сигнал на NAT2, съображението за професионално излагане/боядисване на коса, което докладът на Минко повдига, е по-слабо пряко подкрепено от собствените данни на Стайко.</p>
+
+    <p>За непушач без значимо химическо излагане, абсолютният риск от рак на пикочния мехур, предполаган от този профил, остава нисък и за двамата братя. Адекватната хидратация — разреждаща уринните канцерогени и намаляваща времето на контакт със стената на пикочния мехур — остава най-практичната, евтина защитна мярка, налична.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    </section>
+
+    <section class="report-section" id="s_immune"><h2 class="section-heading">Имунни и възпалителни състояния</h2>
+
+    <div class="trait-row" id="n_asthma">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Астма</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (PGS: +40.5 в 11 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Повишен генетичен сигнал за астма. GWAS полигенната оценка е +40.5 (над средното); 11 локуса показват повишена доза на рисков алел от общо 588 генотипирани. Унаследимостта на астмата е ~60–80%; силно взаимодействие ген-среда (алергени).</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +40.5 · 11 от 588 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p><strong>Една стойност тук се нуждаеше от същата проверка, приложена другаде в този доклад, и вече е разрешена:</strong> rs6475448 (MLLT3) е потвърден хомозиготен AA спрямо суровите генотипни данни. „Съотношението на шансовете“ от 129.00, прикачено към него, обаче никога не е било реален размер на ефекта — то произхожда от библиографско сблъскване на индекс на цитат, при което референтен номер [129] от изходна статия е бил изцяло погълнат от неограничен процес за извличане на данни и погрешно прочетен като стойност на съотношение на шансовете. След премахването на този структурен артефакт, реалната находка е потвърден генотип AA на локус, релевантен за пътя на левкотриените/фармакогеномичния респираторен отговор — реална, използваема точка от данни, след като се отдели от грешката при парсиране на цитата.</p>
+
+    <p>Оставяйки това настрана, профилът на Стайко за астма е много близък до този на Минко по обща тежест (+40.5 срещу +40.4), но с по-малко потвърдени локуса (11 срещу 14). TACR1 rs7588010 е споделен, макар конкретният генотип да се различава — Стайко е AC (хетерозиготен), докато Минко е AA (хомозиготен), което означава едно копие по-малко на рисковия алел на тази конкретна позиция при Стайко. IL18R1 rs3771175 и съседният на IL1RL1 rs10189629 попадат и двата в същия път на IL-33 рецепторния комплекс, който докладът на Минко описва като централен за собствения му профил, потвърждавайки, че същият механизъм на Th2-алармен цитокин е активен и в генетиката на Стайко, дори когато конкретните идентификатори на вариантите се различават.</p>
+
+    <p>Относно връзката с витамин D, която докладът на Минко изгражда за собствения си генотип: действителните генотипи на VDR на Стайко са потвърдено различни от тези на Минко — GA (хетерозиготен) при TaqI срещу AA на Минко, и AA при ApaI срещу CC на Минко. Както е обсъдено в раздела за метаболитно здраве, публикуваните доказателства за това коя конкретна комбинация от генотип на VDR е по-благоприятна или по-неблагоприятна са наистина смесени в различните изследвания, така че този раздел представя разликата като факт, без да твърди, че комбинацията на Стайко е ясно по-добра или по-лоша конкретно за тежестта на астмата. Това, което е добре установено независимо от този открит въпрос, е че витамин D като цяло подкрепя активността на регулаторните Т-клетки и потиска Th2 поляризацията — така че същата практическа стъпка, оптимизиране на витамин D чрез вече обсъдената препоръка на етапа на транспорт, остава разумна и тук.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_lupus">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Лупус</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (PGS: +26.6 в 15 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Повишен генетичен сигнал за лупус. GWAS полигенната оценка е +26.6 (над средното); 15 локуса показват повишена доза на рисков алел от общо 374 генотипирани. Унаследимостта на лупуса е ~44%; силен HLA компонент.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +26.6 · 15 от 374 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Това е истински интересно механистично разграничение, не просто различно число. Сигналът на Минко за лупус се съсредоточава върху STAT4 и интерфероновия път — „интерфероновия подпис“, който движи свръхпроизводството на интерферон тип I. Сигналът на Стайко за лупус вместо това се съсредоточава върху друг, също толкова добре установен ген за лупус: <strong>ITGAM</strong> (rs1143679, появяващ се два пъти в данните му с различни съотношения на шансовете — отново моделът на записи от множество изследвания, наблюдаван другаде, не грешка), който кодира субединица на комплемент рецептор 3, рецепторът, който макрофагите използват за изчистване на апоптотични клетъчни остатъци и имунни комплекси от кръвообращението. Нарушената функция на ITGAM е добре документиран механизъм на лупус, различен от дисрегулацията на интерферона — дефектното изчистване на клетъчни остатъци позволява натрупване на автоантигени и стимулира производството на автоантитела.</p>
+
+    <p>Профилът на Стайко включва и IRF5 (rs729302 — интерферон регулаторен фактор 5, така че интерфероновият път не отсъства напълно, просто не е доминиращата тема, каквато е при Минко), FAM167A-BLK, TNPO3 и RASSF2. Интересно, макар и да носи по-малко повишени локуса от Минко (15 срещу 32 на Минко), полигенната оценка на Стайко е значимо по-ниска (+26.6 срещу +49.4), което означава, че повишените локуси на Минко поотделно носят по-голяма тежест, въпреки че са повече на брой.</p>
+
+    <p>Дали Стайко споделя хомозиготната находка GG на TYK2 на Минко — плейотропният JAK-STAT вариант, свързващ лупус, ревматоиден артрит и псориазис в профила на Минко — не е потвърдено конкретно от неговия панел за лупус, но е потвърдено присъстващ в данните му за ревматоиден артрит по-долу, което означава, че същата връзка с TYK2 вероятно все пак важи като фонов фактор, дори без да е водещата находка тук. Предвид различния основен механизъм (изчистване, медиирано от комплемента, а не свръхпроизводство на интерферон), същата препоръка за UV защита и оптимизация на витамин D от доклада на Минко остава разумна, макар механизмът, съсредоточен около ITGAM, да означава, че връзката конкретно с интерферонови изблици, отключени от слънце, може да е по-слабо пряка за Стайко, отколкото за Минко.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_rheumatoid_arthritis">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Ревматоиден артрит</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (PGS: +34.5 в 11 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Повишен генетичен сигнал за ревматоиден артрит. GWAS полигенната оценка е +34.5 (над средното); 11 локуса показват повишена доза на рисков алел от общо 757 генотипирани. Унаследимостта на РА е ~60%; HLA-DRB1 обяснява ~30% от генетичната вариация.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +34.5 · 11 от 757 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Профилът на Стайко за РА споделя точно двете си най-важни находки с тези на Минко: HLA-DQB1 rs6457617 TT (най-силният единичен генетичен принос за РА, част от региона HLA-DRB1, отговорен за около 30% от общата генетична вариация) и TYK2 rs34536443 GG — потвърждавайки същата хомозиготна находка на TYK2, която докладът на Минко описва като молекулярния общ знаменател на неговите сигнали за лупус, РА, псориазис и болест на Крон. Това е истински споделена нишка между братята, не просто съвпадение — TYK2 GG се появява последователно в множество автоимунни състояния и в двата им профила.</p>
+
+    <p>Отвъд тези две споделени находки, конкретните допълнителни локуси се различават: панелът на Стайко включва DPP4, APOM и LEF1-AS1, вместо отчетените от Минко PTPN22 и PAD14. Това не означава непременно, че на Стайко напълно му липсва сигнал от PTPN22/PAD14 — показаните списъци с поддържащи SNP са ограничени и може да не включват всеки допринасящ локус — но конкретните откроени локуси се различават между двата доклада.</p>
+
+    <p>Същата практическа препоръка се пренася с пълна релевантност предвид споделените находки на TYK2 и HLA-DQB1: сутрешна скованост на ставите, продължаваща повече от 30 минути, е класическият ранен симптом, заслужаващ проследяване, тестването за анти-CCP антитела може да открие РА години преди клиничното начало, а омега-3 мастните киселини имат най-силната хранителна доказателствена база за намаляване на риска от РА — действайки чрез същия Th17 път, който TYK2 GG усилва и при двамата братя.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_inflammatory_bowel">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Възпалително чревно заболяване</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (PGS: +54.8 в 19 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Повишен генетичен сигнал за възпалително чревно заболяване. GWAS полигенната оценка е +54.8 (над средното); 19 локуса показват повишена доза на рисков алел от общо 851 генотипирани. Унаследимост на ВЧЗ ~75% (болест на Крон) / ~70% (улцерозен колит); NOD2 е най-силният общ рисков ген.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +54.8 · 19 от 851 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Сигналът на Стайко за ВЧЗ по същество съвпада с този на Минко — PGS +54.8 в 19 локуса, срещу +56.6 на Минко в 18 — а двата най-важни локуса са потвърдено идентични между братята: IL23R rs11209026 GG и NUDT15 rs116855232 CC, основните находки за възпалителни цитокини и метаболизъм на тиопурини, централни за собствения анализ на Минко.</p>
+
+    <p>Панелът на Стайко показва по-тежка концентрация конкретно на находки в HLA региона — HLA-DRB9 (два записа), вариант, съседен на HLA-DQB3, и HLA-DQA1 — в сравнение с изрично изброеното в отчетения набор на Минко. Предвид че HLA регионът е един от най-силните генетични приноси за ВЧЗ като цяло, това по-тежко HLA представяне в данните на Стайко подсилва същия механизъм на бактериално разпознаване и имунен надзор в основата на генетиката на ВЧЗ и при двамата братя, просто с малко по-различни конкретни откроени варианти в подрегиона на HLA.</p>
+
+    <p>Същият съгласуван биологичен разказ, който докладът на Минко изгражда, важи еднакво тук и се свързва пряко със собствените находки на Стайко за колоректален рак, обсъдени по-рано: нарушена функция на епителната бариера, бактериално разпознаване, медиирано от NOD2/HLA, и продължително чревно възпаление, образуващи свързана верига, а не изолирани находки. Същите практически интервенции — разнообразни диетични фибри, ферментирали храни, избягване на ненужни антибиотици и добавка с омега-3 за намаляване на чревното IL-17 сигнализиране — важат с еднаква релевантност.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_psoriasis">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Псориазис</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (PGS: +28.2 в 11 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Повишен генетичен сигнал за псориазис. GWAS полигенната оценка е +28.2 (над средното); 11 локуса показват повишена доза на рисков алел от общо 310 генотипирани. Унаследимостта на псориазиса е ~60–70%; HLA-C*06:02 е основният рисков алел.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +28.2 · 11 от 310 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Сигналът на Стайко за псориазис отблизо съвпада с този на Минко — PGS +28.2 срещу +32.0, и двата закотвени в идентичната хомозиготна находка TYK2 GG (rs34536443, появяваща се многократно с различни съотношения на шансовете, същият модел на записи от множество изследвания, вече установен за други локуси в този доклад). Това е същият ключов вариант, вече потвърдено споделен в раздела за РА — TYK2 фосфорилира STAT3 надолу по веригата на IL-23, движейки хиперпролиферацията на кератиноцитите, която определя псориатичните плаки.</p>
+
+    <p>Допълнителните локуси на Стайко — IL12B-AS1 (rs7709212, появяващ се три пъти) и съседният на IL23R rs9988642 — допълват същия хетеродимерен път IL-12/IL-23, описан в доклада на Минко, потвърждавайки, че тази ос е също толкова централна за генетиката на псориазис на Стайко, дори когато точните идентификатори на вторичните варианти се различават.</p>
+
+    <p>Предвид споделената находка TYK2 GG при псориазис, РА и (чрез IRF5) лупус в собствения профил на Стайко, същата фармакологична идея от доклада на Минко важи директно: TYK2 инхибитори като деукравацитиниб представляват целенасочен клас терапия, специфично подходящ за автоимунно заболяване, движено от пътя на TYK2, а генотипът на Стайко би го направил също толкова силен кандидат за този механизъм, ако симптомите някога изискват лечение. Същите отключващи фактори от средата — стрептококови гърлени инфекции, кожна травма, определени лекарства и психологически стрес, действащ чрез IL-17 на кератиноцитите — заслужават същото внимание предвид това споделено генетично натоварване.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_crohn_disease">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Болест на Крон</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (PGS: +51.4 в 14 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Повишен генетичен сигнал за болест на Крон. GWAS полигенната оценка е +51.4 (над средното); 14 локуса показват повишена доза на рисков алел от общо 584 генотипирани. Унаследимост на болестта на Крон ~75%; NOD2 и ATG16L1 са ключовите локуси.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +51.4 · 14 от 584 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Профилът на Стайко за болест на Крон отблизо съвпада с този на Минко — PGS +51.4 срещу +48.6 — и се съсредоточава върху същия сигнал на IL23R: rs11209026 GG и rs11465804 TT са и двата потвърдено идентични между братята, появявайки се многократно в данните на Стайко при различни съотношения на шансовете (2.66, 2.20, 2.84), отново моделът на записи от множество изследвания, а не грешка.</p>
+
+    <p>Панелът на Стайко добавя локус, който не е изрично изброен в този на Минко: TNFSF15 (rs6478109 и rs2006996, и двата присъстващи в повишения му набор) — добре установен, независимо значим ген за предразположеност към болестта на Крон, кодиращ член на TNF суперсемейството, участващ в костимулация на Т-клетки и чревно възпаление. Присъствието му тук, наред със STAT3 (rs9891119), предполага, че генетиката на Стайко за болест на Крон черпи от малко по-широк набор от възпалителни пътища, отколкото само оста IL23R/TYK2.</p>
+
+    <p>Дали Стайко споделя потвърдената хомозиготна находка GG на TYK2 на Минко конкретно за този белег, не е показано директно в неговия панел за болест на Крон, но предвид че тя вече е потвърдена присъстваща в данните му за РА и псориазис, същият усилващ ефект върху сигнализирането на IL-23, описан в доклада на Минко, е много вероятно релевантен и тук. Важат същите практически приоритети: стандартна диетична препоръка и препоръка за начин на живот при ВЧЗ, с особено внимание към управлението на стреса предвид връзката с оста черва-мозък, описана в доклада на Минко.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_multiple_sclerosis">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Множествена склероза</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерен генетичен сигнал (PGS: +24.6 в 6 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Умерен генетичен сигнал за множествена склероза. GWAS полигенната оценка е +24.6 (над средното); 6 локуса показват повишена доза на рисков алел от общо 347 генотипирани. Унаследимостта на МС е ~50%; HLA-DRB1*15:01 е най-силният рисков алел.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +24.6 · 6 от 347 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Сигналът на Стайко за МС е малко под този на Минко (+24.6 срещу +28.1, 6 локуса срещу 5). PADI1 rs3003482 е споделен между братята, макар генотипът да се различава — Стайко е GA (хетерозиготен), докато Минко е GG (хомозиготен), едно рисково копие по-малко на тази конкретна позиция.</p>
+
+    <p>Панелът на Стайко добавя CD58 (rs2300747) към картината — истински добре установен, независимо значим ген за предразположеност към МС, кодиращ молекула за Т-клетъчна адхезия, участваща в регулацията на Т-клетъчното активиране, който не присъства в отчетения набор на Минко. CBLB (появяващ се два пъти) и LINC02633 допълват останалия сигнал.</p>
+
+    <p>Същата интерпретативна рамка от доклада на Минко важи директно: МС остава едно от най-HLA-зависимите известни общи заболявания, като HLA-DRB1*15:01 е доминиращият рисков алел (не се изследва директно от потребителски масиви, но може да се изведе от съседни варианти като показаните тук). Прочетена наред със собствените повишени сигнали на Стайко при лупус, РА, ВЧЗ, болест на Крон и псориазис, тази находка за МС се вписва в същата по-широка тема на повишена Т-клетъчно-медиирана имунна реактивност, преминаваща през профила му — не изолирана находка. Важат същите защитни приоритети: оптимизация на витамин D (най-последователно защитният фактор на средата, специфично установен за МС), добавка с омега-3 и разнообразие на чревния микробиом.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    </section>
+
+    <section class="report-section" id="s_longevity"><h2 class="section-heading">Дълголетие и стареене</h2>
+
+    <div class="trait-row" id="n_longevity">
+    <div class="trait-spine" style="color:var(--risk-favourable)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерено благоприятни сигнали за дълголетие</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Дълголетие</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерени сигнали за дълголетие (GWAS: 23 локуса за дълголетие, PGS +70.4).</p>
+    <p>APOE и FOXO3 са двата най-често потвърждавани локуса за дълголетие. Алелът FOXO3 G (ако е налице) се свързва с изключително дълголетие в японски, американски, датски и други кохорти — това е най-стабилният известен сигнал за дълголетие извън APOE. Вариантите на CETP, повишаващи HDL, също са свръхпредставени при столетници. Начинът на живот (упражнения, диета, сън, непушене) остава доминиращият модифицируем фактор за дълголетие. 3 SNP комбинирани.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +70.4 · 23 локуса за дълголетие</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Генетиката на Стайко за дълголетие отблизо отразява тази на Минко и на двата курирани локуса, а споделената находка APOE ε2 остава централна и за двамата братя. Както е установено в разделите за холестерол и Алцхаймер, rs7412 CC — потвърдено идентичен за двамата — съответства на алела APOE ε2, последователно свръхпредставен сред столетници в множество независими кохорти, чрез същия многофакторен механизъм: по-нисък LDL, намалено невровъзпаление, по-ефективен липиден метаболизъм и по-нисък риск от Алцхаймер, всички допринасящи за същото предимство за преживяемост.</p>
+
+    <p>Двата варианта на CETP са потвърдено идентични по генотип между братята: rs3764814 CT и rs5882 AG, и двата носещи по едно защитно копие, свързано с по-висок HDL холестерол и последователно свързвано с дълголетие в изследвания на столетници, особено в ашкенази еврейски и японски кохорти. Както и в доклада на Минко, FOXO3 — единственият най-често потвърждаван локус за дълголетие извън APOE, активен в пет независими национални кохорти — не е уловен на чипа на никой от братята и остава заслужаващ проверка чрез специализиран клиничен или изследователски генетичен тест, ако генетиката на дълголетието представлява конкретен личен интерес.</p>
+
+    <p>Единствената значима разлика е в съвкупната полигенна оценка: +70.4 на Стайко в 23 локуса за дълголетие е по-висока от +62.4 на Минко в 18 — благоприятна разлика, тъй като по-висока оценка тук сочи към повече от по-широката генетична архитектура, свързана с по-дълъг живот, а не по-малко. Съчетано с идентичните находки за APOE ε2 и CETP, общата картина на дълголетието на Стайко се чете поне толкова благоприятна, колкото тази на Минко, а по тази съвкупна мярка — донякъде дори повече.</p>
+
+    <p>Същото общо заключение от доклада на Минко важи с еднаква сила и тук: съдбата не се определя от единичен екстремен едногенен дефект при никого от братята, а от сложна мрежа от умерени полигенни предразположености — по-голямата част от които, в кардио-съдовото натоварване, метаболитната ефективност и имунната реактивност в целия доклад, остават истински адресируеми чрез целенасочени избори в начина на живот, диетата и добавките. За двамата братя реалният здравословен живот остава в значителна степен под техен собствен контрол.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    </section>
+
+    <section class="report-section" id="s_lifestyle"><h2 class="section-heading">Начин на живот, хранене и метаболизъм на лекарства</h2>
+
+    <div class="trait-row" id="n_caffeine_metabolism">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Умерен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Метаболизъм на кофеина</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Умерен генетичен сигнал (PGS: +15.2 в 8 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Умерен генетичен сигнал за метаболизъм на кофеина. GWAS полигенната оценка е +15.2 (над средното); 8 локуса показват повишена доза на рисков алел от общо 33 генотипирани. Метаболизмът на кофеина е унаследим ~50%; CYP1A2 е основният ензимен ген.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +15.2 · 8 от 33 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>GWAS сигналът на Стайко за метаболизъм на кофеина е значимо по-широк от този на Минко — 8 повишени локуса срещу 3, PGS +15.2 срещу +5.5 — преминавайки от „лек“ в „умерен“. Споделената находка CYP2A6 rs56113850 TC е потвърдено идентична (появяваща се три пъти при различни OR, същият модел на записи от множество изследвания, установен другаде в този доклад). Новото в панела на Стайко е двойка варианти на AHR (арил-въглеводороден рецептор) — rs6968554 AG и rs4410790 TC, всеки появяващ се два пъти — истински релевантни тук, тъй като AHR е нагоренаходящият транскрипционен регулатор, който индуцира самата експресия на CYP1A2, което означава, че тези варианти вероятно взаимодействат пряко с находката за CYP1A2 по-долу, вместо да действат като несвързан фонов шум.</p>
+
+    <p><strong>По-клинично релевантната генетика на кофеина, както и в доклада на Минко, идва от специализираните фармакогеномични данни по-долу, а не от този GWAS панел</strong> — и точно тук двамата братя истински се различават: при Стайко е потвърдено <strong>AA</strong> на rs762551 (CYP1A2), а не хетерозиготното CA на Минко. CYP1A2 обработва приблизително 95% от изчистването на кофеина, а генотипът AA е вариантът за бърз метаболизатор, свързан с полуживот на кофеина от приблизително 3-4 часа — ясно по-бързо от междинното изчистване от 5-7 часа при Минко. Това е реална, функционално значима разлика между братята, не незначителна.</p>
+
+    <p>Практическото значение върви в обратна посока спрямо доклада на Минко: истински бърз метаболизатор на CYP1A2 има значително повече свобода при следобедния прием на кофеин, отколкото междинен метаболизатор, тъй като изчистването е достатъчно бързо, за да е по-малко вероятно вечерната структура на съня да бъде нарушена от следобедно кафе. Предвид собствения благоприятен BDNF CC на Стайко и като цяло по-ниското неврологично натоварване, обсъдено по-рано, защитните връзки на кофеина с болестта на Паркинсон и когнитивната функция (чрез антагонизъм на аденозиновите рецептори) заслужават да се използват тук с по-малко ограничения във времето, отколкото изисква профилът на Минко — макар много късен прием все още да може да засегне всеки, независимо от статуса на метаболизатор.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_alcohol_consumption">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Повишен генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Консумация на алкохол</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Повишен генетичен сигнал (PGS: +36.1 в 11 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Повишен генетичен сигнал за консумация на алкохол. GWAS полигенната оценка е +36.1 (над средното); 11 локуса показват повишена доза на рисков алел от общо 78 генотипирани. Унаследимост на метаболизма на алкохола ~50%; ADH1B и ALDH2 са доминантните варианти. Вариантите на ALDH2 (чести при източноазиатци) причиняват реакция на зачервяване от алкохол.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +36.1 · 11 от 78 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>Водещата находка е потвърдено идентична между братята: rs1229984 CC на ADH1B (OR 24.56), същият генотип *1/*1 на по-бавен ADH1B, който носи и Минко, което означава, че алкохолът се превръща в ацеталдехид бавно, а отблъскващата реакция на зачервяване, която възпира пиенето при бързометаболизиращи популации, липсва и при Стайко. Както и в доклада на Минко, това OR описва поведение на количество на пиене на популационно ниво, не директен множител на здравния риск.</p>
+
+    <p>Отвъд споделената находка на ADH1B, панелът на Стайко включва няколко допълнителни локуса, които не са в отчетения набор на Минко: SLC39A8 rs13107325 CC (вариант на цинков транспортер, независимо свързван и с риск от шизофрения в някои изследвания — истински интересно припокриване със собствения повишен сигнал на Стайко за шизофрения, обсъден по-рано), MIPOL1 rs4898641 GG, CTNNA2 rs2100290 GG, и два локуса, споделени с други раздели на този доклад: FTO rs55872725 TC (същият ген, свързан със затлъстяване от раздела за ИТМ) и GCKR rs1260326 TC (допринасящ и за повишените находки на Стайко за триглицериди и кофеин).</p>
+
+    <p>Същото разсъждение, основано на сближаване от доклада на Минко, важи за собствения конкретен рисков профил на Стайко, приспособено към това, което реално е повишено в неговите данни: собствената му повишена тенденция за триглицериди (находките за GCKR и APOA5/APOC3 от сърдечно-съдовия раздел) означава, че повишаващият триглицеридите ефект на алкохола важи с реална релевантност; собственото му повишено генетично натоварване за ВЧЗ и болест на Крон означава, че увреждането на чревния епител от алкохола попада върху чревна бариера, вече под отделно генетично напрежение; а собствената му потвърдена хомозиготна находка за MTHFR C677T означава, че известната намеса на алкохола във фолатния метаболизъм усложнява увреждане, което вече е по-значимо от това на Минко. Нищо от това не налага пълно въздържание, но сближаването в множество независимо повишени пътища в собствения профил на Стайко — вероятно по-многобройни, отколкото при Минко — предполага, че същата умереност, информирана от генотипа, важи тук, ако не друго, с малко по-голяма релевантност.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trait-row" id="n_pharmacogenomics">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span>
+        <span class="spine-line"></span>
+        <span class="spine-risk">Лек генетичен сигнал</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">Фармакогеномика</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS Резюме</div><div class="narrative-text">
+    <p><strong>Прогноза:</strong> Лек генетичен сигнал (PGS: +8.0 в 4 локуса, анализирани в геномни асоциационни изследвания).</p>
+    <p>Лек генетичен сигнал за фармакогеномика. GWAS полигенната оценка е +8.0 (над средното); 4 локуса показват повишена доза на рисков алел от общо 32 генотипирани. Метаболизмът на лекарствата варира съществено според генотипа; CYP2D6, CYP2C19 и TPMT са клинично приложими.</p>
+    </div></div>
+            <div class="pgs-badge">GWAS PGS +8.0 · 4 от 32 генотипирани локуса показват повишен риск</div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">По-задълбочен анализ</div><div class="narrative-text">
+    <p>GWAS панелът на Стайко за фармакогеномика отблизо съвпада с този на Минко — JAK2 rs77375493 GG (OR 1.94), ZNF646 rs749671 AG (OR 20.40) и CPVL rs245880 GA (OR 4.69) са всички потвърдено идентични между братята, включително същото много голямо отклонение на ZNF646, което докладът на Минко приписва на вероятен специфичен за популацията или редковариантен ефект, а не широко приложим сигнал за лекарствен отговор — същата предпазливост важи еднакво и тук.</p>
+
+    <p>Панелът на Стайко добавя един допълнителен локус, VGLL4 rs6766130 CT, който не присъства в отчетения набор на Минко — скромно допълнение, което не променя цялостната интерпретация.</p>
+
+    <p>Както и в доклада на Минко, най-клинично приложимите фармакогеномични гени — CYP2D6, CYP2C19, CYP2C9, TPMT, DPYD — не се улавят напълно от този конкретен GWAS-тип панел. <strong>Проверено директно спрямо суровите данни:</strong> статусът на CYP2C19 на Стайко вече е частично изяснен — потвърден див тип на *17 (rs12248560 CC, изключвайки свръхбързия метаболизъм) и *3 (rs4986893 GG, изключвайки този алел със загуба на функция), като *2 (rs4244285), единствената най-клинично значима вариация на CYP2C19, остава неизяснена поради липса на покритие от сонда на масива, а не поради каквато и да е неяснота в самия резултат. CYP2D6 остава истински неразрешим от този тип масив поради структурната сложност на ензима (вариация в броя копия и интерференция от псевдогена CYP2D7) — ограничение на самия метод на изследване, не пропуск, специфичен за данните на Стайко. Вижте специализирания раздел Фармакогеномика и метаболизъм на лекарства по-долу за пълната картина.</p>
+    </div></div>
+        </div>
+    </div>
+    </div>
+
+    </section>
+
+    <section class="report-section" id="s_pharmacogenomics"><h2 class="section-heading">Фармакогеномика и метаболизъм на лекарства</h2><p class="pharma-intro">Фармакогеномиката изследва как наследените ти генетични варианти променят ензимния капацитет на тялото ти да обработва, изчиства и реагира на различни фармацевтични съединения.</p><div class="drug-grid"><div class="drug-card"><div class="drug-card-head"><div class="drug-card-top"><span class="drug-enzyme">CYP1A2</span><span class="risk-pill" style="background:#2d7a4f;">Бърз</span></div><div class="drug-genotype">rs762551 (AA)</div><div class="drug-affected">Засяга: кофеин, мелатонин, теофилин</div></div><div class="drug-card-body"><p class="drug-narrative">Потвърден хомозиготен генотип AA, класифициращ те като <strong>бърз метаболизатор</strong> за пътищата на изчистване на кофеина — резултат, различен от хетерозиготния генотип CA на Минко, междинен метаболизатор.</p><div class="drug-action"><strong>Клинично значение:</strong> Кофеинът се изчиства за приблизително 3-4 часа, вместо типичните 5-7 часа при междинните метаболизатори, което позволява повече свобода при следобеден прием, преди да засегне нощната архитектура на съня.</div></div></div><div class="drug-card"><div class="drug-card-head"><div class="drug-card-top"><span class="drug-enzyme">CYP2C19</span><span class="risk-pill" style="background:#c97b2a;">Частични данни</span></div><div class="drug-genotype">*17 (rs12248560): CC · *3 (rs4986893): GG · *2 (rs4244285): без сонда</div><div class="drug-affected">Засяга: инхибитори на протонната помпа, СИОЗС, антитромбоцитни средства (Plavix)</div></div><div class="drug-card-body"><p class="drug-narrative">Две от трите ключови позиции са потвърдено див тип: без CYP2C19*17 (изключвайки алела със свръхбърза функция) и без CYP2C19*3 (изключвайки този вторичен алел със загуба на функция). Единствената най-клинично важна позиция, *2 (rs4244285) — отговорна за по-голямата част от фенотиповете на слаб метаболизатор на CYP2C19 — няма покритие от сонда на този масив и остава истински неизвестна, не просто неотчетена.</p><div class="drug-action"><strong>Клинично значение:</strong> Резултатите за *17 и *3 са истински полезни и изключват два конкретни сценария с променена функция. Но тъй като статусът на *2 е неизяснен, пълна класификация на метаболизатора не е възможна само от тези данни — специализиран клиничен панел за CYP2C19 заслужава да се поиска конкретно преди започване на клопидогрел (Plavix), инхибитор на протонната помпа или СИОЗС, тъй като статусът на носителство на *2 съществено променя препоръките за дозиране и за трите.</div></div></div></div><p class="pharma-note"><strong>CYP2D6</strong> не е показан като карта по-горе, защото няма какво да се отчете: този ензим обработва приблизително 20-25% от клиничните лекарства (бета-блокери, антидепресанти, опиоиди, антипсихотици), но определянето на неговите звездни алели изисква разрешаване на структурна вариация в броя копия и интерференция от близкия псевдоген CYP2D7 — нещо, което стандартните потребителски генотипни масиви не могат да направят, независимо кои SNP изследват. Това е ограничение на самия метод на изследване, не пропуск, специфичен за данните на Стайко. Специализиран клиничен фармакогеномичен панел, изграден да разреши конкретно броя копия на CYP2D6, заслужава да се поиска преди започване на ново лекарство от тези класове.</p></section>
+
+    </div></div>
+</body>
+</html>
