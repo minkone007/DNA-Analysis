@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>松下・ジュリアン - 遺伝的健康記録</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+    --paper: #fdfcfa; --paper-2: #f4f1eb; --ink: #1a1612; --ink-2: #4a4238; --ink-3: #8a7f72;
+    --rule: #ddd8cf; --blue: #1a4b7a; --nav-w: 210px;
+    --risk-elevated: #c0392b; --risk-moderate: #c97b2a; --risk-favourable: #2d7a4f;
+    --blue-tint: rgba(26, 75, 122, 0.05);
+    --cat-a: #5a7290; --cat-b: #8a6a4a; --cat-c: #a89464; --cat-d: #8a7f72; --cat-e: #6b8a7a;
+}
+body { background: var(--paper); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.85; }
+.narrative-body em, .narrative-body i, .narrative-text em, .narrative-text i { font-style: normal; }
+
+.nav-sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: var(--nav-w); background: #fff; border-right: 1px solid var(--rule); overflow-y: auto; z-index: 200; display: flex; flex-direction: column; }
+.nav-head { padding: 1.4rem 1rem 1rem; border-bottom: 1px solid var(--rule); }
+.nav-brand { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 600; letter-spacing: .04em; color: var(--ink-3); margin-bottom: .2rem; }
+.nav-person { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--ink); }
+.nav-links { flex: 1; overflow-y: auto; padding: .8rem .7rem; }
+.nav-link { display: flex; align-items: center; gap: .45rem; font-family: 'EB Garamond', serif; font-size: .92rem; color: var(--ink-3); text-decoration: none; padding: .25rem .4rem; border-radius: 3px; line-height: 1.4; margin-bottom: .1rem; }
+.nav-link:hover { background: var(--paper-2); color: var(--blue); }
+.nav-score { padding: .8rem 1rem; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .3rem; }
+.ns { display: flex; flex-direction: column; align-items: center; }
+.ns-val { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 700; }
+.ns-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .72rem; font-weight: 600; color: var(--ink-3); }
+.lang-bar { padding: .5rem 1rem; border-top: 1px solid var(--rule); display: flex; gap: .4rem; }
+.lang-btn { font-family: 'EB Garamond', serif; font-weight: 700; font-size: .8rem; padding: .2rem .5rem; border-radius: 3px; border: 1px solid var(--rule); color: var(--ink-3); text-decoration: none; }
+.lang-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+.mobile-bar { display: none; }
+
+.cover { margin-left: var(--nav-w); background: var(--ink); color: #f0ebe3; padding: 5rem 3.5rem 4rem; position: relative; }
+.cover-eyebrow { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 600; letter-spacing: .04em; color: #7fa8c4; margin-bottom: 1.2rem; }
+.cover h1 { font-family: 'EB Garamond', serif; font-size: 3.2rem; font-weight: 400; color: #f0ebe3; margin-bottom: .2rem; }
+.cover-sub { font-size: 1.05rem; font-style: italic; color: #7fa8c4; margin-bottom: 3.5rem; }
+.cover-stats { display: flex; gap: 3rem; flex-wrap: wrap; border-top: 1px solid #2d3f52; padding-top: 1.5rem; }
+.cs { display: flex; flex-direction: column; }
+.cs-val { font-family: 'EB Garamond', serif; font-size: 1.85rem; font-weight: 700; color: #f0ebe3; }
+.cs-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .78rem; font-weight: 500; color: #5a7a94; }
+
+.main { margin-left: var(--nav-w); width: calc(100vw - var(--nav-w)); padding: 0 3.5rem 6rem; }
+.main-inner { max-width: 920px; margin-left: auto; margin-right: auto; }
+.disclaimer { font-family: 'EB Garamond', serif; font-size: .92rem; line-height: 1.6; background: #fffbeb; border-left: 3px solid #d97706; padding: .8rem 1.2rem; color: #78450a; margin: 2.5rem 0 0; }
+.disclaimer + .disclaimer { margin-top: 1rem; }
+.report-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+.section-heading { font-family: 'EB Garamond', serif; font-size: 1.8rem; font-weight: 600; margin-bottom: .5rem; color: var(--ink); }
+
+.narrative-body p { margin-bottom: .9rem; font-size: .98rem; line-height: 1.9; color: var(--ink-2); }
+.narrative-body ul { margin: 0 0 1rem 1.4rem; }
+.narrative-body li { margin-bottom: .5rem; font-size: .98rem; line-height: 1.8; color: var(--ink-2); }
+
+.trait-row { display: grid; grid-template-columns: 78px 1fr; column-gap: 1.8rem; padding: 2.6rem 0; border-bottom: 1px solid var(--rule); }
+.trait-row:last-child { border-bottom: none; padding-bottom: 0; }
+.trait-spine { position: relative; display: flex; flex-direction: column; align-items: center; padding-top: .4rem; }
+.spine-dot { width: 13px; height: 13px; border-radius: 50%; background: currentColor; border: 2px solid var(--paper); box-shadow: 0 0 0 2px currentColor; flex-shrink: 0; z-index: 1; }
+.spine-line { position: absolute; top: 15px; bottom: -2.6rem; left: 50%; width: 1px; background: var(--rule); transform: translateX(-50%); }
+.spine-risk { margin-top: .6rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .74rem; font-weight: 600; text-align: center; line-height: 1.3; }
+.trait-title { font-family: 'EB Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink); margin-bottom: 1.4rem; letter-spacing: -.01em; }
+
+.trait-narrative { display: flex; flex-direction: column; gap: 2rem; }
+.narrative-unit { display: grid; grid-template-columns: 118px 1fr; gap: 1.4rem; }
+.narrative-kicker { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .9rem; line-height: 1.3rem; font-weight: 600; color: var(--ink-3); padding-top: .1rem; }
+.narrative-text p { font-size: 1rem; line-height: 1.9; color: var(--ink-2); margin-bottom: .9rem; }
+.narrative-text p:last-child { margin-bottom: 0; }
+.narrative-unit--gwas .narrative-kicker { position: relative; color: var(--blue); padding-left: 1.5rem; }
+.narrative-unit--gwas .narrative-kicker::before { content: ""; position: absolute; left: 0; top: .35rem; width: 9px; height: 9px; border-radius: 50%; background: var(--blue); border: 2px solid var(--paper); box-shadow: 0 0 0 2px var(--blue); z-index: 1; }
+.narrative-unit--gwas .narrative-kicker::after { content: ""; position: absolute; left: 4px; top: 1.15rem; bottom: 0; width: 1px; background: var(--rule); }
+.narrative-unit--gwas .narrative-text { padding-left: 1.6rem; }
+.narrative-unit--gwas .narrative-text strong { color: var(--blue); font-weight: 700; }
+.risk-pill { display: inline-block; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 700; padding: .25rem .75rem; border-radius: 4px; color: #fff; white-space: nowrap; }
+.narrative-unit--deep { display: block; }
+.narrative-unit--deep .narrative-kicker { margin-bottom: .6rem; }
+
+.pgs-badge { display: inline-block; font-family: 'Inter', monospace; font-size: .78rem; font-weight: 600; color: var(--blue); background: var(--blue-tint); padding: .3rem .7rem; border-radius: 4px; margin-bottom: .5rem; }
+.risk-balance { margin: 0 0 1.4rem; }
+.risk-balance-track { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+.risk-balance-prot { background: var(--risk-favourable); }
+.risk-balance-risk { background: var(--risk-elevated); }
+.risk-balance-labels { display: flex; justify-content: space-between; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+.rb-risk { color: var(--risk-elevated); font-weight: 600; }
+.rb-prot { color: var(--risk-favourable); font-weight: 600; }
+.loci-bar { margin: 0 0 1.4rem; }
+.loci-bar-track { height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+.loci-bar-fill { height: 100%; }
+.loci-bar-label { display: block; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+
+.drug-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+.drug-card { background: #fff; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.drug-card-head { padding: .8rem 1rem; border-bottom: 1px solid var(--rule); }
+.drug-card-top { display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem; }
+.drug-enzyme { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 700; color: var(--ink-3); }
+.drug-genotype { font-family: 'Inter', monospace; font-size: .8rem; font-weight: 600; color: var(--blue); margin-bottom: .2rem; }
+.drug-affected { font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-3); }
+.drug-card-body { padding: 1rem; }
+.drug-narrative { font-family: 'EB Garamond', serif; font-size: .93rem; color: var(--ink-2); line-height: 1.75; margin-bottom: .8rem; }
+.drug-action { padding: .6rem .8rem; background: var(--paper-2); border-radius: 4px; font-family: 'EB Garamond', serif; font-size: .88rem; color: var(--ink-3); line-height: 1.55; }
+
+.marker-votes { margin: 0 0 1.4rem; }
+.marker-tally { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: .8rem; }
+.marker-tally-item { display: flex; align-items: center; gap: .4rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .85rem; color: var(--ink-3); }
+.marker-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.marker-tag-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+.marker-tag-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.marker-tag-gene { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .8rem; color: var(--ink-2); }
+.marker-tag-rsid { font-family: 'Inter', monospace; font-size: .72rem; color: var(--ink-3); }
+.marker-tag-geno { font-family: 'Inter', monospace; font-weight: 700; font-size: .78rem; color: var(--blue); }
+.marker-tag { display: flex; align-items: flex-start; gap: .4rem; background: var(--paper-2); border-radius: 4px; padding: .3rem .6rem; cursor: default; }
+.marker-tag-main { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+.marker-tag--primary { border: 1.5px solid var(--blue); background: var(--blue-tint); }
+.marker-tag--primary .marker-tag-gene { font-weight: 700; }
+.marker-tag--minor { opacity: .62; }
+.marker-tag-weight { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .68rem; font-weight: 600; color: var(--blue); }
+.marker-tag--minor .marker-tag-weight { color: var(--ink-3); }
+.marker-tag--ruleout { opacity: .75; }
+.marker-tag--secondary { border: 1px solid var(--rule); }
+.marker-tag--modifier { border: 1px dashed var(--rule); }
+
+@media(max-width: 768px) {
+    .nav-sidebar { display: none; }
+    .cover, .main { margin-left: 0; }
+    .cover { padding: 3rem 1.2rem 2.5rem; }
+    .cover h1 { font-size: 2.1rem; }
+    .cover-sub { font-size: .95rem; margin-bottom: 2rem; }
+    .cover-stats { gap: 1.5rem 2rem; }
+    .cs-val { font-size: 1.4rem; }
+    .main { padding: 0 1.2rem 4rem; width: 100vw; }
+    body { font-size: 16px; }
+
+    .mobile-bar {
+        display: flex; align-items: center; justify-content: space-between; gap: .8rem;
+        position: sticky; top: 0; z-index: 150;
+        background: #fff; border-bottom: 1px solid var(--rule);
+        padding: .7rem 1.2rem;
+    }
+    .mobile-person { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .95rem; }
+    .mobile-nav-select {
+        font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-2);
+        border: 1px solid var(--rule); border-radius: 4px; padding: .3rem .5rem; background: #fff;
+    }
+
+    .trait-row { grid-template-columns: 44px 1fr; column-gap: 1rem; }
+    .spine-risk { display: none; }
+    .narrative-unit { grid-template-columns: 1fr; gap: .5rem; }
+    .narrative-unit--gwas .narrative-kicker::after { display: none; }
+    .narrative-unit--gwas .narrative-text { padding-left: 0; }
+
+    .drug-grid { grid-template-columns: 1fr; }
+}
+body{font-family:'EB Garamond','Noto Serif JP',Georgia,serif;}</style>
+</head>
+<body>
+<div class="mobile-bar">
+    <span class="mobile-person">松下・ジュリアン</span>
+    <select class="mobile-nav-select" onchange="if(this.value) location.hash=this.value;">
+        <option value="">移動先…</option>
+        <option value="#s_synthesis">概要</option><option value="#s_appearance">身体的特徴</option><option value="#s_cardiovascular">心血管の健康</option><option value="#s_metabolic">代謝の健康</option><option value="#s_neurological">脳・認知・神経系の健康</option><option value="#s_cancer">がんリスク</option><option value="#s_immune">免疫・炎症性疾患</option><option value="#s_longevity">長寿と老化</option><option value="#s_lifestyle">生活習慣・栄養・薬物代謝</option><option value="#s_pharmacogenomics">薬理ゲノミクス</option>
+    </select>
+</div>
+    <aside class="nav-sidebar">
+        <div class="nav-head">
+            <div class="nav-brand">パーソナルゲノミクス</div>
+            <div class="nav-person">松下・ジュリアン</div>
+        </div>
+        <nav class="nav-links"><a href="#s_synthesis" class="nav-link">概要</a><a href="#s_appearance" class="nav-link">身体的特徴</a><a href="#s_cardiovascular" class="nav-link">心血管の健康</a><a href="#s_metabolic" class="nav-link">代謝の健康</a><a href="#s_neurological" class="nav-link">脳・認知・神経系の健康</a><a href="#s_cancer" class="nav-link">がんリスク</a><a href="#s_immune" class="nav-link">免疫・炎症性疾患</a><a href="#s_longevity" class="nav-link">長寿と老化</a><a href="#s_lifestyle" class="nav-link">生活習慣・栄養・薬物代謝</a><a href="#s_pharmacogenomics" class="nav-link">薬理ゲノミクス</a></nav>
+        <div class="nav-score">
+            <div class="ns"><span class="ns-val" style="color:#c0392b">18</span><span class="ns-lbl">上昇</span></div>
+            <div class="ns"><span class="ns-val" style="color:#c97b2a">17</span><span class="ns-lbl">中程度</span></div>
+            <div class="ns"><span class="ns-val" style="color:#2d7a4f">4</span><span class="ns-lbl">良好</span></div>
+        </div>
+        <div class="lang-bar"><a href="health_guide_Julian_en.html" class="lang-btn">EN</a> <a href="health_guide_Julian_bg.html" class="lang-btn">БГ</a> <a href="health_guide_Julian_ja.html" class="lang-btn">日本語</a></div>
+    </aside>
+    <div class="cover">
+        <p class="cover-eyebrow">パーソナルゲノムレポート</p>
+        <h1>松下・ジュリアン</h1>
+        <p class="cover-sub">総合的な遺伝的健康記録</p>
+        <div class="cover-stats">
+            <div class="cs"><span class="cs-val">43</span><span class="cs-lbl">分析した形質数</span></div>
+            <div class="cs"><span class="cs-val" style="color:#f87171">18</span><span class="cs-lbl">上昇シグナル数</span></div>
+            <div class="cs"><span class="cs-val" style="color:#86efac">4</span><span class="cs-lbl">良好シグナル数</span></div>
+        </div>
+    </div>
+   <div class="main">
+        <div class="main-inner">
+            <div class="disclaimer">本報告書は、生の常染色体遺伝子型データと公表されたGWAS関連研究に基づいて構築された個人的なゲノム記録であり、臨床診断ではありません。ポリジェニックスコア（PGS）は確実性ではなく相対的な遺伝的素因を反映しており、その正確性は依拠する研究の水準に左右されます——健康に関する判断を下す前に医師または遺伝カウンセラーにご相談ください。特に目の色、髪の色、肌の色調の予測については、これらのモデル（IrisPlex／HIrisPlex型の多SNP回帰）はヨーロッパ系参照集団で較正されているため、ジュリアンの混合ヨーロッパ系・日本系の背景を踏まえるとその精度は低下します——彼自身の遺伝子型データは祖先の影響を受けませんが、予測される外見への変換は影響を受けます。上昇／中程度／良好の件数（18／17／4）は、本報告書における39件の本質的な健康リスク形質を対象としています。外見および身長に関連する4つの形質（目の色、髪の色、肌の色調、身長）はリスク区分ではなく記述的な予測であるため、この集計からは除外されています。2026年8月5日に処理された遺伝子型ファイルに基づき、2026年9月14日作成。</div>
+            <section class="report-section" id="s_synthesis"><h2 class="section-heading">概要と総合的な統合分析</h2><div class="narrative-body">
+<h2>あなたの遺伝的物語 — 全体像</h2>
+<p>ジュリアンのプロファイルは、高浸透率の単一遺伝子疾患を持っていません。この家系の他の報告書と同様に、彼のプロファイルはいくつかの首尾一貫した生物学的ネットワークにわたって分散した中程度の多因子性負荷を示しています——さらに、単に父方・伯父方の系統を繰り返すのではなく、彼を際立たせる本質的に特徴的な所見がいくつか存在します。</p>
+<ul>
+<li><strong>中性脂肪に集中した心代謝系の負荷</strong> — LDLと冠動脈疾患に関するAPOE &epsilon;2の保護と家系で共有されるSORT1のリスクパターンは存在しますが、ジュリアンは中性脂肪を上昇させるAPOA5変異についてヘテロ接合ではなくホモ接合であり、家系の中で最も強い中性脂肪シグナルを持っています。</li>
+<li><strong>特徴的な血管・腎臓のクラスター</strong> — 同じ3つの遺伝子座（CXCL8、ADGRL3、COL6A3）が脳卒中と慢性腎臓病の両方のパネルで上昇しており、血管と内皮に関する共有されたテーマを示しています。</li>
+<li><strong>父方系統からの本質的に好ましい2つの相違点</strong> — MTHFRの2つの主要な位置いずれも野生型であること、そしてBDNFがホモ接合型Val/Valであることは、この家系の他の箇所で葉酸代謝とストレスへの回復力を低下させているヘテロ接合型パターンとは異なります。</li>
+<li><strong>TYK2を中心とする広範な自己免疫の負荷</strong> — ループス、関節リウマチ、炎症性腸疾患、乾癬、クローン病はすべて同じTYK2/IL-23経路に収束しています。</li>
+</ul>
+<p>統一されたテーマは<strong>全身性の炎症負荷と代謝効率の管理</strong>であり、構造化された生活習慣への介入、的を絞った栄養サポート、積極的なモニタリングを通じて対処されます——そして、実際に全体像を変える箇所においては、上記に記録された具体的な相違点によって情報が補われます。</p>
+</div></section>
+            <section class="report-section" id="s_appearance"><h2 class="section-heading">身体的特徴</h2><div class="trait-row" id="n_eye_color">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">混在したシグナル — ヘーゼル系の可能性</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">目の色</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>判定不能 — ヘーゼル〜緑系の可能性（6件中6件のマーカーが一致）。</p>
+    <p>IrisPlexの6つのマーカーSNPすべてに基づくと、結果は一つの色に明確に収束せず、実際に混在しています。最も強力な単一マーカーであるrs12913832（AG）は、優性遺伝子座HERC2でヘテロ接合型であり、青色に完全に振り切るのではなく中間的な結果に傾いています。</p>
+    </div></div>
+            <div class="loci-bar">
+        
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:100.0%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">6件中6件の遺伝子型判定遺伝子座が上昇リスクを示す（100.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="主要因子"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HERC2</span><span class="marker-tag-rsid">rs12913832</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">主要因子</span></div></div><div class="marker-tag marker-tag--modifier" title="副次的寄与"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">OCA2</span><span class="marker-tag-rsid">rs1800407</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">副次的寄与</span></div></div><div class="marker-tag marker-tag--modifier" title="副次修飾因子"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC24A4</span><span class="marker-tag-rsid">rs12896399</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">副次修飾因子</span></div></div><div class="marker-tag marker-tag--modifier" title="副次修飾因子"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs16891982</span><span class="marker-tag-geno">CG</span><span class="marker-tag-weight">副次修飾因子</span></div></div><div class="marker-tag marker-tag--modifier" title="酵素修飾因子"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1393350</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">酵素修飾因子</span></div></div><div class="marker-tag marker-tag--modifier" title="酵素修飾因子"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IRF4</span><span class="marker-tag-rsid">rs12203592</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">酵素修飾因子</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの目の色の遺伝子型は文字通り境界線上にあり、これこそがこの結果の本質的に情報価値のある部分です。HERC2 rs12913832はAG、すなわちヘテロ接合型で、青色関連アレルと祖先型アレルを一つずつ持っています。この単一遺伝子座だけでIrisPlexの予測力の大部分を占めますが、ヘテロ接合型の結果が純粋な青や茶色になることはほとんどなく、ここで見られるような中間的な範囲を生み出します。</p><p>残りのマーカーはほぼ二分しています。SLC24A4（GT）とSLC45A2（CG）はいずれもスケールの明るい側、すなわち青寄りに傾いています。OCA2（CC）、TYR（GG）、IRF4（CC）はいずれも茶色側にあります。この3つの茶色寄りのマーカーはいずれもHERC2ほど強力な単独の駆動因子ではないため、支配的な要因というよりは、むしろ対抗する重りとして働いています。</p><p>実際的な読み方としては、HERC2ヘテロ接合型で補助的な遺伝子座が均等に分かれている場合、一般的にヘーゼル色、光の当たり方や虹彩の中心部の異色症の程度によっては緑がかった茶色と表現されることもある範囲に落ち着きます。これはホモ接合型で青色寄りのHERC2プロファイルとは異なる遺伝子型パターンであり、「おそらく青」と読むべきではありません — データは実際にはどちらの極にも完全には振れていません。</p><p>率直に述べておくべき方法論上の注意点があります。IrisPlex／HIrisPlexの予測モデルはヨーロッパ系参照集団で開発・較正されています。ジュリアンの遺伝子型データ自体は彼のファイルから直接読み取られたもので祖先の影響を受けませんが、彼の混合ヨーロッパ系・日本系の背景を踏まえると、この遺伝子型から予測される外見への変換の精度は低下します — これは参照モデル自体の限界であり、データそのものの問題ではありません。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_hair_color">
+    <div class="trait-spine" style="color:var(--risk-favourable)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">ライトブラウン〜ブロンド、赤みを帯びる可能性あり</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">髪の色</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>ライトブラウン〜ブロンド、赤みを帯びる可能性あり（8件中7件のマーカーが一致）。</p>
+    <p>ライトブラウンからブロンド。MC1Rの4つの位置のうち3つには赤毛変異が見られませんが、4つ目（rs2228479）には赤色関連アレルが1コピー存在します — 赤毛そのものではなく、赤みがかった色合いを帯びる可能性を示唆する程度です。SLC45A2とTYRの変異は全体的な色調をより明るい方向に引っ張ります。</p>
+    </div></div>
+            <div class="loci-bar">
+        
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:87.5%;background:var(--risk-favourable)"></div></div>
+        <span class="loci-bar-label">8件中7件の遺伝子型判定遺伝子座が上昇リスクを示す（87.5%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="除外確認"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs1805008</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">除外確認</span></div></div><div class="marker-tag marker-tag--modifier" title="除外確認"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs11547464</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">除外確認</span></div></div><div class="marker-tag marker-tag--modifier" title="除外確認"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs1110400</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">除外確認</span></div></div><div class="marker-tag marker-tag--modifier" title="除外確認"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">rs2228479</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">除外確認</span></div></div><div class="marker-tag marker-tag--modifier" title="副次修飾因子"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC24A4/SLC45A2</span><span class="marker-tag-rsid">rs12896399</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">副次修飾因子</span></div></div><div class="marker-tag marker-tag--modifier" title="酵素修飾因子"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1042602</span><span class="marker-tag-geno">AC</span><span class="marker-tag-weight">酵素修飾因子</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの髪色遺伝子は、古典的な4つの位置（Arg160Trp、Arg163Gln、Cys289Arg）のうち3つで正常に機能するMC1R受容体によって支配されており、これは真の赤毛を除外します。例外はrs2228479（Val92Met）で、ここでは赤色関連アレルを1コピー持っています。このバリアントのヘテロ接合型キャリアはそれ単独で赤毛として現れることは通常ありませんが、特に日光の下で、それ以外は茶色〜ブロンドのベースに温かみのある、あるいは銅色がかった色合いを加える可能性があります。</p><p>地の色調自体はSLC24A4/SLC45A2（GT、中間）とTYR rs1042602（AC、中程度のメラニン減少）によって決まります。どちらもこの家系の色が濃い髪の色を持つメンバーに見られるSLC45A2の祖先型アレルGGほど強力な暗色の錨ではなく、ジュリアンの組み合わせは中間から濃い茶色ではなく、より明るいライトブラウン〜ブロンドの範囲に位置します。全体像は上記の中間的な目の色のシグナルと整合しており、赤毛を駆動する最も強力なアレルが欠けているという本質的に好ましい特徴を伴った、全体として明るめの色素沈着プロファイルです。</p><p>目の色の項で述べた注意点はここにも当てはまります。髪色の回帰モデルは主にヨーロッパ系コホートで試験・較正されたマーカーパネル（SLC45A2、TYR、MC1R）に基づいています。ジュリアンの混合ヨーロッパ系・日本系の背景を踏まえると、この予測は彼の祖先に合わせて補正された予測ではなく、ヨーロッパ系で較正されたモデルを彼の遺伝子型に適用した結果として読むべきです — 上記の遺伝子型データ自体は彼のファイルの正確な読み取り結果ですが、遺伝子型から予測される色合いへの変換にはより大きな誤差が伴います。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_skin_tone">
+    <div class="trait-spine" style="color:var(--risk-favourable)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">明るめ〜中間（Fitzpatrickタイプ II〜III）</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">肌の色調</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>明るめ〜中間（Fitzpatrickタイプ II〜III）（6件中6件のマーカーが一致）。</p>
+    <p>明るめから中間の肌の色調。SLC24A5（AA）は、最も影響力のある一般的な色素沈着遺伝子座における支配的な明色化シグナルです。TYRの変異は中程度の追加的なメラニン減少を加えますが、日焼けのしやすさに関連する別のTYR位置も存在し、この家系の全員に見られるわけではない本質的に好ましいUV反応の対抗要因となっています。</p>
+    </div></div>
+            <div class="loci-bar">
+        
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:100.0%;background:var(--risk-favourable)"></div></div>
+        <span class="loci-bar-label">6件中6件の遺伝子型判定遺伝子座が上昇リスクを示す（100.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="主要因子"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC24A5</span><span class="marker-tag-rsid">rs1426654</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">主要因子</span></div></div><div class="marker-tag marker-tag--modifier" title="酵素修飾因子"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1042602</span><span class="marker-tag-geno">AC</span><span class="marker-tag-weight">酵素修飾因子</span></div></div><div class="marker-tag marker-tag--modifier" title="副次的寄与"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYR</span><span class="marker-tag-rsid">rs1393350</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">副次的寄与</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>SLC24A5 AAは、この家系の色素沈着遺伝学全体を貫く強力な明色化シグナルと同じものです — ヨーロッパ系と西アフリカ系集団間の色素沈着の違いの大部分を単独で説明する遺伝子座であり、ジュリアンのベースラインを明るい方向に位置づけます。</p><p>ここで特徴的なのはTYRの遺伝子型の組み合わせです。rs1042602（AC）はメラニン産生をわずかに減少させます —この家系の他の箇所にも見られる、そばかすとUV感受性のシグナルと同じです。しかしrs1393350はGGを示し、これは「先に焼ける」パターンではなく、実際に良好な日焼け反応と関連しています。低いベースラインのメラニンと、損なわれていない日焼けメカニズムの組み合わせは、明るく始まりながらも一度日光にさらされ始めれば比較的よく反応する肌タイプを生み出します — 純粋な「先に焼ける」遺伝子型よりもいくらか許容的なUVプロファイルです。SLC24A5のシグナルを踏まえると日常的なSPFの使用は依然として妥当なベースラインですが、ここでの日焼け反応はジュリアンにとって本質的な利点です。</p><p>目の色や髪の色と同様に、上記のFitzpatrick分類はヨーロッパ系参照集団で較正された回帰モデル（主にSLC24A5、SLC45A2、TYRの効果量に基づく）から得られたものです。ジュリアンの混合ヨーロッパ系・日本系の背景に適用すると、これは集団に合わせて補正された推定ではなく、ヨーロッパ系に重み付けされた推定として読むべきです — 遺伝子型データ自体は祖先の影響を受けず直接利用できますが、そこから構築される肌タイプラベルにはより大きな不確実性が伴います。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_hair_loss">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的な薄毛リスクの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">薄毛（脱毛症）</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的な薄毛リスクの上昇（6件中3件のマーカーが一致）。</p>
+    <p>遺伝的な薄毛リスクの上昇。X連鎖遺伝子座AR/EDA2R——男性型脱毛症に関する最も強力な一般的シグナル——はここでリスク遺伝子型を示しています。この遺伝子座はX染色体上に位置するため、父方ではなく母方から受け継がれます。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +6.8</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:50.0%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">6件中3件の遺伝子型判定遺伝子座が上昇リスクを示す（50.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="主要因子"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AR/EDA2R</span><span class="marker-tag-rsid">rs2497938</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">主要因子</span></div></div><div class="marker-tag marker-tag--modifier" title="除外確認"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AR/EDA2R</span><span class="marker-tag-rsid">rs2180439</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">除外確認</span></div></div><div class="marker-tag marker-tag--modifier" title="除外確認"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AR</span><span class="marker-tag-rsid">rs6497540</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">除外確認</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの薄毛遺伝子は、最も重要な遺伝子座で明確な上昇シグナルを示しています。すなわちrs2497938のTTで、X連鎖領域AR/EDA2Rにあり、男性型脱毛症について最も強力かつ一貫して確認されている一般的な変異であり、公表されているオッズ比は約2.0です。ARはX染色体上にあるため、この遺伝子型は完全に母方から受け継がれます — これは父方の薄毛歴について何も語るものではなく、この報告書の他の父方共有シグナルとは本質的に独立した所見です。</p><p>AR/EDA2R領域の他の2つの位置（rs2180439、rs6497540）には追加のリスクアレルが見られないため、負荷はパネル全体に分散するのではなく、単一の優性遺伝子座に集中しています——195のジェノタイプ判定遺伝子座のうち3つが上昇しており、PGSは+6.8です。男性型脱毛症の遺伝率は約80%であり、この報告書の中で最も遺伝的に決定される形質の一つであるため、優性遺伝子座での陽性結果はデータの偶然ではなく、意味のある情報を持っています。</p><p>AR駆動の薄毛遺伝学を確実に相殺する生活習慣の介入はありませんが、早期の認識は有用です。もし薄毛が目立つようになった場合、フィナステリドとミノキシジルはいずれも最も強力なエビデンスがあり、まさにこのアンドロゲン-DHT経路を通じて作用します。大幅な小型化が進行する前に早期に開始する方が効果的です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_height">
+    <div class="trait-spine" style="color:var(--risk-favourable)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">平均以上の身長への強い遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">身長</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>平均以上の身長への強い遺伝的シグナル（4件中3件のマーカーが一致）。</p>
+    <p>平均以上の身長への強い遺伝的シグナル。身長は栄養状態の良い集団において遺伝率が約80%であり、ここでのポリジェニックスコアは知能に次いでこのプロファイル中2番目に高い定量的スコアで、平均以上の身長に対する遺伝的素因と一貫しています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +379.8</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:75.0%;background:var(--risk-favourable)"></div></div>
+        <span class="loci-bar-label">4件中3件の遺伝子型判定遺伝子座が上昇リスクを示す（75.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="主要キュレーション因子"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HMGA2</span><span class="marker-tag-rsid">rs1042725</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">主要キュレーション因子</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>キュレーションされたマーカーHMGA2 rs1042725はTTを示しており、成長と骨格発達を調節する転写因子における高身長関連遺伝子型です — 大規模なコホート研究ではTアレル1コピーにつき約0.4cmの寄与が報告されており、ここでのホモ接合はこの遺伝子座からの効果を最大限に受けていることを意味します。</p><p>より広範なGWASシグナルはこれを裏付けています。骨の成長、IGF-1シグナリング、骨格発達の経路にまたがる23の上昇遺伝子座から得られた+379.8というポリジェニックスコアは、この家系の他の箇所で見られる身長の負荷と匹敵します。成人期の実際の身長は依然として幼少期の栄養と健康状態に大きく左右されますが、遺伝的ベースラインは一貫して集団平均を上回ることを示しています。</p>
+    </div></div>
+        </div>
+    </div>
+    </div></section><section class="report-section" id="s_cardiovascular"><h2 class="section-heading">心血管の健康</h2><div class="trait-row" id="n_cholesterol_ldl">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度のLDL上昇傾向</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">コレステロール / LDL</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度のLDL上昇傾向（8件中7件のマーカーが一致）。</p>
+    <p>中程度のLDL上昇傾向。APOE ε2シグナル（rs7412 CC）は本質的に保護的でLDLリスクを低下させますが、SORT1/CELSR2はLDL上昇アレルを2コピー持っており、わずかな正味の上昇を生み出しています。LPAにはリスクアレルが見られません——これは脂質パネルでは捉えられない独立した心血管リスク因子であるLp(a)の上昇を除外する重要な所見です。</p>
+    </div></div>
+            <div class="loci-bar">
+        
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:87.5%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">8件中7件の遺伝子型判定遺伝子座が上昇リスクを示す（87.5%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="保護的 — ε2シグナル"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">APOE</span><span class="marker-tag-rsid">rs7412</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">保護的 — ε2シグナル</span></div></div><div class="marker-tag marker-tag--modifier" title="保護的アレルなし"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PCSK9</span><span class="marker-tag-rsid">rs11591147</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">保護的アレルなし</span></div></div><div class="marker-tag marker-tag--modifier" title="リスク — 2コピー"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SORT1/CELSR2</span><span class="marker-tag-rsid">rs629301</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">リスク — 2コピー</span></div></div><div class="marker-tag marker-tag--modifier" title="除外確認"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LPA</span><span class="marker-tag-rsid">rs10455872</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">除外確認</span></div></div><div class="marker-tag marker-tag--modifier" title="除外確認"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LPA</span><span class="marker-tag-rsid">rs445925</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">除外確認</span></div></div><div class="marker-tag marker-tag--modifier" title="除外確認"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SORT1</span><span class="marker-tag-rsid">rs7528419</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">除外確認</span></div></div><div class="marker-tag marker-tag--modifier" title="除外確認"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">APOB</span><span class="marker-tag-rsid">rs13306194</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">除外確認</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンのコレステロール遺伝学の中心は、この家系全体に共通するものと同じです。rs7412 CCはAPOE ε2アレルに対応し、標準的なε3/ε3遺伝子型と比較してLDLの低下と好ましい心血管・アルツハイマープロファイルに関連しています。家系の他のメンバーと同様に、rs429358はチップに含まれていないため、ε2/ε4の混合遺伝子型を完全には除外できません——臨床的なAPOE検査によって最終的に明らかになり、脂質および神経学的リスクへの下流の影響を考えると注目に値します。</p><p>ε2シグナルに対抗するのはSORT1/CELSR2 rs629301 TT——LDL上昇アレルを2コピー持つ、この家系の他の箇所でも見られる同じホモ接合の結果です。PCSK9 rs11591147 GGはこちらにも機能喪失型の天然保護がないことを意味します。好ましい側では、LPAは検査した両方の位置でリスクアレルを示さず、標準的な脂質パネルでは全く捉えられないLp(a)の上昇を除外しています。</p><p>正味の効果としては、SORT1によるわずかなLDL上昇傾向がε2のシグナルによって部分的に相殺されています。食事、運動、定期的な脂質パネルが適切なベースラインであり、完全なAPOEステータスを明らかにすることで、以下のアルツハイマー病および心不全の項にも関わってくるこの全体像をさらに鮮明にできるでしょう。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_coronary_artery_disease">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">冠動脈疾患リスクの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">冠動脈疾患</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>冠動脈疾患リスクの上昇（7件中7件のマーカーが一致）。</p>
+    <p>冠動脈疾患リスクの上昇。9p21遺伝子座——LDLとは独立して作用する、冠動脈疾患に関する最も強力な一般的変異——は検査した両方の位置に存在します。中性脂肪の代謝を改善する機能獲得型のLPL保護変異も存在し、部分的な相殺をもたらしています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +113.5</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:100.0%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">7件中7件の遺伝子型判定遺伝子座が上昇リスクを示す（100.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="9p21 — リスクアレル1コピー"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CDKN2B-AS1</span><span class="marker-tag-rsid">rs4977574</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">9p21 — リスクアレル1コピー</span></div></div><div class="marker-tag marker-tag--modifier" title="9p21副次 — 加算的"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CDKN2B-AS1</span><span class="marker-tag-rsid">rs1333049</span><span class="marker-tag-geno">CG</span><span class="marker-tag-weight">9p21副次 — 加算的</span></div></div><div class="marker-tag marker-tag--modifier" title="リスクアレル2コピー"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CELSR2/SORT1</span><span class="marker-tag-rsid">rs646776</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">リスクアレル2コピー</span></div></div><div class="marker-tag marker-tag--modifier" title="LDL受容体領域"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LDLR</span><span class="marker-tag-rsid">rs1122608</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">LDL受容体領域</span></div></div><div class="marker-tag marker-tag--modifier" title="副次修飾因子"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MRAS</span><span class="marker-tag-rsid">rs9818870</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">副次修飾因子</span></div></div><div class="marker-tag marker-tag--modifier" title="保護的"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LPL</span><span class="marker-tag-rsid">rs264</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">保護的</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの冠動脈疾患遺伝学は、この家系全体に見られるものと同じ9p21のシグネチャーを示しています。すなわちrs4977574（AG）とrs1333049（CG）にそれぞれリスクアレル1コピーずつです。これらは最も頻繁に確認されている9p21変異であり、そのメカニズムはコレステロールではなく血管平滑筋の増殖と炎症経路を介するため、通常の脂質パネルではこのリスク要素は単独では捉えられません。</p><p>CELSR2/SORT1 rs646776 TT（リスクアレル2コピー）は、コレステロールの項ですでに触れたSORT1シグナルの上にLDL経路からの寄与を追加します。LPL rs264の保護的アレルGGは、中性脂肪の代謝を改善することで、実質的ではあるが部分的な相殺をもたらします——家系の他の箇所でも見られる同じ機能獲得型変異です。</p><p>27の上昇遺伝子座から得られた+113.5というポリジェニックスコアは、この家系の他の箇所での負荷と匹敵しますが、実際的な推奨事項は誰にでも当てはまるものと同じでありながら、ここではより重みを持ちます。すなわち、平均より若い年齢からの血圧モニタリング、9p21のリスクがそこには反映されないという理解のもとでの定期的な脂質パネル検査、そしてこの種のポリジェニック負荷と相乗的（加算的ではなく）に相互作用する喫煙の回避です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_triglycerides">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中性脂肪値の上昇傾向</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">中性脂肪（トリグリセリド）</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中性脂肪値の上昇傾向（6件中6件のマーカーが一致）。</p>
+    <p>中性脂肪値の上昇傾向。主にAPOA5のホモ接合型リスク遺伝子型——中性脂肪上昇アレルを1コピーではなく2コピー——によって引き起こされています。LPLの保護変異は依然として存在し、実質的ではあるが部分的な相殺をもたらしています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +153.4</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:100.0%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">6件中6件の遺伝子型判定遺伝子座が上昇リスクを示す（100.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="リスク — 2コピー"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">APOA5</span><span class="marker-tag-rsid">rs662799</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">リスク — 2コピー</span></div></div><div class="marker-tag marker-tag--modifier" title="保護的 — S447X"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LPL</span><span class="marker-tag-rsid">rs328</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">保護的 — S447X</span></div></div><div class="marker-tag marker-tag--modifier" title="多面発現性"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GCKR</span><span class="marker-tag-rsid">rs1260326</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">多面発現性</span></div></div><div class="marker-tag marker-tag--modifier" title="副次的寄与"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTNR1B</span><span class="marker-tag-rsid">rs10830963</span><span class="marker-tag-geno">CG</span><span class="marker-tag-weight">副次的寄与</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>これはジュリアンのプロファイルの中でより明確に上昇している所見の一つです。APOA5 rs662799 GGは、リポタンパクリパーゼを活性化するAPOA5の役割を損なうアレルを2コピー持つことを意味します。この家系の他の箇所で見られる1コピーのヘテロ接合型パターンではなくホモ接合であることが、より強い中性脂肪上昇効果と、それに対応してより高いGWAS負荷（63の上昇遺伝子座から得られたPGS +153.4で、家系の他の中性脂肪スコアより著しく高い）を生み出しています。</p><p>LPL rs328 CCは依然として存在し、本質的に保護的です——この機能獲得型変異は過活動型のリポタンパクリパーゼを生み出し、APOA5の影響を大きく緩和しますが、上流に2コピーのリスクを抱えているため、ヘテロ接合型のベースラインに対してよりも多くの働きが必要になります。</p><p>GCKR rs1260326（CT）は本質的に両面性を持つ変異です。中性脂肪を上昇させる同じアレルが、逆説的に空腹時血糖値を低下させます（十分に文書化された多面発現効果）——純粋な負の要因としてではなく、知っておくべき情報として扱うべきです。実際的には、APOA5のホモ接合は炭水化物とアルコールの摂取がこの変異を持たない人よりも中性脂肪値を大きく動かすことを意味します。オメガ3脂肪酸（EPA/DHA）のサプリメントと低炭水化物の食事パターンはAPOA5リスク保有者において特に効果的であり、この所見の強さを踏まえると定期的な空腹時脂質検査は妥当な出発点です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_atrial_fibrillation">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">心房細動</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度の遺伝的シグナル（141件中6件のマーカーが一致）。</p>
+    <p>心房細動に対する中程度の遺伝的シグナル——軽度の単独所見から予想されるよりも幅広く高く評価された上昇遺伝子座の集合です。心房細動の遺伝率は控えめ（約20〜30%）であり、環境要因と心血管プロファイルの残りの部分が相対的に大きな比重を占めることを意味します。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +21.8</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:4.3%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">141件中6件の遺伝子型判定遺伝子座が上昇リスクを示す（4.3%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC01438</span><span class="marker-tag-rsid">rs6843082</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC01438</span><span class="marker-tag-rsid">rs6817105</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ZFHX3</span><span class="marker-tag-rsid">rs2106261</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 7.25"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC01875/TMEM18</span><span class="marker-tag-rsid">rs2903492</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇、OR 7.25</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GORAB/PRRX1</span><span class="marker-tag-rsid">rs3903239</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの心房細動シグナルは、典型的な軽度の所見よりも幅広く、141の遺伝子型判定遺伝子座のうち6つが上昇しており、PGSは+21.8です。ZFHX3とADGRL3に近い領域がここで繰り返し現れ、注目すべきことに以下の脳卒中および慢性腎臓病のプロファイルでも上昇している遺伝子座と重なり合っており、これは3つの無関係な所見ではなく、血管および構造的リモデリングに関する共通のテーマを示唆しています。</p><p>心房細動はより一般的な心疾患の中でも遺伝率が低い部類に入り、しばしば高血圧、冠動脈疾患、睡眠の質といった、この心血管の項の残りの部分を動かしている同じ要因の結果として生じます。血圧管理、心房細動の急性の引き金として修正可能な要因の中で最も強力なアルコールの制限、健康的な体重の維持は、上記の冠動脈疾患および中性脂肪のシグナルを管理するのと同じ経路を通じて心房細動のリスクに対処します。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_stroke">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">脳卒中</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（206件中14件のマーカーが一致）。</p>
+    <p>脳卒中に対する遺伝的シグナルの上昇——他の箇所での軽度の所見とは異なり、14の上昇遺伝子座を伴う、家系のベースラインより顕著に幅広い負荷です。脳卒中は冠動脈疾患および心房細動と重要な遺伝的重なりを共有しており、いずれもこのプロファイルで上昇しています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +44.0</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:6.8%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">206件中14件の遺伝子型判定遺伝子座が上昇リスクを示す（6.8%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 10.96"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TBX5</span><span class="marker-tag-rsid">rs883079</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 10.96</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 7.35"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ARNT2-DT</span><span class="marker-tag-rsid">rs12908004</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 7.35</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 14.29"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CXCL8</span><span class="marker-tag-rsid">rs188378669</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 14.29</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 14.29"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ADGRL3</span><span class="marker-tag-rsid">rs192210727</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 14.29</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 5.81"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IGF1R</span><span class="marker-tag-rsid">rs6598541</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 5.81</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 12.50"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">COL6A3</span><span class="marker-tag-rsid">rs146092501</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">上昇、OR 12.50</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 17.48"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ZFHX3</span><span class="marker-tag-rsid">rs2106261</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇、OR 17.48</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 13.10"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CAV1</span><span class="marker-tag-rsid">rs3807989</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇、OR 13.10</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの脳卒中遺伝学は、単一の心原性マーカーから予想されるよりも顕著に幅広い上昇の集合を示しています——206の遺伝子型判定遺伝子座のうち14がこれにあたり、PGSは+44.0です。TBX5（心房細動の経路と共有される心原性サブタイプ）とZFHX3は、心房細動の項とまさに同じように現れており、これは両疾患間の相当な遺伝的重なりを踏まえると予想される模様です。</p><p>より特徴的な所見は、CXCL8、ADGRL3、COL6A3の集積です——この3つはすべて、同じ遺伝子型で、以下の慢性腎臓病の項でも再び現れています。これは見過ごすべき偶然ではありません。これらの遺伝子座は血管内皮の完全性と細小血管の構造的生物学に収束しており、脳血管系と腎臓系という2つの臓器系にわたる共同での上昇は、3つの独立した所見ではなく、共有された細小血管の脆弱性を示唆しています。</p><p>本質的に安心できる点が一つあります。この家系の他の箇所ではホモシステイン由来の脳卒中リスクを上昇させる複合的なMTHFRヘテロ接合型が見られますが、ジュリアン自身のMTHFR遺伝子型は主要な2つの位置いずれも野生型です（上記の代謝の健康の項を参照）——したがって、この特定の増幅メカニズムは彼には当てはまりません。ここでの実際的な焦点は、ホモシステインに特化した介入ではなく、血圧管理と上記のより広範な心血管の全体像です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_heart_failure">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">心不全</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（49件中22件のマーカーが一致）。</p>
+    <p>心不全に対する遺伝的シグナルの上昇。この家系の他の箇所と同様に、これは独立した一次的な心臓の欠陥としてではなく、上記の冠動脈疾患、脂質、血圧の経路の結果として最もよく理解されます。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +55.8</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:44.9%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">49件中22件の遺伝子型判定遺伝子座が上昇リスクを示す（44.9%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 10.41"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CELSR2</span><span class="marker-tag-rsid">rs12740374</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 10.41</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 8.90 / 7.57"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LDLR</span><span class="marker-tag-rsid">rs6511720</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 8.90 / 7.57</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 7.18"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GORAB/PRRX1</span><span class="marker-tag-rsid">rs577676</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">上昇、OR 7.18</span></div></div><div class="marker-tag marker-tag--modifier" title="このGWASの文脈では上昇扱い"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">APOE</span><span class="marker-tag-rsid">rs7412</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">このGWASの文脈では上昇扱い</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 6.93"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PCSK9</span><span class="marker-tag-rsid">rs11591147</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 6.93</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 5.63"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ZNF664</span><span class="marker-tag-rsid">rs4765127</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 5.63</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 7.98"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">COL4A2</span><span class="marker-tag-rsid">rs9515203</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇、OR 7.98</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンは、この報告書の心血管の全体像の他の箇所と同じパターンを示しています。49の遺伝子型判定心不全遺伝子座のうち22が上昇しており、PGSは+55.8です。これはほぼ全て、心筋に特有の遺伝子座ではなく、上記ですでに議論した脂質経路の遺伝子（CELSR2、LDLR、PCSK9）に集中しています。APOE ε2のシグナルもここに現れています——心不全のGWAS研究では同じSNPが「上昇」所見として扱われている点は注目に値し、GWAS研究の設計とキュレーションされた臨床的解釈が必ずしも同じ方向を指すわけではないことを思い起こさせます——LDLとアルツハイマー病に対して保護的であるというキュレーションされたε2の読み方の方が、より臨床的に意味のある重み付けです。</p><p>冠動脈疾患とコレステロールの項に当てはまるのと同じメッセージがここでも成り立ちます。血圧管理、脂質管理、心血管フィットネスは、心不全リスクの原動力に同時に対処するものであり、これらの共有された経路を良好に管理すること以外に、心不全に特化した別個の対策はありません。</p>
+    </div></div>
+        </div>
+    </div>
+    </div></section><section class="report-section" id="s_metabolic"><h2 class="section-heading">代謝の健康</h2><div class="trait-row" id="n_mthfr_b_vitamin_metabolism">
+    <div class="trait-spine" style="color:var(--risk-favourable)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">両位置とも野生型 — 複合ヘテロ接合なし</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">MTHFR / ビタミンB代謝</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>MTHFRの主要2位置とも野生型 — 複合ヘテロ接合なし（5件中5件のマーカーが一致）。</p>
+    <p>MTHFR C677T（rs1801133）とMTHFR A1298C（rs1801131）の両方で野生型（GG）。これは本質的に好ましく特徴的な所見です。ジュリアンは、この家系の他の箇所で葉酸回路の酵素活性を低下させている複合ヘテロ接合を持っていません。</p>
+    </div></div>
+            <div class="loci-bar">
+        
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:100.0%;background:var(--risk-favourable)"></div></div>
+        <span class="loci-bar-label">5件中5件の遺伝子型判定遺伝子座が上昇リスクを示す（100.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="野生型"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTHFR</span><span class="marker-tag-rsid">rs1801133</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">野生型</span></div></div><div class="marker-tag marker-tag--modifier" title="野生型"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTHFR</span><span class="marker-tag-rsid">rs1801131</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">野生型</span></div></div><div class="marker-tag marker-tag--modifier" title="副次的寄与"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTHFD1</span><span class="marker-tag-rsid">rs2236225</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">副次的寄与</span></div></div><div class="marker-tag marker-tag--modifier" title="野生型"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTR</span><span class="marker-tag-rsid">rs1805087</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">野生型</span></div></div><div class="marker-tag marker-tag--modifier" title="ヘテロ接合型"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTRR</span><span class="marker-tag-rsid">rs1801394</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">ヘテロ接合型</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>これはジュリアンのプロファイルの中で、家系の他の箇所と比べて最も明確な違いの一つです。MTHFR rs1801133のGGはC677T位置における野生型・非リスク遺伝子型です——MTHFR酵素活性を低下させるTアレルを彼は持っていません。rs1801131（A1298C）についても同様で、GGは機能低下型のCアレルではなく野生型です。この両方の結果を合わせると、他の箇所では葉酸の変換とホモシステインの除去を実際に損なっている複合ヘテロ接合が除外されます。</p><p>残りのマーカーは、これと比較すると軽微です。MTR rs1805087のAAは野生型であり、B12依存性の再メチル化ステップに追加の障害がないことを意味します。MTRR rs1801394はAG、ヘテロ接合型を示しており、B12補因子のリサイクルに中程度の減少をもたらしますが、これは単独では控えめな所見であり、すでに良好なMTHFRの主要な結果を大きく相殺するほどのものではありません。</p><p>実際的には、これは複合ヘテロ接合型のMTHFR保有者に関連する特定のサプリメント戦略——葉酸の代わりにメチル葉酸、シアノコバラミンの代わりにメチルコバラミン——が、この家系の他の箇所とは異なり、ジュリアン自身の遺伝子からは特に示されないことを意味します。食事や通常のサプリメントによる標準的な葉酸とB12の摂取は、正常に変換・除去されると考えられます。これはまた、家系の他の箇所の脳卒中および腎臓の健康の項で繰り返し現れる、ホモシステイン上昇に関連する機構的な要因の一つを排除するものであり、本質的に好ましい構造的な違いとして特筆すべきです。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_type_2_diabetes">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">2型糖尿病の遺伝的リスク上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">2型糖尿病</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>2型糖尿病の遺伝的リスク上昇（12件中12件のマーカーが一致）。</p>
+    <p>2型糖尿病の遺伝的リスク上昇。4つの遺伝子座がリスクアレルのホモ接合、5つがヘテロ接合という混在した遺伝子型パターンです。TCF7L2——2型糖尿病に関する唯一最も強力な一般的変異——は1コピー存在し、この変異の保有者では生活習慣の改善が特に効果的であることが知られています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +110.4</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:100.0%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">12件中12件の遺伝子型判定遺伝子座が上昇リスクを示す（100.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="リスクアレル1コピー"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TCF7L2</span><span class="marker-tag-rsid">rs7903146</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">リスクアレル1コピー</span></div></div><div class="marker-tag marker-tag--modifier" title="保護的アレルなし"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PPARG</span><span class="marker-tag-rsid">rs1801282</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">保護的アレルなし</span></div></div><div class="marker-tag marker-tag--modifier" title="リスクアレル1コピー"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">KCNJ11</span><span class="marker-tag-rsid">rs5219</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">リスクアレル1コピー</span></div></div><div class="marker-tag marker-tag--modifier" title="リスクアレル1コピー"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC30A8</span><span class="marker-tag-rsid">rs13266634</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">リスクアレル1コピー</span></div></div><div class="marker-tag marker-tag--modifier" title="リスクアレル1コピー"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CDKN2A/B</span><span class="marker-tag-rsid">rs10811661</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">リスクアレル1コピー</span></div></div><div class="marker-tag marker-tag--modifier" title="リスクアレル1コピー"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">FTO</span><span class="marker-tag-rsid">rs8050136</span><span class="marker-tag-geno">AC</span><span class="marker-tag-weight">リスクアレル1コピー</span></div></div><div class="marker-tag marker-tag--modifier" title="ホモ接合型リスク、OR 2.84"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CCND2-AS1</span><span class="marker-tag-rsid">rs76895963</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">ホモ接合型リスク、OR 2.84</span></div></div><div class="marker-tag marker-tag--modifier" title="ホモ接合型リスク、OR 5.0（韓国人コホート）"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC02630</span><span class="marker-tag-rsid">rs1631619</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">ホモ接合型リスク、OR 5.0（韓国人コホート）</span></div></div><div class="marker-tag marker-tag--modifier" title="ホモ接合型リスク、OR 1.75"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TCERG1L</span><span class="marker-tag-rsid">rs10741243</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">ホモ接合型リスク、OR 1.75</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの2型糖尿病遺伝学は、家系全体で見られるパターンを忠実に反映しています。すなわち、単一の遺伝子でホモ接合の負荷を持つのではなく、ほぼすべての主要な一般的遺伝子座（TCF7L2、KCNJ11、SLC30A8、CDKN2A/B、FTO）でヘテロ接合であることに加え、より臨床的に支配的ではない遺伝子座での3つのホモ接合型リスク所見です。TCF7L2 rs7903146 CTが際立っています。これは最も頻繁に確認されている2型糖尿病変異で、Wntシグナル伝達を介してβ細胞機能を損ないますが、異例なほど良いニュースも伴います —— Diabetes Prevention Program試験では、TCF7L2のリスク保有者が生活習慣の改善を行った場合、非保有者と同じ程度の2型糖尿病発症率の低下を達成したことが示されており、この特定の遺伝的効果は固定されたものではないことを意味します。</p><p>家系の他の箇所と同様に、rs1631619（LINC02630）GGは韓国人コホートから得られたOR 5.0を示しており、この集団の外では適切な慎重さをもって評価すべきです。25の上昇遺伝子座から得られたポリジェニックスコア+110.4は、家系のベースラインと広く匹敵します。</p><p>実際的な結論は、祖先に特化した注意点によって変わりません。すなわち、これは中程度から上昇した、しかし本質的に修正可能なリスクプロファイルです。健康的な体重の維持、定期的な運動、空腹時血糖値/HbA1cの定期的な確認は、現在の症状の有無にかかわらず適切であり、まさにこの遺伝子型パターンに対する試験に基づくエビデンスによって特に裏付けられています。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_bmi_obesity_tendency">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度のBMI遺伝的傾向</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">BMI / 肥満傾向</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度のBMI遺伝的傾向（7件中7件のマーカーが一致）。</p>
+    <p>中程度のBMI遺伝的傾向。FTOのヘテロ接合が主なシグナルであり、NEGR1の保護的アレルによって部分的に相殺されています。BMIに対する遺伝的影響は最もよく文書化された遺伝子・環境相互作用の一つであり、運動はFTOの効果を大幅に緩和します。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +495.9</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:100.0%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">7件中7件の遺伝子型判定遺伝子座が上昇リスクを示す（100.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="リスクアレル1コピー"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">FTO</span><span class="marker-tag-rsid">rs9939609</span><span class="marker-tag-geno">AT</span><span class="marker-tag-weight">リスクアレル1コピー</span></div></div><div class="marker-tag marker-tag--modifier" title="副次 — 加算的"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">FTO</span><span class="marker-tag-rsid">rs17817449</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">副次 — 加算的</span></div></div><div class="marker-tag marker-tag--modifier" title="保護的"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">NEGR1</span><span class="marker-tag-rsid">rs2815752</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">保護的</span></div></div><div class="marker-tag marker-tag--modifier" title="運動との相互作用遺伝子座"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TNNI3K</span><span class="marker-tag-rsid">rs1514175</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">運動との相互作用遺伝子座</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンは、家系全体で見られるFTOのヘテロ接合パターン（rs9939609 AT、rs17817449 GT）を持ち、それぞれがBMIをわずかに加算的に上昇させます。NEGR1 rs2815752 AGは保護的アレルを1コピー提供し、これを部分的に相殺します——この家系の他の箇所で見られるBMI遺伝学と同様の力の均衡です。</p><p>ここで最も重要な文脈は、Kilpeläinenらによる2011年のメタアナリシス（21万8千人の参加者）です。身体的に活動的なFTOリスク保有者は、非保有者とほぼ変わらないBMI値を示した一方、非活動的な保有者は遺伝的効果を全面的に示しました——これはヒト遺伝学全体の中でも最もよく確認された遺伝子・環境相互作用の所見の一つです。遺伝的傾向（51の上昇遺伝子座から得られたPGS +495.9）は確かに存在しますが、それが実際に表現されるかどうかは、遺伝的宿命というよりも活動レベルの関数であることを意味します。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_gout">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">痛風</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（195件中12件のマーカーが一致）。</p>
+    <p>痛風に対する遺伝的シグナルの上昇——典型的な家系のベースラインよりも幅広いものです。尿酸に関する2つの支配的な遺伝子であるSLC2A9とABCG2の両方が寄与しており、上記の中性脂肪を上昇させているのと同じ果糖／アルコールに対する食事感受性が尿酸も上昇させています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +27.5</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:6.2%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">195件中12件の遺伝子型判定遺伝子座が上昇リスクを示す（6.2%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.93"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ALDH2</span><span class="marker-tag-rsid">rs671</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 1.93</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.89"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ABCG2</span><span class="marker-tag-rsid">rs3114020</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">上昇、OR 1.89</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.75"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MYL2</span><span class="marker-tag-rsid">rs2188380</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 1.75</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.81"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ABCG2</span><span class="marker-tag-rsid">rs1871744</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 1.81</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.77"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ZNF730/ZNF724</span><span class="marker-tag-rsid">rs12980365</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 1.77</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 6.47"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PCNX3</span><span class="marker-tag-rsid">rs12801636</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 6.47</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CUX2</span><span class="marker-tag-rsid">rs4766566</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの痛風遺伝学は、この家系で通常見られるよりも幅広い上昇の集合を示しています——195の遺伝子型判定遺伝子座のうち12が該当し、PGSは+27.5です。腸管での尿酸分泌に関わり、食事に敏感な早発性の痛風と最も関連するトランスポーターであるABCG2が、上昇の集合に2回登場しており、腎臓での尿酸再吸収に影響するSLC2A9経路の変異と並んでいます。</p><p>ここでの最も強力な遺伝子・環境相互作用——上記の中性脂肪の項でも見られたのと同じもの——は果糖です。果糖の代謝はプリン摂取とは独立して尿酸を直接生成する副産物であり、血清尿酸値に対する食事因子の中でもおそらく最も強力な要因です。ジュリアンの中性脂肪遺伝学（APOA5ホモ接合型）がすでに糖分とアルコールに対する高い感受性を示していることを踏まえると、これは同じ食事上の標的を指す2つ目の独立した遺伝的経路です。果糖を加えた飲料の制限、アルコール（特にビール）の節度、十分な水分補給、定期的な血清尿酸値の検査が、ここでの実際的かつ遺伝子情報に基づいたステップです。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_chronic_kidney_disease">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">慢性腎臓病</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（95件中15件のマーカーが一致）。</p>
+    <p>慢性腎臓病に対する遺伝的シグナルの上昇——典型的なベースラインよりも著しく幅広く、95の遺伝子型判定遺伝子座のうち15が上昇しています。主要な遺伝子座のいくつか（CXCL8、ADGRL3、COL6A3）は、上記の脳卒中の項で上昇している変異と同じであり、両臓器系にわたる血管・内皮の共通した生物学を示唆しています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +24.6</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:15.8%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">95件中15件の遺伝子型判定遺伝子座が上昇リスクを示す（15.8%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇（x2）"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PYROXD2</span><span class="marker-tag-rsid">rs2147896</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇（x2）</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 4.35 — 脳卒中と共有"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CXCL8</span><span class="marker-tag-rsid">rs188378669</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 4.35 — 脳卒中と共有</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 4.00 — 脳卒中と共有"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ADGRL3</span><span class="marker-tag-rsid">rs192210727</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 4.00 — 脳卒中と共有</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 4.17 — 脳卒中と共有"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">COL6A3</span><span class="marker-tag-rsid">rs146092501</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">上昇、OR 4.17 — 脳卒中と共有</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AGXT2</span><span class="marker-tag-rsid">rs37369</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PYROXD2</span><span class="marker-tag-rsid">rs4488133</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>これはジュリアンの報告書の中でも特に特徴的な所見の一つであり、慢性腎臓病について通常の「中程度」の記載よりも多くの注目に値します。95の遺伝子型判定遺伝子座のうち15が上昇しており——典型的な単一遺伝子の所見よりも著しく幅広いシグナルです——PGSは+24.6で、この家系の他の箇所で同じ疾患について見られる水準を上回っています。</p><p>最も機構的に興味深い部分は、単一の最も強力な個別シグナル（腎尿細管の代謝物処理に関与する）であるPYROXD2ではなく、CXCL8、ADGRL3、COL6A3の再登場です——上記の脳卒中の項で上昇していたのと全く同じ3つの遺伝子座が、同じ遺伝子型で現れています。これは2つの偶然の所見ではなく、複数の臓器にまたがる首尾一貫したシグナルです。これらの遺伝子は血管内皮と細小血管の構造的完全性に収束しており、脳血管系と腎臓のGWASパネル両方での共同の上昇は、2つの別々の項目としてではなく、一つのテーマとして追跡すべき共有された細小血管の脆弱性を示唆しています。</p><p>ジュリアンのMTHFR遺伝子型は野生型であるため（上記参照）、この家系の他の箇所で葉酸代謝を腎臓病リスクと結びつけているホモシステイン媒介性の腎毒性経路は、彼には同じようには当てはまりません——彼の慢性腎臓病シグナルは、この血管・構造的な集積によってよりよく説明されます。糖尿病性腎症と高血圧性腎硬化症は合わせて集団レベルでの慢性腎臓病の大部分を占めるため、具体的な寄与遺伝子が何であれ、血圧管理と糖尿病予防が主要な対策として残ります。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_vitamin_d_levels">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">軽度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">ビタミンD値</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>軽度の遺伝的シグナル（71件中4件のマーカーが一致）。</p>
+    <p>ビタミンD値に対する軽度の遺伝的シグナルで、GC（ビタミンD結合タンパク質）遺伝子座に集中しています。ここでの遺伝子型パターンは家系で共有されているGCハプロタイプと一致しており、この輸送段階での非効率性が父方から受け継がれていることを示唆しています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +11.4</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:5.6%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">71件中4件の遺伝子型判定遺伝子座が上昇リスクを示す（5.6%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GC</span><span class="marker-tag-rsid">rs2282679</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CYP2R1/CALCB</span><span class="marker-tag-rsid">rs10741657</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GC</span><span class="marker-tag-rsid">rs7041</span><span class="marker-tag-geno">CA</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンのビタミンD輸送遺伝学——GC rs2282679（TT）とrs7041（CA）——は、この家系の他の箇所で見られるのと同じハプロタイプと一致しており、これは独立した所見ではなく、ビタミンD結合タンパク質の効率が中程度に低下しているという共有された遺伝的パターンを示唆しています。CYP2R1 rs10741657（AG）は、ビタミンD活性化の最初の水酸化ステップを担う酵素にわずかな追加の寄与を加えます。</p><p>ジュリアンのデータセットには、家系の他の箇所で輸送段階と受容体段階の区別に情報を提供したVDR受容体位置（TaqI/ApaI）の結果が含まれていないため、この項では同じ受容体パターンが彼にも当てはまると仮定するのではなく、輸送段階に限定して記述しています。利用可能な証拠に基づくと、実際的な指針はこの共有されたGCハプロタイプに対する通常のものです。すなわち、単なる最低ラインではなく血清25(OH)D値を正常範囲の上限に近づけることを目標とし、遺伝子型だけに頼るのではなく実際のステータスを確認するために定期的な血液検査（25(OH)D、カルシウム、PTH）を行うことです。</p>
+    </div></div>
+        </div>
+    </div>
+    </div></section><section class="report-section" id="s_neurological"><h2 class="section-heading">脳・認知・神経系の健康</h2><div class="trait-row" id="n_cognitive_profile">
+    <div class="trait-spine" style="color:var(--risk-favourable)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">ウォリアー型（COMT Val/Val）で保護的なBDNF Val/Val</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">認知プロファイル</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>ウォリアー型認知プロファイル（COMT Val/Val）、保護的なBDNF Val/Valを伴う（4件中2件のマーカーが一致）。</p>
+    <p>ウォリアー型認知プロファイル（COMT Val/Val）——前頭前野でのドーパミン分解が速く、負荷やストレス下でより良い実行機能と関連しています。特徴的なのは、ジュリアンのBDNF遺伝子型がホモ接合型Val/Valであり、活動依存性のBDNF分泌が高い保護的な形であることです。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +1028.3</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:50.0%;background:var(--risk-favourable)"></div></div>
+        <span class="loci-bar-label">4件中2件の遺伝子型判定遺伝子座が上昇リスクを示す（50.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="Val/Val — ウォリアー型プロファイル"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">COMT</span><span class="marker-tag-rsid">rs4680</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Val/Val — ウォリアー型プロファイル</span></div></div><div class="marker-tag marker-tag--modifier" title="Val/Val — BDNF分泌が高い"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">BDNF</span><span class="marker-tag-rsid">rs6265</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Val/Val — BDNF分泌が高い</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンは、この家系の他の箇所で見られるのと同じCOMT Val/Val（「ウォリアー型」）遺伝子型を持っています——rs4680のGGはCOMT酵素活性が高いこと、前頭前野のドーパミン分解が速いこと、そしてやや低いベースラインのドーパミン緊張と引き換えに、高い認知負荷やストレス下での良好なパフォーマンスに傾く認知スタイルを意味します。</p><p>本質的に特徴的な所見はBDNFです。ジュリアンはrs6265でCC、すなわち完全機能型のValアレルのホモ接合であり、家系の他の箇所で見られるヘテロ接合型のVal66Metパターンとは異なり、Metアレルによる減少がありません。2つの機能するValアレルは、活動依存性のBDNF分泌が完全であることを意味し、これはシナプス可塑性、エピソード記憶の定着、ストレスに対する回復力を支えます——Metアレルがもたらす部分的な減少はありません。ウォリアー型のCOMTプロファイルと組み合わさることで、これは本質的に好ましい組み合わせです。すなわち、ヘテロ接合型のBDNF保有者が示すような、睡眠や運動により依存的なプロファイルではなく、学習とストレスからの回復を支える無傷の神経栄養システムに裏打ちされた、プレッシャー下での強い実行機能です。</p><p>知能に関するポリジェニックスコア（7つの上昇遺伝子座から得られた+1028.3）は、この報告書の中で最も高い定量的スコアであり、家系全体で見られるパターンと一致しますが、同じ方法論上の注意点が当てはまります。これらのGWAS研究は、純粋な認知能力の指標というよりも、教育達成度とアルツハイマー病に関する多面発現的なシグナルを大きく反映しているため、キュレーションされたCOMT/BDNFの遺伝子型の方が解釈しやすい層です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_alzheimer_s_disease">
+    <div class="trait-spine" style="color:var(--risk-favourable)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">平均的なリスク、保護的なAPOE ε2シグナルあり</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">アルツハイマー病</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>平均的なアルツハイマー病リスク、保護的なAPOE ε2シグナルあり（8件中6件のマーカーが一致）。</p>
+    <p>平均的なアルツハイマー病リスク。rs7412のCC遺伝子型はAPOE ε2という保護的アレルに対応し、標準的なε3/ε3遺伝子型と比較しておよそ50%低いアルツハイマー病リスクと関連しています——この家系の他の箇所で見られるのと同じ好ましいシグナルです。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +195.5</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:75.0%;background:var(--risk-favourable)"></div></div>
+        <span class="loci-bar-label">8件中6件の遺伝子型判定遺伝子座が上昇リスクを示す（75.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="副次的寄与"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CLU</span><span class="marker-tag-rsid">rs9331888</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">副次的寄与</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンのアルツハイマー病遺伝学の中心は、この家系の他の箇所で見られるのと同じ安心できる所見です。すなわち、標準的なε3/ε3遺伝子型と比較しておよそ50%低いアルツハイマー病リスクに関連するAPOE ε2に対応する保護的なrs7412 CCであり、ε2保有者は高齢でも認知機能が健康な人々の中で有意に多く見られます。家系の他のメンバーと同様に、rs429358が欠けているため、APOE εアレルの完全な判定はこのデータからは不可能です——臨床的なAPOEパネルによってこれが解決されるでしょう。</p><p>GWASポリジェニックスコアも家系の他の箇所とほぼ同一です——ジュリアンでは70の上昇遺伝子座から+195.5です——同じ解釈上の注意も等しく当てはまります。このスコアは、発見に用いられたGWAS研究における教育-アルツハイマー病の多面発現変異によって上振れしており、実際の臨床的リスクの支配的な駆動因子である直接のAPOE ε2の所見よりもかなり低く評価すべきです。CLU rs9331888 CCは、APOEと比較すると小さな副次的リスクシグナルです。</p><p>APOEを適切に重み付けした全体像は、本質的に好ましいものです。心血管の健康、定期的な有酸素運動、質の良い睡眠（アミロイドの除去に重要）、継続的な認知的関与は、遺伝子型にかかわらず最もよく証明された保護的行動であり、すでに保護的なε2のベースラインの上にあることで特に効果的です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_depression">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度のうつ病遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">うつ病</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度のうつ病遺伝的シグナル（6件中6件のマーカーが一致）。</p>
+    <p>中程度のうつ病遺伝的シグナル。うつ病の遺伝率は約35〜40%に過ぎず、遺伝的変異の大部分は個々の効果が非常に小さい多因子性のものです——ここでの遺伝的リスクは個人レベルでは有意に予測的ではありません。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +76.9</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:100.0%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">6件中6件の遺伝子型判定遺伝子座が上昇リスクを示す（100.0%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="うつ病に関する最初に確認されたGWAS所見"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">NEGR1</span><span class="marker-tag-rsid">rs1545843</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">うつ病に関する最初に確認されたGWAS所見</span></div></div><div class="marker-tag marker-tag--modifier" title="神経機能"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TMEM161B</span><span class="marker-tag-rsid">rs10514299</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">神経機能</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンのうつ病遺伝学は、単一の支配的な遺伝子ではなく、多くの効果の小さい変異から構成された中程度の多因子性負荷（28の上昇遺伝子座から得られたPGS +76.9）を示しています——NEGR1とTMEM161Bはうつ病に関する最初期の遺伝的に有意な所見の一つですが、それぞれの個々の効果量は非常に小さいものです。</p><p>より個人的に関連性の高い文脈は、上記の神経学的プロファイルから得られます。この家系の他の箇所で見られるBDNFのヘテロ接合型保有者では、BDNF分泌の減少がストレス感受性への本質的に機構的な寄与となっていますが、ジュリアンのホモ接合型Val/Val BDNF遺伝子型は活動依存性の神経栄養サポートを完全な形で提供します。これは多くの独立した遺伝子座から構築されたうつ病のポリジェニックスコアを無効にするものではありませんが、家系の他の箇所で見られる最も明確な単一の遺伝的脆弱性メカニズムの一つがここには存在しないことを意味します。定期的な有酸素運動、質の良い睡眠、強い社会的つながりは依然として最もよく証明された保護的因子であり、うつ病の遺伝的リスクスコアは特定の個人にとって明示的に診断的でも予測的でもありません。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_adhd">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">軽度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">ADHD（注意欠如・多動症）</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>軽度の遺伝的シグナル（141件中2件のマーカーが一致）。</p>
+    <p>ADHDに対する軽度の遺伝的シグナル。ADHDの遺伝率は高い（約70〜80%）ものの、現在のポリジェニックスコアはその変異のごく一部しか説明できないため、一般的な変異による個人レベルの予測は依然として限定的です。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +10.0</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:2%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">141件中2件の遺伝子型判定遺伝子座が上昇リスクを示す（1.4%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 41.30"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MSR1/RN7SL474P</span><span class="marker-tag-rsid">rs1521365</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 41.30</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.52"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">NECTIN1-DT</span><span class="marker-tag-rsid">rs10750165</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">中程度上昇、OR 1.52</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンのデータでは、141の遺伝子型判定ADHD遺伝子座のうちわずか2つが上昇しており、軽度のPGS +10.0を示しています。rs1521365（MSR1領域）の大きなORは、複雑な形質における単一研究由来の高いORに通常適用される慎重さをもって扱うべきです——これは実際のシグナルではありますが、単独で解釈を支配すべきものではありません。</p><p>より関連性の高い文脈は、認知プロファイルの項にあります。家系全体で見られる、ドーパミン分解が速いウォリアー型のCOMTプロファイルは、高い外的な要求下では良好に機能するものの、刺激の少ない日常的な環境ではやや調節不足になりうるシステムを表しており、これはADHDの臨床閾値には単独では達しない、重なり合う程度の特性です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_autism">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">軽度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">自閉症</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>軽度の遺伝的シグナル（42件中3件のマーカーが一致）。</p>
+    <p>自閉症に対する軽度の遺伝的シグナル。自閉症の遺伝率のかなりの部分は、一般的な変異を対象とするGWASパネルでは捉えられない稀なデノボ変異に由来するため、このようなポリジェニックスコアの予測力は限定的です。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +6.0</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:7.1%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">42件中3件の遺伝子型判定遺伝子座が上昇リスクを示す（7.1%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.87"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MYO9B</span><span class="marker-tag-rsid">rs1545620</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 2.87</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 3.40"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PKIA-AS1</span><span class="marker-tag-rsid">rs28703878</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇、OR 3.40</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 3.02"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">QPCT/CDC42EP3-AS1</span><span class="marker-tag-rsid">rs888096</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇、OR 3.02</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>42の遺伝子型判定自閉症遺伝子座のうち3つが上昇しており（PGS +6.0）、クロマチンのリモデリングとシナプス遺伝子の調節に役割を持つ遺伝子に関わる、軽度ながら実在するシグナルです。ジュリアンの認知プロファイルの他の部分と同様に、自閉症に関連する一般的な変異のサブクリニカルなレベルでのシグナルは、臨床的な発現というよりも、体系的で細部志向の認知スタイルやパターン認識の強みと文献上重なり合っています——これは根拠のない安心材料ではなく、文書化された所見です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_bipolar_disorder">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">双極性障害</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度の遺伝的シグナル（190件中7件のマーカーが一致）。</p>
+    <p>双極性障害に対する中程度の遺伝的シグナル。統合失調症とうつ病の両方と有意な遺伝的重なりを共有しており、この報告書における3つの疾患すべてでの上昇シグナルは、3つの独立した所見ではなく共有された生物学を反映しています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +14.5</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:3.7%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">190件中7件の遺伝子型判定遺伝子座が上昇リスクを示す（3.7%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 3.66"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GFRA2</span><span class="marker-tag-rsid">rs7833426</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 3.66</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.02"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PARD6B/BCAS4</span><span class="marker-tag-rsid">rs6122972</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 2.02</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 2.08"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PALB2-AS1</span><span class="marker-tag-rsid">rs420259</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇、OR 2.08</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.84"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">RPL23AP68/CYCSP30</span><span class="marker-tag-rsid">rs10858583</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇、OR 1.84</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 2.34"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">NFIA</span><span class="marker-tag-rsid">rs1125777</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">中程度上昇、OR 2.34</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.41"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PURB/MYO1G</span><span class="marker-tag-rsid">rs1990042</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">中程度上昇、OR 1.41</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.95"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GRIK5</span><span class="marker-tag-rsid">rs8099939</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">中程度上昇、OR 1.95</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの双極性障害シグナル（190件中7件の遺伝子座、PGS +14.5）は、気分調節回路についてよく確認されている遺伝子座に及んでいます——NFIAとGRIK5はいずれも双極性障害に限らないより広範な神経学的役割を持っています。この報告書におけるうつ病、双極性障害、統合失調症の間で共有される遺伝的構造は、精神医学的遺伝学全般でよく確立された特徴です。これらは3つの無関係なリスク所見ではなく、重なり合うモノアミンおよび概日リズム調節経路を映し出す3つの窓なのです。</p><p>他の箇所と同様に、睡眠の規則性は処方箋なしで利用できる、文献上最も強力な気分安定要因であり、診断の有無にかかわらず、この種の多因子的な精神医学的負荷に対して最も実行しやすい介入です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_schizophrenia">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">統合失調症</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（965件中31件のマーカーが一致）。</p>
+    <p>統合失調症に対する遺伝的シグナルの上昇——家系のベースラインよりわずかに高いスコアです。統合失調症のポリジェニックスコアは、集団分布の最上位であっても個人レベルの予測力が乏しく、ここでの上位のORのいくつかは小規模な研究に由来しており、慎重な扱いが必要です。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +130.5</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:3.2%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">965件中31件の遺伝子型判定遺伝子座が上昇リスクを示す（3.2%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 8.00"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MIR100HG</span><span class="marker-tag-rsid">rs117752187</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 8.00</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 6.80"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC1A1</span><span class="marker-tag-rsid">rs16921385</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 6.80</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 6.96 / 26.32"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PRKN</span><span class="marker-tag-rsid">rs117673608</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 6.96 / 26.32</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 6.59"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TRIB1AL</span><span class="marker-tag-rsid">rs78309295</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 6.59</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 14.70"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">DKK3</span><span class="marker-tag-rsid">rs7116879</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 14.70</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 3.70"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TENM2</span><span class="marker-tag-rsid">rs74757231</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 3.70</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 19.82"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ARHGEF28</span><span class="marker-tag-rsid">rs73105738</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 19.82</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>31の上昇遺伝子座から得られた+130.5という統合失調症のPGSは、ジュリアンのプロファイルの中で最も高い単一の精神医学的スコアですが、通常の注意点が十分に当てはまります。集団のポリジェニックリスクの最上位十分位においてさえ、統合失調症の生涯発症率は依然として一桁台の低い水準にとどまり、ここでの最大級の個々のOR（PRKNの26.32、ARHGEF28の19.82、DKK3の14.70）は、広く一般化可能な効果量というよりも、小規模研究による過大評価に陥りやすい種類のものです。</p><p>このプロファイルの他の部分と同様に、実行可能な結論は誰にでも当てはまるものに限られます。すなわち、一貫した睡眠、大麻の回避（遺伝的に感受性の高い人々における最もよく確立された環境的リスク増幅因子）、社会的・認知的関与の維持です。症状がない状態でポリジェニックスコアによって示される統合失調症に特化した臨床的対応はありません。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_parkinson_s_disease">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">パーキンソン病</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度の遺伝的シグナル（180件中7件のマーカーが一致）。</p>
+    <p>パーキンソン病に対する中程度の遺伝的シグナル。一般的な変異によるパーキンソン病の遺伝率は比較的低く（約27%）、この報告書のほとんどの形質と比べて環境要因が相対的に大きな比重を占めることを意味します。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +27.8</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:3.9%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">180件中7件の遺伝子型判定遺伝子座が上昇リスクを示す（3.9%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 7.69"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">P2RX5/ITGAE</span><span class="marker-tag-rsid">rs117672332</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 7.69</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.01"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC00648</span><span class="marker-tag-rsid">rs1956307</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 2.01</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 7.52"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">RNA5SP74/LRRN2</span><span class="marker-tag-rsid">rs16854023</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇、OR 7.52</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.52"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">NUCKS1</span><span class="marker-tag-rsid">rs823128</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">中程度上昇、OR 1.52</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 3.24"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PRRG4/QSER1</span><span class="marker-tag-rsid">rs10767971</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">中程度上昇、OR 3.24</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 3.31"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CAMTA1</span><span class="marker-tag-rsid">rs7532024</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇、OR 3.31</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 6.62"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CD69/GCNAP1</span><span class="marker-tag-rsid">rs4418897</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇、OR 6.62</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンのパーキンソン病シグナル（180件中7件の遺伝子座、PGS +27.8）は、家系のベースラインと規模の上でほぼ同一であり、LRRK2 G2019Sのような高浸透率の変異——これは多因子的な寄与ではなく個別の遺伝子型結果として現れるでしょう——ではなく、疾患の主要な遺伝子の近傍にある一般的で効果の小さい調節性の変異に関わるものです。</p><p>文献の中で最も一貫して保護的な生活習慣要因——複数の大規模な前向きコホート研究で30〜40%のリスク低下と関連する定期的な有酸素運動——は、これらの変異が作用するのと同じ酸化ストレス防御経路の活性を高めることを通じて作用しており、これは一般的な助言というよりも、本質的によく合致した介入といえます。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_sleep_duration">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">睡眠時間</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度の遺伝的シグナル（136件中6件のマーカーが一致）。</p>
+    <p>睡眠時間に対する中程度の遺伝的シグナルで、軽度な単独所見よりも幅広いものです。概日リズムに関わる遺伝子変異が、遺伝率がおよそ30〜40%である睡眠時間において主要な遺伝的役割を果たしています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +13.1</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:4.4%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">136件中6件の遺伝子型判定遺伝子座が上昇リスクを示す（4.4%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 3.08"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">C2CD3</span><span class="marker-tag-rsid">rs7116582</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 3.08</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 8.39"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">EBF3</span><span class="marker-tag-rsid">rs9804200</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">上昇、OR 8.39</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC02966</span><span class="marker-tag-rsid">rs1823125</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MIR548A1HG/RPL21P61</span><span class="marker-tag-rsid">rs112507172</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">KCNK9</span><span class="marker-tag-rsid">rs2545432</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 8.03"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ARMC3/MSRB2</span><span class="marker-tag-rsid">rs722258</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">中程度上昇、OR 8.03</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの睡眠時間遺伝学は、家系の他の箇所で見られる典型的な軽度のシグナルよりも幅広い上昇の集合を示しており（136の遺伝子型判定遺伝子座のうち6つ、PGS +13.1）、2つのREM関連遺伝子座（C2CD3、KCNK9）は、総睡眠時間だけでなく、睡眠構築そのものへの何らかの遺伝的影響を示唆しています。</p><p>これに対して考慮すべき点が一つあります。ジュリアンのBDNF遺伝子型は、家系の他の箇所で見られるヘテロ接合型のMet保有パターンではなく保護的なVal/Val型であるため、低下したBDNFの遺伝子型が睡眠時間のシグナルに上乗せするであろう徐波睡眠と記憶定着の障害はここには存在しません——睡眠が確保されれば、Met保有者よりも効率的に記憶の定着へとつながるはずです。睡眠の規則性を優先すること、そして以下のカフェイン代謝の所見を踏まえてカフェインの残留に注意することが、実際的なステップとして残ります。</p>
+    </div></div>
+        </div>
+    </div>
+    </div></section><section class="report-section" id="s_cancer"><h2 class="section-heading">がんリスク</h2><div class="trait-row" id="n_breast_cancer">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">乳がん</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（806件中22件のマーカーが一致）。</p>
+    <p>乳がんに対する遺伝的シグナルの上昇で、家系のベースラインよりわずかに高いものです。この家系の他の箇所と同様に、乳がんについて臨床的に最も重要な変異であるBRCA1/2の機能喪失型変異は稀であり、この種の消費者向けアレイでは捉えられません。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +95.6</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:2.7%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">806件中22件の遺伝子型判定遺伝子座が上昇リスクを示す（2.7%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 32.50"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC01924/LINC01916</span><span class="marker-tag-rsid">rs637644</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 32.50</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.82"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC00877/RYBP</span><span class="marker-tag-rsid">rs73095511</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 2.82</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 9.39"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC01755</span><span class="marker-tag-rsid">rs10443215</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">上昇、OR 9.39</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CCDC170/ESR1</span><span class="marker-tag-rsid">rs140068132</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ERBB4</span><span class="marker-tag-rsid">rs13393577</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ESR1</span><span class="marker-tag-rsid">rs9383938</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TP53</span><span class="marker-tag-rsid">rs78378222</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの乳がんPGS（22の上昇遺伝子座から得られた+95.6）は家系のベースラインよりわずかに高いものの、ここでも同じ解釈上の注意点が同等かそれ以上に当てはまります。最も高い個々のORのいくつか（rs637644の32.50、rs10443215の9.39）は、広範な集団リスク推定値ではなく、化学療法反応や早発性に関する小規模な研究に由来しており、過大評価に陥りやすいものです。より頑健に確認されているシグナルはTP53 rs78378222（TT）で、これはゲノムのDNA損傷に対する主要なチェックポイント遺伝子の近傍にあり、以下の黒色腫の項にも現れます。</p><p>男性の乳がんはポリジェニック負荷にかかわらず稀であり、乳がん・卵巣がんの遺伝的リスクを懸念する誰にとっても臨床的に決定的な情報は、一般的な変異によるポリジェニックスコアではなく、臨床的なBRCA1/2検査から得られます——どちらかの家系にそれに関連する家族歴があれば、特に注意する価値があります。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_prostate_cancer">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">前立腺がん</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（722件中13件のマーカーが一致）。</p>
+    <p>前立腺がんに対する遺伝的シグナルの上昇——一般的ながんの中で最も遺伝率が高い（約57%）ものであり、ここでの遺伝的リスクが遺伝率の低い他のがん種よりも本質的に情報価値が高いことを意味します。KLK3（PSA遺伝子）の変異はがんリスクそのものを超えて臨床的に関連しています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +70.6</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:2%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">722件中13件の遺伝子型判定遺伝子座が上昇リスクを示す（1.8%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.85"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">KLK3</span><span class="marker-tag-rsid">rs17632542</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 1.85</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.36"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">KLK3</span><span class="marker-tag-rsid">rs62113212</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">中程度上昇、OR 1.36</span></div></div><div class="marker-tag marker-tag--modifier" title="一般的な非リスクアレル"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HOXB13</span><span class="marker-tag-rsid">rs138213197</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">一般的な非リスクアレル</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.79"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PCAT1</span><span class="marker-tag-rsid">rs1456315</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇、OR 1.79</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの前立腺がんPGS +70.6（722件中13件の遺伝子座が上昇）は家系のベースラインよりわずかに高く、8q24の遺伝子砂漠領域と、PSA遺伝子そのものの変異であるKLK3 rs17632542（TT）によって主に駆動されています。KLK3の遺伝子型は実際の前立腺がんリスクとは独立してPSAの基準値に影響を与えるため、これは臨床的に関連があります——泌尿器科医とPSAスクリーニングについて話し合う機会が（40代半ば以降）あれば、この遺伝子型は個々のPSA結果の標準的な集団基準範囲に対する解釈を変える可能性があるため、言及する価値があります。</p><p>HOXB13 rs138213197は一般的な非リスク遺伝子型CCを示しており、これは稀だが高浸透率のG84E変異に隣接していますが、それとは異なるものです——この稀な高リスク変異そのものを保有している兆候はここにはありません。リコピンを多く含む食事は、まさにこの種のがんの予防における食事介入の中で最も強力な疫学的裏付けを持っています。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_colorectal_cancer">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">大腸がん</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度の遺伝的シグナル（518件中9件のマーカーが一致）。</p>
+    <p>大腸がんに対する中程度の遺伝的シグナル。一般的な変異による大腸がんの遺伝率はわずか約35%であり、食物繊維、赤身肉、運動といった生活習慣要因が遺伝そのものよりも比較的大きな影響を持つことを意味します。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +53.8</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:2%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">518件中9件の遺伝子型判定遺伝子座が上昇リスクを示す（1.7%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.13"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MGAT4A</span><span class="marker-tag-rsid">rs885036</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 2.13</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 4.72"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PTPA/IER5L</span><span class="marker-tag-rsid">rs4837345</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 4.72</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 21.97"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MACROD2/PPIAP17</span><span class="marker-tag-rsid">rs2327990</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇、OR 21.97</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 9.55"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CECR3/CECR9</span><span class="marker-tag-rsid">rs5749032</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇、OR 9.55</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 76.85"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">BRINP3</span><span class="marker-tag-rsid">rs10920654</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">中程度上昇、OR 76.85</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AGPAT5/XKR5</span><span class="marker-tag-rsid">rs2936519</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC22A16</span><span class="marker-tag-rsid">rs9481067</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">RASGRF2</span><span class="marker-tag-rsid">rs716897</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの大腸がんデータでは518の遺伝子型判定遺伝子座のうち9つが上昇しており（PGS +53.8）、家系のベースラインに近いものです。ここでの最大級のORのいくつか（BRINP3の76.85、MACROD2の21.97）は転移や無増悪生存期間に関する研究に由来しており、ベースラインの集団リスクではないため、疾患の発症を直接予測するものというより生物学的に興味深いものとして読むべきです。MGAT4AとRASGRF2は、より頑健に集団リスクと関連づけられているシグナルです。</p><p>以下のジュリアンの免疫遺伝学の項との重なりは特筆すべきです。慢性的な腸の炎症は大腸がんへのよく確立された経路であり、以下の項で述べるジュリアンの広く上昇した炎症性腸疾患とクローン病のシグナルは、同じ腸上皮の生物学を共有しています。これはこの報告書の中でも生活習慣によって最も修正可能ながんの一つです——食物繊維、定期的な運動、赤身肉／加工肉の制限、45歳からの大腸内視鏡スクリーニングは、いずれもよく裏付けられた、遺伝子型に依存しない介入です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_melanoma">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">黒色腫（メラノーマ）</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度の遺伝的シグナル（162件中7件のマーカーが一致）。</p>
+    <p>黒色腫に対する中程度の遺伝的シグナル。この色素沈着プロファイルの他の部分と同様に、黒色腫のGWASシグナル、より明るい肌の色調の遺伝学、メラニンを減少させるTYR変異はいずれも、一貫した紫外線対策という同じ実際的な結論に収束します。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +14.3</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:4.3%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">162件中7件の遺伝子型判定遺伝子座が上昇リスクを示す（4.3%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.05"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ARL6IP6/UBQLN4P2</span><span class="marker-tag-rsid">rs11692707</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 2.05</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 2.07"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs16891982</span><span class="marker-tag-geno">CG</span><span class="marker-tag-weight">中程度上昇、OR 2.07</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 2.08（x2）"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs35407</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">中程度上昇、OR 2.08（x2）</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇 — 乳がんと共有"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TP53</span><span class="marker-tag-rsid">rs78378222</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">中程度上昇 — 乳がんと共有</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC02674/RAB11FIP2</span><span class="marker-tag-rsid">rs1419138</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GFRA1</span><span class="marker-tag-rsid">rs11197576</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの黒色腫シグナル（162件中7件の遺伝子座、PGS +14.3）は、身体的特徴の項で議論した色素沈着遺伝子から生じています——SLC45A2は2つの位置でヘテロ接合として現れており、これは彼の肌の色調のベースラインをより明るくしている同じ遺伝子座です。TP53 rs78378222は乳がんの項から繰り返し現れており、DNA損傷チェックポイントの変異が組織特異的な効果を持つというよりも、複数のがん種にわずかずつ寄与するというパターンを補強しています。</p><p>上記で記録された組み合わせ——SLC24A5による明るいベースライン、TYRによるメラニンの減少、しかし明るいベースからスタートしながらも良好な日焼け反応——と合わせて読むと、一貫したSPFの使用、年1回の皮膚科での皮膚チェック、UVのピーク時間帯の日陰の利用が、ここでの色素沈着と黒色腫の遺伝学の組み合わせから直接裏付けられます。早期に発見された黒色腫は95%を超える5年生存率を持ちます。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_lung_cancer">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">肺がん</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（208件中13件のマーカーが一致）。</p>
+    <p>肺がんに対する遺伝的シグナルの上昇。肺がんリスクは遺伝よりも喫煙によって圧倒的に支配されており、非喫煙者ではポリジェニックスコアにかかわらずこのプロファイルによる絶対リスクは低いままです。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +32.0</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:6.2%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">208件中13件の遺伝子型判定遺伝子座が上昇リスクを示す（6.2%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 最大2.63"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CHEK2</span><span class="marker-tag-rsid">rs17879961</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 最大2.63</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.30"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CAMK2D</span><span class="marker-tag-rsid">rs10023113</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 2.30</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.59"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">BRCA2</span><span class="marker-tag-rsid">rs11571818</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">中程度上昇、OR 1.59</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.83"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">DYNC2H1/PDGFDDN</span><span class="marker-tag-rsid">rs716274</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇、OR 1.83</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>CHEK2 rs17879961（AA）は、ジュリアンの肺がんデータの中で複数の異なるORとともに繰り返し現れる支配的なシグナルです——BRCA1/ATMの下流で機能するDNA損傷応答遺伝子であり、このがんの項の他の箇所でBRCA2（rs11571818）やTP53について見られるのと同じDNA修復経路のテーマと一致しています。</p><p>現実世界で支配的な修飾因子は依然として喫煙状況であり、これはポリジェニック負荷に対して単純に加算されるのではなく乗算的に作用します。非喫煙者であれば、CHEK2、BRCA2、TERTを含むこのパネル全体からの絶対リスクへの寄与は、ポリジェニックスコアにかかわらず低いままです。喫煙経験がある人にとっては、これらの変異はすでに相当な環境曝露をさらに増幅させるため、禁煙が例外なく利用できる最も影響力の大きい介入です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_bladder_cancer">
+    <div class="trait-spine" style="color:var(--risk-favourable)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">低い遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">膀胱がん</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>低い遺伝的シグナル（73件中1件のマーカーが一致）。</p>
+    <p>膀胱がんに対する低い遺伝的シグナル——本質的に安心できる所見であり、73の遺伝子型判定遺伝子座のうち上昇しているのはわずか1つです。膀胱がんについては、遺伝子型にかかわらず喫煙が依然として支配的なリスク因子です。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +6.1</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:2%;background:var(--risk-favourable)"></div></div>
+        <span class="loci-bar-label">73件中1件の遺伝子型判定遺伝子座が上昇リスクを示す（1.4%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.75"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">UGT1A8</span><span class="marker-tag-rsid">rs17863783</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 1.75</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>これはジュリアンのがんパネルの中でも特に明確に好ましい所見の一つです。73の遺伝子型判定膀胱がん遺伝子座のうち上昇しているのはわずか1つで、低いPGS +6.1を示しています。UGT1A8（グルクロン酸抱合経路）が唯一の寄与シグナルであり、他の箇所で喫煙や職業性の曝露に関連する膀胱がんについてより大きな比重を占める遺伝子座であるPSCA、8q24/MYC領域、NAT2には上昇所見が見られません。非喫煙者で重大な化学物質曝露歴がない場合、このプロファイルが示唆する絶対リスクは本質的に低く、十分な水分補給が唯一の広く関連する予防措置として残ります。</p>
+    </div></div>
+        </div>
+    </div>
+    </div></section><section class="report-section" id="s_immune"><h2 class="section-heading">免疫・炎症性疾患</h2><div class="trait-row" id="n_asthma">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">喘息</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（588件中16件のマーカーが一致）。</p>
+    <p>喘息に対する遺伝的シグナルの上昇——家系のベースラインよりも幅広いものです。喘息は、共有されたTh2偏向型の免疫経路を通じて、湿疹やアレルギー性鼻炎（アトピー三徴）と有意な遺伝的重なりを共有しています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +50.1</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:2.7%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">588件中16件の遺伝子型判定遺伝子座が上昇リスクを示す（2.7%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇 — 薬物反応研究由来"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MLLT3</span><span class="marker-tag-rsid">rs6475448</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇 — 薬物反応研究由来</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.96"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC01550/LINC02295</span><span class="marker-tag-rsid">rs10142119</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 1.96</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.82"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ACOT7</span><span class="marker-tag-rsid">rs11121611</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 1.82</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.45"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IL33</span><span class="marker-tag-rsid">rs146597587</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">中程度上昇、OR 1.45</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 2.23"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">EMSY</span><span class="marker-tag-rsid">rs61894547</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">中程度上昇、OR 2.23</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 3.48 — 目の色と共有"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HERC2</span><span class="marker-tag-rsid">rs12913832</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">中程度上昇、OR 3.48 — 目の色と共有</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IL1RL1</span><span class="marker-tag-rsid">rs10189629</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの喘息シグナル（588件中16件の遺伝子座、PGS +50.1）は家系のベースラインよりも幅広く、よく確立された喘息のTh2経路に集中しています。IL33（Th2応答を開始する上皮性アラーミンサイトカイン）とIL1RL1（その受容体複合体）はいずれも、IgEを調節する変異とともに上昇して現れています。</p><p>興味深いことに、ジュリアンの中間的な目の色の原因であるHERC2 rs12913832の同じ遺伝子型（AG）が、喘息の上昇の集合にも現れています——これは無視すべき偶然ではなく、色素沈着に関わる遺伝子座がIgEの調節に無関係な下流の効果を持つという、多面発現の真の一例です。</p><p>この喘息シグナルは、この項の残りの部分で広く上昇している免疫反応性の全体像（ループス、関節リウマチ、炎症性腸疾患、乾癬、クローン病、多発性硬化症——いずれも以下で上昇しています）と並んでおり、孤立した呼吸器の所見というより、全体として反応性の高い免疫アーキテクチャと一致しています。喘息の症状がある、あるいは今後現れる場合には、VDR経路を介したTh2偏向の抑制が喘息のコントロールに有益であることが文書化されているため、ビタミンDの最適化について話し合う価値があります。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_lupus">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">ループス（全身性エリテマトーデス）</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（374件中13件のマーカーが一致）。</p>
+    <p>ループスに対する遺伝的シグナルの上昇で、インターフェロン経路の調節異常に集中しています。ここでのシグナルは家系の他の箇所よりいくぶん低いものの、基本的な生物学的テーマ——STAT4とIRF5経路の変異——は同じです。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +34.8</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:3.5%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">374件中13件の遺伝子型判定遺伝子座が上昇リスクを示す（3.5%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.36"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IRAK1</span><span class="marker-tag-rsid">rs1059702</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">中程度上昇、OR 1.36</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.76"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IRF5</span><span class="marker-tag-rsid">rs4728142</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇、OR 1.76</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.77 — 1コピー"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">STAT4</span><span class="marker-tag-rsid">rs7574865</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">中程度上昇、OR 1.77 — 1コピー</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.52"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GABBR1/SUMO2P1</span><span class="marker-tag-rsid">rs111508444</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">中程度上昇、OR 1.52</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.95"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">C1orf21/EDEM3</span><span class="marker-tag-rsid">rs10911628</span><span class="marker-tag-geno">AC</span><span class="marker-tag-weight">中程度上昇、OR 1.95</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.59"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TNPO3</span><span class="marker-tag-rsid">rs12531711</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">中程度上昇、OR 1.59</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 1.47"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">KCP/IRF5</span><span class="marker-tag-rsid">rs729302</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">中程度上昇、OR 1.47</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 2.85"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GLT1D1</span><span class="marker-tag-rsid">rs7300146</span><span class="marker-tag-geno">CA</span><span class="marker-tag-weight">中程度上昇、OR 2.85</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンのループス遺伝学は、この家系の他の箇所に見られるのと同じインターフェロン経路のテーマを示しています——STAT4（ここでは一部の親族に見られるホモ接合型パターンではなくリスクアレル1コピー）と、IRF5領域の2つの別々の変異が合わさって、ループスの病態生理の中心的な免疫メカニズムであるI型インターフェロンに対する一定程度の感受性を持つゲノムを描いています。</p><p>これは、この項の残りの部分で見られるより広範な自己免疫パターンと直接つながっています。TYK2 GG（以下の関節リウマチの項参照）は、ジュリアンが保有し、これらの複数の疾患のリスクを同時に増幅させるJAK-STAT経路の多面発現性変異です——インターフェロン経路とIL-23/TYK2経路は関連しつつも別々の腕であり、同じ広く反応性の高い免疫アーキテクチャの一部です。UV曝露は遺伝的に感受性の高い人々においてループスの発症の引き金として文書化されており、上記の黒色腫と肌の色調の所見に加え、一貫した紫外線対策を維持するもう一つの独立した理由となります。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_rheumatoid_arthritis">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">関節リウマチ</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度の遺伝的シグナル（757件中7件のマーカーが一致）。</p>
+    <p>関節リウマチに対する中程度の遺伝的シグナル。HLA-DRB1は単独で関節リウマチの遺伝的変異のおよそ30%を説明しており、以下の乾癬とクローン病の所見と共有されているJAK-STAT経路の多面発現性変異であるTYK2もここに存在します。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +40.1</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:2%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">757件中7件の遺伝子型判定遺伝子座が上昇リスクを示す（0.9%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.36"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HLA-DQB1/MTCO3P1</span><span class="marker-tag-rsid">rs6457617</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 2.36</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 4.60"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GPR12/FGFR1OP2P1</span><span class="marker-tag-rsid">rs9512378</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">上昇、OR 4.60</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.31"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SERTM1</span><span class="marker-tag-rsid">rs7323558</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 2.31</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇 — 共有変異"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYK2</span><span class="marker-tag-rsid">rs34536443</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">中程度上昇 — 共有変異</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SNORA72/PPM1L-DT</span><span class="marker-tag-rsid">rs7624766</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CDRT8</span><span class="marker-tag-rsid">rs8066891</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ZBTB34/RALGPS1</span><span class="marker-tag-rsid">rs3120029</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>HLA領域を超えて、PTPN22経路のシグナル伝達と共有されているホモ接合型TYK2 GGの遺伝子型が、ジュリアンの関節リウマチの負荷を、ループス、乾癬、クローン病の所見にも及ぶ同じ分子的共通因子に結びつけています——TYK2はIL-23に応答してSTAT3をリン酸化し、この変異のホモ接合はこの4つの疾患すべてにおける炎症シグナル伝達を、独立にではなく同時に増幅させます。</p><p>30分以上続く朝のこわばりは、注意すべき典型的な初期症状です。関節症状が現れた場合、抗CCP抗体検査は完全な臨床基準が満たされる何年も前に関節リウマチを検出できる可能性があり、オメガ3脂肪酸はTYK2が増幅させるのと同じTh17経路を通じて作用し、関節リウマチのリスク低減に関して最も強い栄養学的エビデンスを持っています。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_inflammatory_bowel_disease">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">炎症性腸疾患</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（851件中19件のマーカーが一致）。</p>
+    <p>炎症性腸疾患に対する遺伝的シグナルの上昇——遺伝的に決定される度合いが高い複雑な疾患の一つ（遺伝率約70〜75%）です。NOD2、IL23R、HLA-DRB9の変異は、腸内細菌認識とTh17炎症のメカニズムの中核に収束しています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +54.0</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:2.2%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">851件中19件の遺伝子型判定遺伝子座が上昇リスクを示す（2.2%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.01（x2）"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IL23R</span><span class="marker-tag-rsid">rs11209026</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 2.01（x2）</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 3.90 — チオプリン代謝"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">NUDT15</span><span class="marker-tag-rsid">rs116855232</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">上昇、OR 3.90 — チオプリン代謝</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.92（x2）"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HLA-DRB9</span><span class="marker-tag-rsid">rs2395185</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 1.92（x2）</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.75"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">C1orf141</span><span class="marker-tag-rsid">rs76418789</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 1.75</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HLA-DRB9</span><span class="marker-tag-rsid">rs9268853</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">OTUD3</span><span class="marker-tag-rsid">rs4654925</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの炎症性腸疾患シグナル（851件中19件の遺伝子座、PGS +54.0）は家系のベースラインに近く、以下のクローン病と乾癬の項で支配的なIL23R/Th17経路に集中しています。ここでのもう一つ本質的に有用な所見はNUDT15 rs116855232（CC）です——この遺伝子はチオプリン系薬剤の代謝を制御しており、この遺伝子型はチオプリン誘発性の白血球減少症のリスク上昇と関連しています。もしアザチオプリンやメルカプトプリンが何らかの理由で処方されることがあれば、NUDT15/TPMTのステータスに基づく用量調整は利用可能な場合の標準的な実践であるため、事前に処方医にこれを伝える価値があります。</p><p>腸内マイクロバイオームは、この遺伝的負荷に対する環境との主要な接点です。多様な植物性由来の食物繊維、発酵食品、不必要な抗生物質の使用を避けることは、NOD2経路によって単独では十分に対応しきれない微生物環境を直接支えます。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_psoriasis">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">乾癬</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（310件中14件のマーカーが一致）。</p>
+    <p>乾癬に対する遺伝的シグナルの上昇で、この項の他の箇所にあるクローン病と関節リウマチの所見と同じIL-23/TYK2経路によって機構的に駆動されています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +34.2</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:4.5%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">310件中14件の遺伝子型判定遺伝子座が上昇リスクを示す（4.5%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.78（x2）— 共有変異"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYK2</span><span class="marker-tag-rsid">rs34536443</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 1.78（x2）— 共有変異</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇（x2）"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IL12B-AS1</span><span class="marker-tag-rsid">rs7709212</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">中程度上昇（x2）</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">UBLCP1/IL12B-AS1</span><span class="marker-tag-rsid">rs2082412</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IL23R/RNU4ATAC4P</span><span class="marker-tag-rsid">rs9988642</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IL12B-AS1</span><span class="marker-tag-rsid">rs2546890</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>TYK2 GGは、関節リウマチ、ループス、クローン病の所見とまったく同様に、ジュリアンの乾癬遺伝学の要となる要素です。この変異はIL-23/STAT3シグナル伝達を通じてケラチノサイトの過剰増殖と全身性の炎症を駆動しており、この報告書における4つの別々の自己免疫疾患にわたるその繰り返しの出現は、ジュリアンの免疫遺伝学の中で最も一貫した分子的な糸です。</p><p>乾癬とクローン病は偶然が示唆するよりもはるかに頻繁に併発しますが、この共有されたTYK2/IL-23の負荷がその遺伝的説明です。もし乾癬または乾癬様の症状が現れた場合、IL-23またはIL-17を標的とする生物学的製剤は両方の疾患に有効であり、まさにこのTYK2の遺伝子型は、ジュリアンをこの新しいクラスのTYK2阻害薬に特に適した候補にするでしょう。この負荷を踏まえると、溶血性連鎖球菌性咽頭炎、皮膚の外傷、心理的ストレスといった一般的な環境の引き金への認識も価値があります。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_crohn_s_disease">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">クローン病</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（584件中13件のマーカーが一致）。</p>
+    <p>クローン病に対する遺伝的シグナルの上昇で、上記の乾癬、関節リウマチ、ループスの所見の根底にある同じIL23R/TYK2経路によって駆動されています——4つの疾患を貫く一つの共有された機構的な糸であり、4つの偶然ではありません。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +47.9</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:2.2%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">584件中13件の遺伝子型判定遺伝子座が上昇リスクを示す（2.2%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.84（x2）"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IL23R</span><span class="marker-tag-rsid">rs11209026</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 2.84（x2）</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.50"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IL23R</span><span class="marker-tag-rsid">rs11465804</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇、OR 2.50</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇、OR 2.08"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TNFSF15/DELEC1</span><span class="marker-tag-rsid">rs6478109</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 2.08</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">C1orf141</span><span class="marker-tag-rsid">rs76418789</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTCO3P1/HLA-DQB3</span><span class="marker-tag-rsid">rs7765379</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">STAT3</span><span class="marker-tag-rsid">rs9891119</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>IL23Rはジュリアンのクローン病の上昇遺伝子座の集合に3回現れています——これはTh17分化と肉芽腫形成（潰瘍性大腸炎とは異なるクローン病特有の病理学的特徴）を駆動する主要なサイトカイン受容体です。彼のTYK2 GG遺伝子型（この受容体の下流でのIL-23シグナル伝達の効率に直接影響する）と組み合わさることで、これはジュリアンの免疫遺伝学プロファイル全体の中で最も特異的かつ内部的に整合性のある機構的所見です。</p><p>実際的な意味は乾癬の項と重なります。TYK2阻害薬（デウクラバシチニブが最初に承認された薬剤です）は、まさにこの経路のために開発された治療クラスであり、クローン病様の症状が現れた場合には、一般的な免疫抑制薬に対する第一選択として議論する価値があるでしょう。ストレス管理も特に関連性が高く、心理的ストレスは腸脳相関を通じて腸の透過性に直接影響を与えるためです。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_multiple_sclerosis">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">多発性硬化症</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度の遺伝的シグナル（347件中8件のマーカーが一致）。</p>
+    <p>多発性硬化症に対する中程度の遺伝的シグナルで、軽度な単独所見よりも幅広いものです。HLA-DRB1*15:01領域は単独で多発性硬化症の遺伝的変異のおよそ20〜30%を占めており、これは多発性硬化症を最もHLA依存性の高い一般的疾患の一つにしています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +29.0</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:2.3%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">347件中8件の遺伝子型判定遺伝子座が上昇リスクを示す（2.3%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="中程度上昇（x2）、OR 最大3.30"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TSBP1</span><span class="marker-tag-rsid">rs3129934</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇（x2）、OR 最大3.30</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 2.60"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HLA-DRB1/HLA-DQA1</span><span class="marker-tag-rsid">rs522308</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">中程度上昇、OR 2.60</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇（x2）"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CBLB</span><span class="marker-tag-rsid">rs9657904</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">中程度上昇（x2）</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CD58</span><span class="marker-tag-rsid">rs2300747</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PADI1</span><span class="marker-tag-rsid">rs3003482</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">FPASL</span><span class="marker-tag-rsid">rs7789940</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">中程度上昇</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの多発性硬化症シグナル（347件中8件の遺伝子座、PGS +29.0）は、HLA領域（TSBP1、HLA-DRB1/DQA1）とT細胞恒常性遺伝子（CLEC16Aに近い領域、CBLBとCD58を介したIL7R経路）の両方から生じています——これはこの免疫遺伝学の項の残りの部分と広く匹敵するパターンであり、ループス、関節リウマチ、炎症性腸疾患、乾癬、多発性硬化症を貫く高まったT細胞媒介性の自己免疫反応性というテーマを、5つの独立した疾患としてではなく一つのものとして補強しています。</p><p>介入の処方はどこでも同じです。ビタミンDの最適化は、多発性硬化症について特異的に文書化されている最も一貫して保護的な環境要因であり、オメガ3のサプリメントと腸内マイクロバイオームの多様性とともに、すでに上記のジュリアンのビタミンDと炎症性腸疾患の所見によって示されているのと同じ対策です。</p>
+    </div></div>
+        </div>
+    </div>
+    </div></section><section class="report-section" id="s_longevity"><h2 class="section-heading">長寿と老化</h2><div class="trait-row" id="n_longevity">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">平均的なプロファイル — APOE ε2のベースライン</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">長寿</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>平均的な長寿の遺伝的プロファイル、保護的なAPOE ε2のベースラインあり（7件中3件のマーカーが一致）。</p>
+    <p>平均的な長寿の遺伝的プロファイル。この報告書全体ですでに触れているAPOE ε2のシグナルは百寿者に一貫して多く見られ、CETPの1つの変異が高いHDLを介してわずかな追加の保護的寄与を加えています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +17.6</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:42.9%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">7件中3件の遺伝子型判定遺伝子座が上昇リスクを示す（42.9%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="保護的 — 1コピー"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CETP</span><span class="marker-tag-rsid">rs5882</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">保護的 — 1コピー</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンの長寿遺伝学の中心は、この報告書のコレステロール、アルツハイマー病、心不全の項を貫く同じAPOE ε2シグナルです——ε2は、低いLDL、軽減された神経炎症、より効率的な脂質代謝の組み合わせを通じて、複数の独立したコホートにおいて認知機能が健康な百寿者の中で一貫して多く見られます。</p><p>CETP rs5882（AG）は、高いHDLコレステロールと関連する保護的アレルを1コピー追加します——HDLの上昇は、より大きく機能的なHDL粒子を介したメカニズムを通じて、特にアシュケナージ系ユダヤ人や日本人のコホートにおける百寿者研究で長寿と一貫して結びついています。ここでのポリジェニックスコア（7つの遺伝子座から得られた+17.6）は、家系の幅広い平均よりも低いものですが、これは主に、家系の他の箇所で上昇している2つ目のCETP変異がジュリアンのデータでは上昇していないためです——控えめではありますが、懸念すべきものではない違いです。</p><p>APOE以外で唯一最も頻繁に確認されている長寿の遺伝子座であるFOXO3は、このチップには含まれておらず、長寿の遺伝学が個人的に特に関心のある分野であれば、専門的な検査で確認する価値があります。この報告書の他の箇所と同様に、中年期の健康は、長寿に特化した遺伝子そのものよりも、上記で記録された心血管系、代謝系、炎症系の所見の累積的な管理によって、はるかに大きく左右されます。</p>
+    </div></div>
+        </div>
+    </div>
+    </div></section><section class="report-section" id="s_lifestyle"><h2 class="section-heading">生活習慣・栄養・薬物代謝</h2><div class="trait-row" id="n_caffeine_metabolism">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">中程度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">カフェイン代謝</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>中程度の遺伝的シグナル（33件中8件のマーカーが一致）。</p>
+    <p>カフェイン代謝に対する中程度の遺伝的シグナルで、軽度な所見よりも幅広いものです。CYP2A6はホモ接合型の変異遺伝子型を示し、AHR経路の変異が、家系の他のカフェインデータには見られない追加の負荷を加えています。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +20.7</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:24.2%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">33件中8件の遺伝子型判定遺伝子座が上昇リスクを示す（24.2%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇（x3）— ホモ接合"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CYP2A6</span><span class="marker-tag-rsid">rs56113850</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">上昇（x3）— ホモ接合</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇（x2）"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AHR</span><span class="marker-tag-rsid">rs6968554</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">中程度上昇（x2）</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇（x2）"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AHR</span><span class="marker-tag-rsid">rs4410790</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">中程度上昇（x2）</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇 — 中性脂肪と共有"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GCKR</span><span class="marker-tag-rsid">rs1260326</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇 — 中性脂肪と共有</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンのカフェイン代謝に関するGWASシグナル（33件中8件の遺伝子座、PGS +20.7）は、家系の他の箇所よりも著しく幅広く、CYP2A6 rs56113850は他の家族に見られるヘテロ接合型パターンではなくホモ接合型TTとして現れています。CYP2A6は主にニコチンを代謝し、カフェイン代謝には副次的な経路としてしか寄与しないため、これは実在するものの控えめなシグナルであり、カフェイン代謝の支配的なメカニズムではありません。</p><p>カフェイン代謝を担う主要な遺伝子であるCYP1A2とその主要な調節位置（rs762551）は、ジュリアンの現在のデータセットのキュレーションされた薬理ゲノミクスマーカーには含まれていなかったため、この報告書は家系の他のメンバーについてできるように、彼が速い代謝タイプか遅い代謝タイプかを述べることはできません。カフェインへの感受性や睡眠のタイミングに関する具体的な懸念がある場合、CYP1A2遺伝子型の的を絞った検査（臨床的な薬理ゲノミクスパネルを通じて）が、せいぜい副次的な寄与にとどまるここでのAHR/CYP2A6のシグナルに頼るよりも、直接的にこれを明らかにするでしょう。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_alcohol_consumption">
+    <div class="trait-spine" style="color:var(--risk-elevated)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">遺伝的シグナルの上昇</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">アルコール摂取</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>遺伝的シグナルの上昇（78件中10件のマーカーが一致）。</p>
+    <p>アルコール摂取に対する遺伝的シグナルの上昇。ADH1Bは、家系全体で見られるのと同じ*1/*1遺伝子型（代謝が遅く、フラッシュ反応がない）を示しており、飲酒を抑制する組み込みのフラッシュ反応が欠けていることを意味します。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +32.1</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:12.8%;background:var(--risk-elevated)"></div></div>
+        <span class="loci-bar-label">78件中10件の遺伝子型判定遺伝子座が上昇リスクを示す（12.8%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="*1/*1 — フラッシュ反応なし"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ADH1B</span><span class="marker-tag-rsid">rs1229984</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">*1/*1 — フラッシュ反応なし</span></div></div><div class="marker-tag marker-tag--modifier" title="上昇 — ホモ接合"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC39A8</span><span class="marker-tag-rsid">rs13107325</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">上昇 — ホモ接合</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">FTO</span><span class="marker-tag-rsid">rs55872725</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">中程度上昇</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇 — 中性脂肪と共有"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GCKR</span><span class="marker-tag-rsid">rs1260326</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">中程度上昇 — 中性脂肪と共有</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ADH1B rs1229984 CCは、家系全体で受け継がれているのと同じ*1/*1遺伝子型です——東アジア系集団で一般的な*2アレルよりもエタノールをアセトアルデヒドに変換する速度が遅く、これは本来であればより多くの飲酒を自然に抑制するはずのフラッシュ反応が組み込まれていないことを意味します。これは集団レベルでの飲酒量の傾向に関する行動薬理学的な所見であり、それ自体が直接的な健康リスクのオッズ比というわけではありません。</p><p>これがジュリアンにとって特に真剣に受け止める価値がある理由は、彼自身の他の遺伝学との組み合わせにあります。中性脂肪に関するホモ接合型のAPOA5遺伝子型は、アルコールが平均以上に彼の中性脂肪値を上昇させることを意味し、広く上昇している免疫・腸の遺伝学は、腸上皮の完全性へのアルコールの直接的な影響がより脆弱なベースラインの上に重なることを意味し、上昇している痛風のシグナルは、ビールや他のプリン体を含むアルコール飲料によって特に増幅されます。これらのいずれも完全な禁酒を義務づけるものではありませんが、ジュリアンの特定の所見の組み合わせを踏まえると、規則的な飲酒ではなく適度で散発的な飲酒が、この特定の重なり合うシグナルの集積を持たない人にとってよりも、本質的に遺伝子情報に基づいたアプローチであるといえます。</p>
+    </div></div>
+        </div>
+    </div>
+    </div><div class="trait-row" id="n_pharmacogenomics_gwas">
+    <div class="trait-spine" style="color:var(--risk-moderate)">
+        <span class="spine-dot"></span><span class="spine-line"></span>
+        <span class="spine-risk">軽度の遺伝的シグナル</span>
+    </div>
+    <div class="trait-content">
+        <h3 class="trait-title">薬理ゲノミクス</h3>
+        <div class="trait-narrative">
+            <div class="narrative-unit narrative-unit--gwas"><div class="narrative-kicker">GWAS概要</div><div class="narrative-text">
+    <p><strong>予測：</strong>軽度の遺伝的シグナル（32件中2件のマーカーが一致）。</p>
+    <p>一般的な薬理ゲノミクスGWASパネルにおける軽度の遺伝的シグナル。家系の他の箇所と同様に、最も臨床的に実行可能な薬物代謝遺伝子——CYP2D6、CYP2C19、CYP2C9、TPMT、DPYD——はこの特定のデータセットでは捉えられていません。</p>
+    </div></div>
+            <div class="loci-bar">
+        <span class="pgs-badge">GWAS PGS +3.4</span>
+        <div class="loci-bar-track"><div class="loci-bar-fill" style="width:6.2%;background:var(--risk-moderate)"></div></div>
+        <span class="loci-bar-label">32件中2件の遺伝子型判定遺伝子座が上昇リスクを示す（6.2%）</span>
+        </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="上昇、OR 1.94"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">JAK2</span><span class="marker-tag-rsid">rs77375493</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">上昇、OR 1.94</span></div></div><div class="marker-tag marker-tag--modifier" title="中程度上昇、OR 4.69"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CPVL</span><span class="marker-tag-rsid">rs245880</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">中程度上昇、OR 4.69</span></div></div></div></div>
+            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">詳細分析</div><div class="narrative-text">
+    <p>ジュリアンのデータでは32の遺伝子型判定薬理ゲノミクス遺伝子座のうちわずか2つが上昇しており（PGS +3.4）、JAK2もCPVLも単独では臨床的に実行可能な投薬量の決定に対応するものではありません。上記の炎症性腸疾患の項で述べたように、NUDT15のステータスは、この報告書の他の箇所で得られる唯一本質的に実行可能な薬理ゲノミクスの所見です——チオプリン系薬剤が今後関連する場合には、特にこれを念頭に置く価値があります。</p><p>父親の報告書とは異なり、現在のデータセットにおけるジュリアンのキュレーションされたマーカー一式には、CYP1A2、CYP2C19、CYP2D6の結果が含まれていません——これらは、一般的な薬剤の代謝の大部分を担う3つの酵素です（それぞれ、カフェインとメラトニンの代謝、プロトンポンプ阻害薬・SSRI・クロピドグレル、そして処方薬全体のおよそ4分の1）。もし新しい処方——特にSSRI、オピオイド、抗血小板薬——が検討される場合には、専門的な臨床薬理ゲノミクスパネルが、この報告書が現在提供できない本質的に有用な情報を提供するでしょう。</p>
+    </div></div>
+        </div>
+    </div>
+    </div></section>
+            <section class="report-section" id="s_pharmacogenomics"><h2 class="section-heading">薬理ゲノミクスと薬物代謝</h2><div class="narrative-body">
+<p>薬理ゲノミクスは、受け継いだ遺伝的変異が薬剤を処理し排出する身体の能力をどのように変化させるかを調べる分野です。この家系の他の報告書では、キュレーションされたCYP1A2、CYP2C19、CYP2D6の遺伝子型結果が酵素ごとの簡潔なまとめを支えています。ジュリアンの現在のデータセットにはこの3つの位置についてのキュレーションされた結果が含まれていないため、親族の遺伝子型から類推したり推測したりするのではなく、ここでは彼についてその要約を正確に作成することができません。</p>
+</div>
+<div class="drug-grid">
+<div class="drug-card">
+    <div class="drug-card-head">
+        <div class="drug-card-top"><span class="drug-enzyme">NUDT15</span></div>
+        <div class="drug-genotype">rs116855232 — CC</div>
+        <div class="drug-affected">影響を受ける薬剤：チオプリン系（アザチオプリン、メルカプトプリン）</div>
+    </div>
+    <div class="drug-card-body">
+        <div class="drug-narrative">この遺伝子型は、チオプリン誘発性の白血球減少症のリスク上昇と関連しています。これは、上記の炎症性腸疾患の項で最初に取り上げられた、ジュリアンの現在のデータセットで利用可能な唯一の本質的に実行可能な薬理ゲノミクスの所見です。</div>
+        <div class="drug-action"><strong>臨床的な意義：</strong>もしアザチオプリンやメルカプトプリンが何らかの理由で処方される場合は、事前にこの遺伝子型を処方医に伝えてください——NUDT15/TPMTのステータスに基づく用量調整は、利用可能な場合の標準的な実践です。</div>
+    </div>
+</div>
+<div class="drug-card">
+    <div class="drug-card-head">
+        <div class="drug-card-top"><span class="drug-enzyme">CYP1A2 / CYP2C19 / CYP2D6</span></div>
+        <div class="drug-genotype">現在のデータセットでは利用不可</div>
+        <div class="drug-affected">影響を受ける薬剤：カフェイン、SSRI、PPI、抗血小板薬、オピオイド、ベータ遮断薬</div>
+    </div>
+    <div class="drug-card-body">
+        <div class="drug-narrative">父親の報告書とは異なり、ジュリアンのキュレーションされたマーカー一式には、一般的に処方される薬剤の大部分の代謝を左右するこの3つの酵素の遺伝子型結果が含まれていません。</div>
+        <div class="drug-action"><strong>臨床的な意義：</strong>もし新しい処方——特にSSRI、オピオイド、抗血小板薬——が検討される場合には、専門的な臨床薬理ゲノミクスパネルが、この報告書が現在提供できない本質的に有用な情報を提供するでしょう。</div>
+    </div>
+</div>
+</div>
+</section>
+        </div>
+    </div>
+</body>
+</html>
