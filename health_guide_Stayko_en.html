@@ -169,7 +169,11 @@
             <div class="ns"><span class="ns-val" style="color:#c97b2a">17</span><span class="ns-lbl">Moderate</span></div>
             <div class="ns"><span class="ns-val" style="color:#2d7a4f">1</span><span class="ns-lbl">Favourable</span></div>
         </div>
-        <div class="lang-bar"><a href="health_guide_Stayko_en.html" class="lang-btn">EN</a> <a href="health_guide_Stayko_bg.html" class="lang-btn">БГ</a></div>
+        <div class="lang-bar">
+            <a href="health_guide_Stayko_en.html" class="lang-btn">EN</a>
+            <a href="health_guide_Stayko_bg.html" class="lang-btn">БГ</a>
+            <a href="health_guide_Julian_ja.html" class="lang-btn">日本語</a>
+        </div>
     </aside>
     <div class="cover">
         <p class="cover-eyebrow">Personal Genomics Report</p>
@@ -342,17 +346,15 @@
     <p><strong>Prediction:</strong> Moderately elevated LDL tendency (7 of 8 markers agree).</p>
     <p>APOE status: rs429358 not on chip — partial APOE data only. rs7412 CC — ε2 signal, protective for LDL. PCSK9 and SORT1 variants show modest LDL-raising tendency. LPA rs10455872 AA — non-risk genotype. Diet and exercise are likely sufficient; monitor annually. 7 SNPs combined.</p>
     </div></div>
-            <div class="risk-balance">
-        <div class="risk-balance-track">
-            <div class="risk-balance-prot" style="width:0.0%"></div>
-            <div class="risk-balance-risk" style="width:100.0%"></div>
+            <div class="pgs-badge">GWAS 7 SNPs combined · 7 of 8 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:87.5%; background:var(--risk-elevated)"></div>
         </div>
-        <div class="risk-balance-labels">
-            <span class="rb-prot">Protective 0.0</span>
-            <span class="rb-risk">Risk 3.0</span>
-        </div>
+        <span class="loci-bar-label">7 of 8 genotyped loci show elevated risk (87.5%)</span>
     </div>
-            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="Protective — ε2 signal, no risk allele"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">APOE</span><span class="marker-tag-rsid">rs7412</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Protective — ε2 signal, no risk allele</span></div></div><div class="marker-tag marker-tag--modifier" title="No protective loss-of-function allele"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PCSK9</span><span class="marker-tag-rsid">rs11591147</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">No protective loss-of-function allele</span></div></div><div class="marker-tag marker-tag--modifier" title="Risk — 2 copies of LDL-raising allele"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SORT1/CELSR2</span><span class="marker-tag-rsid">rs629301</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Risk — 2 copies of LDL-raising allele</span></div></div><div class="marker-tag marker-tag--ruleout" title="Rule-out — no risk allele"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LPA</span><span class="marker-tag-rsid">rs10455872</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Rule-out — no risk allele</span></div></div><div class="marker-tag marker-tag--ruleout" title="Rule-out — no risk allele"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LPA</span><span class="marker-tag-rsid">rs445925</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Rule-out — no risk allele</span></div></div><div class="marker-tag marker-tag--ruleout" title="Rule-out — no risk allele"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">APOB</span><span class="marker-tag-rsid">rs13306194</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Rule-out — no risk allele</span></div></div></div></div>
+                        <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's cholesterol genetics essentially mirror his brother's, position for position. Both carry rs7412 CC — the APOE ε2 signal associated with lower LDL and reduced cardiovascular risk relative to the common ε3/ε3 genotype — and both are missing rs429358, the second SNP needed for a complete APOE call, meaning a clinical APOE test would resolve the full picture for either brother equally.</p>
 
     <p>The rest of the panel matches too: SORT1/CELSR2 rs629301 TT (two copies of the LDL-raising allele) in both brothers, PCSK9 rs11591147 GG (no protective loss-of-function allele) in both, and LPA rs10455872 AA (no risk allele — a genuinely protective finding, since elevated Lp(a) is an independent cardiovascular risk factor not captured by standard lipid panels) shared as well. Stayko's data adds two additional confirmed non-risk loci — LPA rs445925 and APOB rs13306194, both GG with no risk allele — that weren't listed in Minko's panel, reinforcing the same generally favourable secondary picture.</p>
@@ -383,6 +385,7 @@
         </div>
         <span class="loci-bar-label">7 of 7 genotyped loci show elevated risk (100.0%)</span>
     </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="9p21 — two risk copies"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CDKN2B-AS1</span><span class="marker-tag-rsid">rs4977574</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">9p21 — two risk copies</span></div></div><div class="marker-tag marker-tag--secondary" title="9p21 secondary — two risk copies"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CDKN2B-AS1</span><span class="marker-tag-rsid">rs1333049</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">9p21 secondary — two risk copies</span></div></div><div class="marker-tag marker-tag--modifier" title="Protective — one copy, partial lipase boost"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LPL</span><span class="marker-tag-rsid">rs264</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Protective — one copy, partial lipase boost</span></div></div><div class="marker-tag marker-tag--secondary" title="Secondary modifier"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MRAS</span><span class="marker-tag-rsid">rs9818870</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Secondary modifier</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>This is the most significant divergence between the brothers anywhere in the cardiovascular section, and it centres on the single most replicated common CAD variant in the literature: the 9p21 locus (CDKN2B-AS1). Minko carries one risk copy at each of its two tested positions — rs4977574 AG, rs1333049 CG. Stayko carries <strong>two</strong> risk copies at both — rs4977574 GG, rs1333049 CC. Homozygous risk at this locus represents a meaningfully higher genetic loading than heterozygous risk, and because 9p21 acts independently of LDL cholesterol — through vascular smooth muscle proliferation and inflammatory pathways rather than lipid handling — this is not something a normal cholesterol panel would reveal.</p>
 
@@ -414,6 +417,7 @@
         </div>
         <span class="loci-bar-label">6 of 6 genotyped loci show elevated risk (100.0%)</span>
     </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Primary driver — triglyceride-raising"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">APOA5</span><span class="marker-tag-rsid">rs662799</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Primary driver — triglyceride-raising</span></div></div><div class="marker-tag marker-tag--secondary" title="Promoter variant — reduces clearance"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">APOC3</span><span class="marker-tag-rsid">rs2266788</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Promoter variant — reduces clearance</span></div></div><div class="marker-tag marker-tag--modifier" title="Partial protective — one gain-of-function copy"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LPL</span><span class="marker-tag-rsid">rs328</span><span class="marker-tag-geno">CG</span><span class="marker-tag-weight">Partial protective — one gain-of-function copy</span></div></div><div class="marker-tag marker-tag--secondary" title="Secondary risk — raises triglycerides"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GCKR</span><span class="marker-tag-rsid">rs1260326</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Secondary risk — raises triglycerides</span></div></div><div class="marker-tag marker-tag--modifier" title="Minor contributor — two copies"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTNR1B</span><span class="marker-tag-rsid">rs10830963</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Minor contributor — two copies</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's triglyceride profile carries the same core risk architecture as Minko's — APOA5 rs662799 AG (heterozygous, the dominant triglyceride-raising signal) and APOC3 rs2266788 AG (the promoter variant that increases APOC3 expression and further reduces triglyceride clearance) are identical between the brothers — but with one meaningful difference in the protective side of the ledger. Minko carries LPL rs328 as CC, homozygous for the S447X gain-of-function protective variant. Stayko carries CG, heterozygous — one protective copy instead of two, meaning less of the compensating lipoprotein lipase boost that partially offsets the APOA5/APOC3 risk signal in Minko's profile.</p>
 
@@ -445,6 +449,7 @@
         </div>
         <span class="loci-bar-label">2 of 141 genotyped loci show elevated risk (1.4%)</span>
     </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Primary — two risk copies"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LINC01875/TMEM18</span><span class="marker-tag-rsid">rs2903492</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Primary — two risk copies</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Where Minko is heterozygous (AG) at the primary elevated AF locus, rs2903492 (near LINC01875/TMEM18), Stayko is homozygous (AA) — two risk copies rather than one — and carries an additional secondary signal, rs12967135 near MC4R, that isn't present in Minko's reported panel. This lifts Stayko's overall call from Minko's "low genetic signal" to "mild," and his PGS from +13.1 to +15.2.</p>
 
@@ -476,6 +481,7 @@
         </div>
         <span class="loci-bar-label">13 of 206 genotyped loci show elevated risk (6.3%)</span>
     </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="OR 12.5 — likely population-specific, interpret cautiously"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">COL6A3</span><span class="marker-tag-rsid">rs146092501</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">OR 12.5 — likely population-specific, interpret cautiously</span></div></div><div class="marker-tag marker-tag--modifier" title="OR 14.29 — population-specific caution"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CXCL8</span><span class="marker-tag-rsid">rs188378669</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">OR 14.29 — population-specific caution</span></div></div><div class="marker-tag marker-tag--modifier" title="OR 14.29 — population-specific caution"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ADGRL3</span><span class="marker-tag-rsid">rs192210727</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">OR 14.29 — population-specific caution</span></div></div><div class="marker-tag marker-tag--secondary" title="Factor V — clotting tendency"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">F5</span><span class="marker-tag-rsid">rs6025</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">Factor V — clotting tendency</span></div></div><div class="marker-tag marker-tag--secondary" title="Secondary modifier"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IGF1R</span><span class="marker-tag-rsid">rs6598541</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Secondary modifier</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's stroke genetics show a broader spread than Minko's — 13 elevated loci against Minko's 9, out of the same 206-position panel — though the overall polygenic score is nearly identical (+31.6 versus +31.4). This is a case where the loci count and the PGS tell slightly different stories: more positions are contributing for Stayko, but not with dramatically larger individual effect sizes.</p>
 
@@ -507,6 +513,7 @@
         </div>
         <span class="loci-bar-label">22 of 49 genotyped loci show elevated risk (44.9%)</span>
     </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Primary driver — OR 10.41"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CELSR2</span><span class="marker-tag-rsid">rs12740374</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Primary driver — OR 10.41</span></div></div><div class="marker-tag marker-tag--secondary" title="Secondary — OR 8.90"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">LDLR</span><span class="marker-tag-rsid">rs6511720</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Secondary — OR 8.90</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko and Minko show the identical count of elevated loci here — 22 of 49 — with the same top two contributing variants: CELSR2 rs12740374 GG (OR 10.41) and LDLR rs6511720 GG (OR 8.90). Stayko's polygenic score runs somewhat higher, +69.3 against Minko's +61.4, reflecting the same broader pattern of slightly heavier cardiometabolic loading seen across his CAD and triglyceride results.</p>
 
@@ -535,6 +542,14 @@
     <p><strong>Prediction:</strong> Elevated folate metabolism signal — confirmed homozygous at C677T (5 of 5 markers agree).</p>
     <p>MTHFR C677T and A1298C compound status affects folate conversion and homocysteine clearance. Practical action: supplement with methylfolate (5-MTHF) rather than folic acid, and methylcobalamin rather than cyanocobalamin. Test homocysteine, folate, and B12 blood levels to confirm metabolic status. 5 SNPs combined.</p>
     </div></div>
+            <div class="pgs-badge">5 SNPs combined · 4 of 5 markers show functional impairment</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:80.0%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">4 of 5 markers show functional impairment (80.0%)</span>
+    </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Homozygous — ~70% enzyme activity reduction"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTHFR (C677T)</span><span class="marker-tag-rsid">rs1801133</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Homozygous — ~70% enzyme activity reduction</span></div></div><div class="marker-tag marker-tag--secondary" title="Heterozygous — compound impairment"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTHFR (A1298C)</span><span class="marker-tag-rsid">rs1801131</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">Heterozygous — compound impairment</span></div></div><div class="marker-tag marker-tag--modifier" title="Heterozygous — modest one-carbon pathway strain"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTHFD1</span><span class="marker-tag-rsid">rs2236225</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Heterozygous — modest one-carbon pathway strain</span></div></div><div class="marker-tag marker-tag--modifier" title="Heterozygous — modest effect"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTRR</span><span class="marker-tag-rsid">rs1801394</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Heterozygous — modest effect</span></div></div><div class="marker-tag marker-tag--ruleout" title="Wild-type — no additional impairment"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MTR</span><span class="marker-tag-rsid">rs1805087</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Wild-type — no additional impairment</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p><strong>Confirmed directly against the raw genotyping data:</strong> Stayko is homozygous GG at MTHFR C677T (rs1801133) — not heterozygous, resolving an inconsistency that existed between the source file's narrative summary and its own structured genotype field. Homozygous C677T reduces MTHFR enzyme activity by approximately 70%, roughly double the ~35% reduction seen in heterozygous carriers. This makes Stayko's finding here more significant than Minko's own compound-heterozygous profile (GA at C677T, GT at A1298C), not equivalent to it.</p>
 
@@ -562,6 +577,7 @@
     <p>Note: rs1631619 GG (OR 5.0) is a population-specific finding from a Korean cohort and may inflate the PGS for non-Korean ancestries. Genotype pattern: 4 loci homozygous risk, 6 heterozygous. T2D is 40–70% heritable but lifestyle factors interact strongly — genetic risk is not destiny. 12 SNPs combined.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +121.3 · 31 elevated loci</div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Primary driver — one risk copy"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TCF7L2</span><span class="marker-tag-rsid">rs7903146</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Primary driver — one risk copy</span></div></div><div class="marker-tag marker-tag--modifier" title="No protective Ala12 variant"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PPARG</span><span class="marker-tag-rsid">rs1801282</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">No protective Ala12 variant</span></div></div><div class="marker-tag marker-tag--secondary" title="One risk copy — beta-cell K+ channel"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">KCNJ11</span><span class="marker-tag-rsid">rs5219</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">One risk copy — beta-cell K+ channel</span></div></div><div class="marker-tag marker-tag--modifier" title="OR 5.0 — Korean-cohort specific, interpret cautiously"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">—</span><span class="marker-tag-rsid">rs1631619</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">OR 5.0 — Korean-cohort specific, interpret cautiously</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's T2D profile follows the same overall architecture as Minko's — heterozygous at nearly every major locus rather than homozygous at any one of them — with a modestly higher aggregate signal: PGS +121.3 across 31 elevated loci, against Minko's +116.8 across 26. The core drivers are identical between the brothers: TCF7L2 rs7903146 CT (one risk copy at the single strongest and most replicated common T2D variant, operating through Wnt signalling to impair beta-cell function), PPARG rs1801282 CC (no protective Ala12 variant present), and KCNJ11 rs5219 CT (one risk copy affecting the beta-cell ATP-sensitive potassium channel).</p>
 
@@ -593,6 +609,7 @@
         </div>
         <span class="loci-bar-label">7 of 7 genotyped loci show elevated risk (100.0%)</span>
     </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Primary driver — strongest common obesity allele"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">FTO</span><span class="marker-tag-rsid">rs9939609</span><span class="marker-tag-geno">AT</span><span class="marker-tag-weight">Primary driver — strongest common obesity allele</span></div></div><div class="marker-tag marker-tag--secondary" title="Secondary additive signal"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">FTO</span><span class="marker-tag-rsid">rs17817449</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">Secondary additive signal</span></div></div><div class="marker-tag marker-tag--secondary" title="Appetite regulation — melanocortin pathway"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC4R</span><span class="marker-tag-rsid">rs6567160</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Appetite regulation — melanocortin pathway</span></div></div><div class="marker-tag marker-tag--secondary" title="Appetite regulation — melanocortin pathway"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MC4R</span><span class="marker-tag-rsid">rs571312</span><span class="marker-tag-geno">AC</span><span class="marker-tag-weight">Appetite regulation — melanocortin pathway</span></div></div><div class="marker-tag marker-tag--modifier" title="Additional confirmed contributor"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GNPDA2</span><span class="marker-tag-rsid">rs10938397</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Additional confirmed contributor</span></div></div><div class="marker-tag marker-tag--modifier" title="Protective counterweight"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">NEGR1</span><span class="marker-tag-rsid">rs2815752</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Protective counterweight</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>This is a real crossing point, not just a labelling difference: Minko's BMI tendency reads as "moderate" (PGS +492.4), while Stayko's crosses into "elevated" (PGS +527.8) — a meaningfully higher genome-wide score, not a rounding difference. The core genotypes are shared: FTO rs9939609 AT (one copy of the strongest common obesity risk allele, adding roughly 0.4 kg/m² to average BMI), FTO rs17817449 GT (a smaller additive secondary signal), and — importantly — the same protective counterweight, NEGR1 rs2815752 AG, present in both brothers.</p>
 
@@ -624,6 +641,7 @@
         </div>
         <span class="loci-bar-label">11 of 195 genotyped loci show elevated risk (5.6%)</span>
     </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="OR 1.93 — shared with brother"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ALDH2</span><span class="marker-tag-rsid">rs671</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">OR 1.93 — shared with brother</span></div></div><div class="marker-tag marker-tag--secondary" title="Intestinal urate secretion"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ABCG2</span><span class="marker-tag-rsid">rs1871744</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Intestinal urate secretion</span></div></div><div class="marker-tag marker-tag--secondary" title="Intestinal urate secretion"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ABCG2</span><span class="marker-tag-rsid">rs3114020</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">Intestinal urate secretion</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's gout signal is broader and somewhat stronger than Minko's — 11 elevated loci against Minko's 8, PGS +27.5 against +24.2 — crossing from "moderate" into "elevated." The shared locus between both brothers, ALDH2 rs671 GG (OR 1.93), is confirmed identical.</p>
 
@@ -655,6 +673,7 @@
         </div>
         <span class="loci-bar-label">5 of 95 genotyped loci show elevated risk (5.3%)</span>
     </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="OR 4.35 — shared finding"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CXCL8</span><span class="marker-tag-rsid">rs188378669</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">OR 4.35 — shared finding</span></div></div><div class="marker-tag marker-tag--secondary" title="Modest secondary contribution"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GBA3</span><span class="marker-tag-rsid">rs358231</span><span class="marker-tag-geno">TA</span><span class="marker-tag-weight">Modest secondary contribution</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>This is one of the few places in the metabolic panel where Stayko's signal is genuinely lower than Minko's: PGS +13.8 across 5 elevated loci, versus Minko's +18.6 across 7. Both brothers share the CXCL8 rs188378669 GG finding (OR 4.35 in Stayko's data), but Stayko's panel does not include Minko's UMOD or SHROOM3 signals, and adds a different secondary locus instead — GBA3 rs358231 TA, a more modest contribution.</p>
 
@@ -686,6 +705,7 @@
         </div>
         <span class="loci-bar-label">4 of 71 genotyped loci show elevated risk (5.6%)</span>
     </div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Transport stage — moderately reduced efficiency"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GC</span><span class="marker-tag-rsid">rs7041</span><span class="marker-tag-geno">CA</span><span class="marker-tag-weight">Transport stage — moderately reduced efficiency</span></div></div><div class="marker-tag marker-tag--secondary" title="Transport stage — moderately reduced efficiency"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CYP2R1</span><span class="marker-tag-rsid">rs10741657</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">Transport stage — moderately reduced efficiency</span></div></div><div class="marker-tag marker-tag--modifier" title="Receptor stage — functional direction inconsistent across studies"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">VDR (TaqI)</span><span class="marker-tag-rsid">rs731236</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">Receptor stage — functional direction inconsistent across studies</span></div></div><div class="marker-tag marker-tag--modifier" title="Receptor stage — functional direction inconsistent across studies"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">VDR (ApaI)</span><span class="marker-tag-rsid">rs7975232</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Receptor stage — functional direction inconsistent across studies</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>At the transport stage, Stayko's Vitamin D genetics are identical to Minko's: GC rs7041 CA (heterozygous) and CYP2R1 rs10741657 GA both match exactly, producing the same moderately reduced efficiency in delivering Vitamin D to tissues that Minko's report describes — not severely impaired, but lower bioavailable Vitamin D than an optimal GC genotype would provide.</p>
 
@@ -716,6 +736,7 @@
     <p><strong>Prediction:</strong> Intermediate cognitive profile (COMT Val/Met) (GWAS PGS +1147.2 from 7 elevated loci).</p>
     <p>COMT AG (Val/Met) — intermediate profile: balanced prefrontal dopamine breakdown, between the fast-clearing Val/Val and slow-clearing Met/Met extremes. BDNF CC — full activity-dependent BDNF, no Met allele reduction. 2 curated SNPs combined.</p>
     </div></div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Intermediate — Val/Met, balanced dopamine clearance"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">COMT</span><span class="marker-tag-rsid">—</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Intermediate — Val/Met, balanced dopamine clearance</span></div></div><div class="marker-tag marker-tag--modifier" title="Full activity — no Met-allele reduction"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">BDNF</span><span class="marker-tag-rsid">rs6265</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Full activity — no Met-allele reduction</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's cognitive genetics diverge from Minko's at both curated loci, in opposite directions. Minko is COMT GG — homozygous Val/Val, the "Warrior" profile with fast dopamine clearance, favouring performance under acute stress and cognitive load at the cost of somewhat lower baseline dopamine tone. Stayko is COMT AG — heterozygous Val/Met, the intermediate profile that sits between the fast-clearing Warrior and the slow-clearing "Worrier" (Met/Met) extremes. Neither position is better or worse in the abstract; they represent different points on a real trade-off curve between stress resilience and baseline cognitive flexibility, well documented in the working-memory and executive-function literature.</p>
 
@@ -741,6 +762,13 @@
     <p>APOE status: ε2/ε2 or ε2/ε3 — very low Alzheimer risk (rs429358 not on chip). APOE genotype is by far the strongest genetic factor — it alone accounts for ~50% of genetic Alzheimer risk. 6 SNPs combined.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +174.2 · 6 of 8 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:75.0%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">6 of 8 genotyped loci show elevated risk (75.0%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Protective — ε2 signal"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">APOE</span><span class="marker-tag-rsid">rs7412</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Protective — ε2 signal</span></div></div><div class="marker-tag marker-tag--secondary" title="Secondary confirmed finding"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CLU</span><span class="marker-tag-rsid">rs9331888</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Secondary confirmed finding</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's Alzheimer's profile is essentially a match for Minko's — the same protective rs7412 CC (APOE ε2 signal, associated with roughly 50% lower Alzheimer's risk than the common ε3/ε3 genotype), the same missing rs429358 (meaning a full APOE ε-allele call isn't possible from this data for either brother), and the same secondary CLU rs9331888 CC finding.</p>
 
@@ -764,6 +792,13 @@
     <p>Depression heritability is ~35–40%; most genetic variance is polygenic with very small individual effects. Gene-environment interaction (stress, trauma, social support) dominates. Genetic risk for depression is not predictive at the individual level. 6 SNPs combined.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +73.5 · 6 of 6 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:100.0%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">6 of 6 genotyped loci show elevated risk (100.0%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="One risk copy"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TMEM161B</span><span class="marker-tag-rsid">rs10514299</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">One risk copy</span></div></div><div class="marker-tag marker-tag--secondary" title="Shared finding"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">NEGR1</span><span class="marker-tag-rsid">rs1545843</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Shared finding</span></div></div><div class="marker-tag marker-tag--modifier" title="Stress-vulnerability contribution (Worrier side)"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">COMT</span><span class="marker-tag-rsid">—</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Stress-vulnerability contribution (Worrier side)</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Worth noting first: Stayko's polygenic score here (+73.5) is actually marginally higher than Minko's (+71.8), yet his overall category reads "moderate" against Minko's "elevated" — a reminder that these category labels sit on thresholds that don't always track the raw PGS number in an obvious way, and the number itself is more informative than the label attached to it.</p>
 
@@ -789,7 +824,13 @@
     <p>ADHD heritability ~70–80%; highly polygenic. 1 SNP combined.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +9.7 · 1 of 141 genotyped loci show elevated risk</div>
-            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:0.7%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">1 of 141 genotyped loci show elevated risk (0.7%)</span>
+    </div>
+                        <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>This is a genuinely favourable difference: Stayko carries only 1 of 141 genotyped ADHD loci at elevated risk, against Minko's 2, with a correspondingly lower PGS (+9.7 versus +10.4). The single shared elevated locus, near ST3GAL3, is confirmed identical between the brothers, but Stayko's data does not include the second locus present in Minko's panel.</p>
 
     <p>ADHD polygenic scores currently explain only 5-10% of variance even at their best, so a one-locus difference shouldn't be over-read either way. What's more relevant is the same broader dopamine-system pattern discussed in Minko's report — but here it plays out differently: Minko's fast-clearing COMT Warrior profile is described as contributing to a high-arousal, dopamine-dependent attentional style. Stayko's intermediate COMT genotype places him at a different point on that same spectrum, which, combined with his lower ADHD-specific polygenic loading, suggests this particular dimensional pattern is less pronounced for him than for his brother.</p>
@@ -812,6 +853,13 @@
     <p>Autism heritability ~80%; de novo variants play a major role. 5 SNPs combined.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +8.3 · 5 of 42 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:11.9%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">5 of 42 genotyped loci show elevated risk (11.9%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Heterozygous, differs from brother's GG"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">QPCT</span><span class="marker-tag-rsid">—</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Heterozygous, differs from brother's GG</span></div></div><div class="marker-tag marker-tag--secondary" title="Additional position"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MYO9B</span><span class="marker-tag-rsid">—</span><span class="marker-tag-geno">GT</span><span class="marker-tag-weight">Additional position</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Here the difference runs the other way: Stayko shows 5 elevated loci against Minko's 4, out of the same 42-position panel, crossing from Minko's "mild" into "moderate" — though the underlying PGS values are nearly identical (+8.3 versus +8.2), another case where the category label shifts on a threshold the raw score barely crosses.</p>
 
@@ -837,6 +885,13 @@
     <p>Bipolar disorder heritability ~70–80%; shares genetic overlap with schizophrenia. 7 SNPs combined.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +15.3 · 7 of 190 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:3.7%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">7 of 190 genotyped loci show elevated risk (3.7%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Most replicated shared signal"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GFRA2</span><span class="marker-tag-rsid">rs7833426</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Most replicated shared signal</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's bipolar signal matches Minko's in overall shape — same 7 of 190 elevated loci, and a very similar PGS (+15.3 versus +16.7) — though the specific secondary loci differ. GFRA2 rs7833426 AA is confirmed identical between the brothers, the most replicated of the shared signals. Beyond that, Stayko's panel includes NFIA, PALB2-AS1, RPL23AP68, ATP6V1G1P7, and PURB/MYO1G variants not matching Minko's reported secondary set.</p>
 
@@ -860,6 +915,13 @@
     <p>Schizophrenia heritability ~80%; major MHC/HLA component. 8 SNPs combined.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +125.5 · 28 of 965 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:2.9%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">28 of 965 genotyped loci show elevated risk (2.9%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="OR 26.32/6.96 — duplicate GWAS catalog entries, same genotype"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PRKN</span><span class="marker-tag-rsid">rs117673608</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">OR 26.32/6.96 — duplicate GWAS catalog entries, same genotype</span></div></div><div class="marker-tag marker-tag--secondary" title="Shared finding"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MIR100HG</span><span class="marker-tag-rsid">rs117752187</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Shared finding</span></div></div><div class="marker-tag marker-tag--secondary" title="Shared finding"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PCDH7</span><span class="marker-tag-rsid">rs9291547</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Shared finding</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p><strong>A note on the PRKN entry, now resolved:</strong> Stayko's supporting SNP list includes rs117673608 (PRKN) with two different odds ratios (26.32 and 6.96) in the same table. Checked directly against the raw genotyping data: the genotype itself is confirmed consistent at GG both times, so this isn't a data error — it's most likely two separate GWAS catalog associations for the same position drawn from different discovery studies, which is common when a locus has been independently replicated (or contradicted) across multiple cohorts. Both odds ratios attach to the same real GG genotype.</p>
 
@@ -885,6 +947,13 @@
     <p>Parkinson's heritability ~27%; LRRK2 and SNCA are major monogenic loci. 6 SNPs combined.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +21.4 · 6 of 180 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:3.3%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">6 of 180 genotyped loci show elevated risk (3.3%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Primary driver — OR 7.69, shared with brother"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">P2RX5-ITGAE</span><span class="marker-tag-rsid">rs117672332</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Primary driver — OR 7.69, shared with brother</span></div></div><div class="marker-tag marker-tag--primary" title="Primary driver — OR 7.52, shared with brother"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">RNA5SP74-LRRN2</span><span class="marker-tag-rsid">rs16854023</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Primary driver — OR 7.52, shared with brother</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's Parkinson's signal is genuinely lower than Minko's: 6 elevated loci against Minko's 9 out of the same 180-position panel, and a correspondingly lower PGS (+21.4 versus +27.9). The two strongest shared loci, P2RX5-ITGAE rs117672332 TT (OR 7.69) and RNA5SP74-LRRN2 rs16854023 TT (OR 7.52), are confirmed identical between the brothers — these are the primary drivers for both.</p>
 
@@ -910,6 +979,13 @@
     <p>Sleep duration heritability ~30–40%; circadian gene variants play a role. 4 SNPs combined.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +7.9 · 4 of 136 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:2.9%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">4 of 136 genotyped loci show elevated risk (2.9%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Top locus — shared with brother"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">C2CD3</span><span class="marker-tag-rsid">rs7116582</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Top locus — shared with brother</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's sleep duration genetics closely track Minko's — the same 4 of 136 elevated loci and nearly identical PGS (+7.9 versus +7.8) — with the shared top locus, C2CD3 rs7116582 GG, confirmed identical between the brothers. The secondary loci differ somewhat: Stayko's panel includes KCNK9 and EBF3 variants rather than whatever combination appears in Minko's remaining positions.</p>
 
@@ -937,6 +1013,13 @@
     <p>Elevated genetic signal for Breast Cancer. GWAS polygenic score is +93.8 (above average); 19 loci show elevated risk allele dosage out of 806 genotyped. BRCA1/2 are high-penetrance but rare; common variants each contribute modestly.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +93.8 · 19 of 806 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:2.4%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">19 of 806 genotyped loci show elevated risk (2.4%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="Genotype confirmed; listed OR is a data error, disregard"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CYP2A6</span><span class="marker-tag-rsid">rs56113850</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">Genotype confirmed; listed OR is a data error, disregard</span></div></div><div class="marker-tag marker-tag--secondary" title="Shared with brother"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CDH13 (adjacent)</span><span class="marker-tag-rsid">rs3844412</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Shared with brother</span></div></div><div class="marker-tag marker-tag--secondary" title="Shared with brother"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ESR1</span><span class="marker-tag-rsid">rs140068132</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Shared with brother</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p><strong>One value in this data needs to be flagged before anything else:</strong> rs56113850 (CYP2A6) is listed with an odds ratio of 4693.72, attached to a confirmed genotype of TC (heterozygous, verified directly against the raw genotyping data). The genotype call is real and correct — the odds ratio is not. Typical CYP2A6 common-variant effect sizes sit in the 1.0-1.5 range; a four-figure OR at this locus is a textbook symptom of a database parsing error, most likely from a script dividing by a near-zero standard error or conflating a raw regression coefficient with an odds-ratio scale during multi-study data ingestion — the same uncurated-deduplication pattern responsible for the repeated KLK3, HOXB13, CHEK2, and PRKN entries seen elsewhere in this report. The genotype (TC) is worth keeping; the 4693.72 figure should be discarded entirely rather than weighted even lightly.</p>
 
@@ -964,6 +1047,13 @@
     <p>Elevated genetic signal for Prostate Cancer. GWAS polygenic score is +64.6 (above average); 13 loci show elevated risk allele dosage out of 722 genotyped. Prostate cancer is ~57% heritable; 8q24 locus is the strongest common signal.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +64.6 · 13 of 722 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:1.8%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">13 of 722 genotyped loci show elevated risk (1.8%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="PSA-affecting — not risk-specific"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">KLK3</span><span class="marker-tag-rsid">rs17632542</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">PSA-affecting — not risk-specific</span></div></div><div class="marker-tag marker-tag--primary" title="PSA-affecting — not risk-specific"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">KLK3</span><span class="marker-tag-rsid">rs62113212</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">PSA-affecting — not risk-specific</span></div></div><div class="marker-tag marker-tag--ruleout" title="Rule-out — common, non-risk genotype"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HOXB13</span><span class="marker-tag-rsid">rs138213197</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Rule-out — common, non-risk genotype</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's prostate cancer profile tracks Minko's closely, with a slightly higher PGS (+64.6 versus +61.2) and one additional locus (13 versus 12). The two clinically notable positions match exactly: KLK3 rs17632542 TT and rs62113212 CC — the same PSA-gene variants that directly affect PSA levels independently of actual prostate cancer risk, meaning the same caution applies equally to both brothers: baseline PSA readings may run differently from population reference ranges, worth flagging to a urologist before PSA-based screening.</p>
 
@@ -989,6 +1079,13 @@
     <p>Moderate genetic signal for Colorectal Cancer. GWAS polygenic score is +44.4 (above average); 9 loci show elevated risk allele dosage out of 518 genotyped. CRC heritability ~35%; lifestyle (fibre, red meat, exercise) modifies genetic risk.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +44.4 · 9 of 518 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:1.7%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">9 of 518 genotyped loci show elevated risk (1.7%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Shared — intestinal mucin glycosylation"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MGAT4A</span><span class="marker-tag-rsid">rs885036</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Shared — intestinal mucin glycosylation</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>This is a genuine favourable difference: Stayko's colorectal cancer signal reads "moderate" where Minko's reads "elevated" — PGS +44.4 across 9 loci, against Minko's +55.1 across 10. The shared locus, MGAT4A rs885036 AA (involved in intestinal mucin glycosylation, part of the colon's protective mucus barrier), is confirmed identical, but Stayko's overall loading is meaningfully lighter.</p>
 
@@ -1014,6 +1111,13 @@
     <p>Moderate genetic signal for Melanoma. GWAS polygenic score is +12.7 (above average); 6 loci show elevated risk allele dosage out of 162 genotyped. Melanoma heritability ~50%; MC1R variants and UV exposure interact strongly. Skin protection is highly effective.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +12.7 · 6 of 162 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:3.7%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">6 of 162 genotyped loci show elevated risk (3.7%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Shared with brother"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs16891982</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Shared with brother</span></div></div><div class="marker-tag marker-tag--secondary" title="Shared with brother"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs35407</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Shared with brother</span></div></div><div class="marker-tag marker-tag--secondary" title="Also relevant to iris pigmentation"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IRF4</span><span class="marker-tag-rsid">rs12203592</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Also relevant to iris pigmentation</span></div></div><div class="marker-tag marker-tag--modifier" title="OR 1.45 — tumour-suppressor checkpoint"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TP53</span><span class="marker-tag-rsid">rs78378222</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">OR 1.45 — tumour-suppressor checkpoint</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's melanoma signal closely matches Minko's — the same 6 elevated loci and a very similar PGS (+12.7 versus +14.1). SLC45A2 rs16891982 GG and rs35407 GG are both confirmed identical, and IRF4 rs12203592 CT matches as well — the same heterozygous IRF4 finding that connects directly to the pigmentation genetics discussed in the Physical Appearance section, since IRF4 genuinely regulates both iris colour and melanocyte biology.</p>
 
@@ -1039,6 +1143,13 @@
     <p>Elevated genetic signal for Lung Cancer. GWAS polygenic score is +32.7 (above average); 12 loci show elevated risk allele dosage out of 208 genotyped. Lung cancer genetic risk is dominated by smoking — genetic variants modify but do not replace smoking as the primary risk factor.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +32.7 · 12 of 208 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:5.8%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">12 of 208 genotyped loci show elevated risk (5.8%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Multiple GWAS catalog entries, same genotype"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CHEK2</span><span class="marker-tag-rsid">rs17879961</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Multiple GWAS catalog entries, same genotype</span></div></div><div class="marker-tag marker-tag--secondary" title="Shared — DNA-repair pathway"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">BRCA2 (adjacent)</span><span class="marker-tag-rsid">rs11571818</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Shared — DNA-repair pathway</span></div></div><div class="marker-tag marker-tag--modifier" title="Telomerase — broad cancer-biology relevance"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TERT</span><span class="marker-tag-rsid">rs2853677</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Telomerase — broad cancer-biology relevance</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's lung cancer profile is nearly identical to Minko's in overall weight (+32.7 versus +31.6), with one fewer locus (12 versus 13). CHEK2 rs17879961 AA appears repeatedly in Stayko's panel across several odds ratios (2.59, 2.63, 1.54, 1.67) — the same pattern already resolved for the schizophrenia PRKN entry: this reflects multiple independent GWAS catalog associations for the same confirmed genotype, not a data error. BRCA2 rs11571818 TT is confirmed identical to Minko's finding, tying into the same DNA-repair pathway theme.</p>
 
@@ -1064,6 +1175,13 @@
     <p>Mild genetic signal for Bladder Cancer. GWAS polygenic score is +13.7 (above average); 3 loci show elevated risk allele dosage out of 73 genotyped. Bladder cancer ~50% heritable for common variants; smoking is the strongest risk factor.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +13.7 · 3 of 73 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:4.1%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">3 of 73 genotyped loci show elevated risk (4.1%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Shared with brother"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">UGT1A8</span><span class="marker-tag-rsid">rs17863783</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Shared with brother</span></div></div><div class="marker-tag marker-tag--secondary" title="Shared with brother"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CLK3</span><span class="marker-tag-rsid">rs11543198</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Shared with brother</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's bladder cancer signal matches Minko's closely — the same 3 of 73 elevated loci and nearly identical PGS (+13.7 versus +13.0). UGT1A8 rs17863783 GG and CLK3 rs11543198 GG are both confirmed identical between the brothers — UGT1A8 in particular relevant to how the bladder handles certain metabolic and dietary compounds.</p>
 
@@ -1093,6 +1211,13 @@
     <p>Elevated genetic signal for Asthma. GWAS polygenic score is +40.5 (above average); 11 loci show elevated risk allele dosage out of 588 genotyped. Asthma heritability ~60–80%; strong gene-environment (allergen) interaction.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +40.5 · 11 of 588 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:1.9%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">11 of 588 genotyped loci show elevated risk (1.9%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--modifier" title="Genotype confirmed; listed OR was a citation-parsing error"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MLLT3</span><span class="marker-tag-rsid">rs6475448</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Genotype confirmed; listed OR was a citation-parsing error</span></div></div><div class="marker-tag marker-tag--secondary" title="One fewer risk copy than brother"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TACR1</span><span class="marker-tag-rsid">rs7588010</span><span class="marker-tag-geno">AC</span><span class="marker-tag-weight">One fewer risk copy than brother</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p><strong>One value here needed the same scrutiny applied elsewhere in this report, and it's now resolved:</strong> rs6475448 (MLLT3) is confirmed homozygous AA against the raw genotyping data. The "odds ratio" of 129.00 attached to it, however, was never a real effect size — it traces to a bibliographic citation-index collision, where reference number [129] from a source paper was swallowed whole by an unconstrained data-scraping pipeline and misread as an odds ratio value. With that structural artifact stripped out, the actual finding is a confirmed AA genotype at a locus relevant to leukotriene-pathway/respiratory pharmacogenomic response — a real, usable data point once separated from the citation-parsing error.</p>
 
@@ -1118,7 +1243,13 @@
     <p>Elevated genetic signal for Lupus. GWAS polygenic score is +26.6 (above average); 15 loci show elevated risk allele dosage out of 374 genotyped. Lupus heritability ~44%; strong HLA component.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +26.6 · 15 of 374 genotyped loci show elevated risk</div>
-            <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:4.0%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">15 of 374 genotyped loci show elevated risk (4.0%)</span>
+    </div>
+                        <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>This is a genuinely interesting mechanistic divergence, not just a different number. Minko's lupus signal centres on STAT4 and the interferon pathway — the "interferon signature" that drives type I interferon overproduction. Stayko's lupus signal centres on a different, equally well-established lupus gene instead: <strong>ITGAM</strong> (rs1143679, appearing twice in his data with different odds ratios — again the multi-study-entry pattern seen elsewhere, not an error), which encodes a subunit of complement receptor 3, the receptor macrophages use to clear apoptotic cell debris and immune complexes from circulation. Impaired ITGAM function is a well-documented lupus mechanism distinct from interferon dysregulation — defective clearance of cellular debris allows self-antigens to accumulate and drive autoantibody production.</p>
 
     <p>Stayko's profile also includes IRF5 (rs729302 — interferon regulatory factor 5, so the interferon pathway isn't entirely absent, just not the dominant theme it is for Minko), FAM167A-BLK, TNPO3, and RASSF2. Interestingly, despite carrying more elevated loci than Minko (15 versus 32 — wait, fewer, not more; worth stating plainly: 15 against Minko's 32), Stayko's polygenic score is meaningfully lower (+26.6 versus +49.4), meaning Minko's elevated loci individually carry heavier weight even though there are more of them.</p>
@@ -1143,6 +1274,13 @@
     <p>Elevated genetic signal for Rheumatoid Arthritis. GWAS polygenic score is +34.5 (above average); 11 loci show elevated risk allele dosage out of 757 genotyped. RA heritability ~60%; HLA-DRB1 accounts for ~30% of genetic variance.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +34.5 · 11 of 757 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:1.5%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">11 of 757 genotyped loci show elevated risk (1.5%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Strongest single genetic contributor"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">HLA-DQB1</span><span class="marker-tag-rsid">rs6457617</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Strongest single genetic contributor</span></div></div><div class="marker-tag marker-tag--primary" title="Shared across lupus/RA/psoriasis"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYK2</span><span class="marker-tag-rsid">rs34536443</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Shared across lupus/RA/psoriasis</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's RA profile shares its two most important findings with Minko's exactly: HLA-DQB1 rs6457617 TT (the strongest single genetic contributor to RA, part of the HLA-DRB1 region responsible for roughly 30% of total genetic variance) and TYK2 rs34536443 GG — confirming the same homozygous TYK2 finding Minko's report describes as the molecular common denominator across his lupus, RA, psoriasis, and Crohn's signals. This is a genuinely shared thread between the brothers, not just a coincidence — TYK2 GG appearing consistently across multiple autoimmune conditions in both of their profiles.</p>
 
@@ -1168,6 +1306,13 @@
     <p>Elevated genetic signal for Inflammatory Bowel. GWAS polygenic score is +54.8 (above average); 19 loci show elevated risk allele dosage out of 851 genotyped. IBD heritability ~75% (Crohn's) / ~70% (UC); NOD2 is the strongest common risk gene.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +54.8 · 19 of 851 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:2.2%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">19 of 851 genotyped loci show elevated risk (2.2%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Shared with brother"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IL23R</span><span class="marker-tag-rsid">rs11209026</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Shared with brother</span></div></div><div class="marker-tag marker-tag--primary" title="Thiopurine-metabolism finding"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">NUDT15</span><span class="marker-tag-rsid">rs116855232</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Thiopurine-metabolism finding</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's IBD signal is essentially matched with Minko's — PGS +54.8 across 19 loci, against Minko's +56.6 across 18 — and the two most important loci are confirmed identical between the brothers: IL23R rs11209026 GG and NUDT15 rs116855232 CC, the primary inflammatory-cytokine and thiopurine-metabolism findings central to Minko's own analysis.</p>
 
@@ -1193,6 +1338,13 @@
     <p>Elevated genetic signal for Psoriasis. GWAS polygenic score is +28.2 (above average); 11 loci show elevated risk allele dosage out of 310 genotyped. Psoriasis heritability ~60–70%; HLA-C*06:02 is the major risk allele.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +28.2 · 11 of 310 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:3.5%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">11 of 310 genotyped loci show elevated risk (3.5%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Linchpin variant shared with RA"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">TYK2</span><span class="marker-tag-rsid">rs34536443</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Linchpin variant shared with RA</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's psoriasis signal closely matches Minko's — PGS +28.2 versus +32.0, both anchored by the identical homozygous TYK2 GG finding (rs34536443, appearing multiple times with different odds ratios, the same multi-study-entry pattern already established for other loci in this report). This is the same linchpin variant already confirmed shared in the RA section — TYK2 phosphorylates STAT3 downstream of IL-23, driving the keratinocyte hyperproliferation that defines psoriatic plaques.</p>
 
@@ -1218,6 +1370,13 @@
     <p>Elevated genetic signal for Crohn Disease. GWAS polygenic score is +51.4 (above average); 14 loci show elevated risk allele dosage out of 584 genotyped. Crohn's heritability ~75%; NOD2 and ATG16L1 are key loci.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +51.4 · 14 of 584 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:2.4%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">14 of 584 genotyped loci show elevated risk (2.4%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Shared with brother"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IL23R</span><span class="marker-tag-rsid">rs11209026</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Shared with brother</span></div></div><div class="marker-tag marker-tag--primary" title="Shared with brother"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">IL23R</span><span class="marker-tag-rsid">rs11465804</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Shared with brother</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's Crohn's profile is closely matched with Minko's — PGS +51.4 against +48.6 — and centres on the same IL23R signal: rs11209026 GG and rs11465804 TT are both confirmed identical between the brothers, appearing multiple times in Stayko's data at different odds ratios (2.66, 2.20, 2.84), again the multi-study-catalog pattern rather than an error.</p>
 
@@ -1243,6 +1402,13 @@
     <p>Moderate genetic signal for Multiple Sclerosis. GWAS polygenic score is +24.6 (above average); 6 loci show elevated risk allele dosage out of 347 genotyped. MS heritability ~50%; HLA-DRB1*15:01 is the strongest risk allele.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +24.6 · 6 of 347 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:1.7%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">6 of 347 genotyped loci show elevated risk (1.7%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="One fewer risk copy than brother"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">PADI1</span><span class="marker-tag-rsid">rs3003482</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">One fewer risk copy than brother</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's MS signal sits slightly below Minko's (+24.6 versus +28.1, 6 loci versus 5). PADI1 rs3003482 is shared between the brothers, though the genotype differs — Stayko is GA (heterozygous) where Minko is GG (homozygous), one fewer risk copy at this specific position.</p>
 
@@ -1272,6 +1438,7 @@
     <p>APOE and FOXO3 are the two most replicated longevity loci. FOXO3 G allele (if present) is associated with exceptional longevity across Japanese, American, Danish and other cohorts — it's the most robust non-APOE longevity signal known. CETP variants that raise HDL are also overrepresented in centenarians. Lifestyle (exercise, diet, sleep, not smoking) remains the dominant modifiable longevity factor. 3 SNPs combined.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +70.4 · 23 longevity loci</div>
+            <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Protective ε2 signal"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">APOE</span><span class="marker-tag-rsid">rs7412</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Protective ε2 signal</span></div></div><div class="marker-tag marker-tag--secondary" title="One protective copy — higher HDL"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CETP</span><span class="marker-tag-rsid">rs3764814</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">One protective copy — higher HDL</span></div></div><div class="marker-tag marker-tag--secondary" title="One protective copy — higher HDL"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CETP</span><span class="marker-tag-rsid">rs5882</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">One protective copy — higher HDL</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's longevity genetics closely mirror Minko's at both curated loci, and the shared APOE ε2 finding remains the centrepiece for both brothers. As established in the Cholesterol and Alzheimer's sections, rs7412 CC — confirmed identical for both — corresponds to the APOE ε2 allele, consistently overrepresented among centenarians across multiple independent cohorts, via the same multifactorial mechanism: lower LDL, reduced neuroinflammation, more efficient lipid metabolism, and lower Alzheimer's risk all contributing to the same survival advantage.</p>
 
@@ -1303,6 +1470,13 @@
     <p>Moderate genetic signal for Caffeine Metabolism. GWAS polygenic score is +15.2 (above average); 8 loci show elevated risk allele dosage out of 33 genotyped. Caffeine metabolism is ~50% heritable; CYP1A2 is the primary enzyme gene.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +15.2 · 8 of 33 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:24.2%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">8 of 33 genotyped loci show elevated risk (24.2%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Fast metaboliser — see Pharmacogenomics section"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CYP1A2</span><span class="marker-tag-rsid">rs762551</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Fast metaboliser — see Pharmacogenomics section</span></div></div><div class="marker-tag marker-tag--secondary" title="Shared with brother"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CYP2A6</span><span class="marker-tag-rsid">rs56113850</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">Shared with brother</span></div></div><div class="marker-tag marker-tag--modifier" title="Upstream regulator of CYP1A2"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AHR</span><span class="marker-tag-rsid">rs6968554</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Upstream regulator of CYP1A2</span></div></div><div class="marker-tag marker-tag--modifier" title="Upstream regulator of CYP1A2"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">AHR</span><span class="marker-tag-rsid">rs4410790</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">Upstream regulator of CYP1A2</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's caffeine metabolism GWAS signal is meaningfully broader than Minko's — 8 elevated loci against 3, PGS +15.2 against +5.5 — crossing from "mild" to "moderate." The shared CYP2A6 rs56113850 TC finding is confirmed identical (appearing three times at different ORs, the same multi-study-entry pattern established elsewhere in this report). What's new in Stayko's panel is a pair of AHR (aryl hydrocarbon receptor) variants — rs6968554 AG and rs4410790 TC, each appearing twice — genuinely relevant here, since AHR is the upstream transcriptional regulator that induces CYP1A2 expression itself, meaning these variants plausibly interact directly with the CYP1A2 finding below rather than acting as unrelated background noise.</p>
 
@@ -1328,6 +1502,13 @@
     <p>Elevated genetic signal for Alcohol Consumption. GWAS polygenic score is +36.1 (above average); 11 loci show elevated risk allele dosage out of 78 genotyped. Alcohol metabolism heritability ~50%; ADH1B and ALDH2 are the dominant variants. ALDH2 variants (common in East Asians) cause alcohol flush reaction.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +36.1 · 11 of 78 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:14.1%; background:var(--risk-elevated)"></div>
+        </div>
+        <span class="loci-bar-label">11 of 78 genotyped loci show elevated risk (14.1%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="Slow ADH1B — no flush reaction"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ADH1B</span><span class="marker-tag-rsid">rs1229984</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Slow ADH1B — no flush reaction</span></div></div><div class="marker-tag marker-tag--secondary" title="Also linked to schizophrenia risk"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">SLC39A8</span><span class="marker-tag-rsid">rs13107325</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Also linked to schizophrenia risk</span></div></div><div class="marker-tag marker-tag--secondary" title="Additional locus"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">MIPOL1</span><span class="marker-tag-rsid">rs4898641</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Additional locus</span></div></div><div class="marker-tag marker-tag--secondary" title="Additional locus"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CTNNA2</span><span class="marker-tag-rsid">rs2100290</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Additional locus</span></div></div><div class="marker-tag marker-tag--modifier" title="Shared with BMI section"><span class="marker-tag-dot" style="background:var(--cat-e)"></span><div class="marker-tag-main"><span class="marker-tag-gene">FTO</span><span class="marker-tag-rsid">rs55872725</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">Shared with BMI section</span></div></div><div class="marker-tag marker-tag--modifier" title="Shared with triglycerides/caffeine"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">GCKR</span><span class="marker-tag-rsid">rs1260326</span><span class="marker-tag-geno">TC</span><span class="marker-tag-weight">Shared with triglycerides/caffeine</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>The headline finding is confirmed identical between the brothers: rs1229984 CC at ADH1B (OR 24.56), the same *1/*1 slower-ADH1B genotype Minko carries, meaning alcohol is converted to acetaldehyde slowly and the aversive flushing response that deters drinking in fast-metaboliser populations isn't present for Stayko either. As with Minko's report, this OR describes population-level drinking-quantity behaviour, not a direct health-risk multiplier.</p>
 
@@ -1353,6 +1534,13 @@
     <p>Mild genetic signal for Pharmacogenomics. GWAS polygenic score is +8.0 (above average); 4 loci show elevated risk allele dosage out of 32 genotyped. Drug metabolism varies substantially by genotype; CYP2D6, CYP2C19, and TPMT are clinically actionable.</p>
     </div></div>
             <div class="pgs-badge">GWAS PGS +8.0 · 4 of 32 genotyped loci show elevated risk</div>
+            <div class="loci-bar">
+        <div class="loci-bar-track">
+            <div class="loci-bar-fill" style="width:12.5%; background:var(--risk-moderate)"></div>
+        </div>
+        <span class="loci-bar-label">4 of 32 genotyped loci show elevated risk (12.5%)</span>
+    </div>
+                        <div class="marker-votes"><div class="marker-tag-grid"><div class="marker-tag marker-tag--primary" title="OR 1.94 — shared with brother"><span class="marker-tag-dot" style="background:var(--cat-a)"></span><div class="marker-tag-main"><span class="marker-tag-gene">JAK2</span><span class="marker-tag-rsid">rs77375493</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">OR 1.94 — shared with brother</span></div></div><div class="marker-tag marker-tag--modifier" title="Likely population-specific effect"><span class="marker-tag-dot" style="background:var(--cat-b)"></span><div class="marker-tag-main"><span class="marker-tag-gene">ZNF646</span><span class="marker-tag-rsid">rs749671</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Likely population-specific effect</span></div></div><div class="marker-tag marker-tag--secondary" title="Shared with brother"><span class="marker-tag-dot" style="background:var(--cat-c)"></span><div class="marker-tag-main"><span class="marker-tag-gene">CPVL</span><span class="marker-tag-rsid">rs245880</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">Shared with brother</span></div></div><div class="marker-tag marker-tag--secondary" title="Additional locus"><span class="marker-tag-dot" style="background:var(--cat-d)"></span><div class="marker-tag-main"><span class="marker-tag-gene">VGLL4</span><span class="marker-tag-rsid">rs6766130</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">Additional locus</span></div></div></div></div>
             <div class="narrative-unit narrative-unit--deep"><div class="narrative-kicker">Deeper Analysis</div><div class="narrative-text">
     <p>Stayko's pharmacogenomics GWAS panel closely matches Minko's — JAK2 rs77375493 GG (OR 1.94), ZNF646 rs749671 AG (OR 20.40), and CPVL rs245880 GA (OR 4.69) are all confirmed identical between the brothers, including the same very large ZNF646 outlier that Minko's report attributes to a likely population-specific or rare-variant effect rather than a broadly applicable drug-response signal — the same caution applies equally here.</p>
 
