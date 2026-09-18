@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ミンコ・ネノフ — 深層祖先記録</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --parchment:#f5efe4;--parchment-dark:#ede3d0;--ink:#1c1610;--ink-mid:#4a3f30;
+  --ink-light:#8a7a65;--accent:#7a3a1a;--accent-light:#c4845a;--gold:#b89a5a;
+  --gold-light:#e8d5a0;--steppe:#6b8a6b;--sea:#3a6b8a;--stone:#8a8a7a;
+  --cinnabar:#8a2a1a;--era-line:#c8b89a;
+}
+body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','EB Garamond',Georgia,serif;font-size:17px;line-height:2.0}
+
+.lang-bar{position:fixed;top:1rem;right:1.2rem;z-index:200;display:flex;gap:.4rem}
+.lang-btn{font-family:'Noto Sans JP','Inter',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-decoration:none;padding:.3rem .7rem;border-radius:3px;background:rgba(28,22,16,.85);color:var(--ink-light);border:1px solid #3a3020;backdrop-filter:blur(4px);transition:color .15s,border-color .15s}
+.lang-btn:hover{color:var(--gold-light);border-color:var(--gold)}
+.lang-btn--active{color:var(--gold);border-color:var(--gold);pointer-events:none}
+
+.cover{background:var(--ink);color:var(--parchment);padding:6rem 4rem 5rem;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.015) 40px,rgba(255,255,255,.015) 41px);pointer-events:none}
+.cover-eyebrow{font-family:'Noto Sans JP',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.15em;color:var(--gold);margin-bottom:1.5rem}
+.cover h1{font-size:3rem;font-weight:600;color:var(--parchment);line-height:1.2;margin-bottom:.5rem;letter-spacing:.04em}
+.cover-sub{font-size:1.2rem;font-style:italic;color:var(--gold-light);margin-bottom:.8rem;font-family:'Noto Serif JP',serif}
+.cover-sub2{font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:#a09070;letter-spacing:.06em;margin-bottom:3.5rem}
+.cover-meta{font-family:'Noto Sans JP',sans-serif;font-size:.75rem;color:var(--ink-light);border-top:1px solid #3a3020;padding-top:1.5rem;display:flex;gap:2.5rem;flex-wrap:wrap}
+.cover-stat{display:flex;flex-direction:column}
+.cover-stat-val{font-size:1.75rem;font-weight:600;color:var(--gold-light);font-family:'Noto Serif JP',serif}
+.cover-stat-label{font-size:.63rem;letter-spacing:.08em;color:var(--ink-light);font-family:'Noto Sans JP',sans-serif}
+
+.nav-sidebar{position:fixed;left:0;top:0;bottom:0;width:210px;background:var(--ink);padding:2rem 1rem;overflow-y:auto;z-index:100}
+.nav-sidebar h4{font-family:'Noto Sans JP',sans-serif;font-size:.62rem;letter-spacing:.12em;color:var(--gold);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid #3a3020}
+.nav-link{display:block;font-family:'Noto Sans JP',sans-serif;font-size:.72rem;color:var(--ink-light);text-decoration:none;padding:.3rem .4rem;border-radius:3px;margin-bottom:.15rem;line-height:1.5;transition:color .15s,background .15s}
+.nav-link:hover{color:var(--gold-light);background:rgba(255,255,255,.05)}
+.nav-divider{border:none;border-top:1px solid #2a2218;margin:.8rem 0}
+.main-content{margin-left:210px}
+
+.era-block{display:flex;gap:0;padding:3.5rem 4rem 3.5rem 0;border-bottom:1px solid var(--parchment-dark);max-width:1100px;margin:0 auto}
+.era-marker{width:120px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.era-marker::before{content:'';position:absolute;left:50%;top:0;bottom:-3.5rem;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0}
+.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);z-index:1;flex-shrink:0}
+.era-dot--mid{background:var(--steppe);box-shadow:0 0 0 3px var(--steppe)}
+.era-dot--ancient{background:var(--stone);box-shadow:0 0 0 3px var(--stone)}
+.era-dot--special{background:var(--accent);box-shadow:0 0 0 3px var(--accent)}
+.era-label{font-family:'Noto Sans JP',sans-serif;font-size:.6rem;font-weight:500;color:var(--ink-light);text-align:center;line-height:1.5;z-index:1}
+.era-content{flex:1;padding-left:2.5rem}
+.era-content h2{font-size:1.55rem;font-weight:600;color:var(--ink);margin-bottom:1.2rem;line-height:1.4;font-family:'Noto Serif JP',serif}
+.era-content p{margin-bottom:1.1rem;color:var(--ink-mid);font-size:.97rem;line-height:2.0}
+.sub-heading{font-size:1.1rem;font-weight:600;color:var(--ink);margin:2rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px solid var(--parchment-dark);font-family:'Noto Serif JP',serif}
+.descent-note{font-style:italic;color:var(--ink-light)!important;font-size:.92rem!important;margin-bottom:1.6rem!important;padding-bottom:1rem;border-bottom:1px dashed var(--era-line)}
+
+.insight-box{background:var(--parchment-dark);border-left:4px solid var(--gold);padding:1.1rem 1.4rem;margin:1.5rem 0;border-radius:0 6px 6px 0}
+.insight-box--final{background:var(--ink);color:var(--parchment);border-color:var(--gold)}
+.insight-label{font-family:'Noto Sans JP',sans-serif;font-size:.63rem;font-weight:600;letter-spacing:.08em;color:var(--gold);display:block;margin-bottom:.5rem}
+.plain-box{background:rgba(58,107,138,.07);border-left:4px solid var(--sea);padding:1.1rem 1.4rem;margin:1.6rem 0;border-radius:0 6px 6px 0;color:var(--ink-mid)}
+.plain-box strong{color:var(--ink);font-weight:600}
+.plain-box em{font-style:italic;color:var(--ink)}
+.plain-box mark{background:var(--gold-light);color:var(--ink);padding:.05em .25em;border-radius:3px;font-style:normal}
+.plain-label{font-family:'Inter',sans-serif;font-style:normal;font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sea);display:block;margin-bottom:.45rem}
+.insight-label--white{color:var(--gold-light)}
+.equation{font-family:'Noto Sans JP',sans-serif;font-size:.86rem;line-height:2.2;color:var(--gold-light)}
+.equation strong{color:#fff;font-size:.98rem}
+
+.dist-table{width:100%;border-collapse:collapse;font-size:.84rem;margin:1.2rem 0}
+.dist-table th{font-family:'Noto Sans JP',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.06em;color:var(--ink-light);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
+.dist-table td{padding:.32rem .5rem;border-bottom:1px solid var(--parchment-dark);vertical-align:middle}
+.dist-table tr:first-child td{font-weight:600;color:var(--ink)}
+.dist-bar-bg{width:150px;height:6px;background:var(--parchment-dark);border-radius:3px;display:inline-block;vertical-align:middle;margin-right:.5rem}
+.dist-bar-fill{height:100%;border-radius:3px;background:var(--gold);display:block}
+.dist-bar-fill--steppe{background:var(--steppe)}
+.dist-bar-fill--stone{background:var(--stone)}
+.dist-val{font-family:'Inter',monospace;font-size:.78rem;color:var(--ink-light)}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0}
+.table-heading{font-family:'Noto Sans JP',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:var(--ink-light);margin-bottom:.6rem}
+.data-table{width:100%;border-collapse:collapse;font-size:.86rem}
+.data-table td{padding:.3rem .4rem;border-bottom:1px solid var(--parchment-dark);vertical-align:middle}
+.pct-cell{width:68%}
+.pct-bar{display:inline-block;height:6px;background:var(--gold);border-radius:3px;vertical-align:middle;margin-right:.4rem;opacity:.75}
+.pct-val{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--ink-light)}
+
+.snp-table-wrap{margin:1.5rem 0;overflow-x:auto}
+.snp-table{width:100%;border-collapse:collapse;font-size:.81rem}
+.snp-table th{font-family:'Noto Sans JP',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.06em;color:var(--ink-light);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
+.snp-table td{padding:.35rem .5rem;border-bottom:1px solid var(--parchment-dark);vertical-align:top}
+.snp-rsid{font-family:'Inter',monospace;font-size:.76rem;color:var(--accent)}
+.snp-gene{font-family:'Inter',sans-serif;font-weight:600;font-size:.82rem}
+.snp-geno{font-family:'Inter',monospace;font-weight:700;font-size:.9rem}
+.snp-found{color:var(--steppe)}
+.snp-missing{color:var(--ink-light);font-weight:400;font-size:.78rem}
+.snp-desc{font-size:.81rem;color:var(--ink-light);font-family:'Noto Sans JP',sans-serif;line-height:1.7}
+
+.disclaimer{font-family:'Noto Sans JP',sans-serif;font-size:.75rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.8;border-top:1px solid var(--era-line)}
+
+@media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
+@media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <a href="ancestry_deep_narrative_Minko.html" class="lang-btn">EN</a>
+  <a href="ancestry_deep_narrative_Minko_bg.html" class="lang-btn">БГ</a>
+  <a href="ancestry_deep_narrative_Minko_ja.html" class="lang-btn lang-btn--active">日本語</a>
+</div>
+
+<nav class="nav-sidebar">
+  <h4>発掘の層</h4>
+  <a href="#s_summary" class="nav-link">要約</a>
+  <a href="#s_surface" class="nav-link">層0 — 表層</a>
+  <a href="#s_modern" class="nav-link">層1 — 現代集団</a>
+  <a href="#s_medieval" class="nav-link">層2 — 中世</a>
+  <a href="#s_bronze" class="nav-link">層3 — 青銅器時代</a>
+  <a href="#s_neolithic" class="nav-link">層4 — 新石器時代</a>
+  <a href="#s_mesolithic" class="nav-link">層5 — 中石器時代</a>
+  <a href="#s_archaic" class="nav-link">層6 — 古代人類</a>
+  <hr class="nav-divider">
+  <a href="#s_surprises" class="nav-link">注目すべき発見</a>
+  <a href="#s_snps" class="nav-link">祖先SNPマーカー</a>
+  <a href="#s_synthesis" class="nav-link">全体像</a>
+</nav>
+
+<div class="main-content">
+
+<div class="cover">
+  <p class="cover-eyebrow">深層祖先記録</p>
+  <h1>ミンコ・ネノフ</h1>
+  <p class="cover-sub">一つのゲノムの考古学的発掘</p>
+  <p class="cover-sub2">東バルカン半島 · ポントス草原 · アナトリア · ５万年の歴史</p>
+  <div class="cover-meta">
+    <div class="cover-stat">
+      <span class="cover-stat-val">0.021</span>
+      <span class="cover-stat-label">ルーマニア人までのG25距離</span>
+    </div>
+    <div class="cover-stat">
+      <span class="cover-stat-val">0.031</span>
+      <span class="cover-stat-label">ブルガリア中世までの距離</span>
+    </div>
+    <div class="cover-stat">
+      <span class="cover-stat-val">8</span>
+      <span class="cover-stat-label">時代の層</span>
+    </div>
+    <div class="cover-stat">
+      <span class="cover-stat-val">2026年7月</span>
+      <span class="cover-stat-label">作成日</span>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  資料出典：G25座標はカスタムマッピングスクリプトを用いてGEDmatchのK36/K15/K13成分からモデル化。GEDmatch Eurogenes K36、Dodecad V3、puntDNAL K15、EUtest K15、Ancient Eurasia K6、MyHeritage民族推定。Vahaduo Global25スケール済み集団平均値。参考文献：Haak et al. 2015、Olalde et al. 2019、Antonio et al. 2019、Gnecchi-Ruscone et al. 2022（アヴァール人）。古代DNAによる祖先モデルは遺伝的関係を記述する統計的な近似であり、直接的な家系上の血縁関係を示すものではありません。作成：2026年7月
+</div>
+
+<!-- ══ 要約 ══ -->
+<div class="era-block" id="s_summary">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+    <span class="era-label">発掘の前に<br>要約</span>
+  </div>
+  <div class="era-content">
+    <h2>上空からの視点</h2>
+
+    <p class="descent-note">これから七つの層が続きます。それぞれが前の層よりも数千年ずつ古くなっていきます。掘り下げる前に、発掘全体が上から下まで何を示しているかをまず見てみましょう。</p>
+
+    <p>このゲノムは東バルカンの遺伝的連続体の中心に位置しています。現代集団との比較では、ルーマニア人、ブルガリア人、ガガウズ人の参照集団に最も近く、モンテネグロ人、モルドバ人、セルビア人、マケドニア人といった他の東バルカン集団と密接なクラスターを形成しています。これはMyHeritageの結果（ギリシャ・アルバニア系 約47%、バルカン系 約38%）とも一致します——ただしこの二つのラベルを別々の祖先の割合としてではなく、同じ南東ヨーロッパの遺伝子プールに対する重なり合う二つの窓として読む必要があります。</p>
+
+    <p>中世の層では、このゲノムは第一次・第二次ブルガリア帝国の実際の古代DNAに異例なほど近く——距離はわずか<strong>0.034</strong>で、テストされたどの古代集団よりも近い値です。これは、実質的な非スラブ系パレオバルカン基層を保持しながら、中世初期のスラブ民族の移動によって形成された集団と一致します。その下の青銅器時代の層では、アナトリア新石器農耕民とポントス草原（ヤムナヤ関連）牧畜民からのほぼ均衡した寄与が見られます——どちらか一方に傾くというより、ほぼ50対50の統合に近い形です。西ヨーロッパ狩猟採集民の祖先も存在しますが、ヨーロッパの三つの創設的な流れの中では最小で、およそ15パーセントです——一部は現地の寄与として、一部は草原成分自体の中に組み込まれた形で存在します。</p>
+
+    <p>さらに深く掘り下げると、草原祖先は東部狩猟採集民（EHG）側よりもコーカサス狩猟採集民（CHG）側に重みを持つように見えます——これは北方の縄目文土器文化のルートよりも、南東ヨーロッパのプロフィールに典型的なパターンです。単一遺伝子マーカーは、明るい肌と青い目という典型的なヨーロッパ人の色素沈着プロフィールを確認しており、ヨーロッパ型アレル一コピーによる乳糖分解酵素持続性も伴っています。東アジア関連のEDAR変異がホモ接合型で存在しますが、通常のABCC11のパートナーアレルを伴っていません——この組み合わせは、最近の東アジア系祖先よりも、古く間接的な遺伝子流入の経路と一致します。</p>
+
+    <table class="dist-table">
+      <tr>
+        <th>層</th>
+        <th>最も近い一致</th>
+        <th>距離</th>
+      </tr>
+      <tr>
+        <td>現代集団</td>
+        <td>ルーマニア人</td>
+        <td class="dist-val">0.018</td>
+      </tr>
+      <tr>
+        <td>中世</td>
+        <td>ブルガリア中世</td>
+        <td class="dist-val">0.034</td>
+      </tr>
+      <tr>
+        <td>青銅器時代</td>
+        <td>ヤムナヤ／アナトリア新石器時代 — 同点</td>
+        <td class="dist-val">0.171 / 0.173</td>
+      </tr>
+      <tr>
+        <td>古代草原層</td>
+        <td>CHG対EHG</td>
+        <td class="dist-val">0.253 / 0.286</td>
+      </tr>
+    </table>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      簡単に言うと：アナトリア農耕民とコーカサス寄りの草原祖先がバランスよく混ざり合い、その下によりわずかな西ヨーロッパ狩猟採集民の寄与を持ち、後に中世ブルガリア集団を形成したスラブ民族の移動によって形作られた東バルカン系ゲノムです。弟のスタイコと比較すると、このゲノムはバルカン連続体の南方・エーゲ海寄りの端からやや遠く、より広いルーマニア・ブルガリア中核に比較的近い位置にあります。以下に続くすべて——<mark>七つの層、八千年の歴史</mark>——は、この一文の背後にある証拠です。
+    </div>
+  </div>
+</div>
+
+<!-- ══ 層0 ══ -->
+<div class="era-block" id="s_surface">
+  <div class="era-marker">
+    <span class="era-dot"></span>
+    <span class="era-label">層0<br>表層</span>
+  </div>
+  <div class="era-content">
+    <h2>ラベルが伝えていること — そして伝えていないこと</h2>
+
+    <p class="descent-note">発掘はどこかから始めなければなりません。この発掘は表層から始まります——標準的なDNA検査が与えるラベルから、そしてそれらのラベルがなぜ報告書全体の中で最も信頼性の低い部分であるのかから。</p>
+
+    <p>このキットに対するMyHeritageの民族推定は次の通りです：</p>
+
+    <table class="data-table">
+      <tr><td>ギリシャ・アルバニア系</td><td class="pct-cell"><span class="pct-bar" style="width:78%"></span><span class="pct-val">46.8%</span></td></tr>
+      <tr><td>Балкански<span style="font-size:.75rem;color:var(--ink-light)">（ボスニア・ヘルツェゴビナ）</span></td><td class="pct-cell"><span class="pct-bar" style="width:75%"></span><span class="pct-val">38.4%</span></td></tr>
+      <tr><td>東ヨーロッパ系</td><td class="pct-cell"><span class="pct-bar" style="width:17%"></span><span class="pct-val">8.8%</span></td></tr>
+      <tr><td>南イタリア系</td><td class="pct-cell"><span class="pct-bar" style="width:10%"></span><span class="pct-val">4.9%</span></td></tr>
+      <tr><td>バルト系</td><td class="pct-cell"><span class="pct-bar" style="width:10%"></span><span class="pct-val">1.1%</span></td></tr>
+    </table>
+
+    <p>MyHeritageはまた、より低い信頼度で検出された四つの<strong>追加的遺伝的グループ</strong>——主要な内訳には収まらない、より細かい集団シグナル——として、ブルガリア、ルーマニア、ボスニア・ヘルツェゴビナを示しています。</p>
+
+    <p>すべての祖先報告書はパーセンテージと地名から始まります。MyHeritageの結果は、ギリシャ・アルバニア系46.8%、バルカン系38.4%、東ヨーロッパ系8.8%、南イタリア系4.9%、バルト系1.1%と表示しています。自然な読み方をすれば、部分的にギリシャ人、部分的にバルカン人、部分的に東ヨーロッパ人であるかのように——まるで異なる祖先集団がそれぞれ別々の、数えられる断片を提供したかのように見えます。しかしこの読み方は正確ではなく、それを訂正するところから本当の物語が始まります。</p>
+
+    <p>これらのパーセンテージは、家系図が示すような意味での祖先の割合ではありません。アルゴリズムがあなたのDNAを現代の参照集団と比較し、どの生きている集団に最も似ているか、どのような割合でそうであるかを問いかけた結果です。同じゲノムを別のアルゴリズムで異なる参照パネルを使って解析すれば、異なるパーセンテージが得られます——これは本報告書に登場する複数のGEDmatch計算ツールが繰り返し示す通りです。重要なのは、どれか一つのツールから得られる正確なパーセンテージではなく、すべてのツールで一貫しているものです。</p>
+
+    <p><strong>ギリシャ・アルバニア系（46.8%）</strong>は、ギリシャ人やアルバニア人の祖父母がいることを意味しません。あなたの遺伝的プロフィールのおよそ半分が、これらの現代の参照集団に最も近いことを意味しており、それらの集団自体も、南東ヨーロッパ全体の基盤となっている同じ古代エーゲ海・アナトリア新石器・パレオバルカン基層の子孫です——この基層は、スラブ民族の到来以前のバルカン半島の古代トラキア人、ダキア人、イリュリア人をも生み出しました。現代のギリシャ人とアルバニア人は初期ヨーロッパ農耕民の祖先を高い割合で持ち、スラブ民族の移動のシグナルを比較的少ししか持たないため、非スラブ系パレオバルカン層の最も近い現存する代理となっています。アルゴリズムがこのゲノムの強い地中海・アナトリア農耕民成分を検出すると、それをギリシャ・アルバニア系に対応づけます——系譜上の意味でのギリシャ人やアルバニア人の祖先があるからではなく、それらの集団が、現代のすべてのバルカン国民的アイデンティティに先行する古代の共有基層を最もよく保存しているからです。</p>
+
+    <p><strong>バルカン系（38.4%）</strong>は、スラブ民族移動期の祖先と現地のパレオバルカン基層——6世紀のスラブ拡大以前からすでにバルカン半島にいた集団と、移住者自身の両方——を捉えています。ギリシャ・アルバニア系とバルカン系のほぼ等しい分割は、東バルカンの遺伝的交差点に位置するあなたの立ち位置の数学的表現であり、地中海の農耕基盤と大陸系スラブの層がほぼ同等の割合で存在していることを示しています。</p>
+
+    <p><strong>南イタリア系（4.9%）</strong>は、系譜上の意味でのイタリア人の祖先ではありません。現代の南イタリア人とバルカンのギリシャ人は、アナトリア新石器農耕民とローマ時代の東地中海の祖先を大量に共有しています。このパーセンテージは、かつて中央地中海盆地全体を結びつけていた、ローマ以前の共有された地中海的遺伝的基盤の数学的反映です——同じ古代の農耕シグナルが、別の現代集団ラベルを通して表現されているのです。</p>
+
+    <p><strong>東ヨーロッパ系（8.8%）</strong>は北方のスラブ的オーバーシュート——プリピャチ湿地のスラブ人の故郷から運ばれたバルト・森林地帯的シグナルであり、別個の東ヨーロッパ人祖先ではありません。<strong>バルト系（1.1%）</strong>とMyHeritageが示す追加的クラスター——ブルガリア、ルーマニア、セルビア／クロアチア／ボスニア——は、アルゴリズムがあなたのゲノムを東バルカンの遺伝的連続体のまさに中心に位置づけ、同じ連続した地形の上のすべての隣接点に同時に似ていることを認識している証拠です。</p>
+
+    <div class="insight-box">
+      <span class="insight-label">結論</span>
+      適切に解釈すれば、MyHeritageの結果は一つの一貫した遺伝的アイデンティティを描いています。すなわち、アナトリア新石器農耕民、ポントス草原牧畜民、現地のパレオバルカン集団が8,000年をかけて収束し統合した、東バルカンの交差点集団です。具体的なパーセンテージは、異なる民族的祖先の数ではなく、それぞれの古代の層の割合を反映しています。
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      この層から持ち帰るべき唯一の考えはこうです。<mark>ラベルは発見そのものではありません。</mark>国名の隣にあるパーセンテージは正確に見えますが、実際には誰か他人が構築した参照パネルと、そのプログラムの設計者がたまたま選んだカテゴリーを使って、あなたのDNAを比較したコンピュータープログラムの出力にすぎません。「ギリシャ・アルバニア系」46.8%は、ギリシャ人やアルバニア人の祖先がいることを意味しません——それは、あなたの遺伝的プロフィールが、今日、古代エーゲ海とアナトリアの農耕基層を持つ人々に最も近いことを意味しており、その基層こそが、「ギリシャ」や「アルバニア」が国民的アイデンティティとして存在するはるか以前に歴史上のトラキア人を生み出したものなのです。同じDNAを別のツールと別の参照パネルで実行すれば、根底にあるDNAが一ミリも動いていないにもかかわらず、ラベルは変わります。ここで実際に信頼できるのは、「ギリシャ・アルバニア系」と「バルカン系」のほぼ均等な分割です——同じ東バルカンの位置に対する重なり合う二つの窓であり、どちらもほぼ50対50に近く、これはまさに、その地域の一方の端にいるのではなく、真の交差点に位置する人物に期待される通りのパターンです。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 層1 ══ -->
+<div class="era-block" id="s_modern">
+  <div class="era-marker">
+    <span class="era-dot"></span>
+    <span class="era-label">層1<br>現代<br>集団</span>
+  </div>
+  <div class="era-content">
+    <h2>現代集団の地図 — あなたのゲノムが今どこに位置するか</h2>
+
+    <p>あなたのDNA座標をGlobal25の枠組みで現代集団の平均値と比較すると、結果は地理的に精密な勾配を形成します。最も近い現代の一致は<strong>ルーマニア人、距離0.018</strong>で、その直後にブルガリア人0.021、ガガウズ人0.024、モンテネグロ人0.025、モルドバ人0.025、セルビア人0.026、マケドニア人0.026と続きます。上位七つの集団はすべて0.027を下回っています——これは真の、直接的な地域的一致を表す閾値です。ギリシャ中央マケドニアは0.040、アルバニア人は0.042で現れ、地中海成分がスラブ民族移動のシグナルから離れ始めるにつれて、すでに明らかに遠くなっています。</p>
+
+    <p>これらの距離は完璧な地理的勾配を形成しています。最も近い一致はすべて東バルカンにあり、南の地中海の中核へ、あるいは北のスラブ系森林・草原地帯へ向かうにつれて、フィットは体系的に低下します。あなたのゲノムは一つの現代集団の近くに位置しているのではなく、モルドバからマケドニアまで広がる東バルカン回廊全体にまたがる遺伝的連続体の中心に位置しています。</p>
+
+    <p>ルーマニア人はブルガリア人をわずかな差——0.018対0.021——で上回っていますが、この差はモデル化された座標の解像度の範囲内にあります。これが示しているのは、あなたがブルガリア人ではなくルーマニア人であるということではなく、ヨーロッパの中で遺伝的に最も似た国民集団の一つであるこの二つの集団の、まさに遺伝的な中間点に位置しているということです。複数の計算ツールにわたるGEDmatchの単集団オラクルもこれを確認しています。ルーマニア人とブルガリア人は、どの計算ツールを使うかによって一位と二位が入れ替わり、マケドニア人とセルビア人が常に近くに位置しています。ギリシャ中央マケドニア（0.040）とアルバニア人（0.042）への相対的な距離——どちらも北方のバルカン集団すべてよりも大幅に遠い——は、半島のさらに南に位置する集団のより南方的・エーゲ海志向的なプロフィールと比較した、あなたのより強いスラブ・ルーマニア回廊的な引力を示す定量的な指標です。</p>
+
+    <table class="dist-table">
+      <thead><tr><th>現代集団</th><th>G25距離</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>ルーマニア人</td><td class="dist-val">0.018</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:18%"></div></div></td></tr>
+        <tr><td>ブルガリア人</td><td class="dist-val">0.021</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:21%"></div></div></td></tr>
+        <tr><td>ガガウズ人</td><td class="dist-val">0.024</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:24%"></div></div></td></tr>
+        <tr><td>モンテネグロ人</td><td class="dist-val">0.025</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:25%"></div></div></td></tr>
+        <tr><td>モルドバ人</td><td class="dist-val">0.025</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:25%"></div></div></td></tr>
+        <tr><td>セルビア人</td><td class="dist-val">0.026</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:26%"></div></div></td></tr>
+        <tr><td>マケドニア人</td><td class="dist-val">0.026</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:26%"></div></div></td></tr>
+        <tr><td>ギリシャ中央マケドニア</td><td class="dist-val">0.040</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:40%"></div></div></td></tr>
+        <tr><td>アルバニア人</td><td class="dist-val">0.042</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:42%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <div class="two-col">
+      <div>
+        <h3 class="table-heading">MyHeritage民族推定</h3>
+        <table class="data-table">
+          <tr><td>ギリシャ・アルバニア系</td><td class="pct-cell"><span class="pct-bar" style="width:70%"></span><span class="pct-val">46.8%</span></td></tr>
+          <tr><td>バルカン系</td><td class="pct-cell"><span class="pct-bar" style="width:58%"></span><span class="pct-val">38.4%</span></td></tr>
+          <tr><td>東ヨーロッパ系</td><td class="pct-cell"><span class="pct-bar" style="width:13%"></span><span class="pct-val">8.8%</span></td></tr>
+          <tr><td>南イタリア系</td><td class="pct-cell"><span class="pct-bar" style="width:7%"></span><span class="pct-val">4.9%</span></td></tr>
+          <tr><td>バルト系</td><td class="pct-cell"><span class="pct-bar" style="width:2%"></span><span class="pct-val">1.1%</span></td></tr>
+        </table>
+      </div>
+      <div>
+        <h3 class="table-heading">Eurogenes K36 — 上位成分</h3>
+        <table class="data-table">
+          <tr><td>東バルカン</td><td class="pct-cell"><span class="pct-bar" style="width:58%"></span><span class="pct-val">14.55%</span></td></tr>
+          <tr><td>イタリア系</td><td class="pct-cell"><span class="pct-bar" style="width:42%"></span><span class="pct-val">10.46%</span></td></tr>
+          <tr><td>東地中海</td><td class="pct-cell"><span class="pct-bar" style="width:39%"></span><span class="pct-val">9.68%</span></td></tr>
+          <tr><td>フェノスカンジア</td><td class="pct-cell"><span class="pct-bar" style="width:35%"></span><span class="pct-val">8.80%</span></td></tr>
+          <tr><td>東中央ヨーロッパ</td><td class="pct-cell"><span class="pct-bar" style="width:34%"></span><span class="pct-val">8.55%</span></td></tr>
+          <tr><td>中央ヨーロッパ</td><td class="pct-cell"><span class="pct-bar" style="width:31%"></span><span class="pct-val">7.72%</span></td></tr>
+          <tr><td>イベリア</td><td class="pct-cell"><span class="pct-bar" style="width:29%"></span><span class="pct-val">7.23%</span></td></tr>
+          <tr><td>北大西洋</td><td class="pct-cell"><span class="pct-bar" style="width:22%"></span><span class="pct-val">5.45%</span></td></tr>
+          <tr><td>北コーカサス</td><td class="pct-cell"><span class="pct-bar" style="width:20%"></span><span class="pct-val">5.12%</span></td></tr>
+          <tr><td>アルメニア</td><td class="pct-cell"><span class="pct-bar" style="width:19%"></span><span class="pct-val">4.86%</span></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <span class="insight-label">K36がMyHeritageを超えて明らかにすること</span>
+      Eurogenes K36計算ツールはゲノムを36の細かい成分に分解し、MyHeritageが均してしまう構造を明らかにします。東バルカン成分の14.55%は単独で最も高いシグナルであり、東バルカンの中核を確認しています。イタリア系（10.46%）と東地中海（9.68%）を合わせると、共有された古代地中海の基盤を占めています。フェノスカンジア（8.80%）は、草原の移動を通じて到達した北方の狩猟採集民DNAを捉えています。北コーカサス（5.12%）とアルメニア（4.86%）は、ヤムナヤを通じて受け継がれたコーカサス狩猟採集民成分を反映しています。わずかな東中央アジア（0.18%）とインドシナ（1.46%）のシグナルは、注目すべき発見のセクションで論じるEDARの発見につながっています。
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      ルーマニア人、ブルガリア人、ガガウズ人、モンテネグロ人、モルドバ人、セルビア人、マケドニア人——七つの異なる現代集団が、互いにほんのわずかな差で並び、すべてが明らかに同じ地域、すなわち東バルカンに位置しています。これは、複数の異なる携帯電話の基地局で位置を三角測量するようなものだと考えてください。単一の基地局は正確な住所を示しませんが、七つの基地局すべてが同じ小さな地域で一致すれば、そこが本当に信号の発信源だと信頼できます。ルーマニア人がブルガリア人をごくわずかな差で上回っていますが、それは「ブルガリア人よりルーマニア人寄り」という意味ではなく、遺伝的にほぼ同一である二つの集団のほぼ正確な中間点に位置しているということです。K36の内訳は、同じ方向を指し示す二つ目の証拠を加えます。東バルカンが単独で最大の成分であり、イタリア系と東地中海を合わせたものは、文字通りのイタリア人祖先ではなく、実際には古代地中海農耕集団の指標です。九つの別々の測定、一つの一貫した答えです。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 層2 ══ -->
+<div class="era-block" id="s_medieval">
+  <div class="era-marker">
+    <span class="era-dot era-dot--mid"></span>
+    <span class="era-label">層2<br>中世<br>500〜1200年</span>
+  </div>
+  <div class="era-content">
+    <h2>中世の層 — 深い時間の中のブルガリア</h2>
+
+    <p class="descent-note">現代集団のラベルは、あなたが今どこに位置しているかを教えてくれます。そのバルカン成分がどのように形成されたかを理解するには、現代の層を取り除き、中世へと降りていく必要があります。</p>
+
+    <p>現代集団の層の下には、最初の歴史的層があります。あなたのゲノムが最も似ている集団に直接先行する中世の集団です。すべてのモデルにわたって最も顕著な定量的結果は、<strong>ブルガリア中世：0.034</strong>という距離です——ルーマニア人（0.018）とブルガリア人（0.021）を除くどの現代集団よりも近く、データベース全体のどの古代集団よりも近い値です。これは理論上の「中世ブルガリア人」への言及ではありません——第一次・第二次ブルガリア帝国時代に中世ブルガリアに埋葬された個体から実際に抽出された古代DNAへの距離です。あなたの現在の遺伝的プロフィールは、その中世集団に見られる遺伝的変異によって驚くほどよく表現されています。</p>
+
+    <p>0.034という距離は、あなたのモデル化されたG25座標が中世ブルガリアの参照平均値の近くに位置しており、中世ブルガリアの遺伝的構造があなたのゲノムが遺伝的空間のどこに位置するかをよく説明していることを意味します。これ自体は、十二世紀にわたる一つの場所での途切れない家系的連続性を証明するものではなく、そのためには独立した家系学的または考古遺伝学的証拠が必要になります。それが証明しているのは、すでに十分驚くべきことです。あなたの祖先プロフィールは、この座標系を通して見た場合、テストされたどの他の古代集団または現代集団よりも中世ブルガリア人集団と一致しているということです。</p>
+
+    <p>中世の距離表はさらなる構造を明らかにします。<strong>ロシア・ヴァイキングSG、距離0.076</strong>は共有された北ヨーロッパの草原由来の祖先を反映しています——ヴァリャーグの商人や傭兵はビザンティンとブルガリアの世界全体で活動しており、ここでの遺伝的距離は直接的なノルド人との接触というより共通の祖先を反映しています。二番目のヴァイキング時代の参照個体であるロシア・ヴァイキングoSGは0.097にランクされます——「_o」の接尾辞は、非典型的な混血を持つ外れ値個体を示しています。<strong>ハンガリー後期アヴァール、0.122</strong>対<strong>ハンガリー初期アヴァール、0.214</strong>は、慎重に検討する価値のある差です。</p>
+
+    <p>アヴァール可汗国は西暦567年から895年までパンノニア盆地——現代のハンガリー——を支配しており、これはまさにバルカン半島へのスラブ民族の移動の最中およびその後の時期にあたります。初期アヴァール人（6〜7世紀）は相当量の東アジア系草原祖先を持っており——バルカン集団とは遺伝的に遠い存在でした。後期アヴァール人（7〜9世紀）はすでに現地のヨーロッパ集団と大きく混血しており、東バルカンのプロフィールにはるかに近い複合体を生み出していました。初期アヴァール（0.214）と後期アヴァール（0.122）の差は、その吸収過程の遺伝的記録です。</p>
+
+    <p>エリート層のアヴァール人埋葬はこの画像をさらに鮮明にします。ハンガリー後期アヴァール・エリートは距離0.301、ハンガリー初期アヴァール・エリートは0.414にあり、どちらも一般的なアヴァール集団よりも劇的に遠い値です。エリート層のアヴァール人埋葬は、考古学的にもゲノム的にも、統治していた集団よりもはるかに高い割合の東アジア系祖先を保持していた支配的な草原王朝と関連付けられています。エリート層が遠く、一般的な後期アヴァール集団（0.122）が近いという事実は、精密なゲノム的確認です。すなわち、このプロフィールに遺伝的に近いのはアヴァール可汗国の東アジア系支配階級ではなく、すでにヨーロッパ化していた一般的な後期アヴァール集団の混合基層——パンノニア回廊を南下してバルカンに到達する過程でスラブ民族の移動に吸収されつつあった人々——だということです。</p>
+
+    <table class="dist-table">
+      <thead><tr><th>中世集団</th><th>距離</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>ブルガリア中世</td><td class="dist-val">0.034</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:16%"></div></div></td></tr>
+        <tr><td>ロシア・ヴァイキングSG</td><td class="dist-val">0.076</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:37%"></div></div></td></tr>
+        <tr><td>ロシア・ヴァイキングoSG</td><td class="dist-val">0.097</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:47%"></div></div></td></tr>
+        <tr><td>ハンガリー後期アヴァール</td><td class="dist-val">0.122</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:59%"></div></div></td></tr>
+        <tr><td>セルビア中世ゲピド人</td><td class="dist-val">0.136</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:66%"></div></div></td></tr>
+        <tr><td>ハンガリー初期アヴァール</td><td class="dist-val">0.214</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:100%"></div></div></td></tr>
+        <tr><td>ハンガリー後期アヴァール・エリート</td><td class="dist-val">0.301</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:100%"></div></div></td></tr>
+        <tr><td>ハンガリー初期アヴァール・エリート</td><td class="dist-val">0.414</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:100%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <div class="insight-box">
+      <span class="insight-label">スラブ民族の移動 — パンノニア経路</span>
+      あなたの遺伝的座標と一致する歴史的モデルは、相当量のスラブ民族移動期の寄与、より大きな非スラブ系パレオバルカン基層、そしてより小さなビザンティン・アナトリア成分を示唆しています——ただしこれらは正式に検証された祖先の割合ではなく、方向性を示す推定値です。スラブ的成分は直接的な東方ルートを通って到達したのではありません。4集団オラクルは一貫して、ロシア人やウクライナ人ではなく、モルドバ人やセルビア人のプロキシを返します——これは、バルカンに到達する前にすでに中央ヨーロッパの要素を吸収していたスラブ集団の特徴です。あなたのデータに刻まれた優先的な移動経路はパンノニア回廊です。西はポーランド南部を通り、カルパティア山脈を越え、ハンガリー盆地に入り、そこからアヴァール可汗国の政治的傘の下で南下します。
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      上記のアヴァールの数字は、見るべきポイントを知っていれば特定の歴史的物語を語っています。このゲノムは、スラブ移住者がバルカンへ南下する際にアヴァール支配下のパンノニア回廊に吸収された<strong>一般的な集団</strong>（後期アヴァール、0.122）に近く、彼らを統治していた<strong>草原由来の支配階級</strong>（初期アヴァール0.214、さらに二つのエリート層）からは遠い位置にあります。この差は、アヴァールの政治的エリートとつながりのある集団ではなく、スラブ民族の移動を経験した集団に期待される遺伝的シグナルです——普通の人々は吸収されて先へ進み、支配王朝は遺伝的に区別されたまま残りました。
+    </div>
+
+    <div class="insight-box">
+      <span class="insight-label">パレオバルカン基層</span>
+      遺伝的プロフィールの相当な部分は、スラブ人の到来以前からすでにバルカン半島に住んでいた集団——古代トラキア人、ダキア人、イリュリア人、ローマ化された地方集団の子孫——に方向性として遡ります。これは、あらゆる計算ツールにおける優勢な地中海・アナトリア新石器シグナルと、MyHeritageがギリシャ・アルバニア系として捉えているものと一致します。現代のブルガリア人、ギリシャ人、アルバニア人はすべて、この同じ非スラブ系バルカン基層をさまざまな割合で持っています——これらは遺伝的に離散したカテゴリーではなく、連続体の中の隣接する位置であり、その境界は混血パーセンテージだけからきれいに引くことはできません。
+    </div>
+
+    <p>ブルガリアの考古学的記録全体に対する拡張古代DNA比較——現在ではより高い精度で実行され、元の比較には含まれていなかった複数の東アジア混血サンプルと外れ値サンプルを含む——は、精密な層序を明らかにします。距離は一貫した年代的勾配を形成し、中世に最も近く、参照集団がスラブ的統合より古くなるにつれて徐々に遠くなっていきます：</p>
+
+    <table class="dist-table">
+      <thead><tr><th>ブルガリア古代集団</th><th>時代・注記</th><th>距離</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>ブルガリア中世</td><td style="font-size:.78rem;color:var(--ink-light)">9〜14世紀</td><td class="dist-val">0.0340</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:20%"></div></div></td></tr>
+        <tr><td>ブルガリアEBA o2</td><td style="font-size:.78rem;color:var(--ink-light)">前期青銅器時代</td><td class="dist-val">0.0397</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:23%"></div></div></td></tr>
+        <tr><td>ブルガリアEBA oNorth（準備中）</td><td style="font-size:.78rem;color:var(--ink-light)">前期青銅器時代、未発表セット</td><td class="dist-val">0.0483</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:28%"></div></div></td></tr>
+        <tr><td>ブルガリアEBA oNorth</td><td style="font-size:.78rem;color:var(--ink-light)">前期青銅器時代</td><td class="dist-val">0.0490</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:29%"></div></div></td></tr>
+        <tr><td>ブルガリアEBA MBA</td><td style="font-size:.78rem;color:var(--ink-light)">前期〜中期青銅器時代</td><td class="dist-val">0.0531</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:31%"></div></div></td></tr>
+        <tr><td>ブルガリアEBAヤムナヤo</td><td style="font-size:.78rem;color:var(--ink-light)">前期青銅器時代ヤムナヤ関連</td><td class="dist-val">0.0596</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:35%"></div></div></td></tr>
+        <tr><td>ブルガリア中世oEastAsia</td><td style="font-size:.78rem;color:var(--ink-light)">中世、東アジア混血の外れ値</td><td class="dist-val">0.0651</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:38%"></div></div></td></tr>
+        <tr><td>ブルガリアEBA</td><td style="font-size:.78rem;color:var(--ink-light)">前期青銅器時代</td><td class="dist-val">0.0707</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:41%"></div></div></td></tr>
+        <tr><td>ブルガリアC oSteppe</td><td style="font-size:.78rem;color:var(--ink-light)">銅器時代、草原混血の外れ値</td><td class="dist-val">0.0784</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:46%"></div></div></td></tr>
+        <tr><td>ブルガリアBeliBreyag EBA</td><td style="font-size:.78rem;color:var(--ink-light)">前期青銅器時代（ベリ・ブリャグ）</td><td class="dist-val">0.0866</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:51%"></div></div></td></tr>
+        <tr><td>ブルガリアIA</td><td style="font-size:.78rem;color:var(--ink-light)">鉄器時代</td><td class="dist-val">0.0882</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:52%"></div></div></td></tr>
+        <tr><td>ブルガリアLIA</td><td style="font-size:.78rem;color:var(--ink-light)">後期鉄器時代</td><td class="dist-val">0.0906</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:53%"></div></div></td></tr>
+        <tr><td>ブルガリアEIA</td><td style="font-size:.78rem;color:var(--ink-light)">前期鉄器時代</td><td class="dist-val">0.0959</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:56%"></div></div></td></tr>
+        <tr><td>ブルガリアMalakPreslavets N</td><td style="font-size:.78rem;color:var(--ink-light)">新石器時代（マラク・プレスラヴェツ）</td><td class="dist-val">0.0985</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:58%"></div></div></td></tr>
+        <tr><td>ブルガリアMalakPreslavets N oLowEEF</td><td style="font-size:.78rem;color:var(--ink-light)">新石器時代、低農耕民成分の外れ値</td><td class="dist-val">0.0996</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:58%"></div></div></td></tr>
+        <tr><td>ブルガリアMLBA</td><td style="font-size:.78rem;color:var(--ink-light)">中期〜後期青銅器時代</td><td class="dist-val">0.1161</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:68%"></div></div></td></tr>
+        <tr><td>ブルガリア古代末期</td><td style="font-size:.78rem;color:var(--ink-light)">4〜7世紀</td><td class="dist-val">0.1174</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:69%"></div></div></td></tr>
+        <tr><td>ブルガリア・ヴァルナC</td><td style="font-size:.78rem;color:var(--ink-light)">銅器時代</td><td class="dist-val">0.1181</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:69%"></div></div></td></tr>
+        <tr><td>ブルガリアN oEEF</td><td style="font-size:.78rem;color:var(--ink-light)">新石器時代、農耕民プロフィールの外れ値</td><td class="dist-val">0.1205</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:71%"></div></div></td></tr>
+        <tr><td>ブルガリアEBAヤムナヤ</td><td style="font-size:.78rem;color:var(--ink-light)">前期青銅器時代ヤムナヤ関連</td><td class="dist-val">0.1228</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:72%"></div></div></td></tr>
+        <tr><td>ブルガリアKrepost N</td><td style="font-size:.78rem;color:var(--ink-light)">新石器時代（クレポスト）</td><td class="dist-val">0.1281</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:75%"></div></div></td></tr>
+        <tr><td>ブルガリアN o</td><td style="font-size:.78rem;color:var(--ink-light)">新石器時代、外れ値</td><td class="dist-val">0.1337</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:78%"></div></div></td></tr>
+        <tr><td>ブルガリアC</td><td style="font-size:.78rem;color:var(--ink-light)">銅器時代</td><td class="dist-val">0.1402</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:82%"></div></div></td></tr>
+        <tr><td>ブルガリアEBA o1</td><td style="font-size:.78rem;color:var(--ink-light)">前期青銅器時代、外れ値1</td><td class="dist-val">0.1511</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:88%"></div></div></td></tr>
+        <tr><td>ブルガリアN</td><td style="font-size:.78rem;color:var(--ink-light)">新石器時代</td><td class="dist-val">0.1622</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:95%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <p>この勾配は歴史的に解釈可能であり、追加された精度がいくつかの詳細をより鮮明にしています。このゲノムは、スラブ的統合から生まれた中世ブルガリア集団に最も近く（0.0340）、その直後に前期青銅器時代サンプルの密集したクラスター（0.0397〜0.0596）——スラブ人の到来以前から存在していた草原とアナトリア新石器の共有基層——が続きます。ブルガリア中世oEastAsia（0.0651）——ブルガール人、ペチェネグ人、あるいはクマン人との接触に関連する可能性のある追加的な東アジア関連シグナルを持つ中世の外れ値個体——は一般的な中世集団よりもかなり後ろに位置しており、有用な陰性対照となっています。すなわち、このゲノムはその特定の中世的経路の上昇版を持っていないということです。鉄器時代の階層（0.0882〜0.0959）と二つの新石器時代マラク・プレスラヴェツサンプル（0.0985〜0.0996）は勾配の中間に位置し、中期〜後期青銅器時代、古代末期、銅器時代ヴァルナは0.116〜0.118付近に密集してクラスターを形成しています。銅器時代と一般的な新石器時代の集団（0.140〜0.162）は最も遠いままです——これはブルガリア最古の古代DNAであり、青銅器時代の草原混血に先行するものであり、草原の移動がバルカン半島の遺伝的景観をどれほど変容させたかを示しています。</p>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      この層全体から持ち帰るべき数字は<mark>0.034</mark>です——中世ブルガリアの実際に発掘された骨格への距離です。この拡張された表の他のすべては、時間を遡ることでその数字に文脈を与えています。リストを下に読んでいくのは、歴史を逆から読むようなものです。まず中世ブルガリア、次に前期青銅器時代サンプルの密集した一群、次に鉄器時代、次に新石器時代——各階層が前より少しずつ遠くなり、上部にある中世の墓よりも七、八千年古い農耕村落にまで遡ります——これは上で言及した歴史上の<strong>トラキア人</strong>の祖先そのものであり、実際の数字の中で最も遠い階層として現れています。この着実で理にかなった順序——何もひどく場違いなものがないこと——それ自体が一種の確認です。もし数字が入り乱れて出てきて、古代の新石器サンプルがどういうわけか中世のサンプルより近くなっていたら、モデリングの何かがおかしいという赤信号になったはずです。そうはなりませんでした。ドナウ川の農耕村落から中世ブルガリアの墓まで、一本の連続した線です。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 層3 ══ -->
+<div class="era-block" id="s_bronze">
+  <div class="era-marker">
+    <span class="era-dot era-dot--mid"></span>
+    <span class="era-label">層3<br>青銅器時代<br>紀元前3000〜1200年</span>
+  </div>
+  <div class="era-content">
+    <h2>青銅器時代の層 — ヤムナヤの波</h2>
+
+    <p class="descent-note">中世バルカン集団自体が、より古い集団から築かれたものでした。スラブ的・パレオバルカン的層の下には、農耕民と草原牧畜民の青銅器時代の世界があります。</p>
+
+    <p>中世および歴史的層の下では、ゲノムの青銅器時代の基盤が測定可能になります。Vahaduoモデルcはあなたの座標をヨーロッパの祖先の三つの創設的な古代の流れに対して比較し、その結果は構造的に明確です：</p>
+
+    <table class="dist-table">
+      <thead><tr><th>古代集団</th><th>距離</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>トルコ・ボンジュクル新石器（アナトリア、紀元前約1万年）</td><td class="dist-val">0.141</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:34%"></div></div></td></tr>
+        <tr><td>ロシア・サマラ前期青銅器時代ヤムナヤ（紀元前約3000年）</td><td class="dist-val">0.171</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:41%"></div></div></td></tr>
+        <tr><td>トルコ・バルチン後期新石器（アナトリア新石器、紀元前約6500年）</td><td class="dist-val">0.173</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:42%"></div></div></td></tr>
+        <tr><td>ルクセンブルク・ロシュブールWHG（紀元前約7000年）</td><td class="dist-val">0.406</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:98%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <p>ヤムナヤ（0.171）とバルチン・アナトリア新石器（0.173）はほぼ同点です——草原と農耕民のシグナルが均衡しており、両方の流れがよく代表されている東バルカン系プロフィールに特徴的です。深層祖先モデルは、あなたのゲノムに約<strong>50%のポントス草原牧畜民祖先</strong>を割り当てており、これは生の石器時代の形態では東部狩猟採集民とコーカサス狩猟採集民成分の組み合わせとして表現されます。</p>
+
+    <p>ヤムナヤはヨーロッパ先史時代で最も重要な集団の一つでした。約5,000年前、東部狩猟採集民とコーカサス狩猟採集民の融合によってポントス・カスピ海草原で誕生し、馬、車輪付き乗り物、そして現代ブルガリア語の祖先となる印欧祖語——この文章がいつか子孫によって読まれるかもしれないその言語——を携えて、驚異的な速さであらゆる方向へ拡大しました。あなたのゲノムの半分は、この単一の青銅器時代の拡大に由来しています。</p>
+
+    <p>ボンジュクル（0.141）がバルチン（0.173）より上位にランクされていることは注目に値します。どちらもアナトリア新石器時代の遺跡ですが、ボンジュクルの方が古く——約紀元前1万年、農耕以前あるいは原農耕期の中央アナトリア——一方バルチンは紀元前約6,500年頃にヨーロッパへ入った典型的な北西アナトリアの農耕の波を代表しています。ボンジュクルへのより近い距離は、あなたのアナトリア新石器シグナルに深みがあることを示唆しており、農耕の層自体の下にあるさらに古いアナトリアの基層を指し示しています。</p>
+
+    <p>距離0.406のロシュブールWHG——テストされた古代集団の中で最も遠い——は、西ヨーロッパ狩猟採集民の祖先が実在するものの二次的であり、三つの創設的な流れの中で最も希薄化されていることを確認しています。</p>
+
+    <p>拡張された古代距離分析からのもう一つの発見も注目に値します。<strong>ロシア・サマラのサルマタイ人はおよそ0.130にランクされ</strong>——ヤムナヤより近く、青銅器時代の草原世界と中世集団の間に位置しています。サルマタイ人は、紀元前4世紀頃からポントス草原でスキタイ人の後を継いだ鉄器時代の遊牧牧畜民であり、東バルカンに隣接するドナウ川流域とダキア地域で特に活発でした。彼らがこのプロフィールに近いことは、CHGの重み付けですでに確認されている南東ヨーロッパの草原経路と一致しています——二千年にわたって連続する草原関連集団の波を通じてポントス草原とバルカンを結びつけた、同じ地理的回廊です。</p>
+
+    <div class="insight-box">
+      <span class="insight-label">相対的シグナル強度 — 古代の起源</span>
+      <p style="font-size:.88rem;color:var(--ink-mid);margin-bottom:1rem;line-height:1.7">以下のグラフは、主要な古代参照集団があなたのG25座標にどれだけ相対的に近いかをまとめたものです。棒が短いほど遺伝的な近縁性が高いことを示します。これらはモデル化された距離であり、祖先のパーセンテージではありません。</p>
+      <div style="display:flex;flex-direction:column;gap:.6rem">
+        <div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">ブルガリア中世 — 歴史的連続性</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:8%;height:100%;background:var(--gold);border-radius:4px;opacity:.9"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">トルコ・ボンジュクル新石器 — 深いアナトリア基層</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:35%;height:100%;background:var(--gold);border-radius:4px;opacity:.9"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">ロシア・サマラ・ヤムナヤ — 青銅器時代の草原</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:43%;height:100%;background:var(--steppe);border-radius:4px;opacity:.9"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">トルコ・バルチン後期新石器 — アナトリア新石器農耕民</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:43%;height:100%;background:var(--gold);border-radius:4px;opacity:.9"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">ジョージア・コティアスCHG — コーカサス狩猟採集民</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:62%;height:100%;background:var(--steppe);border-radius:4px;opacity:.7"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">ロシア・カレリアEHG — 東部狩猟採集民</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:71%;height:100%;background:var(--steppe);border-radius:4px;opacity:.7"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">イラン・ガンジ・ダレ — 南西アジア新石器</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:73%;height:100%;background:var(--gold);border-radius:4px;opacity:.6"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">ルクセンブルク・ロシュブールWHG — 西ヨーロッパ狩猟採集民</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:100%;height:100%;background:var(--stone);border-radius:4px;opacity:.7"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:1rem;font-family:'Noto Sans JP',sans-serif;font-size:.72rem;color:var(--ink-light);border-top:1px solid var(--era-line);padding-top:.8rem">棒の長さは相対的な遺伝的距離を表しています——短いほど近いことを意味します。これらは祖先のパーセンテージではありません。</div>
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      一つに合流する二つの川を思い浮かべてください——<em>一方はアナトリアの古い農耕村落から上ってくる流れ、もう一方は黒海の北の馬を飼う草原から下ってくる流れ</em>——そしてこのゲノムは、その二つの潮流がほぼ正確に出会う場所に位置しています。ヤムナヤの0.171とアナトリア農耕民の参照値0.173は、同点と呼べるほど近く、ここでの深層祖先のおよそ半分は草原牧畜民に、もう半分は牧畜民が到着する前からすでにその地域に定住していた農耕民に遡ります。これは本当にバランスの取れた50対50の分割であり、どちらか一方に傾いているわけではありません——より一方に偏ったプロフィールが示すであろうパターンとは異なり、両者の真の交差点に位置していた祖先を持つ人物にまさに期待される通りです。狩猟採集民の参照であるロシュブールは、テストされた集団の中で最も遠いままです——混合の中に存在してはいますが、三つの古代の材料の中で最も小さなものです。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 層4 ══ -->
+<div class="era-block" id="s_neolithic">
+  <div class="era-marker">
+    <span class="era-dot era-dot--ancient"></span>
+    <span class="era-label">層4<br>新石器時代<br>紀元前7000〜3000年</span>
+  </div>
+  <div class="era-content">
+    <h2>新石器時代の層 — アナトリアからの農耕民</h2>
+
+    <p class="descent-note">しかし青銅器時代の集団が始まりだったわけではありません。草原の拡大の下には、さらに古いヨーロッパの基盤——最初の農耕民たち——があります。</p>
+
+    <p>青銅器時代の草原層の下には、アナトリア新石器農耕基層があります——ゲノムへの最も古い実質的なヨーロッパの貢献です。深層祖先モデルは約<strong>35%のアナトリア新石器農耕民祖先</strong>を割り当てており、これは強いスラブ成分を持つ南東ヨーロッパ人として予想される割合です。比較として、後の移動をほとんど回避した現代のサルデーニャ人は75〜85%のアナトリア新石器祖先を持ち、現代のギリシャ人はおよそ55〜60%を持っています。東バルカンのプロフィールがそれより低いのは、草原の移動が地中海南部よりもここでより徹底していたためです。</p>
+
+    <p>アナトリア新石器農耕民は約8,000〜9,000年前に現在のトルコを離れ、まずバルカン半島を通ってヨーロッパに入りました——ブルガリアとギリシャは、二次的な通過地帯ではなく、農耕拡大の最初の目的地でした。これが、アナトリア新石器シグナルが東バルカンのゲノムでこれほど強く、よく保存されている理由です。バルカン半島は上陸地点であり、古きヨーロッパが初めて農業によって変容した場所であり、その最初の接触の遺伝的遺産は、西方や北方よりもここで測定可能なほど濃密です。</p>
+
+    <p>この祖先は、MyHeritageがギリシャ・アルバニア系および南イタリア系成分と呼ぶものの遺伝的基盤です。これらは最近のギリシャ人やイタリア人の祖先ではありません——それらは共有された地中海の遺伝的基盤であり、8千年前に地中海盆地全体に植民した同じ新石器農耕民の遺産です。SLC24A5遺伝子のAA遺伝子型（rs1426654）——ホモ接合型の皮膚色を明るくする派生アレル——は、この祖先の最も直接的な身体的痕跡であり、新石器農耕拡大とともにまさにヨーロッパ全土に広まりました。</p>
+
+    <p>Ancient Eurasia K6計算ツールはこれを最も直接的に捉えており、42.59%のナトゥーフ祖先——アナトリア新石器農耕民の直接の祖先であるレバントの狩猟採集民——を割り当てています。puntDNAL K15の地中海成分（33.31%）とEUtestの大西洋・西地中海シグナルを組み合わせると、アナトリア新石器基層は、それを測定するすべての計算ツールを通して、ゲノムの中で単独最大の古代成分です。</p>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      これは発掘全体の中で<strong>最も古い確かな基盤</strong>です。このゲノムのおよそ三分の一は、約8千年から9千年前にアナトリア（現在のトルコ）から歩み出て、小麦、家畜、そして永続的な村落を初めてヨーロッパにもたらした農耕民に遡ります——そしてバルカン半島は途中の立ち寄り地ではなく、まさに最初の目的地でした。だからこそ、このシグナルはここでこれほど深く明確なのです。ブルガリアとギリシャは「古きヨーロッパ」が初めて農業と出会った場所でした。比較として、後の移動をほとんど回避した島の集団である現代のサルデーニャ人は、今日この祖先を二倍から三倍多く持っています。ここでの割合がより低いのは、あの農耕民とのつながりが弱いからではなく、その後に到来してそれを希釈したすべてのもの——草原の牧畜民、そしてスラブ民族の移動——が、その元々の農耕基盤の上に重なったことの表れです。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 層5 ══ -->
+<div class="era-block" id="s_mesolithic">
+  <div class="era-marker">
+    <span class="era-dot era-dot--ancient"></span>
+    <span class="era-label">層5<br>中石器時代<br>紀元前1万〜7000年</span>
+  </div>
+  <div class="era-content">
+    <h2>中石器時代の層 — 狩猟採集民たち</h2>
+
+    <p class="descent-note">そして最初の農耕民でさえ新参者でした。新石器時代の層の下には、農業以前にヨーロッパを占めていた狩猟採集民がいます。</p>
+
+    <p>農耕の層の下には、農業革命に完全に先行する、最古の生き残ったヨーロッパの基層——西ヨーロッパ狩猟採集民があります。距離0.406のロシュブールは、すべてのモデルの中で最も遠い古代集団です——存在してはいますが、明らかに三つの創設的な流れの中で最も希薄化されています。深層祖先モデルは約<strong>15%の西ヨーロッパ狩猟採集民祖先</strong>を割り当てており、それは二つのプールに分かれます。およそ4%が、到来した新石器農耕民に吸収された、単独のバルカン現地狩猟採集民祖先として、そして約11%がヤムナヤ草原成分の中に隠れています。ヤムナヤの牧畜民自身がすでに、ヨーロッパの草原での以前の混合からWHG祖先を持っていたためです。</p>
+
+    <p>WHGは、まさに最古の層であるためにヨーロッパ先史時代で最も重要な集団の一つです——農業が大陸を変容させる何万年も前から、氷河期およびその後のヨーロッパに住んでいた人々です。彼らは海と森の縁の狩人であり、川や海岸の漁師であり、洗練された石器の作り手でした。古代DNAは、彼らが黒い肌と、しばしば青い目を持っていたことを示しています——これは適応の時期を反映した直感に反する組み合わせです。青い目は、アナトリア農耕民とともに明るい肌が到来する何万年も前にヨーロッパで進化していました。</p>
+
+    <p>WHGの遺産は、rs12913832におけるHERC2のGG遺伝子型——WHG集団に由来し、今もゲノムの中で最古の表現型特徴の一つとして保存されている青い目のハプロタイプ——に見られます。4集団のG25オラクルは、古代の起源からゲノムをモデル化する際、まさにこのWHG成分を説明するために、ギリシャ人に似た地中海集団と並んでラ・ブラーニャを組み入れます——現代のギリシャ人はこの成分を比較的わずかしか持たないため、アルゴリズムは特定の東バルカンシグナルを再現するために専用のWHG源を必要とするのです。</p>
+
+    <div class="insight-box">
+      <span class="insight-label">明るい肌より先にあった青い目</span>
+      古代DNAから得られた最も直感に反する発見の一つは、ヨーロッパにおいて青い目が明るい肌よりも古いということです。ラ・ブラーニャのような中石器時代の狩猟採集民は青い目（HERC2 GG）と黒い肌を持っていました——古代ヨーロッパ人について私たちが通常思い描くイメージとは正反対です。明るい肌は、アナトリア農耕民とそのSLC24A5派生アレルとともに到来しました。このゲノムは両方を受け継いでいます。狩猟採集民由来の古代の青い目のアレルと、農耕民由来の新石器時代の皮膚を明るくするアレル——ヨーロッパ先史時代で最も古い二つの色素沈着特徴であり、それぞれ異なる祖先集団に由来し、どちらも無傷で保存されています。
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      二種類の異なる証拠、二つの異なる問い——分けて考える価値があります。<strong>距離の数字</strong>が答えるのは「他のすべてと比べてどれくらいか」という問いです——その答えは、狩猟採集民の祖先は実在するものの三つの主要な材料の中で最小であり、およそ15%であり、それすらも二つの隠れ場所に分かれているということです。一部は単独で存在し、その大部分は草原牧畜民のシグナル自体の中に隠れています（なぜなら、それらの牧畜民は、バルカンに到達するはるか以前に、自らの混合を通じてすでに狩猟採集民のDNAを持っていたからです）。ここで本当に面白い事実は目の色です。このゲノムは、明るい肌がヨーロッパに到来する何千年も<em>前に</em>到達した、あの同じ黒い肌の狩猟採集民から受け継がれた青い目の遺伝子変異を持っています。青い目と黒い肌が、同じ古代集団の中に共存していたのです——古代ヨーロッパ人についての通常のイメージとは正反対であり、今日でも目に見える形で受け継がれている特徴です。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 層6 ══ -->
+<div class="era-block" id="s_archaic">
+  <div class="era-marker">
+    <span class="era-dot era-dot--ancient"></span>
+    <span class="era-label">層6<br>古代人類<br>5万年以上前</span>
+  </div>
+  <div class="era-content">
+    <h2>古代人類の堆積物 — 深層祖先の分解</h2>
+
+    <p class="descent-note">狩猟採集民でさえ、単一の均質な民族ではありませんでした。彼らの層の下には、彼らを形作ったさらに古い石器時代の集団があります——この発掘が到達できる最も深い解像度です。</p>
+
+    <p>モデル4は、ヨーロッパの祖先の三つの創設的な流れの下、それらを組み立てた石器時代の集団にまで到達します。このランキングは、草原成分の構成に関する特定の構造的詳細を明らかにします：</p>
+
+    <table class="dist-table">
+      <thead><tr><th>深層古代集団</th><th>距離</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>トルコ・バルチン後期新石器 — アナトリア新石器</td><td class="dist-val">0.173</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:42%"></div></div></td></tr>
+        <tr><td>ロシア・サマラ前期青銅器時代ヤムナヤ</td><td class="dist-val">0.187</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:46%"></div></div></td></tr>
+        <tr><td>ジョージア・コティアスCHG（紀元前約9000年）</td><td class="dist-val">0.249</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:61%"></div></div></td></tr>
+        <tr><td>ロシア・カレリアHG — EHG（紀元前約7000年）</td><td class="dist-val">0.285</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:70%"></div></div></td></tr>
+        <tr><td>イラン・ガンジ・ダレN（紀元前約1万年）</td><td class="dist-val">0.292</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:71%"></div></div></td></tr>
+        <tr><td>ルクセンブルク・ロシュブールWHG</td><td class="dist-val">0.406</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:99%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <p>ここでの重要な発見は、<strong>ジョージア・コティアスCHG（0.253）がロシア・カレリアEHG（0.286）より近くにランクされている</strong>ことです。ヤムナヤ牧畜民自体は、二つの先行する集団——コーカサス北部のロシアの草原に由来する東部狩猟採集民と、コーカサス南部の谷に由来するコーカサス狩猟採集民——から組み立てられました。コティアスCHGがカレリアEHGより近いという事実は、あなたのゲノムの草原関連成分がEHGと比べて相対的にCHGに富んでいるように見えることを教えてくれます——これは、北ヨーロッパの縄目文土器文化の拡大よりも多くのCHGを比例的に持つ傾向がある南東ヨーロッパのヤムナヤ由来祖先の遺伝的構造と一致します。これは、あなたの草原祖先の南東バルカン的な入口を示すのと両立しますが、距離の比率だけでは、あなたの個々の祖先が実際にたどった地理的経路を再構築することはできません。</p>
+
+    <p>距離0.292のイラン・ガンジ・ダレ新石器時代は、アナトリア農耕民とは異なる初期イランの農耕集団です。その出現は、あなたの計算ツール全体で見られる南西アジア成分を反映しています——一部はヤムナヤのCHG祖先を通じて、一部はアナトリアとバルカンの両方の集団に寄与した独立した古代イラン関連の流れとして到達しています。これは、GEDmatchが複数の計算ツールで西アジアまたはコーカサスとして測定しているものです。</p>
+
+    <p>Ancient Eurasia K6計算ツールは最深部の層を最も明示的に捉えており、ゲノムを次のように分解します。<strong>42.59%のナトゥーフ</strong>（アナトリア農耕民の直接の祖先である、レバントの農耕以前の狩猟採集民）、<strong>35.03%の西ヨーロッパ狩猟採集民</strong>、そして<strong>19.05%の祖先型北ユーラシア人</strong>（ヤムナヤ草原祖先の両方に、そして下で論じるEDARの発見に痕跡レベルで寄与した、シベリア関連成分）。これら三つの成分は、ゲノムの中で測定可能な最古の流れです——歴史的な集団ではなく、農業、国家、言語族に先行する古代の遺伝的基層です。</p>
+
+    <h3 class="sub-heading">エーゲ海青銅器時代と南コーカサスのシグナル — モデル5</h3>
+
+    <p>青銅器時代のエーゲ海と南コーカサス銅器時代の集団に対して座標をテストするコーカサス解像度モデルは、標準的な三波モデルでは解決できない特定の古代の近縁性を明らかにします。ランキングは以下の通りです：</p>
+
+    <table class="dist-table">
+      <thead><tr><th>集団</th><th>距離</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>アルメニア銅器時代アレニ（南コーカサス銅器時代）</td><td class="dist-val">0.100</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:24%"></div></div></td></tr>
+        <tr><td>ギリシャ青銅器時代ミケーネ（青銅器時代エーゲ海）</td><td class="dist-val">0.106</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:26%"></div></div></td></tr>
+        <tr><td>ギリシャ・ミノアン・ラシティ</td><td class="dist-val">0.148</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:36%"></div></div></td></tr>
+        <tr><td>アルメニア前期青銅器時代クラ・アラクセス・ベルカベル</td><td class="dist-val">0.154</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:38%"></div></div></td></tr>
+        <tr><td>トルコ・バルチン後期新石器</td><td class="dist-val">0.171</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:42%"></div></div></td></tr>
+        <tr><td>イラン銅器時代セフ・ガビ（イラン銅器時代）</td><td class="dist-val">0.191</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:47%"></div></div></td></tr>
+        <tr><td>ジョージア・コティアスCHG</td><td class="dist-val">0.253</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:62%"></div></div></td></tr>
+        <tr><td>イラン・ガンジ・ダレN</td><td class="dist-val">0.294</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:72%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <p>アルメニア銅器時代アレニ（0.100）と青銅器時代ミケーネ（0.106）は、このモデルで最も近い二つの集団としてランクされます——バルチンより近く、コティアスCHGより近く、より深いイラン新石器時代の参照からは大きく引き離されています。これら二つの集団は、特定の青銅器時代の遺伝的世界を代表しています。ギリシャのミケーネ宮殿文明と、アルメニア高地のクラ・アラクセス文化圏を結びつけたエーゲ海・アナトリア・南コーカサス回廊です。どちらも、CHGに富む祖先とアナトリア新石器農耕基層を組み合わせて持っていました——これはまさに、東バルカンのプロフィールで上昇した形で現れる組み合わせです。これは、GEDmatchの計算ツールがアルメニア、北コーカサス、西アジア成分として測定するものの古代の起源です——これらの地域からの最近の祖先ではなく、その後の4千年にわたる人口移動を通じて保存された、南東ヨーロッパ世界の深い青銅器時代の基層です。</p>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      発掘のこの最も深い層から持ち帰るべきことは二つあります。第一に、バルカンに到達した草原牧畜民は均質な集団ではありませんでした——彼ら自身が、コーカサス北部の草原に由来する集団（EHG）と、コーカサス山脈の谷そのものに由来する集団（CHG）という二つのより古い集団の混合でした。このゲノムの草原シグナルは、その混合の中でも特に<mark>コーカサスの谷側</mark>に傾いており、これは北から一気に流れ込んだのではなく、南東の入口を通ってヨーロッパに入った草原祖先に期待されるパターンです。第二に、そしてより印象的なことに、この報告書全体のどこで見つかる古代集団よりも近いのは、農耕民でも牧畜民でもなく——青銅器時代のアルメニアであり、その直後に青銅器時代のミケーネ・ギリシャが続きます。どちらもコーカサスとエーゲ海の出会う地点に位置しており、両方がこれほど近いことは、現代の混血計算ツールに繰り返し現れる「アルメニア」や「北コーカサス」という断片の、四千年前という深い根です——アルメニアやギリシャとの最近のつながりではなく、共有された青銅器時代の世界の、最古の、最も遠いこだまなのです。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 注目すべき発見 ══ -->
+<div class="era-block" id="s_surprises">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+    <span class="era-label">注目すべき<br>発見</span>
+  </div>
+  <div class="era-content">
+    <h2>予想外のシグナル</h2>
+
+    <h3 class="sub-heading">EDAR／ABCC11のパラドックス — rs3827760 AA・rs17822931 CC</h3>
+
+    <p>祖先プロフィールにおける最も顕著な発見は、ヨーロッパ人のゲノムには共存しないはずの二つの遺伝子型の組み合わせです——そしてその特定の組み合わせは、わずかな東アジアシグナルの起源について正確な示唆を持っています。</p>
+
+    <p>その遺伝子型は<strong>rs3827760（EDAR）でのホモ接合型AA</strong>です——毛髪の太さ、汗腺の密度、切歯の形状を制御するエクトジスプラシン受容体遺伝子における、東アジア由来アレルの2コピーです。ヨーロッパ集団では、この変異はゼロに近い頻度、通常1%未満で見られます。AAのホモ接合型は、バルカンのゲノムでは事実上聞いたことがありません。</p>
+
+    <p>しかし同時に、その遺伝子型は<strong>rs17822931（ABCC11）でCC</strong>です——湿性耳垢、西ユーラシア型変異です。東アジアと中央アジアの集団では、EDAR 370Aと乾性耳垢のABCC11 Tアレルは、およそ3万年前に東アジアで起きた同じ選択的一掃を受けたため、連鎖したハプロタイプブロックとして一緒に伝わります。最近の中世テュルク系の寄与であれば、このブロックは無傷のまま保存されていたはずです。ABCC11でのCC遺伝子型は、このハプロタイプブロックがこの系統に到達する前にすでに分断されていたことを意味します——最近の混血ではなく古代の混血の分子的シグネチャーです。組換えは連鎖した変異を世代を経て分離させます。東アジア系祖先が到来したのが古ければ古いほど、そのブロックはより徹底的に分断されていたはずです。</p>
+
+    <p>この観察と一致する説明は二つあります。第一の、より多く議論されているものは<strong>深層の草原経由の浸透</strong>です。ヤムナヤおよびポストヤムナヤの草原集団は、アファナシェヴォ文化とその後の草原ネットワークを通じて、中央アジア集団と記録された関係を持っていました。シンタシュタ、スルブナヤ、スキタイ時代の集団からの青銅器時代・鉄器時代の草原個体は、シベリアの森林・草原境界地帯に沿った接触を通じて獲得した、変動はあるが実在する東アジア関連祖先を示しています。K36のシグナル——東中央アジア0.18%、インドシナ1.46%——は、少なくとも古代の希薄化された東アジア系祖先と一致しています。第二の可能な説明は<strong>青銅器時代以前のシベリア狩猟採集民祖先</strong>です。EHG祖先の中で測定可能な祖先型北ユーラシア人成分が、低頻度でEDAR 370Aを持っており、それがヤムナヤの拡大を通じて西へ運ばれた可能性があります。</p>
+
+    <p>二つのSNPだけでは何を確立できないかに注意することが重要です。EDAR-ABCC11のハプロタイプブロックが本当に古代の組換えによって分断されたのかを確認するには、周辺のゲノム領域にわたるフェーズ化されたハプロタイプデータ、追加の東アジア関連マーカー、そして理想的にはゲノム全体のPCAまたはIBD分析が必要になります。この遺伝子型の組み合わせは仮説を生成する観察であり——興味深く、調査する価値はありますが——それ単独で東アジアシグナルを特定の歴史的時代に確定的に位置づけるには十分ではありません。</p>
+
+    <div class="insight-box">
+      <span class="insight-label">ハプロタイプブロック仮説</span>
+      同じ集団で同じ選択イベントによって一掃された二つの変異は、遺伝的に連鎖し、世代を通じて一緒に伝わるようになります。その共有された起源から時間が経てば経つほど、より多くの組換えイベントがそれらを分離させます。ABCC11のCC——ヨーロッパ型の耳垢変異——と組み合わされたEDAR AAは、東アジア系祖先が十分に古い時代に到来し、組換えが元のブロックを分離し始めるだけの時間があったことと一致します。ABCC11のTTと組み合わされたEDAR AAであれば、無傷のブロックとしてより最近到来したことと一致していたでしょう。CC遺伝子型は、このシグナルの起源が中世よりも古い時代を指し示していますが、これを確信を持って確立するには二つのSNP位置以上のものが必要です。
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      東アジアの集団では、これら二つの遺伝子はほとんど常に一緒に伝わります。まるで滅多に離れて見られない二人の兄弟のように——同じ自然選択の波によって、何千年も前に一緒に引っ張られてきたからです。ここでは、一方の兄弟が、もう一方を<strong>伴わずに</strong>現れました。これは特定の、珍しいパターンです。最も妥当な説明は、隠れた最近の東アジア系祖先——例えば中世のテュルク系接触——ではありません。それであれば両方の遺伝子が一緒に、まだ連鎖したまま運ばれてくるはずだからです。むしろ、より古く、より遠回りな旅の方が説明として適切です。この特定の遺伝子変異は、青銅器時代にユーラシア大陸を移動していた草原集団に便乗した可能性があり、それがこの系統に到達するまでに、通常の遺伝的な組み換えが二つの遺伝子を分離させるだけの時間があったのです。これは本当に興味深い糸であり、緩やかに保持する価値がありますが、解決済みの謎ではありません。
+    </div>
+
+    <h3 class="sub-heading">CHGの重み付け — 南東草原のシグネチャー</h3>
+
+    <p>ジョージア・コティアスCHG（0.253）がロシア・カレリアEHG（0.286）より近くにランクされるというモデル4の発見は、南東ヨーロッパのヤムナヤ由来祖先と一致しています。ヤムナヤは、ほぼ同等の割合で二つの狩猟採集民集団から組み立てられました。バルカンに入った特定のヤムナヤ関連集団は、古代DNA研究において、北ヨーロッパの縄目文土器文化の拡大よりも比例的に多くのCHGと少ないEHGを持つことが記録されています。このゲノムにおけるCHGの重み付けは、その南東バルカンの入口と両立します——ただし距離の比率だけでは、個々の祖先が実際にたどった地理的経路を再構築することはできません。言えるのは、草原関連成分が相対的にCHGに富んでいるように見えることで、これは北ヨーロッパよりも南東ヨーロッパのヤムナヤ由来祖先とより一致する形です。</p>
+
+    <h3 class="sub-heading">家族的背景についての注記</h3>
+
+    <p>このDNAプロジェクトは、同じ全体的な枠組み——MyHeritage由来の祖先情報、Global25モデリング、古代集団距離パネル、ブルガリアの考古学的参照、混血計算ツール、選定された祖先情報SNP——で分析された弟のスタイコ・ネノフも対象としています。両兄弟のコンセンサスG25座標セットが今や利用可能になったことで、参照集団に対する並行比較から間接的に推測するのではなく、二人の間の実際の遺伝的な隔たりを測定する直接的なベクトル比較が初めて可能になりました。</p>
+
+    <p>二つのコンセンサス座標ベクトル——Minko_Consensus_G25_v1_sim_scaledとStayko_Consensus_G25_v1_sim_scaled——の間のユークリッド距離は、25次元すべてにわたって直接計算すると<strong>0.014205</strong>です。文脈として、これは現代集団表におけるどちらの兄弟のどの単一の参照集団への距離よりも小さい値です（ミンコの最も近い一致はルーマニア人0.018、スタイコの最も近い一致はガガウズ人0.0161）。言い換えれば、あなたたち二人は、この報告書全体でテストされたどの外部の集団よりも互いに遺伝的に近いのです——これはまさに実の兄弟に期待される特徴であり、この文書の他のすべての距離を解釈するための有用な基準点となります。</p>
+
+    <p>スタイコのプロフィールは、このプロフィールよりもやや強い南方・エーゲ海地中海的およびコーカサス寄りのシグナルを示しています。彼の現代集団との一致は依然としてしっかりとバルカン連続体の中に収まっていますが、その連続体の中での彼の位置は南端寄りにシフトしています。ガガウズ人0.0161、ブルガリア人0.0172、ルーマニア人0.0197、マケドニア人0.0243、ギリシャ中央マケドニア0.0277——これに対しこのプロフィールはルーマニア人0.018、ブルガリア人0.021、マケドニア人0.026、ギリシャ中央マケドニア0.040です。一つの遺伝子型レベルの違いも同じパターンに当てはまります。このゲノムはLCT/MCM6のrs4988235をA;Gとして持っています——乳糖分解酵素持続性アレルの1コピーです——一方スタイコは完全に祖先型のG;G、乳糖分解酵素非持続性の遺伝子型を持っています。</p>
+
+    <table class="dist-table">
+      <thead><tr><th>参照集団</th><th>ミンコ</th><th>スタイコ</th></tr></thead>
+      <tbody>
+        <tr><td>ガガウズ人</td><td class="dist-val">0.0248</td><td class="dist-val">0.0161</td></tr>
+        <tr><td>ブルガリア人</td><td class="dist-val">0.0237</td><td class="dist-val">0.0172</td></tr>
+        <tr><td>ルーマニア人</td><td class="dist-val">0.0212</td><td class="dist-val">0.0197</td></tr>
+        <tr><td>マケドニア人</td><td class="dist-val">0.0398</td><td class="dist-val">0.0243</td></tr>
+        <tr><td>ギリシャ中央マケドニア</td><td class="dist-val">0.0422</td><td class="dist-val">0.0277</td></tr>
+        <tr><td>アルバニア人</td><td class="dist-val">0.0422</td><td class="dist-val">0.0311</td></tr>
+      </tbody>
+    </table>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      同じ家族で育った二人の兄弟が、同じ地域の物語の二つのバージョンを受け継いでいます。<em>同じ家で育った二人</em>が、共有された祖先からの受け継がれた家宝のコレクションを、少しずつ異なる形で持つようになったようなものだと考えてください——どちらも間違いなく同じ家族の出身でありながら、目録は同一ではありません。このプロフィールはやや北寄りで、より広いルーマニア・ブルガリアの中核に近く、スタイコの方はやや南東寄り、ギリシャとコーカサスの方向に傾いています。どちらのバージョンも他方より「よりバルカン的」というわけではありません——それらは同じ共有された遺産の上にある、二つの実在する、独立して測定可能なバリエーションです。そしてすべてを結びつける数字、<mark>0.0142</mark>は、あなたたち二人の間の実際に測定された遺伝的距離です——この報告書のどこでテストされたどの外部集団への距離よりも小さく、それがなくても常に明らかだったことを、確かな数字で確認しています。あなたたちは他の誰よりも互いに近いのです。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ SNP ══ -->
+<div class="era-block" id="s_snps">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+    <span class="era-label">祖先<br>SNP</span>
+  </div>
+  <div class="era-content">
+    <h2>主要な祖先情報遺伝子型</h2>
+    <p>祖先に関連する位置についての、MyHeritageの生のDNAデータからの直接の遺伝子型判定です。これらは推定値ではありません——DNAファイルから実際に読み取られたヌクレオチドです。</p>
+    <div class="snp-table-wrap">
+      <table class="snp-table">
+        <thead><tr><th>rsID</th><th>遺伝子</th><th>遺伝子型</th><th>意義</th></tr></thead>
+        <tbody>
+          <tr><td class="snp-rsid">rs3827760</td><td class="snp-gene">EDAR</td><td class="snp-geno snp-found">AA</td><td class="snp-desc">東アジア型の毛包・汗腺変異——ホモ接合型で、ヨーロッパ集団ではほぼゼロに近い頻度。古代の草原経由のシグナル。</td></tr>
+          <tr><td class="snp-rsid">rs17822931</td><td class="snp-gene">ABCC11</td><td class="snp-geno snp-found">CC</td><td class="snp-desc">湿性耳垢——西ユーラシア型変異。EDAR AAから切り離されており、東アジアシグナルが組換えによって連鎖ハプロタイプブロックを分離させるのに十分なほど古い時代に到来したことと一致する。仮説を生成する所見——確認にはフェーズ化されたハプロタイプデータが必要。</td></tr>
+          <tr><td class="snp-rsid">rs1426654</td><td class="snp-gene">SLC24A5</td><td class="snp-geno snp-found">AA</td><td class="snp-desc">主要な皮膚色を明るくする遺伝子座——ホモ接合型の派生アレル。約8,000年前のアナトリア新石器農耕拡大とともに広まった。</td></tr>
+          <tr><td class="snp-rsid">rs12913832</td><td class="snp-gene">HERC2</td><td class="snp-geno snp-found">GG</td><td class="snp-desc">主要な青い目のスイッチ——中石器時代の西ヨーロッパ狩猟採集民に由来するGGハプロタイプ。ヨーロッパにおいて明るい肌より何千年も先行する。</td></tr>
+          <tr><td class="snp-rsid">rs4988235</td><td class="snp-gene">LCT/MCM6</td><td class="snp-geno snp-found">AG</td><td class="snp-desc">乳糖分解酵素持続性——ヘテロ接合型の保持者。完全な乳糖耐性には十分。青銅器時代の牧畜民集団とともに広まった。</td></tr>
+          <tr><td class="snp-rsid">rs1042602</td><td class="snp-gene">TYR</td><td class="snp-geno snp-found">CA</td><td class="snp-desc">チロシナーゼ——ヘテロ接合型。混合的な紫外線感受性とそばかすのプロフィール。</td></tr>
+          <tr><td class="snp-rsid">rs1800414</td><td class="snp-gene">OCA2</td><td class="snp-geno snp-found">TT</td><td class="snp-desc">この位置での祖先型遺伝子型——派生アレルではなく、東アジア特有の皮膚を明るくする変異は、その地域外では事実上見られない。</td></tr>
+          <tr><td class="snp-rsid">rs1805007</td><td class="snp-gene">MC1R</td><td class="snp-geno snp-missing">未測定</td><td class="snp-desc">赤毛変異（Arg151Cys）——MyHeritageのアレイでは遺伝子型判定されていない。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと</span>
+      これらのマーカーのほとんどは、身体的外見についての単純で確立された事実です。青い目、明るい肌、成人になっても乳を消化できる珍しいが実在する能力。真の謎は上記の<strong>EDAR/ABCC11のペア</strong>です。東アジアの集団では、これら二つの遺伝子はほとんど常に一緒に伝わります——一方を持つことは通常もう一方を持つことを意味します。なぜなら、それらは同じ自然選択の波によって一緒に引っ張られてきたからです。ここでは、一方が通常のパートナーを<strong>伴わずに</strong>現れました。これは、この系統への最近の経路ではなく、古く間接的な経路を示唆しています。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 全体像 ══ -->
+<div class="era-block" id="s_synthesis" style="border-bottom:none">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+    <span class="era-label">全体像</span>
+  </div>
+  <div class="era-content">
+    <h2>完全な発掘 — 七つの層すべてが共に語ること</h2>
+
+    <p>発掘は完了しました。時代の七つの層が取り除かれ、それらが明らかにするのは別々の祖先の寄せ集めではなく、一つの一貫した物語です。すなわち、ヨーロッパの祖先の三つの創設的な流れが最も完全でバランスの取れた形で収束した、東バルカンの交差点の遺伝的記録です。</p>
+
+    <p>表層では、MyHeritageのパーセンテージは、現代集団の用語——ギリシャ・アルバニア系、バルカン系、南イタリア系——でプロフィールを説明していますが、これらのラベルは明らかにする以上に覆い隠しています。G25の距離はそのラベル付けを切り抜け、ゲノムを正確に位置づけます。ルーマニア人0.018、ブルガリア人0.021、東バルカン集団の密集した弧。そしてデータセット全体で最も顕著な一つの数字——<strong>ブルガリア中世の0.034</strong>——は、これが単なる現代集団の一致ではないことを教えてくれます。あなたの現在の遺伝的プロフィールは、テストされた他のどの古代集団または現代集団よりも、中世ブルガリアに見られる遺伝的変異と一致しています。</p>
+
+    <p>現代の層の下では、中世の層が、ブルガリアの遺伝的プロフィールを築いた集団構造を明らかにします。すなわち、移住以前から存在していた実質的な非スラブ系パレオバルカン基層——トラキア人、ダキア人、イリュリア人、ローマ化されたバルカン集団——と、パンノニア回廊を通じてすでに中央ヨーロッパの要素と混じり合って到達したスラブ民族移動の寄与です。これらはオラクルモデルからの方向性を示す推定値であり、正式に検証された祖先の割合ではありません。後期アヴァールへの親和性（0.122）対初期アヴァール（0.214）——そして特にアヴァール・エリートへの隔たり（0.301／0.414）——は、東アジア系支配階級ではなく、すでにヨーロッパ化していた一般的なアヴァール基層こそが遺伝的に近いパンノニア的シグナルであることを特定しています。</p>
+
+    <p>さらに深く、青銅器時代はヤムナヤの波を明らかにします——ヤムナヤ0.171、バルチン0.173、ほぼ同点です。CHGの重み付け——コティアス0.253がカレリア0.286より近い——は、北方の縄目文土器文化の拡大よりもCHG成分が比例的に高くなる傾向がある南東ヨーロッパのヤムナヤ由来祖先と一致します。モデル5はさらに精度を加えます。アルメニア銅器時代アレニ（0.100）とミケーネ（0.106）は、コーカサス解像度モデルで最も近い二つの集団であり、あらゆる計算ツールにおけるアルメニア、北コーカサス、西アジアのシグナルの根底にある、特定のエーゲ海・アナトリア・南コーカサス青銅器時代回廊を指し示しています。</p>
+
+    <p>そのすべての下には、新石器時代の階層があります——約8千年前にバルカンに到達し、Ancient Eurasia K6が42.59%と測定するナトゥーフ由来の基層を携えたアナトリア農耕民は、このゲノムがまだ測定可能な形でつながる最も深い床を示しており、その下にある中石器時代の層は、プロフィール全体の中で最も古い単一の特徴——HERC2の青い目のアレル——を提供しています。これは、アナトリア農耕民が明るい肌をこの地域にもたらす何千年も前から、黒い肌と青い目を持っていた狩猟採集民から受け継がれたものです。発掘の最も基底には、古代人類の堆積物があります。CHGに重み付けされた草原シグナル、そしてEDARの観察——東アジア型毛包遺伝子でホモ接合型のAA、ヨーロッパ型耳垢遺伝子でCC——これは、東アジアシグナルが、組換えが連鎖ハプロタイプブロックを分離させ始めるのに十分なほど古い時代に到来したことと一致していますが、これを確信を持って確立するには、二つのSNP位置が提供できる以上の、フェーズ化されたハプロタイプ分析が必要です。</p>
+
+    <p>その結果は、あらゆる計算ツール、あらゆるオラクル、あらゆる古代DNAの距離が同じ場所に位置づけるゲノムです。すなわち、ヨーロッパの祖先の三つの創設的な流れ——アナトリア農耕民、ポントス草原牧畜民、ヨーロッパの狩猟採集民——が最も完全でバランスの取れた形で収束した東バルカンの交差点であり、中世ブルガリア集団と、それに先行する青銅器時代のエーゲ海・コーカサス回廊によって驚くほどよく説明される遺伝的プロフィールを生み出しています。</p>
+
+    <div class="plain-box">
+      <span class="plain-label">簡単に言うと — 発掘全体を最初から最後まで</span>
+      <p>この物語全体を一つの方向に読み進めると、それは古い家の壁の塗装の層を一枚ずつ剥がしていくように読めます——それぞれの層がその下の層より新しく、どれもその下にあるものを消し去ってはいません。表層から始めましょう。最も近い生きている親戚が<strong>ルーマニア人とブルガリア人</strong>である人物——しっかりと東バルカン的で、驚きはありません。数世紀を剥がすと、中世初期にハンガリーを通って南下し、すでにバルカン半島に住んでいた人々と融合した<strong>スラブ移住者</strong>にたどり着きます——このゲノムは、その過程に吸収された一般的な集団に異例なほど近く、一時的にそれを支配していた草原の軍閥からは同じくらい異例なほど遠い位置にあります。さらに剥がしてスラブの層を過ぎると、すでにそこで待っていた人々にたどり着きます。<strong>トラキア人</strong>と彼らのパレオバルカンの隣人たち——スラブ語話者が到来するはるか以前から何千年もの間、この同じ土地を占めていた農耕民や丘陵の部族です。</p>
+      <p style="margin-top:.8rem">トラキア人を過ぎて、さらに遡ると、物語は名前のある民族についてのものではなくなり、集団規模の移動についてのものになります。約4千年前、黒海の北の草原から馬に乗った牧畜民である<strong>ヤムナヤ</strong>文化が押し寄せ、ヨーロッパの大部分の遺伝的構成を作り変えました——このゲノムは、彼らのシグナルを、以前からいた農耕民とほぼ完璧なバランスで持っています。どちらか一方に傾くのではなく、ほぼ均等に分かれています。そのバランス自体が情報を持っています。それは、このゲノムを、二つの古代世界のどちらかの端よりも真の交差点に近づけています。草原シグナルの中でも特に<strong>コーカサス狩猟採集民</strong>（<mark>CHG</mark>）側に重みを持ち、<strong>東部狩猟採集民</strong>（<mark>EHG</mark>）側ではないため、その移動の南東の、コーカサスに隣接する分岐を指し示しています。牧畜民の前には最初の農耕民がいました——約8千年前に、現在のトルコである<strong>アナトリア</strong>を離れ、作物と家畜をゆっくりとバルカン半島へ運んだ人々です。そして農耕民の前には、この土地は農業を一切行わなかった狩猟採集民のものでした——黒い肌と青い目を持つ人々で、その目の色の遺伝子は今日でも受け継がれており、明るい肌そのものよりも古い、このプロフィール全体で最古の単一の特徴です。</p>
+      <p style="margin-top:.8rem">そしてそれよりもさらに下には、非アフリカ系の祖先を持つほぼすべての人が持つ、少量の<strong>ネアンデルタール人</strong>のDNAがあります。このゲノムも、それを特定するための特定のセグメントレベルのテストは行われていないものの、ほぼ間違いなく例外ではありません。狩猟採集民、次に農耕民、次に草原の牧畜民、次にトラキア人、次にスラブ移住者、次に中世ブルガリア人、そして今日見つかった生きている親戚たち——それぞれが、同じ連続した発掘の中で、実在し、それぞれ独立して確認された層なのです。</p>
+    </div>
+
+    <div class="insight-box insight-box--final">
+      <span class="insight-label insight-label--white">祖先の方程式</span>
+      <div class="equation">
+        アナトリア新石器農耕民 — バルカン上陸、紀元前約8000年<br>
+        + 西ヨーロッパ狩猟採集民 — 青い目の基層、紀元前1万年以上<br>
+        + ヤムナヤ草原牧畜民 — CHG重み付け、南東的な親和性<br>
+        = 非スラブ系バルカン基層<br><br>
+        + パレオバルカンの連続性 — トラキア系、ダキア系、イリュリア系、ビザンティン<br>
+        + スラブ民族の移動 — パンノニア回廊、6〜8世紀<br>
+        + ビザンティン地中海的引力<br>
+        = <strong>東バルカン交差点ゲノム</strong><br><br>
+        <strong>最も近い現代集団：ルーマニア人 0.018・ブルガリア人 0.021</strong><br>
+        <strong>最も近い古代集団：ブルガリア中世 0.034</strong><br>
+        <strong>エーゲ海青銅器時代のシグナル：アルメニアC アレニ 0.100・ミケーネ 0.106</strong><br>
+        <strong>古代人類の糸：CHG重み付けされた草原シグナル・EDAR AA（仮説生成的）</strong><br>
+        <strong>兄弟間の距離（対スタイコ）：0.0142 — テストされたどの外部集団よりも近い</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
