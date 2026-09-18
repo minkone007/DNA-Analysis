@@ -126,6 +126,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 <nav class="nav-sidebar">
   <h4>The Dig</h4>
+  <a href="#s_summary" class="nav-link">Executive Summary</a>
   <a href="#s_surface" class="nav-link">Layer 0 — The Surface</a>
   <a href="#s_modern" class="nav-link">Layer 1 — Living Populations</a>
   <a href="#s_medieval" class="nav-link">Layer 2 — Medieval Era</a>
@@ -174,7 +175,60 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <strong>Sources:</strong> G25 coordinates estimated via a custom optimization script fitting admixture-calculator output to Global25 reference population coordinates (scaled format), not a direct PCA projection of raw genotype data. GEDmatch Eurogenes K36, K13, EUtest K15, Dodecad K12b, HarappaWorld, puntDNAL K10 Ancient, MyHeritage ethnicity estimates. References: Haak et al. 2015, Gakuhari et al. 2020, McColl et al. 2018, Jinam et al. 2015, Reich et al. 2011. Ancient DNA ancestry models are statistical approximations describing genetic relationships, not direct genealogical descent. Generated July 2026.
 </div>
 
+<!-- ══ EXECUTIVE SUMMARY ══ -->
+<div class="era-block" id="s_summary">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+    <span class="era-label">Before the Dig<br>Executive Summary</span>
+  </div>
+  <div class="era-content">
+    <h2>Two Family Trees, One Genome</h2>
 
+    <p class="descent-note">Eight layers follow, each a few thousand years deeper than the last — but this genome tells one story on two separate tracks at once. Before descending into either, here is what the whole excavation shows.</p>
+
+    <p>Julian Nenov's genome is a genuine dual-ancestry profile: roughly half Eastern Balkan (paternal) and roughly half Ryukyuan Japanese (maternal). MyHeritage reports Japanese (Okinawa) at 61.6% alongside Balkan 21.2% and Greek and Albanian 10.8%. These labels should not be read as genealogical fractions; they reflect two largely non-overlapping ancestral streams that the algorithm is mapping onto modern reference populations. The Okinawa flag is especially informative — it signals a stronger Jomon hunter-gatherer component than is typical of mainland Japanese ancestry.</p>
+
+    <p>On the paternal side, Julian inherits the Eastern Balkan continuum that characterises his father Minko: closest modern matches remain Bulgarian and related Balkan groups, though diluted by the maternal East Asian contribution (G25 distance to Bulgarian ~<strong>0.126</strong>). The deeper structure mirrors the classic Balkan pattern — a substantial Paleo-Balkan (Anatolian Neolithic and local) substrate, a balanced-to-farmer-leaning Bronze Age synthesis of Anatolian farmers and Pontic steppe (Yamnaya-related) ancestry, a smaller Western Hunter-Gatherer contribution, and later shaping by the Slavic migrations that formed the medieval Bulgarian population.</p>
+
+    <p>On the maternal side, the signal is distinctly Ryukyuan rather than mainland Japanese. Ancient DNA comparisons place the East Asian component closer to Jomon hunter-gatherers than to Han Chinese, consistent with the higher retention of pre-Yayoi ancestry characteristic of the Ryukyu Islands. A secondary northeastern Asian / Inner Asian steppe-related signal is also present, explaining both the Central Asian percentage and the unusually close ancient match to a medieval Mongolian reference — itself best understood as a geometric midpoint between West and East Eurasian variation rather than direct Mongolian ancestry.</p>
+
+    <p><em>One further thread worth a line: because the paternal and maternal lines diverged so far back, the two archaic-species signals in Julian's genome are asymmetric rather than identical — Neanderthal ancestry arrives through both parents from the same ancient event, but a faint Denisovan-related signal, traceable through the Jomon and the Onge of the Andaman Islands, arrives only through his mother's side.</em></p>
+
+    <table class="dist-table">
+      <tr>
+        <th>Layer</th>
+        <th>Closest match</th>
+        <th>Distance</th>
+      </tr>
+      <tr>
+        <td>Modern population (paternal)</td>
+        <td>Bulgarian</td>
+        <td class="dist-val">0.126</td>
+      </tr>
+      <tr>
+        <td>Closest ancient match overall</td>
+        <td>Mongolia Arkhangai, Early Medieval</td>
+        <td class="dist-val">0.094</td>
+      </tr>
+      <tr>
+        <td>Bronze Age (paternal)</td>
+        <td>Yamnaya / Anatolian Neolithic</td>
+        <td class="dist-val">0.195 / 0.206</td>
+      </tr>
+      <tr>
+        <td>Mesolithic (maternal)</td>
+        <td>Jomon over Han</td>
+        <td class="dist-val">0.407 / 0.478</td>
+      </tr>
+    </table>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      In short: a balanced West-East Eurasian genome in which the paternal Eastern Balkan formation — Anatolian farmers, Caucasus-weighted steppe, WHG, and Slavic synthesis — meets a maternal Ryukyuan formation rich in <mark>Jomon hunter-gatherer ancestry</mark>. The two streams remain clearly distinguishable across modern, medieval, and ancient layers.
+    </div>
+  </div>
+</div>
+  
 <!-- ══ LAYER 0: THE SURFACE ══ -->
 <div class="era-block" id="s_surface">
   <div class="era-marker">
