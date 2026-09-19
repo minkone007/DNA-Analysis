@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stratigraphic Timeline Preview</title>
+  <style>
+    /* ─── Demo page layout ─── */
+    body {
+      font-family: Georgia, serif;
+      line-height: 1.7;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+      color: #1c1917;
+      background: #faf9f7;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 0.3rem; }
+    .subtitle { color: #6b6560; margin-bottom: 2.5rem; }
+
+    /* ─── Stratigraphic Timeline ─── */
+    .stratigraphy {
+      --core-width: 4px;
+      --marker-size: 14px;
+      --accent: #1e3a8a;
+      --muted: #64748b;
+
+      position: sticky;
+      top: 1.5rem;
+      float: left;
+      width: 180px;
+      margin: 0 2.5rem 3rem 0;
+      padding: 1.25rem 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      z-index: 40;
+    }
+
+    .core {
+      position: absolute;
+      left: 28px;
+      top: 1.5rem;
+      bottom: 1.5rem;
+      width: var(--core-width);
+      background: linear-gradient(
+        to bottom,
+        #cbd5e1 0%,
+        #94a3b8 40%,
+        #64748b 70%,
+        #334155 100%
+      );
+      border-radius: 2px;
+    }
+
+    .you-are-here {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: var(--marker-size);
+      height: var(--marker-size);
+      margin-left: calc(var(--marker-size) / -2);
+      background: var(--accent);
+      border: 3px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px var(--accent);
+      transform: translateY(-50%);
+      transition: top 0.25s ease;
+      z-index: 2;
+    }
+
+    .strata {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    .strata li {
+      position: relative;
+      padding: 0.85rem 0 0.85rem 3.2rem;
+    }
+
+    .strata li a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.15s ease;
+    }
+
+    .strata li a:hover { color: var(--accent); }
+
+    .strata .depth {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: white;
+      background: #94a3b8;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .strata li:nth-child(1) .depth { background: #cbd5e1; color: #334155; }
+    .strata li:nth-child(2) .depth { background: #94a3b8; }
+    .strata li:nth-child(3) .depth { background: #64748b; }
+    .strata li:nth-child(4) .depth { background: #475569; }
+    .strata li:nth-child(5) .depth { background: #334155; }
+    .strata li:nth-child(6) .depth { background: #1e293b; }
+
+    .strata .label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .strata .period {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .strata li.active .label { color: var(--accent); }
+    .strata li.active .depth {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.25);
+    }
+
+    /* Demo content */
+    .content { margin-left: 220px; }
+    section {
+      min-height: 70vh;
+      padding: 2rem 0;
+      border-bottom: 1px solid #e5e0d8;
+    }
+    section h2 { color: #1e3a8a; margin-top: 0; }
+
+    @media (max-width: 900px) {
+      .stratigraphy {
+        position: relative;
+        float: none;
+        width: 100%;
+        margin: 0 0 2rem 0;
+        overflow-x: auto;
+      }
+      .core { display: none; }
+      .strata { display: flex; gap: 0.5rem; }
+      .strata li {
+        padding: 0.6rem 1rem;
+        background: #f1f5f9;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+      .strata .depth {
+        position: static;
+        display: inline-block;
+        margin-right: 0.4rem;
+        transform: none;
+      }
+      .strata .period { display: none; }
+      .content { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Stratigraphic Timeline Preview</h1>
+  <p class="subtitle">Scroll down to see the “You are here” marker move. Click any layer to jump.</p>
+
+  <!-- ═══════════════ THE TIMELINE ═══════════════ -->
+  <nav class="stratigraphy" id="stratigraphy" aria-label="Ancestry layers">
+    <div class="core">
+      <div class="you-are-here" id="you-are-here"></div>
+    </div>
+
+    <ul class="strata">
+      <li data-target="layer-modern">
+        <a href="#layer-modern">
+          <span class="depth">0</span>
+          <span class="label">Modernity</span>
+          <span class="period">Present day</span>
+        </a>
+      </li>
+      <li data-target="layer-medieval">
+        <a href="#layer-medieval">
+          <span class="depth">1</span>
+          <span class="label">Medieval</span>
+          <span class="period">500–1200 AD</span>
+        </a>
+      </li>
+      <li data-target="layer-bronze">
+        <a href="#layer-bronze">
+          <span class="depth">2</span>
+          <span class="label">Bronze Age</span>
+          <span class="period">3000–1200 BC</span>
+        </a>
+      </li>
+      <li data-target="layer-neolithic">
+        <a href="#layer-neolithic">
+          <span class="depth">3</span>
+          <span class="label">Neolithic</span>
+          <span class="period">7000–3000 BC</span>
+        </a>
+      </li>
+      <li data-target="layer-mesolithic">
+        <a href="#layer-mesolithic">
+          <span class="depth">4</span>
+          <span class="label">Mesolithic</span>
+          <span class="period">10 000–7000 BC</span>
+        </a>
+      </li>
+      <li data-target="layer-archaic">
+        <a href="#layer-archaic">
+          <span class="depth">5</span>
+          <span class="label">Archaic</span>
+          <span class="period">50 000+ BP</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════ DEMO CONTENT ═══════════════ -->
+  <div class="content">
+    <section id="layer-modern">
+      <h2>Layer 0 — Modernity</h2>
+      <p>This is the surface layer. Scroll down to watch the marker move.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </section>
+
+    <section id="layer-medieval">
+      <h2>Layer 1 — Medieval (500–1200 AD)</h2>
+      <p>Medieval Bulgarian and Avar context would go here.</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </section>
+
+    <section id="layer-bronze">
+      <h2>Layer 2 — Bronze Age (3000–1200 BC)</h2>
+      <p>Yamnaya and Anatolian farmer discussion.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </section>
+
+    <section id="layer-neolithic">
+      <h2>Layer 3 — Neolithic (7000–3000 BC)</h2>
+      <p>Early European farmers from Anatolia.</p>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+
+    <section id="layer-mesolithic">
+      <h2>Layer 4 — Mesolithic (10 000–7000 BC)</h2>
+      <p>Western Hunter-Gatherers.</p>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+    </section>
+
+    <section id="layer-archaic">
+      <h2>Layer 5 — Archaic (50 000+ BP)</h2>
+      <p>Neanderthal and deep archaic signals.</p>
+      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      const strata = document.querySelectorAll('.strata li');
+      const marker = document.getElementById('you-are-here');
+      const sections = [];
+
+      strata.forEach(li => {
+        const id = li.dataset.target;
+        const el = document.getElementById(id);
+        if (el) sections.push({ li, el });
+      });
+
+      function update() {
+        const scrollY = window.scrollY + 120;
+        let current = sections[0];
+
+        for (const s of sections) {
+          if (s.el.offsetTop <= scrollY) current = s;
+        }
+
+        strata.forEach(li => li.classList.remove('active'));
+        current.li.classList.add('active');
+
+        if (marker && current.li) {
+          const liRect = current.li.getBoundingClientRect();
+          const navRect = document.getElementById('stratigraphy').getBoundingClientRect();
+          const offset = liRect.top - navRect.top + liRect.height / 2;
+          marker.style.top = offset + 'px';
+        }
+      }
+
+      document.querySelectorAll('.strata a').forEach(a => {
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          const target = document.querySelector(a.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+  </script>
+</body>
+</html>
