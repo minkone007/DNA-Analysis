@@ -182,12 +182,14 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   border-top: 1px dotted var(--era-line);
 }
 
-.time-today    { top: 3%; }
-.time-medieval { top: 15%; }
-.time-bronze   { top: 29%; }
-.time-neolithic{ top: 52%; }
-.time-holocene { top: 69%; }
-.time-deep     { top: 94%; }
+.time-today     { top: 3%;  }
+.time-medieval  { top: 12%; }   /* was 15% */
+.time-avar      { top: 21%; }   /* NEW */
+.time-iron      { top: 31%; }   /* NEW */
+.time-bronze    { top: 42%; }   /* was 29% */
+.time-neolithic { top: 53%; }   /* was 52% */
+.time-holocene  { top: 73%; }   /* was 69% */
+.time-deep      { top: 90%; }   /* was 94% */
 
 
 /* ─────────────────────────────────────────────────────
@@ -198,7 +200,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   position: relative;
 
   /* More room between archaeological horizons */
-  height: 820px;
+  height: 1000px;
 
   background-image:
     repeating-linear-gradient(
@@ -524,7 +526,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <!-- TIME SCALE (unchanged) -->
   <div class="time-axis">
     <div class="time-marker time-today">ДНЕС</div>
+    <div class="time-marker time-avar">~600–900 г.</div>
     <div class="time-marker time-medieval">~1200 г.</div>
+    <div class="time-marker time-iron">~800–100 г. пр.н.е.</div>
     <div class="time-marker time-bronze">~3000 г. пр.н.е.</div>
     <div class="time-marker time-neolithic">~7000 г. пр.н.е.</div>
     <div class="time-marker time-holocene">~10–13 хил. г.</div>
@@ -599,7 +603,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <!-- WHG · LOSCHBOUR — now carries the ~15% note the removed generic band used to hold, plus its own distance -->
     <div class="population-band band-whg-reference" style="--start: 17%; --width: 31%; --top: 64%;">
       <div class="band-label">
-        <strong>WHG · Loschbour</strong>
+        <strong>ЗЛС · Лошбур</strong>
         <span>Мезолитна западноевропейска референтна проба · ~15% от дълбокия принос</span>
       </div>
       <div class="band-distance">G25: ~0.406</div>
@@ -609,34 +613,38 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <!-- EHG / CHG / GANJ DAREH — tightened cluster, was 71/78/85, now 70/75/80 -->
     <div class="population-band band-ehg" style="--start: 34%; --width: 29%; --top: 70%;">
       <div class="band-label">
-        <strong>EHG · Karelia</strong>
-        <span>Източноевропейски ловци-събирачи · древен референтен хоризонт</span>
+        <strong>ИЛС · Карелия</strong>
+        <span>~7000 г. пр.н.е. · източноевропейски ловци-събирачи</span>
       </div>
+      <div class="band-distance">G25: ~0.285</div>
     </div>
-
-    <div class="population-band band-chg" style="--start: 51%; --width: 32%; --top: 75%;">
+    
+    <div class="population-band band-chg" style="--start: 51%; --width: 32%; --top: 77%;">
       <div class="band-label">
-        <strong>CHG · Kotias</strong>
-        <span>Кавказки ловци-събирачи · дълбока древна референция</span>
+        <strong>КЛС · Котияс</strong>
+        <span>~9000 г. пр.н.е. · кавказки ловци-събирачи</span>
       </div>
+      <div class="band-distance">G25: ~0.249</div>
     </div>
-
-    <div class="population-band band-comparative" style="--start: 69%; --width: 22%; --top: 80%;">
+    
+    <div class="population-band band-comparative" style="--start: 69%; --width: 22%; --top: 84%;">
       <div class="band-label">
         <strong>Гандж Дарех</strong>
-        <span>~10 хил. г. BP · сравнителна референция</span>
+        <span>~10 000 г. пр.н.е. · сравнителна референция</span>
       </div>
+      <div class="band-distance">G25: ~0.292</div>
     </div>
 
 
     <!-- DEEP POPULATION STRUCTURE (unchanged) -->
-    <div class="population-band band-deep" style="--start: 3%; --width: 94%; --top: 94%;">
+    <div class="population-band band-deep" style="--start: 3%; --width: 94%; --top: 90%;">
       <div class="band-label">
-        <strong>Дълбока популационна структура</strong>
-        <span>Дълбока дивергенция на линиите, предхождаща археологическите проби, използвани като по-късни референтни популации.</span>
+        <strong>Неандерталска примес</strong>
+        <span>~50 000–60 000 г. пр.н.е. · Югозападна Азия · споделена от всички неафрикански линии</span>
       </div>
+      <div class="band-distance">~1–4% от генома</div>
       <div class="deep-note">
-        Това не е отделна древна проба или директен предшественик, а дълбок популационен хоризонт, изследван чрез по-късни сравнителни референции.
+        Универсален сигнал за всички неафрикански популации, не резултат от анализ, специфичен за този геном — тук не е изпълнено сегментно тестване за локализиране на конкретни интрогресирани участъци. Всичко по-старо от този хоризонт (>60 хил. г.) предхожда наличните архаични референтни проби и не е представено тук с конкретни стойности.
       </div>
     </div>
 
