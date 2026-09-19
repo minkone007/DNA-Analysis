@@ -162,7 +162,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   left: 0;
   width: 100%;
   padding-right: 1rem;
-
+  transform: translateY(-50%);
   font-family: 'Inter', sans-serif;
   font-size: 0.65rem;
   font-weight: 600;
@@ -178,10 +178,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   position: absolute;
   top: 50%;
   left: 100%;
-  width: 945px;  /* spans the full field so it visually reaches any band regardless of --start */
+  width: 48px;
   border-top: 1px dotted var(--era-line);
-  opacity: 0.35;
-  z-index: 1;
 }
   
 .time-today     { top: 2%;  }
@@ -198,17 +196,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .population-bands {
   position: relative;
-  height: 1500px;
-
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 136px,
-      rgba(200,184,154,.38) 137px,
-      transparent 138px
-    );
-
+  height: 1300px;
+  background: transparent;
   border-left: none;
 }
 
@@ -224,7 +213,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   top: var(--top);
   width: var(--width);
 
-  /* Shorter, lighter bands */
+  transform: translateY(-50%);
+
   min-height: 40px;
   padding: 0.45rem 0.7rem;
 
@@ -235,14 +225,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
   background: rgba(245,239,228,.82);
 
-  /* No full box outline */
   border: none;
-
-  /* Only the archaeological "marker" remains */
   border-left: 3px solid var(--ink-mid);
-
   border-radius: 2px;
-
   box-shadow: none;
 
   z-index: 2;
