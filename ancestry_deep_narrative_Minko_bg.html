@@ -96,22 +96,21 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
 
-  /* SCHEMATIC CSS */
-/* ═══════════════════════════════════════════════════════
+  /* ═══════════════════════════════════════════════════════
    GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD
    ═══════════════════════════════════════════════════════ */
 
 .genetic-stratigraphy {
-  margin: 3rem 0 4rem;
-  padding: 2.5rem 1.5rem 3rem;
-  background: var(--parchment-dark);
-  border: 1px solid var(--era-line);
-  border-radius: 12px;
+  margin: 3.5rem 0 4.5rem;
+  padding: 2.5rem 0 3rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
 }
 
 .strat-intro {
   max-width: 720px;
-  margin: 0 auto 2.6rem;
+  margin: 0 auto 3rem;
   text-align: center;
 }
 
@@ -138,7 +137,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
 
 
-/* ── MAIN CHRONOLOGICAL FIELD ───────────────────────── */
+/* ─────────────────────────────────────────────────────
+   The Schematic : CHRONOLOGICAL FIELD
+   ───────────────────────────────────────────────────── */
 
 .stratigraphy-field {
   position: relative;
@@ -146,9 +147,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   margin: 0 auto;
   padding-left: 105px;
 }
-
-
-/* ── VERTICAL TIME AXIS ─────────────────────────────── */
 
 .time-axis {
   position: absolute;
@@ -170,6 +168,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   font-weight: 600;
   letter-spacing: 0.05em;
   color: var(--ink-light);
+
   text-align: right;
   white-space: nowrap;
 }
@@ -183,59 +182,40 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   border-top: 1px dotted var(--era-line);
 }
 
-
-/* Time positions */
-
-.time-today {
-  top: 3%;
-}
-
-.time-medieval {
-  top: 15%;
-}
-
-.time-bronze {
-  top: 29%;
-}
-
-.time-neolithic {
-  top: 52%;
-}
-
-.time-holocene {
-  top: 69%;
-}
-
-.time-deep {
-  top: 94%;
-}
+.time-today    { top: 3%; }
+.time-medieval { top: 15%; }
+.time-bronze   { top: 29%; }
+.time-neolithic{ top: 52%; }
+.time-holocene { top: 69%; }
+.time-deep     { top: 94%; }
 
 
-/* ── THE ARCHAEOLOGICAL FIELD ───────────────────────── */
+/* ─────────────────────────────────────────────────────
+   FIELD
+   ───────────────────────────────────────────────────── */
 
 .population-bands {
   position: relative;
-  height: 760px;
 
-  /*
-     The horizontal rules are deliberately subtle.
-     They provide a chronological "field" rather than
-     separate boxes/rows.
-  */
+  /* More room between archaeological horizons */
+  height: 820px;
+
   background-image:
     repeating-linear-gradient(
       to bottom,
       transparent 0,
-      transparent 118px,
-      rgba(200,184,154,.55) 119px,
-      transparent 120px
+      transparent 136px,
+      rgba(200,184,154,.38) 137px,
+      transparent 138px
     );
 
-  border-left: 1px solid var(--era-line);
+  border-left: none;
 }
 
 
-/* ── INDIVIDUAL POPULATION BANDS ────────────────────── */
+/* ─────────────────────────────────────────────────────
+   POPULATION BANDS
+   ───────────────────────────────────────────────────── */
 
 .population-band {
   position: absolute;
@@ -244,27 +224,29 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   top: var(--top);
   width: var(--width);
 
-  min-height: 52px;
-
-  padding: 0.65rem 0.85rem;
+  /* Shorter, lighter bands */
+  min-height: 40px;
+  padding: 0.45rem 0.7rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
 
-  background: rgba(245,239,228,.92);
-  border: 1px solid var(--era-line);
-  border-left: 4px solid var(--ink-mid);
-  border-radius: 4px;
+  background: rgba(245,239,228,.82);
 
-  box-shadow: 0 2px 5px rgba(28,22,16,.045);
+  /* No full box outline */
+  border: none;
+
+  /* Only the archaeological "marker" remains */
+  border-left: 3px solid var(--ink-mid);
+
+  border-radius: 2px;
+
+  box-shadow: none;
 
   z-index: 2;
 }
-
-
-/* Text inside bands */
 
 .band-label {
   min-width: 0;
@@ -272,17 +254,18 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .band-label strong {
   display: block;
-  font-size: 0.88rem;
-  line-height: 1.25;
+  font-size: 0.84rem;
+  line-height: 1.2;
   font-weight: 600;
 }
 
 .band-label span {
   display: block;
-  margin-top: 0.15rem;
+  margin-top: 0.12rem;
 
-  font-size: 0.69rem;
-  line-height: 1.3;
+  font-size: 0.66rem;
+  line-height: 1.25;
+
   color: var(--ink-light);
 }
 
@@ -290,13 +273,16 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   flex-shrink: 0;
 
   font-family: 'Inter', sans-serif;
-  font-size: 0.67rem;
+  font-size: 0.63rem;
+
   color: var(--ink-light);
   white-space: nowrap;
 }
 
 
-/* ── POPULATION TYPES ───────────────────────────────── */
+/* ─────────────────────────────────────────────────────
+   BAND TYPES
+   ───────────────────────────────────────────────────── */
 
 .band-modern {
   border-left-color: var(--gold);
@@ -334,37 +320,41 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
 
 
-/* ── DEEP POPULATION STRUCTURE ───────────────────────── */
+/* ─────────────────────────────────────────────────────
+   DEEP STRUCTURE
+   ───────────────────────────────────────────────────── */
 
 .band-deep {
-  min-height: 90px;
+  min-height: 70px;
 
-  background: rgba(28,22,16,.045);
+  background: rgba(28,22,16,.035);
 
-  border: 1px solid var(--ink-mid);
-  border-left: 5px solid var(--ink);
+  border: none;
+  border-left: 4px solid var(--ink);
 
   box-shadow: none;
 }
 
 .deep-note {
   max-width: 430px;
-
   margin-left: auto;
 
-  font-size: 0.68rem;
-  line-height: 1.45;
+  font-size: 0.66rem;
+  line-height: 1.4;
+
   color: var(--ink-light);
   font-style: italic;
 }
 
 
-/* ── MOBILE ──────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────
+   MOBILE
+   ───────────────────────────────────────────────────── */
 
 @media (max-width: 700px) {
 
   .genetic-stratigraphy {
-    padding: 2rem 1rem 2.5rem;
+    padding: 2rem 0 2.5rem;
   }
 
   .stratigraphy-field {
@@ -385,24 +375,24 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   }
 
   .population-bands {
-    height: 850px;
+    height: 900px;
   }
 
   .population-band {
-    min-height: 56px;
-    padding: 0.55rem 0.65rem;
+    min-height: 44px;
+    padding: 0.45rem 0.55rem;
   }
 
   .band-label strong {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
 
   .band-label span {
-    font-size: 0.62rem;
+    font-size: 0.60rem;
   }
 
   .band-distance {
-    font-size: 0.58rem;
+    font-size: 0.56rem;
   }
 
   .deep-note {
