@@ -178,9 +178,12 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   position: absolute;
   top: 50%;
   left: 100%;
-  width: 20px;
+  width: 945px;  /* spans the full field so it visually reaches any band regardless of --start */
   border-top: 1px dotted var(--era-line);
+  opacity: 0.35;
+  z-index: 1;
 }
+  
 .time-today     { top: 2%;  }
 .time-medieval  { top: 11%; }
 .time-avar      { top: 21%; }
@@ -195,7 +198,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .population-bands {
   position: relative;
-  height: 1300px;
+  height: 1500px;
 
   background-image:
     repeating-linear-gradient(
