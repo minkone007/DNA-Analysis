@@ -181,28 +181,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   width: 20px;
   border-top: 1px dotted var(--era-line);
 }
-
-.time-today     { top: 3%;  }
-.time-medieval  { top: 12%; }   /* was 15% */
-.time-avar      { top: 21%; }   /* NEW */
-.time-iron      { top: 31%; }   /* NEW */
-.time-bronze    { top: 42%; }   /* was 29% */
-.time-neolithic { top: 53%; }   /* was 52% */
-.time-holocene  { top: 73%; }   /* was 69% */
-.time-deep      { top: 90%; }   /* was 94% */
-
-
-/* ─────────────────────────────────────────────────────
-   FIELD
-   ───────────────────────────────────────────────────── */
-
-.population-bands {
-  position: relative;
-
-  /* More room between archaeological horizons */
-  height: 1500px;   /* was 820px, then presumably reverted */
-}
-
 .time-today     { top: 2%;  }
 .time-medieval  { top: 12%; }
 .time-avar      { top: 22%; }
@@ -211,7 +189,14 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .time-neolithic { top: 52%; }
 .time-holocene  { top: 67%; }
 .time-deep      { top: 93%; }
-  
+/* ─────────────────────────────────────────────────────
+   FIELD
+   ───────────────────────────────────────────────────── */
+
+.population-bands {
+  position: relative;
+  height: 1500px;
+
   background-image:
     repeating-linear-gradient(
       to bottom,
