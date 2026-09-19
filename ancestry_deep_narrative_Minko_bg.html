@@ -284,7 +284,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    BAND TYPES
    ───────────────────────────────────────────────────── */
 
-.band-modern {
+  .band-slavic {
+  border-left-color: var(--cinnabar);
+}
+
+.band-thracian {
+  border-left-color: var(--accent);
+}
+  
+  .band-modern {
   border-left-color: var(--gold);
 }
 
@@ -511,241 +519,130 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       </div>
 
       <!-- ══ GENETIC STRATIGRAPHY ═ -->
+      <div class="stratigraphy-field">
 
-      <section class="genetic-stratigraphy">
+  <!-- TIME SCALE (unchanged) -->
+  <div class="time-axis">
+    <div class="time-marker time-today">ДНЕС</div>
+    <div class="time-marker time-medieval">~1200 г.</div>
+    <div class="time-marker time-bronze">~3000 г. пр.н.е.</div>
+    <div class="time-marker time-neolithic">~7000 г. пр.н.е.</div>
+    <div class="time-marker time-holocene">~10–13 хил. г.</div>
+    <div class="time-marker time-deep">~40–50+ хил. г.</div>
+  </div>
+
+
+  <!-- POPULATION / REFERENCE FIELD -->
+  <div class="population-bands">
+
+
+    <!-- MODERN BALKAN CONTINUUM -->
+    <div class="population-band band-modern" style="--start: 2%; --width: 94%; --top: 4%;">
+      <div class="band-label">
+        <strong>Източнобалкански съвременен континуум</strong>
+        <span>Румънци · Българи · Гагаузи · други балкански популации</span>
+      </div>
+      <div class="band-distance">G25: 0.018–0.024</div>
+    </div>
+
+
+    <!-- MEDIEVAL BULGARIA -->
+    <div class="population-band band-medieval" style="--start: 14%; --width: 68%; --top: 15%;">
+      <div class="band-label">
+        <strong>Средновековна България</strong>
+        <span>IX–XIV в. · балкански субстрат + славянски принос</span>
+      </div>
+      <div class="band-distance">G25: 0.034</div>
+    </div>
+
+
+    <!-- NEW: AVAR / SLAVIC MIGRATION LAYER -->
+    <div class="population-band band-slavic" style="--start: 22%; --width: 55%; --top: 19%;">
+      <div class="band-label">
+        <strong>Славянска миграция / Аварски хаганат</strong>
+        <span>567–895 г. · Панонски коридор · късните авари погълнати, ранната/елитна класа — не</span>
+      </div>
+      <div class="band-distance">G25: 0.122 (късни) / 0.214 (ранни)</div>
+    </div>
+
+
+    <!-- NEW: THRACIAN / IRON AGE PALEO-BALKAN SUBSTRATE -->
+    <div class="population-band band-thracian" style="--start: 8%; --width: 63%; --top: 24%;">
+      <div class="band-label">
+        <strong>Желязна епоха България · Траки</strong>
+        <span>Палеобалкански субстрат · пряк предшественик на средновековния профил</span>
+      </div>
+      <div class="band-distance">G25: 0.088–0.096</div>
+    </div>
+
+
+    <!-- YAMNAYA / STEPPE -->
+    <div class="population-band band-steppe" style="--start: 9%; --width: 57%; --top: 29%;">
+      <div class="band-label">
+        <strong>Ямна / понтийско-степен хоризонт</strong>
+        <span>Степна референтна популация от бронзовата епоха</span>
+      </div>
+      <div class="band-distance">G25: ~0.171</div>
+    </div>
+
+
+    <!-- ANATOLIAN FARMERS — repositioned from top:36% to top:49% -->
+    <div class="population-band band-farmer" style="--start: 36%; --width: 49%; --top: 49%;">
+      <div class="band-label">
+        <strong>Анадолски неолит · Барчин</strong>
+        <span>~6500 г. пр.н.е. · ранни земеделски популации от Анадола</span>
+      </div>
+      <div class="band-distance">G25: ~0.173</div>
+    </div>
+
+
+    <!-- WHG · LOSCHBOUR — now carries the ~15% note the removed generic band used to hold, plus its own distance -->
+    <div class="population-band band-whg-reference" style="--start: 17%; --width: 31%; --top: 64%;">
+      <div class="band-label">
+        <strong>WHG · Loschbour</strong>
+        <span>Мезолитна западноевропейска референтна проба · ~15% от дълбокия принос</span>
+      </div>
+      <div class="band-distance">G25: ~0.406</div>
+    </div>
+
+
+    <!-- EHG / CHG / GANJ DAREH — tightened cluster, was 71/78/85, now 70/75/80 -->
+    <div class="population-band band-ehg" style="--start: 34%; --width: 29%; --top: 70%;">
+      <div class="band-label">
+        <strong>EHG · Karelia</strong>
+        <span>Източноевропейски ловци-събирачи · древен референтен хоризонт</span>
+      </div>
+    </div>
+
+    <div class="population-band band-chg" style="--start: 51%; --width: 32%; --top: 75%;">
+      <div class="band-label">
+        <strong>CHG · Kotias</strong>
+        <span>Кавказки ловци-събирачи · дълбока древна референция</span>
+      </div>
+    </div>
+
+    <div class="population-band band-comparative" style="--start: 69%; --width: 22%; --top: 80%;">
+      <div class="band-label">
+        <strong>Гандж Дарех</strong>
+        <span>~10 хил. г. BP · сравнителна референция</span>
+      </div>
+    </div>
+
+
+    <!-- DEEP POPULATION STRUCTURE (unchanged) -->
+    <div class="population-band band-deep" style="--start: 3%; --width: 94%; --top: 94%;">
+      <div class="band-label">
+        <strong>Дълбока популационна структура</strong>
+        <span>Дълбока дивергенция на линиите, предхождаща археологическите проби, използвани като по-късни референтни популации.</span>
+      </div>
+      <div class="deep-note">
+        Това не е отделна древна проба или директен предшественик, а дълбок популационен хоризонт, изследван чрез по-късни сравнителни референции.
+      </div>
+    </div>
+
+  </div>
+</div>
       
-        <div class="strat-intro">
-          <span class="strat-kicker">Хронологична карта</span>
-      
-          <h2>Генетична стратиграфия</h2>
-      
-          <p>
-            Популации и древни референтни проби, използвани за интерпретация
-            на генетичния профил. Позицията на лентите показва приблизителния
-            времеви хоризонт; различната им дължина служи за визуално
-            разграничаване на популационните и референтните полета,
-            а не за количествена оценка на продължителността.
-          </p>
-        </div>
-      
-      
-        <div class="stratigraphy-field">
-      
-          <!-- TIME SCALE -->
-          <div class="time-axis">
-      
-            <div class="time-marker time-today">
-              ДНЕС
-            </div>
-      
-            <div class="time-marker time-medieval">
-              ~1200 г.
-            </div>
-      
-            <div class="time-marker time-bronze">
-              ~3000 г. пр.н.е.
-            </div>
-      
-            <div class="time-marker time-neolithic">
-              ~7000 г. пр.н.е.
-            </div>
-      
-            <div class="time-marker time-holocene">
-              ~10–13 хил. г.
-            </div>
-      
-            <div class="time-marker time-deep">
-              ~40–50+ хил. г.
-            </div>
-      
-          </div>
-      
-      
-          <!-- POPULATION / REFERENCE FIELD -->
-          <div class="population-bands">
-      
-      
-            <!-- MODERN BALKAN CONTINUUM -->
-            <div
-              class="population-band band-modern"
-              style="--start: 2%; --width: 94%; --top: 5%;"
-            >
-              <div class="band-label">
-                <strong>Източнобалкански съвременен континуум</strong>
-                <span>
-                  Румънци · Българи · Гагаузи · други балкански популации
-                </span>
-              </div>
-      
-              <div class="band-distance">
-                G25: 0.018–0.024
-              </div>
-            </div>
-      
-      
-            <!-- MEDIEVAL BULGARIA -->
-            <div
-              class="population-band band-medieval"
-              style="--start: 14%; --width: 68%; --top: 15%;"
-            >
-              <div class="band-label">
-                <strong>Средновековна България</strong>
-                <span>
-                  Древна референтна популация · балкански субстрат + славянски принос
-                </span>
-              </div>
-      
-              <div class="band-distance">
-                G25: 0.034
-              </div>
-            </div>
-      
-      
-            <!-- YAMNAYA / STEPPE -->
-            <div
-              class="population-band band-steppe"
-              style="--start: 9%; --width: 57%; --top: 29%;"
-            >
-              <div class="band-label">
-                <strong>Ямна / понтийско-степен хоризонт</strong>
-                <span>
-                  Степна референтна популация от бронзовата епоха
-                </span>
-              </div>
-      
-              <div class="band-distance">
-                G25: ~0.171
-              </div>
-            </div>
-      
-      
-            <!-- ANATOLIAN FARMERS -->
-            <div
-              class="population-band band-farmer"
-              style="--start: 36%; --width: 49%; --top: 36%;"
-            >
-              <div class="band-label">
-                <strong>Анадолски неолит · Барчин</strong>
-                <span>
-                  Ранни земеделски популации от Анадола
-                </span>
-              </div>
-      
-              <div class="band-distance">
-                G25: ~0.173
-              </div>
-            </div>
-      
-      
-            <!-- WHG SIGNAL -->
-            <div
-              class="population-band band-whg"
-              style="--start: 59%; --width: 25%; --top: 43%;"
-            >
-              <div class="band-label">
-                <strong>WHG сигнал</strong>
-                <span>
-                  Западноевропейски ловци-събирачи · по-дълбок европейски компонент
-                </span>
-              </div>
-            </div>
-      
-      
-            <!-- BALKAN / ANATOLIAN NEOLITHIC -->
-            <div
-              class="population-band band-neolithic"
-              style="--start: 4%; --width: 79%; --top: 52%;"
-            >
-              <div class="band-label">
-                <strong>Балкански и анадолски неолит</strong>
-                <span>
-                  Неолитен земеделски хоризонт · сравнителна основа
-                </span>
-              </div>
-            </div>
-      
-      
-            <!-- WHG REFERENCE -->
-            <div
-              class="population-band band-whg-reference"
-              style="--start: 17%; --width: 31%; --top: 64%;"
-            >
-              <div class="band-label">
-                <strong>WHG · Loschbour</strong>
-                <span>
-                  Мезолитна западноевропейска референтна проба
-                </span>
-              </div>
-            </div>
-      
-      
-            <!-- EHG REFERENCE -->
-            <div
-              class="population-band band-ehg"
-              style="--start: 34%; --width: 29%; --top: 71%;"
-            >
-              <div class="band-label">
-                <strong>EHG · Karelia</strong>
-                <span>
-                  Източноевропейски ловци-събирачи · древен референтен хоризонт
-                </span>
-              </div>
-            </div>
-      
-      
-            <!-- CHG REFERENCE -->
-            <div
-              class="population-band band-chg"
-              style="--start: 51%; --width: 32%; --top: 78%;"
-            >
-              <div class="band-label">
-                <strong>CHG · Kotias</strong>
-                <span>
-                  Кавказки ловци-събирачи · дълбока древна референция
-                </span>
-              </div>
-            </div>
-      
-      
-            <!-- GANJ DAREH -->
-            <div
-              class="population-band band-comparative"
-              style="--start: 69%; --width: 22%; --top: 85%;"
-            >
-              <div class="band-label">
-                <strong>Гандж Дарех</strong>
-                <span>
-                  ~10 хил. г. BP · сравнителна референция
-                </span>
-              </div>
-            </div>
-      
-      
-            <!-- DEEP POPULATION STRUCTURE -->
-            <div
-              class="population-band band-deep"
-              style="--start: 3%; --width: 94%; --top: 94%;"
-            >
-              <div class="band-label">
-                <strong>Дълбока популационна структура</strong>
-                <span>
-                  Дълбока дивергенция на линиите, предхождаща археологическите
-                  проби, използвани като по-късни референтни популации.
-                </span>
-              </div>
-      
-              <div class="deep-note">
-                Това не е отделна древна проба или директен предшественик,
-                а дълбок популационен хоризонт, изследван чрез по-късни
-                сравнителни референции.
-              </div>
-            </div>
-      
-      
-          </div>
-        </div>
-      
-      </section>
     </div>
 </div>
 
