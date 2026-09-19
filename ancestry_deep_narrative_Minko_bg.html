@@ -107,7 +107,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .strat-intro {
   max-width: 720px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 2.8rem;
   text-align: center;
 }
 
@@ -124,7 +124,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .strat-intro h2 {
   font-size: clamp(1.3rem, 2.6vw, 1.75rem);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.55rem;
 }
 
 .strat-intro p {
@@ -133,51 +133,40 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   line-height: 1.6;
 }
 
-.strat-chart {
-  position: relative;
-  max-width: 820px;
+.strat-field {
+  max-width: 860px;
   margin: 0 auto;
-  min-height: 780px;
 }
 
-/* Time axis */
-.time-axis {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 70px;
-  border-right: 1px solid var(--era-line);
+.time-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.6rem;
+  align-items: start;
 }
 
-.time-mark {
-  position: absolute;
-  left: 0;
-  top: var(--pos);
+.time-label {
   font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   color: var(--ink-light);
-  transform: translateY(-50%);
+  padding-top: 0.55rem;
+  text-align: right;
 }
 
-/* Bands */
-.band-group {
-  position: absolute;
-  left: 90px;
-  right: 0;
-  top: var(--top);
+.bands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
 }
 
 .band {
-  display: inline-block;
-  margin: 0.25rem 0.4rem 0.25rem 0;
-  padding: 0.55rem 0.9rem;
   background: var(--parchment);
   border: 1px solid var(--era-line);
   border-radius: 6px;
-  font-size: 0.82rem;
-  vertical-align: top;
+  padding: 0.55rem 0.9rem;
+  min-width: 150px;
 }
 
 .band strong {
@@ -192,37 +181,41 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   margin-top: 0.15rem;
 }
 
-.band-long  { min-width: 220px; }
-.band-mid   { min-width: 160px; }
-.band-short { min-width: 130px; }
+.band em {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.7rem;
+  color: var(--ink-mid);
+  font-style: italic;
+  line-height: 1.45;
+}
 
-.band-modern   { border-left: 4px solid var(--gold); }
-.band-medieval { border-left: 4px solid var(--ink-mid); }
-.band-farmer   { border-left: 4px solid var(--sea); }
-.band-steppe   { border-left: 4px solid var(--steppe); }
-.band-whg      { border-left: 4px solid var(--stone); }
-.band-ehg      { border-left: 4px solid #5a7a5a; }
-.band-chg      { border-left: 4px solid #7a6a4a; }
-.band-neolithic{ border-left: 4px solid var(--sea); }
+/* Colour coding */
+.band-modern      { border-left: 4px solid var(--gold); }
+.band-medieval    { border-left: 4px solid var(--ink-mid); }
+.band-farmer      { border-left: 4px solid var(--sea); }
+.band-steppe      { border-left: 4px solid var(--steppe); }
+.band-whg         { border-left: 4px solid var(--stone); }
+.band-ehg         { border-left: 4px solid #5a7a5a; }
+.band-chg         { border-left: 4px solid #7a6a4a; }
+.band-neolithic   { border-left: 4px solid var(--sea); }
+.band-comparative { border-left: 4px solid #9a8a6a; border-style: dashed; }
 
-.band-deep {
+.time-row-deep .band-deep {
   width: 100%;
-  background: rgba(28,22,16,0.06);
+  background: rgba(28,22,16,0.05);
   border-left: 4px solid var(--ink);
 }
 
-.deep-note {
-  margin-top: 0.7rem;
-  font-size: 0.75rem;
-  color: var(--ink-light);
-  font-style: italic;
-  max-width: 520px;
-}
-
 @media (max-width: 700px) {
-  .time-axis { display: none; }
-  .band-group { left: 0; position: relative; top: auto !important; margin-bottom: 1.2rem; }
-  .strat-chart { min-height: 0; }
+  .time-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+  .time-label {
+    text-align: left;
+    padding-top: 0;
+  }
 }
   
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
@@ -334,101 +327,113 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         <span class="plain-label">С прости думи</span>
         Накратко: източнобалкански геном, изграден от балансирана смес от анадолски фермери и кавказки-натежала степна родственост, с по-малък принос на западни ловци-събирачи в основата, оформен по-късно от славянските миграции, породили средновековната българска популация. В сравнение с брат му Стайко, този геном се намира малко по-далеч от южния, егейски край на балканския континуум и относително по-близо до по-широкото румънско-българско ядро. Всичко, което следва — <mark>седем пласта, осем хиляди години</mark> — е доказателството зад това едно изречение.
       </div>
-<!-- == SCHEMATIC == -->
+    <!-- == SCHEMATIC == -->
       <section class="genetic-stratigraphy" aria-labelledby="strat-title">
       <div class="strat-intro">
         <span class="strat-kicker">Генетична стратиграфия</span>
         <h2 id="strat-title">Популации и генетични сигнали през времето</h2>
         <p>
           Хронологична карта на основните референтни популации и генетични
-          сигнали, използвани в този доклад. Лентите показват времеви
-          обхват и относителна позиция — не родословни връзки.
+          сигнали, използвани в този доклад. Лентите показват времеви обхват
+          и относителна позиция — не родословни връзки.
         </p>
       </div>
     
-      <div class="strat-chart">
+      <div class="strat-field">
     
-        <!-- TIME AXIS -->
-        <div class="time-axis">
-          <div class="time-mark" style="--pos: 0%">ДНЕС</div>
-          <div class="time-mark" style="--pos: 18%">1200</div>
-          <div class="time-mark" style="--pos: 38%">3000</div>
-          <div class="time-mark" style="--pos: 55%">7000</div>
-          <div class="time-mark" style="--pos: 72%">10k</div>
-          <div class="time-mark" style="--pos: 92%">40–50k</div>
-        </div>
-    
-        <!-- TODAY / MODERN -->
-        <div class="band-group" style="--top: 4%">
-          <div class="band band-long band-modern">
-            <strong>Съвременни Източни Балкани</strong>
-            <span>Румънци 0,018 · Българи 0,021 · Гагаузи 0,024</span>
+        <!-- TODAY -->
+        <div class="time-row">
+          <div class="time-label">ДНЕС</div>
+          <div class="bands">
+            <div class="band band-modern">
+              <strong>Съвременни Източни Балкани</strong>
+              <span>Румънци 0,018 · Българи 0,021 · Гагаузи 0,024</span>
+            </div>
           </div>
         </div>
     
         <!-- MEDIEVAL -->
-        <div class="band-group" style="--top: 18%">
-          <div class="band band-mid band-medieval">
-            <strong>Средновековна България</strong>
-            <span>G25 0,034</span>
+        <div class="time-row">
+          <div class="time-label">~1200</div>
+          <div class="bands">
+            <div class="band band-medieval">
+              <strong>Средновековна България</strong>
+              <span>G25 0,034</span>
+            </div>
           </div>
         </div>
     
         <!-- BRONZE AGE -->
-        <div class="band-group" style="--top: 35%">
-          <div class="band band-long band-farmer">
-            <strong>Анадолски фермер</strong>
-            <span>0,173</span>
-          </div>
-          <div class="band band-long band-steppe">
-            <strong>Степен / Ямна</strong>
-            <span>0,171</span>
-          </div>
-          <div class="band band-short band-whg">
-            <strong>ЗЛС-свързан</strong>
-            <span>моделиран сигнал</span>
+        <div class="time-row">
+          <div class="time-label">~3000</div>
+          <div class="bands">
+            <div class="band band-farmer">
+              <strong>Анадолски фермер</strong>
+              <span>0,173</span>
+            </div>
+            <div class="band band-steppe">
+              <strong>Степен / Ямна</strong>
+              <span>0,171</span>
+            </div>
+            <div class="band band-whg">
+              <strong>ЗЛС-свързан сигнал</strong>
+              <span>моделиран</span>
+            </div>
           </div>
         </div>
     
         <!-- NEOLITHIC -->
-        <div class="band-group" style="--top: 52%">
-          <div class="band band-long band-neolithic">
-            <strong>Балкански / Анадолски неолит</strong>
+        <div class="time-row">
+          <div class="time-label">~7000</div>
+          <div class="bands">
+            <div class="band band-neolithic">
+              <strong>Балкански / Анадолски неолит</strong>
+            </div>
           </div>
         </div>
     
         <!-- MESOLITHIC / EARLY HOLOCENE -->
-        <div class="band-group" style="--top: 68%">
-          <div class="band band-mid band-ehg">
-            <strong>ИЛС</strong>
-            <span>Карелия · ~7 хил. г.</span>
-          </div>
-          <div class="band band-mid band-chg">
-            <strong>КЛС</strong>
-            <span>Котиас · ~13 хил. г.</span>
-          </div>
-          <div class="band band-mid band-whg">
-            <strong>ЗЛС</strong>
-            <span>Лошбур · ~8–10 хил. г.</span>
+        <div class="time-row">
+          <div class="time-label">~10k</div>
+          <div class="bands">
+            <div class="band band-whg">
+              <strong>ЗЛС</strong>
+              <span>Лошбур · ~8–10 хил. г.</span>
+            </div>
+            <div class="band band-ehg">
+              <strong>ИЛС</strong>
+              <span>Карелия · ~7 хил. г.</span>
+            </div>
+            <div class="band band-chg">
+              <strong>КЛС</strong>
+              <span>Котиас · ~13 хил. г.</span>
+            </div>
+            <div class="band band-comparative">
+              <strong>Гандж Даре</strong>
+              <span>сравнителна референция · ~10 хил. г.</span>
+            </div>
           </div>
         </div>
     
-        <!-- DEEP HISTORY -->
-        <div class="band-group band-group-deep" style="--top: 86%">
-          <div class="band band-deep">
-            <strong>Дълбока популационна структура · ~40–50+ хил. г.</strong>
-            <span>ЗЛС-свързана · КЛС-свързана · АНЕ-свързана</span>
+        <!-- DEEP STRUCTURE -->
+        <div class="time-row time-row-deep">
+          <div class="time-label">40–50k+</div>
+          <div class="bands">
+            <div class="band band-deep">
+              <strong>Дълбока популационна структура</strong>
+              <span>ЗЛС-свързана · КЛС-свързана · АНЕ-свързана</span>
+              <em>
+                Тук принадлежи дълбоката дивергенция на линиите.
+                Археологическите проби по-горе са по-късни референтни
+                популации, използвани за нейното изследване.
+              </em>
+            </div>
           </div>
-          <p class="deep-note">
-            Тук принадлежи дълбоката дивергенция на линиите.
-            Археологическите проби по-горе са по-късни референтни
-            популации, използвани за нейното изследване.
-          </p>
         </div>
     
       </div>
-    </section>
-  </div>
+    </section>  
+    </div>
 </div>
 
 <!-- ══ LAYER 0 ══ -->
