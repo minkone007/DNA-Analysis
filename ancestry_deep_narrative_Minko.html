@@ -96,6 +96,305 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
 
+/* ═══════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD
+   ═══════════════════════════════════════════════════════ */
+
+.genetic-stratigraphy {
+  margin: 3.5rem 0 4.5rem;
+  padding: 2.5rem 0 3rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.strat-intro {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.strat-kicker {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+
+.strat-intro h2 {
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  margin-bottom: 0.5rem;
+}
+
+.strat-intro p {
+  color: var(--ink-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   The Schematic : CHRONOLOGICAL FIELD
+   ───────────────────────────────────────────────────── */
+
+.stratigraphy-field {
+  position: relative;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding-left: 105px;
+}
+
+.time-axis {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 105px;
+  pointer-events: none;
+}
+
+.time-marker {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding-right: 1rem;
+  transform: translateY(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--ink-light);
+
+  text-align: right;
+  white-space: nowrap;
+}
+
+.time-marker::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 48px;
+  border-top: 1px dotted var(--era-line);
+}
+  
+.time-today     { top: 2%;  }
+.time-medieval  { top: 11%; }
+.time-avar      { top: 21%; }
+.time-iron      { top: 30%; }
+.time-bronze    { top: 39%; }
+.time-neolithic { top: 48%; }
+.time-holocene  { top: 65%; }
+.time-deep      { top: 95%; }
+/* ─────────────────────────────────────────────────────
+   FIELD
+   ───────────────────────────────────────────────────── */
+
+.population-bands {
+  position: relative;
+  height: 1300px;
+  background: transparent;
+  border-left: none;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   POPULATION BANDS
+   ───────────────────────────────────────────────────── */
+
+.population-band {
+  position: absolute;
+
+  left: var(--start);
+  top: var(--top);
+  width: var(--width);
+
+  transform: translateY(-50%);
+
+  min-height: 40px;
+  padding: 0.45rem 0.7rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  background: rgba(245,239,228,.82);
+
+  border: none;
+  border-left: 3px solid var(--ink-mid);
+  border-radius: 2px;
+  box-shadow: none;
+
+  z-index: 2;
+}
+
+.band-label {
+  min-width: 0;
+}
+
+.band-label strong {
+  display: block;
+  font-size: 0.84rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.band-label span {
+  display: block;
+  margin-top: 0.12rem;
+
+  font-size: 0.66rem;
+  line-height: 1.25;
+
+  color: var(--ink-light);
+}
+
+.band-distance {
+  flex-shrink: 0;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 0.63rem;
+
+  color: var(--ink-light);
+  white-space: nowrap;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   BAND TYPES
+   ───────────────────────────────────────────────────── */
+
+  .band-slavic {
+  border-left-color: var(--cinnabar);
+}
+
+.band-thracian {
+  border-left-color: var(--accent);
+}
+  
+  .band-modern {
+  border-left-color: var(--gold);
+}
+
+.band-medieval {
+  border-left-color: var(--ink-mid);
+}
+
+.band-steppe {
+  border-left-color: var(--steppe);
+}
+
+.band-farmer,
+.band-neolithic {
+  border-left-color: var(--sea);
+}
+
+.band-whg,
+.band-whg-reference {
+  border-left-color: var(--stone);
+}
+
+.band-ehg {
+  border-left-color: #5a7a5a;
+}
+
+.band-chg {
+  border-left-color: #7a6a4a;
+}
+
+.band-comparative {
+  border-left-style: dashed;
+  border-left-color: #9a8a6a;
+}
+
+.band-comparative .band-label {
+  min-width: 200px;
+}
+/* ─────────────────────────────────────────────────────
+   DEEP STRUCTURE
+   ───────────────────────────────────────────────────── */
+
+.band-deep {
+  min-height: 70px;
+
+  background: rgba(28,22,16,.035);
+
+  border: none;
+  border-left: 4px solid var(--ink);
+
+  box-shadow: none;
+}
+
+.deep-note {
+  max-width: 430px;
+  margin-left: auto;
+
+  font-size: 0.66rem;
+  line-height: 1.4;
+
+  color: var(--ink-light);
+  font-style: italic;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   MOBILE
+   ───────────────────────────────────────────────────── */
+
+@media (max-width: 700px) {
+
+  .genetic-stratigraphy {
+    padding: 2rem 0 2.5rem;
+  }
+
+  .stratigraphy-field {
+    padding-left: 72px;
+  }
+
+  .time-axis {
+    width: 72px;
+  }
+
+  .time-marker {
+    font-size: 0.55rem;
+    padding-right: 0.65rem;
+  }
+
+  .time-marker::after {
+    width: 12px;
+  }
+
+  .population-bands {
+    height: 1900px;
+  }
+
+  .population-band {
+    min-height: 44px;
+    padding: 0.45rem 0.55rem;
+  }
+
+  .band-label strong {
+    font-size: 0.75rem;
+  }
+
+  .band-label span {
+    font-size: 0.60rem;
+  }
+
+  .band-distance {
+    font-size: 0.56rem;
+  }
+
+  .deep-note {
+    display: none;
+  }
+}
+  
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
 </style>
