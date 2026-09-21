@@ -280,6 +280,114 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   color: var(--ink-light);
   font-style: italic;
 }
+
+
+<!-- ───────────────────── PART 1b · dual-lineage CSS ───────────────────── -->
+/* ═══════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — DUAL-LINEAGE VARIANT
+   Paternal column | timeline | maternal column.
+   Additive: every rule is scoped to .stratigraphy-field--dual (or the
+   new .dual-head* / .band-* helpers), so the single-lineage maps on the
+   Minko and Stayko reports are unaffected.
+   ═══════════════════════════════════════════════════════ */
+ 
+/* column headers (sit directly above the field, same width) */
+.dual-heads {
+  display: grid;
+  grid-template-columns: 44% 12% 44%;
+  max-width: 1050px;
+  margin: 0 auto 1.2rem;
+  font-family: 'Inter', sans-serif;
+}
+.dual-head {
+  padding: 0 .2rem .55rem;
+  border-bottom: 2px solid var(--gold);
+}
+.dual-head strong {
+  display: block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.dual-head span {
+  display: block;
+  margin-top: .15rem;
+  font-size: .66rem;
+  color: var(--ink-light);
+}
+.dual-head--paternal { border-bottom-color: var(--accent); }
+.dual-head--maternal { border-bottom-color: var(--sea); }
+.dual-head--time {
+  align-self: end;
+  border-bottom-color: transparent;
+  text-align: center;
+  font-size: .6rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+ 
+/* field: no left gutter; timeline moves to the centre */
+.genetic-stratigraphy .stratigraphy-field--dual { padding-left: 0; }
+ 
+.stratigraphy-field--dual .time-axis {
+  left: 44%;
+  width: 12%;
+  z-index: 3;
+}
+.stratigraphy-field--dual .time-axis::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--era-line);
+  transform: translateX(-50%);
+}
+.stratigraphy-field--dual .time-marker {
+  padding: .18rem 0;
+  text-align: center;
+  background: var(--parchment);
+}
+.stratigraphy-field--dual .time-marker::after { display: none; }
+ 
+/* faint lineage tint behind each column: warm = paternal, cool = maternal */
+.stratigraphy-field--dual .population-bands::before,
+.stratigraphy-field--dual .population-bands::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 44%;
+  border-radius: 3px;
+  z-index: 0;
+}
+.stratigraphy-field--dual .population-bands::before { left: 0;  background: rgba(122,58,26,.045); }
+.stratigraphy-field--dual .population-bands::after  { right: 0; background: rgba(58,107,138,.06); }
+ 
+/* banner shared by both parents: keep its text clear of the central timeline */
+.stratigraphy-field--dual .band-shared .band-label,
+.stratigraphy-field--dual .band-shared .deep-note { max-width: 38%; }
+ 
+/* single-column banner (Denisovan): stack label, distance and note */
+.stratigraphy-field--dual .band-stack {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: .35rem;
+}
+.stratigraphy-field--dual .band-stack .deep-note { max-width: none; margin-left: 0; }
+ 
+@media (max-width: 700px) {
+  .stratigraphy-field--dual .time-marker { font-size: .5rem; white-space: normal; line-height: 1.15; }
+  .stratigraphy-field--dual .population-bands { height: 1700px; }
+  .stratigraphy-field--dual .population-band { flex-direction: column; align-items: flex-start; gap: .2rem; }
+  .dual-head strong { font-size: .58rem; letter-spacing: .08em; }
+  .dual-head span { display: none; }
+}
   
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
