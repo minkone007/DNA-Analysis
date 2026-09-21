@@ -96,6 +96,189 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
 
+/* ═══════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD
+   ═══════════════════════════════════════════════════════ */
+
+.genetic-stratigraphy {
+  margin: 3.5rem 0 4.5rem;
+  padding: 2.5rem 0 3rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.strat-intro {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.strat-kicker {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+
+.strat-intro h2 {
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  margin-bottom: 0.5rem;
+}
+
+.strat-intro p {
+  color: var(--ink-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.stratigraphy-field {
+  position: relative;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding-left: 105px;
+}
+
+.time-axis {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 105px;
+  pointer-events: none;
+}
+
+.time-marker {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding-right: 1rem;
+  transform: translateY(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--ink-light);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.time-marker::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 48px;
+  border-top: 1px dotted var(--era-line);
+}
+
+.time-today     { top: 2%;  }
+.time-medieval  { top: 11%; }
+.time-avar      { top: 21%; }
+.time-iron      { top: 30%; }
+.time-bronze    { top: 39%; }
+.time-neolithic { top: 48%; }
+.time-holocene  { top: 65%; }
+.time-deep      { top: 95%; }
+
+.population-bands {
+  position: relative;
+  height: 1300px;
+  background: transparent;
+  border-left: none;
+}
+
+.population-band {
+  position: absolute;
+  left: var(--start);
+  top: var(--top);
+  width: var(--width);
+  transform: translateY(-50%);
+  min-height: 40px;
+  padding: 0.45rem 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: rgba(245,239,228,.82);
+  border: none;
+  border-left: 3px solid var(--ink-mid);
+  border-radius: 2px;
+  box-shadow: none;
+  z-index: 2;
+}
+
+.band-label { min-width: 0; }
+
+.band-label strong {
+  display: block;
+  font-size: 0.84rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.band-label span {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 0.66rem;
+  line-height: 1.25;
+  color: var(--ink-light);
+}
+
+.band-distance {
+  flex-shrink: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.63rem;
+  color: var(--ink-light);
+  white-space: nowrap;
+}
+
+.band-slavic { border-left-color: var(--cinnabar); }
+.band-thracian { border-left-color: var(--accent); }
+.band-modern { border-left-color: var(--gold); }
+.band-medieval { border-left-color: var(--ink-mid); }
+.band-steppe { border-left-color: var(--steppe); }
+.band-farmer, .band-neolithic { border-left-color: var(--sea); }
+.band-whg, .band-whg-reference { border-left-color: var(--stone); }
+.band-ehg { border-left-color: #5a7a5a; }
+.band-chg { border-left-color: #7a6a4a; }
+.band-comparative { border-left-style: dashed; border-left-color: #9a8a6a; }
+
+.band-deep {
+  min-height: 70px;
+  background: rgba(28,22,16,.035);
+  border: none;
+  border-left: 4px solid var(--ink);
+  box-shadow: none;
+}
+
+.deep-note {
+  max-width: 430px;
+  margin-left: auto;
+  font-size: 0.66rem;
+  line-height: 1.4;
+  color: var(--ink-light);
+  font-style: italic;
+}
+
+@media (max-width: 700px) {
+  .genetic-stratigraphy { padding: 2rem 0 2.5rem; }
+  .stratigraphy-field { padding-left: 72px; }
+  .time-axis { width: 72px; }
+  .time-marker { font-size: 0.55rem; padding-right: 0.65rem; }
+  .time-marker::after { width: 12px; }
+  .population-bands { height: 1900px; }
+  .population-band { min-height: 44px; padding: 0.45rem 0.55rem; }
+  .band-label strong { font-size: 0.75rem; }
+  .band-label span { font-size: 0.60rem; }
+  .band-distance { font-size: 0.56rem; }
+  .deep-note { display: none; }
+}
+
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
 </style>
@@ -209,6 +392,139 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       <span class="plain-label">In Plain Terms</span>
       In short: an Eastern Balkan genome with a detectable <mark>Aegean/South-Caucasus tilt</mark>, built from the classic European mixture of Anatolian farmers, a smaller Western Hunter-Gatherer contribution, and Caucasus-weighted steppe ancestry, later shaped by the Slavic migrations that formed the medieval Bulgarian population.
     </div>
+      <!-- ══ GENETIC STRATIGRAPHY ══ -->
+    <section class="genetic-stratigraphy">
+      <div class="strat-intro">
+        <span class="strat-kicker">Chronological Map</span>
+        <h2>Genetic Stratigraphy</h2>
+        <p>
+          Populations and ancient reference samples used to interpret the
+          genetic profile. The position of the bands shows the approximate
+          time horizon; their differing length serves to visually distinguish
+          population and reference fields, not to quantify duration.
+        </p>
+      </div>
+    
+      <div class="stratigraphy-field">
+    
+        <div class="time-axis">
+          <div class="time-marker time-today">TODAY</div>
+          <div class="time-marker time-avar">~600–900 AD</div>
+          <div class="time-marker time-medieval">~1200 AD</div>
+          <div class="time-marker time-iron">~800–100 BC</div>
+          <div class="time-marker time-bronze">~3000 BC</div>
+          <div class="time-marker time-neolithic">~7000 BC</div>
+          <div class="time-marker time-holocene">~10–13k ya</div>
+          <div class="time-marker time-deep">~40–50k+ ya</div>
+        </div>
+    
+        <div class="population-bands">
+    
+          <!-- MODERN BALKAN CONTINUUM -->
+          <div class="population-band band-modern" style="--start: 2%; --width: 94%; --top: 2%;">
+            <div class="band-label">
+              <strong>Eastern Balkan Modern Continuum</strong>
+              <span>Gagauz · Bulgarians · Romanians · Aegean-facing Greek pull</span>
+            </div>
+            <div class="band-distance">G25: 0.0161–0.0332</div>
+          </div>
+    
+          <!-- MEDIEVAL BULGARIA -->
+          <div class="population-band band-medieval" style="--start: 14%; --width: 68%; --top: 11%;">
+            <div class="band-label">
+              <strong>Medieval Bulgaria</strong>
+              <span>9th–14th c. · Balkan substrate + Slavic contribution</span>
+            </div>
+            <div class="band-distance">G25: 0.0267</div>
+          </div>
+    
+          <!-- AVAR / SLAVIC MIGRATION LAYER -->
+          <div class="population-band band-slavic" style="--start: 22%; --width: 55%; --top: 21%;">
+            <div class="band-label">
+              <strong>Slavic Migration / Avar Khaganate</strong>
+              <span>567–895 AD · Pannonian corridor · late Avars absorbed, early/elite caste — not</span>
+            </div>
+            <div class="band-distance">G25: 0.1225 (late) / 0.2152 (early)</div>
+          </div>
+    
+          <!-- THRACIAN / IRON AGE PALEO-BALKAN SUBSTRATE -->
+          <div class="population-band band-thracian" style="--start: 8%; --width: 63%; --top: 30%;">
+            <div class="band-label">
+              <strong>Iron Age Bulgaria · Thracians</strong>
+              <span>Paleo-Balkan substrate · direct predecessor of the medieval profile</span>
+            </div>
+            <div class="band-distance">G25: 0.0774–0.0854</div>
+          </div>
+    
+          <!-- YAMNAYA / STEPPE -->
+          <div class="population-band band-steppe" style="--start: 9%; --width: 57%; --top: 39%;">
+            <div class="band-label">
+              <strong>Yamnaya / Pontic Steppe Horizon</strong>
+              <span>Bronze Age steppe reference population</span>
+            </div>
+            <div class="band-distance">G25: 0.1841</div>
+          </div>
+    
+          <!-- ANATOLIAN FARMERS -->
+          <div class="population-band band-farmer" style="--start: 36%; --width: 49%; --top: 48%;">
+            <div class="band-label">
+              <strong>Anatolian Neolithic · Barcin</strong>
+              <span>~6500 BC · early farming populations from Anatolia — the closer of the two founding streams</span>
+            </div>
+            <div class="band-distance">G25: 0.1613</div>
+          </div>
+    
+          <!-- WHG · LOSCHBOUR -->
+          <div class="population-band band-whg-reference" style="--start: 17%; --width: 31%; --top: 59%;">
+            <div class="band-label">
+              <strong>WHG · Loschbour</strong>
+              <span>Mesolithic Western European reference sample · two confirmed IBD segment matches</span>
+            </div>
+            <div class="band-distance">G25: 0.4133</div>
+          </div>
+    
+          <!-- EHG · KARELIA -->
+          <div class="population-band band-ehg" style="--start: 34%; --width: 29%; --top: 69%;">
+            <div class="band-label">
+              <strong>EHG · Karelia</strong>
+              <span>~7000 BC · Eastern European hunter-gatherers</span>
+            </div>
+            <div class="band-distance">G25: 0.2956</div>
+          </div>
+    
+          <!-- CHG · KOTIAS -->
+          <div class="population-band band-chg" style="--start: 51%; --width: 32%; --top: 76%;">
+            <div class="band-label">
+              <strong>CHG · Kotias</strong>
+              <span>~9000 BC · Caucasus hunter-gatherers · confirmed IBD segment match</span>
+            </div>
+            <div class="band-distance">G25: 0.2508</div>
+          </div>
+    
+          <!-- GANJ DAREH -->
+          <div class="population-band band-comparative" style="--start: 69%; --width: 25%; --top: 82%;">
+            <div class="band-label">
+              <strong>Ganj Dareh</strong>
+              <span>~10,000 BC · comparative reference</span>
+            </div>
+            <div class="band-distance">G25: 0.2910</div>
+          </div>
+    
+          <!-- DEEP POPULATION STRUCTURE -->
+          <div class="population-band band-deep" style="--start: 10%; --width: 94%; --top: 95%;">
+            <div class="band-label">
+              <strong>Neanderthal Admixture</strong>
+              <span>~50,000–60,000 BC · Levant / Southwest Asia · shared by all non-African lineages</span>
+            </div>
+            <div class="band-distance">~1–4% of genome</div>
+            <div class="deep-note">
+               Universal signal across non-African populations, not an analysis specific to this genome. This kit's IBD heat map shows isolated single-segment matches against three of the five tested Neanderthal genomes — concentrated on the Vindija Cave samples — while El Sidrón and Mezmaiskaya show none. The sparse, scattered pattern (rather than the dense, near-continuous matching seen on the WHG/CHG rows) is consistent with background noise at a permissive threshold rather than a strong ancestral signal.
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
   </div>
 </div>
   
@@ -535,13 +851,12 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <div class="insight-box">
       <span class="insight-label">A Note on the Heat Map</span>
-      The shared-segment (IBD) heat map submitted alongside these models includes five sequenced Neanderthal genomes — El Sidron (Spain), three Vindija Cave individuals (Croatia), and Mezmaiskaya (Russia) — and none of the five show a matching segment for this genome at the standard detection threshold. The same absence held even when the comparison was re-run at much more permissive thresholds, down to a level so lenient that clearly unrelated ancient individuals (including a 12,500-year-old Native American reference) began showing near-continuous matches purely from background genetic noise. The Neanderthal rows never joined that noise floor — a small number of isolated single-segment hits at best, sharply different from the saturation seen elsewhere. That contrast is itself informative: it confirms segment-matching against one individual archaic genome simply isn't the right tool for detecting Neanderthal ancestry, which is why it's measured genome-wide via SNP-based methods instead, not through tools like this one. The heat map's genuinely informative results remain the two confirmed hits described above — Loschbour (WHG) and Kotias (CHG).
+      The shared-segment (IBD) heat map submitted alongside these models includes five sequenced Neanderthal genomes — El Sidron (Spain), three Vindija Cave individuals (Croatia), and Mezmaiskaya (Russia). At the matching threshold used, isolated single-segment hits appear against three of the five — all three Vindija individuals — while El Sidron and Mezmaiskaya show none. The pattern is sparse and scattered: a handful of short, separated segments per Vindija sample, nothing like the near-continuous matching seen on the WHG and CHG rows below, or the saturation that appears against clearly unrelated ancient individuals once the threshold is loosened far enough to pick up background noise. That the hits cluster specifically on Vindija is itself unsurprising rather than meaningful on its own: the Vindija 33.19 genome is the highest-coverage, best-characterised Neanderthal reference available, and functions as the default comparison sequence in most segment-matching tools — a reference of this quality naturally accumulates more incidental matches than lower-coverage samples like El Sidron or Mezmaiskaya, independent of any real difference in shared ancestry. Segment-matching against individual archaic genomes remains the wrong tool for measuring Neanderthal ancestry overall; that's properly done genome-wide via SNP-based methods, not through tools like this one. The heat map's more substantively informative results remain the two confirmed hits described above — Loschbour (WHG) and Kotias (CHG), both dense enough to represent a genuine shared-ancestry signal rather than scattered noise.
     </div>
 
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
-      Two things are happening in this layer, and they're worth separating clearly. First, the actual finding: this genome sits <mark>closer to the Bronze Age Aegean and South Caucasus world — Mycenaean Greece, Armenia's Kura-Araxes culture — than to almost anything else tested in this entire report</mark>, including the Anatolian farming reference from earlier layers. That's a real, specific, and quite striking result. Second, a myth worth quietly retiring: matching a segment of DNA to one particular 40,000-year-old Neanderthal skeleton was never going to be the way to detect Neanderthal ancestry — it's a bit like trying to prove you have Irish ancestry by checking whether you share a specific street address with one particular Irish person from centuries ago. The right tool for that job compares your <em>entire</em> genome's DNA letters against thousands of Neanderthal positions at once, not this kind of segment-by-segment search. Its absence here says nothing at all about whether typical background Neanderthal ancestry is present — it almost certainly is, the same as it is for virtually everyone with non-African ancestry.
-    </div>
+      Two things are happening in this layer, and they're worth separating clearly. First, the actual finding: this genome sits <mark>closer to the Bronze Age Aegean and South Caucasus world — Mycenaean Greece, Armenia's Kura-Araxes culture — than to almost anything else tested in this entire report</mark>, including the Anatolian farming reference from earlier layers. That's a real, specific, and quite striking result. Second, a genuinely mixed result worth stating precisely rather than smoothing over: this genome does carry a handful of isolated matching segments against the Vindija Neanderthal genomes specifically, while showing none against El Sidrón or Mezmaiskaya. That's real, if sparse — but it isn't the way to measure Neanderthal ancestry overall, and it shouldn't be read as "more" or "less" Neanderthal than anyone else. Vindija's genome is simply the best-sequenced Neanderthal reference available, so every comparison tool leans on it hardest — a bit like how the witness with the clearest memory gets asked the most questions, not because more actually happened near them. The right way to measure Neanderthal ancestry compares your <em>entire</em> genome against thousands of positions at once, genome-wide — and by that measure, ordinary background Neanderthal ancestry is almost certainly present here, the same as it is for virtually everyone with non-African ancestry.
   </div>
 </div>
 
@@ -659,7 +974,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       <span class="plain-label">In Plain Terms — The Whole Excavation, Start to Finish</span>
       <p>Run the whole story in one direction, and it reads like peeling back layers of paint on an old house — each coat newer than the one beneath it, none of them erasing what came before. Start at the surface: a person whose closest living relatives are <strong>Bulgarian, Romanian, and Gagauz</strong> — solidly Eastern Balkan, no surprises. Peel back a few centuries and you reach the <strong>Slavic migrants</strong> who moved south through Hungary in the early Middle Ages and merged with whoever was already living in the Balkans — this genome sits unusually close to the ordinary population absorbed into that process, and just as unusually far from the steppe warlords who briefly ruled over it. Peel back further, past the Slavic layer, and you reach the people who were already there waiting: the <strong>Thracians</strong> and their Paleo-Balkan neighbours, farmers and hill-tribes who'd occupied this same stretch of land for thousands of years before any Slavic-speaker arrived.</p>
       <p style="margin-top:.8rem">Go back further still, past the Thracians, and the story stops being about named peoples and starts being about population-scale migrations. Around four thousand years ago, horse-riding herders from the <strong>Yamnaya</strong> culture swept out of the steppe north of the Black Sea and reshaped the genetics of most of Europe — this genome carries their signal too, weighted in a particular way (leaning toward the <strong>Caucasus Hunter-Gatherers</strong>, or <mark>CHG</mark>, rather than the <strong>Eastern Hunter-Gatherers</strong>, or <mark>EHG</mark>, who also fed into the Yamnaya) that points specifically toward the southeastern, Caucasus-adjacent branch of that migration rather than the northern one. Before the herders, there were the first farmers — people who left <strong>Anatolia</strong>, in what's now Turkey, around eight thousand years ago and slowly walked their crops and livestock into the Balkans, settling villages like the ones this genome's Neolithic matches come from. And before the farmers, this land belonged to hunter-gatherers who never farmed at all — a Western European branch (<strong>WHG</strong>) whose faint signal still shows up as the oldest, thinnest layer of paint on the wall, detectable but barely, in a direct segment match to an 8,000-year-old skeleton from Luxembourg.</p>
-      <p style="margin-top:.8rem">And beneath even that: virtually everyone with non-African ancestry carries a small amount of <strong>Neanderthal</strong> DNA, and this genome is almost certainly no exception — the 0.5cM heat map shows a faint signal in the <strong>Vindija Cave</strong> fossils specifically, suggesting a distant thread of that same ancient lineage. Hunter-gatherers, then farmers, then steppe herders, then Thracians, then Slavic migrants, then medieval Bulgarians, then the living relatives found today, with a whisper of Neanderthal beneath all of it — each one a real, separately-confirmed layer in the same continuous excavation.</p>
+      <p style="margin-top:.8rem">And beneath even that: virtually everyone with non-African ancestry carries a small amount of <strong>Neanderthal</strong> DNA, and this genome is almost certainly no exception — the 0.5cM heat map shows isolated matching segments against the <strong>Vindija Cave</strong> individuals specifically, while El Sidrón and Mezmaiskaya show none, a scattered pattern more consistent with Vindija's reference-genome quality than a measurable ancestral signal on its own. Hunter-gatherers, then farmers, then steppe herders, then Thracians, then Slavic migrants, then medieval Bulgarians, then the living relatives found today, with a background thread of Neanderthal ancestry beneath all of it — each one a real, separately-confirmed layer in the same continuous excavation.</p>
     </div>
 
     <div class="insight-box insight-box--final">
