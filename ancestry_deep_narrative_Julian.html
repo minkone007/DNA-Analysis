@@ -112,10 +112,58 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
 
+```css
 /* ═══════════════════════════════════════════════════════
-   GENETIC STRATIGRAPHY — DUAL LINEAGE
-   Independent paternal / maternal chronological horizons
+   JULIAN — GENETIC STRATIGRAPHY v3
+   Independent paternal / maternal chronological fields
+   Archaeological stratigraphy style
    ═══════════════════════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────────────────────
+   SECTION
+   ─────────────────────────────────────────────────────── */
+
+.genetic-stratigraphy {
+  margin: 3.5rem 0 4.5rem;
+  padding: 2.5rem 0 3rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.strat-intro {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.strat-kicker {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .35rem;
+}
+
+.strat-intro h2 {
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  margin-bottom: .5rem;
+}
+
+.strat-intro p {
+  color: var(--ink-light);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+
+/* ───────────────────────────────────────────────────────
+   COLUMN HEADERS
+   ─────────────────────────────────────────────────────── */
 
 .dual-heads {
   display: flex;
@@ -171,8 +219,16 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    ─────────────────────────────────────────────────────── */
 
 .genetic-stratigraphy .stratigraphy-field--dual {
-  padding-left: 0;
+  position: relative;
   max-width: 1050px;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.stratigraphy-field--dual .population-bands {
+  position: relative;
+  height: 1450px;
+  background: transparent;
 }
 
 
@@ -181,9 +237,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    ─────────────────────────────────────────────────────── */
 
 .stratigraphy-field--dual .time-axis {
+  position: absolute;
   left: 44%;
   width: 12%;
-  z-index: 5;
+  top: 0;
+  bottom: 0;
+  z-index: 20;
+  pointer-events: none;
 }
 
 .stratigraphy-field--dual .time-axis::before {
@@ -198,10 +258,27 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
 
 .stratigraphy-field--dual .time-marker {
+  position: absolute;
+  left: 0;
+  width: 100%;
+
+  transform: translateY(-50%);
+
   padding: .18rem .25rem;
+
+  font-family: 'Inter', sans-serif;
+  font-size: .60rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+
+  color: var(--ink-light);
   text-align: center;
+
+  white-space: nowrap;
+
   background: var(--parchment);
-  z-index: 6;
+
+  z-index: 21;
 }
 
 .stratigraphy-field--dual .time-marker::after {
@@ -210,70 +287,53 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 
 /* ───────────────────────────────────────────────────────
-   THREE LAYERS OF INFORMATION
-
-   1. Horizon = approximate period during which a population /
-      ancestry stream existed in the relevant region.
-
-   2. Sample marker = actual ancient reference sample date.
-
-   3. Label = descriptive interpretation.
-
-   The horizon is deliberately separate from the sample date.
+   POPULATION HORIZON
+   A faint vertical archaeological "stratum".
    ─────────────────────────────────────────────────────── */
 
-.stratigraphy-field--dual .population-bands {
-  position: relative;
-  height: 1450px;
-}
-
-
-/* ───────────────────────────────────────────────────────
-   HISTORICAL HORIZON
-   ─────────────────────────────────────────────────────── */
-
-.lineage-horizon {
+.j-horizon {
   position: absolute;
+
   top: var(--from);
   height: calc(var(--to) - var(--from));
 
   left: var(--start);
   width: var(--width);
 
-  min-height: 18px;
+  min-height: 24px;
 
-  background: rgba(245,239,228,.38);
+  background: rgba(245,239,228,.42);
 
-  border-left: 2px solid var(--horizon-color);
-  border-right: 1px solid rgba(80,70,55,.10);
+  border-left: 3px solid var(--horizon-color);
 
   border-radius: 2px;
 
-  z-index: 1;
+  z-index: 2;
 }
 
-
-/* subtle continuation line */
-
-.lineage-horizon::before {
-  content: '';
-  position: absolute;
-  left: 8px;
-  top: 0;
-  bottom: 0;
-  border-left: 1px solid var(--horizon-color);
-  opacity: .25;
-}
-
-
-/* paternal / maternal visual distinction */
-
-.lineage-horizon--paternal {
+.j-horizon.paternal {
   --horizon-color: var(--accent);
 }
 
-.lineage-horizon--maternal {
+.j-horizon.maternal {
   --horizon-color: var(--sea);
+}
+
+
+/* subtle inner archaeological trace */
+
+.j-horizon::before {
+  content: '';
+
+  position: absolute;
+
+  left: 9px;
+  top: 0;
+  bottom: 0;
+
+  border-left: 1px solid var(--horizon-color);
+
+  opacity: .22;
 }
 
 
@@ -281,7 +341,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    HORIZON LABEL
    ─────────────────────────────────────────────────────── */
 
-.horizon-label {
+.j-horizon-label {
   position: absolute;
 
   left: 18px;
@@ -291,18 +351,18 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
   transform: translateY(-50%);
 
-  padding: .35rem .55rem;
+  padding: .38rem .55rem;
 
-  background: rgba(245,239,228,.88);
+  background: rgba(245,239,228,.91);
 
   border-left: 2px solid var(--horizon-color);
 
-  box-shadow: 0 2px 8px rgba(40,30,20,.04);
+  box-shadow: 0 2px 8px rgba(40,30,20,.035);
 
-  z-index: 2;
+  z-index: 4;
 }
 
-.horizon-label strong {
+.j-horizon-label strong {
   display: block;
 
   font-size: .78rem;
@@ -313,10 +373,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   color: var(--ink);
 }
 
-.horizon-label span {
+.j-horizon-label span {
   display: block;
 
-  margin-top: .12rem;
+  margin-top: .13rem;
 
   font-size: .61rem;
   line-height: 1.35;
@@ -329,7 +389,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    ANCIENT SAMPLE MARKER
    ─────────────────────────────────────────────────────── */
 
-.horizon-sample {
+.j-sample {
   position: absolute;
 
   top: var(--sample);
@@ -341,10 +401,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
   background: var(--horizon-color);
 
-  z-index: 4;
+  z-index: 8;
 }
 
-.horizon-sample::before {
+.j-sample::before {
   content: '';
 
   position: absolute;
@@ -355,50 +415,42 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   width: 8px;
   height: 8px;
 
-  background: var(--parchment);
-
   border: 2px solid var(--horizon-color);
+
+  background: var(--parchment);
 
   border-radius: 50%;
 }
 
-
-/* sample date label */
-
-.horizon-sample-label {
+.j-sample-label {
   position: absolute;
 
-  top: 5px;
-
   left: 12px;
+  top: 5px;
 
   white-space: nowrap;
 
-  font-family: 'Inter', sans-serif;
+  padding: .12rem .28rem;
 
-  font-size: .55rem;
+  font-family: 'Inter', sans-serif;
+  font-size: .53rem;
   line-height: 1.2;
 
   color: var(--ink-light);
 
   background: rgba(245,239,228,.92);
-
-  padding: .12rem .28rem;
-
-  z-index: 5;
 }
 
 
 /* ───────────────────────────────────────────────────────
-   ACTUAL SAMPLE / REFERENCE BAND
+   MODERN / ANCIENT REFERENCE CARDS
    ─────────────────────────────────────────────────────── */
 
-.population-band--sample {
+.j-reference {
   position: absolute;
 
   left: var(--start);
   top: var(--top);
-
   width: var(--width);
 
   transform: translateY(-50%);
@@ -408,36 +460,35 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   padding: .45rem .7rem;
 
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 
   gap: 1rem;
 
-  background: rgba(245,239,228,.92);
+  background: rgba(245,239,228,.94);
 
-  border-left: 3px solid var(--sample-color);
+  border-left: 3px solid var(--reference-color);
 
   border-radius: 2px;
 
   box-shadow: 0 2px 8px rgba(40,30,20,.035);
 
-  z-index: 4;
+  z-index: 10;
 }
 
-.population-band--sample.paternal {
-  --sample-color: var(--accent);
+.j-reference.paternal {
+  --reference-color: var(--accent);
 }
 
-.population-band--sample.maternal {
-  --sample-color: var(--sea);
+.j-reference.maternal {
+  --reference-color: var(--sea);
 }
 
-.population-band--sample .band-label {
+.j-reference .band-label {
   min-width: 0;
 }
 
-.population-band--sample .band-label strong {
+.j-reference .band-label strong {
   display: block;
 
   font-size: .80rem;
@@ -446,7 +497,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   font-weight: 600;
 }
 
-.population-band--sample .band-label span {
+.j-reference .band-label span {
   display: block;
 
   margin-top: .12rem;
@@ -457,7 +508,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   color: var(--ink-light);
 }
 
-.population-band--sample .band-distance {
+.j-reference .band-distance {
   flex-shrink: 0;
 
   font-family: 'Inter', sans-serif;
@@ -471,10 +522,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 
 /* ───────────────────────────────────────────────────────
-   DEEP-TIME SHARED HORIZONS
+   SHARED DEEP-TIME HORIZON
    ─────────────────────────────────────────────────────── */
 
-.dual-deep-horizon {
+.j-deep-horizon {
   position: absolute;
 
   left: 0;
@@ -483,15 +534,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   top: var(--from);
   height: calc(var(--to) - var(--from));
 
+  background: rgba(28,22,16,.025);
+
   border-top: 1px dashed rgba(60,50,40,.20);
   border-bottom: 1px dashed rgba(60,50,40,.20);
 
-  background: rgba(28,22,16,.025);
-
-  z-index: 0;
+  z-index: 1;
 }
 
-.dual-deep-horizon .deep-horizon-label {
+.j-deep-title {
   position: absolute;
 
   left: 44%;
@@ -501,28 +552,98 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
   transform: translate(-50%, -50%);
 
+  padding: .25rem .3rem;
+
+  background: var(--parchment);
+
   text-align: center;
 
   font-family: 'Inter', sans-serif;
 
-  font-size: .55rem;
+  font-size: .52rem;
   line-height: 1.25;
 
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
   color: var(--ink-light);
-
-  background: var(--parchment);
-
-  padding: .25rem .3rem;
 
   z-index: 3;
 }
 
 
 /* ───────────────────────────────────────────────────────
-   DENISOVAN / SPECIAL DEEP SIGNAL
+   NEANDERTHAL SHARED CARD
    ─────────────────────────────────────────────────────── */
 
-.deep-signal {
+.j-shared-deep {
+  position: absolute;
+
+  left: 0;
+  width: 100%;
+
+  top: var(--top);
+
+  transform: translateY(-50%);
+
+  min-height: 64px;
+
+  padding: .55rem .7rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  background: rgba(28,22,16,.035);
+
+  border-left: 4px solid var(--ink);
+
+  z-index: 12;
+}
+
+.j-shared-deep .band-label {
+  max-width: 58%;
+}
+
+.j-shared-deep .band-label strong {
+  display: block;
+
+  font-size: .80rem;
+  line-height: 1.2;
+}
+
+.j-shared-deep .band-label span {
+  display: block;
+
+  margin-top: .15rem;
+
+  font-size: .62rem;
+  line-height: 1.4;
+
+  color: var(--ink-light);
+}
+
+.j-shared-deep .deep-note {
+  max-width: 38%;
+
+  margin-left: auto;
+
+  font-size: .60rem;
+  line-height: 1.4;
+
+  color: var(--ink-light);
+
+  font-style: italic;
+}
+
+
+/* ───────────────────────────────────────────────────────
+   DENISOVAN-RELATED CARD
+   ─────────────────────────────────────────────────────── */
+
+.j-deep-side {
   position: absolute;
 
   left: var(--start);
@@ -530,7 +651,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
   top: var(--top);
 
-  min-height: 60px;
+  transform: translateY(-50%);
+
+  min-height: 70px;
 
   padding: .55rem .7rem;
 
@@ -538,32 +661,31 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
   border-left: 3px solid var(--ink);
 
-  z-index: 4;
+  z-index: 12;
 }
 
-.deep-signal strong {
+.j-deep-side strong {
   display: block;
 
   font-size: .78rem;
   line-height: 1.2;
 }
 
-.deep-signal span {
+.j-deep-side span {
   display: block;
 
   margin-top: .15rem;
 
-  font-size: .62rem;
-  line-height: 1.35;
+  font-size: .61rem;
+  line-height: 1.4;
 
   color: var(--ink-light);
 }
 
-.deep-signal .band-distance {
+.j-deep-side .band-distance {
   margin-top: .3rem;
 
   font-family: 'Inter', sans-serif;
-
   font-size: .58rem;
 
   color: var(--ink-light);
@@ -586,67 +708,73 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
   .dual-head--time {
     order: 3;
-
     flex: 0 0 100%;
 
     border-top: 1px dashed var(--era-line);
 
     padding-top: .3rem;
-
     margin-top: .3rem;
   }
 
   .stratigraphy-field--dual .population-bands {
-    height: 1900px;
+    height: 1850px;
   }
 
   .stratigraphy-field--dual .time-marker {
-    font-size: .5rem;
-
+    font-size: .49rem;
     white-space: normal;
-
     line-height: 1.15;
   }
 
-  .horizon-label {
-    left: 12px;
-    right: 8px;
+  .j-horizon-label {
+    left: 11px;
+    right: 7px;
+    padding: .3rem .4rem;
   }
 
-  .horizon-label strong {
-    font-size: .68rem;
+  .j-horizon-label strong {
+    font-size: .67rem;
   }
 
-  .horizon-label span {
-    font-size: .55rem;
+  .j-horizon-label span {
+    font-size: .53rem;
   }
 
-  .population-band--sample {
+  .j-reference {
     flex-direction: column;
-
     align-items: flex-start;
-
     gap: .2rem;
 
     padding: .4rem .5rem;
   }
 
-  .population-band--sample .band-label strong {
-    font-size: .70rem;
+  .j-reference .band-label strong {
+    font-size: .69rem;
   }
 
-  .population-band--sample .band-label span {
-    font-size: .55rem;
+  .j-reference .band-label span {
+    font-size: .54rem;
   }
 
-  .horizon-sample-label {
-    font-size: .48rem;
+  .j-shared-deep {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .dual-deep-horizon .deep-horizon-label {
+  .j-shared-deep .band-label,
+  .j-shared-deep .deep-note {
+    max-width: 100%;
+  }
+
+  .j-deep-title {
     display: none;
   }
+
+  .j-sample-label {
+    font-size: .46rem;
+  }
 }
+
 
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
@@ -763,8 +891,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       In short: a balanced West-East Eurasian genome in which the paternal Eastern Balkan formation — Anatolian farmers, Caucasus-weighted steppe, WHG, and Slavic synthesis — meets a maternal Ryukyuan formation rich in <mark>Jomon hunter-gatherer ancestry</mark>. The two streams remain clearly distinguishable across modern, medieval, and ancient layers.
     </div>
 
-    <!-- ══════════════════════════════════════════════════════
-     GENETIC STRATIGRAPHY — DUAL LINEAGE
+        ```html
+<!-- ══════════════════════════════════════════════════════
+     JULIAN — GENETIC STRATIGRAPHY v3
      ══════════════════════════════════════════════════════ -->
 
 <section class="genetic-stratigraphy">
@@ -777,20 +906,20 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <p>
       Populations and ancient reference samples used to interpret
-      the genetic profile. The timeline runs down the centre,
-      while the paternal-associated and maternal-associated
-      histories occupy independent chronological fields.
-      The vertical extent of each horizon represents an approximate
-      historical or population horizon; the marked point identifies
-      the ancient reference sample used for comparison.
+      Julian's genetic profile. The timeline runs down the centre,
+      while the paternal-associated and maternal-associated histories
+      occupy independent chronological fields. The vertical extent
+      of each field represents an approximate historical or population
+      horizon; individual ancient samples are marked separately within
+      those broader horizons.
     </p>
 
   </div>
 
 
-  <!-- ══════════════════════════════════════════════════════
+  <!-- ═════════════════════════════════════════════════════
        COLUMN HEADERS
-       ══════════════════════════════════════════════════════ -->
+       ═════════════════════════════════════════════════════ -->
 
   <div class="dual-heads">
 
@@ -812,7 +941,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 
   <div class="stratigraphy-field stratigraphy-field--dual">
-
 
     <!-- ═══════════════════════════════════════════════════
          CENTRAL TIME AXIS
@@ -840,11 +968,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         ~7000 BC
       </div>
 
-      <div class="time-marker" style="top:60%;">
+      <div class="time-marker" style="top:61%;">
         ~10–30k ya
       </div>
 
-      <div class="time-marker" style="top:76%;">
+      <div class="time-marker" style="top:77%;">
         ~50–60k ya
       </div>
 
@@ -859,28 +987,29 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 
       <!-- ═════════════════════════════════════════════════
-           PATERNAL HISTORICAL HORIZONS
+           PATERNAL-ASSOCIATED FIELD
            ═════════════════════════════════════════════════ -->
 
 
-      <!-- MODERN BALKAN -->
+      <!-- MODERN EASTERN BALKAN -->
       <div
-        class="lineage-horizon lineage-horizon--paternal"
+        class="j-horizon paternal"
         style="
           --start:0%;
           --width:44%;
           --from:2%;
-          --to:14%;
+          --to:12%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
-            Modern Eastern Balkan population field
+            Eastern Balkan population field
           </strong>
 
           <span>
-            Bulgarian · Romanian · Gagauz comparative horizon
+            Modern Bulgarian / Romanian / Gagauz comparative continuum
           </span>
 
         </div>
@@ -888,33 +1017,34 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       </div>
 
 
-      <!-- SLAVIC / MEDIEVAL -->
+      <!-- MEDIEVAL BALKAN -->
       <div
-        class="lineage-horizon lineage-horizon--paternal"
+        class="j-horizon paternal"
         style="
           --start:0%;
           --width:44%;
-          --from:11%;
-          --to:24%;
+          --from:10%;
+          --to:23%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
-            Slavic / Medieval Balkan horizon
+            Medieval Balkan synthesis
           </strong>
 
           <span>
-            Early Medieval population and regional synthesis
+            Slavic migration and Balkan population continuity
           </span>
 
         </div>
 
         <div
-          class="horizon-sample"
-          style="--sample:28%;"
+          class="j-sample"
+          style="--sample:31%;"
         >
-          <span class="horizon-sample-label">
+          <span class="j-sample-label">
             Medieval Bulgarian reference
           </span>
         </div>
@@ -922,9 +1052,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       </div>
 
 
-      <!-- THRACIAN / PALEO-BALKAN -->
+      <!-- PALEO-BALKAN -->
       <div
-        class="lineage-horizon lineage-horizon--paternal"
+        class="j-horizon paternal"
         style="
           --start:0%;
           --width:44%;
@@ -932,14 +1062,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           --to:35%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
-            Paleo-Balkan horizon
+            Paleo-Balkan substrate
           </strong>
 
           <span>
-            Thracian · Dacian · Illyrian-related regional field
+            Thracian · Dacian · Illyrian / regional Balkan field
           </span>
 
         </div>
@@ -949,7 +1080,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
       <!-- YAMNAYA -->
       <div
-        class="lineage-horizon lineage-horizon--paternal"
+        class="j-horizon paternal"
         style="
           --start:0%;
           --width:44%;
@@ -957,7 +1088,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           --to:43%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
             Yamnaya / Pontic-Steppe horizon
@@ -970,45 +1102,46 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         </div>
 
         <div
-          class="horizon-sample"
-          style="--sample:43%;"
+          class="j-sample"
+          style="--sample:42%;"
         >
-          <span class="horizon-sample-label">
-            ~3000 BC · Yamnaya reference
+          <span class="j-sample-label">
+            ~3000 BC · Samara Yamnaya
           </span>
         </div>
 
       </div>
 
 
-      <!-- ANATOLIAN FARMER -->
+      <!-- ANATOLIAN NEOLITHIC -->
       <div
-        class="lineage-horizon lineage-horizon--paternal"
+        class="j-horizon paternal"
         style="
           --start:0%;
           --width:44%;
           --from:39%;
-          --to:53%;
+          --to:55%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
             Anatolian Neolithic farmer horizon
           </strong>
 
           <span>
-            Boncuklu · Barcin · early farming expansion
+            Boncuklu · Barcin · early farming expansion into the Balkans
           </span>
 
         </div>
 
         <div
-          class="horizon-sample"
-          style="--sample:57%;"
+          class="j-sample"
+          style="--sample:53%;"
         >
-          <span class="horizon-sample-label">
-            Neolithic reference samples
+          <span class="j-sample-label">
+            Boncuklu / Barcin reference samples
           </span>
         </div>
 
@@ -1017,31 +1150,32 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
       <!-- WHG -->
       <div
-        class="lineage-horizon lineage-horizon--paternal"
+        class="j-horizon paternal"
         style="
           --start:0%;
           --width:44%;
-          --from:48%;
-          --to:67%;
+          --from:49%;
+          --to:68%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
             Western Hunter-Gatherer horizon
           </strong>
 
           <span>
-            WHG populations of western and central Europe
+            Mesolithic western / central European hunter-gatherer field
           </span>
 
         </div>
 
         <div
-          class="horizon-sample"
-          style="--sample:63%;"
+          class="j-sample"
+          style="--sample:69%;"
         >
-          <span class="horizon-sample-label">
+          <span class="j-sample-label">
             ~7th millennium BC · Loschbour
           </span>
         </div>
@@ -1051,31 +1185,32 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
       <!-- EHG -->
       <div
-        class="lineage-horizon lineage-horizon--paternal"
+        class="j-horizon paternal"
         style="
           --start:0%;
           --width:44%;
-          --from:55%;
-          --to:73%;
+          --from:57%;
+          --to:75%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
             Eastern Hunter-Gatherer horizon
           </strong>
 
           <span>
-            Eastern European / steppe hunter-gatherer field
+            Eastern European / steppe hunter-gatherer reference field
           </span>
 
         </div>
 
         <div
-          class="horizon-sample"
+          class="j-sample"
           style="--sample:48%;"
         >
-          <span class="horizon-sample-label">
+          <span class="j-sample-label">
             ~7000 BC · Karelia reference
           </span>
         </div>
@@ -1085,15 +1220,16 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
       <!-- CHG -->
       <div
-        class="lineage-horizon lineage-horizon--paternal"
+        class="j-horizon paternal"
         style="
           --start:0%;
           --width:44%;
-          --from:55%;
-          --to:78%;
+          --from:57%;
+          --to:79%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
             Caucasus Hunter-Gatherer horizon
@@ -1106,10 +1242,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         </div>
 
         <div
-          class="horizon-sample"
-          style="--sample:38%;"
+          class="j-sample"
+          style="--sample:40%;"
         >
-          <span class="horizon-sample-label">
+          <span class="j-sample-label">
             ~9000–10,000 BP · Kotias
           </span>
         </div>
@@ -1117,30 +1253,30 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       </div>
 
 
-
       <!-- ═════════════════════════════════════════════════
-           MATERNAL HISTORICAL HORIZONS
+           MATERNAL-ASSOCIATED FIELD
            ═════════════════════════════════════════════════ -->
 
 
-      <!-- MODERN EAST ASIAN -->
+      <!-- MODERN RYUKYUAN / EAST ASIAN -->
       <div
-        class="lineage-horizon lineage-horizon--maternal"
+        class="j-horizon maternal"
         style="
           --start:56%;
           --width:44%;
           --from:2%;
-          --to:14%;
+          --to:12%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
-            Modern East Asian continuum
+            Ryukyuan / East Asian population field
           </strong>
 
           <span>
-            Japanese · Okinawan · Korean · Mongolian comparisons
+            Okinawan · Japanese · Korean · Inner Asian comparisons
           </span>
 
         </div>
@@ -1148,9 +1284,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       </div>
 
 
-      <!-- EARLY MEDIEVAL EAST ASIA -->
+      <!-- EARLY MEDIEVAL INNER ASIA -->
       <div
-        class="lineage-horizon lineage-horizon--maternal"
+        class="j-horizon maternal"
         style="
           --start:56%;
           --width:44%;
@@ -1158,16 +1294,26 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           --to:22%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
             Early Medieval Inner Asian horizon
           </strong>
 
           <span>
-            Mongolia / Arkhangai comparative reference
+            Mongolia Arkhangai comparative population
           </span>
 
+        </div>
+
+        <div
+          class="j-sample"
+          style="--sample:38%;"
+        >
+          <span class="j-sample-label">
+            G25: 0.094 · closest ancient match
+          </span>
         </div>
 
       </div>
@@ -1175,31 +1321,32 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
       <!-- YAYOI -->
       <div
-        class="lineage-horizon lineage-horizon--maternal"
+        class="j-horizon maternal"
         style="
           --start:56%;
           --width:44%;
-          --from:23%;
-          --to:38%;
+          --from:22%;
+          --to:39%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
             Yayoi / Continental East Asian horizon
           </strong>
 
           <span>
-            Korean Peninsula-related agricultural expansion
+            Korean Peninsula-related farming expansion into Japan
           </span>
 
         </div>
 
         <div
-          class="horizon-sample"
-          style="--sample:35%;"
+          class="j-sample"
+          style="--sample:48%;"
         >
-          <span class="horizon-sample-label">
+          <span class="j-sample-label">
             ~2,300 years ago · Korea Changhang
           </span>
         </div>
@@ -1207,33 +1354,34 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       </div>
 
 
-      <!-- EAST ASIAN FARMING -->
+      <!-- EAST ASIAN NEOLITHIC -->
       <div
-        class="lineage-horizon lineage-horizon--maternal"
+        class="j-horizon maternal"
         style="
           --start:56%;
           --width:44%;
-          --from:38%;
-          --to:55%;
+          --from:39%;
+          --to:56%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
             East Asian Neolithic farming horizon
           </strong>
 
           <span>
-            Continental East Asian agricultural populations
+            Continental East Asian agricultural reference field
           </span>
 
         </div>
 
         <div
-          class="horizon-sample"
-          style="--sample:60%;"
+          class="j-sample"
+          style="--sample:67%;"
         >
-          <span class="horizon-sample-label">
+          <span class="j-sample-label">
             Han Henan · comparative reference
           </span>
         </div>
@@ -1243,31 +1391,32 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
       <!-- JOMON -->
       <div
-        class="lineage-horizon lineage-horizon--maternal"
+        class="j-horizon maternal"
         style="
           --start:56%;
           --width:44%;
           --from:48%;
-          --to:73%;
+          --to:74%;
         "
       >
-        <div class="horizon-label">
+
+        <div class="j-horizon-label">
 
           <strong>
             Jomon hunter-gatherer horizon
           </strong>
 
           <span>
-            Indigenous Japanese archipelago hunter-gatherer field
+            Pre-Yayoi hunter-gatherer field of the Japanese archipelago
           </span>
 
         </div>
 
         <div
-          class="horizon-sample"
-          style="--sample:42%;"
+          class="j-sample"
+          style="--sample:55%;"
         >
-          <span class="horizon-sample-label">
+          <span class="j-sample-label">
             Jomon reference samples
           </span>
         </div>
@@ -1280,29 +1429,25 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
            ═════════════════════════════════════════════════ -->
 
       <div
-        class="dual-deep-horizon"
+        class="j-deep-horizon"
         style="
-          --from:69%;
-          --to:82%;
+          --from:70%;
+          --to:83%;
         "
       >
 
-        <div class="deep-horizon-label">
-          DEEP<br>
-          TIME
+        <div class="j-deep-title">
+          Deep<br>time
         </div>
 
       </div>
 
 
-      <!-- NEANDERTHAL -->
+      <!-- NEANDERTHAL — SHARED -->
       <div
-        class="population-band--sample band-deep"
+        class="j-shared-deep"
         style="
-          --start:0%;
-          --width:100%;
-          --top:76%;
-          --sample-color:var(--ink);
+          --top:77%;
         "
       >
 
@@ -1313,27 +1458,31 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           </strong>
 
           <span>
-            Deep-time signal shared across non-African populations;
-            the chromosome-level comparison can be evaluated against
-            Vindija, Mezmaiskaya and other reference genomes.
+            Deep-time admixture signal common to non-African populations.
+            Julian's chromosome painting shows recurring allele-sharing
+            with Vindija and weaker similarity to Mezmaiskaya.
           </span>
 
         </div>
 
-        <div class="band-distance">
-          ~1–4% general signal
+        <div class="deep-note">
+
+          The reference comparison measures allele overlap;
+          it does not establish descent from a particular Neanderthal
+          individual or a separate admixture event.
+
         </div>
 
       </div>
 
 
-      <!-- DENISOVAN-RELATED -->
+      <!-- DENISOVAN-RELATED — MATERNAL SIDE -->
       <div
-        class="deep-signal"
+        class="j-deep-side"
         style="
           --start:56%;
           --width:44%;
-          --top:88%;
+          --top:89%;
         "
       >
 
@@ -1342,14 +1491,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         </strong>
 
         <span>
-          Deep East/Southeast Asian-related signal used as a
-          comparative ancestry component. Its presence in an
-          autosomal model does not by itself establish a direct
-          maternal transmission path.
+          Onge-related comparative signal in the East Asian model.
+          This is an autosomal ancestry inference, not a direct
+          Denisovan reference or proof of a maternal transmission path.
         </span>
 
         <div class="band-distance">
-          Onge comparative reference · G25: 0.351
+          Onge G25: 0.351
         </div>
 
       </div>
