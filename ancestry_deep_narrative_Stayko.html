@@ -279,6 +279,63 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   .deep-note { display: none; }
 }
 
+/* ═══════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — OCCUPATION-SPAN RAIL (single lineage)
+   A slim colored ribbon runs down the left edge of the field,
+   just right of the time axis. Each population gets one segment
+   spanning its approximate epoch, on the same non-linear vertical
+   scale as the time markers. A tick line at the population's
+   existing card position marks its specific reference sample's date.
+   ═══════════════════════════════════════════════════════ */
+
+.strata-rail {
+  position: absolute;
+  left: 0%;
+  width: 1.6%;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.strata-segment {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-radius: 2px;
+  opacity: .5;
+}
+.strata-segment--modern    { background: var(--gold); }
+.strata-segment--medieval  { background: var(--ink-mid); }
+.strata-segment--slavic    { background: var(--cinnabar); }
+.strata-segment--thracian  { background: var(--accent); }
+.strata-segment--steppe    { background: var(--steppe); }
+.strata-segment--farmer    { background: var(--sea); }
+.strata-segment--whg       { background: var(--stone); }
+.strata-segment--ehg       { background: #5a7a5a; }
+.strata-segment--chg       { background: #7a6a4a; }
+.strata-segment--comparative { background: #9a8a6a; }
+.strata-segment--deep      { background: var(--ink); opacity: .35; }
+
+.strata-tick {
+  position: absolute;
+  left: -0.3%;
+  width: 2.2%;
+  height: 2px;
+  background: var(--ink);
+  z-index: 1;
+}
+
+.band-epoch {
+  display: block;
+  margin-top: .15rem;
+  font-size: .62rem;
+  font-style: italic;
+  color: var(--ink-light);
+}
+
+@media (max-width: 700px) {
+  .strata-rail { display: none; }
+}
+
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
 </style>
@@ -399,9 +456,14 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         <h2>Genetic Stratigraphy</h2>
         <p>
           Populations and ancient reference samples used to interpret the
-          genetic profile. The position of the bands shows the approximate
-          time horizon; their differing length serves to visually distinguish
-          population and reference fields, not to quantify duration.
+          genetic profile. Each card sits at the approximate date of the specific
+          reference sample or site it represents; the colored ribbon running down
+          the left edge, beside the time axis, shows the broader epoch that
+          population is understood to have existed, on the same (non-linear,
+          deep-time-compressed) vertical scale — a short tick mark on the ribbon
+          points back to the card's own date within that span. Band width still
+          only distinguishes population and reference fields visually and does
+          not quantify anything.
         </p>
       </div>
     
@@ -419,12 +481,38 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         </div>
     
         <div class="population-bands">
-    
+
+          <!-- ═══ OCCUPATION-SPAN RAIL (rendered behind the cards) ═══ -->
+          <div class="strata-rail">
+            <div class="strata-segment strata-segment--modern"     style="top: 2.0%;  height: 19.5%;" title="Bulgarian/Romanian/Gagauz ethnogenesis, ~681 AD – today"></div>
+            <div class="strata-segment strata-segment--medieval"   style="top: 8.9%;  height: 12.7%;" title="First &amp; Second Bulgarian Empire, ~681–1396 AD"></div>
+            <div class="strata-segment strata-segment--slavic"     style="top: 17.8%; height: 4.6%;"  title="Avar Khaganate, 567–895 AD (encloses the Slavic migrations)"></div>
+            <div class="strata-segment strata-segment--thracian"   style="top: 26.3%; height: 7.4%;"  title="Thracian / Paleo-Balkan culture, ~1500 BC – 46 AD"></div>
+            <div class="strata-segment strata-segment--whg"        style="top: 38.9%; height: 29.2%;" title="Western Hunter-Gatherers in Europe, ~15,000–5,000 ya"></div>
+            <div class="strata-segment strata-segment--steppe"     style="top: 37.6%; height: 2.1%;"  title="Yamnaya culture, ~3300–2600 BC"></div>
+            <div class="strata-segment strata-segment--farmer"     style="top: 45.8%; height: 11.2%;" title="Anatolian Neolithic farming culture, ~8300–6000 BC"></div>
+            <div class="strata-segment strata-segment--ehg"        style="top: 43.4%; height: 22.0%;" title="Eastern Hunter-Gatherer lineage, ~12,000–7,000 ya"></div>
+            <div class="strata-segment strata-segment--chg"        style="top: 47.9%; height: 18.4%;" title="Caucasus Hunter-Gatherer lineage, ~13,000–9,000 ya"></div>
+            <div class="strata-segment strata-segment--comparative" style="top: 52.1%; height: 4.1%;" title="Ganj Dareh site occupation, ~8200–7600 BC"></div>
+            <div class="strata-segment strata-segment--deep"       style="top: 92%;   height: 6%;"    title="Neanderthal admixture event, ~50,000–60,000 ya"></div>
+            <div class="strata-tick" style="top: 2%;"></div>
+            <div class="strata-tick" style="top: 11%;"></div>
+            <div class="strata-tick" style="top: 21%;"></div>
+            <div class="strata-tick" style="top: 30%;"></div>
+            <div class="strata-tick" style="top: 39%;"></div>
+            <div class="strata-tick" style="top: 48%;"></div>
+            <div class="strata-tick" style="top: 59%;"></div>
+            <div class="strata-tick" style="top: 69%;"></div>
+            <div class="strata-tick" style="top: 76%;"></div>
+            <div class="strata-tick" style="top: 82%;"></div>
+          </div>
+
           <!-- MODERN BALKAN CONTINUUM -->
           <div class="population-band band-modern" style="--start: 2%; --width: 94%; --top: 2%;">
             <div class="band-label">
               <strong>Eastern Balkan Modern Continuum</strong>
               <span>Gagauz · Bulgarians · Romanians · Aegean-facing Greek pull</span>
+              <span class="band-epoch">Population present: ~681 AD – today</span>
             </div>
             <div class="band-distance">G25: 0.0161–0.0332</div>
           </div>
@@ -434,6 +522,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-label">
               <strong>Medieval Bulgaria</strong>
               <span>9th–14th c. · Balkan substrate + Slavic contribution</span>
+              <span class="band-epoch">Empire period: ~681–1396 AD</span>
             </div>
             <div class="band-distance">G25: 0.0267</div>
           </div>
@@ -443,6 +532,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-label">
               <strong>Slavic Migration / Avar Khaganate</strong>
               <span>567–895 AD · Pannonian corridor · late Avars absorbed, early/elite caste — not</span>
+              <span class="band-epoch">Khaganate active: 567–895 AD</span>
             </div>
             <div class="band-distance">G25: 0.1225 (late) / 0.2152 (early)</div>
           </div>
@@ -452,6 +542,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-label">
               <strong>Iron Age Bulgaria · Thracians</strong>
               <span>Paleo-Balkan substrate · direct predecessor of the medieval profile</span>
+              <span class="band-epoch">Culture present: ~1500 BC – 46 AD</span>
             </div>
             <div class="band-distance">G25: 0.0774–0.0854</div>
           </div>
@@ -461,6 +552,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-label">
               <strong>Yamnaya / Pontic Steppe Horizon</strong>
               <span>Bronze Age steppe reference population</span>
+              <span class="band-epoch">Culture active: ~3300–2600 BC</span>
             </div>
             <div class="band-distance">G25: 0.1841</div>
           </div>
@@ -470,6 +562,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-label">
               <strong>Anatolian Neolithic · Barcin</strong>
               <span>~6500 BC · early farming populations from Anatolia — the closer of the two founding streams</span>
+              <span class="band-epoch">Farming culture: ~8300–6000 BC</span>
             </div>
             <div class="band-distance">G25: 0.1613</div>
           </div>
@@ -479,6 +572,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-label">
               <strong>WHG · Loschbour</strong>
               <span>Mesolithic Western European reference sample · two confirmed IBD segment matches</span>
+              <span class="band-epoch">WHG present in Europe: ~15,000–5,000 ya</span>
             </div>
             <div class="band-distance">G25: 0.4133</div>
           </div>
@@ -488,6 +582,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-label">
               <strong>EHG · Karelia</strong>
               <span>~7000 BC · Eastern European hunter-gatherers</span>
+              <span class="band-epoch">EHG lineage: ~12,000–7,000 ya</span>
             </div>
             <div class="band-distance">G25: 0.2956</div>
           </div>
@@ -497,6 +592,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-label">
               <strong>CHG · Kotias</strong>
               <span>~9000 BC · Caucasus hunter-gatherers · confirmed IBD segment match</span>
+              <span class="band-epoch">CHG lineage: ~13,000–9,000 ya</span>
             </div>
             <div class="band-distance">G25: 0.2508</div>
           </div>
@@ -506,6 +602,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-label">
               <strong>Ganj Dareh</strong>
               <span>~10,000 BC · comparative reference</span>
+              <span class="band-epoch">Site occupation: ~8200–7600 BC</span>
             </div>
             <div class="band-distance">G25: 0.2910</div>
           </div>
@@ -515,6 +612,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-label">
               <strong>Neanderthal Admixture</strong>
               <span>~50,000–60,000 BC · Levant / Southwest Asia · shared by all non-African lineages</span>
+              <span class="band-epoch">Admixture event window: ~50,000–60,000 ya</span>
             </div>
             <div class="band-distance">~1–4% of genome</div>
             <div class="deep-note">
