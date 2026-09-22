@@ -286,9 +286,19 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
 
 
+```css
+/* ═══════════════════════════════════════════════════════
+   JULIAN GENETIC STRATIGRAPHY v3.1
+   OVERLAP / LABEL FIX
+
+   Historical horizons may overlap.
+   Labels are independently positioned so they do not
+   collide with neighbouring strata.
+   ═══════════════════════════════════════════════════════ */
+
+
 /* ───────────────────────────────────────────────────────
    POPULATION HORIZON
-   A faint vertical archaeological "stratum".
    ─────────────────────────────────────────────────────── */
 
 .j-horizon {
@@ -300,9 +310,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   left: var(--start);
   width: var(--width);
 
-  min-height: 24px;
+  min-height: 20px;
 
-  background: rgba(245,239,228,.42);
+  background: rgba(245,239,228,.28);
 
   border-left: 3px solid var(--horizon-color);
 
@@ -320,53 +330,64 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
 
 
-/* subtle inner archaeological trace */
+/* subtle internal trace */
 
 .j-horizon::before {
   content: '';
 
   position: absolute;
 
-  left: 9px;
+  left: 8px;
   top: 0;
   bottom: 0;
 
   border-left: 1px solid var(--horizon-color);
 
-  opacity: .22;
+  opacity: .20;
 }
 
 
 /* ───────────────────────────────────────────────────────
-   HORIZON LABEL
+   LABELS ARE NOW INDEPENDENT OF HORIZON CENTRE
    ─────────────────────────────────────────────────────── */
 
 .j-horizon-label {
   position: absolute;
 
-  left: 18px;
-  right: 12px;
+  left: 16px;
+  right: 10px;
 
-  top: 50%;
+  /*
+     Each horizon can specify its own label position:
+
+       --label: 20%;
+       --label: 50%;
+       --label: 80%;
+
+     This allows overlapping historical horizons while
+     keeping their text readable.
+  */
+
+  top: var(--label, 50%);
 
   transform: translateY(-50%);
 
-  padding: .38rem .55rem;
+  padding: .34rem .52rem;
 
-  background: rgba(245,239,228,.91);
+  background: rgba(245,239,228,.94);
 
   border-left: 2px solid var(--horizon-color);
 
-  box-shadow: 0 2px 8px rgba(40,30,20,.035);
+  box-shadow: 0 2px 7px rgba(40,30,20,.035);
 
-  z-index: 4;
+  z-index: 10;
 }
 
 .j-horizon-label strong {
   display: block;
 
-  font-size: .78rem;
-  line-height: 1.2;
+  font-size: .76rem;
+  line-height: 1.18;
 
   font-weight: 600;
 
@@ -376,17 +397,17 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .j-horizon-label span {
   display: block;
 
-  margin-top: .13rem;
+  margin-top: .12rem;
 
-  font-size: .61rem;
-  line-height: 1.35;
+  font-size: .59rem;
+  line-height: 1.3;
 
   color: var(--ink-light);
 }
 
 
 /* ───────────────────────────────────────────────────────
-   ANCIENT SAMPLE MARKER
+   SAMPLE MARKERS
    ─────────────────────────────────────────────────────── */
 
 .j-sample {
@@ -401,7 +422,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
   background: var(--horizon-color);
 
-  z-index: 8;
+  z-index: 15;
 }
 
 .j-sample::before {
@@ -415,9 +436,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   width: 8px;
   height: 8px;
 
-  border: 2px solid var(--horizon-color);
-
   background: var(--parchment);
+
+  border: 2px solid var(--horizon-color);
 
   border-radius: 50%;
 }
@@ -430,17 +451,68 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
   white-space: nowrap;
 
-  padding: .12rem .28rem;
+  padding: .10rem .25rem;
+
+  background: rgba(245,239,228,.94);
 
   font-family: 'Inter', sans-serif;
-  font-size: .53rem;
+
+  font-size: .51rem;
   line-height: 1.2;
 
   color: var(--ink-light);
 
-  background: rgba(245,239,228,.92);
+  z-index: 16;
 }
 
+
+/* ───────────────────────────────────────────────────────
+   IMPORTANT:
+   HORIZONS STAY BEHIND LABELS
+   ─────────────────────────────────────────────────────── */
+
+.j-horizon {
+  z-index: 2;
+}
+
+.j-horizon-label {
+  z-index: 10;
+}
+
+.j-sample {
+  z-index: 15;
+}
+
+.j-sample-label {
+  z-index: 16;
+}
+
+
+/* ───────────────────────────────────────────────────────
+   MOBILE
+   ─────────────────────────────────────────────────────── */
+
+@media (max-width: 700px) {
+
+  .j-horizon-label {
+    left: 10px;
+    right: 6px;
+
+    padding: .27rem .38rem;
+  }
+
+  .j-horizon-label strong {
+    font-size: .64rem;
+  }
+
+  .j-horizon-label span {
+    font-size: .51rem;
+  }
+
+  .j-sample-label {
+    font-size: .45rem;
+  }
+}
 
 /* ───────────────────────────────────────────────────────
    MODERN / ANCIENT REFERENCE CARDS
@@ -990,268 +1062,181 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
            PATERNAL-ASSOCIATED FIELD
            ═════════════════════════════════════════════════ -->
 
-
-      <!-- MODERN EASTERN BALKAN -->
-      <div
-        class="j-horizon paternal"
-        style="
-          --start:0%;
-          --width:44%;
-          --from:2%;
-          --to:12%;
-        "
-      >
-
-        <div class="j-horizon-label">
-
-          <strong>
-            Eastern Balkan population field
-          </strong>
-
-          <span>
-            Modern Bulgarian / Romanian / Gagauz comparative continuum
-          </span>
-
-        </div>
-
-      </div>
+<!-- PALEO-BALKAN -->
+<div
+  class="j-horizon paternal"
+  style="
+    --start:0%;
+    --width:44%;
+    --from:19%;
+    --to:35%;
+  "
+>
+  <div
+    class="j-horizon-label"
+    style="--label:50%;"
+  >
+    <strong>Paleo-Balkan substrate</strong>
+    <span>
+      Thracian · Dacian · Illyrian / regional Balkan field
+    </span>
+  </div>
+</div>
 
 
-      <!-- MEDIEVAL BALKAN -->
-      <div
-        class="j-horizon paternal"
-        style="
-          --start:0%;
-          --width:44%;
-          --from:10%;
-          --to:23%;
-        "
-      >
+<!-- YAMNAYA -->
+<div
+  class="j-horizon paternal"
+  style="
+    --start:0%;
+    --width:44%;
+    --from:31%;
+    --to:43%;
+  "
+>
+  <div
+    class="j-horizon-label"
+    style="--label:52%;"
+  >
+    <strong>Yamnaya / Pontic-Steppe horizon</strong>
+    <span>
+      Bronze Age steppe pastoralist reference field
+    </span>
+  </div>
 
-        <div class="j-horizon-label">
-
-          <strong>
-            Medieval Balkan synthesis
-          </strong>
-
-          <span>
-            Slavic migration and Balkan population continuity
-          </span>
-
-        </div>
-
-        <div
-          class="j-sample"
-          style="--sample:31%;"
-        >
-          <span class="j-sample-label">
-            Medieval Bulgarian reference
-          </span>
-        </div>
-
-      </div>
+  <div
+    class="j-sample"
+    style="--sample:42%;"
+  >
+    <span class="j-sample-label">
+      ~3000 BC · Yamnaya reference
+    </span>
+  </div>
+</div>
 
 
-      <!-- PALEO-BALKAN -->
-      <div
-        class="j-horizon paternal"
-        style="
-          --start:0%;
-          --width:44%;
-          --from:19%;
-          --to:35%;
-        "
-      >
+<!-- ANATOLIAN NEOLITHIC -->
+<div
+  class="j-horizon paternal"
+  style="
+    --start:0%;
+    --width:44%;
+    --from:39%;
+    --to:55%;
+  "
+>
+  <div
+    class="j-horizon-label"
+    style="--label:48%;"
+  >
+    <strong>Anatolian Neolithic farmer horizon</strong>
+    <span>
+      Boncuklu · Barcin · early farming expansion into the Balkans
+    </span>
+  </div>
 
-        <div class="j-horizon-label">
-
-          <strong>
-            Paleo-Balkan substrate
-          </strong>
-
-          <span>
-            Thracian · Dacian · Illyrian / regional Balkan field
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- YAMNAYA -->
-      <div
-        class="j-horizon paternal"
-        style="
-          --start:0%;
-          --width:44%;
-          --from:31%;
-          --to:43%;
-        "
-      >
-
-        <div class="j-horizon-label">
-
-          <strong>
-            Yamnaya / Pontic-Steppe horizon
-          </strong>
-
-          <span>
-            Bronze Age steppe pastoralist reference field
-          </span>
-
-        </div>
-
-        <div
-          class="j-sample"
-          style="--sample:42%;"
-        >
-          <span class="j-sample-label">
-            ~3000 BC · Samara Yamnaya
-          </span>
-        </div>
-
-      </div>
+  <div
+    class="j-sample"
+    style="--sample:53%;"
+  >
+    <span class="j-sample-label">
+      Boncuklu / Barcin reference
+    </span>
+  </div>
+</div>
 
 
-      <!-- ANATOLIAN NEOLITHIC -->
-      <div
-        class="j-horizon paternal"
-        style="
-          --start:0%;
-          --width:44%;
-          --from:39%;
-          --to:55%;
-        "
-      >
+<!-- WHG -->
+<div
+  class="j-horizon paternal"
+  style="
+    --start:0%;
+    --width:44%;
+    --from:49%;
+    --to:68%;
+  "
+>
+  <div
+    class="j-horizon-label"
+    style="--label:30%;"
+  >
+    <strong>Western Hunter-Gatherer horizon</strong>
+    <span>
+      Mesolithic western / central European hunter-gatherer field
+    </span>
+  </div>
 
-        <div class="j-horizon-label">
-
-          <strong>
-            Anatolian Neolithic farmer horizon
-          </strong>
-
-          <span>
-            Boncuklu · Barcin · early farming expansion into the Balkans
-          </span>
-
-        </div>
-
-        <div
-          class="j-sample"
-          style="--sample:53%;"
-        >
-          <span class="j-sample-label">
-            Boncuklu / Barcin reference samples
-          </span>
-        </div>
-
-      </div>
+  <div
+    class="j-sample"
+    style="--sample:69%;"
+  >
+    <span class="j-sample-label">
+      ~7th millennium BC · Loschbour
+    </span>
+  </div>
+</div>
 
 
-      <!-- WHG -->
-      <div
-        class="j-horizon paternal"
-        style="
-          --start:0%;
-          --width:44%;
-          --from:49%;
-          --to:68%;
-        "
-      >
+<!-- EHG -->
+<div
+  class="j-horizon paternal"
+  style="
+    --start:0%;
+    --width:44%;
+    --from:57%;
+    --to:75%;
+  "
+>
+  <div
+    class="j-horizon-label"
+    style="--label:28%;"
+  >
+    <strong>Eastern Hunter-Gatherer horizon</strong>
+    <span>
+      Eastern European / steppe hunter-gatherer reference field
+    </span>
+  </div>
 
-        <div class="j-horizon-label">
-
-          <strong>
-            Western Hunter-Gatherer horizon
-          </strong>
-
-          <span>
-            Mesolithic western / central European hunter-gatherer field
-          </span>
-
-        </div>
-
-        <div
-          class="j-sample"
-          style="--sample:69%;"
-        >
-          <span class="j-sample-label">
-            ~7th millennium BC · Loschbour
-          </span>
-        </div>
-
-      </div>
+  <div
+    class="j-sample"
+    style="--sample:48%;"
+  >
+    <span class="j-sample-label">
+      ~7000 BC · Karelia reference
+    </span>
+  </div>
+</div>
 
 
-      <!-- EHG -->
-      <div
-        class="j-horizon paternal"
-        style="
-          --start:0%;
-          --width:44%;
-          --from:57%;
-          --to:75%;
-        "
-      >
+<!-- CHG -->
+<div
+  class="j-horizon paternal"
+  style="
+    --start:0%;
+    --width:44%;
+    --from:57%;
+    --to:79%;
+  "
+>
+  <div
+    class="j-horizon-label"
+    style="--label:72%;"
+  >
+    <strong>Caucasus Hunter-Gatherer horizon</strong>
+    <span>
+      Caucasus-related hunter-gatherer reference field
+    </span>
+  </div>
 
-        <div class="j-horizon-label">
-
-          <strong>
-            Eastern Hunter-Gatherer horizon
-          </strong>
-
-          <span>
-            Eastern European / steppe hunter-gatherer reference field
-          </span>
-
-        </div>
-
-        <div
-          class="j-sample"
-          style="--sample:48%;"
-        >
-          <span class="j-sample-label">
-            ~7000 BC · Karelia reference
-          </span>
-        </div>
-
-      </div>
-
-
-      <!-- CHG -->
-      <div
-        class="j-horizon paternal"
-        style="
-          --start:0%;
-          --width:44%;
-          --from:57%;
-          --to:79%;
-        "
-      >
-
-        <div class="j-horizon-label">
-
-          <strong>
-            Caucasus Hunter-Gatherer horizon
-          </strong>
-
-          <span>
-            Caucasus-related hunter-gatherer reference field
-          </span>
-
-        </div>
-
-        <div
-          class="j-sample"
-          style="--sample:40%;"
-        >
-          <span class="j-sample-label">
-            ~9000–10,000 BP · Kotias
-          </span>
-        </div>
-
-      </div>
-
+  <div
+    class="j-sample"
+    style="--sample:40%;"
+  >
+    <span class="j-sample-label">
+      ~9000–10,000 BP · Kotias
+    </span>
+  </div>
+</div>
 
       <!-- ═════════════════════════════════════════════════
            MATERNAL-ASSOCIATED FIELD
@@ -1285,144 +1270,127 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 
       <!-- EARLY MEDIEVAL INNER ASIA -->
-      <div
-        class="j-horizon maternal"
-        style="
-          --start:56%;
-          --width:44%;
-          --from:9%;
-          --to:22%;
-        "
-      >
+<div
+  class="j-horizon maternal"
+  style="
+    --start:56%;
+    --width:44%;
+    --from:9%;
+    --to:22%;
+  "
+>
+  <div
+    class="j-horizon-label"
+    style="--label:50%;"
+  >
+    <strong>Early Medieval Inner Asian horizon</strong>
+    <span>
+      Mongolia Arkhangai comparative population
+    </span>
+  </div>
 
-        <div class="j-horizon-label">
-
-          <strong>
-            Early Medieval Inner Asian horizon
-          </strong>
-
-          <span>
-            Mongolia Arkhangai comparative population
-          </span>
-
-        </div>
-
-        <div
-          class="j-sample"
-          style="--sample:38%;"
-        >
-          <span class="j-sample-label">
-            G25: 0.094 · closest ancient match
-          </span>
-        </div>
-
-      </div>
+  <div
+    class="j-sample"
+    style="--sample:38%;"
+  >
+    <span class="j-sample-label">
+      G25: 0.094 · closest ancient match
+    </span>
+  </div>
+</div>
 
 
-      <!-- YAYOI -->
-      <div
-        class="j-horizon maternal"
-        style="
-          --start:56%;
-          --width:44%;
-          --from:22%;
-          --to:39%;
-        "
-      >
+<!-- YAYOI -->
+<div
+  class="j-horizon maternal"
+  style="
+    --start:56%;
+    --width:44%;
+    --from:22%;
+    --to:39%;
+  "
+>
+  <div
+    class="j-horizon-label"
+    style="--label:50%;"
+  >
+    <strong>Yayoi / Continental East Asian horizon</strong>
+    <span>
+      Korean Peninsula-related farming expansion into Japan
+    </span>
+  </div>
 
-        <div class="j-horizon-label">
-
-          <strong>
-            Yayoi / Continental East Asian horizon
-          </strong>
-
-          <span>
-            Korean Peninsula-related farming expansion into Japan
-          </span>
-
-        </div>
-
-        <div
-          class="j-sample"
-          style="--sample:48%;"
-        >
-          <span class="j-sample-label">
-            ~2,300 years ago · Korea Changhang
-          </span>
-        </div>
-
-      </div>
+  <div
+    class="j-sample"
+    style="--sample:48%;"
+  >
+    <span class="j-sample-label">
+      ~2,300 years ago · Korea Changhang
+    </span>
+  </div>
+</div>
 
 
-      <!-- EAST ASIAN NEOLITHIC -->
-      <div
-        class="j-horizon maternal"
-        style="
-          --start:56%;
-          --width:44%;
-          --from:39%;
-          --to:56%;
-        "
-      >
+<!-- EAST ASIAN NEOLITHIC -->
+<div
+  class="j-horizon maternal"
+  style="
+    --start:56%;
+    --width:44%;
+    --from:39%;
+    --to:56%;
+  "
+>
+  <div
+    class="j-horizon-label"
+    style="--label:72%;"
+  >
+    <strong>East Asian Neolithic farming horizon</strong>
+    <span>
+      Continental East Asian agricultural reference field
+    </span>
+  </div>
 
-        <div class="j-horizon-label">
-
-          <strong>
-            East Asian Neolithic farming horizon
-          </strong>
-
-          <span>
-            Continental East Asian agricultural reference field
-          </span>
-
-        </div>
-
-        <div
-          class="j-sample"
-          style="--sample:67%;"
-        >
-          <span class="j-sample-label">
-            Han Henan · comparative reference
-          </span>
-        </div>
-
-      </div>
+  <div
+    class="j-sample"
+    style="--sample:67%;"
+  >
+    <span class="j-sample-label">
+      Han Henan · comparative reference
+    </span>
+  </div>
+</div>
 
 
-      <!-- JOMON -->
-      <div
-        class="j-horizon maternal"
-        style="
-          --start:56%;
-          --width:44%;
-          --from:48%;
-          --to:74%;
-        "
-      >
+<!-- JOMON -->
+<div
+  class="j-horizon maternal"
+  style="
+    --start:56%;
+    --width:44%;
+    --from:48%;
+    --to:74%;
+  "
+>
+  <div
+    class="j-horizon-label"
+    style="--label:30%;"
+  >
+    <strong>Jomon hunter-gatherer horizon</strong>
+    <span>
+      Pre-Yayoi hunter-gatherer field of the Japanese archipelago
+    </span>
+  </div>
 
-        <div class="j-horizon-label">
-
-          <strong>
-            Jomon hunter-gatherer horizon
-          </strong>
-
-          <span>
-            Pre-Yayoi hunter-gatherer field of the Japanese archipelago
-          </span>
-
-        </div>
-
-        <div
-          class="j-sample"
-          style="--sample:55%;"
-        >
-          <span class="j-sample-label">
-            Jomon reference samples
-          </span>
-        </div>
-
-      </div>
-
+  <div
+    class="j-sample"
+    style="--sample:55%;"
+  >
+    <span class="j-sample-label">
+      Jomon reference samples
+    </span>
+  </div>
+</div>
 
       <!-- ═════════════════════════════════════════════════
            SHARED DEEP-TIME HORIZON
