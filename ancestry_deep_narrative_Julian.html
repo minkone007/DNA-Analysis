@@ -116,6 +116,12 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD
    ═══════════════════════════════════════════════════════ */
  
+ 
+<!-- ───────────────────── PART 1a · base CSS ───────────────────── -->
+/* ═══════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD
+   ═══════════════════════════════════════════════════════ */
+ 
 .genetic-stratigraphy {
   margin: 3.5rem 0 4.5rem;
   padding: 2.5rem 0 3rem;
@@ -280,8 +286,22 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   color: var(--ink-light);
   font-style: italic;
 }
-
-
+ 
+@media (max-width: 700px) {
+  .genetic-stratigraphy { padding: 2rem 0 2.5rem; }
+  .stratigraphy-field { padding-left: 72px; }
+  .time-axis { width: 72px; }
+  .time-marker { font-size: 0.55rem; padding-right: 0.65rem; }
+  .time-marker::after { width: 12px; }
+  .population-bands { height: 1900px; }
+  .population-band { min-height: 44px; padding: 0.45rem 0.55rem; }
+  .band-label strong { font-size: 0.75rem; }
+  .band-label span { font-size: 0.60rem; }
+  .band-distance { font-size: 0.56rem; }
+  .deep-note { display: none; }
+}
+ 
+ 
 <!-- ───────────────────── PART 1b · dual-lineage CSS ───────────────────── -->
 /* ═══════════════════════════════════════════════════════
    GENETIC STRATIGRAPHY — DUAL-LINEAGE VARIANT
@@ -503,56 +523,72 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       <span class="plain-label">In Plain Terms</span>
       In short: a balanced West-East Eurasian genome in which the paternal Eastern Balkan formation — Anatolian farmers, Caucasus-weighted steppe, WHG, and Slavic synthesis — meets a maternal Ryukyuan formation rich in <mark>Jomon hunter-gatherer ancestry</mark>. The two streams remain clearly distinguishable across modern, medieval, and ancient layers.
     </div>
-          <!-- ══ GENETIC STRATIGRAPHY ══ -->
+         
+    <!-- ══ GENETIC STRATIGRAPHY ══ -->
+    <!-- ══ GENETIC STRATIGRAPHY ══ -->
     <section class="genetic-stratigraphy">
       <div class="strat-intro">
         <span class="strat-kicker">Chronological Map</span>
         <h2>Genetic Stratigraphy</h2>
         <p>
           Populations and ancient reference samples used to interpret the
-          genetic profile. Bands set to the left trace the paternal (Eastern Balkan)
-          lineage; bands set to the right trace the maternal (Ryukyuan) lineage.
-          The position of the bands shows the approximate time horizon; their differing
-          length serves to visually distinguish population and reference fields,
-          not to quantify duration.
+          genetic profile. The timeline runs down the centre: the left column traces the
+          paternal (Eastern Balkan) lineage and the right column the maternal (Ryukyuan)
+          lineage. The Neanderthal banner spans both columns because both parents carry it;
+          the Denisovan-related signal sits on the maternal side only. The position of the
+          bands shows the approximate time horizon; their differing length serves to
+          visually distinguish population and reference fields, not to quantify duration.
         </p>
       </div>
  
-      <div class="stratigraphy-field">
+      <div class="dual-heads">
+        <div class="dual-head dual-head--paternal"><strong>Paternal</strong><span>Eastern Balkan · West Eurasian lineage</span></div>
+        <div class="dual-head dual-head--time">Time ↓</div>
+        <div class="dual-head dual-head--maternal"><strong>Maternal</strong><span>Ryukyuan · East Asian lineage</span></div>
+      </div>
+ 
+      <div class="stratigraphy-field stratigraphy-field--dual">
  
         <div class="time-axis">
-          <div class="time-marker time-today">TODAY</div>
-          <div class="time-marker time-avar" style="top: 17%;">~600–900 AD</div>
-          <div class="time-marker time-iron" style="top: 29%;">~800–100 BC</div>
-          <div class="time-marker time-bronze" style="top: 38%;">~3000 BC</div>
-          <div class="time-marker time-neolithic" style="top: 46%;">~7000 BC</div>
-          <div class="time-marker time-holocene" style="top: 55%;">~10–30k ya</div>
-          <div class="time-marker time-deep" style="top: 80%;">~50–60k ya</div>
-          <div class="time-marker time-deep" style="top: 92%;">~60–70k ya</div>
+          <div class="time-marker time-today" style="top: 3%;">TODAY</div>
+          <div class="time-marker time-avar" style="top: 14%;">~600–900 AD</div>
+          <div class="time-marker time-iron" style="top: 25%;">~800–100 BC</div>
+          <div class="time-marker time-bronze" style="top: 36%;">~3000 BC</div>
+          <div class="time-marker time-neolithic" style="top: 47%;">~7000 BC</div>
+          <div class="time-marker time-holocene" style="top: 58%;">~10–30k ya</div>
+          <div class="time-marker time-deep" style="top: 72%;">~50–60k ya</div>
+          <div class="time-marker time-deep" style="top: 88%;">~60–70k ya</div>
         </div>
  
         <div class="population-bands">
  
-          <!-- PATERNAL · MODERN BULGARIAN ANCHOR -->
-          <div class="population-band band-modern" style="--start: 2%; --width: 62%; --top: 2%;">
+          <!-- ─────────── TODAY ─────────── -->
+          <div class="population-band band-modern" style="--start: 0%; --width: 44%; --top: 3%;">
             <div class="band-label">
-              <strong>Bulgarian · Paternal Eastern Balkan Anchor</strong>
+              <strong>Bulgarian · Paternal Anchor</strong>
               <span>Closest modern population, even against ~61% East Asian ancestry</span>
             </div>
             <div class="band-distance">G25: 0.126</div>
           </div>
  
-          <!-- MATERNAL · MODERN EAST ASIAN REFERENCES -->
-          <div class="population-band band-modern" style="--start: 34%; --width: 62%; --top: 8%;">
+          <div class="population-band band-modern" style="--start: 56%; --width: 44%; --top: 3%;">
             <div class="band-label">
               <strong>East Asian Modern Continuum</strong>
-              <span>Mongolian · Japanese · Korean · MyHeritage Okinawa flag (61.6%)</span>
+              <span>Mongolian · Japanese · Korean · MyHeritage: Japanese (Okinawa) 61.6%</span>
             </div>
             <div class="band-distance">G25: 0.356–0.487</div>
           </div>
  
-          <!-- MATERNAL · MONGOLIA ARKHANGAI (CLOSEST ANCIENT MATCH) -->
-          <div class="population-band band-medieval" style="--start: 30%; --width: 66%; --top: 14%;">
+          <!-- ─────────── ~600–900 AD ─────────── -->
+          <div class="population-band band-slavic" style="--start: 0%; --width: 44%; --top: 14%;">
+            <div class="band-label">
+              <strong>Slavic Migration · Pannonian Corridor</strong>
+              <span>6th–8th c. · ~32% of the paternal genome (est.) · Moldavian/Serbian-type proxies, routed via the Hungarian basin</span>
+            </div>
+            <div class="band-distance">~32% (est.)</div>
+          </div>
+ 
+          <div class="population-band band-medieval" style="--start: 56%; --width: 44%; --top: 14%;">
             <div class="band-label">
               <strong>Mongolia Arkhangai · Early Medieval</strong>
               <span>Closest ancient match overall · a West–East midpoint, not Mongolian ancestry</span>
@@ -560,26 +596,16 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-distance">G25: 0.094</div>
           </div>
  
-          <!-- PATERNAL · SLAVIC MIGRATION -->
-          <div class="population-band band-slavic" style="--start: 4%; --width: 60%; --top: 20%;">
-            <div class="band-label">
-              <strong>Slavic Migration · Pannonian Corridor</strong>
-              <span>6th–8th c. · Moldavian/Serbian-type proxies, routed via the Hungarian basin</span>
-            </div>
-            <div class="band-distance">~32% of paternal (est.)</div>
-          </div>
- 
-          <!-- PATERNAL · PALEO-BALKAN / THRACIAN SUBSTRATE -->
-          <div class="population-band band-thracian" style="--start: 2%; --width: 62%; --top: 26%;">
+          <!-- ─────────── ~800–100 BC ─────────── -->
+          <div class="population-band band-thracian" style="--start: 0%; --width: 44%; --top: 25%;">
             <div class="band-label">
               <strong>Paleo-Balkan Substrate · Thracians</strong>
-              <span>Thracian, Dacian, Illyrian · pre-Slavic bedrock (MyHeritage: Greek and Albanian)</span>
+              <span>Thracian, Dacian, Illyrian · ~48% of the paternal genome (est.) · MyHeritage: Greek and Albanian</span>
             </div>
-            <div class="band-distance">~48% of paternal (est.)</div>
+            <div class="band-distance">~48% (est.)</div>
           </div>
  
-          <!-- MATERNAL · YAYOI-MEDIATED CONTINENTAL LAYER -->
-          <div class="population-band band-farmer" style="--start: 36%; --width: 60%; --top: 32%;">
+          <div class="population-band band-farmer" style="--start: 56%; --width: 44%; --top: 25%;">
             <div class="band-label">
               <strong>Yayoi Continental Layer · Korea Changhang</strong>
               <span>~2,300 years ago · Korean-peninsula farmers reaching the Ryukyus later and less completely</span>
@@ -587,8 +613,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-distance">G25: 0.382</div>
           </div>
  
-          <!-- PATERNAL · YAMNAYA -->
-          <div class="population-band band-steppe" style="--start: 6%; --width: 58%; --top: 38%;">
+          <!-- ─────────── ~3000 BC ─────────── -->
+          <div class="population-band band-steppe" style="--start: 0%; --width: 44%; --top: 36%;">
             <div class="band-label">
               <strong>Yamnaya / Pontic Steppe Horizon</strong>
               <span>Bronze Age steppe pastoralists · ~25% of the total genome, arriving paternally</span>
@@ -596,8 +622,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-distance">G25: 0.195</div>
           </div>
  
-          <!-- PATERNAL · ANATOLIAN NEOLITHIC -->
-          <div class="population-band band-farmer" style="--start: 12%; --width: 62%; --top: 44%;">
+          <!-- ─────────── ~7000 BC ─────────── -->
+          <div class="population-band band-farmer" style="--start: 0%; --width: 44%; --top: 47%;">
             <div class="band-label">
               <strong>Anatolian Neolithic · Boncuklu / Barcin</strong>
               <span>First farmers into the Balkans · K10 Ancient: 19.48% Early Neolithic Farmer</span>
@@ -605,8 +631,16 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-distance">G25: 0.206 / 0.230</div>
           </div>
  
-          <!-- PATERNAL · WHG LOSCHBOUR -->
-          <div class="population-band band-whg-reference" style="--start: 8%; --width: 52%; --top: 52%;">
+          <div class="population-band band-comparative" style="--start: 56%; --width: 44%; --top: 47%;">
+            <div class="band-label">
+              <strong>Han Henan</strong>
+              <span>Continental East Asian farming reference · Jomon sits ~17% closer</span>
+            </div>
+            <div class="band-distance">G25: 0.478</div>
+          </div>
+ 
+          <!-- ─────────── ~10–30k ya · TWO HUNTER-GATHERER WORLDS ─────────── -->
+          <div class="population-band band-whg-reference" style="--start: 0%; --width: 44%; --top: 58%;">
             <div class="band-label">
               <strong>WHG · Loschbour</strong>
               <span>Mesolithic Western European hunter-gatherers · source of the HERC2 blue-eye haplotype</span>
@@ -614,8 +648,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-distance">G25: 0.425</div>
           </div>
  
-          <!-- MATERNAL · JOMON -->
-          <div class="population-band band-whg" style="--start: 38%; --width: 58%; --top: 58%;">
+          <div class="population-band band-whg" style="--start: 56%; --width: 44%; --top: 58%;">
             <div class="band-label">
               <strong>Jomon Hunter-Gatherers</strong>
               <span>Ryukyuan maternal substrate · in the archipelago ~16,000–30,000 years ago</span>
@@ -623,43 +656,27 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <div class="band-distance">G25: 0.400–0.407</div>
           </div>
  
-          <!-- MATERNAL · HAN HENAN (COMPARATIVE) -->
-          <div class="population-band band-comparative" style="--start: 54%; --width: 42%; --top: 64%;">
+          <!-- ─────────── NEANDERTHAL · BOTH PARENTS (spans both columns) ─────────── -->
+          <div class="population-band band-deep band-shared" style="--start: 0%; --width: 100%; --top: 72%;">
             <div class="band-label">
-              <strong>Han Henan</strong>
-              <span>Continental farming reference · Jomon sits ~17% closer</span>
+              <strong>Neanderthal Admixture</strong>
+              <span>~50,000–60,000 BC · Levant / Southwest Asia · from both parents · ~1–4% of the genome</span>
             </div>
-            <div class="band-distance">G25: 0.478</div>
-          </div>
- 
-          <!-- COMPARATIVE · PAPUAN -->
-          <div class="population-band band-comparative" style="--start: 52%; --width: 44%; --top: 70%;">
-            <div class="band-label">
-              <strong>Papuan HGDP</strong>
-              <span>Highest Denisovan load · very distant, no direct Melanesian ancestry</span>
-            </div>
-            <div class="band-distance">G25: 0.744</div>
-          </div>
- 
-          <!-- DEEP · NEANDERTHAL + DENISOVAN-RELATED -->
-          <div class="population-band band-deep" style="--start: 2%; --width: 94%; --top: 80%;">
-            <div class="band-label">
-              <strong>Neanderthal Admixture · Denisovan-related Signal</strong>
-              <span>~50,000–60,000 BC · Neanderthal from both parents · Denisovan-related thread maternal only</span>
-            </div>
-            <div class="band-distance">Neanderthal ~1–4%</div>
             <div class="deep-note">
-              Universal signal across non-African populations, not an analysis specific to this genome. The chromosome painting shows scattered allele-sharing with Vindija Cave and a weaker signal against Mezmaiskaya, which measures allele overlap, not descent from those individuals. The Denisovan-related thread is inferred from Onge-related ancestry in the G25 model, not from a direct Denisovan reference, and arrives only through the maternal Jomon channel.
+              Universal signal across non-African populations, not an analysis specific to this genome. The chromosome painting shows scattered allele-sharing with Vindija Cave and a weaker signal against Mezmaiskaya, which measures allele overlap, not descent from those individuals.
             </div>
           </div>
  
-          <!-- MATERNAL · ONGE -->
-          <div class="population-band band-whg" style="--start: 30%; --width: 60%; --top: 92%;">
+          <!-- ─────────── DENISOVAN-RELATED · MATERNAL ONLY ─────────── -->
+          <div class="population-band band-deep band-stack" style="--start: 56%; --width: 44%; --top: 88%;">
             <div class="band-label">
-              <strong>Onge · Andaman Islands</strong>
-              <span>Deep Southeast Asian hunter-gatherers · Denisovan-carrier lineage, reaching Julian via the Jomon</span>
+              <strong>Denisovan-related Signal</strong>
+              <span>Onge lineage, ~60,000–70,000 years ago · maternal only, via the Jomon</span>
             </div>
-            <div class="band-distance">G25: 0.351</div>
+            <div class="band-distance">Onge G25: 0.351</div>
+            <div class="deep-note">
+              Inferred from Onge-related ancestry in the G25 model, not from a direct Denisovan reference. Papuan HGDP (0.744, the highest Denisovan load) is very distant: Julian has no direct Melanesian ancestry. The thread is faint, ancient and passed down Denisovan → Southeast Asian hunter-gatherers → Jomon → Ryukyuan → mother → Julian.
+            </div>
           </div>
  
         </div>
