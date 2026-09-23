@@ -299,7 +299,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .strata-column {
   position: absolute;
   left: 0;
-  width: 20px;
+  width: 25px;
   top: 0;
   bottom: 0;
   border-radius: 3px;
@@ -351,8 +351,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .strata-connector {
   position: absolute;
-  left: 5px;
-  width: 40px;
+  left: 25px;
+  width: 20px;
   height: 2px;
   opacity: .6;
   z-index: 0;
@@ -517,13 +517,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             </div>
             <div class="strata-hg-block">
               <div class="strata-hg-lane strata-hg-lane--whg">
-                <div class="strata-zone strata-zone--whg"         style="top: 56.00%; height: 35.25%;" title="WHG · Loschbour, ~15,000–5,000 ya"></div>
-              </div>
-              <div class="strata-hg-lane strata-hg-lane--ehg">
-                <div class="strata-zone strata-zone--ehg"         style="top: 17.65%; height: 5.88%;"  title="EHG · Karelia, ~12,000–7,000 ya"></div>
+                <div class="strata-zone strata-zone--whg"         style="top: 53.5.00%; height: 35.25%;" title="WHG · Loschbour, ~15,000–5,000 ya"></div>
               </div>
               <div class="strata-hg-lane strata-hg-lane--chg">
-                <div class="strata-zone strata-zone--chg"         style="top: 62.25%; height: 21.15%;"  title="CHG · Kotias, ~14,000–8,000 ya"></div>
+                <div class="strata-zone strata-zone--chg"         style="top: 55.25%; height: 25.25%;"  title="CHG · Kotias, ~14,000–8,000 ya"></div>
+              </div>
+              <div class="strata-hg-lane strata-hg-lane--ehg">
+                <div class="strata-zone strata-zone--ehg"         style="top: 61.25%; height: 21.25%;"  title="EHG · Karelia, ~12,000–7,000 ya"></div>
               </div>
               <div class="strata-hg-lane strata-hg-lane--gd">
                 <div class="strata-zone strata-zone--comparative" style="top: 70%; height: 3%;"  title="Ganj Dareh, ~10,200–9,600 ya"></div>
@@ -637,18 +637,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             </div>
             <div class="band-distance">G25: 0.2956</div>
           </div>
-    
-          <!-- CHG · KOTIAS -->
-          <div class="population-band band-chg" style="--start: 51%; --width: 51%; --top: 76%;">
-            <div class="band-label">
-              <strong>CHG · Kotias</strong>
-              <span>~9000 BC · Caucasus hunter-gatherers · confirmed IBD segment match</span>
-              <span class="band-epoch">CHG lineage: ~13,000–9,000 ya</span>
-            </div>
-            <div class="band-distance">G25: 0.2508</div>
-          </div>
-    
-          <!-- GANJ DAREH -->
+
+         <!-- GANJ DAREH -->
           <div class="population-band band-comparative" style="--start: 69%; --width: 33%; --top: 83%;">
             <div class="band-label">
               <strong>Ganj Dareh</strong>
@@ -657,8 +647,18 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             </div>
             <div class="band-distance">G25: 0.2910</div>
           </div>
-    
-          <!-- DEEP POPULATION STRUCTURE -->
+              
+         <!-- CHG · KOTIAS -->
+          <div class="population-band band-chg" style="--start: 51%; --width: 51%; --top: 76%;">
+            <div class="band-label">
+              <strong>CHG · Kotias</strong>
+              <span>~9000 BC · Caucasus hunter-gatherers · confirmed IBD segment match</span>
+              <span class="band-epoch">CHG lineage: ~13,000–9,000 ya</span>
+            </div>
+            <div class="band-distance">G25: 0.2508</div>
+          </div>
+          
+        <!-- DEEP POPULATION STRUCTURE -->
           <div class="population-band band-deep" style="--start: 10%; --width: 94%; --top: 95%;">
             <div class="band-label">
               <strong>Neanderthal Admixture</strong>
