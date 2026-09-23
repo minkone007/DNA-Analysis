@@ -308,56 +308,28 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   z-index: 1;
 }
 
-.strata-column-WHG {
+.strata-hg-block {
   position: absolute;
   left: 10px;
-  width: 5px;
+  width: 20px;
   top: 0;
   bottom: 0;
-  border-radius: 3px;
-  overflow: hidden;
-  opacity: .5;
   z-index: 1;
 }
 
-
-.strata-column-EHG {
+.strata-hg-lane {
   position: absolute;
-  left: 15px;
-  width: 5px;
   top: 0;
   bottom: 0;
-  border-radius: 3px;
+  width: 5px;
+  border-radius: 2px;
   overflow: hidden;
   opacity: .5;
-  z-index: 1;
 }
-
-
-.strata-column-CHG {
-  position: absolute;
-  left: 20px;
-  width: 5px;
-  top: 0;
-  bottom: 0;
-  border-radius: 3px;
-  overflow: hidden;
-  opacity: .5;
-  z-index: 1;
-}
-
- 
-.strata-column-GD {
-  position: absolute;
-  left: 25px;
-  width: 5px;
-  top: 0;
-  bottom: 0;
-  border-radius: 3px;
-  overflow: hidden;
-  opacity: .5;
-  z-index: 1;
-} 
+.strata-hg-lane--whg { left: 0px; }
+.strata-hg-lane--chg { left: 5px; }
+.strata-hg-lane--ehg { left: 10px; }
+.strata-hg-lane--gd  { left: 15px; }
   
 .strata-zone {
   position: absolute;
@@ -370,11 +342,12 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .strata-zone--thracian    { background: var(--accent); }
 .strata-zone--steppe      { background: var(--steppe); }
 .strata-zone--farmer      { background: var(--sea); }
-.strata-zone--whg         { background: var(--gold);  }
-.strata-zone--ehg         { background: var(--gold); }
-.strata-zone--chg         { background: var(--gold); }
-.strata-zone--comparative { background: var(--gold); }
+.strata-zone--whg         { background: var(--stone); }
+.strata-zone--ehg         { background: #5a7a5a; }
+.strata-zone--chg         { background: #7a6a4a; }
+.strata-zone--comparative { background: #9a8a6a; }
 .strata-zone--deep        { background: var(--ink); }
+.strata-zone--neutral     { background: var(--ink-light); }
 
 .strata-connector {
   position: absolute;
@@ -388,7 +361,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 @media (max-width: 700px) {
   .stratigraphy-field { padding-left: 88px; }
   .time-axis { left: 0; width: 72px; }
-  .strata-column, .strata-connector { display: none; }
+  .strata-column, .strata-hg-block, .strata-connector { display: none; }
 }
 
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
@@ -517,6 +490,16 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           each zone to its card so the two always read as a pair. The zone
           boundaries mark this report's narrative sequence, not literal start/end
           dates — each card's own approximate date range is given in its text.
+          Where several populations genuinely overlap in time — WHG, EHG, CHG, and
+          Ganj Dareh — the main column shows that stretch as one neutral band, and
+          their true, overlapping extents are shown instead in four 5px lanes inside
+          one 20px block alongside it, ordered left to right by start date (oldest
+          first) and sized to true duration — Ganj Dareh's lane is barely visible
+          because it really is just a single, brief site occupation next to WHG's
+          ten-thousand-year span. The four axis labels for this stretch stay spread
+          out for legibility rather than sitting at each population's literal
+          position, since their true midpoints cluster too closely to read as
+          separate lines of text.
         </p>
       </div>
     
@@ -529,23 +512,22 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
               <div class="strata-zone strata-zone--thracian"    style="top: 25.5%; height: 9.0%;"  title="Iron Age Bulgaria · Thracians"></div>
               <div class="strata-zone strata-zone--steppe"      style="top: 34.5%; height: 9.0%;"  title="Yamnaya / Pontic Steppe Horizon"></div>
               <div class="strata-zone strata-zone--farmer"      style="top: 43.5%; height: 10.0%;" title="Anatolian Neolithic · Barcin"></div>
-              <div class="strata-zone strata-zone--whg"         style="top: 53.5%; height: 10.5%;" title="WHG · Loschbour"></div>
-              <div class="strata-zone strata-zone--ehg"         style="top: 64.0%; height: 8.5%;"  title="EHG · Karelia"></div>
-              <div class="strata-zone strata-zone--chg"         style="top: 72.5%; height: 6.5%;"  title="CHG · Kotias"></div>
-              <div class="strata-zone strata-zone--comparative" style="top: 79.0%; height: 9.5%;"  title="Ganj Dareh"></div>
+              <div class="strata-zone strata-zone--neutral"     style="top: 53.5%; height: 35.0%;" title="Hunter-gatherer / comparative deep strata — see WHG, EHG, CHG, and Ganj Dareh sub-columns"></div>
               <div class="strata-zone strata-zone--deep"        style="top: 88.5%; height: 11.5%;" title="Neanderthal Admixture"></div>
             </div>
-            <div class="strata-column-WHG">
-              <div class="strata-zone strata-zone--whg"         style="top: 53.5%; height: 15%;" title="WHG · Loschbour"></div>
-            </div>  
-            <div class="strata-column-EHG">  
-              <div class="strata-zone strata-zone--ehg"         style="top: 64.0%; height: 8%;"  title="EHG · Karelia"></div>
-            </div>
-            <div class="strata-column-CHG"> 
-              <div class="strata-zone strata-zone--chg"         style="top: 72.5%; height: 9%;"  title="CHG · Kotias"></div>
-            </div>  
-             <div class="strata-column-GD"> 
-              <div class="strata-zone strata-zone--comparative" style="top: 79.0%; height: 3%;"  title="Ganj Dareh"></div>
+            <div class="strata-hg-block">
+              <div class="strata-hg-lane strata-hg-lane--whg">
+                <div class="strata-zone strata-zone--whg"         style="top: 48.00%; height: 11.75%;" title="WHG · Loschbour, ~15,000–5,000 ya"></div>
+              </div>
+              <div class="strata-hg-lane strata-hg-lane--chg">
+                <div class="strata-zone strata-zone--chg"         style="top: 51.52%; height: 7.05%;"  title="CHG · Kotias, ~14,000–8,000 ya"></div>
+              </div>
+              <div class="strata-hg-lane strata-hg-lane--ehg">
+                <div class="strata-zone strata-zone--ehg"         style="top: 50.35%; height: 5.88%;"  title="EHG · Karelia, ~12,000–7,000 ya"></div>
+              </div>
+              <div class="strata-hg-lane strata-hg-lane--gd">
+                <div class="strata-zone strata-zone--comparative" style="top: 53.41%; height: 0.70%;"  title="Ganj Dareh, ~10,200–9,600 ya"></div>
+              </div>
             </div>
           
             <div class="strata-connector" style="top: 2%;  background: var(--gold);"></div>
