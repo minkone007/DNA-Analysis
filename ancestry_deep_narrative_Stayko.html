@@ -280,60 +280,60 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
 
 /* ═══════════════════════════════════════════════════════
-   GENETIC STRATIGRAPHY — OCCUPATION-SPAN RAIL (single lineage)
-   A slim colored ribbon runs down the left edge of the field,
-   just right of the time axis. Each population gets one segment
-   spanning its approximate epoch, on the same non-linear vertical
-   scale as the time markers. A tick line at the population's
-   existing card position marks its specific reference sample's date.
+   GENETIC STRATIGRAPHY — CONTINUOUS OCCUPATION COLUMN
+   One unbroken column in a dedicated gutter to the LEFT of the
+   time-axis labels — kept away from the cards' own left-border
+   colors so the two coloring systems never compete. The column
+   is partitioned with no gaps: each population gets the zone
+   between the midpoints to its neighbours above and below. A
+   colored connector line reaches from each zone across to its
+   row, so the mapping to a specific card is unambiguous.
    ═══════════════════════════════════════════════════════ */
 
-.strata-rail {
+.stratigraphy-field { padding-left: 125px; }
+.time-axis { left: 20px; width: 105px; }
+
+.strata-column {
   position: absolute;
-  left: 0%;
-  width: 1.6%;
+  left: 0;
+  width: 14px;
   top: 0;
   bottom: 0;
-  z-index: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  opacity: .5;
+  z-index: 1;
 }
-.strata-segment {
+.strata-zone {
   position: absolute;
   left: 0;
   width: 100%;
-  border-radius: 2px;
-  opacity: .5;
 }
-.strata-segment--modern    { background: var(--gold); }
-.strata-segment--medieval  { background: var(--ink-mid); }
-.strata-segment--slavic    { background: var(--cinnabar); }
-.strata-segment--thracian  { background: var(--accent); }
-.strata-segment--steppe    { background: var(--steppe); }
-.strata-segment--farmer    { background: var(--sea); }
-.strata-segment--whg       { background: var(--stone); }
-.strata-segment--ehg       { background: #5a7a5a; }
-.strata-segment--chg       { background: #7a6a4a; }
-.strata-segment--comparative { background: #9a8a6a; }
-.strata-segment--deep      { background: var(--ink); opacity: .35; }
+.strata-zone--modern      { background: var(--gold); }
+.strata-zone--medieval    { background: var(--ink-mid); }
+.strata-zone--slavic      { background: var(--cinnabar); }
+.strata-zone--thracian    { background: var(--accent); }
+.strata-zone--steppe      { background: var(--steppe); }
+.strata-zone--farmer      { background: var(--sea); }
+.strata-zone--whg         { background: var(--stone); }
+.strata-zone--ehg         { background: #5a7a5a; }
+.strata-zone--chg         { background: #7a6a4a; }
+.strata-zone--comparative { background: #9a8a6a; }
+.strata-zone--deep        { background: var(--ink); }
 
-.strata-tick {
+.strata-connector {
   position: absolute;
-  left: -0.3%;
-  width: 2.2%;
+  left: 14px;
+  width: 20px;
   height: 2px;
-  background: var(--ink);
-  z-index: 1;
-}
-
-.band-epoch {
-  display: block;
-  margin-top: .15rem;
-  font-size: .62rem;
-  font-style: italic;
-  color: var(--ink-light);
+  opacity: .6;
+  z-index: 0;
 }
 
 @media (max-width: 700px) {
-  .strata-rail { display: none; }
+  .stratigraphy-field { padding-left: 88px; }
+  .time-axis { left: 0; width: 72px; }
+  .strata-column, .strata-connector { display: none; }
 }
 
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
@@ -456,19 +456,43 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         <h2>Genetic Stratigraphy</h2>
         <p>
           Populations and ancient reference samples used to interpret the
-          genetic profile. Each card sits at the approximate date of the specific
-          reference sample or site it represents; the colored ribbon running down
-          the left edge, beside the time axis, shows the broader epoch that
-          population is understood to have existed, on the same (non-linear,
-          deep-time-compressed) vertical scale — a short tick mark on the ribbon
-          points back to the card's own date within that span. Band width still
-          only distinguishes population and reference fields visually and does
-          not quantify anything.
+          genetic profile. The solid column on the left is the excavation itself,
+          top (today) to bottom (deepest past), with one colored zone per layer
+          in the order this report presents them; a connector line reaches from
+          each zone to its card so the two always read as a pair. The zone
+          boundaries mark this report's narrative sequence, not literal start/end
+          dates — each card's own approximate date range is given in its text.
         </p>
       </div>
     
       <div class="stratigraphy-field">
     
+        <div class="strata-column">
+          <div class="strata-zone strata-zone--modern"      style="top: 0.0%;  height: 6.5%;"  title="Eastern Balkan Modern Continuum"></div>
+          <div class="strata-zone strata-zone--medieval"    style="top: 6.5%;  height: 9.5%;"  title="Medieval Bulgaria"></div>
+          <div class="strata-zone strata-zone--slavic"      style="top: 16.0%; height: 9.5%;"  title="Slavic Migration / Avar Khaganate"></div>
+          <div class="strata-zone strata-zone--thracian"    style="top: 25.5%; height: 9.0%;"  title="Iron Age Bulgaria · Thracians"></div>
+          <div class="strata-zone strata-zone--steppe"      style="top: 34.5%; height: 9.0%;"  title="Yamnaya / Pontic Steppe Horizon"></div>
+          <div class="strata-zone strata-zone--farmer"      style="top: 43.5%; height: 10.0%;" title="Anatolian Neolithic · Barcin"></div>
+          <div class="strata-zone strata-zone--whg"         style="top: 53.5%; height: 10.5%;" title="WHG · Loschbour"></div>
+          <div class="strata-zone strata-zone--ehg"         style="top: 64.0%; height: 8.5%;"  title="EHG · Karelia"></div>
+          <div class="strata-zone strata-zone--chg"         style="top: 72.5%; height: 6.5%;"  title="CHG · Kotias"></div>
+          <div class="strata-zone strata-zone--comparative" style="top: 79.0%; height: 9.5%;"  title="Ganj Dareh"></div>
+          <div class="strata-zone strata-zone--deep"        style="top: 88.5%; height: 11.5%;" title="Neanderthal Admixture"></div>
+        </div>
+
+        <div class="strata-connector" style="top: 2%;  background: var(--gold);"></div>
+        <div class="strata-connector" style="top: 11%; background: var(--ink-mid);"></div>
+        <div class="strata-connector" style="top: 21%; background: var(--cinnabar);"></div>
+        <div class="strata-connector" style="top: 30%; background: var(--accent);"></div>
+        <div class="strata-connector" style="top: 39%; background: var(--steppe);"></div>
+        <div class="strata-connector" style="top: 48%; background: var(--sea);"></div>
+        <div class="strata-connector" style="top: 59%; background: var(--stone);"></div>
+        <div class="strata-connector" style="top: 69%; background: #5a7a5a;"></div>
+        <div class="strata-connector" style="top: 76%; background: #7a6a4a;"></div>
+        <div class="strata-connector" style="top: 82%; background: #9a8a6a;"></div>
+        <div class="strata-connector" style="top: 95%; background: var(--ink); opacity: .4;"></div>
+
         <div class="time-axis">
           <div class="time-marker time-today">TODAY</div>
           <div class="time-marker time-avar">~600–900 AD</div>
@@ -481,31 +505,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         </div>
     
         <div class="population-bands">
-
-          <!-- ═══ OCCUPATION-SPAN RAIL (rendered behind the cards) ═══ -->
-          <div class="strata-rail">
-            <div class="strata-segment strata-segment--modern"     style="top: 2.0%;  height: 19.5%;" title="Bulgarian/Romanian/Gagauz ethnogenesis, ~681 AD – today"></div>
-            <div class="strata-segment strata-segment--medieval"   style="top: 8.9%;  height: 12.7%;" title="First &amp; Second Bulgarian Empire, ~681–1396 AD"></div>
-            <div class="strata-segment strata-segment--slavic"     style="top: 17.8%; height: 4.6%;"  title="Avar Khaganate, 567–895 AD (encloses the Slavic migrations)"></div>
-            <div class="strata-segment strata-segment--thracian"   style="top: 26.3%; height: 7.4%;"  title="Thracian / Paleo-Balkan culture, ~1500 BC – 46 AD"></div>
-            <div class="strata-segment strata-segment--whg"        style="top: 38.9%; height: 29.2%;" title="Western Hunter-Gatherers in Europe, ~15,000–5,000 ya"></div>
-            <div class="strata-segment strata-segment--steppe"     style="top: 37.6%; height: 2.1%;"  title="Yamnaya culture, ~3300–2600 BC"></div>
-            <div class="strata-segment strata-segment--farmer"     style="top: 45.8%; height: 11.2%;" title="Anatolian Neolithic farming culture, ~8300–6000 BC"></div>
-            <div class="strata-segment strata-segment--ehg"        style="top: 43.4%; height: 22.0%;" title="Eastern Hunter-Gatherer lineage, ~12,000–7,000 ya"></div>
-            <div class="strata-segment strata-segment--chg"        style="top: 47.9%; height: 18.4%;" title="Caucasus Hunter-Gatherer lineage, ~13,000–9,000 ya"></div>
-            <div class="strata-segment strata-segment--comparative" style="top: 52.1%; height: 4.1%;" title="Ganj Dareh site occupation, ~8200–7600 BC"></div>
-            <div class="strata-segment strata-segment--deep"       style="top: 92%;   height: 6%;"    title="Neanderthal admixture event, ~50,000–60,000 ya"></div>
-            <div class="strata-tick" style="top: 2%;"></div>
-            <div class="strata-tick" style="top: 11%;"></div>
-            <div class="strata-tick" style="top: 21%;"></div>
-            <div class="strata-tick" style="top: 30%;"></div>
-            <div class="strata-tick" style="top: 39%;"></div>
-            <div class="strata-tick" style="top: 48%;"></div>
-            <div class="strata-tick" style="top: 59%;"></div>
-            <div class="strata-tick" style="top: 69%;"></div>
-            <div class="strata-tick" style="top: 76%;"></div>
-            <div class="strata-tick" style="top: 82%;"></div>
-          </div>
 
           <!-- MODERN BALKAN CONTINUUM -->
           <div class="population-band band-modern" style="--start: 2%; --width: 94%; --top: 2%;">
