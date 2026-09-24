@@ -96,188 +96,53 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
 
 .disclaimer{font-family:'Noto Sans JP',sans-serif;font-size:.75rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.8;border-top:1px solid var(--era-line)}
 
-/* ═══════════════════════════════════════════════════════
-   GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD
-   ═══════════════════════════════════════════════════════ */
-
-.genetic-stratigraphy {
-  margin: 3.5rem 0 4.5rem;
-  padding: 2.5rem 0 3rem;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-}
-
-.strat-intro {
-  max-width: 720px;
-  margin: 0 auto 3rem;
-  text-align: center;
-}
-
-.strat-kicker {
-  display: block;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.35rem;
-}
-
-.strat-intro h2 {
-  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-  margin-bottom: 0.5rem;
-}
-
-.strat-intro p {
-  color: var(--ink-light);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.stratigraphy-field {
-  position: relative;
-  max-width: 1050px;
-  margin: 0 auto;
-  padding-left: 105px;
-}
-
-.time-axis {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 105px;
-  pointer-events: none;
-}
-
-.time-marker {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  padding-right: 1rem;
-  transform: translateY(-50%);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--ink-light);
-  text-align: right;
-  white-space: nowrap;
-}
-
-.time-marker::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  width: 48px;
-  border-top: 1px dotted var(--era-line);
-}
-
-.time-today     { top: 2%;  }
-.time-medieval  { top: 11%; }
-.time-avar      { top: 21%; }
-.time-iron      { top: 30%; }
-.time-bronze    { top: 39%; }
-.time-neolithic { top: 48%; }
-.time-holocene  { top: 65%; }
-.time-deep      { top: 95%; }
-
-.population-bands {
-  position: relative;
-  height: 1300px;
-  background: transparent;
-  border-left: none;
-}
-
-.population-band {
-  position: absolute;
-  left: var(--start);
-  top: var(--top);
-  width: var(--width);
-  transform: translateY(-50%);
-  min-height: 40px;
-  padding: 0.45rem 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  background: rgba(245,239,228,.82);
-  border: none;
-  border-left: 3px solid var(--ink-mid);
-  border-radius: 2px;
-  box-shadow: none;
-  z-index: 2;
-}
-
-.band-label { min-width: 0; }
-
-.band-label strong {
-  display: block;
-  font-size: 0.84rem;
-  line-height: 1.2;
-  font-weight: 600;
-}
-
-.band-label span {
-  display: block;
-  margin-top: 0.12rem;
-  font-size: 0.66rem;
-  line-height: 1.25;
-  color: var(--ink-light);
-}
-
-.band-distance {
-  flex-shrink: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.63rem;
-  color: var(--ink-light);
-  white-space: nowrap;
-}
-
-.band-slavic { border-left-color: var(--cinnabar); }
-.band-thracian { border-left-color: var(--accent); }
-.band-modern { border-left-color: var(--gold); }
-.band-medieval { border-left-color: var(--ink-mid); }
-.band-steppe { border-left-color: var(--steppe); }
-.band-farmer, .band-neolithic { border-left-color: var(--sea); }
-.band-whg, .band-whg-reference { border-left-color: var(--stone); }
-.band-ehg { border-left-color: #5a7a5a; }
-.band-chg { border-left-color: #7a6a4a; }
-.band-comparative { border-left-style: dashed; border-left-color: #9a8a6a; }
-
-.band-deep {
-  min-height: 70px;
-  background: rgba(28,22,16,.035);
-  border: none;
-  border-left: 4px solid var(--ink);
-  box-shadow: none;
-}
-
-.deep-note {
-  max-width: 430px;
-  margin-left: auto;
-  font-size: 0.66rem;
-  line-height: 1.4;
-  color: var(--ink-light);
-  font-style: italic;
-}
-
-@media (max-width: 700px) {
-  .genetic-stratigraphy { padding: 2rem 0 2.5rem; }
-  .stratigraphy-field { padding-left: 72px; }
-  .time-axis { width: 72px; }
-  .time-marker { font-size: 0.55rem; padding-right: 0.65rem; }
-  .time-marker::after { width: 12px; }
-  .population-bands { height: 1900px; }
-  .population-band { min-height: 44px; padding: 0.45rem 0.55rem; }
-  .band-label strong { font-size: 0.75rem; }
-  .band-label span { font-size: 0.60rem; }
-  .band-distance { font-size: 0.56rem; }
-  .deep-note { display: none; }
-}
+/* ═══ GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD ═══ */
+.genetic-stratigraphy{margin:3.5rem 0 4.5rem;padding:2.5rem 0 3rem;background:transparent;border:none;border-radius:0}
+.strat-intro{max-width:720px;margin:0 auto 3rem;text-align:center}
+.strat-kicker{display:block;font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.strat-intro h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:.5rem}
+.strat-intro p{color:var(--ink-light);font-size:.95rem;line-height:1.6}
+.stratigraphy-field{position:relative;max-width:1050px;margin:0 auto;padding-left:105px}
+.time-axis{position:absolute;left:0;top:0;bottom:0;width:105px;pointer-events:none}
+.time-marker{position:absolute;left:35px;width:100%;padding-right:1rem;transform:translateY(-50%);font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.05em;color:var(--ink-light);text-align:right;white-space:nowrap}
+.time-marker::after{content:'';position:absolute;top:50%;left:100%;width:450%;border-top:1px dotted var(--era-line)}
+.time-today{top:2%}.time-medieval{top:11%}.time-avar{top:21%}.time-iron{top:30%}.time-bronze{top:39%}.time-neolithic{top:48%}
+.time-WHG{top:59%}.time-EHG{top:69%}.time-CHG{top:83%}.time-GD{top:76%}.time-deep{top:95%}
+.population-bands{position:relative;height:1300px;background:transparent;border-left:none}
+.population-band{position:absolute;left:var(--start);top:var(--top);width:var(--width);transform:translateY(-50%);min-height:40px;padding:.45rem .7rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(245,239,228,.82);border:none;border-left:3px solid var(--ink-mid);border-radius:2px;box-shadow:none;z-index:2}
+.band-label{min-width:0}
+.band-label strong{display:block;font-size:.84rem;line-height:1.2;font-weight:600}
+.band-label span{display:block;margin-top:.12rem;font-size:.66rem;line-height:1.25;color:var(--ink-light)}
+.band-distance{flex-shrink:0;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--ink-light);white-space:nowrap}
+.band-slavic{border-left-color:var(--cinnabar)}.band-thracian{border-left-color:var(--accent)}.band-modern{border-left-color:var(--gold)}
+.band-medieval{border-left-color:var(--ink-mid)}.band-steppe{border-left-color:var(--steppe)}
+.band-farmer,.band-neolithic{border-left-color:var(--sea)}
+.band-whg,.band-whg-reference{border-left-color:var(--stone)}
+.band-ehg{border-left-color:#5a7a5a}.band-chg{border-left-color:#7a6a4a}
+.band-comparative{border-left-style:dashed;border-left-color:#9a8a6a}
+.band-deep{min-height:70px;background:rgba(28,22,16,.035);border:none;border-left:4px solid var(--ink);box-shadow:none}
+.deep-note{max-width:430px;margin-left:auto;font-size:.66rem;line-height:1.4;color:var(--ink-light);font-style:italic}
+@media (max-width:700px){
+.genetic-stratigraphy{padding:2rem 0 2.5rem}.stratigraphy-field{padding-left:72px}.time-axis{width:72px}
+.time-marker{font-size:.55rem;padding-right:.65rem}.time-marker::after{width:12px}
+.population-bands{height:1900px}.population-band{min-height:44px;padding:.45rem .55rem}
+.band-label strong{font-size:.75rem}.band-label span{font-size:.60rem}.band-distance{font-size:.56rem}.deep-note{display:none}}
+ 
+/* ═══ CONTINUOUS OCCUPATION COLUMN ═══ */
+.stratigraphy-field{padding-left:125px}
+.time-axis{left:20px;width:105px}
+.strata-column{position:absolute;left:0;width:10px;top:0;bottom:0;border-radius:3px;overflow:hidden;opacity:.5;z-index:0}
+.strata-hg-block{position:absolute;left:10px;width:20px;top:0;bottom:0;z-index:1}
+.strata-hg-lane{position:absolute;top:0;bottom:0;width:5px;border-radius:2px;overflow:hidden;opacity:1}
+.strata-hg-lane--whg{left:0}.strata-hg-lane--chg{left:5px}.strata-hg-lane--ehg{left:10px}.strata-hg-lane--gd{left:15px}
+.strata-zone{position:absolute;left:0;width:100%}
+.strata-zone--modern{background:var(--gold)}.strata-zone--medieval{background:var(--ink-mid)}
+.strata-zone--slavic{background:var(--cinnabar)}.strata-zone--thracian{background:var(--accent)}
+.strata-zone--steppe{background:var(--steppe)}.strata-zone--farmer{background:var(--sea)}
+.strata-zone--whg{background:var(--stone)}.strata-zone--ehg{background:#5a7a5a}.strata-zone--chg{background:#7a6a4a}
+.strata-zone--comparative{background:#9a8a6a}.strata-zone--deep{background:var(--ink)}.strata-zone--neutral{background:#8a7a6570}
+.strata-connector{position:absolute;left:10px;width:45px;height:2px;opacity:1;z-index:0}
+@media (max-width:700px){.stratigraphy-field{padding-left:88px}.time-axis{left:0;width:72px}.strata-column,.strata-hg-block,.strata-connector{display:none}}
 
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
@@ -388,127 +253,106 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
       簡単に言うと：アナトリア農耕民とコーカサス寄りの草原祖先がバランスよく混ざり合い、その下によりわずかな西ヨーロッパ狩猟採集民の寄与を持ち、後に中世ブルガリア集団を形成したスラブ民族の移動によって形作られた東バルカン系ゲノムです。弟のスタイコと比較すると、このゲノムはバルカン連続体の南方・エーゲ海寄りの端からやや遠く、より広いルーマニア・ブルガリア中核に比較的近い位置にあります。以下に続くすべて——<mark>七つの層、八千年の歴史</mark>——は、この一文の背後にある証拠です。
     </div>
     <!-- ══ GENETIC STRATIGRAPHY 遺伝的層序 ══ -->
-    <section class="genetic-stratigraphy">
-      <div class="strat-intro">
-        <span class="strat-kicker">年代マップ</span>
-        <h2>遺伝的層序</h2>
-        <p>
-          遺伝的プロフィールの解釈に用いられた集団と古代の参照サンプルです。
-          帯の位置はおおよその時代的位置を示しており、その長さの違いは
-          集団領域と参照領域を視覚的に区別するためのものであり、
-          期間を定量的に示すものではありません。
-        </p>
-      </div>
-    
-      <div class="stratigraphy-field">
-    
-        <div class="time-axis">
-          <div class="time-marker time-today">現在</div>
-          <div class="time-marker time-avar">西暦600〜900年</div>
-          <div class="time-marker time-medieval">西暦1200年頃</div>
-          <div class="time-marker time-iron">紀元前800〜100年</div>
-          <div class="time-marker time-bronze">紀元前3000年頃</div>
-          <div class="time-marker time-neolithic">紀元前7000年頃</div>
-          <div class="time-marker time-holocene">1万〜1万3000年前</div>
-          <div class="time-marker time-deep">5万〜6万年以上前</div>
+          
+      <section class="genetic-stratigraphy">
+        <div class="strat-intro">
+          <span class="strat-kicker">年代マップ</span>
+          <h2>遺伝的層序</h2>
+          <p>遺伝的プロフィールの解釈に用いられた集団と古代の参照サンプルです。左側の実線の柱が発掘そのものであり、上（現在）から下（最も深い過去）へ、本報告書が提示する順序で、層ごとに一つの色付きゾーンが並びます。コネクタ線が各ゾーンからそのカードへ伸びており、両者は常に対として読めます。ゾーンの境界は本報告書の叙述の順序を示すものであり、文字通りの開始・終了年代ではありません——各カードのおおよその年代範囲は、カード自身のテキストに記されています。WHG、EHG、CHG、ガンジ・ダレのように複数の集団が実際に時間的に重なる区間では、主柱はその区間を一つの中立的な帯として示し、それぞれの実際の重なり合う範囲は、その横にある一つの20pxブロック内の4本の5pxレーンに示されます。レーンは開始年代の古い順に左から右へ並び、長さは実際の存続期間に比例します——ガンジ・ダレのレーンがほとんど見えないのは、それが実際に短期間の単一遺跡の居住にすぎず、WHGの約1万年にわたる期間と比べるとごくわずかだからです。この区間の4つの軸ラベルは、各集団の実際の位置ではなく、読みやすさのために間隔を空けて配置されています。実際の中央値は互いに近すぎて、別々の文字行として読めないためです。</p>
         </div>
-    
-        <div class="population-bands">
-    
-          <div class="population-band band-modern" style="--start: 2%; --width: 94%; --top: 2%;">
-            <div class="band-label">
-              <strong>東バルカン現代連続体</strong>
-              <span>ルーマニア人・ブルガリア人・ガガウズ人・その他のバルカン集団</span>
-            </div>
-            <div class="band-distance">G25: 0.018–0.024</div>
+        <div class="stratigraphy-field">
+          <div class="strata-column">
+            <div class="strata-zone strata-zone--modern"      style="top:0.0%;height:6.5%;"  title="東バルカン現代連続体"></div>
+            <div class="strata-zone strata-zone--medieval"    style="top:6.5%;height:9.5%;"  title="中世ブルガリア"></div>
+            <div class="strata-zone strata-zone--slavic"      style="top:16.0%;height:9.5%;" title="スラブ民族の移動／アヴァール可汗国"></div>
+            <div class="strata-zone strata-zone--thracian"    style="top:25.5%;height:9.0%;" title="鉄器時代ブルガリア・トラキア人"></div>
+            <div class="strata-zone strata-zone--steppe"      style="top:34.5%;height:9.0%;" title="ヤムナヤ／ポントス草原層"></div>
+            <div class="strata-zone strata-zone--farmer"      style="top:43.5%;height:10.0%;" title="アナトリア新石器・バルチン"></div>
+            <div class="strata-zone strata-zone--neutral"     style="top:53.5%;height:35.0%;" title="狩猟採集民／比較的な深層——WHG、EHG、CHG、ガンジ・ダレのサブ柱を参照"></div>
+            <div class="strata-zone strata-zone--deep"        style="top:88.5%;height:11.5%;" title="ネアンデルタール人との混血"></div>
           </div>
-    
-          <div class="population-band band-medieval" style="--start: 14%; --width: 68%; --top: 11%;">
-            <div class="band-label">
-              <strong>中世ブルガリア</strong>
-              <span>9〜14世紀・バルカン基層＋スラブ的寄与</span>
-            </div>
-            <div class="band-distance">G25: 0.034</div>
+          <div class="strata-hg-block">
+            <div class="strata-hg-lane strata-hg-lane--whg"><div class="strata-zone strata-zone--whg" style="top:53.52%;height:35.25%;" title="WHG・ロシュブール、約1万5000〜5000年前"></div></div>
+            <div class="strata-hg-lane strata-hg-lane--ehg"><div class="strata-zone strata-zone--ehg" style="top:60%;height:21%;" title="EHG・カレリア、約1万2000〜7000年前"></div></div>
+            <div class="strata-hg-lane strata-hg-lane--gd"><div class="strata-zone strata-zone--comparative" style="top:74.5%;height:3%;" title="ガンジ・ダレ、約1万200〜9600年前"></div></div>
+            <div class="strata-hg-lane strata-hg-lane--chg"><div class="strata-zone strata-zone--chg" style="top:62%;height:23%;" title="CHG・コティアス、約1万4000〜8000年前"></div></div>
           </div>
-    
-          <div class="population-band band-slavic" style="--start: 22%; --width: 55%; --top: 21%;">
-            <div class="band-label">
-              <strong>スラブ民族の移動／アヴァール可汗国</strong>
-              <span>567〜895年・パンノニア回廊・後期アヴァールは吸収されたが、初期・エリート層は吸収されず</span>
-            </div>
-            <div class="band-distance">G25: 0.122（後期）／0.214（初期）</div>
+       
+          <div class="strata-connector" style="top:2%;background:var(--gold);"></div>
+          <div class="strata-connector" style="top:11%;background:var(--ink-mid);"></div>
+          <div class="strata-connector" style="top:21%;background:var(--cinnabar);"></div>
+          <div class="strata-connector" style="top:30%;background:var(--accent);"></div>
+          <div class="strata-connector" style="top:39%;background:var(--steppe);"></div>
+          <div class="strata-connector" style="top:48%;background:var(--sea);"></div>
+          <div class="strata-connector" style="top:59%;background:var(--stone);"></div>
+          <div class="strata-connector" style="top:69%;background:#5a7a5a;"></div>
+          <div class="strata-connector" style="top:75.9%;background:#9a8a6a;"></div>
+          <div class="strata-connector" style="top:83%;background:#7a6a4a;"></div>
+          <div class="strata-connector" style="top:95%;background:var(--ink);opacity:.4;"></div>
+       
+          <div class="time-axis">
+            <div class="time-marker time-today">現在</div>
+            <div class="time-marker time-avar">西暦600〜900年</div>
+            <div class="time-marker time-medieval">西暦1200年頃</div>
+            <div class="time-marker time-iron">紀元前800〜100年</div>
+            <div class="time-marker time-bronze">紀元前3000年頃</div>
+            <div class="time-marker time-neolithic">紀元前7000年頃</div>
+            <div class="time-marker time-WHG">1万5000〜5000年前</div>
+            <div class="time-marker time-EHG">1万2000〜7000年前</div>
+            <div class="time-marker time-GD">1万200〜9600年前</div>
+            <div class="time-marker time-CHG">1万4000〜8000年前</div>
+            <div class="time-marker time-deep">5万〜6万年以上前</div>
           </div>
-    
-          <div class="population-band band-thracian" style="--start: 8%; --width: 63%; --top: 30%;">
-            <div class="band-label">
-              <strong>鉄器時代ブルガリア・トラキア人</strong>
-              <span>パレオバルカン基層・中世プロフィールの直接の前身</span>
+       
+          <div class="population-bands">
+            <div class="population-band band-modern" style="--start:5%;--width:98%;--top:2%;">
+              <div class="band-label"><strong>東バルカン現代連続体</strong><span>ガガウズ人・ブルガリア人・ルーマニア人・エーゲ海寄りのギリシャ人への引力</span><span class="band-epoch">集団の存在：西暦681年〜現在</span></div>
+              <div class="band-distance">G25: 0.018–0.042</div>
             </div>
-            <div class="band-distance">G25: 0.088–0.096</div>
-          </div>
-    
-          <div class="population-band band-steppe" style="--start: 9%; --width: 57%; --top: 39%;">
-            <div class="band-label">
-              <strong>ヤムナヤ／ポントス草原層</strong>
-              <span>青銅器時代の草原参照集団</span>
+            <div class="population-band band-medieval" style="--start:14%;--width:86%;--top:11%;">
+              <div class="band-label"><strong>中世ブルガリア</strong><span>9〜14世紀・バルカン基層＋スラブ的寄与</span><span class="band-epoch">帝国期：西暦681〜1396年</span></div>
+              <div class="band-distance">G25: 0.034</div>
             </div>
-            <div class="band-distance">G25: ~0.171</div>
-          </div>
-    
-          <div class="population-band band-farmer" style="--start: 36%; --width: 49%; --top: 48%;">
-            <div class="band-label">
-              <strong>アナトリア新石器・バルチン</strong>
-              <span>紀元前6500年頃・アナトリアの初期農耕集団</span>
+            <div class="population-band band-slavic" style="--start:22%;--width:85%;--top:21%;">
+              <div class="band-label"><strong>スラブ民族の移動／アヴァール可汗国</strong><span>567〜895年・パンノニア回廊・後期アヴァールは吸収されたが、初期・エリート層は吸収されず</span><span class="band-epoch">可汗国の存続期間：567〜895年</span></div>
+              <div class="band-distance">G25: 0.122（後期）／0.214（初期）</div>
             </div>
-            <div class="band-distance">G25: ~0.173</div>
-          </div>
-    
-          <div class="population-band band-whg-reference" style="--start: 17%; --width: 31%; --top: 59%;">
-            <div class="band-label">
-              <strong>WHG・ロシュブール</strong>
-              <span>中石器時代の西ヨーロッパ参照サンプル・深層寄与の約15%</span>
+            <div class="population-band band-thracian" style="--start:10%;--width:93%;--top:30%;">
+              <div class="band-label"><strong>鉄器時代ブルガリア・トラキア人</strong><span>パレオバルカン基層・中世プロフィールの直接の前身</span><span class="band-epoch">文化の存続期間：紀元前約1500年〜西暦46年</span></div>
+              <div class="band-distance">G25: 0.088–0.096</div>
             </div>
-            <div class="band-distance">G25: ~0.406</div>
-          </div>
-    
-          <div class="population-band band-ehg" style="--start: 34%; --width: 29%; --top: 69%;">
-            <div class="band-label">
-              <strong>EHG・カレリア</strong>
-              <span>紀元前7000年頃・東ヨーロッパの狩猟採集民</span>
+            <div class="population-band band-steppe" style="--start:18%;--width:83%;--top:39%;">
+              <div class="band-label"><strong>ヤムナヤ／ポントス草原層</strong><span>青銅器時代の草原参照集団</span><span class="band-epoch">文化の活動期：紀元前約3300〜2600年</span></div>
+              <div class="band-distance">G25: 0.176</div>
             </div>
-            <div class="band-distance">G25: ~0.285</div>
-          </div>
-    
-          <div class="population-band band-chg" style="--start: 51%; --width: 32%; --top: 76%;">
-            <div class="band-label">
-              <strong>CHG・コティアス</strong>
-              <span>紀元前9000年頃・コーカサスの狩猟採集民</span>
+            <div class="population-band band-farmer" style="--start:36%;--width:65%;--top:48%;">
+              <div class="band-label"><strong>アナトリア新石器・バルチン</strong><span>紀元前6500年頃・アナトリアの初期農耕集団——ヤムナヤ側の流れとほぼ同距離</span><span class="band-epoch">農耕文化：紀元前約8300〜6000年</span></div>
+              <div class="band-distance">G25: 0.171</div>
             </div>
-            <div class="band-distance">G25: ~0.249</div>
-          </div>
-    
-          <div class="population-band band-comparative" style="--start: 69%; --width: 25%; --top: 82%;">
-            <div class="band-label">
-              <strong>ガンジ・ダレ</strong>
-              <span>紀元前1万年頃・比較参照</span>
+            <div class="population-band band-whg-reference" style="--start:17%;--width:85%;--top:59%;">
+              <div class="band-label"><strong>WHG・ロシュブール</strong><span>紀元前7000年頃・中石器時代の西ヨーロッパ狩猟採集民</span><span class="band-epoch">ヨーロッパにおけるWHG：約1万5000〜5000年前</span></div>
+              <div class="band-distance">G25: 0.407</div>
             </div>
-            <div class="band-distance">G25: ~0.292</div>
-          </div>
-    
-          <div class="population-band band-deep" style="--start: 10%; --width: 94%; --top: 95%;">
-            <div class="band-label">
-              <strong>ネアンデルタール人との混血</strong>
-              <span>紀元前5万〜6万年・レバント／南西アジア・すべての非アフリカ系統に共有される</span>
+            <div class="population-band band-ehg" style="--start:34%;--width:68%;--top:69%;">
+              <div class="band-label"><strong>EHG・カレリア</strong><span>紀元前7000年頃・東ヨーロッパの狩猟採集民</span><span class="band-epoch">EHG系統：約1万2000〜7000年前</span></div>
+              <div class="band-distance">G25: 0.286</div>
             </div>
-            <div class="band-distance">ゲノムの約1〜4%</div>
-            <div class="deep-note">
-              非アフリカ系集団全体に共通する普遍的なシグナルであり、このゲノムに特有の分析結果ではありません——特定の浸透領域を特定するためのセグメントレベルの検査はここでは行われていません。ヴィンディヤ（クロアチア）のゲノムとの一致は、その参照サンプルの質を反映しているのであって、交雑が起きた場所を示すものではありません。この時代的境界（6万年以上前）より古いものは、利用可能な古代参照サンプルより前の時代にあたり、ここでは具体的な数値としては示されていません。
+            <div class="population-band band-comparative" style="--start:51%;--width:51%;--top:76%;">
+              <div class="band-label"><strong>ガンジ・ダレ</strong><span>紀元前1万年頃・比較参照</span><span class="band-epoch">遺跡の居住期間：紀元前約8200〜7600年</span></div>
+              <div class="band-distance">G25: 0.294</div>
+            </div>
+            <div class="population-band band-chg" style="--start:69%;--width:33%;--top:83%;">
+              <div class="band-label"><strong>CHG・コティアス</strong><span>紀元前9000年頃・コーカサスの狩猟採集民</span><span class="band-epoch">CHG系統：約1万3000〜9000年前</span></div>
+              <div class="band-distance">G25: 0.253</div>
+            </div>
+            <div class="population-band band-deep" style="--start:10%;--width:94%;--top:95%;">
+              <div class="band-label"><strong>ネアンデルタール人との混血</strong><span>紀元前5万〜6万年・レバント／南西アジア・すべての非アフリカ系統に共有される</span><span class="band-epoch">混血イベントの時期：約5万〜6万年前</span></div>
+              <div class="band-distance">ゲノムの約1〜4%</div>
+              <div class="deep-note">非アフリカ系集団全体に共通する普遍的なシグナルであり、このゲノムに特有の分析結果ではありません——特定の移入領域を特定するためのセグメントレベルの検査は、ここでは実施されていません。ヴィンディヤ（クロアチア）ゲノムとの一致は、混血が起きた場所ではなく、その参照サンプルの質を反映しています。この年代より古いもの（6万年超）は、利用可能な古代人類の参照サンプルより前の時代であり、ここでは具体的な値で示されていません。</div>
             </div>
           </div>
-    
         </div>
-      </div>
-    </section>
+      </section>
   </div>
 </div>
 
