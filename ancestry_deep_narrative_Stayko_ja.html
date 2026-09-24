@@ -154,7 +154,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
 
 .time-marker {
   position: absolute;
-  left: 0;
+  left: 35px;
   width: 100%;
   padding-right: 1rem;
   transform: translateY(-50%);
@@ -172,7 +172,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
   position: absolute;
   top: 50%;
   left: 100%;
-  width: 48px;
+  width: 450%;
   border-top: 1px dotted var(--era-line);
 }
 
@@ -182,9 +182,12 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
 .time-iron      { top: 30%; }
 .time-bronze    { top: 39%; }
 .time-neolithic { top: 48%; }
-.time-holocene  { top: 65%; }
+.time-WHG       { top: 59%; }
+.time-EHG       { top: 69%; }
+.time-CHG       { top: 83%; }
+.time-GD        { top: 76%; }
 .time-deep      { top: 95%; }
-
+  
 .population-bands {
   position: relative;
   height: 1300px;
@@ -277,6 +280,88 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
   .band-label span { font-size: 0.60rem; }
   .band-distance { font-size: 0.56rem; }
   .deep-note { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — CONTINUOUS OCCUPATION COLUMN
+   One unbroken column in a dedicated gutter to the LEFT of the
+   time-axis labels — kept away from the cards' own left-border
+   colors so the two coloring systems never compete. The column
+   is partitioned with no gaps: each population gets the zone
+   between the midpoints to its neighbours above and below. A
+   colored connector line reaches from each zone across to its
+   row, so the mapping to a specific card is unambiguous.
+   ═══════════════════════════════════════════════════════ */
+
+.stratigraphy-field { padding-left: 125px; }
+.time-axis { left: 20px; width: 105px; }
+
+.strata-column {
+  position: absolute;
+  left: 0;
+  width: 10px;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  opacity: .5;
+  z-index: 0;
+}
+
+.strata-hg-block {
+  position: absolute;
+  left: 10px;
+  width: 20px;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.strata-hg-lane {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 1;
+}
+.strata-hg-lane--whg { left: 0px; }
+.strata-hg-lane--chg { left: 5px; }
+.strata-hg-lane--ehg { left: 10px; }
+.strata-hg-lane--gd  { left: 15px; }
+  
+.strata-zone {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.strata-zone--modern      { background: var(--gold); }
+.strata-zone--medieval    { background: var(--ink-mid); }
+.strata-zone--slavic      { background: var(--cinnabar); }
+.strata-zone--thracian    { background: var(--accent); }
+.strata-zone--steppe      { background: var(--steppe); }
+.strata-zone--farmer      { background: var(--sea); }
+.strata-zone--whg         { background: var(--stone); }
+.strata-zone--ehg         { background: #5a7a5a; }
+.strata-zone--chg         { background: #7a6a4a; }
+.strata-zone--comparative { background: #9a8a6a; }
+.strata-zone--deep        { background: var(--ink); }
+.strata-zone--neutral     { background: #8a7a6570; }
+
+.strata-connector {
+  position: absolute;
+  left: 10px;
+  width: 45px;
+  height: 2px;
+  opacity: 1;
+  z-index: 0;
+}
+
+@media (max-width: 700px) {
+  .stratigraphy-field { padding-left: 88px; }
+  .time-axis { left: 0; width: 72px; }
+  .strata-column, .strata-hg-block, .strata-connector { display: none; }
 }
 
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
@@ -392,21 +477,43 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
       要するに：<mark>エーゲ海／南コーカサス寄りの傾き</mark>が検出できる東バルカン系ゲノムです。アナトリア農耕民、より小さな西ヨーロッパ狩猟採集民の寄与、そしてコーカサスに重みを持つ草原祖先というヨーロッパの古典的な混合から成り、後に中世ブルガリア集団を形成したスラブ民族の移動によって形作られました。
     </div>
 
-    <!-- ══ 遺伝的層序 ══ -->
+    <!-- ══ GENETIC STRATIGRAPHY ══ -->
     <section class="genetic-stratigraphy">
-      <div class="strat-intro">
-        <span class="strat-kicker">年代マップ</span>
-        <h2>遺伝的層序</h2>
-        <p>
-          遺伝的プロフィールの解釈に用いられた集団と古代の参照サンプルです。
-          帯の位置はおおよその時代的位置を示しており、その長さの違いは
-          集団領域と参照領域を視覚的に区別するためのものであり、
-          期間を定量的に示すものではありません。
-        </p>
-      </div>
-
+  <div class="strat-intro">
+    <span class="strat-kicker">年代マップ</span>
+    <h2>遺伝的層序</h2>
+    <p>遺伝的プロフィールの解釈に用いられた集団と古代の参照サンプルです。左側の実線の柱が発掘そのものであり、上（現在）から下（最も深い過去）へ、本報告書が提示する順序で、層ごとに一つの色付きゾーンが並びます。コネクタ線が各ゾーンからそのカードへ伸びており、両者は常に対として読めます。ゾーンの境界は本報告書の叙述の順序を示すものであり、文字通りの開始・終了年代ではありません——各カードのおおよその年代範囲は、カード自身のテキストに記されています。WHG、EHG、CHG、ガンジ・ダレのように複数の集団が実際に時間的に重なる区間では、主柱はその区間を一つの中立的な帯として示し、それぞれの実際の重なり合う範囲は、その横にある一つの20pxブロック内の4本の5pxレーンに示されます。レーンは開始年代の古い順に左から右へ並び、長さは実際の存続期間に比例します——ガンジ・ダレのレーンがほとんど見えないのは、それが実際に短期間の単一遺跡の居住にすぎず、WHGの約1万年にわたる期間と比べるとごくわずかだからです。この区間の4つの軸ラベルは、各集団の実際の位置ではなく、読みやすさのために間隔を空けて配置されています。実際の中央値は互いに近すぎて、別々の文字行として読めないためです。</p>
+  </div>
       <div class="stratigraphy-field">
-
+        <div class="strata-column">
+          <div class="strata-zone strata-zone--modern"      style="top:0.0%;height:6.5%;"  title="東バルカン現代連続体"></div>
+          <div class="strata-zone strata-zone--medieval"    style="top:6.5%;height:9.5%;"  title="中世ブルガリア"></div>
+          <div class="strata-zone strata-zone--slavic"      style="top:16.0%;height:9.5%;" title="スラブ民族の移動／アヴァール可汗国"></div>
+          <div class="strata-zone strata-zone--thracian"    style="top:25.5%;height:9.0%;" title="鉄器時代ブルガリア・トラキア人"></div>
+          <div class="strata-zone strata-zone--steppe"      style="top:34.5%;height:9.0%;" title="ヤムナヤ／ポントス草原層"></div>
+          <div class="strata-zone strata-zone--farmer"      style="top:43.5%;height:10.0%;" title="アナトリア新石器・バルチン"></div>
+          <div class="strata-zone strata-zone--neutral"     style="top:53.5%;height:35.0%;" title="狩猟採集民／比較的な深層——WHG、EHG、CHG、ガンジ・ダレのサブ柱を参照"></div>
+          <div class="strata-zone strata-zone--deep"        style="top:88.5%;height:11.5%;" title="ネアンデルタール人との混血"></div>
+        </div>
+        <div class="strata-hg-block">
+          <div class="strata-hg-lane strata-hg-lane--whg"><div class="strata-zone strata-zone--whg" style="top:53.52%;height:35.25%;" title="WHG・ロシュブール、約1万5000〜5000年前"></div></div>
+          <div class="strata-hg-lane strata-hg-lane--ehg"><div class="strata-zone strata-zone--ehg" style="top:60%;height:21%;" title="EHG・カレリア、約1万2000〜7000年前"></div></div>
+          <div class="strata-hg-lane strata-hg-lane--gd"><div class="strata-zone strata-zone--comparative" style="top:74.5%;height:3%;" title="ガンジ・ダレ、約1万200〜9600年前"></div></div>
+          <div class="strata-hg-lane strata-hg-lane--chg"><div class="strata-zone strata-zone--chg" style="top:62%;height:23%;" title="CHG・コティアス、約1万4000〜8000年前"></div></div>
+        </div>
+     
+        <div class="strata-connector" style="top:2%;background:var(--gold);"></div>
+        <div class="strata-connector" style="top:11%;background:var(--ink-mid);"></div>
+        <div class="strata-connector" style="top:21%;background:var(--cinnabar);"></div>
+        <div class="strata-connector" style="top:30%;background:var(--accent);"></div>
+        <div class="strata-connector" style="top:39%;background:var(--steppe);"></div>
+        <div class="strata-connector" style="top:48%;background:var(--sea);"></div>
+        <div class="strata-connector" style="top:59%;background:var(--stone);"></div>
+        <div class="strata-connector" style="top:69%;background:#5a7a5a;"></div>
+        <div class="strata-connector" style="top:75.9%;background:#9a8a6a;"></div>
+        <div class="strata-connector" style="top:83%;background:#7a6a4a;"></div>
+        <div class="strata-connector" style="top:95%;background:var(--ink);opacity:.4;"></div>
+     
         <div class="time-axis">
           <div class="time-marker time-today">現在</div>
           <div class="time-marker time-avar">西暦600〜900年</div>
@@ -414,103 +521,59 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
           <div class="time-marker time-iron">紀元前800〜100年</div>
           <div class="time-marker time-bronze">紀元前3000年頃</div>
           <div class="time-marker time-neolithic">紀元前7000年頃</div>
-          <div class="time-marker time-holocene">1万〜1万3000年前</div>
-          <div class="time-marker time-deep">4万〜5万年以上前</div>
+          <div class="time-marker time-WHG">1万5000〜5000年前</div>
+          <div class="time-marker time-EHG">1万2000〜7000年前</div>
+          <div class="time-marker time-GD">1万200〜9600年前</div>
+          <div class="time-marker time-CHG">1万4000〜8000年前</div>
+          <div class="time-marker time-deep">5万〜6万年以上前</div>
         </div>
-
+     
         <div class="population-bands">
-
-          <div class="population-band band-modern" style="--start: 2%; --width: 94%; --top: 2%;">
-            <div class="band-label">
-              <strong>東バルカン現代連続体</strong>
-              <span>ガガウズ人・ブルガリア人・ルーマニア人・エーゲ海寄りのギリシャ人への引力</span>
-            </div>
+          <div class="population-band band-modern" style="--start:5%;--width:98%;--top:2%;">
+            <div class="band-label"><strong>東バルカン現代連続体</strong><span>ガガウズ人・ブルガリア人・ルーマニア人・エーゲ海寄りのギリシャ人への引力</span><span class="band-epoch">集団の存在：西暦681年〜現在</span></div>
             <div class="band-distance">G25: 0.0161–0.0332</div>
           </div>
-
-          <div class="population-band band-medieval" style="--start: 14%; --width: 68%; --top: 11%;">
-            <div class="band-label">
-              <strong>中世ブルガリア</strong>
-              <span>9〜14世紀・バルカン基層＋スラブ的寄与</span>
-            </div>
+          <div class="population-band band-medieval" style="--start:14%;--width:86%;--top:11%;">
+            <div class="band-label"><strong>中世ブルガリア</strong><span>9〜14世紀・バルカン基層＋スラブ的寄与</span><span class="band-epoch">帝国期：西暦681〜1396年</span></div>
             <div class="band-distance">G25: 0.0267</div>
           </div>
-
-          <div class="population-band band-slavic" style="--start: 22%; --width: 55%; --top: 21%;">
-            <div class="band-label">
-              <strong>スラブ民族の移動／アヴァール可汗国</strong>
-              <span>567〜895年・パンノニア回廊・後期アヴァールは吸収されたが、初期・エリート層は吸収されず</span>
-            </div>
+          <div class="population-band band-slavic" style="--start:22%;--width:85%;--top:21%;">
+            <div class="band-label"><strong>スラブ民族の移動／アヴァール可汗国</strong><span>567〜895年・パンノニア回廊・後期アヴァールは吸収されたが、初期・エリート層は吸収されず</span><span class="band-epoch">可汗国の存続期間：567〜895年</span></div>
             <div class="band-distance">G25: 0.1225（後期）／0.2152（初期）</div>
           </div>
-
-          <div class="population-band band-thracian" style="--start: 8%; --width: 63%; --top: 30%;">
-            <div class="band-label">
-              <strong>鉄器時代ブルガリア・トラキア人</strong>
-              <span>パレオバルカン基層・中世プロフィールの直接の前身</span>
-            </div>
+          <div class="population-band band-thracian" style="--start:10%;--width:93%;--top:30%;">
+            <div class="band-label"><strong>鉄器時代ブルガリア・トラキア人</strong><span>パレオバルカン基層・中世プロフィールの直接の前身</span><span class="band-epoch">文化の存続期間：紀元前約1500年〜西暦46年</span></div>
             <div class="band-distance">G25: 0.0774–0.0854</div>
           </div>
-
-          <div class="population-band band-steppe" style="--start: 9%; --width: 57%; --top: 39%;">
-            <div class="band-label">
-              <strong>ヤムナヤ／ポントス草原層</strong>
-              <span>青銅器時代の草原参照集団</span>
-            </div>
+          <div class="population-band band-steppe" style="--start:18%;--width:83%;--top:39%;">
+            <div class="band-label"><strong>ヤムナヤ／ポントス草原層</strong><span>青銅器時代の草原参照集団</span><span class="band-epoch">文化の活動期：紀元前約3300〜2600年</span></div>
             <div class="band-distance">G25: 0.1841</div>
           </div>
-
-          <div class="population-band band-farmer" style="--start: 36%; --width: 49%; --top: 48%;">
-            <div class="band-label">
-              <strong>アナトリア新石器・バルチン</strong>
-              <span>紀元前6500年頃・アナトリアの初期農耕集団——二つの創設的な流れのうち、より近い方</span>
-            </div>
+          <div class="population-band band-farmer" style="--start:36%;--width:65%;--top:48%;">
+            <div class="band-label"><strong>アナトリア新石器・バルチン</strong><span>紀元前6500年頃・アナトリアの初期農耕集団——二つの創設的な流れのうち、より近い方</span><span class="band-epoch">農耕文化：紀元前約8300〜6000年</span></div>
             <div class="band-distance">G25: 0.1613</div>
           </div>
-
-          <div class="population-band band-whg-reference" style="--start: 17%; --width: 31%; --top: 59%;">
-            <div class="band-label">
-              <strong>WHG・ロシュブール</strong>
-              <span>中石器時代の西ヨーロッパ参照サンプル・IBDセグメント一致を2件確認</span>
-            </div>
+          <div class="population-band band-whg-reference" style="--start:17%;--width:85%;--top:59%;">
+            <div class="band-label"><strong>WHG・ロシュブール</strong><span>中石器時代の西ヨーロッパ参照サンプル・確認されたIBDセグメント一致2件</span><span class="band-epoch">ヨーロッパにおけるWHG：約1万5000〜5000年前</span></div>
             <div class="band-distance">G25: 0.4133</div>
           </div>
-
-          <div class="population-band band-ehg" style="--start: 34%; --width: 29%; --top: 69%;">
-            <div class="band-label">
-              <strong>EHG・カレリア</strong>
-              <span>紀元前7000年頃・東ヨーロッパの狩猟採集民</span>
-            </div>
+          <div class="population-band band-ehg" style="--start:34%;--width:68%;--top:69%;">
+            <div class="band-label"><strong>EHG・カレリア</strong><span>紀元前7000年頃・東ヨーロッパの狩猟採集民</span><span class="band-epoch">EHG系統：約1万2000〜7000年前</span></div>
             <div class="band-distance">G25: 0.2956</div>
           </div>
-
-          <div class="population-band band-chg" style="--start: 51%; --width: 32%; --top: 76%;">
-            <div class="band-label">
-              <strong>CHG・コティアス</strong>
-              <span>紀元前9000年頃・コーカサスの狩猟採集民・IBDセグメント一致を確認</span>
-            </div>
-            <div class="band-distance">G25: 0.2508</div>
-          </div>
-
-          <div class="population-band band-comparative" style="--start: 69%; --width: 25%; --top: 82%;">
-            <div class="band-label">
-              <strong>ガンジ・ダレ</strong>
-              <span>紀元前1万年頃・比較参照</span>
-            </div>
+          <div class="population-band band-comparative" style="--start:51%;--width:51%;--top:76%;">
+            <div class="band-label"><strong>ガンジ・ダレ</strong><span>紀元前1万年頃・比較参照</span><span class="band-epoch">遺跡の居住期間：紀元前約8200〜7600年</span></div>
             <div class="band-distance">G25: 0.2910</div>
           </div>
-
-          <div class="population-band band-deep" style="--start: 10%; --width: 94%; --top: 95%;">
-            <div class="band-label">
-              <strong>ネアンデルタール人との混血</strong>
-              <span>紀元前5万〜6万年・レバント／南西アジア・すべての非アフリカ系統に共有される</span>
-            </div>
-            <div class="band-distance">ゲノムの約1〜4%</div>
-            <div class="deep-note">
-              非アフリカ系集団全体に共通する普遍的なシグナルであり、このゲノムに特有の分析結果ではありません。このキットのIBDヒートマップでは、検査された5体のネアンデルタール人ゲノムのうち3体に対して孤立した単一セグメントの一致が見られ——ヴィンディヤ洞窟の標本に集中しています——一方、エル・シドロンとメズマイスカヤには一致がありません。WHG／CHGの行に見られる密で途切れのない一致とは異なり、この疎で散在するパターンは、強い祖先シグナルというより、緩い閾値での背景ノイズと一致します。
-            </div>
+          <div class="population-band band-chg" style="--start:69%;--width:33%;--top:83%;">
+            <div class="band-label"><strong>CHG・コティアス</strong><span>紀元前9000年頃・コーカサスの狩猟採集民・確認されたIBDセグメント一致</span><span class="band-epoch">CHG系統：約1万3000〜9000年前</span></div>
+            <div class="band-distance">G25: 0.2508</div>
           </div>
-
+          <div class="population-band band-deep" style="--start:10%;--width:94%;--top:95%;">
+            <div class="band-label"><strong>ネアンデルタール人との混血</strong><span>紀元前5万〜6万年・レバント／南西アジア・すべての非アフリカ系統に共有される</span><span class="band-epoch">混血イベントの時期：約5万〜6万年前</span></div>
+            <div class="band-distance">ゲノムの約1〜4%</div>
+            <div class="deep-note">非アフリカ系集団全体に共通する普遍的なシグナルであり、このゲノムに特有の分析結果ではありません。このキットのIBDヒートマップでは、検査された5体のネアンデルタール人ゲノムのうち3体に対して孤立した単一セグメントの一致が見られ——ヴィンディヤ洞窟の標本に集中しています——一方、エル・シドロンとメズマイスカヤには一致がありません。WHG／CHGの行に見られる密で途切れのない一致とは異なり、この疎で散在するパターンは、強い祖先シグナルというより、緩い閾値での背景ノイズと一致します。</div>
+          </div>
         </div>
       </div>
     </section>
