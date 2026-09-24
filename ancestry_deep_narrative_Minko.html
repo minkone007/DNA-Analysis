@@ -96,301 +96,53 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
 
-/* ═══════════════════════════════════════════════════════
-   GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD
-   ═══════════════════════════════════════════════════════ */
-
-.genetic-stratigraphy {
-  margin: 3.5rem 0 4.5rem;
-  padding: 2.5rem 0 3rem;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-}
-
-.strat-intro {
-  max-width: 720px;
-  margin: 0 auto 3rem;
-  text-align: center;
-}
-
-.strat-kicker {
-  display: block;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.35rem;
-}
-
-.strat-intro h2 {
-  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-  margin-bottom: 0.5rem;
-}
-
-.strat-intro p {
-  color: var(--ink-light);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-
-/* ─────────────────────────────────────────────────────
-   The Schematic : CHRONOLOGICAL FIELD
-   ───────────────────────────────────────────────────── */
-
-.stratigraphy-field {
-  position: relative;
-  max-width: 1050px;
-  margin: 0 auto;
-  padding-left: 105px;
-}
-
-.time-axis {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 105px;
-  pointer-events: none;
-}
-
-.time-marker {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  padding-right: 1rem;
-  transform: translateY(-50%);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--ink-light);
-
-  text-align: right;
-  white-space: nowrap;
-}
-
-.time-marker::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  width: 48px;
-  border-top: 1px dotted var(--era-line);
-}
-  
-.time-today     { top: 2%;  }
-.time-medieval  { top: 11%; }
-.time-avar      { top: 21%; }
-.time-iron      { top: 30%; }
-.time-bronze    { top: 39%; }
-.time-neolithic { top: 48%; }
-.time-holocene  { top: 65%; }
-.time-deep      { top: 95%; }
-/* ─────────────────────────────────────────────────────
-   FIELD
-   ───────────────────────────────────────────────────── */
-
-.population-bands {
-  position: relative;
-  height: 1300px;
-  background: transparent;
-  border-left: none;
-}
-
-
-/* ─────────────────────────────────────────────────────
-   POPULATION BANDS
-   ───────────────────────────────────────────────────── */
-
-.population-band {
-  position: absolute;
-
-  left: var(--start);
-  top: var(--top);
-  width: var(--width);
-
-  transform: translateY(-50%);
-
-  min-height: 40px;
-  padding: 0.45rem 0.7rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-
-  background: rgba(245,239,228,.82);
-
-  border: none;
-  border-left: 3px solid var(--ink-mid);
-  border-radius: 2px;
-  box-shadow: none;
-
-  z-index: 2;
-}
-
-.band-label {
-  min-width: 0;
-}
-
-.band-label strong {
-  display: block;
-  font-size: 0.84rem;
-  line-height: 1.2;
-  font-weight: 600;
-}
-
-.band-label span {
-  display: block;
-  margin-top: 0.12rem;
-
-  font-size: 0.66rem;
-  line-height: 1.25;
-
-  color: var(--ink-light);
-}
-
-.band-distance {
-  flex-shrink: 0;
-
-  font-family: 'Inter', sans-serif;
-  font-size: 0.63rem;
-
-  color: var(--ink-light);
-  white-space: nowrap;
-}
-
-
-/* ─────────────────────────────────────────────────────
-   BAND TYPES
-   ───────────────────────────────────────────────────── */
-
-  .band-slavic {
-  border-left-color: var(--cinnabar);
-}
-
-.band-thracian {
-  border-left-color: var(--accent);
-}
-  
-  .band-modern {
-  border-left-color: var(--gold);
-}
-
-.band-medieval {
-  border-left-color: var(--ink-mid);
-}
-
-.band-steppe {
-  border-left-color: var(--steppe);
-}
-
-.band-farmer,
-.band-neolithic {
-  border-left-color: var(--sea);
-}
-
-.band-whg,
-.band-whg-reference {
-  border-left-color: var(--stone);
-}
-
-.band-ehg {
-  border-left-color: #5a7a5a;
-}
-
-.band-chg {
-  border-left-color: #7a6a4a;
-}
-
-.band-comparative {
-  border-left-style: dashed;
-  border-left-color: #9a8a6a;
-}
-
-/* ─────────────────────────────────────────────────────
-   DEEP STRUCTURE
-   ───────────────────────────────────────────────────── */
-
-.band-deep {
-  min-height: 70px;
-
-  background: rgba(28,22,16,.035);
-
-  border: none;
-  border-left: 4px solid var(--ink);
-
-  box-shadow: none;
-}
-
-.deep-note {
-  max-width: 430px;
-  margin-left: auto;
-
-  font-size: 0.66rem;
-  line-height: 1.4;
-
-  color: var(--ink-light);
-  font-style: italic;
-}
-
-
-/* ─────────────────────────────────────────────────────
-   MOBILE
-   ───────────────────────────────────────────────────── */
-
-@media (max-width: 700px) {
-
-  .genetic-stratigraphy {
-    padding: 2rem 0 2.5rem;
-  }
-
-  .stratigraphy-field {
-    padding-left: 72px;
-  }
-
-  .time-axis {
-    width: 72px;
-  }
-
-  .time-marker {
-    font-size: 0.55rem;
-    padding-right: 0.65rem;
-  }
-
-  .time-marker::after {
-    width: 12px;
-  }
-
-  .population-bands {
-    height: 1900px;
-  }
-
-  .population-band {
-    min-height: 44px;
-    padding: 0.45rem 0.55rem;
-  }
-
-  .band-label strong {
-    font-size: 0.75rem;
-  }
-
-  .band-label span {
-    font-size: 0.60rem;
-  }
-
-  .band-distance {
-    font-size: 0.56rem;
-  }
-
-  .deep-note {
-    display: none;
-  }
-}
+/* ═══ GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD ═══ */
+.genetic-stratigraphy{margin:3.5rem 0 4.5rem;padding:2.5rem 0 3rem;background:transparent;border:none;border-radius:0}
+.strat-intro{max-width:720px;margin:0 auto 3rem;text-align:center}
+.strat-kicker{display:block;font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.strat-intro h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:.5rem}
+.strat-intro p{color:var(--ink-light);font-size:.95rem;line-height:1.6}
+.stratigraphy-field{position:relative;max-width:1050px;margin:0 auto;padding-left:105px}
+.time-axis{position:absolute;left:0;top:0;bottom:0;width:105px;pointer-events:none}
+.time-marker{position:absolute;left:35px;width:100%;padding-right:1rem;transform:translateY(-50%);font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.05em;color:var(--ink-light);text-align:right;white-space:nowrap}
+.time-marker::after{content:'';position:absolute;top:50%;left:100%;width:450%;border-top:1px dotted var(--era-line)}
+.time-today{top:2%}.time-medieval{top:11%}.time-avar{top:21%}.time-iron{top:30%}.time-bronze{top:39%}.time-neolithic{top:48%}
+.time-WHG{top:59%}.time-EHG{top:69%}.time-CHG{top:83%}.time-GD{top:76%}.time-deep{top:95%}
+.population-bands{position:relative;height:1300px;background:transparent;border-left:none}
+.population-band{position:absolute;left:var(--start);top:var(--top);width:var(--width);transform:translateY(-50%);min-height:40px;padding:.45rem .7rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(245,239,228,.82);border:none;border-left:3px solid var(--ink-mid);border-radius:2px;box-shadow:none;z-index:2}
+.band-label{min-width:0}
+.band-label strong{display:block;font-size:.84rem;line-height:1.2;font-weight:600}
+.band-label span{display:block;margin-top:.12rem;font-size:.66rem;line-height:1.25;color:var(--ink-light)}
+.band-distance{flex-shrink:0;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--ink-light);white-space:nowrap}
+.band-slavic{border-left-color:var(--cinnabar)}.band-thracian{border-left-color:var(--accent)}.band-modern{border-left-color:var(--gold)}
+.band-medieval{border-left-color:var(--ink-mid)}.band-steppe{border-left-color:var(--steppe)}
+.band-farmer,.band-neolithic{border-left-color:var(--sea)}
+.band-whg,.band-whg-reference{border-left-color:var(--stone)}
+.band-ehg{border-left-color:#5a7a5a}.band-chg{border-left-color:#7a6a4a}
+.band-comparative{border-left-style:dashed;border-left-color:#9a8a6a}
+.band-deep{min-height:70px;background:rgba(28,22,16,.035);border:none;border-left:4px solid var(--ink);box-shadow:none}
+.deep-note{max-width:430px;margin-left:auto;font-size:.66rem;line-height:1.4;color:var(--ink-light);font-style:italic}
+@media (max-width:700px){
+.genetic-stratigraphy{padding:2rem 0 2.5rem}.stratigraphy-field{padding-left:72px}.time-axis{width:72px}
+.time-marker{font-size:.55rem;padding-right:.65rem}.time-marker::after{width:12px}
+.population-bands{height:1900px}.population-band{min-height:44px;padding:.45rem .55rem}
+.band-label strong{font-size:.75rem}.band-label span{font-size:.60rem}.band-distance{font-size:.56rem}.deep-note{display:none}}
+ 
+/* ═══ CONTINUOUS OCCUPATION COLUMN ═══ */
+.stratigraphy-field{padding-left:125px}
+.time-axis{left:20px;width:105px}
+.strata-column{position:absolute;left:0;width:10px;top:0;bottom:0;border-radius:3px;overflow:hidden;opacity:.5;z-index:0}
+.strata-hg-block{position:absolute;left:10px;width:20px;top:0;bottom:0;z-index:1}
+.strata-hg-lane{position:absolute;top:0;bottom:0;width:5px;border-radius:2px;overflow:hidden;opacity:1}
+.strata-hg-lane--whg{left:0}.strata-hg-lane--chg{left:5px}.strata-hg-lane--ehg{left:10px}.strata-hg-lane--gd{left:15px}
+.strata-zone{position:absolute;left:0;width:100%}
+.strata-zone--modern{background:var(--gold)}.strata-zone--medieval{background:var(--ink-mid)}
+.strata-zone--slavic{background:var(--cinnabar)}.strata-zone--thracian{background:var(--accent)}
+.strata-zone--steppe{background:var(--steppe)}.strata-zone--farmer{background:var(--sea)}
+.strata-zone--whg{background:var(--stone)}.strata-zone--ehg{background:#5a7a5a}.strata-zone--chg{background:#7a6a4a}
+.strata-zone--comparative{background:#9a8a6a}.strata-zone--deep{background:var(--ink)}.strata-zone--neutral{background:#8a7a6570}
+.strata-connector{position:absolute;left:10px;width:45px;height:2px;opacity:1;z-index:0}
+@media (max-width:700px){.stratigraphy-field{padding-left:88px}.time-axis{left:0;width:72px}.strata-column,.strata-hg-block,.strata-connector{display:none}}
   
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
@@ -506,16 +258,38 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       <div class="strat-intro">
         <span class="strat-kicker">Chronological Map</span>
         <h2>Genetic Stratigraphy</h2>
-        <p>
-          Populations and ancient reference samples used to interpret the
-          genetic profile. The position of the bands shows the approximate
-          time horizon; their differing length serves to visually distinguish
-          population and reference fields, not to quantify duration.
-        </p>
+        <p>Populations and ancient reference samples used to interpret the genetic profile. The solid column on the left is the excavation itself, top (today) to bottom (deepest past), with one colored zone per layer in the order this report presents them; a connector line reaches from each zone to its card so the two always read as a pair. The zone boundaries mark this report's narrative sequence, not literal start/end dates — each card's own approximate date range is given in its text. Where several populations genuinely overlap in time — WHG, EHG, CHG, and Ganj Dareh — the main column shows that stretch as one neutral band, and their true, overlapping extents are shown instead in four 5px lanes inside one 20px block alongside it, ordered left to right by start date (oldest first) and sized to true duration — Ganj Dareh's lane is barely visible because it really is just a single, brief site occupation next to WHG's ten-thousand-year span. The four axis labels for this stretch stay spread out for legibility rather than sitting at each population's literal position, since their true midpoints cluster too closely to read as separate lines of text.</p>
       </div>
-    
       <div class="stratigraphy-field">
-    
+        <div class="strata-column">
+          <div class="strata-zone strata-zone--modern"      style="top:0.0%;height:6.5%;"  title="Eastern Balkan Modern Continuum"></div>
+          <div class="strata-zone strata-zone--medieval"    style="top:6.5%;height:9.5%;"  title="Medieval Bulgaria"></div>
+          <div class="strata-zone strata-zone--slavic"      style="top:16.0%;height:9.5%;" title="Slavic Migration / Avar Khaganate"></div>
+          <div class="strata-zone strata-zone--thracian"    style="top:25.5%;height:9.0%;" title="Iron Age Bulgaria · Thracians"></div>
+          <div class="strata-zone strata-zone--steppe"      style="top:34.5%;height:9.0%;" title="Yamnaya / Pontic Steppe Horizon"></div>
+          <div class="strata-zone strata-zone--farmer"      style="top:43.5%;height:10.0%;" title="Anatolian Neolithic · Barcin"></div>
+          <div class="strata-zone strata-zone--neutral"     style="top:53.5%;height:35.0%;" title="Hunter-gatherer / comparative deep strata — see WHG, EHG, CHG, and Ganj Dareh sub-columns"></div>
+          <div class="strata-zone strata-zone--deep"        style="top:88.5%;height:11.5%;" title="Neanderthal Admixture"></div>
+        </div>
+        <div class="strata-hg-block">
+          <div class="strata-hg-lane strata-hg-lane--whg"><div class="strata-zone strata-zone--whg" style="top:53.52%;height:35.25%;" title="WHG · Loschbour, ~15,000–5,000 ya"></div></div>
+          <div class="strata-hg-lane strata-hg-lane--ehg"><div class="strata-zone strata-zone--ehg" style="top:60%;height:21%;" title="EHG · Karelia, ~12,000–7,000 ya"></div></div>
+          <div class="strata-hg-lane strata-hg-lane--gd"><div class="strata-zone strata-zone--comparative" style="top:74.5%;height:3%;" title="Ganj Dareh, ~10,200–9,600 ya"></div></div>
+          <div class="strata-hg-lane strata-hg-lane--chg"><div class="strata-zone strata-zone--chg" style="top:62%;height:23%;" title="CHG · Kotias, ~14,000–8,000 ya"></div></div>
+        </div>
+     
+        <div class="strata-connector" style="top:2%;background:var(--gold);"></div>
+        <div class="strata-connector" style="top:11%;background:var(--ink-mid);"></div>
+        <div class="strata-connector" style="top:21%;background:var(--cinnabar);"></div>
+        <div class="strata-connector" style="top:30%;background:var(--accent);"></div>
+        <div class="strata-connector" style="top:39%;background:var(--steppe);"></div>
+        <div class="strata-connector" style="top:48%;background:var(--sea);"></div>
+        <div class="strata-connector" style="top:59%;background:var(--stone);"></div>
+        <div class="strata-connector" style="top:69%;background:#5a7a5a;"></div>
+        <div class="strata-connector" style="top:75.9%;background:#9a8a6a;"></div>
+        <div class="strata-connector" style="top:83%;background:#7a6a4a;"></div>
+        <div class="strata-connector" style="top:95%;background:var(--ink);opacity:.4;"></div>
+     
         <div class="time-axis">
           <div class="time-marker time-today">TODAY</div>
           <div class="time-marker time-avar">~600–900 AD</div>
@@ -523,109 +297,59 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           <div class="time-marker time-iron">~800–100 BC</div>
           <div class="time-marker time-bronze">~3000 BC</div>
           <div class="time-marker time-neolithic">~7000 BC</div>
-          <div class="time-marker time-holocene">~10–13k ya</div>
+          <div class="time-marker time-WHG">~15k–5k ya</div>
+          <div class="time-marker time-EHG">~12k–7k ya</div>
+          <div class="time-marker time-GD">~10.2k–9.6k ya</div>
+          <div class="time-marker time-CHG">~14k–8k ya</div>
           <div class="time-marker time-deep">~50–60k+ ya</div>
         </div>
-    
+     
         <div class="population-bands">
-    
-          <div class="population-band band-modern" style="--start: 2%; --width: 94%; --top: 2%;">
-            <div class="band-label">
-              <strong>Eastern Balkan Modern Continuum</strong>
-              <span>Romanians · Bulgarians · Gagauz · other Balkan populations</span>
-            </div>
-            <div class="band-distance">G25: 0.018–0.024</div>
+          <div class="population-band band-modern" style="--start:5%;--width:98%;--top:2%;">
+            <div class="band-label"><strong>Eastern Balkan Modern Continuum</strong><span>Romanians · Bulgarians · Gagauz · other Balkan populations</span><span class="band-epoch">Population present: ~681 AD – today</span></div>
+            <div class="band-distance">G25: 0.018–0.042</div>
           </div>
-    
-          <div class="population-band band-medieval" style="--start: 14%; --width: 68%; --top: 11%;">
-            <div class="band-label">
-              <strong>Medieval Bulgaria</strong>
-              <span>9th–14th c. · Balkan substrate + Slavic contribution</span>
-            </div>
+          <div class="population-band band-medieval" style="--start:14%;--width:86%;--top:11%;">
+            <div class="band-label"><strong>Medieval Bulgaria</strong><span>9th–14th c. · Balkan substrate + Slavic contribution</span><span class="band-epoch">Empire period: ~681–1396 AD</span></div>
             <div class="band-distance">G25: 0.034</div>
           </div>
-    
-          <div class="population-band band-slavic" style="--start: 22%; --width: 55%; --top: 21%;">
-            <div class="band-label">
-              <strong>Slavic Migration / Avar Khaganate</strong>
-              <span>567–895 AD · Pannonian corridor · late Avars absorbed, early/elite caste — not</span>
-            </div>
+          <div class="population-band band-slavic" style="--start:22%;--width:85%;--top:21%;">
+            <div class="band-label"><strong>Slavic Migration / Avar Khaganate</strong><span>567–895 AD · Pannonian corridor · late Avars absorbed, early/elite caste not</span><span class="band-epoch">Khaganate active: 567–895 AD</span></div>
             <div class="band-distance">G25: 0.122 (late) / 0.214 (early)</div>
           </div>
-    
-          <div class="population-band band-thracian" style="--start: 8%; --width: 63%; --top: 30%;">
-            <div class="band-label">
-              <strong>Iron Age Bulgaria · Thracians</strong>
-              <span>Paleo-Balkan substrate · direct predecessor of the medieval profile</span>
-            </div>
+          <div class="population-band band-thracian" style="--start:10%;--width:93%;--top:30%;">
+            <div class="band-label"><strong>Iron Age Bulgaria · Thracians</strong><span>Paleo-Balkan substrate · direct predecessor of the medieval profile</span><span class="band-epoch">Culture present: ~1500 BC – 46 AD</span></div>
             <div class="band-distance">G25: 0.088–0.096</div>
           </div>
-    
-          <div class="population-band band-steppe" style="--start: 9%; --width: 57%; --top: 39%;">
-            <div class="band-label">
-              <strong>Yamnaya / Pontic Steppe Horizon</strong>
-              <span>Bronze Age steppe reference population</span>
-            </div>
-            <div class="band-distance">G25: ~0.171</div>
+          <div class="population-band band-steppe" style="--start:18%;--width:83%;--top:39%;">
+            <div class="band-label"><strong>Yamnaya / Pontic Steppe Horizon</strong><span>Bronze Age steppe reference population</span><span class="band-epoch">Culture active: ~3300–2600 BC</span></div>
+            <div class="band-distance">G25: 0.176</div>
           </div>
-    
-          <div class="population-band band-farmer" style="--start: 36%; --width: 49%; --top: 48%;">
-            <div class="band-label">
-              <strong>Anatolian Neolithic · Barcin</strong>
-              <span>~6500 BC · early farming populations from Anatolia</span>
-            </div>
-            <div class="band-distance">G25: ~0.173</div>
+          <div class="population-band band-farmer" style="--start:36%;--width:65%;--top:48%;">
+            <div class="band-label"><strong>Anatolian Neolithic · Barcin</strong><span>~6500 BC · early farming populations from Anatolia — essentially tied with the steppe stream</span><span class="band-epoch">Farming culture: ~8300–6000 BC</span></div>
+            <div class="band-distance">G25: 0.171</div>
           </div>
-    
-          <div class="population-band band-whg-reference" style="--start: 17%; --width: 31%; --top: 59%;">
-            <div class="band-label">
-              <strong>WHG · Loschbour</strong>
-              <span>~7000 BC · Mesolithic Western European hunter-gatherers</span>
-            </div>
-            <div class="band-distance">G25: ~0.406</div>
+          <div class="population-band band-whg-reference" style="--start:17%;--width:85%;--top:59%;">
+            <div class="band-label"><strong>WHG · Loschbour</strong><span>~7000 BC · Mesolithic Western European hunter-gatherers</span><span class="band-epoch">WHG present in Europe: ~15,000–5,000 ya</span></div>
+            <div class="band-distance">G25: 0.407</div>
           </div>
-    
-          <div class="population-band band-ehg" style="--start: 34%; --width: 29%; --top: 69%;">
-            <div class="band-label">
-              <strong>EHG · Karelia</strong>
-              <span>~7000 BC · Eastern European hunter-gatherers</span>
-            </div>
-            <div class="band-distance">G25: ~0.285</div>
+          <div class="population-band band-ehg" style="--start:34%;--width:68%;--top:69%;">
+            <div class="band-label"><strong>EHG · Karelia</strong><span>~7000 BC · Eastern European hunter-gatherers</span><span class="band-epoch">EHG lineage: ~12,000–7,000 ya</span></div>
+            <div class="band-distance">G25: 0.286</div>
           </div>
-    
-          <div class="population-band band-chg" style="--start: 51%; --width: 32%; --top: 76%;">
-            <div class="band-label">
-              <strong>CHG · Kotias</strong>
-              <span>~9000 BC · Caucasus hunter-gatherers</span>
-            </div>
-            <div class="band-distance">G25: ~0.249</div>
+          <div class="population-band band-comparative" style="--start:51%;--width:51%;--top:76%;">
+            <div class="band-label"><strong>Ganj Dareh</strong><span>~10,000 BC · comparative reference</span><span class="band-epoch">Site occupation: ~8200–7600 BC</span></div>
+            <div class="band-distance">G25: 0.294</div>
           </div>
-    
-          <div class="population-band band-comparative" style="--start: 69%; --width: 25%; --top: 82%;">
-            <div class="band-label">
-              <strong>Ganj Dareh</strong>
-              <span>~10,000 BC · comparative reference</span>
-            </div>
-            <div class="band-distance">G25: ~0.292</div>
+          <div class="population-band band-chg" style="--start:69%;--width:33%;--top:83%;">
+            <div class="band-label"><strong>CHG · Kotias</strong><span>~9000 BC · Caucasus hunter-gatherers</span><span class="band-epoch">CHG lineage: ~13,000–9,000 ya</span></div>
+            <div class="band-distance">G25: 0.253</div>
           </div>
-    
-          <div class="population-band band-deep" style="--start: 10%; --width: 94%; --top: 95%;">
-            <div class="band-label">
-              <strong>Neanderthal Admixture</strong>
-              <span>~50,000–60,000 BC · Levant / Southwest Asia · shared by all non-African lineages</span>
-            </div>
+          <div class="population-band band-deep" style="--start:10%;--width:94%;--top:95%;">
+            <div class="band-label"><strong>Neanderthal Admixture</strong><span>~50,000–60,000 BC · Levant / Southwest Asia · shared by all non-African lineages</span><span class="band-epoch">Admixture event window: ~50,000–60,000 ya</span></div>
             <div class="band-distance">~1–4% of genome</div>
-            <div class="deep-note">
-              Universal signal across non-African populations, not an analysis
-              specific to this genome — no segment-level testing has been run
-              here to localize specific introgressed regions. The match to the
-              Vindija (Croatia) genome reflects that reference sample's quality,
-              not the location of interbreeding. Anything older than this
-              horizon (&gt;60,000 years) predates the archaic reference samples
-              available and is not represented here with specific values.
-            </div>
+            <div class="deep-note">Universal signal across non-African populations, not an analysis specific to this genome — no segment-level testing has been run here to localize specific introgressed regions. The match to the Vindija (Croatia) genome reflects that reference sample's quality, not the location of interbreeding. Anything older than this horizon (&gt;60,000 years) predates the archaic reference samples available and is not represented here with specific values.</div>
           </div>
-    
         </div>
       </div>
     </section>
