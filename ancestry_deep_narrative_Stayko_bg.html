@@ -154,7 +154,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .time-marker {
   position: absolute;
-  left: 0;
+  left: 35px;
   width: 100%;
   padding-right: 1rem;
   transform: translateY(-50%);
@@ -163,7 +163,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   font-weight: 600;
   letter-spacing: 0.05em;
   color: var(--ink-light);
-
   text-align: right;
   white-space: nowrap;
 }
@@ -173,22 +172,22 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   position: absolute;
   top: 50%;
   left: 100%;
-  width: 48px;
+  width: 450%;
   border-top: 1px dotted var(--era-line);
 }
-  
+
 .time-today     { top: 2%;  }
 .time-medieval  { top: 11%; }
 .time-avar      { top: 21%; }
 .time-iron      { top: 30%; }
 .time-bronze    { top: 39%; }
 .time-neolithic { top: 48%; }
-.time-holocene  { top: 65%; }
+.time-WHG       { top: 59%; }
+.time-EHG       { top: 69%; }
+.time-CHG       { top: 83%; }
+.time-GD        { top: 76%; }
 .time-deep      { top: 95%; }
-/* ─────────────────────────────────────────────────────
-   FIELD
-   ───────────────────────────────────────────────────── */
-
+  
 .population-bands {
   position: relative;
   height: 1300px;
@@ -196,41 +195,27 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   border-left: none;
 }
 
-
-/* ─────────────────────────────────────────────────────
-   POPULATION BANDS
-   ───────────────────────────────────────────────────── */
-
 .population-band {
   position: absolute;
-
   left: var(--start);
   top: var(--top);
   width: var(--width);
-
   transform: translateY(-50%);
-
   min-height: 40px;
   padding: 0.45rem 0.7rem;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-
   background: rgba(245,239,228,.82);
-
   border: none;
   border-left: 3px solid var(--ink-mid);
   border-radius: 2px;
   box-shadow: none;
-
   z-index: 2;
 }
 
-.band-label {
-  min-width: 0;
-}
+.band-label { min-width: 0; }
 
 .band-label strong {
   display: block;
@@ -242,150 +227,141 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .band-label span {
   display: block;
   margin-top: 0.12rem;
-
   font-size: 0.66rem;
   line-height: 1.25;
-
   color: var(--ink-light);
 }
 
 .band-distance {
   flex-shrink: 0;
-
   font-family: 'Inter', sans-serif;
   font-size: 0.63rem;
-
   color: var(--ink-light);
   white-space: nowrap;
 }
 
-
-/* ─────────────────────────────────────────────────────
-   BAND TYPES
-   ───────────────────────────────────────────────────── */
-
-  .band-slavic {
-  border-left-color: var(--cinnabar);
-}
-
-.band-thracian {
-  border-left-color: var(--accent);
-}
-  
-  .band-modern {
-  border-left-color: var(--gold);
-}
-
-.band-medieval {
-  border-left-color: var(--ink-mid);
-}
-
-.band-steppe {
-  border-left-color: var(--steppe);
-}
-
-.band-farmer,
-.band-neolithic {
-  border-left-color: var(--sea);
-}
-
-.band-whg,
-.band-whg-reference {
-  border-left-color: var(--stone);
-}
-
-.band-ehg {
-  border-left-color: #5a7a5a;
-}
-
-.band-chg {
-  border-left-color: #7a6a4a;
-}
-
-.band-comparative {
-  border-left-style: dashed;
-  border-left-color: #9a8a6a;
-}
-
-
-/* ─────────────────────────────────────────────────────
-   DEEP STRUCTURE
-   ───────────────────────────────────────────────────── */
+.band-slavic { border-left-color: var(--cinnabar); }
+.band-thracian { border-left-color: var(--accent); }
+.band-modern { border-left-color: var(--gold); }
+.band-medieval { border-left-color: var(--ink-mid); }
+.band-steppe { border-left-color: var(--steppe); }
+.band-farmer, .band-neolithic { border-left-color: var(--sea); }
+.band-whg, .band-whg-reference { border-left-color: var(--stone); }
+.band-ehg { border-left-color: #5a7a5a; }
+.band-chg { border-left-color: #7a6a4a; }
+.band-comparative { border-left-style: dashed; border-left-color: #9a8a6a; }
 
 .band-deep {
   min-height: 70px;
-
   background: rgba(28,22,16,.035);
-
   border: none;
   border-left: 4px solid var(--ink);
-
   box-shadow: none;
 }
 
 .deep-note {
   max-width: 430px;
   margin-left: auto;
-
   font-size: 0.66rem;
   line-height: 1.4;
-
   color: var(--ink-light);
   font-style: italic;
 }
 
+@media (max-width: 700px) {
+  .genetic-stratigraphy { padding: 2rem 0 2.5rem; }
+  .stratigraphy-field { padding-left: 72px; }
+  .time-axis { width: 72px; }
+  .time-marker { font-size: 0.55rem; padding-right: 0.65rem; }
+  .time-marker::after { width: 12px; }
+  .population-bands { height: 1900px; }
+  .population-band { min-height: 44px; padding: 0.45rem 0.55rem; }
+  .band-label strong { font-size: 0.75rem; }
+  .band-label span { font-size: 0.60rem; }
+  .band-distance { font-size: 0.56rem; }
+  .deep-note { display: none; }
+}
 
-/* ─────────────────────────────────────────────────────
-   MOBILE
-   ───────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — CONTINUOUS OCCUPATION COLUMN
+   One unbroken column in a dedicated gutter to the LEFT of the
+   time-axis labels — kept away from the cards' own left-border
+   colors so the two coloring systems never compete. The column
+   is partitioned with no gaps: each population gets the zone
+   between the midpoints to its neighbours above and below. A
+   colored connector line reaches from each zone across to its
+   row, so the mapping to a specific card is unambiguous.
+   ═══════════════════════════════════════════════════════ */
+
+.stratigraphy-field { padding-left: 125px; }
+.time-axis { left: 20px; width: 105px; }
+
+.strata-column {
+  position: absolute;
+  left: 0;
+  width: 10px;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  opacity: .5;
+  z-index: 0;
+}
+
+.strata-hg-block {
+  position: absolute;
+  left: 10px;
+  width: 20px;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.strata-hg-lane {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 1;
+}
+.strata-hg-lane--whg { left: 0px; }
+.strata-hg-lane--chg { left: 5px; }
+.strata-hg-lane--ehg { left: 10px; }
+.strata-hg-lane--gd  { left: 15px; }
+  
+.strata-zone {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.strata-zone--modern      { background: var(--gold); }
+.strata-zone--medieval    { background: var(--ink-mid); }
+.strata-zone--slavic      { background: var(--cinnabar); }
+.strata-zone--thracian    { background: var(--accent); }
+.strata-zone--steppe      { background: var(--steppe); }
+.strata-zone--farmer      { background: var(--sea); }
+.strata-zone--whg         { background: var(--stone); }
+.strata-zone--ehg         { background: #5a7a5a; }
+.strata-zone--chg         { background: #7a6a4a; }
+.strata-zone--comparative { background: #9a8a6a; }
+.strata-zone--deep        { background: var(--ink); }
+.strata-zone--neutral     { background: #8a7a6570; }
+
+.strata-connector {
+  position: absolute;
+  left: 10px;
+  width: 45px;
+  height: 2px;
+  opacity: 1;
+  z-index: 0;
+}
 
 @media (max-width: 700px) {
-
-  .genetic-stratigraphy {
-    padding: 2rem 0 2.5rem;
-  }
-
-  .stratigraphy-field {
-    padding-left: 72px;
-  }
-
-  .time-axis {
-    width: 72px;
-  }
-
-  .time-marker {
-    font-size: 0.55rem;
-    padding-right: 0.65rem;
-  }
-
-  .time-marker::after {
-    width: 12px;
-  }
-
-  .population-bands {
-    height: 1900px;
-  }
-
-  .population-band {
-    min-height: 44px;
-    padding: 0.45rem 0.55rem;
-  }
-
-  .band-label strong {
-    font-size: 0.75rem;
-  }
-
-  .band-label span {
-    font-size: 0.60rem;
-  }
-
-  .band-distance {
-    font-size: 0.56rem;
-  }
-
-  .deep-note {
-    display: none;
-  }
+  .stratigraphy-field { padding-left: 88px; }
+  .time-axis { left: 0; width: 72px; }
+  .strata-column, .strata-hg-block, .strata-connector { display: none; }
 }
   
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
@@ -499,130 +475,210 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="plain-box">
       <span class="plain-label">С прости думи</span>
       Накратко: източнобалкански геном с доловим <mark>наклон към Егейско море и Южен Кавказ</mark>, изграден от класическата европейска смес от анадолски фермери, по-малък принос на западни ловци-събирачи и кавказки-натежала степна родственост, оформен по-късно от славянските миграции, породили средновековната българска популация.
-    </div>
-    <!-- ══ GENETIC STRATIGRAPHY ═ -->
-    <section class="genetic-stratigraphy">
-      <div class="strat-intro">
-        <span class="strat-kicker">Хронологична карта</span>
-        <h2>Генетична стратиграфия</h2>
-        <p>
-          Популации и древни референтни проби, използвани за интерпретация
-          на генетичния профил. Позицията на лентите показва приблизителния
-          времеви хоризонт; различната им дължина служи за визуално
-          разграничаване на популационните и референтните полета,
-          а не за количествена оценка на продължителността.
-        </p>
-      </div>
-    
-      <div class="stratigraphy-field">
-    
-        <div class="time-axis">
-          <div class="time-marker time-today">ДНЕС</div>
-          <div class="time-marker time-avar">~600–900 г.</div>
-          <div class="time-marker time-medieval">~1200 г.</div>
-          <div class="time-marker time-iron">~800–100 г. пр.н.е.</div>
-          <div class="time-marker time-bronze">~3000 г. пр.н.е.</div>
-          <div class="time-marker time-neolithic">~7000 г. пр.н.е.</div>
-          <div class="time-marker time-holocene">~10–13 хил. г.</div>
-          <div class="time-marker time-deep">~50–60+ хил. г.</div>
         </div>
-    
-        <div class="population-bands">
-    
-          <div class="population-band band-modern" style="--start: 2%; --width: 94%; --top: 2%;">
-            <div class="band-label">
-              <strong>Източнобалкански съвременен континуум</strong>
-              <span>Гагаузи · Българи · Румънци · вторично притегляне към Гърция</span>
-            </div>
-            <div class="band-distance">G25: 0.0161–0.0332</div>
+        <!-- ══ ГЕНЕТИЧНА СТРАТИГРАФИЯ ══ -->
+          <!-- Замества старата секция „Хронологична карта / Генетична стратиграфия" в
+               ancestry_deep_narrative_Stayko_bg.html (веднага след .plain-box на Резюмето).
+               CSS-ът е същият като в английската страница — не се превежда. -->
+        <section class="genetic-stratigraphy">
+          <div class="strat-intro">
+            <span class="strat-kicker">Хронологична карта</span>
+            <h2>Генетична стратиграфия</h2>
+            <p>
+              Популации и древни референтни проби, използвани за интерпретация
+              на генетичния профил. Плътната колона отляво е самата разкопка,
+              отгоре (днес) надолу (най-дълбокото минало), с по една цветна зона
+              за всеки слой в реда, в който този доклад ги представя; свързваща
+              линия стига от всяка зона до нейната карта, така че двете винаги се
+              четат като двойка. Границите на зоните отбелязват разказваната в
+              доклада последователност, а не буквални начални и крайни дати —
+              приблизителният времеви диапазон на всяка карта е даден в нейния
+              собствен текст. Там, където няколко популации реално се припокриват
+              във времето — ЗЛС, ИЛС, КЛС и Гандж Даре — основната колона показва
+              този отрязък като една неутрална лента, а истинските им, припокриващи
+              се обхвати са показани вместо това в четири ленти от по 5 px в един
+              блок от 20 px до нея, подредени отляво надясно по начална дата
+              (най-старата първа) и с размер според истинската продължителност —
+              лентата на Гандж Даре едва се забелязва, защото наистина е само едно
+              кратко обитаване на обект в сравнение с десетхилядолетния обхват на
+              ЗЛС. Четирите надписа по оста за този отрязък са разпръснати за
+              четливост, вместо да стоят на буквалната позиция на всяка популация,
+              тъй като истинските им средни точки са прекалено близо, за да се
+              четат като отделни редове текст.
+            </p>
           </div>
-    
-          <div class="population-band band-medieval" style="--start: 14%; --width: 68%; --top: 11%;">
-            <div class="band-label">
-              <strong>Средновековна България</strong>
-              <span>IX–XIV в. · балкански субстрат + славянски принос</span>
+     
+          <div class="stratigraphy-field">
+     
+                <div class="strata-column">
+                  <div class="strata-zone strata-zone--modern"      style="top: 0.0%;  height: 6.5%;"  title="Източнобалкански съвременен континуум"></div>
+                  <div class="strata-zone strata-zone--medieval"    style="top: 6.5%;  height: 9.5%;"  title="Средновековна България"></div>
+                  <div class="strata-zone strata-zone--slavic"      style="top: 16.0%; height: 9.5%;"  title="Славянска миграция / Аварски хаганат"></div>
+                  <div class="strata-zone strata-zone--thracian"    style="top: 25.5%; height: 9.0%;"  title="Желязна епоха България · Траки"></div>
+                  <div class="strata-zone strata-zone--steppe"      style="top: 34.5%; height: 9.0%;"  title="Ямна / понтийско-степен хоризонт"></div>
+                  <div class="strata-zone strata-zone--farmer"      style="top: 43.5%; height: 10.0%;" title="Анадолски неолит · Барджън"></div>
+                  <div class="strata-zone strata-zone--neutral"     style="top: 53.5%; height: 35.0%;" title="Ловци-събирачи / сравнителни дълбоки пластове — вж. подколоните за ЗЛС, ИЛС, КЛС и Гандж Даре"></div>
+                  <div class="strata-zone strata-zone--deep"        style="top: 88.5%; height: 11.5%;" title="Неандерталска примес"></div>
+                </div>
+                <div class="strata-hg-block">
+                  <div class="strata-hg-lane strata-hg-lane--whg">
+                    <div class="strata-zone strata-zone--whg"         style="top: 53.52%; height: 35.25%;" title="ЗЛС · Лошбур, ~15 000–5 000 г. преди днес"></div>
+                  </div>
+                  <div class="strata-hg-lane strata-hg-lane--ehg">
+                    <div class="strata-zone strata-zone--ehg"         style="top: 60%; height: 21%;"  title="ИЛС · Карелия, ~12 000–7 000 г. преди днес"></div>
+                  </div>
+                  <div class="strata-hg-lane strata-hg-lane--gd">
+                    <div class="strata-zone strata-zone--comparative" style="top: 74.5%; height: 3%;"  title="Гандж Даре, ~10 200–9 600 г. преди днес"></div>
+                  </div>
+                  <div class="strata-hg-lane strata-hg-lane--chg">
+                    <div class="strata-zone strata-zone--chg"         style="top: 62%; height: 23%;"  title="КЛС · Котиас, ~14 000–8 000 г. преди днес"></div>
+                  </div>
+                </div>
+     
+                <div class="strata-connector" style="top: 2%;  background: var(--gold);"></div>
+                <div class="strata-connector" style="top: 11%; background: var(--ink-mid);"></div>
+                <div class="strata-connector" style="top: 21%; background: var(--cinnabar);"></div>
+                <div class="strata-connector" style="top: 30%; background: var(--accent);"></div>
+                <div class="strata-connector" style="top: 39%; background: var(--steppe);"></div>
+                <div class="strata-connector" style="top: 48%; background: var(--sea);"></div>
+                <div class="strata-connector" style="top: 59%; background: var(--stone);"></div>
+                <div class="strata-connector" style="top: 69%; background: #5a7a5a;"></div>
+                <div class="strata-connector" style="top: 75.9%; background: #9a8a6a;"></div>
+                <div class="strata-connector" style="top: 83%; background: #7a6a4a;"></div>
+                <div class="strata-connector" style="top: 95%; background: var(--ink); opacity: .4;"></div>
+     
+                <div class="time-axis">
+                  <div class="time-marker time-today">ДНЕС</div>
+                  <div class="time-marker time-avar">~600–900 г.</div>
+                  <div class="time-marker time-medieval">~1200 г.</div>
+                  <div class="time-marker time-iron">~800–100 г. пр.н.е.</div>
+                  <div class="time-marker time-bronze">~3000 г. пр.н.е.</div>
+                  <div class="time-marker time-neolithic">~7000 г. пр.н.е.</div>
+                  <div class="time-marker time-WHG">~15–5 хил. г.</div>
+                  <div class="time-marker time-EHG">~12–7 хил. г.</div>
+                  <div class="time-marker time-GD">~10,2–9,6 хил. г.</div>
+                  <div class="time-marker time-CHG">~14–8 хил. г.</div>
+                  <div class="time-marker time-deep">~50–60+ хил. г.</div>
+                </div>
+     
+                <div class="population-bands">
+     
+              <!-- СЪВРЕМЕНЕН БАЛКАНСКИ КОНТИНУУМ -->
+              <div class="population-band band-modern" style="--start: 5%; --width: 98%; --top: 2%;">
+                <div class="band-label">
+                  <strong>Източнобалкански съвременен континуум</strong>
+                  <span>Гагаузи · Българи · Румънци · притегляне към Егейска Гърция</span>
+                  <span class="band-epoch">Популацията присъства: ~681 г. – днес</span>
+                </div>
+                <div class="band-distance">G25: 0.0161–0.0332</div>
+              </div>
+     
+              <!-- СРЕДНОВЕКОВНА БЪЛГАРИЯ -->
+              <div class="population-band band-medieval" style="--start: 14%; --width: 86%; --top: 11%;">
+                <div class="band-label">
+                  <strong>Средновековна България</strong>
+                  <span>IX–XIV в. · балкански субстрат + славянски принос</span>
+                  <span class="band-epoch">Период на империята: ~681–1396 г.</span>
+                </div>
+                <div class="band-distance">G25: 0.0267</div>
+              </div>
+     
+              <!-- АВАРСКИ / СЛАВЯНСКИ МИГРАЦИОНЕН СЛОЙ -->
+              <div class="population-band band-slavic" style="--start: 22%; --width: 85%; --top: 21%;">
+                <div class="band-label">
+                  <strong>Славянска миграция / Аварски хаганат</strong>
+                  <span>567–895 г. · Панонски коридор · късните авари погълнати, ранната/елитна класа — не</span>
+                  <span class="band-epoch">Хаганатът е действал: 567–895 г.</span>
+                </div>
+                <div class="band-distance">G25: 0.1225 (късни) / 0.2152 (ранни)</div>
+              </div>
+     
+              <!-- ТРАКИ / ЖЕЛЯЗНА ЕПОХА — ПАЛЕОБАЛКАНСКИ СУБСТРАТ -->
+              <div class="population-band band-thracian" style="--start: 10%; --width: 93%; --top: 30%;">
+                <div class="band-label">
+                  <strong>Желязна епоха България · Траки</strong>
+                  <span>Палеобалкански субстрат · пряк предшественик на средновековния профил</span>
+                  <span class="band-epoch">Културата присъства: ~1500 г. пр.н.е. – 46 г. сл.н.е.</span>
+                </div>
+                <div class="band-distance">G25: 0.0774–0.0854</div>
+              </div>
+     
+              <!-- ЯМНА / СТЕП -->
+              <div class="population-band band-steppe" style="--start: 18%; --width: 83%; --top: 39%;">
+                <div class="band-label">
+                  <strong>Ямна / понтийско-степен хоризонт</strong>
+                  <span>Степна референтна популация от бронзовата епоха</span>
+                  <span class="band-epoch">Културата е активна: ~3300–2600 г. пр.н.е.</span>
+                </div>
+                <div class="band-distance">G25: 0.1841</div>
+              </div>
+     
+              <!-- АНАДОЛСКИ ФЕРМЕРИ -->
+              <div class="population-band band-farmer" style="--start: 36%; --width: 65%; --top: 48%;">
+                <div class="band-label">
+                  <strong>Анадолски неолит · Барджън</strong>
+                  <span>~6500 г. пр.н.е. · ранни земеделски популации от Анадола — по-близкият от двата основополагащи потока</span>
+                  <span class="band-epoch">Земеделска култура: ~8300–6000 г. пр.н.е.</span>
+                </div>
+                <div class="band-distance">G25: 0.1613</div>
+              </div>
+     
+              <!-- ЗЛС · ЛОШБУР -->
+              <div class="population-band band-whg-reference" style="--start: 17%; --width: 85%; --top: 59%;">
+                <div class="band-label">
+                  <strong>ЗЛС · Лошбур</strong>
+                  <span>Мезолитна западноевропейска референтна проба · два потвърдени IBD сегмента</span>
+                  <span class="band-epoch">ЗЛС в Европа: ~15 000–5 000 г. преди днес</span>
+                </div>
+                <div class="band-distance">G25: 0.4133</div>
+              </div>
+     
+              <!-- ИЛС · КАРЕЛИЯ -->
+              <div class="population-band band-ehg" style="--start: 34%; --width: 68%; --top: 69%;">
+                <div class="band-label">
+                  <strong>ИЛС · Карелия</strong>
+                  <span>~7000 г. пр.н.е. · източноевропейски ловци-събирачи</span>
+                  <span class="band-epoch">ИЛС линия: ~12 000–7 000 г. преди днес</span>
+                </div>
+                <div class="band-distance">G25: 0.2956</div>
+              </div>
+     
+             <!-- ГАНДЖ ДАРЕ -->
+              <div class="population-band band-comparative" style="--start: 51%; --width: 51%; --top: 76%;">
+                <div class="band-label">
+                  <strong>Гандж Даре</strong>
+                  <span>~10 000 г. пр.н.е. · сравнителна референция</span>
+                  <span class="band-epoch">Обитаване на обекта: ~8200–7600 г. пр.н.е.</span>
+                </div>
+                <div class="band-distance">G25: 0.2910</div>
+              </div>
+     
+             <!-- КЛС · КОТИАС -->
+              <div class="population-band band-chg" style="--start: 69%; --width: 33%; --top: 83%;">
+                <div class="band-label">
+                  <strong>КЛС · Котиас</strong>
+                  <span>~9000 г. пр.н.е. · кавказки ловци-събирачи · потвърден IBD сегмент</span>
+                  <span class="band-epoch">КЛС линия: ~13 000–9 000 г. преди днес</span>
+                </div>
+                <div class="band-distance">G25: 0.2508</div>
+              </div>
+     
+            <!-- ДЪЛБОКА ПОПУЛАЦИОННА СТРУКТУРА -->
+              <div class="population-band band-deep" style="--start: 10%; --width: 94%; --top: 95%;">
+                <div class="band-label">
+                  <strong>Неандерталска примес</strong>
+                  <span>~50 000–60 000 г. пр.н.е. · Левант / Югозападна Азия · споделена от всички неафрикански линии</span>
+                  <span class="band-epoch">Прозорец на примеса: ~50 000–60 000 г. преди днес</span>
+                </div>
+                <div class="band-distance">~1–4% от генома</div>
+                <div class="deep-note">
+                   Универсален сигнал при неафриканските популации, а не анализ, специфичен за този геном. Топлинната карта на IBD сегменти за този кит показва изолирани единични сегментни съвпадения спрямо три от петте тествани неандерталски генома — концентрирани върху пробите от пещерата Виндия — докато Ел Сидрон и Мезмайская не показват нито едно. Разпръснатият и оскъден модел (а не плътното, почти непрекъснато съвпадение, наблюдавано при редовете за ЗЛС/КЛС) е съвместим с фонов шум при разхлабен праг, а не със силен родов сигнал.
+                </div>
+              </div>
+     
             </div>
-            <div class="band-distance">G25: 0.0267</div>
           </div>
-    
-          <div class="population-band band-slavic" style="--start: 22%; --width: 55%; --top: 21%;">
-            <div class="band-label">
-              <strong>Славянска миграция / Аварски хаганат</strong>
-              <span>567–895 г. · Панонски коридор · късните авари погълнати, ранната/елитна класа — не</span>
-            </div>
-            <div class="band-distance">G25: 0.1225 (късни) / 0.2152 (ранни)</div>
-          </div>
-    
-          <div class="population-band band-thracian" style="--start: 8%; --width: 63%; --top: 30%;">
-            <div class="band-label">
-              <strong>Желязна епоха България · Траки</strong>
-              <span>Палеобалкански субстрат · пряк предшественик на средновековния профил</span>
-            </div>
-            <div class="band-distance">G25: 0.0774–0.0854</div>
-          </div>
-    
-          <div class="population-band band-steppe" style="--start: 9%; --width: 57%; --top: 39%;">
-            <div class="band-label">
-              <strong>Ямна / понтийско-степен хоризонт</strong>
-              <span>Степна референтна популация от бронзовата епоха</span>
-            </div>
-            <div class="band-distance">G25: 0.1841</div>
-          </div>
-    
-          <div class="population-band band-farmer" style="--start: 36%; --width: 49%; --top: 48%;">
-            <div class="band-label">
-              <strong>Анадолски неолит · Барджън</strong>
-              <span>~6500 г. пр.н.е. · по-близкият от двата основополагащи потока</span>
-            </div>
-            <div class="band-distance">G25: 0.1613</div>
-          </div>
-    
-          <div class="population-band band-whg-reference" style="--start: 17%; --width: 31%; --top: 59%;">
-            <div class="band-label">
-              <strong>ЗЛС · Лошбур</strong>
-              <span>~7 хил. г. пр.н.е. · западноевропейски ловци-събирачи · два потвърдени IBD сегмента</span>
-            </div>
-            <div class="band-distance">G25: 0.4133</div>
-          </div>
-    
-          <div class="population-band band-ehg" style="--start: 34%; --width: 29%; --top: 69%;">
-            <div class="band-label">
-              <strong>ИЛС · Карелия</strong>
-              <span>~7000 г. пр.н.е. · източноевропейски ловци-събирачи</span>
-            </div>
-            <div class="band-distance">G25: 0.2956</div>
-          </div>
-    
-          <div class="population-band band-chg" style="--start: 51%; --width: 32%; --top: 76%;">
-            <div class="band-label">
-              <strong>КЛС · Котиас</strong>
-              <span>~9000 г. пр.н.е. · кавказки ловци-събирачи · потвърден IBD сегмент</span>
-            </div>
-            <div class="band-distance">G25: 0.2508</div>
-          </div>
-    
-          <div class="population-band band-comparative" style="--start: 69%; --width: 25%; --top: 82%;">
-            <div class="band-label">
-              <strong>Гандж Даре</strong>
-              <span>~10 000 г. пр.н.е. · сравнителна референция</span>
-            </div>
-            <div class="band-distance">G25: 0.2910</div>
-          </div>
-    
-          <div class="population-band band-deep" style="--start: 10%; --width: 94%; --top: 95%;">
-            <div class="band-label">
-              <strong>Неандерталска примес</strong>
-              <span>~50 000–60 000 г. пр.н.е. · Югозападна Азия · споделена от всички неафрикански линии</span>
-            </div>
-            <div class="band-distance">~1–4% от генома</div>
-            <div class="deep-note">
-              Универсален сигнал при неафриканските популации, а не анализ, специфичен за този геном. Топлинната карта на IBD сегменти за този кит показва изолирани единични сегментни съвпадения спрямо три от петте тествани неандерталски генома — концентрирани върху пробите от пещерата Виндия — докато Ел Сидрон и Мезмайская не показват нито едно. Разпръснатият модел е по-съвместим с качеството на референтния геном на Виндия, отколкото с измерим родов сигнал сам по себе си; неандерталската родственост в цялост се измерва в мащаба на целия геном чрез SNP-базирани методи, а не чрез съвпадение на сегменти спрямо отделен архаичен геном. Всичко по-старо от този хоризонт (&gt;60 000 години) предхожда наличните архаични референтни проби и не е представено тук с конкретни стойности.
-            </div>
-          </div>
-    
-        </div>
-      </div>
-    </section>
+        </section>
   </div>
 </div>  
 
