@@ -113,109 +113,631 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
 
 
-/* ═══ GENETIC STRATIGRAPHY — DUAL LINEAGE (paternal | time axis | maternal) ═══ */
-.genetic-stratigraphy{margin:3.5rem 0 4.5rem;padding:2.5rem 0 3rem;background:transparent;border:none}
-.strat-intro{max-width:720px;margin:0 auto 2.5rem;text-align:center}
-.strat-kicker{display:block;font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
-.strat-intro h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:.5rem}
-.strat-intro p{color:var(--ink-light);font-size:.95rem;line-height:1.6}
-.dual-heads,.dual-field{--axis-half:60px;max-width:1100px;margin:0 auto;position:relative}
-.dual-heads{display:grid;grid-template-columns:1fr calc(var(--axis-half)*2) 1fr;align-items:end;margin-bottom:1rem}
-.dual-head strong{display:block;font-size:.9rem;letter-spacing:.04em}
-.dual-head span{display:block;font-size:1rem;color:var(--ink-light);margin-top:.15rem}
-.dual-head--paternal{text-align:right;padding-right:1rem}.dual-head--maternal{text-align:left;padding-left:1rem}
-.dual-head--time{text-align:center;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light)}
-.dual-field{height:1900px}
-/* ═══ INDEPENDENT DUAL-LINE TIMELINE MARKERS ═══ */
+/* ═══════════════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — DUAL LINEAGE
+   Paternal | Time Axis | Maternal
+   ═══════════════════════════════════════════════════════════════ */
+
+.genetic-stratigraphy {
+    margin: 3.5rem 0 4.5rem;
+    padding: 2.5rem 0 3rem;
+    background: transparent;
+    border: none;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   INTRO
+   ─────────────────────────────────────────────────────────────── */
+
+.strat-intro {
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.strat-kicker {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .35rem;
+}
+
+.strat-intro h2 {
+    font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+    margin-bottom: .5rem;
+}
+
+.strat-intro p {
+    color: var(--ink-light);
+    font-size: .95rem;
+    line-height: 1.6;
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   SHARED MAP CONTAINER
+   ─────────────────────────────────────────────────────────────── */
+
+.dual-heads,
+.dual-field {
+    --axis-half: 60px;
+
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   COLUMN HEADERS
+   ─────────────────────────────────────────────────────────────── */
+
+.dual-heads {
+    display: grid;
+    grid-template-columns: 1fr calc(var(--axis-half) * 2) 1fr;
+    align-items: end;
+    margin-bottom: 1rem;
+}
+
+.dual-head strong {
+    display: block;
+    font-size: .9rem;
+    letter-spacing: .04em;
+}
+
+.dual-head span {
+    display: block;
+    font-size: 1rem;
+    color: var(--ink-light);
+    margin-top: .15rem;
+}
+
+.dual-head--paternal {
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.dual-head--maternal {
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.dual-head--time {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   MAIN STRATIGRAPHY FIELD
+   ─────────────────────────────────────────────────────────────── */
+
+.dual-field {
+    height: 1900px;
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   TIMELINE MARKERS
+   Each marker can have:
+     --left-top   paternal position
+     --right-top  maternal position
+     --time-top   central time-label position
+   ─────────────────────────────────────────────────────────────── */
 
 .dual-marker {
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    z-index:0;
-    pointer-events:none;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* Paternal / LEFT connector */
-.dual-marker::before {
-    content:'';
-    position:absolute;
-    top:var(--left-top);
-    right:calc(50% + var(--axis-half));
-    width:200px;
-    border-top:1px dotted var(--era-line);
+/* Paternal / left dotted connector */
+.dual-marker .marker-left {
+    position: absolute;
+    top: var(--left-top);
+    right: calc(50% + var(--axis-half));
+    width: 200px;
+    border-top: 1px dotted var(--era-line);
 }
 
-/* Maternal / RIGHT connector */
-.dual-marker::after {
-    content:'';
-    position:absolute;
-    top:var(--right-top);
-    left:calc(50% + var(--axis-half));
-    width:200px;
-    border-top:1px dotted var(--era-line);
+/* Maternal / right dotted connector */
+.dual-marker .marker-right {
+    position: absolute;
+    top: var(--right-top);
+    left: calc(50% + var(--axis-half));
+    width: 200px;
+    border-top: 1px dotted var(--era-line);
 }
 
 /* Central time label */
-.dual-marker span {
-    position:absolute;
-    top:var(--time-top, var(--left-top));
-    left:50%;
-    transform:translate(-50%, -50%);
-    width:calc(var(--axis-half) * 2);
-    text-align:center;
-    font-family:'Inter', sans-serif;
-    font-size:.65rem;
-    font-weight:600;
-    letter-spacing:.05em;
-    color:var(--ink-light);
-    white-space:nowrap;
+.dual-marker .marker-time {
+    position: absolute;
+    top: var(--time-top, var(--left-top));
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: calc(var(--axis-half) * 2);
+
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    color: var(--ink-light);
+    white-space: nowrap;
 }
-.dual-col--p{left:0}.dual-col--m{right:0}
-.dual-rail{position:absolute;top:0;bottom:0;width:var(--rail-w);z-index:3;border-radius:3px;overflow:hidden}
-.dual-col{--rail-w:10px}
-.dual-col--p .dual-rail{right:0}.dual-col--m .dual-rail{left:0}
-.strata-zone{position:absolute;left:0;width:100%;background: #8a8a7a30;box-shadow:inset 0 1px 0 rgba(245,239,228,.75)}
-.strata-zone--modern{background:var(--gold)}.strata-zone--medieval{background:var(--ink-mid)}
-.strata-zone--slavic{background:var(--cinnabar)}.strata-zone--thracian{background:var(--accent)}
-.strata-zone--steppe{background:var(--steppe)}.strata-zone--farmer{background:var(--sea)}
-.strata-zone--whg{background:var(--stone)}.strata-zone--ehg{background:#5a7a5a}.strata-zone--chg{background:#7a6a4a}.strata-zone--comparative{background:#9a8a6a}
-.strata-zone--deep{background:var(--ink)}.strata-zone--deep2{background:#4a3d31}
-.strata-tick{position:absolute;left:-4px;width:calc(var(--rail-w) + 8px);height:2px;background:var(--ink-light);opacity:.9;z-index:2}
-.dual-col{--rail-w:10px;--hg-w:0px}
-.dual-hg-block{position:absolute;top:0;bottom:0;z-index:2}
-.dual-col--p .dual-hg-block{right:var(--rail-w)}
-.dual-col--m .dual-hg-block{left:var(--rail-w)}
-.dual-hg-lane{position:absolute;top:0;bottom:0;width:5px;border-radius:2px;overflow:hidden}
-.dual-hg-lane--0{left:0}.dual-hg-lane--1{left:5px}.dual-hg-lane--2{left:10px}
- 
-.dual-card{--bc:var(--ink-mid);--bw:3px;--bs:solid;position:absolute;transform:translateY(-50%);width:calc(100% - var(--rail-w) - var(--hg-w) - 28px);min-height:40px;padding:.45rem .7rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem 1rem;background:rgba(245,239,228,.82);border:none;border-radius:2px;z-index:2}
-.dual-col--p .dual-card{right:calc(var(--rail-w) + var(--hg-w) + 28px);border-left:var(--bw) var(--bs) var(--bc)}
-.dual-col--m .dual-card{left:calc(var(--rail-w) + var(--hg-w) + 28px);border-right:var(--bw) var(--bs) var(--bc)}
-.band-label{min-width:0}
-.band-label strong{display:block;font-size:1rem;line-height:1.2;font-weight:600}
-.band-label span{display:block;margin-top:.12rem;font-size:.8rem;line-height:1.25;color:var(--ink-light)}
-.band-distance{flex-shrink:0;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--ink-light);white-space:nowrap}
-.deep-note{flex-basis:100%;font-size:.66rem;line-height:1.4;color:var(--ink-light);font-style:italic}
-.band-slavic{--bc:var(--cinnabar)}.band-thracian{--bc:var(--accent)}.band-modern{--bc:var(--gold)}
-.band-medieval{--bc:var(--ink-mid)}.band-steppe{--bc:var(--steppe)}.band-farmer{--bc:var(--sea)}
-.band-whg-reference,.band-whg{--bc:var(--stone)}.band-ehg{--bc:#5a7a5a}.band-chg{--bc:#7a6a4a}.band-comparative{--bc:#9a8a6a;--bs:dashed}
-.band-deep{--bc:var(--ink);--bw:4px;background:rgba(28,22,16,.035)}
-.dual-shared{border-left:4px solid var(--ink);position:absolute;left:0;right:0;transform:translateY(-50%);z-index:1;display:grid;grid-template-columns:1fr calc(var(--axis-half)*2 + 30px) 1fr;align-items:center;min-height:70px;padding:.45rem .7rem;border-radius:2px}
-.dual-shared .deep-note{flex-basis:auto}
-@media (max-width:700px){
-.dual-heads,.dual-field{--axis-half:30px}
-.dual-field{height:3200px}
-.dual-marker span{font-size:.5rem;white-space:normal;line-height:1.1}
-.dual-rail,.dual-hg-block{display:none}
-.dual-card{--rail-w:0px}
-.dual-card{width:100%;flex-direction:column;align-items:flex-start;padding:.4rem .45rem}
-.dual-col--p .dual-card{right:0}.dual-col--m .dual-card{left:0}
-.band-label strong{font-size:.72rem}.band-label span{font-size:.58rem}.band-distance{font-size:.55rem;white-space:normal}
-.dual-shared{grid-template-columns:1fr;text-align:center}.dual-shared-gap,.dual-shared .deep-note,.deep-note{display:none}
-.dual-head span{display:none}}
+
+
+/* ───────────────────────────────────────────────────────────────
+   LINEAGE COLUMNS
+   ─────────────────────────────────────────────────────────────── */
+
+.dual-col {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    width: calc(50% - var(--axis-half));
+
+    --rail-w: 10px;
+    --hg-w: 0px;
+
+    z-index: 1;
+}
+
+.dual-col--p {
+    left: 0;
+}
+
+.dual-col--m {
+    right: 0;
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   STRATIGRAPHIC RAILS
+   ─────────────────────────────────────────────────────────────── */
+
+.dual-rail {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    width: var(--rail-w);
+
+    z-index: 3;
+
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.dual-col--p .dual-rail {
+    right: 0;
+}
+
+.dual-col--m .dual-rail {
+    left: 0;
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   STRATIGRAPHIC BANDS
+   ─────────────────────────────────────────────────────────────── */
+
+.strata-zone {
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    box-shadow:
+        inset 0 1px 0 rgba(245, 239, 228, .75);
+}
+
+/* Population / period colors */
+.strata-zone--modern {
+    background: var(--gold);
+}
+
+.strata-zone--medieval {
+    background: var(--ink-mid);
+}
+
+.strata-zone--slavic {
+    background: var(--cinnabar);
+}
+
+.strata-zone--thracian {
+    background: var(--accent);
+}
+
+.strata-zone--steppe {
+    background: var(--steppe);
+}
+
+.strata-zone--farmer {
+    background: var(--sea);
+}
+
+.strata-zone--whg {
+    background: var(--stone);
+}
+
+.strata-zone--ehg {
+    background: #5a7a5a;
+}
+
+.strata-zone--chg {
+    background: #7a6a4a;
+}
+
+.strata-zone--comparative {
+    background: #9a8a6a;
+}
+
+.strata-zone--deep {
+    background: var(--ink);
+}
+
+.strata-zone--deep2 {
+    background: #4a3d31;
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   COMPARATIVE REFERENCE TICKS
+   ─────────────────────────────────────────────────────────────── */
+
+.strata-tick {
+    position: absolute;
+    left: -4px;
+
+    width: calc(var(--rail-w) + 8px);
+    height: 2px;
+
+    background: var(--ink-light);
+    opacity: .9;
+
+    z-index: 2;
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   HUNTER-GATHERER SUB-LANES
+   ─────────────────────────────────────────────────────────────── */
+
+.dual-hg-block {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    z-index: 2;
+}
+
+.dual-col--p .dual-hg-block {
+    right: var(--rail-w);
+}
+
+.dual-col--m .dual-hg-block {
+    left: var(--rail-w);
+}
+
+.dual-hg-lane {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    width: 5px;
+
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.dual-hg-lane--0 {
+    left: 0;
+}
+
+.dual-hg-lane--1 {
+    left: 5px;
+}
+
+.dual-hg-lane--2 {
+    left: 10px;
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   ANCESTRY CARDS
+   ─────────────────────────────────────────────────────────────── */
+
+.dual-card {
+    --bc: var(--ink-mid);
+    --bw: 3px;
+    --bs: solid;
+
+    position: absolute;
+
+    transform: translateY(-50%);
+
+    width: calc(
+        100% -
+        var(--rail-w) -
+        var(--hg-w) -
+        28px
+    );
+
+    min-height: 40px;
+
+    padding: .45rem .7rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: .3rem 1rem;
+
+    background: rgba(245, 239, 228, .82);
+
+    border: none;
+    border-radius: 2px;
+
+    z-index: 2;
+}
+
+.dual-col--p .dual-card {
+    right: calc(
+        var(--rail-w) +
+        var(--hg-w) +
+        28px
+    );
+
+    border-left:
+        var(--bw)
+        var(--bs)
+        var(--bc);
+}
+
+.dual-col--m .dual-card {
+    left: calc(
+        var(--rail-w) +
+        var(--hg-w) +
+        28px
+    );
+
+    border-right:
+        var(--bw)
+        var(--bs)
+        var(--bc);
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   CARD CONTENT
+   ─────────────────────────────────────────────────────────────── */
+
+.band-label {
+    min-width: 0;
+}
+
+.band-label strong {
+    display: block;
+
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.band-label span {
+    display: block;
+
+    margin-top: .12rem;
+
+    font-size: .8rem;
+    line-height: 1.25;
+
+    color: var(--ink-light);
+}
+
+.band-distance {
+    flex-shrink: 0;
+
+    font-family: 'Inter', sans-serif;
+    font-size: .63rem;
+
+    color: var(--ink-light);
+
+    white-space: nowrap;
+}
+
+.deep-note {
+    flex-basis: 100%;
+
+    font-size: .66rem;
+    line-height: 1.4;
+
+    color: var(--ink-light);
+
+    font-style: italic;
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   CARD TYPES
+   ─────────────────────────────────────────────────────────────── */
+
+.band-slavic {
+    --bc: var(--cinnabar);
+}
+
+.band-thracian {
+    --bc: var(--accent);
+}
+
+.band-modern {
+    --bc: var(--gold);
+}
+
+.band-medieval {
+    --bc: var(--ink-mid);
+}
+
+.band-steppe {
+    --bc: var(--steppe);
+}
+
+.band-farmer {
+    --bc: var(--sea);
+}
+
+.band-whg-reference,
+.band-whg {
+    --bc: var(--stone);
+}
+
+.band-ehg {
+    --bc: #5a7a5a;
+}
+
+.band-chg {
+    --bc: #7a6a4a;
+}
+
+.band-comparative {
+    --bc: #9a8a6a;
+    --bs: dashed;
+}
+
+.band-deep {
+    --bc: var(--ink);
+    --bw: 4px;
+
+    background: rgba(28, 22, 16, .035);
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   SHARED / BOTH-LINEAGES BAND
+   ─────────────────────────────────────────────────────────────── */
+
+.dual-shared {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-50%);
+
+    z-index: 1;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        calc(var(--axis-half) * 2 + 30px)
+        1fr;
+
+    align-items: center;
+
+    min-height: 70px;
+
+    padding: .45rem .7rem;
+
+    border-left: 4px solid var(--ink);
+
+    border-radius: 2px;
+}
+
+.dual-shared .deep-note {
+    flex-basis: auto;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 700px) {
+
+    .dual-heads,
+    .dual-field {
+        --axis-half: 30px;
+    }
+
+    .dual-field {
+        height: 3200px;
+    }
+
+    /* Timeline labels */
+    .dual-marker .marker-time {
+        font-size: .5rem;
+        white-space: normal;
+        line-height: 1.1;
+    }
+
+    /* Hide narrow rails on mobile */
+    .dual-rail,
+    .dual-hg-block {
+        display: none;
+    }
+
+    /* Cards become full width */
+    .dual-card {
+        --rail-w: 0px;
+
+        width: 100%;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: .4rem .45rem;
+    }
+
+    .dual-col--p .dual-card {
+        right: 0;
+    }
+
+    .dual-col--m .dual-card {
+        left: 0;
+    }
+
+    .band-label strong {
+        font-size: .72rem;
+    }
+
+    .band-label span {
+        font-size: .58rem;
+    }
+
+    .band-distance {
+        font-size: .55rem;
+        white-space: normal;
+    }
+
+    /* Shared bands */
+    .dual-shared {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .dual-shared-gap,
+    .dual-shared .deep-note,
+    .deep-note {
+        display: none;
+    }
+
+    .dual-head span {
+        display: none;
+    }
+}
   
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
@@ -367,47 +889,58 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    </span>
   </div>
  </div>
- <div class="dual-field">
+  <div class="dual-field">
+
     <div class="dual-marker"
-     style="--left-top:3%; --right-top:7%; --time-top:5%;">
-    <span>TODAY</span>
+         style="--left-top:3%; --right-top:7%; --time-top:5%;">
+        <div class="marker-left"></div>
+        <div class="marker-right"></div>
+        <span class="marker-time">TODAY</span>
     </div>
     
     <div class="dual-marker"
          style="--left-top:14%; --right-top:13%; --time-top:13.5%;">
-        <span>~600–900 AD</span>
+        <div class="marker-left"></div>
+        <div class="marker-right"></div>
+        <span class="marker-time">~600–900 AD</span>
     </div>
     
     <div class="dual-marker"
          style="--left-top:24%; --right-top:26%; --time-top:25%;">
-        <span>~800–100 BC</span>
+        <div class="marker-left"></div>
+        <div class="marker-right"></div>
+        <span class="marker-time">~800–100 BC</span>
     </div>
     
     <div class="dual-marker"
-     style="--left-top:34%; --right-top:40%; --time-top:34%;">
-        <span>~3000 BC</span>
-    </div>
-    
-    <div class="dual-marker"
-         style="--left-top:34%; --right-top:40%; --time-top:40%;">
-        <span>~5000 BC</span>
+         style="--left-top:34%; --right-top:40%; --time-top:37%;">
+        <div class="marker-left"></div>
+        <div class="marker-right"></div>
+        <span class="marker-time">~3000–5000 BC</span>
     </div>
     
     <div class="dual-marker"
          style="--left-top:43%; --right-top:43%; --time-top:43%;">
-        <span>~7000 BC</span>
+        <div class="marker-left"></div>
+        <div class="marker-right"></div>
+        <span class="marker-time">~7000 BC</span>
     </div>
     
     <div class="dual-marker"
          style="--left-top:54%; --right-top:54%; --time-top:54%;">
-        <span>~10–30k ya</span>
+        <div class="marker-left"></div>
+        <div class="marker-right"></div>
+        <span class="marker-time">~10–30k ya</span>
     </div>
     
     <div class="dual-marker"
          style="--left-top:94%; --right-top:94%; --time-top:94%;">
-        <span>~60–70k ya</span>
+        <div class="marker-left"></div>
+        <div class="marker-right"></div>
+        <span class="marker-time">~60–70k ya</span>
     </div>
-    </div>
+        
+  </div>
   <div class="dual-shared band-deep" style="top:88.00%;">
    <div class="band-label">
     <strong>
