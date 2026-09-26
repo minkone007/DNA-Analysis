@@ -130,9 +130,22 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dual-marker::before{content:'';position:absolute;top:50%;right:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
 .dual-marker::after{content:'';position:absolute;top:50%;left:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
 
-.dual-marker-left::before{content:'';position:absolute;top:50%;right:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
-.dual-marker-right::after{content:'';position:absolute;top:50%;right:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
+.dual-marker {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
 
+.marker-left {
+    position: absolute;
+    top: var(--left-top);
+}
+
+.marker-right {
+    position: absolute;
+    top: var(--right-top);
+}
+  
 .dual-marker span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:calc(var(--axis-half)*2);text-align:center;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.05em;color:var(--ink-light);white-space:nowrap}
 .dual-col{position:absolute;top:0;bottom:0;width:calc(50% - var(--axis-half))}
 .dual-col--p{left:0}.dual-col--m{right:0}
@@ -330,30 +343,33 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   </div>
  </div>
  <div class="dual-field">
-  <div class="dual-marker-left" style="top:3.00%;">
+  <div class="dual-marker" style="--left-top: 3%; --right-top: 7%;">
    <span>
     TODAY
-   </span>
-
-<div class="dual-field">
-  <div class="dual-marker-right" style="top:7.00%;">
-    
-  </div></div>
-  <div class="dual-marker" style="top:14.04%;">
+   </span>    
+  </div>
+   <div class="dual-marker" style="--left-top: 14%; --right-top: 13%;">
    <span>
     ~600–900 AD
    </span>
   </div>
-  <div class="dual-marker" style="top:21.24%;">
+   <div class="dual-marker" style="--left-top: 24%; --right-top: 26%;">
    <span>
     ~800–100 BC
    </span>
   </div>
-  <div class="dual-marker" style="top:32.00%;">
+   <div class="dual-marker" style="--left-top: 34%;">
    <span>
     ~3000 BC
    </span>
   </div>
+  
+ <div class="dual-marker" style="--left-top: 34%; --right-top: 40%;">
+   <span>
+    ~5000 BC
+   </span>
+  </div>
+   
   <div class="dual-marker" style="top:43.00%;">
    <span>
     ~7000 BC
@@ -399,8 +415,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
     <div class="strata-zone strata-zone--farmer" style="top:38.50%;height:13.50%;" title="Anatolian Neolithic · Boncuklu / Barcin · Farming culture: ~8300–6000 BC">
     </div>
-    <div class="strata-zone strata-zone--neutral" style="top:52.00%;height:22.50%;" title="Hunter-gatherer overlap — see CHG/EHG/WHG lanes">
-    </div>
+    
     <div class="strata-zone strata-zone--deep" style="top:74.50%;height:25.50%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
     </div>
     <div class="strata-tick" style="top:79.00%;" title="Ganj Dareh · comparative reference, not a layer this lineage passed through">
@@ -420,7 +435,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      </div>
     </div>
    </div>
-   <div class="dual-card band-modern" style="top:7.00%;">
+   <div class="dual-card band-modern" style="top:3.00%;">
     <div class="band-label">
      <strong>
       Bulgarian · Paternal Anchor
@@ -584,11 +599,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    </div>
    <div class="dual-hg-block" style="width:5px;">
     <div class="dual-hg-lane dual-hg-lane--0">
-     <div class="strata-zone strata-zone--whg" style="top:41.50%;height:32.50%;" title="WHG">
+     <div class="strata-zone strata-zone--whg" style="top:34%;height:11%;" title="Han Henan">
      </div>
     </div>
    </div>
-   <div class="dual-card band-modern" style="top:3.00%;">
+   <div class="dual-card band-modern" style="top:7.00%;">
     <div class="band-label">
      <strong>
       East Asian Modern Continuum
@@ -604,23 +619,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.356–0.487
     </div>
    </div>
-   <div class="dual-card band-medieval band-comparative" style="top:14.00%;">
-    <div class="band-label">
-     <strong>
-      Mongolia Arkhangai · Early Medieval
-     </strong>
-     <span>
-      Closest ancient match overall · a West–East midpoint, not Mongolian ancestry
-     </span>
-     <span class="band-epoch">
-      Site/era: ~600–900 AD
-     </span>
-    </div>
-    <div class="band-distance">
-     G25: 0.094
-    </div>
-   </div>
-   <div class="dual-card band-farmer" style="top:23.00%;">
+   
+   <div class="dual-card band-farmer" style="top:10.00%;">
     <div class="band-label">
      <strong>
       Yayoi Continental Layer · Korea Changhang
