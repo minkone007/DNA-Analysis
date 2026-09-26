@@ -129,6 +129,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dual-marker{position:absolute;left:0;right:0;transform:translateY(-50%);z-index:0;pointer-events:none}
 .dual-marker::before{content:'';position:absolute;top:50%;right:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
 .dual-marker::after{content:'';position:absolute;top:50%;left:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
+
+.dual-marker-left::before{content:'';position:absolute;top:50%;right:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
+.dual-marker-right::after{content:'';position:absolute;top:50%;right:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
+
 .dual-marker span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:calc(var(--axis-half)*2);text-align:center;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.05em;color:var(--ink-light);white-space:nowrap}
 .dual-col{position:absolute;top:0;bottom:0;width:calc(50% - var(--axis-half))}
 .dual-col--p{left:0}.dual-col--m{right:0}
@@ -326,7 +330,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   </div>
  </div>
  <div class="dual-field">
-  <div class="dual-marker" style="top:3.00%;">
+  <div class="dual-marker-left" style="top:3.00%;"><div class="dual-marker-right" style="top:7.00%;">
    <span>
     TODAY
    </span>
@@ -412,7 +416,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      </div>
     </div>
    </div>
-   <div class="dual-card band-modern" style="top:3.00%;">
+   <div class="dual-card band-modern" style="top:7.00%;">
     <div class="band-label">
      <strong>
       Bulgarian · Paternal Anchor
