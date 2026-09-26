@@ -112,6 +112,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
 
+
 /* ═══ GENETIC STRATIGRAPHY — DUAL LINEAGE (paternal | time axis | maternal) ═══ */
 .genetic-stratigraphy{margin:3.5rem 0 4.5rem;padding:2.5rem 0 3rem;background:transparent;border:none}
 .strat-intro{max-width:720px;margin:0 auto 2.5rem;text-align:center}
@@ -148,8 +149,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dual-hg-lane{position:absolute;top:0;bottom:0;width:5px;border-radius:2px;overflow:hidden}
 .dual-hg-lane--0{left:0}.dual-hg-lane--1{left:5px}.dual-hg-lane--2{left:10px}
  
-.dual-conn{position:absolute;width:28px;height:0;border-top:1px dotted var(--era-line);transform:translateY(-50%);z-index:1}
-.dual-col--p .dual-conn{right:calc(var(--rail-w) + var(--hg-w))}.dual-col--m .dual-conn{left:calc(var(--rail-w) + var(--hg-w))}
 .dual-card{--bc:var(--ink-mid);--bw:3px;--bs:solid;position:absolute;transform:translateY(-50%);width:calc(100% - var(--rail-w) - var(--hg-w) - 28px);min-height:40px;padding:.45rem .7rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem 1rem;background:rgba(245,239,228,.82);border:none;border-radius:2px;z-index:2}
 .dual-col--p .dual-card{right:calc(var(--rail-w) + var(--hg-w) + 28px);border-left:var(--bw) var(--bs) var(--bc)}
 .dual-col--m .dual-card{left:calc(var(--rail-w) + var(--hg-w) + 28px);border-right:var(--bw) var(--bs) var(--bc)}
@@ -168,7 +167,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dual-heads,.dual-field{--axis-half:30px}
 .dual-field{height:3200px}
 .dual-marker span{font-size:.5rem;white-space:normal;line-height:1.1}
-.dual-rail,.dual-conn,.dual-hg-block{display:none}
+.dual-rail,.dual-hg-block{display:none}
 .dual-card{--rail-w:0px}
 .dual-card{width:100%;flex-direction:column;align-items:flex-start;padding:.4rem .45rem}
 .dual-col--p .dual-card{right:0}.dual-col--m .dual-card{left:0}
@@ -292,8 +291,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         </div>
     
         <!-- ══ GENETIC STRATIGRAPHY ══ -->
-         
-       
+
 <section class="genetic-stratigraphy">
  <div class="strat-intro">
   <span class="strat-kicker">
@@ -414,8 +412,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      </div>
     </div>
    </div>
-   <div class="dual-conn" style="top:3.00%;">
-   </div>
    <div class="dual-card band-modern" style="top:3.00%;">
     <div class="band-label">
      <strong>
@@ -431,8 +427,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="band-distance">
      G25: 0.126
     </div>
-   </div>
-   <div class="dual-conn" style="top:14.00%;">
    </div>
    <div class="dual-card band-slavic" style="top:14.00%;">
     <div class="band-label">
@@ -450,8 +444,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      ~52% combined (est.)
     </div>
    </div>
-   <div class="dual-conn" style="top:24.00%;">
-   </div>
    <div class="dual-card band-thracian" style="top:24.00%;">
     <div class="band-label">
      <strong>
@@ -467,8 +459,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="band-distance">
      ~48% (est.)
     </div>
-   </div>
-   <div class="dual-conn" style="top:34.00%;">
    </div>
    <div class="dual-card band-steppe" style="top:34.00%;">
     <div class="band-label">
@@ -486,8 +476,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.300 / 0.314
     </div>
    </div>
-   <div class="dual-conn" style="top:43.00%;">
-   </div>
    <div class="dual-card band-farmer" style="top:43.00%;">
     <div class="band-label">
      <strong>
@@ -503,8 +491,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="band-distance">
      G25: 0.357 / 0.376
     </div>
-   </div>
-   <div class="dual-conn" style="top:52.00%;">
    </div>
    <div class="dual-card band-whg-reference" style="top:52.00%;">
     <div class="band-label">
@@ -522,8 +508,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.500
     </div>
    </div>
-   <div class="dual-conn" style="top:61.00%;">
-   </div>
    <div class="dual-card band-ehg" style="top:61.00%;">
     <div class="band-label">
      <strong>
@@ -540,8 +524,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.350
     </div>
    </div>
-   <div class="dual-conn" style="top:70.00%;">
-   </div>
    <div class="dual-card band-chg" style="top:70.00%;">
     <div class="band-label">
      <strong>
@@ -557,8 +539,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="band-distance">
      G25: 0.359
     </div>
-   </div>
-   <div class="dual-conn" style="top:79.00%;">
    </div>
    <div class="dual-card band-comparative" style="top:79.00%;">
     <div class="band-label">
@@ -600,8 +580,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      </div>
     </div>
    </div>
-   <div class="dual-conn" style="top:3.00%;">
-   </div>
    <div class="dual-card band-modern" style="top:3.00%;">
     <div class="band-label">
      <strong>
@@ -617,8 +595,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="band-distance">
      G25: 0.356–0.487
     </div>
-   </div>
-   <div class="dual-conn" style="top:14.00%;">
    </div>
    <div class="dual-card band-medieval band-comparative" style="top:14.00%;">
     <div class="band-label">
@@ -636,8 +612,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.094
     </div>
    </div>
-   <div class="dual-conn" style="top:23.00%;">
-   </div>
    <div class="dual-card band-farmer" style="top:23.00%;">
     <div class="band-label">
      <strong>
@@ -653,8 +627,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="band-distance">
      G25: 0.382
     </div>
-   </div>
-   <div class="dual-conn" style="top:45.00%;">
    </div>
    <div class="dual-card band-comparative" style="top:45.00%;">
     <div class="band-label">
@@ -672,8 +644,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.478
     </div>
    </div>
-   <div class="dual-conn" style="top:60.00%;">
-   </div>
    <div class="dual-card band-whg-reference" style="top:60.00%;">
     <div class="band-label">
      <strong>
@@ -689,8 +659,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="band-distance">
      G25: 0.400–0.407
     </div>
-   </div>
-   <div class="dual-conn" style="top:97.00%;">
    </div>
    <div class="dual-card band-deep" style="top:97.00%;">
     <div class="band-label">
