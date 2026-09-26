@@ -226,54 +226,56 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
 
 
-/* ───────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────
    TIMELINE MARKERS
-   Each marker can have:
-     --left-top   paternal position
-     --right-top  maternal position
-     --time-top   central time-label position
-   ─────────────────────────────────────────────────────────────── */
+   ───────────────────────────────────────────── */
 
 .dual-marker {
     position: absolute;
     inset: 0;
+
     z-index: 0;
     pointer-events: none;
 }
 
-/* Paternal / left dotted connector */
-.dual-marker .marker-left {
+.marker-left {
     position: absolute;
-    top: var(--left-top);
+
     right: calc(50% + var(--axis-half));
+
     width: 200px;
+
     border-top: 1px dotted var(--era-line);
 }
 
-/* Maternal / right dotted connector */
-.dual-marker .marker-right {
+.marker-right {
     position: absolute;
-    top: var(--right-top);
+
     left: calc(50% + var(--axis-half));
+
     width: 200px;
+
     border-top: 1px dotted var(--era-line);
 }
 
-/* Central time label */
-.dual-marker .marker-time {
+.dual-marker > span {
     position: absolute;
-    top: var(--time-top, var(--left-top));
+
     left: 50%;
+
     transform: translate(-50%, -50%);
 
     width: calc(var(--axis-half) * 2);
 
     text-align: center;
+
     font-family: 'Inter', sans-serif;
     font-size: .65rem;
     font-weight: 600;
     letter-spacing: .05em;
+
     color: var(--ink-light);
+
     white-space: nowrap;
 }
 
@@ -891,53 +893,52 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  </div>
   <div class="dual-field">
 
-    <div class="dual-marker"
-         style="--left-top:3%; --right-top:7%; --time-top:5%;">
-        <div class="marker-left"></div>
-        <div class="marker-right"></div>
-        <span class="marker-time">TODAY</span>
+    <div class="dual-marker">
+        <div class="marker-left" style="top:3%;"></div>
+        <div class="marker-right" style="top:7%;"></div>
+        <span style="top:5%;">TODAY</span>
     </div>
     
-    <div class="dual-marker"
-         style="--left-top:14%; --right-top:13%; --time-top:13.5%;">
-        <div class="marker-left"></div>
-        <div class="marker-right"></div>
-        <span class="marker-time">~600–900 AD</span>
+    <div class="dual-marker">
+        <div class="marker-left" style="top:14%;"></div>
+        <div class="marker-right" style="top:13%;"></div>
+        <span style="top:13.5%;">~600–900 AD</span>
     </div>
     
-    <div class="dual-marker"
-         style="--left-top:24%; --right-top:26%; --time-top:25%;">
-        <div class="marker-left"></div>
-        <div class="marker-right"></div>
-        <span class="marker-time">~800–100 BC</span>
+    <div class="dual-marker">
+        <div class="marker-left" style="top:24%;"></div>
+        <div class="marker-right" style="top:26%;"></div>
+        <span style="top:25%;">~800–100 BC</span>
     </div>
     
-    <div class="dual-marker"
-         style="--left-top:34%; --right-top:40%; --time-top:37%;">
-        <div class="marker-left"></div>
-        <div class="marker-right"></div>
-        <span class="marker-time">~3000–5000 BC</span>
+    <div class="dual-marker">
+        <div class="marker-left" style="top:34%;"></div>
+        <div class="marker-right" style="top:34%;"></div>
+        <span style="top:34%;">~3000 BC</span>
     </div>
     
-    <div class="dual-marker"
-         style="--left-top:43%; --right-top:43%; --time-top:43%;">
-        <div class="marker-left"></div>
-        <div class="marker-right"></div>
-        <span class="marker-time">~7000 BC</span>
+    <div class="dual-marker">
+        <div class="marker-left" style="top:34%;"></div>
+        <div class="marker-right" style="top:40%;"></div>
+        <span style="top:37%;">~5000 BC</span>
     </div>
     
-    <div class="dual-marker"
-         style="--left-top:54%; --right-top:54%; --time-top:54%;">
-        <div class="marker-left"></div>
-        <div class="marker-right"></div>
-        <span class="marker-time">~10–30k ya</span>
+    <div class="dual-marker">
+        <div class="marker-left" style="top:43%;"></div>
+        <div class="marker-right" style="top:43%;"></div>
+        <span style="top:43%;">~7000 BC</span>
     </div>
     
-    <div class="dual-marker"
-         style="--left-top:94%; --right-top:94%; --time-top:94%;">
-        <div class="marker-left"></div>
-        <div class="marker-right"></div>
-        <span class="marker-time">~60–70k ya</span>
+    <div class="dual-marker">
+        <div class="marker-left" style="top:54%;"></div>
+        <div class="marker-right" style="top:54%;"></div>
+        <span style="top:54%;">~10–30k ya</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:94%;"></div>
+        <div class="marker-right" style="top:94%;"></div>
+        <span style="top:94%;">~60–70k ya</span>
     </div>
         
   </div>
