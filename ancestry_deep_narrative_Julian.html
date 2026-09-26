@@ -126,28 +126,53 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dual-head--paternal{text-align:right;padding-right:1rem}.dual-head--maternal{text-align:left;padding-left:1rem}
 .dual-head--time{text-align:center;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light)}
 .dual-field{height:1900px}
-.dual-marker{position:absolute;left:0;right:0;transform:translateY(-50%);z-index:0;pointer-events:none}
-.dual-marker::before{content:'';position:absolute;top:50%;right:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
-.dual-marker::after{content:'';position:absolute;top:50%;left:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
+/* ═══ INDEPENDENT DUAL-LINE TIMELINE MARKERS ═══ */
 
 .dual-marker {
-    position: absolute;
-    left: 0;
-    right: 0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:0;
+    pointer-events:none;
 }
 
-.marker-left {
-    position: absolute;
-    top: var(--left-top);
+/* Paternal / LEFT connector */
+.dual-marker::before {
+    content:'';
+    position:absolute;
+    top:var(--left-top);
+    right:calc(50% + var(--axis-half));
+    width:200px;
+    border-top:1px dotted var(--era-line);
 }
 
-.marker-right {
-    position: absolute;
-    top: var(--right-top);
+/* Maternal / RIGHT connector */
+.dual-marker::after {
+    content:'';
+    position:absolute;
+    top:var(--right-top);
+    left:calc(50% + var(--axis-half));
+    width:200px;
+    border-top:1px dotted var(--era-line);
 }
-  
-.dual-marker span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:calc(var(--axis-half)*2);text-align:center;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.05em;color:var(--ink-light);white-space:nowrap}
-.dual-col{position:absolute;top:0;bottom:0;width:calc(50% - var(--axis-half))}
+
+/* Central time label */
+.dual-marker span {
+    position:absolute;
+    top:var(--time-top, var(--left-top));
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:calc(var(--axis-half) * 2);
+    text-align:center;
+    font-family:'Inter', sans-serif;
+    font-size:.65rem;
+    font-weight:600;
+    letter-spacing:.05em;
+    color:var(--ink-light);
+    white-space:nowrap;
+}
 .dual-col--p{left:0}.dual-col--m{right:0}
 .dual-rail{position:absolute;top:0;bottom:0;width:var(--rail-w);z-index:3;border-radius:3px;overflow:hidden}
 .dual-col{--rail-w:10px}
@@ -343,55 +368,53 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   </div>
  </div>
  <div class="dual-field">
-  <div class="dual-marker" style="--left-top: 3%; --right-top: 7%;">
-   <span>
-    TODAY
-   </span>    
-  </div>
-   <div class="dual-marker" style="--left-top: 14%; --right-top: 13%;">
-   <span>
-    ~600–900 AD
-   </span>
-  </div>
-   <div class="dual-marker" style="--left-top: 24%; --right-top: 26%;">
-   <span>
-    ~800–100 BC
-   </span>
-  </div>
-   <div class="dual-marker" style="--left-top: 34%;">
-   <span>
-    ~3000 BC
-   </span>
-  </div>
-  
- <div class="dual-marker" style="--left-top: 34%; --right-top: 40%;">
-   <span>
-    ~5000 BC
-   </span>
-  </div>
-   
-  <div class="dual-marker" style="top:43.00%;">
-   <span>
-    ~7000 BC
-   </span>
-  </div>
-  <div class="dual-marker" style="top:54.00%;">
-   <span>
-    ~10–30k ya
-   </span>
-  </div>
-  <div class="dual-marker" style="top:94.00%;">
-   <span>
-    ~60–70k ya
-   </span>
-  </div>
+    <div class="dual-marker"
+     style="--left-top:3%; --right-top:7%; --time-top:5%;">
+    <span>TODAY</span>
+    </div>
+    
+    <div class="dual-marker"
+         style="--left-top:14%; --right-top:13%; --time-top:13.5%;">
+        <span>~600–900 AD</span>
+    </div>
+    
+    <div class="dual-marker"
+         style="--left-top:24%; --right-top:26%; --time-top:25%;">
+        <span>~800–100 BC</span>
+    </div>
+    
+    <div class="dual-marker"
+     style="--left-top:34%; --right-top:40%; --time-top:34%;">
+        <span>~3000 BC</span>
+    </div>
+    
+    <div class="dual-marker"
+         style="--left-top:34%; --right-top:40%; --time-top:40%;">
+        <span>~5000 BC</span>
+    </div>
+    
+    <div class="dual-marker"
+         style="--left-top:43%; --right-top:43%; --time-top:43%;">
+        <span>~7000 BC</span>
+    </div>
+    
+    <div class="dual-marker"
+         style="--left-top:54%; --right-top:54%; --time-top:54%;">
+        <span>~10–30k ya</span>
+    </div>
+    
+    <div class="dual-marker"
+         style="--left-top:94%; --right-top:94%; --time-top:94%;">
+        <span>~60–70k ya</span>
+    </div>
+    </div>
   <div class="dual-shared band-deep" style="top:88.00%;">
    <div class="band-label">
     <strong>
      Neanderthal Admixture
     </strong>
     <span>
-     ~50,000–60,000 BC · Levant / Southwest Asia · from both parents · ~1–4% of the genome
+     ~50,000–60,000 ya · Levant / Southwest Asia · from both parents · ~1–4% of the genome
     </span>
     <span class="band-epoch">
      Admixture event window: ~50,000–60,000 ya
@@ -415,7 +438,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
     <div class="strata-zone strata-zone--farmer" style="top:38.50%;height:13.50%;" title="Anatolian Neolithic · Boncuklu / Barcin · Farming culture: ~8300–6000 BC">
     </div>
-     <div class="strata-zone strata-zone--whg" style="top:38.50%;height:13.50%;" title="<Western European Hunter-Gatherers · Loschbour: WHG present in Europe: ~15,000–5,000 ya">
+     <div class="strata-zone strata-zone--whg" style="top:38.50%;height:13.50%;" title="Western European Hunter-Gatherers · Loschbour: WHG present in Europe: ~15,000–5,000 ya">
     </div>
     <div class="strata-zone strata-zone--deep" style="top:74.50%;height:25.50%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
     </div>
