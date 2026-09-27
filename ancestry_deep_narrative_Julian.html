@@ -313,20 +313,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 /* ───────────────────────────────────────────────────────────────
    STRATIGRAPHIC RAILS
    ─────────────────────────────────────────────────────────────── */
-.dual-rail {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-
-    width: var(--rail-w);
-    min-height: 100%;
-
-    z-index: 10;
-
-    border-radius: 3px;
-    overflow: hidden;
-    background: transparent;
-    display: block;
+.dual-rail{
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:var(--rail-w);
+    z-index:3;
+    border-radius:3px;
+    overflow:hidden;
+    background:rgba(28,22,16,.12);
 }
 
 .dual-col--p .dual-rail {
