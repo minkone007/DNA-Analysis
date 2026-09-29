@@ -258,7 +258,17 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
     border-top: 1px dotted var(--era-line);
 }
+
+.marker-bc {
+    position: absolute;
  
+    right: calc(32% + var(--axis-half));
+ 
+    width: 200px;
+ 
+    border-top: 1px dotted var(--era-line);
+}
+  
 .dual-marker > span {
     position: absolute;
  
@@ -946,15 +956,21 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
     
     <div class="dual-marker">
-        <div class="marker-left" style="top:14%;"></div>
-        <div class="marker-right" style="top:16.50%;"></div>
+        <div class="marker-left" style="top:11.25%;"></div>
+        <div class="marker-right" style="top:15.50%;"></div>
         <span style="top:13.5%;">~600–900 AD</span>
     </div>
     
     <div class="dual-marker">
-        <div class="marker-left" style="top:24%;"></div>
+        <div class="marker-left" style="top:21%;"></div>
         
         <span style="top:25%;">~800–100 BC</span>
+    </div>
+
+    <div class="dual-marker">
+        <div class="marker-bc" style="top:28%;"></div>
+        <div class="marker-bc" style="top:29%;"></div>
+        <span style="top:28.5%;">~</span>
     </div>
     
     <div class="dual-marker">
@@ -1016,9 +1032,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    <div class="dual-rail">
     <div class="strata-zone strata-zone--modern" style="top:0.00%;height:8.50%;" title="Bulgarian · Paternal Anchor · Population present: ~681 AD – today">
     </div>
-    <div class="strata-zone strata-zone--slavic" style="top:8.50%;height:10.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
+    <div class="strata-zone strata-zone--slavic" style="top:8.50%;height:5.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
     </div>
-    <div class="strata-zone strata-zone--thracian" style="top:19.00%;height:10.00%;" title="Paleo-Balkan Substrate · Thracians · Culture present: ~1500 BC – 46 AD">
+    <div class="strata-zone strata-zone--thracian" style="top:14.00%;height:14.00%;" title="Paleo-Balkan Substrate · Thracians · Culture present: ~1500 BC – 46 AD">
     </div>
     <div class="strata-zone strata-zone--steppe" style="top:29.00%;height:16.00%;" title="Yamnaya / Pontic Steppe Horizon · Culture active: ~3300–2600 BC">
     </div>   
@@ -1063,7 +1079,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.126
     </div>
    </div>
-   <div class="dual-card band-slavic" style="top:14.00%;">
+   <div class="dual-card band-slavic" style="top:11.50%;">
     <div class="band-label">
      <strong>
       Slavic Migration &amp; Byzantine Synthesis
@@ -1079,7 +1095,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      ~52% combined (est.)
     </div>
    </div>
-   <div class="dual-card band-thracian" style="top:24.00%;">
+   <div class="dual-card band-thracian" style="top:21.00%;">
     <div class="band-label">
      <strong>
       Paleo-Balkan Substrate · Thracians
@@ -1180,10 +1196,12 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    <div class="dual-rail">
     <div class="strata-zone strata-zone--modern" style="top:0.00%;height:11.00%;" title="East Asian Modern Continuum · Continuum formed: ~300 BC – today">
     </div>
-    <div class="strata-zone strata-zone--eastasia" style="top:11%;height:11.00%;" title="Yayoi Continental Layer · Korea Changhang · Yayoi period: ~300 BC – 300 AD">
+    <div class="strata-zone strata-zone--eastasia" style="top:11%;height:9.00%;" title="Yayoi Continental Layer · Korea Changhang · Yayoi period: ~300 BC – 300 AD">
     </div>
-    <div class="strata-zone strata-zone--jomon" style="top:22.00%;height:61.50%;" title="Jomon Hunter-Gatherers · in the archipelago ~16,000–30,000 years ago">
+    <div class="strata-zone strata-zone--jomon" style="top:20.00%;height:8.00%;" title="Jomon Hunter-Gatherers · in the archipelago ~16,000–30,000 years ago">
     </div>
+    <div class="strata-zone strata-zone--jomon" style="top:29.00%;height:45.50%;" title="Jomon Hunter-Gatherers · in the archipelago ~16,000–30,000 years ago">
+    </div> 
     <div class="strata-zone strata-zone--deep" style="top:74.00%;height:18.50%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
     </div>
     <div class="strata-zone strata-zone--deep2" style="top:92.50%;height:7.50%;" title="Denisovan-related Signal · Divergence window: ~60,000–70,000 ya">
@@ -1213,7 +1231,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
    </div>
    
-   <div class="dual-card band-eastasia" style="top:17.00%;">
+   <div class="dual-card band-eastasia" style="top:16.00%;">
     <div class="band-label">
      <strong>
       Yayoi Continental Layer · Korea Changhang
