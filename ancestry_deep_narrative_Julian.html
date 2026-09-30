@@ -458,15 +458,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .strat-map-wrap{
   position: relative;
   width: 100%;
-  max-width: 1100px;
+  max-width: 920px;      /* was 1100px — pull it in */
   margin: 0 auto;
-  padding: 0 1rem;          /* keeps it inside the page edges */
+  padding: 0 2rem;       /* more side breathing room */
   box-sizing: border-box;
 }
 
 .annotation-lane{
   position: absolute;
-  left: 1rem;               /* align with the padding above */
+  left: 2rem;            /* match the padding */
   top: 0;
   bottom: 0;
   width: 50px;
@@ -477,7 +477,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dual-field{
   position: relative;
   width: 100%;
-  /* height stays from the earlier rule (1900px / 3200px on mobile) */
 }
  
 /* ───────────────────────────────────────────────────────────────
@@ -1165,9 +1164,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    <div class="dual-card band-byzantine" style="top:16.50%;">
      <div class="band-label">
     <strong>Roman–Byzantine Balkans</strong> 
-     <span>~330–1453 AD · ~20% Byzantine Mediterranean overlay (est.)</span>
-      <small>Eastern Mediterranean interacting with the pre-existing Paleo-Balkan population</small>
-     </div>
+     <span>~330–1453 AD · ~20% Byzantine Mediterranean overlay (est.) · Eastern Mediterranean interacting with the pre-existing Paleo-Balkan population
+     </span>
+      </div>
     </div>
    <div class="dual-card band-thracian" style="top:22.00%;">
     <div class="band-label">
