@@ -456,18 +456,27 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
 
 .strat-map-wrap{
-  display:grid;
-  grid-template-columns:60px minmax(0,1fr);
-  width:100%;
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .annotation-lane{
-  position:relative;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 5;
+  pointer-events: none;
 }
 
 .dual-field{
-  min-width:0;
-}  
+  /* keep original height rule — do not override with min-width:0 */
+  position: relative;
+  width: 100%;
+} 
  
 /* ───────────────────────────────────────────────────────────────
    HUNTER-GATHERER SUB-LANES
