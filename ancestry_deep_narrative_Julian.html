@@ -375,7 +375,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .strata-zone--slavic {
     background: var(--cinnabar);
 }
- 
+
+.strata-zone--byzantine {
+    background: var(--sea);
+}
+  
 .strata-zone--thracian {
     background: var(--accent);
 }
@@ -450,7 +454,20 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
     z-index: 2;
 }
- 
+
+.strat-map-wrap{
+  display:grid;
+  grid-template-columns:60px minmax(0,1fr);
+  width:100%;
+}
+
+.annotation-lane{
+  position:relative;
+}
+
+.dual-field{
+  min-width:0;
+}  
  
 /* ───────────────────────────────────────────────────────────────
    HUNTER-GATHERER SUB-LANES
@@ -955,38 +972,39 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  </div>
  <!-- CHG → Yamnaya connector -->   
 <div class="strat-map-wrap">
-<div class="annotation-lane">
- <div style="
-  position:absolute;
-  top:32%;
-  left:0px;
-  width:50px;
-  height:19%;
-  border:1px dotted var(--era-line);
-  border-right:none;
-  border-radius:15px;
-  background:rgba(245,239,228);
-  z-index:0;
-  pointer-events:none;
-"></div>
+  <div class="annotation-lane">
 
- <div style="
-  position:absolute;
-  top:43%;
-  left:0px;
-  width:50px;
-  height:15%;
-  border:1px dotted var(--era-line);
-  border-right:none;
-  border-radius:15px;
-  background:rgba(245,239,228);
-  z-index:0;
-  pointer-events:none;
-"></div>
-<!-- END -->
+    <div style="
+      position:absolute;
+      top:32%;
+      left:0;
+      width:50px;
+      height:19%;
+      border:1px dotted var(--era-line);
+      border-right:none;
+      border-radius:15px;
+      background:rgba(245,239,228);
+      z-index:0;
+      pointer-events:none;
+    "></div>
+
+    <div style="
+      position:absolute;
+      top:43%;
+      left:0;
+      width:50px;
+      height:15%;
+      border:1px dotted var(--era-line);
+      border-right:none;
+      border-radius:15px;
+      background:rgba(245,239,228);
+      z-index:0;
+      pointer-events:none;
+    "></div>
+
+  </div>
 
   <div class="dual-field">
- 
     <div class="dual-marker">
         <div class="marker-left" style="top:5.5%;"></div>
         <div class="marker-right" style="top:7.5%;"></div>
@@ -1047,7 +1065,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         <div class="marker-right" style="top:96%;"></div>
         <span style="top:94%;">~60–70k ya</span>
     </div>
-        
+  </div> <!-- dual-field -->
+</div> <!-- strat-map-wrap -->        
   <div class="dual-shared band-deep" style="top:88.00%;">
    <div class="band-label">
     <strong>
@@ -1074,7 +1093,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
     <div class="strata-zone strata-zone--byzantine" style="top:14.00%;height:2.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
     </div>
-    <div class="strata-zone strata-zone--thracian" style="top:23%;height:11.50%;" title="Paleo-Balkan Substrate · Thracians · Culture present: ~1500 BC – 46 AD">
+    <div class="strata-zone strata-zone--thracian" style="top:16.5%;height:11.50%;" title="Paleo-Balkan Substrate · Thracians · Culture present: ~1500 BC – 46 AD">
     </div>
     <div class="strata-zone strata-zone--steppe" style="top:29.00%;height:16.00%;" title="Yamnaya / Pontic Steppe Horizon · Culture active: ~3300–2600 BC">
     </div>   
