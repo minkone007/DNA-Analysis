@@ -150,6 +150,720 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     );}
 .strata-connector{position:absolute;left:10px;width:45px;height:2px;opacity:1;z-index:0}
 @media (max-width:700px){.stratigraphy-field{padding-left:88px}.time-axis{left:0;width:72px}.strata-column,.strata-hg-block,.strata-connector{display:none}}
+
+/* ═══════════════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — DUAL LINEAGE
+   Paternal | Time Axis | Maternal
+   ═══════════════════════════════════════════════════════════════ */
+ 
+.genetic-stratigraphy {
+    margin: 3.5rem 0 4.5rem;
+    padding: 2.5rem 0 3rem;
+    background: transparent;
+    border: none;
+}
+ 
+/* ───────────────────────────────────────────────────────────────
+   INTRO
+   ─────────────────────────────────────────────────────────────── */
+ 
+.strat-intro {
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+ 
+.strat-kicker {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .35rem;
+}
+ 
+.strat-intro h2 {
+    font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+    margin-bottom: .5rem;
+}
+ 
+.strat-intro p {
+    color: var(--ink-light);
+    font-size: .95rem;
+    line-height: 1.6;
+}
+ 
+ 
+/* ───────────────────────────────────────────────────────────────
+   SHARED MAP CONTAINER
+   ─────────────────────────────────────────────────────────────── */
+ 
+.dual-heads,
+.dual-field {
+    --axis-half: 60px;
+ 
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+ 
+ 
+/* ───────────────────────────────────────────────────────────────
+   COLUMN HEADERS
+   ─────────────────────────────────────────────────────────────── */
+ 
+.dual-heads {
+    display: grid;
+    grid-template-columns: 1fr calc(var(--axis-half) * 2) 1fr;
+    align-items: end;
+    margin-bottom: 1rem;
+}
+ 
+.dual-head strong {
+    display: block;
+    font-size: .9rem;
+    letter-spacing: .04em;
+}
+ 
+.dual-head span {
+    display: block;
+    font-size: 1rem;
+    color: var(--ink-light);
+    margin-top: .15rem;
+}
+ 
+.dual-head--paternal {
+    text-align: right;
+    padding-right: 1rem;
+}
+ 
+.dual-head--maternal {
+    text-align: left;
+    padding-left: 1rem;
+}
+ 
+.dual-head--time {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+}
+ 
+ 
+/* ───────────────────────────────────────────────────────────────
+   MAIN STRATIGRAPHY FIELD
+   ─────────────────────────────────────────────────────────────── */
+ 
+.dual-field {
+    height: 1900px;
+}
+ 
+ 
+/* ─────────────────────────────────────────────
+   TIMELINE MARKERS
+   ───────────────────────────────────────────── */
+ 
+.dual-marker {
+    position: absolute;
+    inset: 0;
+ 
+    z-index: 0;
+    pointer-events: none;
+}
+ 
+.marker-left {
+    position: absolute;
+ 
+    right: calc(50% + var(--axis-half));
+ 
+    width: 200px;
+ 
+    border-top: 1px dotted var(--era-line);
+}
+ 
+.marker-right {
+    position: absolute;
+ 
+    left: calc(50% + var(--axis-half));
+ 
+    width: 200px;
+ 
+    border-top: 1px dotted var(--era-line);
+}
+
+.marker-bc {
+    position: absolute;
+ 
+    right: calc(32% + var(--axis-half));
+ 
+    width: 200px;
+ 
+    border-top: 1px dotted var(--era-line);
+}
+  
+.dual-marker > span {
+    position: absolute;
+ 
+    left: 50%;
+ 
+    transform: translate(-50%, -50%);
+ 
+    width: calc(var(--axis-half) * 2);
+ 
+    text-align: center;
+ 
+    font-family: 'Inter', sans-serif;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+ 
+    color: var(--ink-light);
+ 
+    white-space: nowrap;
+}
+ 
+ 
+/* ───────────────────────────────────────────────────────────────
+   LINEAGE COLUMNS
+   ─────────────────────────────────────────────────────────────── */
+ 
+.dual-col {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+ 
+    width: calc(50% - var(--axis-half));
+ 
+    --rail-w: 10px;
+    --hg-w: 0px;
+ 
+    z-index: 1;
+}
+ 
+.dual-col--p {
+    left: 0;
+}
+ 
+.dual-col--m {
+    right: 0;
+}
+ 
+ 
+/* ───────────────────────────────────────────────────────────────
+   STRATIGRAPHIC RAILS
+   ─────────────────────────────────────────────────────────────── */
+ 
+/* ───────────────────────────────────────────────────────────────
+   STRATIGRAPHIC RAILS
+   ─────────────────────────────────────────────────────────────── */
+.dual-rail {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+ 
+    width: var(--rail-w);
+    min-height: 100%;
+ 
+    z-index: 10;
+ 
+    border-radius: 3px;
+    overflow: hidden;
+    background: transparent;
+    display: block;
+}
+ 
+.dual-col--p .dual-rail {
+    right: 0;
+    background: transparent;
+}
+ 
+.dual-col--m .dual-rail {
+    left: 0;
+}
+ 
+/* ───────────────────────────────────────────────────────────────
+   STRATIGRAPHIC BANDS
+   ─────────────────────────────────────────────────────────────── */
+ 
+.strata-zone {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-height: 1px;
+ 
+    box-shadow:
+        inset 0 1px 0 rgba(245, 239, 228, .75);
+}
+ 
+/* Population / period colors */
+.strata-zone--modern {
+    background: var(--gold);
+}
+ 
+.strata-zone--medieval {
+    background: var(--ink-mid);
+}
+ 
+.strata-zone--slavic {
+    background: var(--cinnabar);
+}
+
+.strata-zone--byzantine {
+    background: #6b3a5c;
+}
+  
+.strata-zone--thracian {
+    background: var(--accent);
+}
+ 
+.strata-zone--steppe {
+    background: #7a5a8a;
+}
+ 
+.strata-zone--farmer {
+    background: var(--sea);
+}
+ 
+.strata-zone--eastasia {
+    background: #d08a5b;
+}
+
+.strata-zone--jomon {
+    background: var(--east);
+}
+
+.strata-zone--hg{
+    background-color:#b9c0c7;
+    background-image:repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,.45) 0px,
+        rgba(255,255,255,.45) 2px,
+        transparent 2px,
+        transparent 8px
+    );
+}  
+  
+.strata-zone--whg {
+    background: #8fa3ac;
+}
+ 
+.strata-zone--ehg {
+    background: #4a7a52;
+}
+ 
+.strata-zone--chg {
+    background: #7a6a4a;
+}
+ 
+.strata-zone--comparative {
+    background: #9a8a6a;
+}
+ 
+.strata-zone--deep {
+    background: var(--ink);
+}
+ 
+.strata-zone--deep2 {
+    background: #4a3d31;
+}
+.strata-zone--grey {
+    background: grey;
+}
+ 
+/* ───────────────────────────────────────────────────────────────
+   COMPARATIVE REFERENCE TICKS
+   ─────────────────────────────────────────────────────────────── */
+ 
+.strata-tick {
+    position: absolute;
+    left: -4px;
+ 
+    width: calc(var(--rail-w) + 8px);
+    height: 2px;
+ 
+    background: var(--ink-light);
+    opacity: .9;
+ 
+    z-index: 2;
+}
+
+.strat-map-wrap{
+  position: relative;
+  width: 100%;
+  max-width: 920px;      /* was 1100px — pull it in */
+  margin: 0 auto;
+  padding: 0 2rem;       /* more side breathing room */
+  box-sizing: border-box;
+}
+
+.annotation-lane{
+  position: absolute;
+  left: 2rem;            /* match the padding */
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.dual-field{
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+ 
+/* ───────────────────────────────────────────────────────────────
+   HUNTER-GATHERER SUB-LANES
+   ─────────────────────────────────────────────────────────────── */
+ 
+.dual-hg-block {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+ 
+    z-index: 2;
+}
+ 
+.dual-col--p .dual-hg-block {
+    right: var(--rail-w);
+}
+ 
+.dual-col--m .dual-hg-block {
+    left: var(--rail-w);
+}
+ 
+.dual-hg-lane {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+ 
+    width: 5px;
+ 
+    border-radius: 2px;
+    overflow: hidden;
+}
+ 
+.dual-hg-lane--0 {
+    left: 0;
+}
+ 
+.dual-hg-lane--1 {
+    left: 5px;
+}
+ 
+.dual-hg-lane--2 {
+    left: 10px;
+}
+.dual-hg-lane--3 {
+    left: -5px;
+}
+ 
+/* ───────────────────────────────────────────────────────────────
+   ANCESTRY CARDS
+   ─────────────────────────────────────────────────────────────── */
+ 
+.dual-card {
+    --bc: var(--ink-mid);
+    --bw: 3px;
+    --bs: solid;
+ 
+    position: absolute;
+ 
+    transform: translateY(-50%);
+ 
+    width: calc(
+        100% -
+        var(--rail-w) -
+        var(--hg-w) -
+        28px
+    );
+ 
+    min-height: 40px;
+ 
+    padding: .45rem .7rem;
+ 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+ 
+    gap: .3rem 1rem;
+ 
+    background: rgba(245, 239, 228, .82);
+ 
+    border: none;
+    border-radius: 2px;
+ 
+    z-index: 2;
+}
+ 
+.dual-col--p .dual-card {
+    right: calc(
+        var(--rail-w) +
+        var(--hg-w) +
+        28px
+    );
+ 
+    border-left:
+        var(--bw)
+        var(--bs)
+        var(--bc);
+}
+ 
+.dual-col--m .dual-card {
+    left: calc(
+        var(--rail-w) +
+        var(--hg-w) +
+        28px
+    );
+ 
+    border-right:
+        var(--bw)
+        var(--bs)
+        var(--bc);
+}
+ 
+ 
+/* ───────────────────────────────────────────────────────────────
+   CARD CONTENT
+   ─────────────────────────────────────────────────────────────── */
+ 
+.band-label {
+    min-width: 0;
+}
+ 
+.band-label strong {
+    display: block;
+ 
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 600;
+}
+ 
+.band-label span {
+    display: block;
+ 
+    margin-top: .12rem;
+ 
+    font-size: .8rem;
+    line-height: 1.25;
+ 
+    color: var(--ink-light);
+}
+ 
+.band-distance {
+    flex-shrink: 0;
+ 
+    font-family: 'Inter', sans-serif;
+    font-size: .63rem;
+ 
+    color: var(--ink-light);
+ 
+    white-space: nowrap;
+}
+ 
+.deep-note {
+    flex-basis: 100%;
+ 
+    font-size: .66rem;
+    line-height: 1.4;
+ 
+    color: var(--ink-light);
+ 
+    font-style: italic;
+}
+ 
+ 
+/* ───────────────────────────────────────────────────────────────
+   CARD TYPES
+   ─────────────────────────────────────────────────────────────── */
+  
+.band-slavic {
+    --bc: var(--cinnabar);
+}
+  
+.band-byzantine {
+    --bc: #6b3a5c;
+}
+  
+.band-thracian {
+    --bc: var(--accent);
+}
+ 
+.band-modern {
+    --bc: var(--gold);
+}
+ 
+.band-medieval {
+    --bc: var(--ink-mid);
+}
+ 
+.band-steppe {
+    --bc: #7a5a8a;
+}
+ 
+.band-farmer {
+    --bc: var(--sea);
+}
+ 
+.band-eastasia {
+    --bc: #d08a5b;
+}
+ 
+.band-whg {
+    --bc: #8fa3ac;
+}
+ 
+.band-jomon {
+    --bc: var(--east);
+}
+ 
+.band-ehg {
+    --bc: #4a7a52;
+}
+ 
+.band-chg {
+    --bc: #7a6a4a;
+}
+ 
+.band-comparative {
+    --bc: #9a8a6a;
+    --bs: dashed;
+}
+ 
+.band-deep {
+    --bc: var(--ink);
+    --bw: 4px;
+ 
+    background: rgba(28, 22, 16, .035);
+}
+ 
+.band-deep2 {
+    --bc: #4a3d31;
+    --bw: 4px;
+ 
+    background: rgba(28, 22, 16, .035);
+}
+ 
+ 
+/* ───────────────────────────────────────────────────────────────
+   SHARED / BOTH-LINEAGES BAND
+   ─────────────────────────────────────────────────────────────── */
+ 
+.dual-shared {
+    position: absolute;
+    left: 0;
+    right: 0;
+ 
+    transform: translateY(-50%);
+ 
+    z-index: 1;
+ 
+    display: grid;
+ 
+    grid-template-columns:
+        1fr
+        calc(var(--axis-half) * 2 + 30px)
+        1fr;
+ 
+    align-items: center;
+ 
+    min-height: 70px;
+ 
+    padding: .45rem .7rem;
+ 
+    border-left: 4px solid var(--ink);
+ 
+    border-radius: 2px;
+}
+ 
+.dual-shared .deep-note {
+    flex-basis: auto;
+}
+ 
+ 
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════════════════════════ */
+ 
+@media (max-width: 700px) {
+ 
+    .dual-heads,
+    .dual-field {
+        --axis-half: 30px;
+    }
+ 
+    .dual-field {
+        height: 3200px;
+    }
+ 
+    /* Timeline labels */
+    .dual-marker .marker-time {
+        font-size: .5rem;
+        white-space: normal;
+        line-height: 1.1;
+    }
+ 
+    /* Hide narrow rails on mobile */
+    .dual-rail,
+    .dual-hg-block {
+        display: none;
+    }
+ 
+    /* Cards become full width */
+    .dual-card {
+        --rail-w: 0px;
+ 
+        width: 100%;
+ 
+        flex-direction: column;
+        align-items: flex-start;
+ 
+        padding: .4rem .45rem;
+    }
+ 
+    .dual-col--p .dual-card {
+        right: 0;
+    }
+ 
+    .dual-col--m .dual-card {
+        left: 0;
+    }
+ 
+    .band-label strong {
+        font-size: .72rem;
+    }
+ 
+    .band-label span {
+        font-size: .58rem;
+    }
+ 
+    .band-distance {
+        font-size: .55rem;
+        white-space: normal;
+    }
+ 
+    /* Shared bands */
+    .dual-shared {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+ 
+    .dual-shared-gap,
+    .dual-shared .deep-note,
+    .deep-note {
+        display: none;
+    }
+ 
+    .dual-head span {
+        display: none;
+    }
+}
   
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
@@ -626,7 +1340,460 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <!-- ══ Map 3 end ══ -->
   </div>
 </div>
+  <!-- ══ GENETIC STRATIGRAPHY ══ -->
+<section class="genetic-stratigraphy">
+ <div class="strat-intro">
+  <span class="strat-kicker">
+   Chronological Map
+  </span>
+  <h2>
+   Genetic Stratigraphy
+  </h2>
   
+<p>The chart below shows the main populations and ancient reference samples used in this report.</p>
+
+<p>The left column follows the paternal (Eastern Balkan) lineage; the right column follows the maternal (Ryukyuan) lineage. Cards are placed at the approximate date of each reference sample on a single vertical timeline that compresses deep time.</p>
+
+<p>Coloured zones mark populations that Julian’s lineage actually passed through. Short ticks mark comparative references (Han Henan) used only to measure distance.</p>
+
+<p>The Neanderthal admixture window appears in both columns; the faint Denisovan-related signal appears only on the maternal side.</p>
+  
+ </div>
+ <div class="dual-heads">
+  <div class="dual-head dual-head--paternal">
+   <strong>
+    Paternal
+   </strong>
+   <span>
+    Eastern Balkan · West Eurasian lineage
+   </span>
+  </div>
+  <div class="dual-head dual-head--time">
+   Time ↓
+  </div>
+  <div class="dual-head dual-head--maternal">
+   <strong>
+    Maternal
+   </strong>
+   <span>
+    Ryukyuan · East Asian lineage
+   </span>
+  </div>
+ </div>
+ <!-- CHG → Yamnaya connector -->   
+<div class="strat-map-wrap">
+  <div class="annotation-lane">
+
+    <div style="
+      position:absolute;
+      top:22%;
+      left:-45px;
+      width:100px;
+      height:19%;
+      border:1px dotted var(--era-line);
+      border-right:none;
+      border-radius:15px;
+      background:rgba(245,239,228);
+      z-index:-1;
+      pointer-events:none;
+    "></div>
+  
+     <div style="
+      position:absolute;
+      top:32%;
+      left:-30px;
+      width:50px;
+      height:19%;
+      border:1px dotted var(--era-line);
+      border-right:none;
+      border-radius:15px;
+      background:rgba(245,239,228);
+      z-index:0;
+      pointer-events:none;
+    "></div>
+
+    <div style="
+      position:absolute;
+      top:43%;
+      left:-15px;
+      width:50px;
+      height:15%;
+      border:1px dotted var(--era-line);
+      border-right:none;
+      border-radius:15px;
+      background:none;
+      z-index:0;
+      pointer-events:none;
+    "></div>
+  </div>
+
+  <div class="dual-field">
+    <div class="dual-marker">
+        <div class="marker-left" style="top:5.5%;"></div>
+        <div class="marker-right" style="top:7.5%;"></div>
+        <span style="top:5%;">TODAY</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:12.75%;"></div>
+        <div class="marker-right" style="top:17.50%;"></div>
+        <span style="top:12.5%;">~600–900 AD</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:21.50%;"></div>
+        <div class="marker-left" style="top:15.50%;"></div>
+        <span style="top:21%;">~800–100 BC</span>
+    </div>
+
+    <div class="dual-marker">
+        <div class="marker-bc" style="top:28%;"></div>
+        <div class="marker-bc" style="top:29%;"></div>
+        <span style="top:28.5%;">~</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:31.5%;"></div>
+        
+        <span style="top:34%;">~5000 ya</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:44%;"></div>
+        <div class="marker-right" style="top:38%;"></div>
+        <span style="top:42%;">~7000 ya</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:50%;"></div>
+        
+        <span style="top:50%;">~9000 ya</span>
+    </div>
+ 
+ 
+    <div class="dual-marker">
+        <div class="marker-left" style="top:57%;"></div>
+        
+        <span style="top:67%;">~14,000 ya</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:66%;"></div>
+        <div class="marker-right" style="top:54%;"></div>
+        <span style="top:82%;">~30k ya</span>
+    </div>
+    
+    <div class="dual-marker">
+       
+        <div class="marker-right" style="top:96%;"></div>
+        <span style="top:94%;">~60–70k ya</span>
+    </div>
+ 
+       
+  <div class="dual-shared band-deep" style="top:88.00%;">
+   <div class="band-label">
+    <strong>
+     Neanderthal Admixture
+    </strong>
+    <span>
+     ~50,000–60,000 ya · Levant / Southwest Asia · from both parents · ~1–4% of the genome
+    </span>
+    <span class="band-epoch">
+     Admixture event window: ~50,000–60,000 ya
+    </span>
+   </div>
+   <div class="dual-shared-gap">
+   </div>
+   <div class="deep-note">
+    Universal signal across non-African populations, not an analysis specific to this genome. The chromosome painting shows scattered allele-sharing with Vindija Cave and a weaker signal against Mezmaiskaya, which measures allele overlap, not descent from those individuals.
+   </div>
+  </div>
+  <div class="dual-col dual-col--p" style="--hg-w:55px;">
+   <div class="dual-rail">
+    <div class="strata-zone strata-zone--modern" style="top:0.00%;height:11.50%;" title="Bulgarian · Paternal Anchor · Population present: ~681 AD – today">
+    </div>
+    <div class="strata-zone strata-zone--slavic" style="top:11.50%;height:2.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
+    </div>
+    <div class="strata-zone strata-zone--byzantine" style="top:14.00%;height:2.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
+    </div>
+    <div class="strata-zone strata-zone--thracian" style="top:16.5%;height:11.50%;" title="Paleo-Balkan Substrate · Thracians · Culture present: ~1500 BC – 46 AD">
+    </div>
+    <div class="strata-zone strata-zone--steppe" style="top:29.00%;height:16.00%;" title="Yamnaya / Pontic Steppe Horizon · Culture active: ~3300–2600 BC">
+    </div>   
+    <div class="strata-zone strata-zone--hg" style="top:34.00%;height:35.50%;" title="Western European Hunter-Gatherers · Loschbour: WHG present in Europe: ~15,000–5,000 ya">
+    </div>   
+    <div class="strata-zone strata-zone--deep" style="top:69.50%;height:23.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
+    </div>
+    <div class="strata-tick" style="top:74.50%;" title="Western European Hunter-Gatherers · Loschbour: WHG present in Europe: ~15,000–5,000 ya">
+    </div>
+   </div>
+   <div class="dual-hg-block" style="width:15px;">
+      <div class="dual-hg-lane dual-hg-lane--2">
+     <div class="strata-zone strata-zone--whg" style="top:34.00%;height:35.50%;" title="WHG">
+     </div>
+    </div>
+     <div class="dual-hg-lane dual-hg-lane--0">
+     <div class="strata-zone strata-zone--chg" style="top:50.00%;height:11.00%;" title="CHG">
+     </div>
+    </div>
+    <div class="dual-hg-lane dual-hg-lane--1">
+     <div class="strata-zone strata-zone--ehg" style="top:42.00%;height:17.00%;" title="EHG">
+     </div>
+    </div>
+    <div class="dual-hg-lane dual-hg-lane--3">
+     <div class="strata-zone strata-zone--farmer" style="top:46.50%;height:7.50%;" title="EEF">
+     </div>
+    </div>
+   </div>
+   
+    <div class="dual-card band-modern" style="top:5.00%;">
+    <div class="band-label">
+     <strong>
+      Bulgarian · Paternal Anchor
+     </strong>
+     <span>
+      Closest modern population, even against ~61% East Asian ancestry
+     </span>
+     <span class="band-epoch">
+      Population present: ~681 AD – today
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.126
+    </div>
+   </div>
+    <div class="dual-card band-slavic" style="top:12.00%;">
+    <div class="band-label">
+     <strong>
+      Slavic Migration &amp; Anatolian Overlay
+     </strong>
+     <span>
+      6th–9th c. · ~32% Slavic (Pannonian corridor)
+     </span>
+     <span class="band-epoch">
+      Slavic migrations ~500–900 AD
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.297 (Moldovan) · ~52% combined (est.)
+    </div>
+   </div>
+   <div class="dual-card band-byzantine" style="top:16.50%;">
+     <div class="band-label">
+    <strong>Roman–Byzantine Synthesis</strong> 
+     <span>1st-3rd c. · ~20% Anatolian admixture, reinforced under Byzantine rule
+     </span>
+      </div>
+    </div>
+    <div class="dual-card band-thracian" style="top:22.00%;">
+    <div class="band-label">
+     <strong>
+      Paleo-Balkan Substrate · Thracians
+     </strong>
+     <span>
+      Thracian, Dacian, Illyrian · ~48% of the paternal genome (est.)
+     </span>
+     <span class="band-epoch">
+      Culture present: ~1500 BC – 46 AD
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.329 (Bulgaria_IA)
+    </div>
+   </div>
+   <div class="dual-card band-steppe" style="top:32.00%;">
+    <div class="band-label">
+     <strong>
+      Yamnaya / Pontic Steppe Horizon
+     </strong>
+     <span>
+      Bronze Age steppe pastoralists · ~25% of the total genome, arriving paternally · Bulgaria_EBA_Yamnaya closer than the Ukraine reference
+     </span>
+     <span class="band-epoch">
+      Culture active: ~3300–2600 BC
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.300 / 0.314
+    </div>
+   </div>
+   <div class="dual-card band-farmer" style="top:50.50%;">
+    <div class="band-label">
+     <strong>
+      Anatolian Neolithic · Boncuklu / Barcin
+     </strong>
+     <span>
+      First farmers into the Balkans · K10 Ancient: 19.48% Early Neolithic Farmer · Boncuklu closer, as in the other two reports
+     </span>
+     <span class="band-epoch">
+      Farming culture: ~10,300–8,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.357 / 0.376
+    </div>
+   </div>
+   <div class="dual-card band-whg" style="top:66.50%;">
+    <div class="band-label">
+     <strong>
+      WHG · Loschbour
+     </strong>
+     <span>
+      Mesolithic Western European hunter-gatherers · source of the HERC2 blue-eye haplotype, more diluted here than in the fully West Eurasian reports
+     </span>
+     <span class="band-epoch">
+      WHG present in Europe: ~15,000–5,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.500
+    </div>
+   </div>
+   <div class="dual-card band-ehg" style="top:43.00%;">
+    <div class="band-label">
+     <strong>
+      EHG · Karelia
+     </strong>
+     <span>
+      Eastern European hunter-gatherers · marginally closer than CHG for Julian, the reverse of the Minko/Stayko pattern
+     </span>
+     <span class="band-epoch">
+      EHG lineage: ~12,000–7,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.350
+    </div>
+   </div>
+   <div class="dual-card band-chg" style="top:58%;">
+    <div class="band-label">
+     <strong>
+      CHG · Kotias
+     </strong>
+     <span>
+      Caucasus hunter-gatherers · essentially tied with EHG, not clearly dominant as in the other two reports
+     </span>
+     <span class="band-epoch">
+      CHG lineage: ~13,000–9,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.359
+    </div>
+   </div>
+   </div>
+  <div class="dual-col dual-col--m" style="--hg-w:55px;">
+   <div class="dual-rail">
+    <div class="strata-zone strata-zone--modern" style="top:0.00%;height:15.00%;" title="East Asian Modern Continuum · Continuum formed: ~300 BC – today">
+    </div>
+    <div class="strata-zone strata-zone--eastasia" style="top:15%;height:5.00%;" title="Yayoi Continental Layer · Korea Changhang · Yayoi period: ~300 BC – 300 AD">
+    </div>
+    <div class="strata-zone strata-zone--jomon" style="top:20.00%;height:8.00%;" title="Jomon Hunter-Gatherers · in the archipelago ~16,000–30,000 years ago">
+    </div>
+    <div class="strata-zone strata-zone--jomon" style="top:29.00%;height:41.50%;" title="Jomon Hunter-Gatherers · in the archipelago ~16,000–30,000 years ago">
+    </div> 
+    <div class="strata-zone strata-zone--deep" style="top:70.50%;height:22.50%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
+    </div>
+    <div class="strata-zone strata-zone--deep2" style="top:92.50%;height:7.50%;" title="Denisovan-related Signal · Divergence window: ~60,000–70,000 ya">
+    </div>
+   
+    </div>
+   <div class="dual-hg-block" style="width:5px;">
+    <div class="dual-hg-lane dual-hg-lane--0">
+     <div class="strata-zone strata-zone--whg" style="top:34%;height:8%;" title="Han Henan">
+     </div>
+    </div>
+   </div>
+   <div class="dual-card band-modern" style="top:7.50%;">
+    <div class="band-label">
+     <strong>
+      East Asian Modern Continuum
+     </strong>
+     <span>
+      Mongolian · Japanese · Korean · MyHeritage: Japanese (Okinawa) 61.6%
+     </span>
+     <span class="band-epoch">
+      Continuum formed: ~300 BC – today
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.356–0.487
+    </div>
+   </div>
+   
+   <div class="dual-card band-eastasia" style="top:17.50%;">
+    <div class="band-label">
+     <strong>
+      Yayoi Continental Layer · Korea Changhang
+     </strong>
+     <span>
+      ~2,300 years ago · ~15% of the maternal genome (est.) · Korean-peninsula farmers reaching the Ryukyus later and less completely
+     </span>
+     <span class="band-epoch">
+      Yayoi period: ~300 BC – 300 AD
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.382
+    </div>
+   </div>
+   <div class="dual-card band-comparative" style="top:38.80%;">
+    <div class="band-label">
+     <strong>
+      Han Henan
+     </strong>
+     <span>
+      Continental East Asian farming reference · Jomon sits ~17% closer
+     </span>
+     <span class="band-epoch">
+      Yellow River farming culture: ~9,000–5,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.478
+    </div>
+   </div>
+   <div class="dual-card band-jomon" style="top:54.50%;">
+    <div class="band-label">
+     <strong>
+      Jomon Hunter-Gatherers
+     </strong>
+     <span>
+      Ryukyuan maternal substrate, incl. a faint ~3% ancient Siberian/Beringian signal (K10 Ancient) · in the archipelago ~16,000–30,000 years ago
+     </span>
+     <span class="band-epoch">
+      Jomon period: ~16,000–2,300 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.400–0.407
+    </div>
+   </div>
+   <div class="dual-card band-deep2" style="top:97.00%;">
+    <div class="band-label">
+     <strong>
+      Denisovan-related Signal
+     </strong>
+     <span>
+      Onge lineage, ~60,000–70,000 years ago · ~1% of the maternal genome (est.) · maternal only, via the Jomon
+     </span>
+     <span class="band-epoch">
+      Divergence window: ~60,000–70,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     Onge G25: 0.351
+    </div>
+    <div class="deep-note">
+      Inferred from Onge-related ancestry in the G25 model, not from a direct Denisovan reference. Papuan HGDP (0.744, the highest Denisovan load) is very distant: Julian has no direct Melanesian ancestry. The thread is faint, ancient and passed down Denisovan → Southeast Asian hunter-gatherers → Jomon → Ryukyuan → mother → Julian.
+    </div>
+   </div> <!-- end dual-card band-deep2 -->
+
+  </div> <!-- end dual-col--m -->
+
+ </div> <!-- end dual-field -->
+</div> <!-- end strat-map-wrap -->
+</section>
 <!-- ══ LAYER 0 ══ -->
 <div class="era-block" id="s_surface">
   <div class="era-marker">
