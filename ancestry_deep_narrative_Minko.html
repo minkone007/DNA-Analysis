@@ -161,6 +161,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     padding: 2.5rem 0 3rem;
     background: transparent;
     border: none;
+    --rail-w: 10px;
+    --hg-w: 15px;
+    --axis-w: 120px;
+}
 }
  
 /* ───────────────────────────────────────────────────────────────
@@ -219,8 +223,12 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     grid-template-columns: 1fr calc(var(--axis-half) * 2) 1fr;
     align-items: end;
     margin-bottom: 1rem;
+    max-width: 920px;
+    padding: 0 2rem;
+    box-sizing: border-box;
 }
- 
+
+  
 .dual-head strong {
     display: block;
     font-size: .9rem;
@@ -241,7 +249,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
  
 .dual-head--time {
-    text-align: left;
+    position: absolute;
+    right: calc(var(--rail-w) + var(--hg-w));
+    width: var(--axis-w);
+    bottom: 0;
+    text-align: center;
     font-family: 'Inter', sans-serif;
     font-size: .65rem;
     font-weight: 600;
@@ -1512,7 +1524,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     Universal signal across non-African populations, not an analysis specific to this genome. The chromosome painting shows scattered allele-sharing with Vindija Cave and a weaker signal against Mezmaiskaya, which measures allele overlap, not descent from those individuals.
    </div>
   </div>
-  <div class="dual-col dual-col--p" style="--hg-w:55px;">
+  <div class="dual-col dual-col--p" style="--hg-w:15px;">
    <div class="dual-rail">
     <div class="strata-zone strata-zone--modern" style="top:0.00%;height:11.50%;" title="Bulgarian · Paternal Anchor · Population present: ~681 AD – today">
     </div>
