@@ -165,7 +165,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     --hg-w: 15px;
     --axis-w: 120px;
 }
-}
  
 /* ───────────────────────────────────────────────────────────────
    INTRO
@@ -359,11 +358,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
 .dual-col--p {
     right: 0;
-    width: 100%;
-}
- 
-.dual-col--m {
-    left: 0;
+    width: calc(50% - var(--axis-half));
 }
  
  
@@ -393,10 +388,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dual-col--p .dual-rail {
     right: 0;
     background: transparent;
-}
- 
-.dual-col--m .dual-rail {
-    left: 0;
 }
  
 /* ───────────────────────────────────────────────────────────────
@@ -584,35 +575,34 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     --bc: var(--ink-mid);
     --bw: 3px;
     --bs: solid;
- 
+
     position: absolute;
- 
+
     transform: translateY(-50%);
- 
+
     width: calc(
         100% -
         var(--rail-w) -
         var(--hg-w) -
-        var(--axis-w) -
-        28px
+        60px
     );
- 
+
     min-height: 40px;
- 
+
     padding: .45rem .7rem;
- 
+
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
- 
+
     gap: .3rem 1rem;
- 
+
     background: rgba(245, 239, 228, .82);
- 
+
     border: none;
     border-radius: 2px;
- 
+
     z-index: 2;
 }
  
@@ -620,16 +610,14 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     right: calc(
         var(--rail-w) +
         var(--hg-w) +
-        var(--axis-w) +
         28px
     );
- 
+
     border-left:
         var(--bw)
         var(--bs)
         var(--bc);
 }
- 
  
 /* ───────────────────────────────────────────────────────────────
    CARD CONTENT
@@ -847,10 +835,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         right: 0;
     }
  
-    .dual-col--m .dual-card {
-        left: 0;
-    }
- 
+    
     .band-label strong {
         font-size: .72rem;
     }
