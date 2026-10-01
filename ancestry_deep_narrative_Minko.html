@@ -583,7 +583,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         100% -
         var(--rail-w) -
         var(--hg-w) -
-        60px
+        28px
     );
 
     min-height: 40px;
@@ -606,7 +606,12 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
  
 .dual-col--p .dual-card {
-    right: 28px;
+    right: calc(
+        var(--rail-w) +
+        var(--hg-w) +
+        var(--axis-w) +
+        28px
+    );
 
     border-left:
         var(--bw)
