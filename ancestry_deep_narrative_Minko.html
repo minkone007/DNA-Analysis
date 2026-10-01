@@ -266,8 +266,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
 .dual-marker {
     position: absolute;
-    inset: 0;
- 
+    top: 0;
+    bottom: 0;
+    right: calc(var(--rail-w) + var(--hg-w));
+    width: var(--axis-w);
+
     z-index: 0;
     pointer-events: none;
 }
@@ -275,7 +278,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .marker-left {
     position: absolute;
  
-    right: calc(50% + var(--axis-half));
+    right: 100%;
  
     width: 200px;
  
@@ -295,7 +298,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .marker-bc {
     position: absolute;
  
-    right: calc(32% + var(--axis-half));
+    right: 100%;;
  
     width: 200px;
  
@@ -309,7 +312,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
     transform: translate(-50%, -50%);
  
-    width: calc(var(--axis-half) * 2);
+    width: 100%;
  
     text-align: center;
  
@@ -332,17 +335,19 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     position: absolute;
     top: 0;
     bottom: 0;
- 
+
     width: calc(50% - var(--axis-half));
- 
+
     --rail-w: 10px;
     --hg-w: 0px;
- 
+    --axis-w: 120px;
+
     z-index: 1;
 }
  
 .dual-col--p {
     right: 0;
+    width: 100%;
 }
  
 .dual-col--m {
@@ -576,6 +581,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         100% -
         var(--rail-w) -
         var(--hg-w) -
+        var(--axis-w) -
         28px
     );
  
@@ -602,6 +608,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     right: calc(
         var(--rail-w) +
         var(--hg-w) +
+        var(--axis-w) +
         28px
     );
  
@@ -1680,9 +1687,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    </div>
    </div>
  
-
-  </div> <!-- end dual-col--m -->
-
  </div> <!-- end dual-field -->
 </div> <!-- end strat-map-wrap -->
 </section>
