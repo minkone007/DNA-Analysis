@@ -602,51 +602,16 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
  
 .dual-col--p .dual-card {
-    right: 28px;
+    right: calc(
+        var(--rail-w) +
+        var(--hg-w) +
+        28px
+    );
 
     border-left:
         var(--bw)
         var(--bs)
         var(--bc);
-}
-
-
-/* Individual horizontal positioning */
-
-.dual-col--p .band-modern {
-    right: 1000px;
-}
-
-.dual-col--p .band-slavic {
-    right: 800px;
-}
-
-.dual-col--p .band-byzantine {
-    right: 600px;
-}
-
-.dual-col--p .band-thracian {
-    right: 400px;
-}
-
-.dual-col--p .band-steppe {
-    right: 300px;
-}
-
-.dual-col--p .band-farmer {
-    right: 200px;
-}
-
-.dual-col--p .band-whg {
-    right: 500px;
-}
-
-.dual-col--p .band-ehg {
-    right: 28px;
-}
-
-.dual-col--p .band-chg {
-    right: 28px;
 }
  
 /* ───────────────────────────────────────────────────────────────
