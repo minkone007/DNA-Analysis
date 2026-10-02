@@ -365,22 +365,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 /* ───────────────────────────────────────────────────────────────
    STRATIGRAPHIC RAILS
    ─────────────────────────────────────────────────────────────── */
- .dual-col .strata-connector {
-  position: absolute;
-  left: calc(var(--rail-w, 10px) + var(--hg-w, 55px));
-  width: 28px;
-  height: 2px;
-  opacity: 1;
-  z-index: 3;
-  pointer-events: none;
-  transform: translateY(-50%);
-}
 
-/* if paternal column is on the right and cards use right: anchoring */
-.dual-col--p .strata-connector {
-  left: auto;
-  right: calc(var(--rail-w, 10px) + var(--hg-w, 55px));
-}
 /* ───────────────────────────────────────────────────────────────
    STRATIGRAPHIC RAILS
    ─────────────────────────────────────────────────────────────── */
