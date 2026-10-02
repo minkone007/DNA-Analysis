@@ -358,8 +358,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
 .dual-col--p {
     right: 0;
-    width: 100%;
+    width: calc(50% - var(--axis-half));
 }
+ 
  
 /* ───────────────────────────────────────────────────────────────
    STRATIGRAPHIC RAILS
@@ -576,28 +577,32 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     --bs: solid;
 
     position: absolute;
+
     transform: translateY(-50%);
 
     width: calc(
         100% -
         var(--rail-w) -
         var(--hg-w) -
-        var(--axis-w) -
-        28px
+        60px
     );
 
     min-height: 40px;
+
     padding: .45rem .7rem;
 
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+
     gap: .3rem 1rem;
 
     background: rgba(245, 239, 228, .82);
+
     border: none;
     border-radius: 2px;
+
     z-index: 2;
 }
  
@@ -1530,7 +1535,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    </div>
    
     <div class="dual-card band-modern" style="top:5.00%;">
-    <div class="dual-card band-modern card-modern" style="top:5%;">
     <div class="band-label">
      <strong>
       Bulgarian · Paternal Anchor
