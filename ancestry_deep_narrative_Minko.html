@@ -275,7 +275,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    TIMELINE MARKERS
    ───────────────────────────────────────────── */
  
-dual-marker {
+.dual-marker {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -284,10 +284,15 @@ dual-marker {
   z-index: 0;
   pointer-events: none;
 }
-  
+ 
 .marker-left {
-  right: calc(50% + var(--axis-half));
-  width: 200px;
+    position: absolute;
+ 
+    right: 100%;
+ 
+    width: 340%;
+ 
+    border-top: 1px dotted var(--era-line);
 }
  
 .marker-right {
