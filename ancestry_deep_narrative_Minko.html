@@ -501,7 +501,33 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .strata-zone--grey {
     background: grey;
 }
- 
+
+/* base: all connectors, ~10px to the right of rail + hg block */
+.dual-col .strata-connector {
+  position: absolute;
+  left: calc(var(--rail-w, 10px) + var(--hg-w, 55px) + 10px);
+  width: 28px;
+  height: 2px;
+  opacity: 1;
+  z-index: 3;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+/* HG: stem from each 5px-wide sub-rail, nudged ~5px left of that rail */
+.dual-col .strata-connector.sc-whg {
+  left: calc(var(--rail-w, 10px) + 0px);   /* first lane */
+}
+.dual-col .strata-connector.sc-ehg {
+  left: calc(var(--rail-w, 10px) + 5px);   /* second lane */
+}
+.dual-col .strata-connector.sc-chg {
+  left: calc(var(--rail-w, 10px) + 10px);  /* third lane */
+}
+.dual-col .strata-connector.sc-eef {
+  left: calc(var(--rail-w, 10px) + 15px);  /* fourth lane */
+}
+  
 /* ───────────────────────────────────────────────────────────────
    COMPARATIVE REFERENCE TICKS
    ─────────────────────────────────────────────────────────────── */
@@ -1562,16 +1588,18 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
    </div>
 
-    <!-- connectors: top matches each card's top -->
-  <div class="strata-connector" style="top:5.00%; background:var(--gold);"></div>
-  <div class="strata-connector" style="top:12.00%; background:var(--cinnabar);"></div>
-  <div class="strata-connector" style="top:16.50%; background:#6b3a5c;"></div>
-  <div class="strata-connector" style="top:22.00%; background:var(--accent);"></div>
-  <div class="strata-connector" style="top:32.00%; background:var(--steppe);"></div>
-  <div class="strata-connector" style="top:50.50%; background:var(--sea);"></div>
-  <div class="strata-connector" style="top:43.00%; background:#4a7a52;"></div>
-  <div class="strata-connector" style="top:58.00%; background:#7a6a4a;"></div>
-  <div class="strata-connector" style="top:66.50%; background:#8fa3ac;"></div>
+    <!-- normal cards -->
+<div class="strata-connector" style="top:5.00%; background:var(--gold);"></div>
+<div class="strata-connector" style="top:12.00%; background:var(--cinnabar);"></div>
+<div class="strata-connector" style="top:16.50%; background:#6b3a5c;"></div>
+<div class="strata-connector" style="top:22.00%; background:var(--accent);"></div>
+<div class="strata-connector" style="top:32.00%; background:var(--steppe);"></div>
+
+<!-- HG area — one per rail -->
+<div class="strata-connector sc-whg" style="top:66.50%; background:#8fa3ac;"></div>
+<div class="strata-connector sc-ehg" style="top:43.00%; background:#4a7a52;"></div>
+<div class="strata-connector sc-chg" style="top:58.00%; background:#7a6a4a;"></div>
+<div class="strata-connector sc-eef" style="top:50.50%; background:var(--sea);"></div>
    
     <div class="dual-card band-modern" style="top:5.00%; right:75%; width:70%;">
     <div class="band-label">
