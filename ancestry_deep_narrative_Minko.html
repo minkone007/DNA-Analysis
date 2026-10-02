@@ -277,22 +277,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
 .dual-marker {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: calc(var(--rail-w) + var(--hg-w) + 10px); /* spaces around every + */
-  width: var(--axis-w);
-  z-index: 0;
-  pointer-events: none;
+  inset: 0;
+  width: auto;
+  right: auto;
 }
- 
 .marker-left {
-    position: absolute;
- 
-    right: 100%;
- 
-    width: 340%;
- 
-    border-top: 1px dotted var(--era-line);
+  right: calc(50% + var(--axis-half));
+  width: 200px;
 }
  
 .marker-right {
