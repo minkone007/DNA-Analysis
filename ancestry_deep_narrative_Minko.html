@@ -249,7 +249,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
 .dual-head--time {
     position: absolute;
-    right: calc(var(--rail-w) + var(--hg-w));
+    right: calc(var(--rail-w) + var(--hg-w) + 25px);
     width: var(--axis-w);
     bottom: 0;
     text-align: center;
@@ -291,7 +291,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
     right: 100%;
  
-    width: 200px;
+    width: 340%;
  
     border-top: 1px dotted var(--era-line);
 }
@@ -309,9 +309,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .marker-bc {
     position: absolute;
  
-    right: 100%;;
+    right: -30%;;
  
-    width: 200px;
+    width: 160%;
  
     border-top: 1px dotted var(--era-line);
 }
@@ -621,7 +621,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         28px
     );
 
-    border-left:
+    border-right:
         var(--bw)
         var(--bs)
         var(--bc);
@@ -1368,64 +1368,67 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 <p>The Neanderthal admixture window appears in both columns; the faint Denisovan-related signal appears only on the maternal side.</p>
   
  </div>
-   <div class="dual-heads">
-      <div class="dual-head dual-head--paternal">
-       <strong>
-        Paternal
-       </strong>
-       <span>
-        Eastern Balkan · West Eurasian lineage
-       </span>
-      </div>
       <div class="dual-head dual-head--time">
        Time ↓
       </div>
-  </div>
- 
- <!-- CHG → Yamnaya connector -->   
+  <!-- CHG → Yamnaya connector -->   
 <div class="strat-map-wrap">
   <div class="annotation-lane">
 
     <div style="
-      position:absolute;
-      top:22%;
-      left:-45px;
-      width:100px;
-      height:19%;
-      border:1px dotted var(--era-line);
-      border-right:none;
-      border-radius:15px;
-      background:rgba(245,239,228);
-      z-index:-1;
-      pointer-events:none;
-    "></div>
-  
-     <div style="
-      position:absolute;
-      top:32%;
-      left:-30px;
-      width:50px;
-      height:19%;
-      border:1px dotted var(--era-line);
-      border-right:none;
-      border-radius:15px;
-      background:rgba(245,239,228);
-      z-index:0;
-      pointer-events:none;
+      position: absolute;
+      top: 22%;
+      left: 730%;
+      width: 280%;
+      height: 19%;
+      border: 1px dotted var(--era-line);
+      border-left: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: -1;
+      pointer-events: none;
     "></div>
 
     <div style="
-      position:absolute;
-      top:43%;
-      left:-15px;
-      width:50px;
-      height:15%;
-      border:1px dotted var(--era-line);
-      border-right:none;
-      border-radius:15px;
-      background:none;
-      z-index:0;
-      pointer-events:none;
+      position: absolute;
+      top: 32%;
+      left: 630%;
+      width: 280%;
+      height: 19%;
+      border: 1px dotted var(--era-line);
+      border-left: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: -1;
+      pointer-events: none;
+    "></div>
+  
+     <div style="
+      position: absolute;
+      top: 32%;
+      left: 20%;
+      width: 320%;
+      height: 19%;
+      border: 1px dotted var(--era-line);
+      border-right: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: 0;
+      pointer-events: none;
+    "></div>
+
+    <div style="
+      position: absolute;
+      top: 43%;
+      left: 65%;
+      width: 250%;
+      height: 15%;
+      border: 1px dotted var(--era-line);
+      border-right: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: 16;
+      pointer-events: none;
     "></div>
   </div>
 
@@ -1545,7 +1548,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
    </div>
    
-    <div class="dual-card band-modern" style="top:5.00%; right:120px; width:78%;">
+    <div class="dual-card band-modern" style="top:5.00%; right:75%; width:70%;">
     <div class="band-label">
      <strong>
       Bulgarian · Paternal Anchor
@@ -1561,30 +1564,29 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.126
     </div>
    </div>
-    <div class="dual-card band-slavic" style="top:12.00%; right:120px; width:78%;">
+    <div class="dual-card band-slavic" style="top:12.00%; right:50x; width:70%;">
     <div class="band-label">
      <strong>
-      Slavic Migration &amp; Anatolian Overlay
+      Slavic Migration
      </strong>
      <span>
       6th–9th c. · ~32% Slavic (Pannonian corridor)
      </span>
-     <span class="band-epoch">
-      Slavic migrations ~500–900 AD
-     </span>
+     <span class="band-epoch"></span>
     </div>
     <div class="band-distance">
      G25: 0.297 (Moldovan) · ~52% combined (est.)
     </div>
    </div>
-   <div class="dual-card band-byzantine" style="top:16.50%; right:130px; width:72%;">
+   <div class="dual-card band-byzantine" style="top:16.50%; right:75%; width:70%;">
      <div class="band-label">
     <strong>Roman–Byzantine Synthesis</strong> 
      <span>1st-3rd c. · ~20% Anatolian admixture, reinforced under Byzantine rule
      </span>
+       <span class="band-epoch"></span>
       </div>
     </div>
-    <div class="dual-card band-thracian" style="top:22.00%; right:120px; width:78%;">
+    <div class="dual-card band-thracian" style="top:22.00%; right:100%; width:70%;">
     <div class="band-label">
      <strong>
       Paleo-Balkan Substrate · Thracians
@@ -1600,7 +1602,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.329 (Bulgaria_IA)
     </div>
    </div>
-   <div class="dual-card band-steppe" style="top:32.00%; right:120px; width:78%;">
+   <div class="dual-card band-steppe" style="top:32.00%; right:120%; width:70%;">
     <div class="band-label">
      <strong>
       Yamnaya / Pontic Steppe Horizon
@@ -1616,13 +1618,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.300 / 0.314
     </div>
    </div>
-   <div class="dual-card band-farmer" style="top:50.50%; right:120px; width:78%;">
+   <div class="dual-card band-farmer" style="top:50.50%; right:120%; width:70%;">
     <div class="band-label">
      <strong>
       Anatolian Neolithic · Boncuklu / Barcin
      </strong>
      <span>
-      First farmers into the Balkans · K10 Ancient: 19.48% Early Neolithic Farmer · Boncuklu closer, as in the other two reports
+      First farmers into the Balkans · ~19.48% Early Neolithic Farmer
      </span>
      <span class="band-epoch">
       Farming culture: ~10,300–8,000 ya
@@ -1632,7 +1634,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.357 / 0.376
     </div>
    </div>
-   <div class="dual-card band-whg" style="top:66.50%; right:120px; width:78%;">
+   <div class="dual-card band-whg" style="top:66.50%; right:75%; width:78%;">
     <div class="band-label">
      <strong>
       WHG · Loschbour
@@ -1648,7 +1650,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.500
     </div>
    </div>
-   <div class="dual-card band-ehg" style="top:43.00%; right:140px; width:70%;">
+   <div class="dual-card band-ehg" style="top:43.00%; right:150%; width:70%;">
     <div class="band-label">
      <strong>
       EHG · Karelia
@@ -1664,7 +1666,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.350
     </div>
    </div>
-   <div class="dual-card band-chg" style="top:58%; right:140px; width:70%;">
+   <div class="dual-card band-chg" style="top:58%; right:150%; width:70%;">
     <div class="band-label">
      <strong>
       CHG · Kotias
