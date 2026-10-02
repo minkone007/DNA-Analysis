@@ -473,8 +473,16 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
  
 .strata-zone--deep2 {
-    background: #4a3d31;
-}
+    background-color: #4a3d31;
+    background-image:repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,.45) 0px,
+        rgba(255,255,255,.45) 2px,
+        transparent 2px,
+        transparent 8px
+    );
+}  
+  
 .strata-zone--grey {
     background: grey;
 }
@@ -763,7 +771,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     position: absolute;
     left: 0;
     right: 0;
- 
+    width: 75%;
     transform: translateY(-50%);
  
     z-index: 1;
@@ -1470,6 +1478,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     
     <div class="dual-marker">
         <div class="marker-left" style="top:66%;"></div>
+        <div class="marker-left" style="top:88%;"></div>
         <span style="top:82%;">~30k ya</span>
     </div>
     
@@ -1512,7 +1521,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>   
     <div class="strata-zone strata-zone--deep" style="top:69.50%;height:23.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
     </div>
-    <div class="strata-tick" style="top:74.50%;" title="Western European Hunter-Gatherers · Loschbour: WHG present in Europe: ~15,000–5,000 ya">
+    <div class="strata-zone strata-zone--deep2" style="top:92.50%;height:9.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
+    </div>
+    <div class="strata-tick" style="top:88.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
     </div>
    </div>
    <div class="dual-hg-block" style="width:15px;">
@@ -1534,7 +1545,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
    </div>
    
-    <div class="dual-card band-modern" style="top:5.00%;">
+    <div class="dual-card band-modern" style="top:5.00%; right:120px; width:78%;">
     <div class="band-label">
      <strong>
       Bulgarian · Paternal Anchor
@@ -1550,7 +1561,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.126
     </div>
    </div>
-    <div class="dual-card band-slavic" style="top:12.00%;">
+    <div class="dual-card band-slavic" style="top:12.00%; right:120px; width:78%;">
     <div class="band-label">
      <strong>
       Slavic Migration &amp; Anatolian Overlay
@@ -1566,14 +1577,14 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.297 (Moldovan) · ~52% combined (est.)
     </div>
    </div>
-   <div class="dual-card band-byzantine" style="top:16.50%;">
+   <div class="dual-card band-byzantine" style="top:16.50%; right:130px; width:72%;">
      <div class="band-label">
     <strong>Roman–Byzantine Synthesis</strong> 
      <span>1st-3rd c. · ~20% Anatolian admixture, reinforced under Byzantine rule
      </span>
       </div>
     </div>
-    <div class="dual-card band-thracian" style="top:22.00%;">
+    <div class="dual-card band-thracian" style="top:22.00%; right:120px; width:78%;">
     <div class="band-label">
      <strong>
       Paleo-Balkan Substrate · Thracians
@@ -1589,7 +1600,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.329 (Bulgaria_IA)
     </div>
    </div>
-   <div class="dual-card band-steppe" style="top:32.00%;">
+   <div class="dual-card band-steppe" style="top:32.00%; right:120px; width:78%;">
     <div class="band-label">
      <strong>
       Yamnaya / Pontic Steppe Horizon
@@ -1605,7 +1616,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.300 / 0.314
     </div>
    </div>
-   <div class="dual-card band-farmer" style="top:50.50%;">
+   <div class="dual-card band-farmer" style="top:50.50%; right:120px; width:78%;">
     <div class="band-label">
      <strong>
       Anatolian Neolithic · Boncuklu / Barcin
@@ -1621,7 +1632,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.357 / 0.376
     </div>
    </div>
-   <div class="dual-card band-whg" style="top:66.50%;">
+   <div class="dual-card band-whg" style="top:66.50%; right:120px; width:78%;">
     <div class="band-label">
      <strong>
       WHG · Loschbour
@@ -1637,7 +1648,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.500
     </div>
    </div>
-   <div class="dual-card band-ehg" style="top:43.00%;">
+   <div class="dual-card band-ehg" style="top:43.00%; right:140px; width:70%;">
     <div class="band-label">
      <strong>
       EHG · Karelia
@@ -1653,7 +1664,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.350
     </div>
    </div>
-   <div class="dual-card band-chg" style="top:58%;">
+   <div class="dual-card band-chg" style="top:58%; right:140px; width:70%;">
     <div class="band-label">
      <strong>
       CHG · Kotias
