@@ -501,18 +501,17 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 /* HG: stem from each 5px-wide sub-rail, nudged ~5px left of that rail */
 .dual-col .strata-connector.sc-whg {
-  left: calc(var(--rail-w, 10px) + 0px);   /* first lane */
+  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 15px);
 }
 .dual-col .strata-connector.sc-ehg {
-  left: calc(var(--rail-w, 10px) + 5px);   /* second lane */
+  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 10px);
 }
 .dual-col .strata-connector.sc-chg {
-  left: calc(var(--rail-w, 10px) + 10px);  /* third lane */
+  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 5px);
 }
 .dual-col .strata-connector.sc-eef {
-  left: calc(var(--rail-w, 10px) + 15px);  /* fourth lane */
+  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 0px);
 }
-  
 /* ───────────────────────────────────────────────────────────────
    COMPARATIVE REFERENCE TICKS
    ─────────────────────────────────────────────────────────────── */
@@ -1581,7 +1580,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 <div class="strata-connector" style="top:31.50%; background:#7a5a8a;"></div>
 
 <!-- HG area — one per rail -->
-<div class="strata-connector sc-whg" style="top:66.50%; background:#8fa3ac; right: calc(var(--rail-w, 10px) + var(--hg-w, 55px) + 295px);"></div>
+<div class="strata-connector sc-whg" style="top:66.50%; background:#8fa3ac;"></div>
 <div class="strata-connector sc-ehg" style="top:43.00%; background:#4a7a52;"></div>
 <div class="strata-connector sc-chg" style="top:58.00%; background:#7a6a4a;"></div>
 <div class="strata-connector sc-eef" style="top:50.50%; background:var(--sea);"></div>
