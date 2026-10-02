@@ -490,7 +490,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 /* base: all connectors, ~10px to the right of rail + hg block */
 .dual-col .strata-connector {
   position: absolute;
-  left: calc(var(--rail-w, 10px) + var(--hg-w, 55px) + 10px);
+  left: calc(var(--rail-w, 10px) + var(--hg-w, 55px) + 305px);
   width: 28px;
   height: 2px;
   opacity: 1;
@@ -1574,14 +1574,14 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    </div>
 
     <!-- normal cards -->
-<div class="strata-connector" style="top:5.00%; background:var(--gold);"></div>
-<div class="strata-connector" style="top:12.00%; background:var(--cinnabar);"></div>
+<div class="strata-connector" style="top:5.50%; background:var(--gold);"></div>
+<div class="strata-connector" style="top:12.50%; background:var(--cinnabar);"></div>
 <div class="strata-connector" style="top:16.50%; background:#6b3a5c;"></div>
-<div class="strata-connector" style="top:22.00%; background:var(--accent);"></div>
-<div class="strata-connector" style="top:32.00%; background:var(--steppe);"></div>
+<div class="strata-connector" style="top:21.50%; background:var(--accent);"></div>
+<div class="strata-connector" style="top:31.50%; background:#7a5a8a;"></div>
 
 <!-- HG area — one per rail -->
-<div class="strata-connector sc-whg" style="top:66.50%; background:#8fa3ac;"></div>
+<div class="strata-connector sc-whg" style="top:66.50%; background:#8fa3ac; right: calc(var(--rail-w, 10px) + var(--hg-w, 55px) + 295px);"></div>
 <div class="strata-connector sc-ehg" style="top:43.00%; background:#4a7a52;"></div>
 <div class="strata-connector sc-chg" style="top:58.00%; background:#7a6a4a;"></div>
 <div class="strata-connector sc-eef" style="top:50.50%; background:var(--sea);"></div>
