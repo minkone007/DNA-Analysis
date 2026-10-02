@@ -276,14 +276,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    ───────────────────────────────────────────── */
  
 .dual-marker {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: calc(var(--rail-w) + var(--hg-w)+ 10px);
-    width: var(--axis-w);
-
-    z-index: 0;
-    pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: calc(var(--rail-w) + var(--hg-w) + 10px); /* spaces around every + */
+  width: var(--axis-w);
+  z-index: 0;
+  pointer-events: none;
 }
  
 .marker-left {
@@ -548,10 +547,14 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   pointer-events: none;
 }
 
-.dual-field{
+.dual-field {
   position: relative;
   z-index: 5;
   width: 100%;
+  height: 1900px;
+  --rail-w: 10px;
+  --hg-w: 15px;
+  --axis-w: 120px;
 }
  
 /* ───────────────────────────────────────────────────────────────
