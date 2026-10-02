@@ -148,7 +148,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         transparent 2px,
         transparent 8px
     );}
-.strata-connector{position:absolute;left:10px;width:45px;height:2px;opacity:1;z-index:0}
+.strata-connector{position:absolute;right:10px;width:45px;height:2px;opacity:1;z-index:0}
 @media (max-width:700px){.stratigraphy-field{padding-left:88px}.time-axis{left:0;width:72px}.strata-column,.strata-hg-block,.strata-connector{display:none}}
 
 /* ═══════════════════════════════════════════════════════════════
@@ -1378,7 +1378,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div style="
       position: absolute;
       top: 22%;
-      left: 730%;
+      left: 615%;
       width: 280%;
       height: 19%;
       border: 1px dotted var(--era-line);
@@ -1392,7 +1392,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div style="
       position: absolute;
       top: 32%;
-      left: 630%;
+      left: 580%;
       width: 280%;
       height: 19%;
       border: 1px dotted var(--era-line);
@@ -1435,20 +1435,23 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <div class="dual-field">
     <div class="dual-marker">
         <div class="marker-left" style="top:5.5%;"></div>
-        <span style="top:5%;">TODAY</span>
+        <div class="strata-connector" style="top:5.5%%;background:var(--gold);"></div>
+        <span style="top:5.5%;">TODAY</span>
     </div>
     
     <div class="dual-marker">
         <div class="marker-left" style="top:12.75%;"></div>
+        <div class="strata-connector" style="top:12.75%%;background:var(--cinnabar);"></div>
         <span style="top:12.5%;">~600–900 AD</span>
     </div>
     
     <div class="dual-marker">
         <div class="marker-left" style="top:21.50%;"></div>
         <div class="marker-left" style="top:15.50%;"></div>
-        <span style="top:21%;">~800–100 BC</span>
-    </div>
-
+        <div class="strata-connector" style="top:11%;background:var(--accent);"></div>
+        <span style="top:21.5%;">~800–100 BC</span>
+    </div>     
+    
     <div class="dual-marker">
         <div class="marker-bc" style="top:28%;"></div>
         <div class="marker-bc" style="top:29%;"></div>
@@ -1457,8 +1460,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     
     <div class="dual-marker">
         <div class="marker-left" style="top:31.5%;"></div>
-        
-        <span style="top:34%;">~5000 ya</span>
+        <span style="top:31.5%;">~5000 ya</span>
     </div>
     
     <div class="dual-marker">
@@ -1468,25 +1470,23 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     
     <div class="dual-marker">
         <div class="marker-left" style="top:50%;"></div>
-        
         <span style="top:50%;">~9000 ya</span>
     </div>
  
  
     <div class="dual-marker">
         <div class="marker-left" style="top:57%;"></div>
-        
         <span style="top:67%;">~14,000 ya</span>
     </div>
     
     <div class="dual-marker">
-        <div class="marker-left" style="top:66%;"></div>
+        <div class="marker-left" style="top:67%;"></div>
         <div class="marker-left" style="top:88%;"></div>
         <span style="top:82%;">~30k ya</span>
     </div>
     
     <div class="dual-marker">
-       
+        <div class="strata-connector" style="top:21%;background:var(--cinnabar);"></div>
         <span style="top:94%;">~60–70k ya</span>
     </div>
  
@@ -1532,18 +1532,25 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    <div class="dual-hg-block" style="width:15px;">
       <div class="dual-hg-lane dual-hg-lane--2">
      <div class="strata-zone strata-zone--whg" style="top:34.00%;height:35.50%;" title="WHG">
+     <div class="strata-connector" style="top:67%;background:#8fa3ac;;"></div>
      </div>
     </div>
      <div class="dual-hg-lane dual-hg-lane--0">
      <div class="strata-zone strata-zone--chg" style="top:50.00%;height:11.00%;" title="CHG">
+     <div class="strata-connector" style="top:57%;background:#7a6a4a;"></div>
      </div>
     </div>
     <div class="dual-hg-lane dual-hg-lane--1">
      <div class="strata-zone strata-zone--ehg" style="top:42.00%;height:17.00%;" title="EHG">
+     <div class="strata-connector" style="top:50%;background:var(--sea);"></div>
+
+       
+
      </div>
     </div>
     <div class="dual-hg-lane dual-hg-lane--3">
      <div class="strata-zone strata-zone--farmer" style="top:46.50%;height:7.50%;" title="EEF">
+     <div class="strata-connector" style="top:50%;background:#4a7a52;"></div>
      </div>
     </div>
    </div>
