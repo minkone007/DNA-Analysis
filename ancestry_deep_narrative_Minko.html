@@ -365,7 +365,22 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 /* ───────────────────────────────────────────────────────────────
    STRATIGRAPHIC RAILS
    ─────────────────────────────────────────────────────────────── */
- 
+ .dual-col .strata-connector {
+  position: absolute;
+  left: calc(var(--rail-w, 10px) + var(--hg-w, 55px));
+  width: 28px;
+  height: 2px;
+  opacity: 1;
+  z-index: 3;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+/* if paternal column is on the right and cards use right: anchoring */
+.dual-col--p .strata-connector {
+  left: auto;
+  right: calc(var(--rail-w, 10px) + var(--hg-w, 55px));
+}
 /* ───────────────────────────────────────────────────────────────
    STRATIGRAPHIC RAILS
    ─────────────────────────────────────────────────────────────── */
@@ -1435,20 +1450,17 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <div class="dual-field">
     <div class="dual-marker">
         <div class="marker-left" style="top:5.5%;"></div>
-        <div class="strata-connector" style="top:5.5%%;background:var(--gold);"></div>
         <span style="top:5.5%;">TODAY</span>
     </div>
     
     <div class="dual-marker">
         <div class="marker-left" style="top:12.75%;"></div>
-        <div class="strata-connector" style="top:12.75%%;background:var(--cinnabar);"></div>
         <span style="top:12.5%;">~600–900 AD</span>
     </div>
     
     <div class="dual-marker">
         <div class="marker-left" style="top:21.50%;"></div>
         <div class="marker-left" style="top:15.50%;"></div>
-        <div class="strata-connector" style="top:11%;background:var(--accent);"></div>
         <span style="top:21.5%;">~800–100 BC</span>
     </div>     
     
@@ -1486,7 +1498,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
     
     <div class="dual-marker">
-        <div class="strata-connector" style="top:21%;background:var(--cinnabar);"></div>
         <span style="top:94%;">~60–70k ya</span>
     </div>
  
@@ -1532,17 +1543,14 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    <div class="dual-hg-block" style="width:15px;">
       <div class="dual-hg-lane dual-hg-lane--2">
      <div class="strata-zone strata-zone--whg" style="top:34.00%;height:35.50%;" title="WHG">
-     <div class="strata-connector" style="top:67%;background:#8fa3ac;;"></div>
      </div>
     </div>
      <div class="dual-hg-lane dual-hg-lane--0">
      <div class="strata-zone strata-zone--chg" style="top:50.00%;height:11.00%;" title="CHG">
-     <div class="strata-connector" style="top:57%;background:#7a6a4a;"></div>
      </div>
     </div>
     <div class="dual-hg-lane dual-hg-lane--1">
      <div class="strata-zone strata-zone--ehg" style="top:42.00%;height:17.00%;" title="EHG">
-     <div class="strata-connector" style="top:50%;background:var(--sea);"></div>
 
        
 
@@ -1550,10 +1558,20 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
     <div class="dual-hg-lane dual-hg-lane--3">
      <div class="strata-zone strata-zone--farmer" style="top:46.50%;height:7.50%;" title="EEF">
-     <div class="strata-connector" style="top:50%;background:#4a7a52;"></div>
      </div>
     </div>
    </div>
+
+    <!-- connectors: top matches each card's top -->
+  <div class="strata-connector" style="top:5.00%; background:var(--gold);"></div>
+  <div class="strata-connector" style="top:12.00%; background:var(--cinnabar);"></div>
+  <div class="strata-connector" style="top:16.50%; background:#6b3a5c;"></div>
+  <div class="strata-connector" style="top:22.00%; background:var(--accent);"></div>
+  <div class="strata-connector" style="top:32.00%; background:var(--steppe);"></div>
+  <div class="strata-connector" style="top:50.50%; background:var(--sea);"></div>
+  <div class="strata-connector" style="top:43.00%; background:#4a7a52;"></div>
+  <div class="strata-connector" style="top:58.00%; background:#7a6a4a;"></div>
+  <div class="strata-connector" style="top:66.50%; background:#8fa3ac;"></div>
    
     <div class="dual-card band-modern" style="top:5.00%; right:75%; width:70%;">
     <div class="band-label">
