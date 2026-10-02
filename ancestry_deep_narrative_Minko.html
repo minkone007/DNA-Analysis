@@ -275,65 +275,50 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    TIMELINE MARKERS
    ───────────────────────────────────────────── */
  
+/* full-height layer — does not own a narrow column anymore */
 .dual-marker {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: calc(var(--rail-w) + var(--hg-w) + 10px); /* spaces around every + */
-  width: var(--axis-w);
+  inset: 0;
   z-index: 0;
   pointer-events: none;
 }
- 
+
+/* dotted line: right edge = main rail, extends left toward cards */
 .marker-left {
-    position: absolute;
- 
-    right: 100%;
- 
-    width: 340%;
- 
-    border-top: 1px dotted var(--era-line);
-}
- 
-.marker-right {
-    position: absolute;
- 
-    left: calc(50% + var(--axis-half));
- 
-    width: 200px;
- 
-    border-top: 1px dotted var(--era-line);
+  position: absolute;
+  right: calc(var(--rail-w) + var(--hg-w)); /* start at rail */
+  width: 42%;   /* only across the card side — not through the labels */
+  border-top: 1px dotted var(--era-line);
+  z-index: 0;
 }
 
 .marker-bc {
-    position: absolute;
- 
-    right: -30%;;
- 
-    width: 160%;
- 
-    border-top: 1px dotted var(--era-line);
+  position: absolute;
+  right: calc(var(--rail-w) + var(--hg-w));
+  width: 28%;
+  border-top: 1px dotted var(--era-line);
+  z-index: 0;
 }
-  
+
+/* labels: own column, above the lines */
 .dual-marker > span {
-    position: absolute;
- 
-    left: 50%;
- 
-    transform: translate(-50%, -50%);
- 
-    width: 100%;
- 
-    text-align: center;
- 
-    font-family: 'Inter', sans-serif;
-    font-size: .65rem;
-    font-weight: 600;
-    letter-spacing: .05em;
- 
-    color: var(--ink-light);
- 
-    white-space: nowrap;
+  position: absolute;
+  right: calc(var(--rail-w) + var(--hg-w) + 12px); /* just left of rail / in axis gap */
+  left: auto;
+  width: var(--axis-w);
+  transform: translateY(-50%);
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  color: var(--ink-light);
+  white-space: nowrap;
+  z-index: 2;
+  /* masks any line that would pass under the text */
+  background: rgba(245, 239, 228, .95);
+  padding: 0 .35rem;
+  box-sizing: border-box;
 }
  
  
@@ -801,27 +786,25 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     right: 0;
     width: 75%;
     transform: translateY(-50%);
- 
     z-index: 1;
- 
     display: grid;
- 
     grid-template-columns:
         1fr
         calc(var(--axis-half) * 2 + 30px)
         1fr;
- 
     align-items: center;
- 
     min-height: 70px;
- 
     padding: .45rem .7rem;
- 
-    border-left: 4px solid var(--ink);
- 
+    border-left: none;
+    border-right: 4px solid var(--ink);  /* match paternal cards */
     border-radius: 2px;
 }
- 
+
+.dual-field .band-deep {
+    border-left: none;
+    border-right: 4px solid var(--ink);
+}
+  
 .dual-shared .deep-note {
     flex-basis: auto;
 }
@@ -1405,10 +1388,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <div style="
       position: absolute;
-      top: 22%;
-      left: 615%;
+      top: 21.5%;
+      left: 725%;
       width: 280%;
-      height: 19%;
+      height: 20%;
       border: 1px dotted var(--era-line);
       border-left: none;
       border-radius: 15px;
@@ -1419,7 +1402,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <div style="
       position: absolute;
-      top: 32%;
+      top: 31.5%;
       left: 580%;
       width: 280%;
       height: 19%;
@@ -1494,8 +1477,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
     
     <div class="dual-marker">
-        <div class="marker-left" style="top:50%;"></div>
-        <span style="top:50%;">~9000 ya</span>
+        <div class="marker-left" style="top:50.5%;"></div>
+        <span style="top:50.5%;">~9000 ya</span>
     </div>
  
  
@@ -1587,7 +1570,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 <div class="strata-connector sc-whg" style="top:67%; background:#8fa3ac;"></div>
 <div class="strata-connector sc-ehg" style="top:44.00%; background:#4a7a52;"></div>
 <div class="strata-connector sc-chg" style="top:57.00%; background:#7a6a4a;"></div>
-<div class="strata-connector sc-eef" style="top:50.25%; background:var(--sea);"></div>
+<div class="strata-connector sc-eef" style="top:50.50%; background:var(--sea);"></div>
    
     <div class="dual-card band-modern" style="top:5.00%; right:75%; width:70%;">
     <div class="band-label">
