@@ -279,7 +279,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     position: absolute;
     top: 0;
     bottom: 0;
-    right: calc(var(--rail-w) + var(--hg-w));
+    right: calc(var(--rail-w) + var(--hg-w)+ 10px);
     width: var(--axis-w);
 
     z-index: 0;
@@ -501,16 +501,16 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 /* HG: stem from each 5px-wide sub-rail, nudged ~5px left of that rail */
 .dual-col .strata-connector.sc-whg {
-  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 15px);
+  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 5px);
 }
 .dual-col .strata-connector.sc-ehg {
   left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 10px);
 }
 .dual-col .strata-connector.sc-chg {
-  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 5px);
+  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 15px);
 }
 .dual-col .strata-connector.sc-eef {
-  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 0px);
+  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 20px);
 }
 /* ───────────────────────────────────────────────────────────────
    COMPARATIVE REFERENCE TICKS
