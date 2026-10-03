@@ -294,8 +294,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .marker-bc {
   position: absolute;
-  right: calc(var(--rail-w) + var(--hg-w));
-  width: 17%;
+  left: 96.75%;
+  width: 5%;
   border-top: 1px dotted var(--era-line);
   z-index: 0;
 }
@@ -303,8 +303,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 /* labels: own column, above the lines */
 .dual-marker > span {
   position: absolute;
-  right: calc(var(--rail-w) + var(--hg-w) + 12px); /* just left of rail / in axis gap */
-  left: auto;
+  left: 92.5%;
   width: var(--axis-w);
   transform: translateY(-50%);
   text-align: center;
@@ -1417,7 +1416,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      <div style="
       position: absolute;
       top: 32%;
-      left: 20%;
+      left: 30%;
       width: 320%;
       height: 19%;
       border: 1px dotted var(--era-line);
@@ -1463,7 +1462,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     
     <div class="dual-marker">
         <div class="marker-bc" style="top:27.75%;"></div>
-        <div class="marker-bc" style="top:29%;"></div>
+        <div class="marker-bc" style="top:29.25%;"></div>
         <span style="top:28.5%;">~</span>
     </div>
     
@@ -1474,15 +1473,19 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     
     <div class="dual-marker">
         <div class="marker-left" style="top:44%;"></div>
-        <span style="top:44%;">~7500 ya</span>
+        <span style="top:44%;">~7,5k ya</span>
     </div>
     
     <div class="dual-marker">
         <div class="marker-left" style="top:50.5%;"></div>
-        <span style="top:50.5%;">~9000 ya</span>
+        <span style="top:50.5%;">~9k ya</span>
     </div>
  
- 
+ <div class="dual-marker">
+        <div class="marker-left" style="top:58%;"></div>
+        <span style="top:58%;">~11,5k ya</span>
+    </div>
+    
     <div class="dual-marker">
       <div class="marker-left" style="top:66.5%;"></div>
       <span style="top:66.5%;">~14k ya</span>
@@ -1490,11 +1493,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     
     <div class="dual-marker">
       <div class="marker-left" style="top:88%;"></div>
-      <span style="top:82%;">~30k ya</span>
+      <span style="top:78%;">~30k ya</span>
     </div>
     
     <div class="dual-marker">
-        <span style="top:94%;">~60–70k ya</span>
+        <span style="top:88%;">~60–70k ya</span>
     </div>
  
   <div class="dual-shared band-deep" style="top:88.00%;">
@@ -1517,9 +1520,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   </div>
   <div class="dual-col dual-col--p" style="--hg-w:15px;">
    <div class="dual-rail">
-    <div class="strata-zone strata-zone--modern" style="top:0.00%;height:11.50%;" title="Bulgarian · Paternal Anchor · Population present: ~681 AD – today">
+    <div class="strata-zone strata-zone--modern" style="top:0.00%;height:11.25%;" title="Bulgarian · Paternal Anchor · Population present: ~681 AD – today">
     </div>
-    <div class="strata-zone strata-zone--slavic" style="top:11.50%;height:2.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
+    <div class="strata-zone strata-zone--slavic" style="top:11.25%;height:2.75%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
     </div>
     <div class="strata-zone strata-zone--byzantine" style="top:14.00%;height:2.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
     </div>
@@ -1558,21 +1561,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
    </div>
 
-    <!-- normal cards -->
-<div class="strata-connector" style="top:5.50%; background:var(--gold);"></div>
-<div class="strata-connector" style="top:12.50%; background:var(--cinnabar);"></div>
-<div class="strata-connector" style="top:15.25%; background:#6b3a5c;"></div>
-<div class="strata-connector" style="top:21.50%; background:var(--accent);"></div>
-<div class="strata-connector" style="top:31.50%; background:#7a5a8a;"></div>
-<div class="strata-connector" style="top:88.00%; background:var(--ink);"></div>    
-
-<!-- HG area — one per rail -->
-<div class="strata-connector sc-whg" style="top:66.5%; background:#8fa3ac;"></div>
-<div class="strata-connector sc-ehg" style="top:44.00%; background:#4a7a52;"></div>
-<div class="strata-connector sc-chg" style="top:58.00%; background:#7a6a4a;"></div>
-<div class="strata-connector sc-eef" style="top:50.50%; background:var(--sea);"></div>
-   
-    <div class="dual-card band-modern" style="top:5.00%; right:75%; width:70%;">
+    <div class="dual-card band-modern" style="top:5.00%; right:120%; width:70%;">
     <div class="band-label">
      <strong>
       Bulgarian · Paternal Anchor
@@ -1588,7 +1577,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      G25: 0.126
     </div>
    </div>
-    <div class="dual-card band-slavic" style="top:12.00%; right:50%; width:70%;">
+    <div class="dual-card band-slavic" style="top:12.00%; right:100%; width:70%;">
     <div class="band-label">
      <strong>
       Slavic Migration
