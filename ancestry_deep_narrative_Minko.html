@@ -296,7 +296,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .marker-left {
   position: absolute;
   right: calc(var(--rail-w) + var(--hg-w));
-  width: calc(var(--rail-w) + var(--line-width) + 50px)
+  width: calc(var(--rail-w) + var(--line-width) + 50px);
   border-top: 1px dotted var(--era-line);
   z-index: 0;
 }
@@ -312,7 +312,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dual-marker > span {
   position: absolute;
   right: calc(var(--rail-w) + var(--hg-w) + 12px);
-  left: 92.50%;              /* replace left: 92.5% */
+  left: auto;            /* replace left: 92.5% */
   width: var(--axis-w);
   transform: translateY(-50%);
   text-align: center;
