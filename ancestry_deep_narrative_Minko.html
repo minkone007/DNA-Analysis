@@ -311,8 +311,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .dual-marker > span {
   position: absolute;
-  right: calc(var(--rail-w) + var(--hg-w) + 12px);
-  left: auto;            /* replace left: 92.5% */
+  left: auto;
+  right: 0;                    /* flush to the field’s right edge (rail side) */
   width: var(--axis-w);
   transform: translateY(-50%);
   text-align: center;
