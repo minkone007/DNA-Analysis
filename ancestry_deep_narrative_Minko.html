@@ -296,15 +296,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .marker-left {
   position: absolute;
   right: calc(var(--rail-w) + var(--hg-w));
-  width: var(--line-width);
+  width: calc(var(--rail-w) + var(--line-width) + 50px)
   border-top: 1px dotted var(--era-line);
   z-index: 0;
 }
   
 .marker-bc {
   position: absolute;
-  right: calc(var(--rail-w) + var(--hg-w));
-  width: 12%;
+  right: calc(var(--rail-w) + var(--hg-w) + -45px);  
+  width: 50px;
   border-top: 1px dotted var(--era-line);
   z-index: 0;
 }
@@ -312,7 +312,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dual-marker > span {
   position: absolute;
   right: calc(var(--rail-w) + var(--hg-w) + 12px);
-  left: auto;              /* replace left: 92.5% */
+  left: 92.50%;              /* replace left: 92.5% */
   width: var(--axis-w);
   transform: translateY(-50%);
   text-align: center;
@@ -1362,15 +1362,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <h2>
    Genetic Stratigraphy
   </h2>
-  
-<p>The chart below shows the main populations and ancient reference samples used in this report.</p>
-
-<p>The left column follows the paternal (Eastern Balkan) lineage; the right column follows the maternal (Ryukyuan) lineage. Cards are placed at the approximate date of each reference sample on a single vertical timeline that compresses deep time.</p>
-
-<p>Coloured zones mark populations that Julian’s lineage actually passed through. Short ticks mark comparative references (Han Henan) used only to measure distance.</p>
-
-<p>The Neanderthal admixture window appears in both columns; the faint Denisovan-related signal appears only on the maternal side.</p>
-  
+ <p>Populations and ancient reference samples used to interpret the genetic profile.</p> 
+ <p>The solid column on the right is the excavation itself, top (today) to bottom (deepest past), with one colored zone per layer in the order this report presents them. The zone boundaries mark this report's narrative sequence, not literal start/end dates. Where several populations genuinely overlap in time — WHG, EHG, CHG, and Ganj Dareh — the main column shows that stretch as one neutral band, and
+ their true, overlapping extents are shown instead in four lanes alongside it, ordered left to right by start date (oldest first) and sized to true duration. The four axis labels for this stretch stay spread out for legibility rather than sitting at each population's literal position.
+  </p>  
  </div>
       <div class="dual-head dual-head--time">
        Time ↓
@@ -1491,7 +1486,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
     
     <div class="dual-marker">
-        <span style="top:88%;">~60–70k ya</span>
+        <span style="top:88%;">~50–60k ya</span>
     </div>
  
   <div class="dual-shared band-deep" style="top:88.00%;">
@@ -1520,17 +1515,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
     <div class="strata-zone strata-zone--byzantine" style="top:14.00%;height:2.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
     </div>
-    <div class="strata-zone strata-zone--thracian" style="top:16.5%;height:11.50%;" title="Paleo-Balkan Substrate · Thracians · Culture present: ~1500 BC – 46 AD">
+    <div class="strata-zone strata-zone--thracian" style="top:16.5%;height:11.25%;" title="Paleo-Balkan Substrate · Thracians · Culture present: ~1500 BC – 46 AD">
     </div>
-    <div class="strata-zone strata-zone--steppe" style="top:29.00%;height:16.00%;" title="Yamnaya / Pontic Steppe Horizon · Culture active: ~3300–2600 BC">
+    <div class="strata-zone strata-zone--steppe" style="top:29.25%;height:16.00%;" title="Yamnaya / Pontic Steppe Horizon · Culture active: ~3300–2600 BC">
     </div>   
     <div class="strata-zone strata-zone--hg" style="top:34.00%;height:35.50%;" title="Western European Hunter-Gatherers · Loschbour: WHG present in Europe: ~15,000–5,000 ya">
     </div>   
-    <div class="strata-zone strata-zone--deep" style="top:69.50%;height:23.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
+    <div class="strata-zone strata-zone--deep" style="top:69.50%;height:19.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
     </div>
-    <div class="strata-zone strata-zone--deep2" style="top:92.50%;height:9.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
-    </div>
-    <div class="strata-tick" style="top:88.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
+    <div class="strata-zone strata-zone--deep2" style="top:88.50%;height:9.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
     </div>
    </div>
    <div class="dual-hg-block" style="width:15px;">
