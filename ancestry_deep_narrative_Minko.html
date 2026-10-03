@@ -265,12 +265,21 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 /* ───────────────────────────────────────────────────────────────
    MAIN STRATIGRAPHY FIELD
    ─────────────────────────────────────────────────────────────── */
- 
-.dual-field {
-    height: 1900px;
+ .dual-field {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 1900px;
+
+  --rail-w: 10px;
+  --hg-w: 15px;
+  --axis-w: 120px;
+  --card-inset: 28px;   /* gap between rail/hg and cards */
+  --line-width: 55%;    /* dotted marker length */
+  --connector-w: 24px;
 }
- 
- 
+
+  
 /* ─────────────────────────────────────────────
    TIMELINE MARKERS
    ───────────────────────────────────────────── */
@@ -286,24 +295,24 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 /* dotted line: right edge = main rail, extends left toward cards */
 .marker-left {
   position: absolute;
-  right: calc(var(--rail-w) + var(--hg-w)); /* start at rail */
-  width: 62%;   /* only across the card side — not through the labels */
+  right: calc(var(--rail-w) + var(--hg-w));
+  width: var(--line-width);
   border-top: 1px dotted var(--era-line);
   z-index: 0;
 }
-
+  
 .marker-bc {
   position: absolute;
-  left: 96.75%;
-  width: 5%;
+  right: calc(var(--rail-w) + var(--hg-w));
+  width: 12%;
   border-top: 1px dotted var(--era-line);
   z-index: 0;
 }
 
-/* labels: own column, above the lines */
 .dual-marker > span {
   position: absolute;
-  left: 92.5%;
+  right: calc(var(--rail-w) + var(--hg-w) + 12px);
+  left: auto;              /* replace left: 92.5% */
   width: var(--axis-w);
   transform: translateY(-50%);
   text-align: center;
@@ -314,29 +323,22 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   color: var(--ink-light);
   white-space: nowrap;
   z-index: 2;
-  /* masks any line that would pass under the text */
   background: rgba(245, 239, 228, .95);
   padding: 0 .35rem;
   box-sizing: border-box;
 }
- 
  
 /* ───────────────────────────────────────────────────────────────
    LINEAGE COLUMNS
    ─────────────────────────────────────────────────────────────── */
  
 .dual-col {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-
-    width: calc(50% - var(--axis-half));
-
-    --rail-w: 10px;
-    --hg-w: 0px;
-    --axis-w: 120px;
-
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc(50% - var(--axis-half));
+  z-index: 1;
+  /* no --rail-w / --hg-w here — inherit from .dual-field */
 }
  
 .dual-col--p {
@@ -470,11 +472,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     background: grey;
 }
 
-/* base: all connectors, ~10px to the right of rail + hg block */
 .dual-col .strata-connector {
   position: absolute;
-  left: calc(var(--rail-w, 10px) + var(--hg-w, 55px) + 305px);
-  width: 28px;
+  right: calc(var(--rail-w) + var(--hg-w) + 2px);
+  left: auto;              /* kill the +305px left system */
+  width: var(--connector-w);
   height: 2px;
   opacity: 1;
   z-index: 3;
@@ -482,19 +484,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   transform: translateY(-50%);
 }
 
-/* HG: stem from each 5px-wide sub-rail, nudged ~5px left of that rail */
-.dual-col .strata-connector.sc-whg {
-  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 5px);
-}
-.dual-col .strata-connector.sc-ehg {
-  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 10px);
-}
-.dual-col .strata-connector.sc-chg {
-  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 15px);
-}
-.dual-col .strata-connector.sc-eef {
-  left: calc(var(--rail-w, 10px) + var(--hg-w, 15px) + 305px - 20px);
-}
+/* HG: same right edge, slightly longer / stepped into sub-lanes if needed */
+.dual-col .strata-connector.sc-whg { width: calc(var(--connector-w) + 15px); }
+.dual-col .strata-connector.sc-ehg { width: calc(var(--connector-w) + 10px); }
+.dual-col .strata-connector.sc-chg { width: calc(var(--connector-w) + 5px); }
+.dual-col .strata-connector.sc-eef { width: var(--connector-w); }
 /* ───────────────────────────────────────────────────────────────
    COMPARATIVE REFERENCE TICKS
    ─────────────────────────────────────────────────────────────── */
@@ -627,16 +621,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
  
 .dual-col--p .dual-card {
-    right: calc(
-        var(--rail-w) +
-        var(--hg-w) +
-        28px
-    );
-
-    border-right:
-        var(--bw)
-        var(--bs)
-        var(--bc);
+  right: calc(var(--rail-w) + var(--hg-w) + var(--card-inset));
+  width: calc(100% - var(--rail-w) - var(--hg-w) - var(--card-inset) - 8px);
+  border-right: var(--bw) var(--bs) var(--bc);
 }
  
 /* ───────────────────────────────────────────────────────────────
@@ -830,6 +817,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         white-space: normal;
         line-height: 1.1;
     }
+
+  .dual-marker {
+  position: absolute;
+  inset: 0;
+  z-index: auto;
+  pointer-events: none;
+}
  
     /* Hide narrow rails on mobile */
     .dual-rail,
