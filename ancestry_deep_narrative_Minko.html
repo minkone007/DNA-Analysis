@@ -304,11 +304,14 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .summary-image img {
   width: 130px;
   height: 130px;
-  border-radius: 50%;
+  border-radius: 4px;
   object-fit: contain;        /* ← key change: show more of the figure, no heavy crop */
   object-position: center top;
   background: #f5f0e6;        /* soft fill so the circle still looks solid */
-  border: 3px solid #c8b89a;
+  border-top: 3px solid #c8b89a;
+  border-bottom: 3px solid #c8b89a;
+  border-left: none;
+  border-right: none;
   box-sizing: border-box;
   display: block;
 }
@@ -342,8 +345,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   border-bottom: 3px solid #c8b89a;
   border-left: none;
   border-right: none;
-  border-top: 5px double #c8b89a;
-  border-bottom: 5px double #c8b89a;
   
   box-sizing: border-box;
   display: block;
