@@ -285,9 +285,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   justify-content: center;
   align-items: flex-start;
   gap: 1.75rem 1.5rem;
-  margin: 4rem auto 2.5rem;   /* ← increased top margin pushes the block down */
+  margin: 115rem auto 2.5rem;
   width: 100%;
   max-width: 1100px;
+  z-index: 5;
 }
 
 /* Individual card */
@@ -295,33 +296,32 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 130px;
+  width: 140px;               /* slightly wider card */
   flex-shrink: 0;
 }
 
-/* The circle itself */
+/* Circle – larger so less aggressive downscaling */
 .summary-image img {
-  width: 110px;               /* ← smaller than the circle (was 100%) */
-  height: 110px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center 18%; /* slight bias toward the face */
+  object-fit: contain;        /* ← key change: show more of the figure, no heavy crop */
+  object-position: center top;
+  background: #f5f0e6;        /* soft fill so the circle still looks solid */
   border: 3px solid #c8b89a;
   box-sizing: border-box;
   display: block;
-  margin: 0 auto;             /* centers the smaller image inside the visual circle area */
 }
 
-/* Text below the image */
+/* Text below */
 .summary-image-text {
-  margin-top: 0.6rem;
+  margin-top: 0.55rem;
   color: var(--ink, #3c3226);
   font-weight: 600;
   text-align: center;
   font-size: 0.78rem;
   line-height: 1.25;
   letter-spacing: 0.02em;
-  /* no absolute, no shadow */
 }
   
 /* ─────────────────────────────────────────────
