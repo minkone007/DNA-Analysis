@@ -285,7 +285,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   justify-content: center;
   align-items: flex-start;
   gap: 1.75rem 1.5rem;
-  margin: 115rem auto 2.5rem;
+  margin-top: 100rem;      /* as you requested – this is ~1600 px */
   width: 100%;
   max-width: 1100px;
   z-index: 5;
@@ -326,7 +326,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 /* Larger rectangular portrait variant */
 .summary-image--portrait {
-  width: 180px;                 /* wider card */
+  width: 180px;   
+  margin: 1.5rem 0 0 0;   /* small gap under the era-label *//* wider card */
 }
 
 .summary-image--portrait img {
@@ -1004,17 +1005,38 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   Sources: G25 coordinates modelled from GEDmatch K36/K15/K13 components via custom mapping script. GEDmatch Eurogenes K36, Dodecad V3, puntDNAL K15, EUtest K15, Ancient Eurasia K6, MyHeritage ethnicity estimates. Vahaduo Global25 scaled population averages. References: Haak et al. 2015, Olalde et al. 2019, Antonio et al. 2019, Gnecchi-Ruscone et al. 2022 (Avar). Ancient DNA ancestry models are statistical approximations describing genetic relationships, not direct genealogical descent. Generated July 2026.
 </div>
 
+
+
+<div class="era-marker">          <!-- or whatever the parent is -->
+  
+  <!-- 1. Era label -->
+  <div class="era-label">BEFORE THE DIG · EXECUTIVE SUMMARY</div>
+
+  <!-- 2. Portrait – stays close to the label -->
+  <div class="summary-image summary-image--portrait">
+    <img src="images/your-portrait.png" alt="...">
+    <span class="summary-image-text">YOUR<br>LABEL</span>
+  </div>
+
+  <!-- 3. Circular images – pushed way down -->
+  <div class="summary-images-container">
+    <!-- all the circular .summary-image divs here -->
+  </div>
+
+</div>
+
+  
 <!-- ══ EXECUTIVE SUMMARY ══ -->
 <div class="era-block" id="s_summary">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
         <span class="era-label">Before the Dig<br>Executive Summary</span>
-         <div class="summary-images-container">
-          <!-- images -->
-          <div class="summary-image summary-image--portrait">
+            <div class="summary-image summary-image--portrait">
               <img src="images/minko_nenov copy.png" alt="Description">
               <span class="summary-image-text">MINKO<br>NENOV</span>
             </div>
+         <!-- images -->
+         <div class="summary-images-container">     
          <div class="summary-image">
             <img src="images/slavic1.png" alt="Slavic">
             <span class="summary-image-text">SLAVIC<br>ANCESTRY</span>
