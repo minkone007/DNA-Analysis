@@ -283,16 +283,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
+  align-items: flex-start; /* important once text is below */
+  gap: 1.5rem 1.75rem;
   margin: 2rem auto;
   width: 100%;
   max-width: 1100px;
 }
 
-/* Individual circle card */
 .summary-image {
-  position: relative; /* Changed from absolute to keep cards in normal flow */
+  position: relative;
   width: 130px;
   height: 130px;
   border-radius: 50%;
@@ -304,23 +303,22 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .summary-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Cover usually fills circular frames better than contain */
+  height: auto;           /* ← key change */
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center top;  /* or center 15–25% */
+  display: block;
 }
 
 .summary-image-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--ink-light, #fff);
-  font-weight: bold;
+  margin-top: 0.55rem;
+  color: var(--ink, #3c3226);   /* or whatever your body text color is */
+  font-weight: 600;
   text-align: center;
-  font-size: 0.85rem;
-  line-height: 1.2;
-  text-shadow: 0 1px 4px #000, 0 0 6px #000;
-  white-space: nowrap;
-  pointer-events: none;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  /* no position, no transform, no text-shadow */
 }
   
 /* ─────────────────────────────────────────────
@@ -1068,8 +1066,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       <span class="plain-label">In Plain Terms</span>
       In short: an Eastern Balkan genome built from a balanced mixture of Anatolian farmers and Caucasus-weighted steppe ancestry, with a smaller Western Hunter-Gatherer contribution underneath, later shaped by the Slavic migrations that produced the medieval Bulgarian population.
       <p style="margin-top:.75rem; font-size:.92em; color:var(--ink-light);"><em>Sibling note:</em> Compared with Stayko, this profile sits slightly farther from the southern, Aegean end of the Balkan continuum and closer to the Romanian–Bulgarian core.</p>
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Eastern Balkan profile — balanced farmers + steppe, then Slavic-era shaping into a medieval Bulgarian-like population.</span></p>
-      <p style="margin-top:.75rem">Everything that follows — <mark>seven layers, eight thousand years</mark> — is the evidence behind that one sentence.</p>
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Eastern Balkan profile — balanced farmers + steppe, then Slavic-era shaping into a medieval Bulgarian-like population.</p>
+      <p>Everything that follows — <mark>seven layers, eight thousand years</mark> — is the evidence behind that one sentence.</span></p>
     </div>
     
     <!-- ══ GENETIC STRATIGRAPHY ══ -->
