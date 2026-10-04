@@ -278,19 +278,34 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   --line-width: 55%;    /* dotted marker length */
   --connector-w: 24px;
 }
+/* Container to hold all 7 circles in a flex row grid */
+.summary-images-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 1100px;
+}
 
+/* Individual circle card */
 .summary-image {
-  position: absolute;
-  top: 20rem;
-  left: 50%;
-  line-height: 1.6;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 150px;
+  position: relative; /* Changed from absolute to keep cards in normal flow */
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid #c8b89a;
-  z-index: 5;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.summary-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover usually fills circular frames better than contain */
 }
 
 .summary-image-text {
@@ -298,20 +313,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--ink-light);
+  color: var(--ink-light, #fff);
   font-weight: bold;
   text-align: center;
-  font-size: 1rem;
-  line-height: 1.6;
-  text-shadow: 0 1px 3px #000;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  text-shadow: 0 1px 4px #000, 0 0 6px #000;
   white-space: nowrap;
+  pointer-events: none;
 }
-
- .summary-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-} 
   
 /* ─────────────────────────────────────────────
    TIMELINE MARKERS
@@ -976,77 +986,37 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <span class="era-dot era-dot--special"></span>
     <span class="era-label">Before the Dig<br>Executive Summary</span>
        <!-- images -->
-       <div class="summary-image">
-          <img src="images/slavic.png"
-               alt="Slavic"
-               style="width:100%; height:100%; object-fit:contain;">
-        
-          <span class="summary-image-text">
-            SLAVIC<br>
-            ANCESTRY
-          </span>
-      </div>
-      <div class="summary-image">
-          <img src="images/thracian.png"
-               alt="Thracian"
-               style="width:100%; height:100%; object-fit:contain;">
-        
-          <span class="summary-image-text">
-            THRACIAN<br>
-            ANCESTRY
-          </span>
-      </div>
-      <div class="summary-image">
-          <img src="images/yamnaya.png"
-               alt="Yamnaya"
-               style="width:100%; height:100%; object-fit:contain;">
-        
-          <span class="summary-image-text">
-            YAMNAYA<br>
-            ANCESTRY
-          </span>
-      </div>
-      <div class="summary-image">
-          <img src="images/ehg.png"
-               alt="EHG"
-               style="width:100%; height:100%; object-fit:contain;">
-        
-          <span class="summary-image-text">
-            EHG<br>
-            ANCESTRY
-          </span>
-      </div>
-      <div class="summary-image">
-          <img src="images/chg.png"
-               alt="CHGc"
-               style="width:100%; height:100%; object-fit:contain;">
-        
-          <span class="summary-image-text">
-            CHG<br>
-            ANCESTRY
-          </span>
-      </div>
-      <div class="summary-image">
-          <img src="images/whg.png"
-               alt="WHG"
-               style="width:100%; height:100%; object-fit:contain;">
-        
-          <span class="summary-image-text">
-            WHG<br>
-            ANCESTRY
-          </span>
-      </div>
-      <div class="summary-image">
-          <img src="images/neanderthal.png"
-               alt="Neanderthal"
-               style="width:100%; height:100%; object-fit:contain;">
-        
-          <span class="summary-image-text">
-            NEANDERTHAL<br>
-            ANCESTRY
-          </span>
-      </div>
-      <!-- images end -->
+        <div class="summary-images-container">
+          <div class="summary-image">
+            <img src="images/slavic.png" alt="Slavic">
+            <span class="summary-image-text">SLAVIC<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/thracian.png" alt="Thracian">
+            <span class="summary-image-text">THRACIAN<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/yamnaya.png" alt="Yamnaya">
+            <span class="summary-image-text">YAMNAYA<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/ehg.png" alt="EHG">
+            <span class="summary-image-text">EHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/chg.png" alt="CHGc">
+            <span class="summary-image-text">CHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/whg.png" alt="WHG">
+            <span class="summary-image-text">WHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/neanderthal.png" alt="Neanderthal">
+            <span class="summary-image-text">NEANDERTHAL<br>ANCESTRY</span>
+          </div>
+        </div>
+        <!-- images end -->
   </div>
   <div class="era-content">
     <h2>The View From Above</h2>
