@@ -323,6 +323,29 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   line-height: 1.25;
   letter-spacing: 0.02em;
 }
+
+/* Larger rectangular portrait variant */
+.summary-image--portrait {
+  width: 180px;                 /* wider card */
+}
+
+.summary-image--portrait img {
+  width: 160px;
+  height: 210px;                /* taller portrait ratio */
+  border-radius: 8px;           /* soft rectangle instead of circle */
+  object-fit: cover;            /* or contain if you prefer less crop */
+  object-position: center top;
+  background: #f5f0e6;
+  border: 3px solid #c8b89a;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Text stays the same style */
+.summary-image--portrait .summary-image-text {
+  margin-top: 15rem;
+  /* inherits everything else from .summary-image-text */
+}  
   
 /* ─────────────────────────────────────────────
    TIMELINE MARKERS
@@ -983,13 +1006,18 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 <!-- ══ EXECUTIVE SUMMARY ══ -->
 <div class="era-block" id="s_summary">
-  <div class="era-marker">
+   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
     <span class="era-label">Before the Dig<br>Executive Summary</span>
        <!-- images -->
         <div class="summary-images-container">
+          <span class="era-dot era-dot--special"></span>
+          <div class="summary-image summary-image--portrait">
+            <img src="images/minko_nenov copy.png" alt="Description">
+            <span class="summary-image-text">Minko<br>Nenov</span>
+          </div>
           <div class="summary-image">
-            <img src="images/slavic.png" alt="Slavic">
+            <img src="images/slavic1.png" alt="Slavic">
             <span class="summary-image-text">SLAVIC<br>ANCESTRY</span>
           </div>
           <div class="summary-image">
@@ -1016,6 +1044,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <img src="images/neanderthal.png" alt="Neanderthal">
             <span class="summary-image-text">NEANDERTHAL<br>ANCESTRY</span>
           </div>
+           <span class="era-dot era-dot--special"></span>
         </div>
         <!-- images end -->
   </div>
