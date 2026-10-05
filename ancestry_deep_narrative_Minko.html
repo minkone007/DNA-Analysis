@@ -248,17 +248,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
  
 .dual-head--time {
-    position: absolute;
-    right: calc(var(--rail-w) + var(--hg-w) + 25px);
-    width: var(--axis-w);
-    bottom: 0;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-size: .65rem;
-    font-weight: 600;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--ink-light);
+  position: relative;          /* or relative */
+  top: auto;
+  left: auto;
+  margin-bottom: 1rem;
+  text-align: center;         /* or whatever matches the design */
+  font-family: Inter, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-light);
 }
  
  
