@@ -40,7 +40,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .main-content{margin-left:200px}
 
 .era-block{display:flex;gap:0;padding:3.5rem 4rem 3.5rem 0;border-bottom:1px solid var(--parchment-dark);max-width:1100px;margin:0 auto}
-.era-marker{width:120px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.era-marker{width:160px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
 .era-marker::before{content:'';position:absolute;left:50%;top:0;bottom:-3.5rem;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0}
 .era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);z-index:1;flex-shrink:0}
 .era-dot--mid{background:var(--steppe);box-shadow:0 0 0 3px var(--steppe)}
@@ -278,6 +278,34 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   --line-width: 55%;    /* dotted marker length */
   --connector-w: 24px;
 }
+
+/* Vertical stack of circular images */
+.summary-images-container--vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  margin-top: 2rem;             /* space under the portrait */
+  width: 100%;
+}
+
+/* Slightly smaller circles so they fit the column nicely */
+.summary-images-container--vertical .summary-image {
+  width: 120px;
+}
+
+.summary-images-container--vertical .summary-image img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: contain;
+  object-position: center top;
+  background: #f5f0e6;
+  border: 3px solid #c8b89a;
+  box-sizing: border-box;
+  display: block;
+}
+  
 /* Container – pushed down + good spacing */
 .summary-images-container {
   display: flex;
@@ -321,24 +349,21 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 /* Larger rectangular portrait variant */
 .summary-image--portrait {
-  width: 180px;   
-  margin: 1.5rem 0 0 0;   /* small gap under the era-label *//* wider card */
+  width: 140px;
+  margin: 1.25rem 0 0;
 }
 
 .summary-image--portrait img {
-  width: 180px;               /* slightly larger helps a lot */
-  height: 240px;
+  width: 130px;
+  height: 170px;
   object-fit: contain;
   object-position: center top;
   background: #f5f0e6;
-  
-  /* Top & bottom borders as you requested */
   border-top: 3px solid #c8b89a;
   border-bottom: 3px solid #c8b89a;
   border-left: 1px solid #c8b89a;
   border-right: 1px solid #c8b89a;
   border-radius: 4px;
-  
   box-sizing: border-box;
   display: block;
 }
@@ -1011,7 +1036,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 </div>
  
 <!-- ══ EXECUTIVE SUMMARY ══ -->
-<!-- ══ EXECUTIVE SUMMARY ══ -->
 <div class="era-block" id="s_summary">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
@@ -1021,6 +1045,38 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="summary-image summary-image--portrait">
       <img src="images/minko.png" alt="Minko Nenov">
       <span class="summary-image-text">MINKO<br>NENOV</span>
+    </div>
+
+    <!-- Circular images – stacked on the left line -->
+    <div class="summary-images-container summary-images-container--vertical">
+      <div class="summary-image">
+        <img src="images/slavic1.png" alt="Slavic">
+        <span class="summary-image-text">SLAVIC<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/thracian.png" alt="Thracian">
+        <span class="summary-image-text">THRACIAN<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/yamnaya.png" alt="Yamnaya">
+        <span class="summary-image-text">YAMNAYA<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/ehg.png" alt="EHG">
+        <span class="summary-image-text">EHG<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/chg.png" alt="CHG">
+        <span class="summary-image-text">CHG<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/whg.png" alt="WHG">
+        <span class="summary-image-text">WHG<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/neanderthal.png" alt="Neanderthal">
+        <span class="summary-image-text">NEANDERTHAL<br>ANCESTRY</span>
+      </div>
     </div>
   </div>
 
@@ -1081,42 +1137,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
   </div>
 </div>
+  </div>
+</div>
 
-          <!-- Circular ancestry icons -->
-          <section class="ancestry-icons-section">
-            <div class="summary-images-container">
-              <div class="summary-image">
-                <img src="images/slavic1.png" alt="Slavic">
-                <span class="summary-image-text">SLAVIC<br>ANCESTRY</span>
-              </div>
-              <div class="summary-image">
-                <img src="images/thracian.png" alt="Thracian">
-                <span class="summary-image-text">THRACIAN<br>ANCESTRY</span>
-              </div>
-              <div class="summary-image">
-                <img src="images/yamnaya.png" alt="Yamnaya">
-                <span class="summary-image-text">YAMNAYA<br>ANCESTRY</span>
-              </div>
-              <div class="summary-image">
-                <img src="images/ehg.png" alt="EHG">
-                <span class="summary-image-text">EHG<br>ANCESTRY</span>
-              </div>
-              <div class="summary-image">
-                <img src="images/chg.png" alt="CHG">
-                <span class="summary-image-text">CHG<br>ANCESTRY</span>
-              </div>
-              <div class="summary-image">
-                <img src="images/whg.png" alt="WHG">
-                <span class="summary-image-text">WHG<br>ANCESTRY</span>
-              </div>
-              <div class="summary-image">
-                <img src="images/neanderthal.png" alt="Neanderthal">
-                <span class="summary-image-text">NEANDERTHAL<br>ANCESTRY</span>
-              </div>
-            </div>
-          </section>
-             
-    <!-- ══ GENETIC STRATIGRAPHY ══ -->
+     <!-- ══ GENETIC STRATIGRAPHY ══ -->
 <section class="genetic-stratigraphy">
   <div class="strat-intro">
   <span class="strat-kicker">Chronological Map</span>
