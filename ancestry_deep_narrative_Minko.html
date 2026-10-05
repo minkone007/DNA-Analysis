@@ -40,7 +40,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .main-content{margin-left:200px}
 
 .era-block{display:flex;gap:0;padding:3.5rem 4rem 3.5rem 0;border-bottom:1px solid var(--parchment-dark);max-width:1100px;margin:0 auto}
-.era-marker{width:160px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.era-marker{width:120px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
 .era-marker::before{content:'';position:absolute;left:50%;top:0;bottom:-3.5rem;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0}
 .era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);z-index:1;flex-shrink:0}
 .era-dot--mid{background:var(--steppe);box-shadow:0 0 0 3px var(--steppe)}
@@ -278,44 +278,19 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   --line-width: 55%;    /* dotted marker length */
   --connector-w: 24px;
 }
-
-/* Vertical stack of circular images */
-.summary-images-container--vertical {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.75rem;
-  margin-top: 2rem;             /* space under the portrait */
-  width: 100%;
-}
-
-/* Slightly smaller circles so they fit the column nicely */
-.summary-images-container--vertical .summary-image {
-  width: 120px;
-}
-
-.summary-images-container--vertical .summary-image img {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  object-fit: contain;
-  object-position: center top;
-  background: #f5f0e6;
-  border: 3px solid #c8b89a;
-  box-sizing: border-box;
-  display: block;
-}
-  
 /* Container – pushed down + good spacing */
 .summary-images-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem 1.5rem;
-  /* no huge margin-top needed anymore */
+  align-items: flex-start;
+  gap: 2.35rem 1.5rem;
+  margin-top: 96rem;      /* as you requested – this is ~1600 px */
+  width: 100%;
+  max-width: 1100px;
   z-index: 5;
 }
-  
+
 /* Individual card */
 .summary-image {
   display: flex;
@@ -349,24 +324,21 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 /* Larger rectangular portrait variant */
 .summary-image--portrait {
-  width: 140px;
-  margin: 1.25rem 0 0;
+  width: 180px;   
+  margin: 1.5rem 0 0 0;   /* small gap under the era-label *//* wider card */
 }
 
 .summary-image--portrait img {
-  width: 130px;
-  height: 170px;
+  width: 160px;
+  height: 210px;
   object-fit: contain;
   object-position: center top;
   background: #f5f0e6;
-  border-top: 3px solid #c8b89a;
-  border-bottom: 3px solid #c8b89a;
-  border-left: 1px solid #c8b89a;
-  border-right: 1px solid #c8b89a;
-  border-radius: 4px;
   box-sizing: border-box;
   display: block;
+  z-index: 5;
 }
+  
 /* Text stays the same style */
 .summary-image--portrait .summary-image-text {
   margin-top: 0.55rem;
@@ -888,12 +860,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     flex-basis: auto;
 }
  
-.ancestry-icons-section {
-  margin: 6rem auto 4rem;   /* normal, controllable spacing */
-  max-width: 1100px;
-  padding: 0 1rem;
-}
-  
+ 
 /* ═══════════════════════════════════════════════════════════════
    MOBILE
    ═══════════════════════════════════════════════════════════════ */
@@ -1039,55 +1006,54 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 <div class="era-block" id="s_summary">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
-    <span class="era-label">Before the Dig<br>Executive Summary</span>
-
-    <!-- Portrait -->
-    <div class="summary-image summary-image--portrait">
-      <img src="images/minko.png" alt="Minko Nenov">
-      <span class="summary-image-text">MINKO<br>NENOV</span>
-    </div>
-
-    <!-- Circular images – stacked on the left line -->
-    <div class="summary-images-container summary-images-container--vertical">
-      <div class="summary-image">
-        <img src="images/slavic1.png" alt="Slavic">
-        <span class="summary-image-text">SLAVIC<br>ANCESTRY</span>
-      </div>
-      <div class="summary-image">
-        <img src="images/thracian.png" alt="Thracian">
-        <span class="summary-image-text">THRACIAN<br>ANCESTRY</span>
-      </div>
-      <div class="summary-image">
-        <img src="images/yamnaya.png" alt="Yamnaya">
-        <span class="summary-image-text">YAMNAYA<br>ANCESTRY</span>
-      </div>
-      <div class="summary-image">
-        <img src="images/ehg.png" alt="EHG">
-        <span class="summary-image-text">EHG<br>ANCESTRY</span>
-      </div>
-      <div class="summary-image">
-        <img src="images/chg.png" alt="CHG">
-        <span class="summary-image-text">CHG<br>ANCESTRY</span>
-      </div>
-      <div class="summary-image">
-        <img src="images/whg.png" alt="WHG">
-        <span class="summary-image-text">WHG<br>ANCESTRY</span>
-      </div>
-      <div class="summary-image">
-        <img src="images/neanderthal.png" alt="Neanderthal">
-        <span class="summary-image-text">NEANDERTHAL<br>ANCESTRY</span>
-      </div>
-    </div>
+        <span class="era-label">Before the Dig<br>Executive Summary</span>
+            <div class="summary-image summary-image--portrait">
+              <img src="images/minko.png" alt="Description">
+              <span class="summary-image-text">MINKO<br>NENOV</span>
+            </div>
+         <!-- images -->
+         <div class="summary-images-container">     
+         <span class="era-dot era-dot--special"></span>
+           <div class="summary-image">
+            <img src="images/slavic1.png" alt="Slavic">
+            <span class="summary-image-text">SLAVIC<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/thracian.png" alt="Thracian">
+            <span class="summary-image-text">THRACIAN<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/yamnaya.png" alt="Yamnaya">
+            <span class="summary-image-text">YAMNAYA<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/ehg.png" alt="EHG">
+            <span class="summary-image-text">EHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/chg.png" alt="CHGc">
+            <span class="summary-image-text">CHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/whg.png" alt="WHG">
+            <span class="summary-image-text">WHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/neanderthal.png" alt="Neanderthal">
+            <span class="summary-image-text">NEANDERTHAL<br>ANCESTRY</span>
+          </div>
+           <span class="era-dot era-dot--special"></span>
+        </div>
+        <!-- images end -->
   </div>
-
   <div class="era-content">
     <h2>The View From Above</h2>
 
-    <p class="descent-note">Seven layers follow, each a few thousand years deeper than the last. Before descending into them, here is what the whole excavation shows, top to bottom.</p>
+    <p class="descent-note">Seven s follow, each a few thousand years deeper than the last. Before descending into them, here is what the whole excavation shows, top to bottom.</p>
 
     <p>The genome sits at the centre of the Eastern Balkan genetic continuum. Modern population comparisons place it closest to Romanian, Bulgarian, and Gagauz references, forming a tight cluster with other Eastern Balkan groups — Montenegrin, Moldovan, Serbian, Macedonian. This matches the MyHeritage picture (Greek and Albanian ~47%, Balkan ~38%) once those two labels are read as overlapping windows onto the same Southeast European gene pool, rather than as separate ancestral fractions.</p>
 
-    <p>At the medieval level, the closest ancient matches are <strong>Macedonia Medieval (0.030)</strong> and <strong>Bulgaria Medieval (0.034)</strong> — a tight Eastern Balkan pair from the early–high medieval period, consistent with a population shaped by the Slavic migrations while retaining a substantial pre-Slavic Paleo-Balkan substrate. The Bronze Age layer beneath it shows a near-balanced contribution from Anatolian Neolithic farmers and Pontic Steppe (Yamnaya-related) pastoralists — closer to a 50/50 synthesis than a lean in either direction. Western Hunter-Gatherer ancestry is present but forms the smallest of the three founding European streams, at roughly 15 percent — partly a local contribution, partly carried inside the steppe component itself.</p>
+    <p>At the medieval level, the closest ancient matches are <strong>Macedonia Medieval (0.030)</strong> and <strong>Bulgaria Medieval (0.034)</strong> — a tight Eastern Balkan pair from the early–high medieval period, consistent with a population shaped by the Slavic migrations while retaining a substantial pre-Slavic Paleo-Balkan substrate. That is consistent with a population shaped by the Slavic migrations of the early Middle Ages while retaining a substantial pre-Slavic Paleo-Balkan substrate. The Bronze Age  beneath it shows a near-balanced contribution from Anatolian Neolithic farmers and Pontic Steppe (Yamnaya-related) pastoralists — closer to a 50/50 synthesis than a lean in either direction. Western Hunter-Gatherer ancestry is present but forms the smallest of the three founding European streams, at roughly 15 percent — partly a local contribution, partly carried inside the steppe component itself.</p>
 
     <p>Deeper still, the steppe ancestry appears weighted toward its Caucasus Hunter-Gatherer (CHG) side rather than its Eastern Hunter-Gatherer (EHG) side — a pattern typical of southeastern European profiles rather than the northern Corded Ware route. Single-gene markers confirm a classic European pigmentation profile — light skin, blue eyes — together with lactase persistence from one copy of the European allele. A homozygous East-Asian-associated EDAR variant is present without its usual ABCC11 partner allele, a combination more consistent with an old, indirect route of gene flow than with recent East Asian ancestry.</p>
 
@@ -1118,7 +1084,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         <td class="dist-val">0.253 / 0.286</td>
       </tr>
     </table>
-
     <div class="insight-box">
       <span class="insight-label">How to Read This Report</span>
       <strong>Lower G25 distance = genetically closer.</strong>
@@ -1127,20 +1092,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       Ancient labels (Yamnaya, Barcin, Thracian, etc.) are archaeological or genetic reference clusters used to describe deep structure.
       Work top to bottom: each layer is older than the one above it.
     </div>
-
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
       In short: an Eastern Balkan genome built from a balanced mixture of Anatolian farmers and Caucasus-weighted steppe ancestry, with a smaller Western Hunter-Gatherer contribution underneath, later shaped by the Slavic migrations that produced the medieval Bulgarian population.
       <p style="margin-top:.75rem; font-size:.92em; color:var(--ink-light);"><em>Sibling note:</em> Compared with Stayko, this profile sits slightly farther from the southern, Aegean end of the Balkan continuum and closer to the Romanian–Bulgarian core.</p>
-      <p style="margin-top:.75rem"><strong>Takeaway:</strong> Eastern Balkan profile — balanced farmers + steppe, then Slavic-era shaping into a medieval Bulgarian-like population.</p>
-      <p>Everything that follows — <mark>seven layers, eight thousand years</mark> — is the evidence behind that one sentence.</p>
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Eastern Balkan profile — balanced farmers + steppe, then Slavic-era shaping into a medieval Bulgarian-like population.</p>
+      <p>Everything that follows — <mark>seven layers, eight thousand years</mark> — is the evidence behind that one sentence.</span></p>
     </div>
-  </div>
-</div>
-  </div>
-</div>
-
-     <!-- ══ GENETIC STRATIGRAPHY ══ -->
+    
+    <!-- ══ GENETIC STRATIGRAPHY ══ -->
 <section class="genetic-stratigraphy">
   <div class="strat-intro">
   <span class="strat-kicker">Chronological Map</span>
