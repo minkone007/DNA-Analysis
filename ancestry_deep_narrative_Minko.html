@@ -123,766 +123,116 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .strata-zone--steppe{background:var(--steppe)}.strata-zone--farmer{background:var(--sea)}
 .strata-zone--whg{background:var(--stone)}.strata-zone--ehg{background:#5a7a5a}.strata-zone--chg{background:#7a6a4a}
 .strata-zone--deep{background:var(--ink)}
+
 /* ═══════════════════════════════════════════════════════════════
    GENETIC STRATIGRAPHY — DUAL LINEAGE
-   Paternal | Time Axis | Maternal
    ═══════════════════════════════════════════════════════════════ */
- 
-.genetic-stratigraphy {
-    margin: 3.5rem 0 4.5rem;
-    padding: 2.5rem 0 3rem;
-    background: transparent;
-    border: none;
-    --rail-w: 10px;
-    --hg-w: 15px;
-    --axis-w: 120px;
-}
- 
-/* ───────────────────────────────────────────────────────────────
-   INTRO
-   ─────────────────────────────────────────────────────────────── */
- 
-.strat-intro {
-    max-width: 720px;
-    margin: 0 auto 2.5rem;
-    text-align: center;
-}
- 
-.strat-kicker {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: .68rem;
-    font-weight: 700;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: .35rem;
-}
- 
-.strat-intro h2 {
-    font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-    margin-bottom: .5rem;
-}
- 
-.strat-intro p {
-    color: var(--ink-light);
-    font-size: .95rem;
-    line-height: 1.6;
-}
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   SHARED MAP CONTAINER
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-heads,
-.dual-field {
-    --axis-half: 60px;
- 
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-}
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   COLUMN HEADERS
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-heads {
-    display: grid;
-    grid-template-columns: 1fr calc(var(--axis-half) * 2) 1fr;
-    align-items: end;
-    margin-bottom: 1rem;
-    max-width: 920px;
-    padding: 0 2rem;
-    box-sizing: border-box;
-}
+.genetic-stratigraphy { margin: 3.5rem 0 4.5rem; padding: 2.5rem 0 3rem; background: transparent; border: none; --rail-w: 10px; --hg-w: 15px; --axis-w: 120px; }
 
+/* ── INTRO ── */
+.strat-intro { max-width: 720px; margin: 0 auto 2.5rem; text-align: center; }
+.strat-kicker { display: block; font-family: 'Inter', sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; }
+.strat-intro h2 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); margin-bottom: .5rem; }
+.strat-intro p { color: var(--ink-light); font-size: .95rem; line-height: 1.6; }
+
+/* ── SHARED MAP CONTAINER ── */
+.dual-heads, .dual-field { --axis-half: 60px; max-width: 1100px; margin: 0 auto; position: relative; }
+
+/* ── COLUMN HEADERS ── */
+.dual-heads { display: grid; grid-template-columns: 1fr calc(var(--axis-half) * 2) 1fr; align-items: end; margin-bottom: 1rem; max-width: 920px; padding: 0 2rem; box-sizing: border-box; }
+.dual-head strong { display: block; font-size: .9rem; letter-spacing: .04em; }
+.dual-head span { display: block; font-size: 1rem; color: var(--ink-light); margin-top: .15rem; }
+.dual-head--paternal { text-align: right; padding-right: 1rem; }
+.dual-head--time { position: relative; top: auto; left: auto; margin-bottom: 1rem; text-align: center; font-family: Inter, sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--ink-light); }
+
+/* ── MAIN STRATIGRAPHY FIELD ── */
+.dual-field { position: relative; z-index: 5; width: 100%; height: 1900px; --rail-w: 10px; --hg-w: 15px; --axis-w: 120px; --card-inset: 28px; --line-width: 55%; --connector-w: 24px; }
+.summary-images-container { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2.35rem 1.5rem; position: absolute; top: 46%; left: -8.25rem; transform: translate(-50%, -50%); width: max-content; z-index: 5; }
+.summary-image { display: flex; flex-direction: column; align-items: center; width: 140px; flex-shrink: 0; }
+.summary-image img { width: 130px; height: 130px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; }
+.summary-image-text { margin-top: 0.55rem; color: var(--ink, #3c3226); font-weight: 600; text-align: center; font-size: 0.78rem; line-height: 1.25; letter-spacing: 0.02em; background-color: var(--parchment); }
+.summary-image--portrait { width: 180px; margin: 1.5rem 0 0 0; }
+.summary-image--portrait img { width: 160px; height: 210px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; z-index: 5; }
+.summary-image--portrait .summary-image-text { margin-top: 0.55rem; }
+
+/* ── TIMELINE MARKERS ── */
+.dual-marker { position: absolute; inset: 0; z-index: auto; pointer-events: none; }
+.marker-left { position: absolute; right: calc(var(--rail-w) + var(--hg-w)); width: calc(var(--rail-w) + var(--line-width) + 50px); border-top: 1px dotted var(--era-line); z-index: 0; }
+.marker-bc { position: absolute; right: calc(var(--rail-w) + var(--hg-w) + -45px); width: 50px; border-top: 1px dotted var(--era-line); z-index: 0; }
+.dual-marker > span { position: absolute; left: auto; right: calc(var(--rail-w) + var(--hg-w) - 80px); width: var(--axis-w); transform: translateY(-50%); text-align: center; font-family: 'Inter', sans-serif; font-size: .65rem; font-weight: 600; letter-spacing: .05em; color: var(--ink-light); white-space: nowrap; z-index: 2; background: rgba(245, 239, 228, .95); padding: 0 .35rem; box-sizing: border-box; }
+
+/* ── LINEAGE COLUMNS ── */
+.dual-col { position: absolute; top: 0; bottom: 0; width: calc(50% - var(--axis-half)); z-index: 1; }
+.dual-col--p { right: 0; width: calc(50% - var(--axis-half)); }
+
+/* ── STRATIGRAPHIC RAILS ── */
+.dual-rail { position: absolute; top: 0; bottom: 0; width: var(--rail-w); min-height: 100%; z-index: 10; border-radius: 3px; overflow: hidden; background: transparent; display: block; }
+.dual-col--p .dual-rail { right: 0; background: transparent; }
+
+/* ── STRATIGRAPHIC BANDS ── */
+.strata-zone { position: absolute; left: 0; width: 100%; min-height: 1px; box-shadow: inset 0 1px 0 rgba(245, 239, 228, .75); }
+.strata-zone--modern { background: var(--gold); }
+.strata-zone--slavic { background: var(--cinnabar); }
+.strata-zone--byzantine { background: #6b3a5c; }
+.strata-zone--thracian { background: var(--accent); }
+.strata-zone--steppe { background: #7a5a8a; }
+.strata-zone--farmer { background: var(--sea); }
+.strata-zone--eastasia { background: #d08a5b; }
+.strata-zone--jomon { background: var(--east); }
+.strata-zone--hg { background-color: #b9c0c7; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.45) 0px, rgba(255,255,255,.45) 2px, transparent 2px, transparent 8px); }
+.strata-zone--whg { background: #8fa3ac; }
+.strata-zone--ehg { background: #4a7a52; }
+.strata-zone--chg { background: #7a6a4a; }
+.strata-zone--deep { background: var(--ink); }
+.strata-zone--deep2 { background-color: #4a3d31; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.45) 0px, rgba(255,255,255,.45) 2px, transparent 2px, transparent 8px); }
+.strata-zone--grey { background: grey; }
+.strata-tick { position: absolute; left: -4px; width: calc(var(--rail-w) + 8px); height: 2px; background: var(--ink-light); opacity: .9; z-index: 2; }
+.strat-map-wrap { position: relative; width: 100%; max-width: 920px; margin: 0 auto; padding: 0 2rem; box-sizing: border-box; }
+.annotation-lane { position: absolute; left: 2rem; top: 0; bottom: 0; width: 50px; z-index: 5; pointer-events: none; }
+
+/* ── HUNTER-GATHERER SUB-LANES ── */
+.dual-hg-block { position: absolute; top: 0; bottom: 0; z-index: 2; }
+.dual-col--p .dual-hg-block { right: var(--rail-w); }
+.dual-col--m .dual-hg-block { left: var(--rail-w); }
+.dual-hg-lane { position: absolute; top: 0; bottom: 0; width: 5px; border-radius: 2px; overflow: hidden; }
+.dual-hg-lane--0 { left: 0; }
+.dual-hg-lane--1 { left: 5px; }
+.dual-hg-lane--2 { left: 10px; }
+.dual-hg-lane--3 { left: -5px; }
+
+/* ── ANCESTRY CARDS ── */
+.dual-card { --bc: var(--ink-mid); --bw: 3px; --bs: solid; position: absolute; transform: translateY(-50%); width: calc(100% - var(--rail-w) - var(--hg-w) - 60px); min-height: 40px; padding: .45rem .7rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .3rem 1rem; background: rgba(245, 239, 228, .82); border: none; border-radius: 2px; z-index: 2; }
+.dual-col--p .dual-card { right: calc(var(--rail-w) + var(--hg-w) + var(--card-inset)); width: calc(100% - var(--rail-w) - var(--hg-w) - var(--card-inset) - 8px); border-right: var(--bw) var(--bs) var(--bc); }
+
+/* ── CARD CONTENT ── */
+.band-label { min-width: 0; }
+.band-label strong { display: block; font-size: 1rem; line-height: 1.2; font-weight: 600; }
+.band-label span { display: block; margin-top: .12rem; font-size: .8rem; line-height: 1.25; color: var(--ink-light); }
+.band-distance { flex-shrink: 0; font-family: 'Inter', sans-serif; font-size: .63rem; color: var(--ink-light); white-space: nowrap; }
+.deep-note { flex-basis: 100%; font-size: .66rem; line-height: 1.4; color: var(--ink-light); font-style: italic; }
+
+/* ── CARD TYPES ── */
+.band-slavic { --bc: var(--cinnabar); }
+.band-byzantine { --bc: #6b3a5c; }
+.band-thracian { --bc: var(--accent); }
+.band-modern { --bc: var(--gold); }
+.band-steppe { --bc: #7a5a8a; }
+.band-farmer { --bc: var(--sea); }
+.band-eastasia { --bc: #d08a5b; }
+.band-whg { --bc: #8fa3ac; }
+.band-jomon { --bc: var(--east); }
+.band-ehg { --bc: #4a7a52; }
+.band-chg { --bc: #7a6a4a; }
+.band-deep { --bc: var(--ink); --bw: 4px; background: rgba(28, 22, 16, .2); }
+.band-deep::before { content: ""; position: absolute; inset: 0; background: rgba(245, 239, 228, .82); z-index: -1; }
+.band-deep2 { --bc: #4a3d31; --bw: 4px; background: rgba(28, 22, 16, .2); }
+.band-deep2::before { content: ""; position: absolute; inset: 0; background: rgba(245, 239, 228, .82); z-index: -1; }
+
+/* ── SHARED / BOTH-LINEAGES BAND ── */
+.dual-shared { position: absolute; left: 0; right: 0; width: 85%; transform: translateY(-50%); z-index: 1; display: grid; grid-template-columns: 1fr calc(var(--axis-half) * 2 + 30px) 1fr; align-items: center; min-height: 70px; padding: .45rem .7rem; border-left: none; border-right: 4px solid var(--ink); border-radius: 2px; }
+.dual-field .band-deep { border-left: none; border-right: 4px solid var(--ink); }
+.dual-shared .deep-note { flex-basis: auto; }
   
-.dual-head strong {
-    display: block;
-    font-size: .9rem;
-    letter-spacing: .04em;
-}
- 
-.dual-head span {
-    display: block;
-    font-size: 1rem;
-    color: var(--ink-light);
-    margin-top: .15rem;
-}
- 
-.dual-head--paternal {
-    text-align: right;
-    padding-right: 1rem;
-}
- 
- 
-.dual-head--time {
-  position: relative;          /* or relative */
-  top: auto;
-  left: auto;
-  margin-bottom: 1rem;
-  text-align: center;         /* or whatever matches the design */
-  font-family: Inter, sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  color: var(--ink-light);
-}
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   MAIN STRATIGRAPHY FIELD
-   ─────────────────────────────────────────────────────────────── */
- .dual-field {
-  position: relative;
-  z-index: 5;
-  width: 100%;
-  height: 1900px;
-
-  --rail-w: 10px;
-  --hg-w: 15px;
-  --axis-w: 120px;
-  --card-inset: 28px;   /* gap between rail/hg and cards */
-  --line-width: 55%;    /* dotted marker length */
-  --connector-w: 24px;
-}
-/* Container – pushed down + good spacing */
-.summary-images-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2.35rem 1.5rem;
-    position: absolute;
-    top: 46%;
-    left: -8.25rem;
-    transform: translate(-50%, -50%);
-    width: max-content;
-    z-index: 5;
-}
-
-/* Individual card */
-.summary-image {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 140px;               /* slightly wider card */
-  flex-shrink: 0;
-}
-
-/* Circle – larger so less aggressive downscaling */
-.summary-image img {
-  width: 130px;
-  height: 130px;
-  object-fit: contain;        /* ← key change: show more of the figure, no heavy crop */
-  object-position: center top;
-  background: #f5f0e6;        /* soft fill so the circle still looks solid */
-  box-sizing: border-box;
-  display: block;
-}
-
-/* Text below */
-.summary-image-text {
-  margin-top: 0.55rem;
-  color: var(--ink, #3c3226);
-  font-weight: 600;
-  text-align: center;
-  font-size: 0.78rem;
-  line-height: 1.25;
-  letter-spacing: 0.02em;
-  background-color: var(--parchment);
-}
-
-/* Larger rectangular portrait variant */
-.summary-image--portrait {
-  width: 180px;   
-  margin: 1.5rem 0 0 0;   /* small gap under the era-label *//* wider card */
-}
-
-.summary-image--portrait img {
-  width: 160px;
-  height: 210px;
-  object-fit: contain;
-  object-position: center top;
-  background: #f5f0e6;
-  box-sizing: border-box;
-  display: block;
-  z-index: 5;
-}
-  
-/* Text stays the same style */
-.summary-image--portrait .summary-image-text {
-  margin-top: 0.55rem;
-  /* inherits everything else from .summary-image-text */
-}  
-  
-/* ─────────────────────────────────────────────
-   TIMELINE MARKERS
-   ───────────────────────────────────────────── */
- 
-/* full-height  — does not own a narrow column anymore */
-.dual-marker {
-  position: absolute;
-  inset: 0;
-  z-index: auto;
-  pointer-events: none;
-}
-
-/* dotted line: right edge = main rail, extends left toward cards */
-.marker-left {
-  position: absolute;
-  right: calc(var(--rail-w) + var(--hg-w));
-  width: calc(var(--rail-w) + var(--line-width) + 50px);
-  border-top: 1px dotted var(--era-line);
-  z-index: 0;
-}
-  
-.marker-bc {
-  position: absolute;
-  right: calc(var(--rail-w) + var(--hg-w) + -45px);  
-  width: 50px;
-  border-top: 1px dotted var(--era-line);
-  z-index: 0;
-}
-
-.dual-marker > span {
-  position: absolute;
-  left: auto;
-  right: calc(var(--rail-w) + var(--hg-w) - 80px);                    /* flush to the field’s right edge (rail side) */
-  width: var(--axis-w);
-  transform: translateY(-50%);
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  font-size: .65rem;
-  font-weight: 600;
-  letter-spacing: .05em;
-  color: var(--ink-light);
-  white-space: nowrap;
-  z-index: 2;
-  background: rgba(245, 239, 228, .95);
-  padding: 0 .35rem;
-  box-sizing: border-box;
-}
- 
-/* ───────────────────────────────────────────────────────────────
-   LINEAGE COLUMNS
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-col {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: calc(50% - var(--axis-half));
-  z-index: 1;
-  /* no --rail-w / --hg-w here — inherit from .dual-field */
-}
- 
-.dual-col--p {
-    right: 0;
-    width: calc(50% - var(--axis-half));
-}
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   STRATIGRAPHIC RAILS
-   ─────────────────────────────────────────────────────────────── */
-
-/* ───────────────────────────────────────────────────────────────
-   STRATIGRAPHIC RAILS
-   ─────────────────────────────────────────────────────────────── */
-.dual-rail {
-    position: absolute;
-    top: 0;
-    bottom: 0;
- 
-    width: var(--rail-w);
-    min-height: 100%;
- 
-    z-index: 10;
- 
-    border-radius: 3px;
-    overflow: hidden;
-    background: transparent;
-    display: block;
-}
- 
-.dual-col--p .dual-rail {
-    right: 0;
-    background: transparent;
-}
- 
-/* ───────────────────────────────────────────────────────────────
-   STRATIGRAPHIC BANDS
-   ─────────────────────────────────────────────────────────────── */
- 
-.strata-zone {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    min-height: 1px;
- 
-    box-shadow:
-        inset 0 1px 0 rgba(245, 239, 228, .75);
-}
- 
-/* Population / period colors */
-.strata-zone--modern {
-    background: var(--gold);
-}
- 
-.strata-zone--slavic {
-    background: var(--cinnabar);
-}
-
-.strata-zone--byzantine {
-    background: #6b3a5c;
-}
-  
-.strata-zone--thracian {
-    background: var(--accent);
-}
- 
-.strata-zone--steppe {
-    background: #7a5a8a;
-}
- 
-.strata-zone--farmer {
-    background: var(--sea);
-}
- 
-.strata-zone--eastasia {
-    background: #d08a5b;
-}
-
-.strata-zone--jomon {
-    background: var(--east);
-}
-
-.strata-zone--hg{
-    background-color:#b9c0c7;
-    background-image:repeating-linear-gradient(
-        135deg,
-        rgba(255,255,255,.45) 0px,
-        rgba(255,255,255,.45) 2px,
-        transparent 2px,
-        transparent 8px
-    );
-}  
-  
-.strata-zone--whg {
-    background: #8fa3ac;
-}
- 
-.strata-zone--ehg {
-    background: #4a7a52;
-}
- 
-.strata-zone--chg {
-    background: #7a6a4a;
-}
-  
-.strata-zone--deep {
-    background: var(--ink);
-}
- 
-.strata-zone--deep2 {
-    background-color: #4a3d31;
-    background-image:repeating-linear-gradient(
-        135deg,
-        rgba(255,255,255,.45) 0px,
-        rgba(255,255,255,.45) 2px,
-        transparent 2px,
-        transparent 8px
-    );
-}  
-  
-.strata-zone--grey {
-    background: grey;
-}
-
-/* ───────────────────────────────────────────────────────────────
-   COMPARATIVE REFERENCE TICKS
-   ─────────────────────────────────────────────────────────────── */
- 
-.strata-tick {
-    position: absolute;
-    left: -4px;
- 
-    width: calc(var(--rail-w) + 8px);
-    height: 2px;
- 
-    background: var(--ink-light);
-    opacity: .9;
- 
-    z-index: 2;
-}
-
-.strat-map-wrap{
-  position: relative;
-  width: 100%;
-  max-width: 920px;      /* was 1100px — pull it in */
-  margin: 0 auto;
-  padding: 0 2rem;       /* more side breathing room */
-  box-sizing: border-box;
-}
-
-.annotation-lane{
-  position: absolute;
-  left: 2rem;            /* match the padding */
-  top: 0;
-  bottom: 0;
-  width: 50px;
-  z-index: 5;
-  pointer-events: none;
-}
-
-.dual-field {
-  position: relative;
-  z-index: 5;
-  width: 100%;
-  height: 1900px;
-  --rail-w: 10px;
-  --hg-w: 15px;
-  --axis-w: 120px;
-}
- 
-/* ───────────────────────────────────────────────────────────────
-   HUNTER-GATHERER SUB-LANES
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-hg-block {
-    position: absolute;
-    top: 0;
-    bottom: 0;
- 
-    z-index: 2;
-}
- 
-.dual-col--p .dual-hg-block {
-    right: var(--rail-w);
-}
- 
-.dual-col--m .dual-hg-block {
-    left: var(--rail-w);
-}
- 
-.dual-hg-lane {
-    position: absolute;
-    top: 0;
-    bottom: 0;
- 
-    width: 5px;
- 
-    border-radius: 2px;
-    overflow: hidden;
-}
- 
-.dual-hg-lane--0 {
-    left: 0;
-}
- 
-.dual-hg-lane--1 {
-    left: 5px;
-}
- 
-.dual-hg-lane--2 {
-    left: 10px;
-}
-.dual-hg-lane--3 {
-    left: -5px;
-}
- 
-/* ───────────────────────────────────────────────────────────────
-   ANCESTRY CARDS
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-card {
-    --bc: var(--ink-mid);
-    --bw: 3px;
-    --bs: solid;
-
-    position: absolute;
-
-    transform: translateY(-50%);
-
-    width: calc(
-        100% -
-        var(--rail-w) -
-        var(--hg-w) -
-        60px
-    );
-
-    min-height: 40px;
-
-    padding: .45rem .7rem;
-
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: .3rem 1rem;
-
-    background: rgba(245, 239, 228, .82);
-
-    border: none;
-    border-radius: 2px;
-
-    z-index: 2;
-}
- 
-.dual-col--p .dual-card {
-  right: calc(var(--rail-w) + var(--hg-w) + var(--card-inset));
-  width: calc(100% - var(--rail-w) - var(--hg-w) - var(--card-inset) - 8px);
-  border-right: var(--bw) var(--bs) var(--bc);
-}
- 
-/* ───────────────────────────────────────────────────────────────
-   CARD CONTENT
-   ─────────────────────────────────────────────────────────────── */
- 
-.band-label {
-    min-width: 0;
-}
- 
-.band-label strong {
-    display: block;
- 
-    font-size: 1rem;
-    line-height: 1.2;
-    font-weight: 600;
-}
- 
-.band-label span {
-    display: block;
- 
-    margin-top: .12rem;
- 
-    font-size: .8rem;
-    line-height: 1.25;
- 
-    color: var(--ink-light);
-}
- 
-.band-distance {
-    flex-shrink: 0;
- 
-    font-family: 'Inter', sans-serif;
-    font-size: .63rem;
- 
-    color: var(--ink-light);
- 
-    white-space: nowrap;
-}
- 
-.deep-note {
-    flex-basis: 100%;
- 
-    font-size: .66rem;
-    line-height: 1.4;
- 
-    color: var(--ink-light);
- 
-    font-style: italic;
-}
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   CARD TYPES
-   ─────────────────────────────────────────────────────────────── */
-  
-.band-slavic {
-    --bc: var(--cinnabar);
-}
-  
-.band-byzantine {
-    --bc: #6b3a5c;
-}
-  
-.band-thracian {
-    --bc: var(--accent);
-}
- 
-.band-modern {
-    --bc: var(--gold);
-}
- 
-.band-steppe {
-    --bc: #7a5a8a;
-}
- 
-.band-farmer {
-    --bc: var(--sea);
-}
- 
-.band-eastasia {
-    --bc: #d08a5b;
-}
- 
-.band-whg {
-    --bc: #8fa3ac;
-}
- 
-.band-jomon {
-    --bc: var(--east);
-}
- 
-.band-ehg {
-    --bc: #4a7a52;
-}
- 
-.band-chg {
-    --bc: #7a6a4a;
-}
- 
-.band-deep {
-    --bc: var(--ink);
-    --bw: 4px;
- 
-    background: rgba(28, 22, 16, .2);
-}
-
-.band-deep::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(245, 239, 228, .82);
-  z-index: -1;
-} 
-  
-.band-deep2 {
-    --bc: #4a3d31;
-    --bw: 4px;
- 
-    background: rgba(28, 22, 16, .2);
-}
- 
-.band-deep2::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(245, 239, 228, .82);
-  z-index: -1;
-} 
-/* ───────────────────────────────────────────────────────────────
-   SHARED / BOTH-LINEAGES BAND
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-shared {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 85%;
-    transform: translateY(-50%);
-    z-index: 1;
-    display: grid;
-    grid-template-columns:
-        1fr
-        calc(var(--axis-half) * 2 + 30px)
-        1fr;
-    align-items: center;
-    min-height: 70px;
-    padding: .45rem .7rem;
-    border-left: none;
-    border-right: 4px solid var(--ink);  /* match paternal cards */
-    border-radius: 2px;
-}
-
-.dual-field .band-deep {
-    border-left: none;
-    border-right: 4px solid var(--ink);
-}
-  
-.dual-shared .deep-note {
-    flex-basis: auto;
-}
- 
- 
-/* ═══════════════════════════════════════════════════════════════
-   MOBILE
-   ═══════════════════════════════════════════════════════════════ */
- 
-@media (max-width: 700px) {
- 
-    .dual-heads,
-    .dual-field {
-        --axis-half: 30px;
-    }
- 
-    .dual-field {
-        height: 3200px;
-    }
- 
-    /* Timeline labels */
-    .dual-marker .marker-time {
-        font-size: .5rem;
-        white-space: normal;
-        line-height: 1.1;
-    }
-
-  .dual-marker {
-  position: absolute;
-  inset: 0;
-  z-index: auto;
-  pointer-events: none;
-}
- 
-    /* Hide narrow rails on mobile */
-    .dual-rail,
-    .dual-hg-block {
-        display: none;
-    }
- 
-    /* Cards become full width */
-    .dual-card {
-        --rail-w: 0px;
- 
-        width: 100%;
- 
-        flex-direction: column;
-        align-items: flex-start;
- 
-        padding: .4rem .45rem;
-    }
- 
-    .dual-col--p .dual-card {
-        right: 0;
-    }
- 
-    
-    .band-label strong {
-        font-size: .72rem;
-    }
- 
-    .band-label span {
-        font-size: .58rem;
-    }
- 
-    .band-distance {
-        font-size: .55rem;
-        white-space: normal;
-    }
- 
-    /* Shared bands */
-    .dual-shared {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
- 
-    .dual-shared-gap,
-    .dual-shared .deep-note,
-    .deep-note {
-        display: none;
-    }
- 
-    .dual-head span {
-        display: none;
-    }
-}
-
 /* ═══════════════════════════════════════════════════════════════
    MOBILE OPTIMIZATION
    ═══════════════════════════════════════════════════════════════ */
@@ -897,26 +247,23 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   p { font-size: 0.92rem; line-height: 1.65; }
   .cover { padding: 4rem 1.2rem 3rem; text-align: center; }
   .era-block { padding: 2rem 1.2rem; flex-direction: column; }
-  .era-marker { width: 100%; flex-direction: column; align-items: center; margin-bottom: 1.5rem; gap: 0.75rem; }
+  .era-marker { width: 100%; flex-direction: column; align-items: center; margin-bottom: 1.25rem; gap: 0.6rem; }
   .era-marker::before { display: none; }
   .era-content { padding-left: 0; }
-  .summary-image--portrait { width: 140px; margin: 0.5rem auto 0; }
-  .summary-image--portrait img { width: 130px; height: 175px; }
-  .summary-images-container { left: 0 !important; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem 0.9rem; padding: 0 0.5rem; margin: 1.5rem auto 2rem; width: 100%; max-width: 100%; }
-  .summary-image { width: 100px; }
-  .summary-image img { width: 90px; height: 90px; }
-  .summary-image-text { font-size: 0.62rem; line-height: 1.2; }
-  .genetic-stratigraphy { padding: 2rem 0.5rem 2.5rem; }
-  .strat-intro { padding: 0 0.75rem; margin-bottom: 1.75rem; }
-  .strat-intro h2 { font-size: 1.35rem; }
-  .strat-intro p { font-size: 0.82rem; line-height: 1.55; }
-  .dual-rail, .dual-hg-block { display: none; }
-  .dual-field { height: auto; min-height: 0; }
-  .dual-card { position: relative !important; right: auto !important; left: auto !important; top: auto !important; width: 100% !important; margin-bottom: 1rem; flex-direction: column; align-items: flex-start; padding: 0.6rem 0.75rem; }
+  .summary-image--portrait { width: 130px; margin: 0.4rem auto 0; }
+  .summary-image--portrait img { width: 120px; height: 160px; }
+  .summary-images-container { display: none !important; } /* omit circular images on mobile */
+  .genetic-stratigraphy { padding: 2rem 0.75rem 2.5rem; }
+  .strat-intro { padding: 0 0.5rem; margin-bottom: 1.5rem; }
+  .strat-intro h2 { font-size: 1.3rem; }
+  .strat-intro p { font-size: 0.82rem; line-height: 1.5; }
+  .dual-rail, .dual-hg-block, .annotation-lane { display: none !important; }
+  .dual-field { height: auto !important; position: static; }
+  .dual-card { position: static !important; right: auto !important; left: auto !important; top: auto !important; width: 100% !important; margin: 0 0 1rem 0; padding: 0.7rem 0.85rem; border-left: 3px solid var(--era-line); background: rgba(245,239,228,0.6); border-radius: 0 4px 4px 0; }
   .dual-shared-gap, .dual-shared .deep-note, .deep-note { display: none; }
-  .dual-head--time { position: static; top: auto; left: auto; font-size: 0.7rem; margin-bottom: 1rem; text-align: center; }
-  .lang-bar { padding: 0.45rem 0.65rem; gap: 0.35rem; }
-  .lang-btn { padding: 0.35rem 0.55rem; font-size: 0.68rem; }
+  .dual-head--time { position: static; top: auto; left: auto; font-size: 0.7rem; margin: 0 0 1.2rem; text-align: center; }
+  .lang-bar { padding: 0.4rem 0.6rem; gap: 0.3rem; }
+  .lang-btn { padding: 0.3rem 0.5rem; font-size: 0.65rem; }
 }
   
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
