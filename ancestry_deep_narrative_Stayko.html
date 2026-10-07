@@ -42,11 +42,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .era-block{display:flex;gap:0;padding:3.5rem 4rem 3.5rem 0;border-bottom:1px solid var(--parchment-dark);max-width:1100px;margin:0 auto}
 .era-marker{width:120px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
 .era-marker::before{content:'';position:absolute;left:50%;top:0;bottom:-3.5rem;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0}
-.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);z-index:1;flex-shrink:0}
+.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);align-self: center;z-index:1;flex-shrink:0}
 .era-dot--mid{background:var(--steppe);box-shadow:0 0 0 3px var(--steppe)}
 .era-dot--ancient{background:var(--stone);box-shadow:0 0 0 3px var(--stone)}
 .era-dot--special{background:var(--accent);box-shadow:0 0 0 3px var(--accent)}
-.era-label{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);text-align:center;line-height:1.4;z-index:1}
+.era-label{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);text-align:center;line-height:1.4;background-color: var(--parchment);z-index:1}
 .era-content{flex:1;padding-left:2.5rem}
 .era-content h2{font-size:1.7rem;font-weight:600;color:var(--ink);margin-bottom:1.2rem;letter-spacing:-.01em;line-height:1.2}
 .era-content p{margin-bottom:1.1rem;color:var(--ink-mid);font-size:1rem;line-height:1.85}
@@ -96,274 +96,205 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
 
-/* ═══════════════════════════════════════════════════════
-   GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD
-   ═══════════════════════════════════════════════════════ */
+/* ═══ GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD ═══ */
+.genetic-stratigraphy{margin:3.5rem 0 0;padding:1.5rem 0 0;background:transparent;border:none;border-radius:0}
+.strat-intro{max-width:720px;margin:0 auto 3rem;text-align:center}
+.strat-kicker{display:block;font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.strat-intro h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:.5rem}
+.strat-intro p{color:var(--ink-light);font-size:.95rem;line-height:1.6}
+.band-label{min-width:0}
+.band-label strong{display:block;font-size:.84rem;line-height:1.2;font-weight:600}
+.band-label span{display:block;margin-top:.12rem;font-size:.66rem;line-height:1.25;color:var(--ink-light)}
+.band-distance{flex-shrink:0;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--ink-light);white-space:nowrap}
+.band-slavic{border-left-color:var(--cinnabar)}.band-thracian{border-left-color:var(--accent)}.band-modern{border-left-color:var(--gold)}
+.band-steppe{border-left-color:var(--steppe)}
+.band-farmer{border-left-color:var(--sea)}
+.band-whg{border-left-color:var(--stone)}
+.band-ehg{border-left-color:#5a7a5a}.band-chg{border-left-color:#7a6a4a}
+.band-deep{min-height:70px;background:rgba(28,22,16,.035);border:none;border-left:4px solid var(--ink);box-shadow:none}
+.deep-note{max-width:430px;margin-left:auto;font-size:.66rem;line-height:1.4;color:var(--ink-light);font-style:italic}
+@media (max-width:700px){
+.genetic-stratigraphy{padding:2rem 0 2.5rem}
+.band-label strong{font-size:.75rem}.band-label span{font-size:.60rem}.band-distance{font-size:.56rem}.deep-note{display:none}}
+ 
+.strata-zone{position:absolute;left:0;width:100%}
+.strata-zone--modern{background:var(--gold)}
+.strata-zone--slavic{background:var(--cinnabar)}.strata-zone--thracian{background:var(--accent)}
+.strata-zone--steppe{background:var(--steppe)}.strata-zone--farmer{background:var(--sea)}
+.strata-zone--whg{background:var(--stone)}.strata-zone--ehg{background:#5a7a5a}.strata-zone--chg{background:#7a6a4a}
+.strata-zone--deep{background:var(--ink)}
 
-.genetic-stratigraphy {
-  margin: 3.5rem 0 4.5rem;
-  padding: 2.5rem 0 3rem;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-}
+/* ═══════════════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — DUAL LINEAGE
+   ═══════════════════════════════════════════════════════════════ */
+.genetic-stratigraphy { margin: 3.5rem 0 4.5rem; padding: 2.5rem 0 3rem; background: transparent; border: none; --rail-w: 10px; --hg-w: 15px; --axis-w: 120px; }
 
-.strat-intro {
-  max-width: 720px;
-  margin: 0 auto 3rem;
-  text-align: center;
-}
+/* ── INTRO ── */
+.strat-intro { max-width: 720px; margin: 0 auto 2.5rem; text-align: center; }
+.strat-kicker { display: block; font-family: 'Inter', sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; }
+.strat-intro h2 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); margin-bottom: .5rem; }
+.strat-intro p { color: var(--ink-light); font-size: .95rem; line-height: 1.6; }
 
-.strat-kicker {
-  display: block;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.35rem;
-}
+/* ── SHARED MAP CONTAINER ── */
+.dual-heads, .dual-field { --axis-half: 60px; max-width: 1100px; margin: 0 auto; position: relative; }
 
-.strat-intro h2 {
-  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-  margin-bottom: 0.5rem;
-}
+/* ── COLUMN HEADERS ── */
+.dual-heads { display: grid; grid-template-columns: 1fr calc(var(--axis-half) * 2) 1fr; align-items: end; margin-bottom: 1rem; max-width: 920px; padding: 0 2rem; box-sizing: border-box; }
+.dual-head strong { display: block; font-size: .9rem; letter-spacing: .04em; }
+.dual-head span { display: block; font-size: 1rem; color: var(--ink-light); margin-top: .15rem; }
+.dual-head--paternal { text-align: right; padding-right: 1rem; }
+.dual-head--time { position: relative; top: auto; left: auto; margin-bottom: 1rem; text-align: center; font-family: Inter, sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--ink-light); }
 
-.strat-intro p {
-  color: var(--ink-light);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
+/* ── MAIN STRATIGRAPHY FIELD ── */
+.dual-field { position: relative; z-index: 5; width: 100%; height: 1900px; --rail-w: 10px; --hg-w: 15px; --axis-w: 120px; --card-inset: 28px; --line-width: 55%; --connector-w: 24px; }
+.summary-images-container { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2.35rem 1.5rem; position: absolute; top: 46%; left: -8.25rem; transform: translate(-50%, -50%); width: max-content; z-index: 5; }
+.summary-image { display: flex; flex-direction: column; align-items: center; width: 140px; flex-shrink: 0; }
+.summary-image img { width: 130px; height: 130px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; }
+.summary-image-text { margin-top: 0.55rem; color: var(--ink, #3c3226); font-weight: 600; text-align: center; font-size: 0.78rem; line-height: 1.25; letter-spacing: 0.02em; background-color: var(--parchment); }
+.summary-image--portrait { width: 180px; margin: 1.5rem 0 0 0; }
+.summary-image--portrait img { width: 160px; height: 210px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; z-index: 5; }
+.summary-image--portrait .summary-image-text { margin-top: 0.55rem; }
 
-.stratigraphy-field {
-  position: relative;
-  max-width: 1050px;
-  margin: 0 auto;
-  padding-left: 105px;
-}
+/* ── TIMELINE MARKERS ── */
+.dual-marker { position: absolute; inset: 0; z-index: auto; pointer-events: none; }
+.marker-left { position: absolute; right: calc(var(--rail-w) + var(--hg-w)); width: calc(var(--rail-w) + var(--line-width) + 50px); border-top: 1px dotted var(--era-line); z-index: 0; }
+.marker-bc { position: absolute; right: calc(var(--rail-w) + var(--hg-w) + -45px); width: 50px; border-top: 1px dotted var(--era-line); z-index: 0; }
+.dual-marker > span { position: absolute; left: auto; right: calc(var(--rail-w) + var(--hg-w) - 80px); width: var(--axis-w); transform: translateY(-50%); text-align: center; font-family: 'Inter', sans-serif; font-size: .65rem; font-weight: 600; letter-spacing: .05em; color: var(--ink-light); white-space: nowrap; z-index: 2; background: rgba(245, 239, 228, .95); padding: 0 .35rem; box-sizing: border-box; }
 
-.time-axis {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 105px;
-  pointer-events: none;
-}
+/* ── LINEAGE COLUMNS ── */
+.dual-col { position: absolute; top: 0; bottom: 0; width: calc(50% - var(--axis-half)); z-index: 1; }
+.dual-col--p { right: 0; width: calc(50% - var(--axis-half)); }
 
-.time-marker {
-  position: absolute;
-  left: 35px;
-  width: 100%;
-  padding-right: 1rem;
-  transform: translateY(-50%);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--ink-light);
-  text-align: right;
-  white-space: nowrap;
-}
+/* ── STRATIGRAPHIC RAILS ── */
+.dual-rail { position: absolute; top: 0; bottom: 0; width: var(--rail-w); min-height: 100%; z-index: 10; border-radius: 3px; overflow: hidden; background: transparent; display: block; }
+.dual-col--p .dual-rail { right: 0; background: transparent; }
 
-.time-marker::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  width: 450%;
-  border-top: 1px dotted var(--era-line);
-}
+/* ── STRATIGRAPHIC BANDS ── */
+.strata-zone { position: absolute; left: 0; width: 100%; min-height: 1px; box-shadow: inset 0 1px 0 rgba(245, 239, 228, .75); }
+.strata-zone--modern { background: var(--gold); }
+.strata-zone--slavic { background: var(--cinnabar); }
+.strata-zone--byzantine { background: #6b3a5c; }
+.strata-zone--thracian { background: var(--accent); }
+.strata-zone--steppe { background: #7a5a8a; }
+.strata-zone--farmer { background: var(--sea); }
+.strata-zone--eastasia { background: #d08a5b; }
+.strata-zone--jomon { background: var(--east); }
+.strata-zone--hg { background-color: #b9c0c7; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.45) 0px, rgba(255,255,255,.45) 2px, transparent 2px, transparent 8px); }
+.strata-zone--whg { background: #8fa3ac; }
+.strata-zone--ehg { background: #4a7a52; }
+.strata-zone--chg { background: #7a6a4a; }
+.strata-zone--deep { background: var(--ink); }
+.strata-zone--deep2 { background-color: #4a3d31; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.45) 0px, rgba(255,255,255,.45) 2px, transparent 2px, transparent 8px); }
+.strata-zone--grey { background: grey; }
+.strata-tick { position: absolute; left: -4px; width: calc(var(--rail-w) + 8px); height: 2px; background: var(--ink-light); opacity: .9; z-index: 2; }
+.strat-map-wrap { position: relative; width: 100%; max-width: 920px; margin: 0 auto; padding: 0 2rem; box-sizing: border-box; }
+.annotation-lane { position: absolute; left: 2rem; top: 0; bottom: 0; width: 50px; z-index: 5; pointer-events: none; }
 
-.time-today     { top: 2%;  }
-.time-medieval  { top: 11%; }
-.time-avar      { top: 21%; }
-.time-iron      { top: 30%; }
-.time-bronze    { top: 39%; }
-.time-neolithic { top: 48%; }
-.time-WHG       { top: 59%; }
-.time-EHG       { top: 69%; }
-.time-CHG       { top: 83%; }
-.time-GD        { top: 76%; }
-.time-deep      { top: 95%; }
-  
-.population-bands {
-  position: relative;
-  height: 1300px;
-  background: transparent;
-  border-left: none;
-}
+/* ── HUNTER-GATHERER SUB-LANES ── */
+.dual-hg-block { position: absolute; top: 0; bottom: 0; z-index: 2; }
+.dual-col--p .dual-hg-block { right: var(--rail-w); }
+.dual-col--m .dual-hg-block { left: var(--rail-w); }
+.dual-hg-lane { position: absolute; top: 0; bottom: 0; width: 5px; border-radius: 2px; overflow: hidden; }
+.dual-hg-lane--0 { left: 0; }
+.dual-hg-lane--1 { left: 5px; }
+.dual-hg-lane--2 { left: 10px; }
+.dual-hg-lane--3 { left: -5px; }
 
-.population-band {
-  position: absolute;
-  left: var(--start);
-  top: var(--top);
-  width: var(--width);
-  transform: translateY(-50%);
-  min-height: 40px;
-  padding: 0.45rem 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  background: rgba(245,239,228,.82);
-  border: none;
-  border-left: 3px solid var(--ink-mid);
-  border-radius: 2px;
-  box-shadow: none;
-  z-index: 2;
-}
+/* ── ANCESTRY CARDS ── */
+.dual-card { --bc: var(--ink-mid); --bw: 3px; --bs: solid; position: absolute; transform: translateY(-50%); width: calc(100% - var(--rail-w) - var(--hg-w) - 60px); min-height: 40px; padding: .45rem .7rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .3rem 1rem; background: rgba(245, 239, 228, .82); border: none; border-radius: 2px; z-index: 2; }
+.dual-col--p .dual-card { right: calc(var(--rail-w) + var(--hg-w) + var(--card-inset)); width: calc(100% - var(--rail-w) - var(--hg-w) - var(--card-inset) - 8px); border-right: var(--bw) var(--bs) var(--bc); }
 
+/* ── CARD CONTENT ── */
 .band-label { min-width: 0; }
+.band-label strong { display: block; font-size: 1rem; line-height: 1.2; font-weight: 600; }
+.band-label span { display: block; margin-top: .12rem; font-size: .8rem; line-height: 1.25; color: var(--ink-light); }
+.band-distance { flex-shrink: 0; font-family: 'Inter', sans-serif; font-size: .63rem; color: var(--ink-light); white-space: nowrap; }
+.deep-note { flex-basis: 100%; font-size: .66rem; line-height: 1.4; color: var(--ink-light); font-style: italic; }
 
-.band-label strong {
-  display: block;
-  font-size: 0.84rem;
-  line-height: 1.2;
-  font-weight: 600;
-}
+/* ── CARD TYPES ── */
+.band-slavic { --bc: var(--cinnabar); }
+.band-byzantine { --bc: #6b3a5c; }
+.band-thracian { --bc: var(--accent); }
+.band-modern { --bc: var(--gold); }
+.band-steppe { --bc: #7a5a8a; }
+.band-farmer { --bc: var(--sea); }
+.band-eastasia { --bc: #d08a5b; }
+.band-whg { --bc: #8fa3ac; }
+.band-jomon { --bc: var(--east); }
+.band-ehg { --bc: #4a7a52; }
+.band-chg { --bc: #7a6a4a; }
+.band-deep { --bc: var(--ink); --bw: 4px; background: rgba(28, 22, 16, .2); }
+.band-deep::before { content: ""; position: absolute; inset: 0; background: rgba(245, 239, 228, .82); z-index: -1; }
+.band-deep2 { --bc: #4a3d31; --bw: 4px; background: rgba(28, 22, 16, .2); }
+.band-deep2::before { content: ""; position: absolute; inset: 0; background: rgba(245, 239, 228, .82); z-index: -1; }
 
-.band-label span {
-  display: block;
-  margin-top: 0.12rem;
-  font-size: 0.66rem;
-  line-height: 1.25;
-  color: var(--ink-light);
-}
-
-.band-distance {
-  flex-shrink: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.63rem;
-  color: var(--ink-light);
-  white-space: nowrap;
-}
-
-.band-slavic { border-left-color: var(--cinnabar); }
-.band-thracian { border-left-color: var(--accent); }
-.band-modern { border-left-color: var(--gold); }
-.band-medieval { border-left-color: var(--ink-mid); }
-.band-steppe { border-left-color: var(--steppe); }
-.band-farmer, .band-neolithic { border-left-color: var(--sea); }
-.band-whg, .band-whg-reference { border-left-color: var(--stone); }
-.band-ehg { border-left-color: #5a7a5a; }
-.band-chg { border-left-color: #7a6a4a; }
-.band-comparative { border-left-style: dashed; border-left-color: #9a8a6a; }
-
-.band-deep {
-  min-height: 70px;
-  background: rgba(28,22,16,.035);
-  border: none;
-  border-left: 4px solid var(--ink);
-  box-shadow: none;
-}
-
-.deep-note {
-  max-width: 430px;
-  margin-left: auto;
-  font-size: 0.66rem;
-  line-height: 1.4;
-  color: var(--ink-light);
-  font-style: italic;
-}
-
-@media (max-width: 700px) {
-  .genetic-stratigraphy { padding: 2rem 0 2.5rem; }
-  .stratigraphy-field { padding-left: 72px; }
-  .time-axis { width: 72px; }
-  .time-marker { font-size: 0.55rem; padding-right: 0.65rem; }
-  .time-marker::after { width: 12px; }
-  .population-bands { height: 1900px; }
-  .population-band { min-height: 44px; padding: 0.45rem 0.55rem; }
-  .band-label strong { font-size: 0.75rem; }
-  .band-label span { font-size: 0.60rem; }
-  .band-distance { font-size: 0.56rem; }
-  .deep-note { display: none; }
-}
-
-/* ═══════════════════════════════════════════════════════
-   GENETIC STRATIGRAPHY — CONTINUOUS OCCUPATION COLUMN
-   One unbroken column in a dedicated gutter to the LEFT of the
-   time-axis labels — kept away from the cards' own left-border
-   colors so the two coloring systems never compete. The column
-   is partitioned with no gaps: each population gets the zone
-   between the midpoints to its neighbours above and below. A
-   colored connector line reaches from each zone across to its
-   row, so the mapping to a specific card is unambiguous.
-   ═══════════════════════════════════════════════════════ */
-
-.stratigraphy-field { padding-left: 125px; }
-.time-axis { left: 20px; width: 105px; }
-
-.strata-column {
-  position: absolute;
-  left: 0;
-  width: 10px;
-  top: 0;
-  bottom: 0;
-  border-radius: 3px;
-  overflow: hidden;
-  opacity: .5;
-  z-index: 0;
-}
-
-.strata-hg-block {
-  position: absolute;
-  left: 10px;
-  width: 20px;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
-.strata-hg-lane {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 5px;
-  border-radius: 2px;
-  overflow: hidden;
-  opacity: 1;
-}
-.strata-hg-lane--whg { left: 0px; }
-.strata-hg-lane--chg { left: 5px; }
-.strata-hg-lane--ehg { left: 10px; }
-.strata-hg-lane--gd  { left: 15px; }
+/* ── SHARED / BOTH-LINEAGES BAND ── */
+.dual-shared { position: absolute; left: 0; right: 0; width: 85%; transform: translateY(-50%); z-index: 1; display: grid; grid-template-columns: 1fr calc(var(--axis-half) * 2 + 30px) 1fr; align-items: center; min-height: 70px; padding: .45rem .7rem; border-left: none; border-right: 4px solid var(--ink); border-radius: 2px; }
+.dual-field .band-deep { border-left: none; border-right: 4px solid var(--ink); }
+.dual-shared .deep-note { flex-basis: auto; }
   
-.strata-zone {
-  position: absolute;
-  left: 0;
-  width: 100%;
-}
-.strata-zone--modern      { background: var(--gold); }
-.strata-zone--medieval    { background: var(--ink-mid); }
-.strata-zone--slavic      { background: var(--cinnabar); }
-.strata-zone--thracian    { background: var(--accent); }
-.strata-zone--steppe      { background: var(--steppe); }
-.strata-zone--farmer      { background: var(--sea); }
-.strata-zone--whg         { background: var(--stone); }
-.strata-zone--ehg         { background: #5a7a5a; }
-.strata-zone--chg         { background: #7a6a4a; }
-.strata-zone--comparative { background: #9a8a6a; }
-.strata-zone--deep        { background: var(--ink); }
-.strata-zone--neutral     { background: #8a7a6570; }
-
-.strata-connector {
-  position: absolute;
-  left: 10px;
-  width: 45px;
-  height: 2px;
-  opacity: 1;
-  z-index: 0;
-}
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE OPTIMIZATION
+   ═══════════════════════════════════════════════════════════════ */
 
 @media (max-width: 700px) {
-  .stratigraphy-field { padding-left: 88px; }
-  .time-axis { left: 0; width: 72px; }
-  .strata-column, .strata-hg-block, .strata-connector { display: none; }
-}
+  html, body { overflow-x: hidden; }
+  .main-content, .cover { width: 100%; margin-left: 0; box-sizing: border-box; }
+  .main-content { padding: 0; }
+  h1 { font-size: clamp(2rem, 9vw, 3rem); line-height: 1.05; }
+  h2 { font-size: 1.35rem; line-height: 1.2; }
+  h3 { font-size: 1.05rem; line-height: 1.25; }
+  p { font-size: 0.92rem; line-height: 1.65; }
+  .cover { padding: 4rem 1.2rem 3rem; text-align: center; }
+  .era-block { padding: 2rem 1.2rem; flex-direction: column; }
+  .era-marker { width: 100%; flex-direction: column; align-items: center; margin-bottom: 1.25rem; gap: 0.6rem; }
+  .era-marker::before { display: none; }
+  .era-content { padding-left: 0; }
+  .summary-image--portrait { width: 130px; margin: 0.4rem auto 0; }
+  .summary-image--portrait img { width: 120px; height: 160px; }
+  .summary-images-container { display: none !important; } /* omit circular images on mobile */
+  .genetic-stratigraphy { padding: 2rem 0.75rem 2.5rem; }
+  .strat-intro { padding: 0 0.5rem; margin-bottom: 1.5rem; }
+  .strat-intro h2 { font-size: 1.3rem; }
+  .strat-intro p { font-size: 0.82rem; line-height: 1.5; }
+  .dual-rail, .dual-hg-block, .annotation-lane { display: none !important; }
+  .dual-field { height: auto !important; position: static; }
+  .dual-card { position: static !important; right: auto !important; left: auto !important; top: auto !important; width: 100% !important; margin: 0 0 1rem 0; padding: 0.7rem 0.85rem; border-left: 3px solid var(--era-line); background: rgba(245,239,228,0.6); border-radius: 0 4px 4px 0; }
+  .dual-shared-gap, .dual-shared .deep-note, .deep-note { display: none; }
+  .dual-head--time { position: static; top: auto; left: auto; font-size: 0.7rem; margin: 0 0 1.2rem; text-align: center; }
+  .lang-bar { padding: 0.4rem 0.6rem; gap: 0.3rem; }
+  .lang-btn { padding: 0.3rem 0.5rem; font-size: 0.65rem; }
+ .genetic-stratigraphy { overflow: visible; padding: 2rem 0.75rem 2.5rem; }
 
+  /* Kill the fixed height and absolute layout */
+  .dual-field { height: auto !important; min-height: 0 !important; position: relative !important; }
+
+  /* Hide only the pure decorative / absolute pieces */
+  .dual-rail,
+  .dual-hg-block,
+  .annotation-lane,
+  .dual-marker,
+  .marker-left,
+  .marker-bc { display: none !important; }
+
+  /* Force cards into normal document flow */
+  .dual-col { position: static !important; width: 100% !important; height: auto !important; }
+  .dual-card,
+  .dual-shared { 
+    position: static !important; 
+    top: auto !important; 
+    right: auto !important; 
+    left: auto !important; 
+    transform: none !important; 
+    width: 100% !important; 
+    margin: 0 0 1rem 0 !important;
+    display: block !important;
+  }
+
+  .summary-images-container { display: none !important; }
+  .dual-head--time { position: static; text-align: center; margin-bottom: 1rem; }
+}
+  
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
 </style>
@@ -432,7 +363,12 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 <div class="era-block" id="s_summary">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
-    <span class="era-label">Before the Dig<br>Executive Summary</span>
+        <span class="era-label">Before the Dig<br>Executive Summary</span>
+            <div class="summary-image summary-image--portrait">
+              <img src="images/stayko.png" alt="Stayko Nenov" width="160" height="210">
+              <span class="summary-image-text">STAYKO<br>NENOV</span>
+            </div>
+         
   </div>
   <div class="era-content">
     <h2>The View From Above</h2>
@@ -472,193 +408,403 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         <td class="dist-val">0.2508 / 0.2956</td>
       </tr>
     </table>
+    <div class="insight-box">
+      <span class="insight-label">How to Read This Report</span>
+      <strong>Lower G25 distance = genetically closer.</strong>
+      These scores measure similarity to reference populations, not “percent of your ancestors.”
+      Modern labels (e.g. “Greek and Albanian,” “Balkan”) are names of present-day comparison groups — not proof of a Greek, Albanian, or other national ancestor in a family-tree sense.
+      Ancient labels (Yamnaya, Barcin, Thracian, etc.) are archaeological or genetic reference clusters used to describe deep structure.
+      Work top to bottom: each layer is older than the one above it.
+    </div>
+    
+    <!-- ══ GENETIC STRATIGRAPHY ══ -->
+<section class="genetic-stratigraphy">
+  <div class="strat-intro">
+  <span class="strat-kicker">Chronological Map</span>
+  <h2>Genetic Stratigraphy</h2>
+  <p>Populations and ancient reference samples used to interpret this profile.</p>
+  <p>
+    <strong>Top = today, bottom = deepest past.</strong>
+    The coloured column is this report’s narrative order, not exact start/end dates on a calendar.
+    Where WHG, EHG, and CHG overlap in time, the main column shows one neutral stretch; their true spans are in the thin lanes beside it.
+  </p>
+ </div>
+      
+  <!-- CHG → Yamnaya connector -->   
+<div class="strat-map-wrap">
+  
+  <div class="annotation-lane">
 
+    <div style="
+      position: absolute;
+      top: 21.5%;
+      left: 685%;
+      width: 280%;
+      height: 20%;
+      border: 1px dotted var(--era-line);
+      border-left: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: -1;
+      pointer-events: none;
+    "></div>
+
+    <div style="
+      position: absolute;
+      top: 31.5%;
+      left: 545%;
+      width: 280%;
+      height: 19%;
+      border: 1px dotted var(--era-line);
+      border-left: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: -1;
+      pointer-events: none;
+    "></div>
+  
+     <div style="
+      position: absolute;
+      top: 32%;
+      left: 30%;
+      width: 320%;
+      height: 19%;
+      border: 1px dotted var(--era-line);
+      border-right: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: 0;
+      pointer-events: none;
+    "></div>
+
+    <div style="
+      position: absolute;
+      top: 43%;
+      left: 65%;
+      width: 250%;
+      height: 15%;
+      border: 1px dotted var(--era-line);
+      border-right: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: 16;
+      pointer-events: none;
+    "></div>
+  </div>
+
+  <div class="dual-field">
+
+    <!-- images -->
+         <div class="summary-images-container">     
+         <span class="era-dot era-dot--special"></span>
+           <div class="summary-image">
+            <img src="images/slavic1.png" alt="Slavic" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">SLAVIC<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/thracian.png" alt="Thracian" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">THRACIAN<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/yamnaya.png" alt="Yamnaya" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">YAMNAYA<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/ehg.png" alt="EHG" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">EHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/chg.png" alt="CHG" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">CHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/whg.png" alt="WHG" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">WHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/neanderthal.png" alt="Neanderthal" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">NEANDERTHAL<br>ANCESTRY</span>
+          </div>
+           <span class="era-dot era-dot--special"></span>
+        </div>
+        <!-- images end -->
+    
+    <div class="dual-marker">
+    <div class="marker-left" style="top:5.5%;"></div>
+        <span style="top:0%;">TIME<br>↓</span>
+    </div>
+    <div class="dual-marker">
+        <div class="marker-left" style="top:5.5%;"></div>
+        <span style="top:5.5%;">TODAY</span>
+    </div>
+    
+   <div class="dual-marker">
+      <div class="marker-left" style="top:12.5%;"></div>
+      <span style="top:12.5%;">~600–900 AD</span>
+      <div class="marker-left" style="top:15.25%;"></div>
+      <span style="top:15.25%;">~0–300 AD</span>
+    </div>
+    
+    <div class="dual-marker">
+      <div class="marker-left" style="top:21.50%; width: 35%;"></div>
+      <span style="top:21.5%;">~800–100 BC</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-bc" style="top:27.75%;"></div>
+        <div class="marker-bc" style="top:29.25%;"></div>
+        <span style="top:28.5%;">~</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:31.5%; width: 35%;"></div>
+        <span style="top:31.5%;">~5000 ya</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:44%; width:44%;"></div>
+        <span style="top:44%;">~7,5k ya</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:50.5%; width:44%;"></div>
+        <span style="top:50.5%;">~9k ya</span>
+    </div>
+ 
+ <div class="dual-marker">
+        <div class="marker-left" style="top:58%;"></div>
+        <span style="top:58%;">~11,5k ya</span>
+    </div>
+    
+    <div class="dual-marker">
+      <div class="marker-left" style="top:66.5%;"></div>
+      <span style="top:66.5%;">~14k ya</span>
+    </div>
+    
+    <div class="dual-marker">
+      <div class="marker-left" style="top:88%;"></div>
+      <span style="top:78%;">~30k ya</span>
+    </div>
+    
+    <div class="dual-marker">
+        <span style="top:88%;">~50–60k ya</span>
+    </div>
+ 
+  <div class="dual-shared band-deep" style="top:88.00%;">
+   <div class="band-label">
+    <strong>
+     Neanderthal Admixture
+    </strong>
+    <span>
+     ~50,000–60,000 ya · Levant / Southwest Asia · shared by all non-African lineages · ~1–4% of the genome
+    </span>
+    <span class="band-epoch">
+     Admixture event window: ~50,000–60,000 ya
+    </span>
+   </div>
+   <div class="dual-shared-gap">
+   </div>
+   <div class="deep-note">
+    Universal signal across non-African populations, not an analysis specific to this genome. This kit's IBD heat map shows isolated single-segment matches against three of the five tested Neanderthal genomes — concentrated on the Vindija Cave samples — while El Sidrón and Mezmaiskaya show none. The sparse, scattered pattern (rather than the dense, near-continuous matching seen on the WHG/CHG rows) is consistent with background noise at a permissive threshold rather than a strong ancestral signal.
+   </div>
+  </div>
+  <div class="dual-col dual-col--p" style="--hg-w:15px;">
+   <div class="dual-rail">
+    <div class="strata-zone strata-zone--modern" style="top:0.00%;height:11.25%;" title="Bulgarian · Eastern Balkan Anchor · Population present: ~681 AD – today">
+    </div>
+    <div class="strata-zone strata-zone--slavic" style="top:11.25%;height:2.75%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
+    </div>
+    <div class="strata-zone strata-zone--byzantine" style="top:14.00%;height:2.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
+    </div>
+    <div class="strata-zone strata-zone--thracian" style="top:16.5%;height:11.25%;" title="Paleo-Balkan Substrate · Thracians · Culture present: ~1500 BC – 46 AD">
+    </div>
+    <div class="strata-zone strata-zone--steppe" style="top:29.25%;height:16.00%;" title="Yamnaya / Pontic Steppe Horizon · Culture active: ~3300–2600 BC">
+    </div>   
+    <div class="strata-zone strata-zone--hg" style="top:34.00%;height:35.50%;" title="Western European Hunter-Gatherers · Loschbour: WHG present in Europe: ~15,000–5,000 ya">
+    </div>   
+    <div class="strata-zone strata-zone--deep" style="top:69.50%;height:19.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
+    </div>
+    <div class="strata-zone strata-zone--deep2" style="top:88.50%;height:9.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
+    </div>
+   </div>
+   <div class="dual-hg-block" style="width:15px;">
+      <div class="dual-hg-lane dual-hg-lane--2">
+     <div class="strata-zone strata-zone--whg" style="top:34.00%;height:35.50%;" title="WHG">
+     </div>
+    </div>
+     <div class="dual-hg-lane dual-hg-lane--0">
+     <div class="strata-zone strata-zone--chg" style="top:50.00%;height:11.00%;" title="CHG">
+     </div>
+    </div>
+    <div class="dual-hg-lane dual-hg-lane--1">
+     <div class="strata-zone strata-zone--ehg" style="top:42.00%;height:17.00%;" title="EHG">
+
+       
+
+     </div>
+    </div>
+    <div class="dual-hg-lane dual-hg-lane--3">
+     <div class="strata-zone strata-zone--farmer" style="top:46.50%;height:7.50%;" title="EEF">
+     </div>
+    </div>
+   </div>
+
+    <div class="dual-card band-modern" style="top:0.25%; right:100%; width:70%;">
+    <div class="band-label">
+     <strong>
+      Gagauz · Modern Anchor
+     </strong>
+     <span>
+    Closest modern population · Eastern Balkan continuum with an Aegean-facing pull · G25 = genetic distance (lower = closer)
+     </span>
+     <span class="band-epoch">
+      Population present: ~681 AD – today
+     </span>
+    </div>
+    <div class="band-distance">
+    G25: 0.0161–0.0332
+    </div>
+   </div>
+    <div class="dual-card band-modern" style="top:6.25%; right:100%; width:70%;">
+    <div class="band-label">
+     <strong>
+      Medieval Bulgaria
+     </strong>
+     <span>
+      9th–14th c. · Balkan substrate + Slavic contribution
+     </span>
+     <span class="band-epoch">
+      Empire period: ~681–1396 AD
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.0267
+    </div>
+   </div>
+    <div class="dual-card band-slavic" style="top:11.75%; right:120%; width:70%;">
+    <div class="band-label">
+     <strong>
+      Slavic Migration
+     </strong>
+     <span>
+      6th–9th c. · Slavic migration (Pannonian corridor)
+     </span>
+     <span class="band-epoch"></span>
+    </div>
+    <div class="band-distance">
+     G25: 0.1225 (late Avar) / 0.2152 (early Avar)
+    </div>
+   </div>
+   <div class="dual-card band-byzantine" style="top:15.75%; right:145%; width:70%;">
+     <div class="band-label">
+    <strong>Roman–Byzantine Synthesis</strong> 
+     <span>1st–3rd c. · Roman and Byzantine rule over the Balkans
+     </span>
+       <span class="band-epoch"></span>
+      </div>
+    </div>
+    <div class="dual-card band-thracian" style="top:22.00%; right:100%; width:70%;">
+    <div class="band-label">
+     <strong>
+      Paleo-Balkan Substrate · Thracians
+     </strong>
+     <span>
+      Thracian, Dacian, Illyrian · Paleo-Balkan substrate, direct predecessor of the medieval profile
+     </span>
+     <span class="band-epoch">
+      Culture present: ~1500 BC – 46 AD
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.0774–0.0854
+    </div>
+   </div>
+   <div class="dual-card band-steppe" style="top:32.00%; right:120%; width:70%;">
+    <div class="band-label">
+     <strong>
+      Yamnaya / Pontic Steppe Horizon
+     </strong>
+     <span>
+      Bronze Age steppe reference population
+     </span>
+     <span class="band-epoch">
+      Culture active: ~3300–2600 BC
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.1841
+    </div>
+   </div>
+   <div class="dual-card band-farmer" style="top:50.50%; right:120%; width:70%;">
+    <div class="band-label">
+     <strong>
+      Anatolian Neolithic · Barcin
+     </strong>
+     <span>
+      First farmers into the Balkans · the closer of the two founding streams
+     </span>
+     <span class="band-epoch">
+      Farming culture: ~10,300–8,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.1613
+    </div>
+   </div>
+   <div class="dual-card band-whg" style="top:66.50%; right:75%; width:78%;">
+    <div class="band-label">
+     <strong>
+      WHG · Loschbour
+     </strong>
+     <span>
+      Western hunter-gatherers (WHG) · ~15,000–5,000 ya · Mesolithic Europe · two confirmed IBD segment matches</span>
+     <span class="band-epoch"></span>
+    </div>
+    <div class="band-distance">
+     G25: 0.4133
+    </div>
+   </div>
+   <div class="dual-card band-ehg" style="top:43.00%; right:150%; width:70%;">
+    <div class="band-label">
+     <strong>
+      EHG · Karelia
+     </strong>
+     <span>
+      Eastern hunter-gatherers (EHG) · secondary to Caucasus hunter-gatherers (CHG) in this profile — typical SE European steppe mix</span>
+     <span class="band-epoch">
+      EHG lineage: ~12,000–7,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.2956
+    </div>
+   </div>
+   <div class="dual-card band-chg" style="top:58%; right:150%; width:70%;">
+    <div class="band-label">
+     <strong>
+      CHG · Kotias
+     </strong>
+     <span>
+      Caucasus hunter-gatherers (CHG) · the stronger side of the steppe mix in this genome · confirmed IBD segment match</span>
+     <span class="band-epoch">
+      CHG lineage: ~13,000–9,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.2508
+    </div>
+   </div>
+   </div>
+   
+ </div> <!-- end dual-field -->
+</div> <!-- end strat-map-wrap -->
+</section>
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
       In short: an Eastern Balkan genome with a detectable <mark>Aegean/South-Caucasus tilt</mark>, built from the classic European mixture of Anatolian farmers, a smaller Western Hunter-Gatherer contribution, and Caucasus-weighted steppe ancestry, later shaped by the Slavic migrations that formed the medieval Bulgarian population.
+      <p style="margin-top:.75rem; font-size:.92em; color:var(--ink-light);"><em>Sibling note:</em> Compared with Minko, this profile sits slightly closer to the southern, Aegean end of the Balkan continuum and farther from the Romanian–Bulgarian core.</p>
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Eastern Balkan profile with an Aegean/South-Caucasus tilt — farmers edging out steppe, then Slavic-era shaping into a medieval Bulgarian-like population.</span></p>
     </div>
-      <!-- ══ GENETIC STRATIGRAPHY ══ -->
-    <section class="genetic-stratigraphy">
-      <div class="strat-intro">
-        <span class="strat-kicker">Chronological Map</span>
-        <h2>Genetic Stratigraphy</h2>
-        <p>Populations and ancient reference samples used to interpret the genetic profile.</p> 
-        <p>The solid column on the left is the excavation itself, top (today) to bottom (deepest past), with one colored zone per layer in the order this report presents them. The zone boundaries mark this report's narrative sequence, not literal start/end dates. Where several populations genuinely overlap in time — WHG, EHG, CHG, and Ganj Dareh — the main column shows that stretch as one neutral band, and
-          their true, overlapping extents are shown instead in four lanes alongside it, ordered left to right by start date (oldest first) and sized to true duration. The four axis labels for this stretch stay spread out for legibility rather than sitting at each population's literal position.
-        </p>
-      </div>
-    
-      <div class="stratigraphy-field">
-        
-            <div class="strata-column">
-              <div class="strata-zone strata-zone--modern"      style="top: 0.0%;  height: 6.5%;"  title="Eastern Balkan Modern Continuum"></div>
-              <div class="strata-zone strata-zone--medieval"    style="top: 6.5%;  height: 9.5%;"  title="Medieval Bulgaria"></div>
-              <div class="strata-zone strata-zone--slavic"      style="top: 16.0%; height: 9.5%;"  title="Slavic Migration / Avar Khaganate"></div>
-              <div class="strata-zone strata-zone--thracian"    style="top: 25.5%; height: 9.0%;"  title="Iron Age Bulgaria · Thracians"></div>
-              <div class="strata-zone strata-zone--steppe"      style="top: 34.5%; height: 9.0%;"  title="Yamnaya / Pontic Steppe Horizon"></div>
-              <div class="strata-zone strata-zone--farmer"      style="top: 43.5%; height: 10.0%;" title="Anatolian Neolithic · Barcin"></div>
-              <div class="strata-zone strata-zone--neutral"     style="top: 53.5%; height: 35.0%;" title="Hunter-gatherer / comparative deep strata — see WHG, EHG, CHG, and Ganj Dareh sub-columns"></div>
-              <div class="strata-zone strata-zone--deep"        style="top: 88.5%; height: 11.5%;" title="Neanderthal Admixture"></div>
-            </div>
-            <div class="strata-hg-block">
-              <div class="strata-hg-lane strata-hg-lane--whg">
-                <div class="strata-zone strata-zone--whg"         style="top: 53.52%; height: 35.25%;" title="WHG · Loschbour, ~15,000–5,000 ya"></div>
-              </div>
-              <div class="strata-hg-lane strata-hg-lane--ehg">
-                <div class="strata-zone strata-zone--ehg"         style="top: 60%; height: 21%;"  title="EHG · Karelia, ~12,000–7,000 ya"></div>
-              </div>
-              <div class="strata-hg-lane strata-hg-lane--gd">
-                <div class="strata-zone strata-zone--comparative" style="top: 74.5%; height: 3%;"  title="Ganj Dareh, ~10,200–9,600 ya"></div>
-              </div>
-              <div class="strata-hg-lane strata-hg-lane--chg">
-                <div class="strata-zone strata-zone--chg"         style="top: 62%; height: 23%;"  title="CHG · Kotias, ~14,000–8,000 ya"></div>
-              </div>
-            </div>
-          
-            <div class="strata-connector" style="top: 2%;  background: var(--gold);"></div>
-            <div class="strata-connector" style="top: 11%; background: var(--ink-mid);"></div>
-            <div class="strata-connector" style="top: 21%; background: var(--cinnabar);"></div>
-            <div class="strata-connector" style="top: 30%; background: var(--accent);"></div>
-            <div class="strata-connector" style="top: 39%; background: var(--steppe);"></div>
-            <div class="strata-connector" style="top: 48%; background: var(--sea);"></div>
-            <div class="strata-connector" style="top: 59%; background: var(--stone);"></div>
-            <div class="strata-connector" style="top: 69%; background: #5a7a5a;"></div>
-            <div class="strata-connector" style="top: 75.9%; background: #9a8a6a;"></div>
-            <div class="strata-connector" style="top: 83%; background: #7a6a4a;"></div>
-            <div class="strata-connector" style="top: 95%; background: var(--ink); opacity: .4;"></div>
-    
-            <div class="time-axis">
-              <div class="time-marker time-today">TODAY</div>
-              <div class="time-marker time-avar">~600–900 AD</div>
-              <div class="time-marker time-medieval">~1200 AD</div>
-              <div class="time-marker time-iron">~800–100 BC</div>
-              <div class="time-marker time-bronze">~3000 BC</div>
-              <div class="time-marker time-neolithic">~7000 BC</div>
-              <div class="time-marker time-WHG">~15k–5k ya</div>
-              <div class="time-marker time-EHG">~12k–7k ya</div>
-              <div class="time-marker time-GD">~10,2k–9,6k ya</div>
-              <div class="time-marker time-CHG">~14k–8k ya</div>
-              <div class="time-marker time-deep">~50–60k+ ya</div>
-            </div>
-        
-            <div class="population-bands">
-
-          <!-- MODERN BALKAN CONTINUUM -->
-          <div class="population-band band-modern" style="--start: 5%; --width: 98%; --top: 2%;">
-            <div class="band-label">
-              <strong>Eastern Balkan Modern Continuum</strong>
-              <span>Gagauz · Bulgarians · Romanians · Aegean-facing Greek pull</span>
-              <span class="band-epoch">Population present: ~681 AD – today</span>
-            </div>
-            <div class="band-distance">G25: 0.0161–0.0332</div>
-          </div>
-    
-          <!-- MEDIEVAL BULGARIA -->
-          <div class="population-band band-medieval" style="--start: 14%; --width: 86%; --top: 11%;">
-            <div class="band-label">
-              <strong>Medieval Bulgaria</strong>
-              <span>9th–14th c. · Balkan substrate + Slavic contribution</span>
-              <span class="band-epoch">Empire period: ~681–1396 AD</span>
-            </div>
-            <div class="band-distance">G25: 0.0267</div>
-          </div>
-    
-          <!-- AVAR / SLAVIC MIGRATION LAYER -->
-          <div class="population-band band-slavic" style="--start: 22%; --width: 85%; --top: 21%;">
-            <div class="band-label">
-              <strong>Slavic Migration / Avar Khaganate</strong>
-              <span>567–895 AD · Pannonian corridor · late Avars absorbed, early/elite caste — not</span>
-              <span class="band-epoch">Khaganate active: 567–895 AD</span>
-            </div>
-            <div class="band-distance">G25: 0.1225 (late) / 0.2152 (early)</div>
-          </div>
-    
-          <!-- THRACIAN / IRON AGE PALEO-BALKAN SUBSTRATE -->
-          <div class="population-band band-thracian" style="--start: 10%; --width: 93%; --top: 30%;">
-            <div class="band-label">
-              <strong>Iron Age Bulgaria · Thracians</strong>
-              <span>Paleo-Balkan substrate · direct predecessor of the medieval profile</span>
-              <span class="band-epoch">Culture present: ~1500 BC – 46 AD</span>
-            </div>
-            <div class="band-distance">G25: 0.0774–0.0854</div>
-          </div>
-    
-          <!-- YAMNAYA / STEPPE -->
-          <div class="population-band band-steppe" style="--start: 18%; --width: 83%; --top: 39%;">
-            <div class="band-label">
-              <strong>Yamnaya / Pontic Steppe Horizon</strong>
-              <span>Bronze Age steppe reference population</span>
-              <span class="band-epoch">Culture active: ~3300–2600 BC</span>
-            </div>
-            <div class="band-distance">G25: 0.1841</div>
-          </div>
-    
-          <!-- ANATOLIAN FARMERS -->
-          <div class="population-band band-farmer" style="--start: 36%; --width: 65%; --top: 48%;">
-            <div class="band-label">
-              <strong>Anatolian Neolithic · Barcin</strong>
-              <span>~6500 BC · early farming populations from Anatolia — the closer of the two founding streams</span>
-              <span class="band-epoch">Farming culture: ~8300–6000 BC</span>
-            </div>
-            <div class="band-distance">G25: 0.1613</div>
-          </div>
-    
-          <!-- WHG · LOSCHBOUR -->
-          <div class="population-band band-whg-reference" style="--start: 17%; --width: 85%; --top: 59%;">
-            <div class="band-label">
-              <strong>WHG · Loschbour</strong>
-              <span>Mesolithic Western European reference sample · two confirmed IBD segment matches</span>
-              <span class="band-epoch">WHG present in Europe: ~15,000–5,000 ya</span>
-            </div>
-            <div class="band-distance">G25: 0.4133</div>
-          </div>
-    
-          <!-- EHG · KARELIA -->
-          <div class="population-band band-ehg" style="--start: 34%; --width: 68%; --top: 69%;">
-            <div class="band-label">
-              <strong>EHG · Karelia</strong>
-              <span>~7000 BC · Eastern European hunter-gatherers</span>
-              <span class="band-epoch">EHG lineage: ~12,000–7,000 ya</span>
-            </div>
-            <div class="band-distance">G25: 0.2956</div>
-          </div>
-
-         <!-- GANJ DAREH -->
-          <div class="population-band band-comparative" style="--start: 51%; --width: 51%; --top: 76%;">
-            <div class="band-label">
-              <strong>Ganj Dareh</strong>
-              <span>~10,000 BC · comparative reference</span>
-              <span class="band-epoch">Site occupation: ~8200–7600 BC</span>
-            </div>
-            <div class="band-distance">G25: 0.2910</div>
-          </div>
-              
-         <!-- CHG · KOTIAS -->
-          <div class="population-band band-chg" style="--start: 69%; --width: 33%; --top: 83%;">
-            <div class="band-label">
-              <strong>CHG · Kotias</strong>
-              <span>~9000 BC · Caucasus hunter-gatherers · confirmed IBD segment match</span>
-              <span class="band-epoch">CHG lineage: ~13,000–9,000 ya</span>
-            </div>
-            <div class="band-distance">G25: 0.2508</div>
-          </div>
-          
-        <!-- DEEP POPULATION STRUCTURE -->
-          <div class="population-band band-deep" style="--start: 10%; --width: 94%; --top: 95%;">
-            <div class="band-label">
-              <strong>Neanderthal Admixture</strong>
-              <span>~50,000–60,000 BC · Levant / Southwest Asia · shared by all non-African lineages</span>
-              <span class="band-epoch">Admixture event window: ~50,000–60,000 ya</span>
-            </div>
-            <div class="band-distance">~1–4% of genome</div>
-            <div class="deep-note">
-               Universal signal across non-African populations, not an analysis specific to this genome. This kit's IBD heat map shows isolated single-segment matches against three of the five tested Neanderthal genomes — concentrated on the Vindija Cave samples — while El Sidrón and Mezmaiskaya show none. The sparse, scattered pattern (rather than the dense, near-continuous matching seen on the WHG/CHG rows) is consistent with background noise at a permissive threshold rather than a strong ancestral signal.
-            </div>
-          </div>
-    
-        </div>
-      </div>
-    </section>
   </div>
 </div>
   
@@ -697,6 +843,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
       This layer is really about one idea: <mark>the label is not the finding</mark>. A percentage next to a country name looks precise, but it's really the output of a computer program comparing this genome to a reference panel someone else built, using categories that program's designers happened to choose. Change the program, and the label changes too — "Caucasian" in one becomes "NE-Euro" in another, even though they're describing overlapping stretches of the same underlying DNA. What you <em>can</em> trust is agreement across several differently-built tools: when Eurogenes, EUtest, and HarappaWorld — three calculators built by different people, using different reference populations — all put Bulgarian and Romanian at the very top of their lists, that convergence is real evidence. A single calculator's exact percentage is a rough sketch; several calculators landing on the same two answers is the actual signal worth trusting.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> The label is not the finding — country names are modern reference tags, not a family tree.</span></p>
     </div>
   </div>
 </div>
@@ -752,6 +899,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
       Every population this genome gets compared to — Bulgarian, Romanian, Gagauz, Greek, Macedonian, Serbian — points to the same neighbourhood: the <strong>Eastern Balkans</strong>, right where Bulgaria, Greece, and the Black Sea coast meet. Think of it like triangulating a location with several different phone towers: no single tower gives you an exact address, but when <strong>nine</strong> of them all agree on the same general area, you can be confident that's genuinely where the signal is coming from. That's what's happening here — nine independent comparison points landing in the same <strong>tight cluster</strong>, rather than scattering across Europe. The Eurogenes K36 breakdown adds a second, differently-built kind of evidence pointing the same way: Italian and East Balkan together making up over a quarter of the profile isn't really about Italy at all — it's a marker for a much older <strong>Mediterranean farming population</strong> whose descendants still live in this same region today. Nothing in this layer suggests ancestry from somewhere unexpected. It's a consistent, well-corroborated <strong>regional identity</strong>, confirmed the same way from several different directions.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> This genome sits in the Eastern Balkan cluster (Gagauz–Bulgarian–Romanian, with an Aegean-facing pull), not in one single “national” box.</span></p>
     </div>
   </div>
 </div>
@@ -839,6 +987,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
       The number to hold onto from this whole layer is <mark>0.0267</mark> — the distance to real, excavated skeletons from medieval Bulgaria. Everything else in this layer is there to give that number context, in two directions. First, sideways: the Avar numbers tell a specific historical story — this genome sits close to the <strong>ordinary population that got absorbed</strong> into the Avar-controlled Pannonian corridor as Slavic migrants moved south into the Balkans, and far from the <strong>steppe-descended ruling class</strong> that governed over them. That's not a coincidence; it's the expected genetic signature of a population that lived through the Slavic migration rather than one connected to the Avar elite itself. Second, backwards in time: before any of that happened, there were already people living in the Balkans — the ancestors of the historical Thracians — and their genetic signal is what shows up furthest back in the stratigraphy table, in the Chalcolithic and Neolithic tiers. So the whole layer tells one continuous story: an old local population, later joined by steppe herders, later still joined by Slavic migrants arriving via Hungary — each wave leaving a measurable trace, layered one on top of the last.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Closest medieval match is Bulgaria Medieval (0.027) — a large pre-Slavic Balkan layer plus early-medieval mixing, not a pure single tribe.</span></p>
     </div>
   </div>
 </div>
@@ -879,6 +1028,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
       Picture two rivers merging into one — <em>one flowing up from the old farming villages of Anatolia, the other down from the horse-herding steppe north of the Black Sea</em> — and this genome sits a little further along the Anatolian bank than the steppe one. Both rivers are unmistakably part of the water; this isn't a case of one ancestry being present and the other absent. It's closer to a <strong>60/40 split than a 50/50 one</strong>, with the farmer side edging ahead. That's a real, measurable lean, not a coin-flip either way — and it's the same lean toward the older, more southern population that keeps showing up across other parts of this report, from the modern-population rankings to the admixture calculators. Small signals pointing the same direction, over and over, add up to something worth taking seriously.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Roughly 60/40 — Anatolian farmers edge out steppe pastoralists: a modest, consistent lean, not one dominant Bronze Age source.</span></p>
     </div>
   </div>
 </div>
@@ -902,6 +1052,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
       This is the <strong>oldest solid ground</strong> in the whole excavation. Go back far enough and every line of evidence in this report — the modern populations, the medieval graves, the Bronze Age cluster — eventually bottoms out at the same place: small farming villages on the Danube, around eight thousand years old, from back when farming itself was still a new idea in Europe. Everything built on top of that — the steppe migrations, the medieval kingdoms, the modern nations — is a later addition to a foundation that was laid here first.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Early farming villages form the deep floor of this genome — the oldest solid ground in the excavation.</span></p>
     </div>
   </div>
 </div>
@@ -925,6 +1076,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
       Two different kinds of evidence, two different questions, and it matters not to mix them up. The <strong>distance number</strong> answers "how much, relative to everything else?" — and the answer is: WHG is real but the smallest of the three main ingredients. The <strong>segment match</strong> answers a completely different question: "is there an actual, physical stretch of shared DNA with this specific ancient person?" — and here, yes, there genuinely is, twice over. Think of it like a family recipe: the distance number tells you WHG is a minor ingredient rather than a major one, while the segment match is like finding an actual heirloom spice jar in the cupboard that once belonged to that ingredient's original source. Useful, concrete evidence — but it can't tell you the recipe's overall proportions on its own.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Hunter-gatherers are the smallest of the three deep European streams — present but diluted, with two confirmed shared segments.</span></p>
     </div>
   </div>
 </div>
@@ -990,6 +1142,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
       Two things are happening in this layer, and they're worth separating clearly. First, the actual finding: this genome sits <mark>closer to the Bronze Age Aegean and South Caucasus world — Mycenaean Greece, Armenia's Kura-Araxes culture — than to almost anything else tested in this entire report</mark>, including the Anatolian farming reference from earlier layers. That's a real, specific, and quite striking result. Second, a genuinely mixed result worth stating precisely rather than smoothing over: this genome does carry a handful of isolated matching segments against the Vindija Neanderthal genomes specifically, while showing none against El Sidrón or Mezmaiskaya. That's real, if sparse — but it isn't the way to measure Neanderthal ancestry overall, and it shouldn't be read as "more" or "less" Neanderthal than anyone else. Vindija's genome is simply the best-sequenced Neanderthal reference available, so every comparison tool leans on it hardest — a bit like how the witness with the clearest memory gets asked the most questions, not because more actually happened near them. The right way to measure Neanderthal ancestry compares your <em>entire</em> genome against thousands of positions at once, genome-wide — and by that measure, ordinary background Neanderthal ancestry is almost certainly present here, the same as it is for virtually everyone with non-African ancestry.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Steppe signal leans Caucasus hunter-gatherer (CHG) over eastern hunter-gatherer (EHG), and the closest Bronze Age matches are Aegean and South Caucasus — a southeastern, Aegean-tilted pattern.</span></p>
     </div>
   </div>
 </div>
@@ -1029,6 +1182,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
       Most of the markers in the table above are simple, settled facts: blue eyes rather than brown, light skin, unable to comfortably digest milk as an adult — the same everyday genetic traits reported on personal DNA tests everywhere, just with the population-history context added in. The <strong>EDAR/ABCC11 pair</strong> is the one genuine puzzle. In East Asian populations, these two genes almost always travel together, like two siblings who are rarely seen apart — they were pulled along by the same wave of natural selection thousands of years ago. Here, one sibling showed up <strong>without</strong> the other, which is a specific, unusual pattern. The most reasonable explanation isn't a hidden recent East Asian ancestor; it's an older, more roundabout journey — this particular gene variant possibly hitching a ride with steppe populations moving across Eurasia in the Bronze Age, long before the East Asian selective sweep that later bundled the two genes together. It's a genuinely interesting thread, but it should be held as an open question, not a solved case.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Single-gene clues are hints, not a measured ancestry percentage — EDAR without its usual ABCC11 partner points to an older, indirect route: interesting, not a closed case.</span></p>
     </div>
   </div>
 </div>
@@ -1080,6 +1234,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
       Two brothers, raised in the same family, carrying two versions of the same regional story. Think of it like <em>two people who both grew up in the same house</em> but ended up with slightly different collections of hand-me-down heirlooms from their shared ancestors — both unmistakably from the same family, just not identical inventories. Stayko's collection leans a little further south and east, toward Greece and the Caucasus; Minko's sits a little further north, closer to the broader Romanian-Bulgarian core. Neither version is "more Balkan" than the other — they're two real, independently measurable variations on the same shared inheritance, which is exactly what you'd expect to see between siblings rather than something surprising.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Two siblings, one Eastern Balkan inheritance — this profile slightly more southern/Aegean; Minko slightly more Romanian–Bulgarian core — still closer to each other (0.0142) than to any outside population.</span></p>
     </div>
   </div>
 </div>
@@ -1109,6 +1264,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       <p>Run the whole story in one direction, and it reads like peeling back layers of paint on an old house — each coat newer than the one beneath it, none of them erasing what came before. Start at the surface: a person whose closest living relatives are <strong>Bulgarian, Romanian, and Gagauz</strong> — solidly Eastern Balkan, no surprises. Peel back a few centuries and you reach the <strong>Slavic migrants</strong> who moved south through Hungary in the early Middle Ages and merged with whoever was already living in the Balkans — this genome sits unusually close to the ordinary population absorbed into that process, and just as unusually far from the steppe warlords who briefly ruled over it. Peel back further, past the Slavic layer, and you reach the people who were already there waiting: the <strong>Thracians</strong> and their Paleo-Balkan neighbours, farmers and hill-tribes who'd occupied this same stretch of land for thousands of years before any Slavic-speaker arrived.</p>
       <p style="margin-top:.8rem">Go back further still, past the Thracians, and the story stops being about named peoples and starts being about population-scale migrations. Around four thousand years ago, horse-riding herders from the <strong>Yamnaya</strong> culture swept out of the steppe north of the Black Sea and reshaped the genetics of most of Europe — this genome carries their signal too, weighted in a particular way (leaning toward the <strong>Caucasus Hunter-Gatherers</strong>, or <mark>CHG</mark>, rather than the <strong>Eastern Hunter-Gatherers</strong>, or <mark>EHG</mark>, who also fed into the Yamnaya) that points specifically toward the southeastern, Caucasus-adjacent branch of that migration rather than the northern one. Before the herders, there were the first farmers — people who left <strong>Anatolia</strong>, in what's now Turkey, around eight thousand years ago and slowly walked their crops and livestock into the Balkans, settling villages like the ones this genome's Neolithic matches come from. And before the farmers, this land belonged to hunter-gatherers who never farmed at all — a Western European branch (<strong>WHG</strong>) whose faint signal still shows up as the oldest, thinnest layer of paint on the wall, detectable but barely, in a direct segment match to an 8,000-year-old skeleton from Luxembourg.</p>
       <p style="margin-top:.8rem">And beneath even that: virtually everyone with non-African ancestry carries a small amount of <strong>Neanderthal</strong> DNA, and this genome is almost certainly no exception — the 0.5cM heat map shows isolated matching segments against the <strong>Vindija Cave</strong> individuals specifically, while El Sidrón and Mezmaiskaya show none, a scattered pattern more consistent with Vindija's reference-genome quality than a measurable ancestral signal on its own. Hunter-gatherers, then farmers, then steppe herders, then Thracians, then Slavic migrants, then medieval Bulgarians, then the living relatives found today, with a background thread of Neanderthal ancestry beneath all of it — each one a real, separately-confirmed layer in the same continuous excavation.</p>
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> One continuous story from hunter-gatherers → farmers → steppe → Thracians → Slavs → modern Eastern Balkan. Neanderthal ancestry is a small shared archaic background, not a separate branch on the family tree.</span></p>
     </div>
 
     <div class="insight-box insight-box--final">
