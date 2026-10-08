@@ -46,13 +46,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .era-block{display:flex;gap:0;padding:3.5rem 4rem 3.5rem 0;border-bottom:1px solid var(--parchment-dark);max-width:1100px;margin:0 auto}
 .era-marker{width:120px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
 .era-marker::before{content:'';position:absolute;left:50%;top:0;bottom:-3.5rem;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0}
-.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);z-index:1;flex-shrink:0}
+.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);align-self: center;z-index:1;flex-shrink:0}
 .era-dot--east{background:var(--east);box-shadow:0 0 0 3px var(--east)}
 .era-dot--mid{background:var(--steppe);box-shadow:0 0 0 3px var(--steppe)}
 .era-dot--ancient{background:var(--stone);box-shadow:0 0 0 3px var(--stone)}
 .era-dot--special{background:var(--accent);box-shadow:0 0 0 3px var(--accent)}
 .era-dot--dual{background:linear-gradient(135deg,var(--gold) 50%,var(--east) 50%);box-shadow:0 0 0 3px var(--era-line)}
-.era-label{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);text-align:center;line-height:1.4;z-index:1}
+.era-label{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);text-align:center;line-height:1.4;background-color: var(--parchment);z-index:1}
 .era-content{flex:1;padding-left:2.5rem}
 .era-content h2{font-size:1.7rem;font-weight:600;color:var(--ink);margin-bottom:1.2rem;letter-spacing:-.01em;line-height:1.2}
 .era-content p{margin-bottom:1.1rem;color:var(--ink-mid);font-size:1rem;line-height:1.85}
@@ -287,8 +287,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
     color: var(--ink-light);
  
-    white-space: nowrap;
-}
+    white-space: nowrap; z-index: 2; background: rgba(245, 239, 228, .95); padding: 0 .35rem; box-sizing: border-box; }
  
  
 /* ───────────────────────────────────────────────────────────────
@@ -837,6 +836,20 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
+
+  /* ── POPULATION IMAGES (ported from Minko/Stayko maps) ── */
+  .summary-images-container { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2.35rem 1.5rem; position: absolute; top: 46%; left: -8.25rem; transform: translate(-50%, -50%); width: max-content; z-index: 5; }
+  .summary-image { display: flex; flex-direction: column; align-items: center; width: 140px; flex-shrink: 0; }
+  .summary-image img { width: 130px; height: 130px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; }
+  .summary-image-text { margin-top: 0.55rem; color: var(--ink, #3c3226); font-weight: 600; text-align: center; font-size: 0.78rem; line-height: 1.25; letter-spacing: 0.02em; background-color: var(--parchment); }
+  .summary-image--portrait { width: 180px; margin: 1.5rem 0 0 0; }
+  .summary-image--portrait img { width: 160px; height: 210px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; z-index: 5; }
+  .summary-image--portrait .summary-image-text { margin-top: 0.55rem; }
+  /* Right-hand (maternal) image column: mirror of the paternal one on the left */
+  .summary-images-container--m { left: auto; right: -8.25rem; transform: translate(50%, -50%); }
+  /* The outer image columns need free space on both sides of the map; hide them on narrower screens */
+  @media (max-width: 1300px) { .summary-images-container { display: none !important; } }
+  @media (max-width: 700px) { .summary-image--portrait { width: 130px; margin: 0.4rem auto 0; } .summary-image--portrait img { width: 120px; height: 160px; } }
 </style>
 </head>
 <body>
@@ -903,6 +916,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       <div class="era-marker">
         <span class="era-dot era-dot--special"></span>
         <span class="era-label">Before the Dig<br>Executive Summary</span>
+        <div class="summary-image summary-image--portrait">
+          <img src="images/julian.png" alt="Julian Nenov" width="160" height="210">
+          <span class="summary-image-text">JULIAN<br>NENOV</span>
+        </div>
       </div>
       <div class="era-content">
         <h2>Two Family Trees, One Genome</h2>
@@ -1039,6 +1056,56 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   </div>
 
   <div class="dual-field">
+
+    <!-- population images: paternal column (left edge) -->
+    <div class="summary-images-container">
+      <span class="era-dot era-dot--special"></span>
+      <div class="summary-image">
+        <img src="images/slavic1.png" alt="Slavic" width="130" height="130" loading="lazy">
+        <span class="summary-image-text">SLAVIC<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/thracian.png" alt="Thracian" width="130" height="130" loading="lazy">
+        <span class="summary-image-text">THRACIAN<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/yamnaya.png" alt="Yamnaya" width="130" height="130" loading="lazy">
+        <span class="summary-image-text">YAMNAYA<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/ehg.png" alt="EHG" width="130" height="130" loading="lazy">
+        <span class="summary-image-text">EHG<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/chg.png" alt="CHG" width="130" height="130" loading="lazy">
+        <span class="summary-image-text">CHG<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/whg.png" alt="WHG" width="130" height="130" loading="lazy">
+        <span class="summary-image-text">WHG<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/neanderthal.png" alt="Neanderthal" width="130" height="130" loading="lazy">
+        <span class="summary-image-text">NEANDERTHAL<br>ANCESTRY</span>
+      </div>
+    </div>
+    <!-- population images: maternal column (right edge) -->
+    <div class="summary-images-container summary-images-container--m">
+      <span class="era-dot era-dot--special"></span>
+      <div class="summary-image">
+        <img src="images/yayoi.png" alt="Yayoi" width="130" height="130" loading="lazy">
+        <span class="summary-image-text">YAYOI<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/jomon.png" alt="Jomon" width="130" height="130" loading="lazy">
+        <span class="summary-image-text">JOMON<br>ANCESTRY</span>
+      </div>
+      <div class="summary-image">
+        <img src="images/denisovan.png" alt="Denisovan" width="130" height="130" loading="lazy">
+        <span class="summary-image-text">DENISOVAN<br>ANCESTRY</span>
+      </div>
+    </div>
+
     <div class="dual-marker">
         <div class="marker-left" style="top:5.5%;"></div>
         <div class="marker-right" style="top:7.5%;"></div>
