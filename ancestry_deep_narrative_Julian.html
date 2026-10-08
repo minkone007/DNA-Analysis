@@ -45,7 +45,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .era-block{display:flex;gap:0;padding:3.5rem 4rem 3.5rem 0;border-bottom:1px solid var(--parchment-dark);max-width:1100px;margin:0 auto}
 .era-marker{width:120px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
-.era-marker::before{content:'';position:absolute;left:50%;top:0;bottom:-3.5rem;width:1px;background:var(--era-line);transform:translateX(-50%);z-index: 10}
+.era-marker::before{content:'';position:absolute;left:50%;top:0;bottom:-3.5rem;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0}
 .era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);align-self: center;z-index:1;flex-shrink:0}
 .era-dot--east{background:var(--east);box-shadow:0 0 0 3px var(--east)}
 .era-dot--mid{background:var(--steppe);box-shadow:0 0 0 3px var(--steppe)}
@@ -234,52 +234,61 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dual-marker {
     position: absolute;
     inset: 0;
-    z-index: 5;
+ 
+    z-index: 15;
     pointer-events: none;
 }
  
 .marker-left {
     position: absolute;
-    right: calc(var(--rail-w) + var(--hg-w));
-    width: calc(var(--rail-w) + var(--line-width) + 50px);
+ 
+    right: calc(50% + var(--axis-half));
+ 
+    width: 200px;
+ 
     border-top: 1px dotted var(--era-line);
-    z-index: 0;
 }
  
 .marker-right {
-  position: absolute;
-  left: calc(50% + var(--axis-half));
-  width: 200px;
-  border-top: 1px dotted var(--era-line);
-  z-index: 5;
+    position: absolute;
+ 
+    left: calc(50% + var(--axis-half));
+ 
+    width: 200px;
+ 
+    border-top: 1px dotted var(--era-line);
 }
 
 .marker-bc {
     position: absolute;
-    right: calc(var(--rail-w) + var(--hg-w) + -45px);
-    width: 50px;
+ 
+    right: calc(32% + var(--axis-half));
+ 
+    width: 200px;
+ 
     border-top: 1px dotted var(--era-line);
-    z-index: 0;
 }
   
 .dual-marker > span {
     position: absolute;
-    left: auto;
-    right: calc(var(--rail-w) + var(--hg-w) - 80px);
-    width: var(--axis-w);
-    transform: translateY(-50%);
+ 
+    left: 50%;
+ 
+    transform: translate(-50%, -50%);
+ 
+    width: calc(var(--axis-half) * 100);
+ 
     text-align: center;
+ 
     font-family: 'Inter', sans-serif;
     font-size: .65rem;
     font-weight: 600;
     letter-spacing: .05em;
+ 
     color: var(--ink-light);
-    white-space: nowrap;
-    z-index: 2;
-    background: rgba(245, 239, 228, .95);
-    padding: 0 .35rem;
-    box-sizing: border-box;
-}
+ 
+    white-space: nowrap; z-index: 2; background: rgba(245, 239, 228, .95); padding: 0 .35rem; box-sizing: border-box; }
+ 
  
 /* ───────────────────────────────────────────────────────────────
    LINEAGE COLUMNS
@@ -422,10 +431,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
  
 .strata-zone--deep2 {
-  background-color: #4a3d31;
-  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .45) 0px, rgba(255, 255, 255, .45) 2px, transparent 2px, transparent 8px);
+    background: #4a3d31;
 }
-  .strata-zone--grey {
+.strata-zone--grey {
     background: grey;
 }
  
@@ -992,7 +1000,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    </span>
   </div>
   <div class="dual-head dual-head--time">
-   <span style="top:5%;">TIME<br>↓</span>
+   <span style="top:0%;">TIME<br>↓</span>
   </div>
   <div class="dual-head dual-head--maternal">
    <strong>
@@ -1197,7 +1205,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>   
     <div class="strata-zone strata-zone--deep" style="top:69.50%;height:23.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
     </div>
+    <div class="strata-tick" style="top:74.50%;" title="Western European Hunter-Gatherers · Loschbour: WHG present in Europe: ~15,000–5,000 ya">
     </div>
+   </div>
    <div class="dual-hg-block" style="width:15px;">
       <div class="dual-hg-lane dual-hg-lane--2">
      <div class="strata-zone strata-zone--whg" style="top:34.00%;height:35.50%;" title="WHG">
