@@ -234,17 +234,16 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dual-marker {
     position: absolute;
     inset: 0;
- 
-    z-index: 15;
+    z-index: 5;
     pointer-events: none;
 }
  
 .marker-left {
-  position: absolute;
-  right: calc(50% + var(--axis-half));
-  width: 200px;
-  border-top: 1px dotted var(--era-line);
-  z-index: 5;
+    position: absolute;
+    right: calc(var(--rail-w) + var(--hg-w));
+    width: calc(var(--rail-w) + var(--line-width) + 50px);
+    border-top: 1px dotted var(--era-line);
+    z-index: 0;
 }
  
 .marker-right {
@@ -257,34 +256,30 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 .marker-bc {
     position: absolute;
- 
-    right: calc(32% + var(--axis-half));
- 
-    width: 200px;
- 
+    right: calc(var(--rail-w) + var(--hg-w) + -45px);
+    width: 50px;
     border-top: 1px dotted var(--era-line);
+    z-index: 0;
 }
   
 .dual-marker > span {
     position: absolute;
- 
-    left: 50%;
- 
-    transform: translate(-50%, -50%);
- 
-    width: calc(var(--axis-half) * 100);
- 
+    left: auto;
+    right: calc(var(--rail-w) + var(--hg-w) - 80px);
+    width: var(--axis-w);
+    transform: translateY(-50%);
     text-align: center;
- 
     font-family: 'Inter', sans-serif;
     font-size: .65rem;
     font-weight: 600;
     letter-spacing: .05em;
- 
     color: var(--ink-light);
- 
-    white-space: nowrap; z-index: 2; background: rgba(245, 239, 228, .95); padding: 0 .35rem; box-sizing: border-box; }
- 
+    white-space: nowrap;
+    z-index: 2;
+    background: rgba(245, 239, 228, .95);
+    padding: 0 .35rem;
+    box-sizing: border-box;
+}
  
 /* ───────────────────────────────────────────────────────────────
    LINEAGE COLUMNS
@@ -997,7 +992,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    </span>
   </div>
   <div class="dual-head dual-head--time">
-   <span style="top:0%;">TIME<br>↓</span>
+   <span style="top:5%;">TIME<br>↓</span>
   </div>
   <div class="dual-head dual-head--maternal">
    <strong>
