@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>スタイコ・ネノフ — 深層祖先記録</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -14,140 +14,292 @@
   --gold-light:#e8d5a0;--steppe:#6b8a6b;--sea:#3a6b8a;--stone:#8a8a7a;
   --cinnabar:#8a2a1a;--era-line:#c8b89a;
 }
-body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','EB Garamond',Georgia,serif;font-size:17px;line-height:2.0}
+body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Georgia,serif;font-size:18px;line-height:1.9}
 
 .lang-bar{position:fixed;top:1rem;right:1.2rem;z-index:200;display:flex;gap:.4rem}
-.lang-btn{font-family:'Noto Sans JP','Inter',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-decoration:none;padding:.3rem .7rem;border-radius:3px;background:rgba(28,22,16,.85);color:var(--ink-light);border:1px solid #3a3020;backdrop-filter:blur(4px);transition:color .15s,border-color .15s}
+.lang-btn{font-family:'Inter',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-decoration:none;padding:.3rem .7rem;border-radius:3px;background:rgba(28,22,16,.85);color:var(--ink-light);border:1px solid #3a3020;backdrop-filter:blur(4px);transition:color .15s,border-color .15s}
 .lang-btn:hover{color:var(--gold-light);border-color:var(--gold)}
 .lang-btn--active{color:var(--gold);border-color:var(--gold);pointer-events:none}
 
 .cover{background:var(--ink);color:var(--parchment);padding:6rem 4rem 5rem;position:relative;overflow:hidden}
 .cover::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.015) 40px,rgba(255,255,255,.015) 41px);pointer-events:none}
-.cover-eyebrow{font-family:'Noto Sans JP',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.15em;color:var(--gold);margin-bottom:1.5rem}
-.cover h1{font-size:3rem;font-weight:600;color:var(--parchment);line-height:1.2;margin-bottom:.5rem;letter-spacing:.04em}
-.cover-sub{font-size:1.2rem;font-style:italic;color:var(--gold-light);margin-bottom:.8rem;font-family:'Noto Serif JP',serif}
-.cover-sub2{font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:#a09070;letter-spacing:.06em;margin-bottom:3.5rem}
-.cover-meta{font-family:'Noto Sans JP',sans-serif;font-size:.75rem;color:var(--ink-light);border-top:1px solid #3a3020;padding-top:1.5rem;display:flex;gap:2.5rem;flex-wrap:wrap}
+.cover-eyebrow{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.cover h1{font-size:3.5rem;font-weight:400;letter-spacing:-.02em;color:var(--parchment);line-height:1.1;margin-bottom:.5rem}
+.cover-sub{font-size:1.3rem;font-style:italic;color:var(--gold-light);margin-bottom:.8rem}
+.cover-sub2{font-family:'Inter',sans-serif;font-size:.78rem;color:#a09070;letter-spacing:.08em;margin-bottom:3.5rem}
+.cover-meta{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);border-top:1px solid #3a3020;padding-top:1.5rem;display:flex;gap:2.5rem;flex-wrap:wrap}
 .cover-stat{display:flex;flex-direction:column}
-.cover-stat-val{font-size:1.75rem;font-weight:600;color:var(--gold-light);font-family:'Noto Serif JP',serif}
-.cover-stat-label{font-size:.63rem;letter-spacing:.08em;color:var(--ink-light);font-family:'Noto Sans JP',sans-serif}
+.cover-stat-val{font-size:1.8rem;font-weight:600;color:var(--gold-light);font-family:'EB Garamond',serif}
+.cover-stat-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light)}
 
-.nav-sidebar{position:fixed;left:0;top:0;bottom:0;width:210px;background:var(--ink);padding:2rem 1rem;overflow-y:auto;z-index:100}
-.nav-sidebar h4{font-family:'Noto Sans JP',sans-serif;font-size:.62rem;letter-spacing:.12em;color:var(--gold);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid #3a3020}
-.nav-link{display:block;font-family:'Noto Sans JP',sans-serif;font-size:.72rem;color:var(--ink-light);text-decoration:none;padding:.3rem .4rem;border-radius:3px;margin-bottom:.15rem;line-height:1.5;transition:color .15s,background .15s}
+.nav-sidebar{position:fixed;left:0;top:0;bottom:0;width:200px;background:var(--ink);padding:2rem 1rem;overflow-y:auto;z-index:100}
+.nav-sidebar h4{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid #3a3020}
+.nav-link{display:block;font-family:'Inter',sans-serif;font-size:.73rem;color:var(--ink-light);text-decoration:none;padding:.3rem .4rem;border-radius:3px;margin-bottom:.1rem;line-height:1.4;transition:color .15s,background .15s}
 .nav-link:hover{color:var(--gold-light);background:rgba(255,255,255,.05)}
 .nav-divider{border:none;border-top:1px solid #2a2218;margin:.8rem 0}
-.main-content{margin-left:210px}
+.main-content{margin-left:200px}
 
 .era-block{display:flex;gap:0;padding:3.5rem 4rem 3.5rem 0;border-bottom:1px solid var(--parchment-dark);max-width:1100px;margin:0 auto}
 .era-marker{width:120px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
 .era-marker::before{content:'';position:absolute;left:50%;top:0;bottom:-3.5rem;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0}
-.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);z-index:1;flex-shrink:0}
+.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);align-self: center;z-index:1;flex-shrink:0}
 .era-dot--mid{background:var(--steppe);box-shadow:0 0 0 3px var(--steppe)}
 .era-dot--ancient{background:var(--stone);box-shadow:0 0 0 3px var(--stone)}
 .era-dot--special{background:var(--accent);box-shadow:0 0 0 3px var(--accent)}
-.era-label{font-family:'Noto Sans JP',sans-serif;font-size:.6rem;font-weight:500;color:var(--ink-light);text-align:center;line-height:1.5;z-index:1}
+.era-label{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);text-align:center;line-height:1.4;background-color: var(--parchment);z-index:1}
 .era-content{flex:1;padding-left:2.5rem}
-.era-content h2{font-size:1.55rem;font-weight:600;color:var(--ink);margin-bottom:1.2rem;line-height:1.4;font-family:'Noto Serif JP',serif}
-.era-content p{margin-bottom:1.1rem;color:var(--ink-mid);font-size:.97rem;line-height:2.0}
-.sub-heading{font-size:1.1rem;font-weight:600;color:var(--ink);margin:2rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px solid var(--parchment-dark);font-family:'Noto Serif JP',serif}
-.descent-note{font-style:italic;color:var(--ink-light)!important;font-size:.92rem!important;margin-bottom:1.6rem!important;padding-bottom:1rem;border-bottom:1px dashed var(--era-line)}
+.era-content h2{font-size:1.7rem;font-weight:600;color:var(--ink);margin-bottom:1.2rem;letter-spacing:-.01em;line-height:1.2}
+.era-content p{margin-bottom:1.1rem;color:var(--ink-mid);font-size:1rem;line-height:1.85}
+.sub-heading{font-size:1.15rem;font-weight:600;color:var(--ink);margin:2rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px solid var(--parchment-dark)}
+.descent-note{font-style:italic;color:var(--ink-light)!important;font-size:.95rem!important;margin-bottom:1.6rem!important;padding-bottom:1rem;border-bottom:1px dashed var(--era-line)}
 
 .insight-box{background:var(--parchment-dark);border-left:4px solid var(--gold);padding:1.1rem 1.4rem;margin:1.5rem 0;border-radius:0 6px 6px 0}
 .insight-box--final{background:var(--ink);color:var(--parchment);border-color:var(--gold)}
-.insight-label{font-family:'Noto Sans JP',sans-serif;font-size:.63rem;font-weight:600;letter-spacing:.08em;color:var(--gold);display:block;margin-bottom:.5rem}
+.insight-label{font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.5rem}
 .plain-box{background:rgba(58,107,138,.07);border-left:4px solid var(--sea);padding:1.1rem 1.4rem;margin:1.6rem 0;border-radius:0 6px 6px 0;color:var(--ink-mid)}
 .plain-box strong{color:var(--ink);font-weight:600}
 .plain-box em{font-style:italic;color:var(--ink)}
 .plain-box mark{background:var(--gold-light);color:var(--ink);padding:.05em .25em;border-radius:3px;font-style:normal}
 .plain-label{font-family:'Inter',sans-serif;font-style:normal;font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sea);display:block;margin-bottom:.45rem}
 .insight-label--white{color:var(--gold-light)}
-.equation{font-family:'Noto Sans JP',sans-serif;font-size:.86rem;line-height:2.2;color:var(--gold-light)}
-.equation strong{color:#fff;font-size:.98rem}
+.equation{font-family:'Inter',sans-serif;font-size:.88rem;line-height:2.1;color:var(--gold-light)}
+.equation strong{color:#fff;font-size:1rem}
 
-.dist-table{width:100%;border-collapse:collapse;font-size:.84rem;margin:1.2rem 0}
-.dist-table th{font-family:'Noto Sans JP',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.06em;color:var(--ink-light);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
+.dist-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1.2rem 0}
+.dist-table th{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
 .dist-table td{padding:.32rem .5rem;border-bottom:1px solid var(--parchment-dark);vertical-align:middle}
 .dist-table tr:first-child td{font-weight:600;color:var(--ink)}
-.dist-bar-bg{width:150px;height:6px;background:var(--parchment-dark);border-radius:3px;display:inline-block;vertical-align:middle;margin-right:.5rem}
+.dist-bar-bg{width:160px;height:6px;background:var(--parchment-dark);border-radius:3px;display:inline-block;vertical-align:middle;margin-right:.5rem}
 .dist-bar-fill{height:100%;border-radius:3px;background:var(--gold);display:block}
 .dist-bar-fill--steppe{background:var(--steppe)}
 .dist-bar-fill--stone{background:var(--stone)}
 .dist-val{font-family:'Inter',monospace;font-size:.78rem;color:var(--ink-light)}
 
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0}
-.table-heading{font-family:'Noto Sans JP',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:var(--ink-light);margin-bottom:.6rem}
-.data-table{width:100%;border-collapse:collapse;font-size:.86rem}
+.table-heading{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.6rem}
+.data-table{width:100%;border-collapse:collapse;font-size:.88rem}
 .data-table td{padding:.3rem .4rem;border-bottom:1px solid var(--parchment-dark);vertical-align:middle}
-.pct-cell{width:68%}
+.pct-cell{width:70%}
 .pct-bar{display:inline-block;height:6px;background:var(--gold);border-radius:3px;vertical-align:middle;margin-right:.4rem;opacity:.75}
 .pct-val{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--ink-light)}
 
 .snp-table-wrap{margin:1.5rem 0;overflow-x:auto}
-.snp-table{width:100%;border-collapse:collapse;font-size:.81rem}
-.snp-table th{font-family:'Noto Sans JP',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.06em;color:var(--ink-light);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
+.snp-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.snp-table th{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
 .snp-table td{padding:.35rem .5rem;border-bottom:1px solid var(--parchment-dark);vertical-align:top}
-.snp-rsid{font-family:'Inter',monospace;font-size:.76rem;color:var(--accent)}
+.snp-rsid{font-family:'Inter',monospace;font-size:.78rem;color:var(--accent)}
 .snp-gene{font-family:'Inter',sans-serif;font-weight:600;font-size:.82rem}
 .snp-geno{font-family:'Inter',monospace;font-weight:700;font-size:.9rem}
 .snp-found{color:var(--steppe)}
 .snp-missing{color:var(--ink-light);font-weight:400;font-size:.78rem}
-.snp-desc{font-size:.81rem;color:var(--ink-light);font-family:'Noto Sans JP',sans-serif;line-height:1.7}
+.snp-desc{font-size:.82rem;color:var(--ink-light)}
 
-.disclaimer{font-family:'Noto Sans JP',sans-serif;font-size:.75rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.8;border-top:1px solid var(--era-line)}
+.disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
 
 /* ═══ GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD ═══ */
-.genetic-stratigraphy{margin:3.5rem 0 4.5rem;padding:2.5rem 0 3rem;background:transparent;border:none;border-radius:0}
+.genetic-stratigraphy{margin:3.5rem 0 0;padding:1.5rem 0 0;background:transparent;border:none;border-radius:0}
 .strat-intro{max-width:720px;margin:0 auto 3rem;text-align:center}
 .strat-kicker{display:block;font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
 .strat-intro h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:.5rem}
 .strat-intro p{color:var(--ink-light);font-size:.95rem;line-height:1.6}
-.stratigraphy-field{position:relative;max-width:1050px;margin:0 auto;padding-left:105px}
-.time-axis{position:absolute;left:0;top:0;bottom:0;width:105px;pointer-events:none}
-.time-marker{position:absolute;left:35px;width:100%;padding-right:1rem;transform:translateY(-50%);font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.05em;color:var(--ink-light);text-align:right;white-space:nowrap}
-.time-marker::after{content:'';position:absolute;top:50%;left:100%;width:450%;border-top:1px dotted var(--era-line)}
-.time-today{top:2%}.time-medieval{top:11%}.time-avar{top:21%}.time-iron{top:30%}.time-bronze{top:39%}.time-neolithic{top:48%}
-.time-WHG{top:59%}.time-EHG{top:69%}.time-CHG{top:83%}.time-GD{top:76%}.time-deep{top:95%}
-.population-bands{position:relative;height:1300px;background:transparent;border-left:none}
-.population-band{position:absolute;left:var(--start);top:var(--top);width:var(--width);transform:translateY(-50%);min-height:40px;padding:.45rem .7rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(245,239,228,.82);border:none;border-left:3px solid var(--ink-mid);border-radius:2px;box-shadow:none;z-index:2}
 .band-label{min-width:0}
 .band-label strong{display:block;font-size:.84rem;line-height:1.2;font-weight:600}
 .band-label span{display:block;margin-top:.12rem;font-size:.66rem;line-height:1.25;color:var(--ink-light)}
 .band-distance{flex-shrink:0;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--ink-light);white-space:nowrap}
 .band-slavic{border-left-color:var(--cinnabar)}.band-thracian{border-left-color:var(--accent)}.band-modern{border-left-color:var(--gold)}
-.band-medieval{border-left-color:var(--ink-mid)}.band-steppe{border-left-color:var(--steppe)}
-.band-farmer,.band-neolithic{border-left-color:var(--sea)}
-.band-whg,.band-whg-reference{border-left-color:var(--stone)}
+.band-steppe{border-left-color:var(--steppe)}
+.band-farmer{border-left-color:var(--sea)}
+.band-whg{border-left-color:var(--stone)}
 .band-ehg{border-left-color:#5a7a5a}.band-chg{border-left-color:#7a6a4a}
-.band-comparative{border-left-style:dashed;border-left-color:#9a8a6a}
 .band-deep{min-height:70px;background:rgba(28,22,16,.035);border:none;border-left:4px solid var(--ink);box-shadow:none}
 .deep-note{max-width:430px;margin-left:auto;font-size:.66rem;line-height:1.4;color:var(--ink-light);font-style:italic}
 @media (max-width:700px){
-.genetic-stratigraphy{padding:2rem 0 2.5rem}.stratigraphy-field{padding-left:72px}.time-axis{width:72px}
-.time-marker{font-size:.55rem;padding-right:.65rem}.time-marker::after{width:12px}
-.population-bands{height:1900px}.population-band{min-height:44px;padding:.45rem .55rem}
+.genetic-stratigraphy{padding:2rem 0 2.5rem}
 .band-label strong{font-size:.75rem}.band-label span{font-size:.60rem}.band-distance{font-size:.56rem}.deep-note{display:none}}
  
-/* ═══ CONTINUOUS OCCUPATION COLUMN ═══ */
-.stratigraphy-field{padding-left:125px}
-.time-axis{left:20px;width:105px}
-.strata-column{position:absolute;left:0;width:10px;top:0;bottom:0;border-radius:3px;overflow:hidden;opacity:.5;z-index:0}
-.strata-hg-block{position:absolute;left:10px;width:20px;top:0;bottom:0;z-index:1}
-.strata-hg-lane{position:absolute;top:0;bottom:0;width:5px;border-radius:2px;overflow:hidden;opacity:1}
-.strata-hg-lane--whg{left:0}.strata-hg-lane--chg{left:5px}.strata-hg-lane--ehg{left:10px}.strata-hg-lane--gd{left:15px}
 .strata-zone{position:absolute;left:0;width:100%}
-.strata-zone--modern{background:var(--gold)}.strata-zone--medieval{background:var(--ink-mid)}
+.strata-zone--modern{background:var(--gold)}
 .strata-zone--slavic{background:var(--cinnabar)}.strata-zone--thracian{background:var(--accent)}
 .strata-zone--steppe{background:var(--steppe)}.strata-zone--farmer{background:var(--sea)}
 .strata-zone--whg{background:var(--stone)}.strata-zone--ehg{background:#5a7a5a}.strata-zone--chg{background:#7a6a4a}
-.strata-zone--comparative{background:#9a8a6a}.strata-zone--deep{background:var(--ink)}.strata-zone--neutral{background:#8a7a6570}
-.strata-connector{position:absolute;left:10px;width:45px;height:2px;opacity:1;z-index:0}
-@media (max-width:700px){.stratigraphy-field{padding-left:88px}.time-axis{left:0;width:72px}.strata-column,.strata-hg-block,.strata-connector{display:none}}
+.strata-zone--deep{background:var(--ink)}
 
+/* ═══════════════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — DUAL LINEAGE
+   ═══════════════════════════════════════════════════════════════ */
+.genetic-stratigraphy { margin: 3.5rem 0 4.5rem; padding: 2.5rem 0 3rem; background: transparent; border: none; --rail-w: 10px; --hg-w: 15px; --axis-w: 120px; }
+
+/* ── INTRO ── */
+.strat-intro { max-width: 720px; margin: 0 auto 2.5rem; text-align: center; }
+.strat-kicker { display: block; font-family: 'Inter', sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; }
+.strat-intro h2 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); margin-bottom: .5rem; }
+.strat-intro p { color: var(--ink-light); font-size: .95rem; line-height: 1.6; }
+
+/* ── SHARED MAP CONTAINER ── */
+.dual-heads, .dual-field { --axis-half: 60px; max-width: 1100px; margin: 0 auto; position: relative; }
+
+/* ── COLUMN HEADERS ── */
+.dual-heads { display: grid; grid-template-columns: 1fr calc(var(--axis-half) * 2) 1fr; align-items: end; margin-bottom: 1rem; max-width: 920px; padding: 0 2rem; box-sizing: border-box; }
+.dual-head strong { display: block; font-size: .9rem; letter-spacing: .04em; }
+.dual-head span { display: block; font-size: 1rem; color: var(--ink-light); margin-top: .15rem; }
+.dual-head--paternal { text-align: right; padding-right: 1rem; }
+.dual-head--time { position: relative; top: auto; left: auto; margin-bottom: 1rem; text-align: center; font-family: Inter, sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--ink-light); }
+
+/* ── MAIN STRATIGRAPHY FIELD ── */
+.dual-field { position: relative; z-index: 5; width: 100%; height: 1900px; --rail-w: 10px; --hg-w: 15px; --axis-w: 120px; --card-inset: 28px; --line-width: 55%; --connector-w: 24px; }
+.summary-images-container { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2.35rem 1.5rem; position: absolute; top: 46%; left: -8.25rem; transform: translate(-50%, -50%); width: max-content; z-index: 5; }
+.summary-image { display: flex; flex-direction: column; align-items: center; width: 140px; flex-shrink: 0; }
+.summary-image img { width: 130px; height: 130px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; }
+.summary-image-text { margin-top: 0.55rem; color: var(--ink, #3c3226); font-weight: 600; text-align: center; font-size: 0.78rem; line-height: 1.25; letter-spacing: 0.02em; background-color: var(--parchment); }
+.summary-image--portrait { width: 180px; margin: 1.5rem 0 0 0; }
+.summary-image--portrait img { width: 160px; height: 210px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; z-index: 5; }
+.summary-image--portrait .summary-image-text { margin-top: 0.55rem; }
+
+/* ── TIMELINE MARKERS ── */
+.dual-marker { position: absolute; inset: 0; z-index: auto; pointer-events: none; }
+.marker-left { position: absolute; right: calc(var(--rail-w) + var(--hg-w)); width: calc(var(--rail-w) + var(--line-width) + 50px); border-top: 1px dotted var(--era-line); z-index: 0; }
+.marker-bc { position: absolute; right: calc(var(--rail-w) + var(--hg-w) + -45px); width: 50px; border-top: 1px dotted var(--era-line); z-index: 0; }
+.dual-marker > span { position: absolute; left: auto; right: calc(var(--rail-w) + var(--hg-w) - 80px); width: var(--axis-w); transform: translateY(-50%); text-align: center; font-family: 'Inter', sans-serif; font-size: .65rem; font-weight: 600; letter-spacing: .05em; color: var(--ink-light); white-space: nowrap; z-index: 2; background: rgba(245, 239, 228, .95); padding: 0 .35rem; box-sizing: border-box; }
+
+/* ── LINEAGE COLUMNS ── */
+.dual-col { position: absolute; top: 0; bottom: 0; width: calc(50% - var(--axis-half)); z-index: 1; }
+.dual-col--p { right: 0; width: calc(50% - var(--axis-half)); }
+
+/* ── STRATIGRAPHIC RAILS ── */
+.dual-rail { position: absolute; top: 0; bottom: 0; width: var(--rail-w); min-height: 100%; z-index: 10; border-radius: 3px; overflow: hidden; background: transparent; display: block; }
+.dual-col--p .dual-rail { right: 0; background: transparent; }
+
+/* ── STRATIGRAPHIC BANDS ── */
+.strata-zone { position: absolute; left: 0; width: 100%; min-height: 1px; box-shadow: inset 0 1px 0 rgba(245, 239, 228, .75); }
+.strata-zone--modern { background: var(--gold); }
+.strata-zone--slavic { background: var(--cinnabar); }
+.strata-zone--byzantine { background: #6b3a5c; }
+.strata-zone--thracian { background: var(--accent); }
+.strata-zone--steppe { background: #7a5a8a; }
+.strata-zone--farmer { background: var(--sea); }
+.strata-zone--eastasia { background: #d08a5b; }
+.strata-zone--jomon { background: var(--east); }
+.strata-zone--hg { background-color: #b9c0c7; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.45) 0px, rgba(255,255,255,.45) 2px, transparent 2px, transparent 8px); }
+.strata-zone--whg { background: #8fa3ac; }
+.strata-zone--ehg { background: #4a7a52; }
+.strata-zone--chg { background: #7a6a4a; }
+.strata-zone--deep { background: var(--ink); }
+.strata-zone--deep2 { background-color: #4a3d31; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.45) 0px, rgba(255,255,255,.45) 2px, transparent 2px, transparent 8px); }
+.strata-zone--grey { background: grey; }
+.strata-tick { position: absolute; left: -4px; width: calc(var(--rail-w) + 8px); height: 2px; background: var(--ink-light); opacity: .9; z-index: 2; }
+.strat-map-wrap { position: relative; width: 100%; max-width: 920px; margin: 0 auto; padding: 0 2rem; box-sizing: border-box; }
+.annotation-lane { position: absolute; left: 2rem; top: 0; bottom: 0; width: 50px; z-index: 5; pointer-events: none; }
+
+/* ── HUNTER-GATHERER SUB-LANES ── */
+.dual-hg-block { position: absolute; top: 0; bottom: 0; z-index: 2; }
+.dual-col--p .dual-hg-block { right: var(--rail-w); }
+.dual-col--m .dual-hg-block { left: var(--rail-w); }
+.dual-hg-lane { position: absolute; top: 0; bottom: 0; width: 5px; border-radius: 2px; overflow: hidden; }
+.dual-hg-lane--0 { left: 0; }
+.dual-hg-lane--1 { left: 5px; }
+.dual-hg-lane--2 { left: 10px; }
+.dual-hg-lane--3 { left: -5px; }
+
+/* ── ANCESTRY CARDS ── */
+.dual-card { --bc: var(--ink-mid); --bw: 3px; --bs: solid; position: absolute; transform: translateY(-50%); width: calc(100% - var(--rail-w) - var(--hg-w) - 60px); min-height: 40px; padding: .45rem .7rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .3rem 1rem; background: rgba(245, 239, 228, .82); border: none; border-radius: 2px; z-index: 2; }
+.dual-col--p .dual-card { right: calc(var(--rail-w) + var(--hg-w) + var(--card-inset)); width: calc(100% - var(--rail-w) - var(--hg-w) - var(--card-inset) - 8px); border-right: var(--bw) var(--bs) var(--bc); }
+
+/* ── CARD CONTENT ── */
+.band-label { min-width: 0; }
+.band-label strong { display: block; font-size: 1rem; line-height: 1.2; font-weight: 600; }
+.band-label span { display: block; margin-top: .12rem; font-size: .8rem; line-height: 1.25; color: var(--ink-light); }
+.band-distance { flex-shrink: 0; font-family: 'Inter', sans-serif; font-size: .63rem; color: var(--ink-light); white-space: nowrap; }
+.deep-note { flex-basis: 100%; font-size: .66rem; line-height: 1.4; color: var(--ink-light); font-style: italic; }
+
+/* ── CARD TYPES ── */
+.band-slavic { --bc: var(--cinnabar); }
+.band-byzantine { --bc: #6b3a5c; }
+.band-thracian { --bc: var(--accent); }
+.band-modern { --bc: var(--gold); }
+.band-steppe { --bc: #7a5a8a; }
+.band-farmer { --bc: var(--sea); }
+.band-eastasia { --bc: #d08a5b; }
+.band-whg { --bc: #8fa3ac; }
+.band-jomon { --bc: var(--east); }
+.band-ehg { --bc: #4a7a52; }
+.band-chg { --bc: #7a6a4a; }
+.band-deep { --bc: var(--ink); --bw: 4px; background: rgba(28, 22, 16, .2); }
+.band-deep::before { content: ""; position: absolute; inset: 0; background: rgba(245, 239, 228, .82); z-index: -1; }
+.band-deep2 { --bc: #4a3d31; --bw: 4px; background: rgba(28, 22, 16, .2); }
+.band-deep2::before { content: ""; position: absolute; inset: 0; background: rgba(245, 239, 228, .82); z-index: -1; }
+
+/* ── SHARED / BOTH-LINEAGES BAND ── */
+.dual-shared { position: absolute; left: 0; right: 0; width: 85%; transform: translateY(-50%); z-index: 1; display: grid; grid-template-columns: 1fr calc(var(--axis-half) * 2 + 30px) 1fr; align-items: center; min-height: 70px; padding: .45rem .7rem; border-left: none; border-right: 4px solid var(--ink); border-radius: 2px; }
+.dual-field .band-deep { border-left: none; border-right: 4px solid var(--ink); }
+.dual-shared .deep-note { flex-basis: auto; }
+  
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE OPTIMIZATION
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 700px) {
+  html, body { overflow-x: hidden; }
+  .main-content, .cover { width: 100%; margin-left: 0; box-sizing: border-box; }
+  .main-content { padding: 0; }
+  h1 { font-size: clamp(2rem, 9vw, 3rem); line-height: 1.05; }
+  h2 { font-size: 1.35rem; line-height: 1.2; }
+  h3 { font-size: 1.05rem; line-height: 1.25; }
+  p { font-size: 0.92rem; line-height: 1.65; }
+  .cover { padding: 4rem 1.2rem 3rem; text-align: center; }
+  .era-block { padding: 2rem 1.2rem; flex-direction: column; }
+  .era-marker { width: 100%; flex-direction: column; align-items: center; margin-bottom: 1.25rem; gap: 0.6rem; }
+  .era-marker::before { display: none; }
+  .era-content { padding-left: 0; }
+  .summary-image--portrait { width: 130px; margin: 0.4rem auto 0; }
+  .summary-image--portrait img { width: 120px; height: 160px; }
+  .summary-images-container { display: none !important; } /* omit circular images on mobile */
+  .genetic-stratigraphy { padding: 2rem 0.75rem 2.5rem; }
+  .strat-intro { padding: 0 0.5rem; margin-bottom: 1.5rem; }
+  .strat-intro h2 { font-size: 1.3rem; }
+  .strat-intro p { font-size: 0.82rem; line-height: 1.5; }
+  .dual-rail, .dual-hg-block, .annotation-lane { display: none !important; }
+  .dual-field { height: auto !important; position: static; }
+  .dual-card { position: static !important; right: auto !important; left: auto !important; top: auto !important; width: 100% !important; margin: 0 0 1rem 0; padding: 0.7rem 0.85rem; border-left: 3px solid var(--era-line); background: rgba(245,239,228,0.6); border-radius: 0 4px 4px 0; }
+  .dual-shared-gap, .dual-shared .deep-note, .deep-note { display: none; }
+  .dual-head--time { position: static; top: auto; left: auto; font-size: 0.7rem; margin: 0 0 1.2rem; text-align: center; }
+  .lang-bar { padding: 0.4rem 0.6rem; gap: 0.3rem; }
+  .lang-btn { padding: 0.3rem 0.5rem; font-size: 0.65rem; }
+ .genetic-stratigraphy { overflow: visible; padding: 2rem 0.75rem 2.5rem; }
+
+  /* Kill the fixed height and absolute layout */
+  .dual-field { height: auto !important; min-height: 0 !important; position: relative !important; }
+
+  /* Hide only the pure decorative / absolute pieces */
+  .dual-rail,
+  .dual-hg-block,
+  .annotation-lane,
+  .dual-marker,
+  .marker-left,
+  .marker-bc { display: none !important; }
+
+  /* Force cards into normal document flow */
+  .dual-col { position: static !important; width: 100% !important; height: auto !important; }
+  .dual-card,
+  .dual-shared { 
+    position: static !important; 
+    top: auto !important; 
+    right: auto !important; 
+    left: auto !important; 
+    transform: none !important; 
+    width: 100% !important; 
+    margin: 0 0 1rem 0 !important;
+    display: block !important;
+  }
+
+  .summary-images-container { display: none !important; }
+  .dual-head--time { position: static; text-align: center; margin-bottom: 1rem; }
+}
+  
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
 </style>
 </head>
+
 <body>
 
 <div class="lang-bar">
@@ -207,18 +359,23 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
   <strong>完全性についての注記：</strong>本報告書は、MyHeritageの民族推定、五つのVahaduo Global25距離モデル、ブルガリア古代DNA層序全体、八つの混血計算ツール、そして祖先情報SNP遺伝子型のパネルに基づいています。まだ反映されていないもの：補足ヒートマップで確認された個々の古代人類セグメント一致の正確な染色体座標およびcM長（層6を参照）——この詳細は、元となるセグメントのエクスポートデータが入手でき次第、追加できます。
 </div>
 
-<!-- ══ 要約 ══ -->
+<!-- ══ EXECUTIVE SUMMARY ══ -->
 <div class="era-block" id="s_summary">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
     <span class="era-label">発掘の前に<br>要約</span>
+            <div class="summary-image summary-image--portrait">
+              <img src="images/stayko.png" alt="スタイコ・ネノフ" width="160" height="210">
+              <span class="summary-image-text">スタイコ<br>ネノフ</span>
+            </div>
+         
   </div>
   <div class="era-content">
     <h2>上空からの視点</h2>
 
     <p>スタイコ・ネノフのゲノムは、東バルカンの遺伝的連続体の中にしっかりと位置しています。現代集団との比較では、ガガウズ人、ブルガリア人、ルーマニア人の参照集団に最も近く、ギリシャ中央マケドニアへの測定可能な二次的な引力を伴っています。これはMyHeritageの大まかな結果（ギリシャ・アルバニア系 約43%、バルカン系 約42%）とも一致します——ただし、これらのラベルは別々の祖先の割合としてではなく、同じ南東ヨーロッパの遺伝子プールに対する重なり合う二つの記述として理解する必要があります。</p>
 
-    <p>さらに深く見ると、このゲノムは中世ブルガリアの古代DNAに異例なほど近く（距離<strong>0.027</strong>）、中世初期のスラブ民族の移動を経験しながらも、相当量の非スラブ系パレオバルカン基層を保持した集団と一致します。青銅器時代の層では、草原（ヤムナヤ関連）祖先に比べてアナトリア新石器農耕民祖先へのわずかですが一貫した傾きが見られます。西ヨーロッパ狩猟採集民（WHG）祖先は存在しますが、ヨーロッパの三つの創設的な流れの中では最小であり——最も希薄化された成分で、背景シグナルとして、またロシュブール参照との限られた共有セグメントを通じて検出されます。</p>
+    <p>さらに深く見ると、このゲノムは中世東バルカンの古代DNAに異例なほど近く——<strong>ブルガリア中世（0.027）</strong>と、やや離れて<strong>マケドニア中世（0.036）</strong>——、中世初期のスラブ民族の移動を経験しながらも、相当量の非スラブ系パレオバルカン基層を保持した集団と一致します。青銅器時代の層では、草原（ヤムナヤ関連）祖先に比べてアナトリア新石器農耕民祖先へのわずかですが一貫した傾きが見られます。西ヨーロッパ狩猟採集民（WHG）祖先は存在しますが、ヨーロッパの三つの創設的な流れの中では最小であり——最も希薄化された成分で、背景シグナルとして、またロシュブール参照との限られた共有セグメントを通じて検出されます。</p>
 
     <p>さらに深いところでは、草原成分そのものが、東部狩猟採集民（EHG）側よりもコーカサス狩猟採集民（CHG）側に重みを持っているように見えます——これは南東ヨーロッパのプロフィールに典型的なパターンです。</p>
 
@@ -237,8 +394,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
       </tr>
       <tr>
         <td>中世</td>
-        <td>ブルガリア中世</td>
-        <td class="dist-val">0.027</td>
+        <td>ブルガリア／マケドニア中世</td>
+        <td class="dist-val">0.027 / 0.036</td>
       </tr>
       <tr>
         <td>青銅器時代</td>
@@ -251,117 +408,391 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
         <td class="dist-val">0.2508 / 0.2956</td>
       </tr>
     </table>
+    <div class="insight-box">
+      <span class="insight-label">このレポートの読み方</span>
+      <strong>G25距離が小さいほど、遺伝的に近い。</strong>
+      これらの数値は参照集団との類似度を測るものであり、「祖先の何パーセント」を示すものではありません。
+      現代のラベル（例：「ギリシャ・アルバニア系」「バルカン系」）は、現在の比較グループの名称であり、家系図の意味でギリシャ人、アルバニア人、あるいは他の国の祖先がいたことの証拠ではありません。
+      古代のラベル（ヤムナヤ、バルチン、トラキア人など）は、深層構造を記述するために用いられる考古学的または遺伝的な参照クラスターです。
+      上から下へ読み進めてください。各層は、その上の層よりも古いものです。
+    </div>
+    
+    <!-- ══ GENETIC STRATIGRAPHY ══ -->
+<section class="genetic-stratigraphy">
+  <div class="strat-intro">
+  <span class="strat-kicker">年代マップ</span>
+  <h2>遺伝的層序</h2>
+  <p>このプロファイルの解釈に使用した集団および古代の参照サンプル。</p>
+  <p>
+    <strong>上＝現在、下＝最も深い過去。</strong>
+    色付きの柱は、このレポートで示される順序を表しており、暦上の正確な開始・終了年代ではありません。
+    WHG、EHG、CHGが時間的に重なる部分では、メインの柱は一つの中立的な帯を示し、それぞれの実際の期間は隣の細いレーンに示されています。
+  </p>
+ </div>
+      
+  <!-- CHG → Yamnaya connector -->   
+<div class="strat-map-wrap">
+  
+  <div class="annotation-lane">
 
+    <div style="
+      position: absolute;
+      top: 21.5%;
+      left: 685%;
+      width: 280%;
+      height: 20%;
+      border: 1px dotted var(--era-line);
+      border-left: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: -1;
+      pointer-events: none;
+    "></div>
+
+    <div style="
+      position: absolute;
+      top: 31.5%;
+      left: 545%;
+      width: 280%;
+      height: 19%;
+      border: 1px dotted var(--era-line);
+      border-left: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: -1;
+      pointer-events: none;
+    "></div>
+  
+     <div style="
+      position: absolute;
+      top: 32%;
+      left: 30%;
+      width: 320%;
+      height: 19%;
+      border: 1px dotted var(--era-line);
+      border-right: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: 0;
+      pointer-events: none;
+    "></div>
+
+    <div style="
+      position: absolute;
+      top: 43%;
+      left: 65%;
+      width: 250%;
+      height: 15%;
+      border: 1px dotted var(--era-line);
+      border-right: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: 16;
+      pointer-events: none;
+    "></div>
+  </div>
+
+  <div class="dual-field">
+
+    <!-- images -->
+         <div class="summary-images-container">     
+         <span class="era-dot era-dot--special"></span>
+           <div class="summary-image">
+            <img src="images/slavic1.png" alt="スラブ系" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">スラブ系<br>祖先</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/thracian.png" alt="トラキア系" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">トラキア系<br>祖先</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/yamnaya.png" alt="ヤムナヤ系" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">ヤムナヤ系<br>祖先</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/ehg.png" alt="EHG" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">EHG<br>祖先</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/chg.png" alt="CHG" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">CHG<br>祖先</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/whg.png" alt="WHG" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">WHG<br>祖先</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/neanderthal.png" alt="ネアンデルタール系" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">ネアンデルタール系<br>祖先</span>
+          </div>
+           <span class="era-dot era-dot--special"></span>
+        </div>
+        <!-- images end -->
+    
+    <div class="dual-marker">
+    <div class="marker-left" style="top:5.5%;"></div>
+        <span style="top:0%;">時間<br>↓</span>
+    </div>
+    <div class="dual-marker">
+        <div class="marker-left" style="top:5.5%;"></div>
+        現在
+    </div>
+    
+   <div class="dual-marker">
+      <div class="marker-left" style="top:12.5%;"></div>
+      西暦600〜900年
+      <div class="marker-left" style="top:15.25%;"></div>
+      <span style="top:15.25%;">西暦0〜300年頃</span>
+    </div>
+    
+    <div class="dual-marker">
+      <div class="marker-left" style="top:21.50%; width: 35%;"></div>
+      紀元前800〜100年
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-bc" style="top:27.75%;"></div>
+        <div class="marker-bc" style="top:29.25%;"></div>
+        <span style="top:28.5%;">~</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:31.5%; width: 35%;"></div>
+        <span style="top:31.5%;">約5000年前</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:44%; width:44%;"></div>
+        <span style="top:44%;">約7500年前</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:50.5%; width:44%;"></div>
+        <span style="top:50.5%;">約9000年前</span>
+    </div>
+ 
+ <div class="dual-marker">
+        <div class="marker-left" style="top:58%;"></div>
+        <span style="top:58%;">約1万1500年前</span>
+    </div>
+    
+    <div class="dual-marker">
+      <div class="marker-left" style="top:66.5%;"></div>
+      <span style="top:66.5%;">約1万4000年前</span>
+    </div>
+    
+    <div class="dual-marker">
+      <div class="marker-left" style="top:88%;"></div>
+      <span style="top:78%;">約3万年前</span>
+    </div>
+    
+    <div class="dual-marker">
+        <span style="top:88%;">約5万〜6万年前</span>
+    </div>
+ 
+  <div class="dual-shared band-deep" style="top:88.00%;">
+   <div class="band-label">
+    <strong>
+     ネアンデルタール人との混血
+    </strong>
+    <span>
+     約5万〜6万年前 · レバント／南西アジア · すべての非アフリカ系統に共通 · ゲノムの約1〜4%
+    </span>
+    <span class="band-epoch">
+     混血イベントの時期：約5万〜6万年前
+    </span>
+   </div>
+   <div class="dual-shared-gap">
+   </div>
+   <div class="deep-note">
+    非アフリカ系集団全体に共通する普遍的なシグナルであり、このゲノムに特有の分析結果ではありません。このキットのIBDヒートマップでは、検査された5体のネアンデルタール人ゲノムのうち3体に対して孤立した単一セグメントの一致が見られ——ヴィンディヤ洞窟の標本に集中しています——一方、エル・シドロンとメズマイスカヤには一致がありません。WHG／CHGの行に見られる密で途切れのない一致とは異なり、この疎で散在するパターンは、強い祖先シグナルというより、緩い閾値での背景ノイズと一致します。
+   </div>
+  </div>
+  <div class="dual-col dual-col--p" style="--hg-w:15px;">
+   <div class="dual-rail">
+    <div class="strata-zone strata-zone--modern" style="top:0.00%;height:11.25%;" title="ブルガリア人 · 東バルカンの基準点 · 集団の存在：西暦681年〜現在">
+    </div>
+    <div class="strata-zone strata-zone--slavic" style="top:11.25%;height:2.75%;" title="スラブ民族の移動とビザンティン的統合 · ビザンティンの存在 約330〜1453年；スラブ民族の移動 約500〜900年">
+    </div>
+    <div class="strata-zone strata-zone--byzantine" style="top:14.00%;height:2.50%;" title="スラブ民族の移動とビザンティン的統合 · ビザンティンの存在 約330〜1453年；スラブ民族の移動 約500〜900年">
+    </div>
+    <div class="strata-zone strata-zone--thracian" style="top:16.5%;height:11.25%;" title="パレオバルカン基層 · トラキア人 · 文化の存続期間：紀元前約1500年〜西暦46年">
+    </div>
+    <div class="strata-zone strata-zone--steppe" style="top:29.25%;height:16.00%;" title="ヤムナヤ／ポントス草原層 · 文化の活動期：紀元前約3300〜2600年">
+    </div>   
+    <div class="strata-zone strata-zone--hg" style="top:34.00%;height:35.50%;" title="西ヨーロッパ狩猟採集民 · ロシュブール：ヨーロッパにおけるWHG：約1万5000〜5000年前">
+    </div>   
+    <div class="strata-zone strata-zone--deep" style="top:69.50%;height:19.00%;" title="ネアンデルタール人との混血 · 約5万〜6万年前">
+    </div>
+    <div class="strata-zone strata-zone--deep2" style="top:88.50%;height:9.00%;" title="ネアンデルタール人との混血 · 約5万〜6万年前">
+    </div>
+   </div>
+   <div class="dual-hg-block" style="width:15px;">
+      <div class="dual-hg-lane dual-hg-lane--2">
+     <div class="strata-zone strata-zone--whg" style="top:34.00%;height:35.50%;" title="WHG">
+     </div>
+    </div>
+     <div class="dual-hg-lane dual-hg-lane--0">
+     <div class="strata-zone strata-zone--chg" style="top:50.00%;height:11.00%;" title="CHG">
+     </div>
+    </div>
+    <div class="dual-hg-lane dual-hg-lane--1">
+     <div class="strata-zone strata-zone--ehg" style="top:42.00%;height:17.00%;" title="EHG">
+
+       
+
+     </div>
+    </div>
+    <div class="dual-hg-lane dual-hg-lane--3">
+     <div class="strata-zone strata-zone--farmer" style="top:46.50%;height:7.50%;" title="EEF">
+     </div>
+    </div>
+   </div>
+
+    <div class="dual-card band-modern" style="top:5.25%; right:100%; width:70%;">
+    <div class="band-label">
+     <strong>
+      ガガウズ人・現代の基準点
+     </strong>
+     <span>
+    最も近い現代集団 · エーゲ海寄りの引力を持つ東バルカン連続体 · G25 ＝ 遺伝的距離（小さいほど近い）
+     </span>
+     <span class="band-epoch">
+      集団の存在：西暦681年〜現在
+     </span>
+    </div>
+    <div class="band-distance">
+    G25: 0.0161–0.0332
+    </div>
+   </div>
+    <div class="dual-card band-slavic" style="top:11.75%; right:120%; width:70%;">
+    <div class="band-label">
+     <strong>
+      スラブ民族の移動
+     </strong>
+     <span>
+      6〜9世紀 · スラブ民族の移動（パンノニア回廊）
+     </span>
+     <span class="band-epoch"></span>
+    </div>
+    <div class="band-distance">
+     G25: 0.1225（後期アヴァール）／0.2152（初期アヴァール）
+    </div>
+   </div>
+   <div class="dual-card band-byzantine" style="top:15.75%; right:145%; width:70%;">
+     <div class="band-label">
+    <strong>ローマ・ビザンティン的統合</strong> 
+     <span>1〜3世紀 · バルカンに対するローマ・ビザンティンの支配
+     </span>
+       <span class="band-epoch"></span>
+      </div>
+    </div>
+    <div class="dual-card band-thracian" style="top:22.00%; right:100%; width:70%;">
+    <div class="band-label">
+     <strong>
+      パレオバルカン基層・トラキア人
+     </strong>
+     <span>
+      トラキア系、ダキア系、イリュリア系 · パレオバルカン基層、中世プロフィールの直接の先行層
+     </span>
+     <span class="band-epoch">
+      文化の存続期間：紀元前約1500年〜西暦46年
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.0774–0.0854
+    </div>
+   </div>
+   <div class="dual-card band-steppe" style="top:32.00%; right:120%; width:70%;">
+    <div class="band-label">
+     <strong>
+      ヤムナヤ／ポントス草原層
+     </strong>
+     <span>
+      青銅器時代の草原牧畜民 · 草原系の寄与は約39.2%
+     </span>
+     <span class="band-epoch">
+      文化の活動期：紀元前約3300〜2600年
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.1841
+    </div>
+   </div>
+   <div class="dual-card band-farmer" style="top:50.50%; right:120%; width:70%;">
+    <div class="band-label">
+     <strong>
+      アナトリア新石器・バルチン
+     </strong>
+     <span>
+      バルカンへ入った最初の農耕民 · 初期新石器農耕民約48.2% · 二つの創設的な流れのうち近い方
+     </span>
+     <span class="band-epoch">
+      農耕文化：約1万300〜8000年前
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.1613
+    </div>
+   </div>
+   <div class="dual-card band-whg" style="top:66.50%; right:75%; width:78%;">
+    <div class="band-label">
+     <strong>
+      WHG・ロシュブール
+     </strong>
+     <span>
+      西ヨーロッパ狩猟採集民（WHG） · 約1万5000〜5000年前 · 中石器時代のヨーロッパ · 確認されたIBDセグメント一致2件</span>
+     <span class="band-epoch"></span>
+    </div>
+    <div class="band-distance">
+     G25: 0.4133
+    </div>
+   </div>
+   <div class="dual-card band-ehg" style="top:43.00%; right:150%; width:70%;">
+    <div class="band-label">
+     <strong>
+      EHG・カレリア
+     </strong>
+     <span>
+      東ヨーロッパ狩猟採集民（EHG） · このプロフィールではコーカサス狩猟採集民（CHG）に次ぐ位置づけ——南東ヨーロッパに典型的な草原の混合</span>
+     <span class="band-epoch">
+      EHG系統：約1万2000〜7000年前
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.2956
+    </div>
+   </div>
+   <div class="dual-card band-chg" style="top:58%; right:150%; width:70%;">
+    <div class="band-label">
+     <strong>
+      CHG・コティアス
+     </strong>
+     <span>
+      コーカサス狩猟採集民（CHG） · このゲノムにおける草原混合の、より強い側 · 確認されたIBDセグメント一致</span>
+     <span class="band-epoch">
+      CHG系統：約1万3000〜9000年前
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.2508
+    </div>
+   </div>
+   </div>
+   
+ </div> <!-- end dual-field -->
+</div> <!-- end strat-map-wrap -->
+</section>
     <div class="plain-box">
       <span class="plain-label">簡単に言うと</span>
       要するに：<mark>エーゲ海／南コーカサス寄りの傾き</mark>が検出できる東バルカン系ゲノムです。アナトリア農耕民、より小さな西ヨーロッパ狩猟採集民の寄与、そしてコーカサスに重みを持つ草原祖先というヨーロッパの古典的な混合から成り、後に中世ブルガリア集団を形成したスラブ民族の移動によって形作られました。
+      <p style="margin-top:.75rem; font-size:.92em; color:var(--ink-light);"><em>兄弟についての補足：</em>ミンコと比べると、このプロフィールはバルカン連続体の南方・エーゲ海寄りの端にやや近く、ルーマニア・ブルガリアの中核からはやや遠い位置にあります。</p>
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 東バルカン型のプロフィールに、エーゲ海・南コーカサス寄りの傾き——農耕民がわずかに草原を上回り、その後スラブ時代の形成を経て中世ブルガリアに似た集団へ。</span></p>
     </div>
-
-    <!-- ══ GENETIC STRATIGRAPHY ══ -->
-    <section class="genetic-stratigraphy">
-  <div class="strat-intro">
-    <span class="strat-kicker">年代マップ</span>
-    <h2>遺伝的層序</h2>
-     <p>遺伝的プロファイルの解釈に使用した集団および古代の参照サンプル。</p>
-     <p>左側の実線の柱は、発掘そのものを表しています。上部（現在）から下部（最も深い過去）へと進み、このレポートで示される順序に従って、各層に1つずつ色付きのゾーンを配置しています。ゾーンの境界は、このレポートの物語上の順序を示すものであり、文字通りの開始・終了年代を示すものではありません。複数の集団が実際に同じ時期に重なって存在していた場合（WHG、EHG、CHG、Ganj Darehなど）、メインの柱ではその期間を1つの中立的な帯として示し、その代わりに、実際の重複する年代範囲をその横の4つのレーンに示しています。4つのレーンは、開始年代の古い順（最も古いものを左）に並べ、それぞれの帯の長さは実際の存続期間に合わせています。この期間に対応する4つの軸ラベルは、読みやすさを優先して間隔を空けて配置しており、それぞれの集団の実際の年代上の位置に直接配置しているわけではありません。</p>
-  </div>
-      <div class="stratigraphy-field">
-        <div class="strata-column">
-          <div class="strata-zone strata-zone--modern"      style="top:0.0%;height:6.5%;"  title="東バルカン現代連続体"></div>
-          <div class="strata-zone strata-zone--medieval"    style="top:6.5%;height:9.5%;"  title="中世ブルガリア"></div>
-          <div class="strata-zone strata-zone--slavic"      style="top:16.0%;height:9.5%;" title="スラブ民族の移動／アヴァール可汗国"></div>
-          <div class="strata-zone strata-zone--thracian"    style="top:25.5%;height:9.0%;" title="鉄器時代ブルガリア・トラキア人"></div>
-          <div class="strata-zone strata-zone--steppe"      style="top:34.5%;height:9.0%;" title="ヤムナヤ／ポントス草原層"></div>
-          <div class="strata-zone strata-zone--farmer"      style="top:43.5%;height:10.0%;" title="アナトリア新石器・バルチン"></div>
-          <div class="strata-zone strata-zone--neutral"     style="top:53.5%;height:35.0%;" title="狩猟採集民／比較的な深層——WHG、EHG、CHG、ガンジ・ダレのサブ柱を参照"></div>
-          <div class="strata-zone strata-zone--deep"        style="top:88.5%;height:11.5%;" title="ネアンデルタール人との混血"></div>
-        </div>
-        <div class="strata-hg-block">
-          <div class="strata-hg-lane strata-hg-lane--whg"><div class="strata-zone strata-zone--whg" style="top:53.52%;height:35.25%;" title="WHG・ロシュブール、約1万5000〜5000年前"></div></div>
-          <div class="strata-hg-lane strata-hg-lane--ehg"><div class="strata-zone strata-zone--ehg" style="top:60%;height:21%;" title="EHG・カレリア、約1万2000〜7000年前"></div></div>
-          <div class="strata-hg-lane strata-hg-lane--gd"><div class="strata-zone strata-zone--comparative" style="top:74.5%;height:3%;" title="ガンジ・ダレ、約1万200〜9600年前"></div></div>
-          <div class="strata-hg-lane strata-hg-lane--chg"><div class="strata-zone strata-zone--chg" style="top:62%;height:23%;" title="CHG・コティアス、約1万4000〜8000年前"></div></div>
-        </div>
-     
-        <div class="strata-connector" style="top:2%;background:var(--gold);"></div>
-        <div class="strata-connector" style="top:11%;background:var(--ink-mid);"></div>
-        <div class="strata-connector" style="top:21%;background:var(--cinnabar);"></div>
-        <div class="strata-connector" style="top:30%;background:var(--accent);"></div>
-        <div class="strata-connector" style="top:39%;background:var(--steppe);"></div>
-        <div class="strata-connector" style="top:48%;background:var(--sea);"></div>
-        <div class="strata-connector" style="top:59%;background:var(--stone);"></div>
-        <div class="strata-connector" style="top:69%;background:#5a7a5a;"></div>
-        <div class="strata-connector" style="top:75.9%;background:#9a8a6a;"></div>
-        <div class="strata-connector" style="top:83%;background:#7a6a4a;"></div>
-        <div class="strata-connector" style="top:95%;background:var(--ink);opacity:.4;"></div>
-     
-        <div class="time-axis">
-          <div class="time-marker time-today">現在</div>
-          <div class="time-marker time-avar">西暦600〜900年</div>
-          <div class="time-marker time-medieval">西暦1200年頃</div>
-          <div class="time-marker time-iron">紀元前800〜100年</div>
-          <div class="time-marker time-bronze">紀元前3000年頃</div>
-          <div class="time-marker time-neolithic">紀元前7000年頃</div>
-          <div class="time-marker time-WHG">1万5000〜5000年前</div>
-          <div class="time-marker time-EHG">1万2000〜7000年前</div>
-          <div class="time-marker time-GD">1万200〜9600年前</div>
-          <div class="time-marker time-CHG">1万4000〜8000年前</div>
-          <div class="time-marker time-deep">5万〜6万年以上前</div>
-        </div>
-     
-        <div class="population-bands">
-          <div class="population-band band-modern" style="--start:5%;--width:98%;--top:2%;">
-            <div class="band-label"><strong>東バルカン現代連続体</strong><span>ガガウズ人・ブルガリア人・ルーマニア人・エーゲ海寄りのギリシャ人への引力</span><span class="band-epoch">集団の存在：西暦681年〜現在</span></div>
-            <div class="band-distance">G25: 0.0161–0.0332</div>
-          </div>
-          <div class="population-band band-medieval" style="--start:14%;--width:86%;--top:11%;">
-            <div class="band-label"><strong>中世ブルガリア</strong><span>9〜14世紀・バルカン基層＋スラブ的寄与</span><span class="band-epoch">帝国期：西暦681〜1396年</span></div>
-            <div class="band-distance">G25: 0.0267</div>
-          </div>
-          <div class="population-band band-slavic" style="--start:22%;--width:85%;--top:21%;">
-            <div class="band-label"><strong>スラブ民族の移動／アヴァール可汗国</strong><span>567〜895年・パンノニア回廊・後期アヴァールは吸収されたが、初期・エリート層は吸収されず</span><span class="band-epoch">可汗国の存続期間：567〜895年</span></div>
-            <div class="band-distance">G25: 0.1225（後期）／0.2152（初期）</div>
-          </div>
-          <div class="population-band band-thracian" style="--start:10%;--width:93%;--top:30%;">
-            <div class="band-label"><strong>鉄器時代ブルガリア・トラキア人</strong><span>パレオバルカン基層・中世プロフィールの直接の前身</span><span class="band-epoch">文化の存続期間：紀元前約1500年〜西暦46年</span></div>
-            <div class="band-distance">G25: 0.0774–0.0854</div>
-          </div>
-          <div class="population-band band-steppe" style="--start:18%;--width:83%;--top:39%;">
-            <div class="band-label"><strong>ヤムナヤ／ポントス草原層</strong><span>青銅器時代の草原参照集団</span><span class="band-epoch">文化の活動期：紀元前約3300〜2600年</span></div>
-            <div class="band-distance">G25: 0.1841</div>
-          </div>
-          <div class="population-band band-farmer" style="--start:36%;--width:65%;--top:48%;">
-            <div class="band-label"><strong>アナトリア新石器・バルチン</strong><span>紀元前6500年頃・アナトリアの初期農耕集団——二つの創設的な流れのうち、より近い方</span><span class="band-epoch">農耕文化：紀元前約8300〜6000年</span></div>
-            <div class="band-distance">G25: 0.1613</div>
-          </div>
-          <div class="population-band band-whg-reference" style="--start:17%;--width:85%;--top:59%;">
-            <div class="band-label"><strong>WHG・ロシュブール</strong><span>中石器時代の西ヨーロッパ参照サンプル・確認されたIBDセグメント一致2件</span><span class="band-epoch">ヨーロッパにおけるWHG：約1万5000〜5000年前</span></div>
-            <div class="band-distance">G25: 0.4133</div>
-          </div>
-          <div class="population-band band-ehg" style="--start:34%;--width:68%;--top:69%;">
-            <div class="band-label"><strong>EHG・カレリア</strong><span>紀元前7000年頃・東ヨーロッパの狩猟採集民</span><span class="band-epoch">EHG系統：約1万2000〜7000年前</span></div>
-            <div class="band-distance">G25: 0.2956</div>
-          </div>
-          <div class="population-band band-comparative" style="--start:51%;--width:51%;--top:76%;">
-            <div class="band-label"><strong>ガンジ・ダレ</strong><span>紀元前1万年頃・比較参照</span><span class="band-epoch">遺跡の居住期間：紀元前約8200〜7600年</span></div>
-            <div class="band-distance">G25: 0.2910</div>
-          </div>
-          <div class="population-band band-chg" style="--start:69%;--width:33%;--top:83%;">
-            <div class="band-label"><strong>CHG・コティアス</strong><span>紀元前9000年頃・コーカサスの狩猟採集民・確認されたIBDセグメント一致</span><span class="band-epoch">CHG系統：約1万3000〜9000年前</span></div>
-            <div class="band-distance">G25: 0.2508</div>
-          </div>
-          <div class="population-band band-deep" style="--start:10%;--width:94%;--top:95%;">
-            <div class="band-label"><strong>ネアンデルタール人との混血</strong><span>紀元前5万〜6万年・レバント／南西アジア・すべての非アフリカ系統に共有される</span><span class="band-epoch">混血イベントの時期：約5万〜6万年前</span></div>
-            <div class="band-distance">ゲノムの約1〜4%</div>
-            <div class="deep-note">非アフリカ系集団全体に共通する普遍的なシグナルであり、このゲノムに特有の分析結果ではありません。このキットのIBDヒートマップでは、検査された5体のネアンデルタール人ゲノムのうち3体に対して孤立した単一セグメントの一致が見られ——ヴィンディヤ洞窟の標本に集中しています——一方、エル・シドロンとメズマイスカヤには一致がありません。WHG／CHGの行に見られる密で途切れのない一致とは異なり、この疎で散在するパターンは、強い祖先シグナルというより、緩い閾値での背景ノイズと一致します。</div>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 </div>
-
-<!-- ══ 層0 ══ -->
+  
+<!-- ══ LAYER 0 ══ -->
 <div class="era-block" id="s_surface">
   <div class="era-marker">
     <span class="era-dot"></span>
@@ -376,18 +807,22 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
 
     <table class="data-table">
       <tr><td>ギリシャ・アルバニア系<span style="font-size:.75rem;color:var(--ink-light)">（北マケドニアとギリシャ）</span></td><td class="pct-cell"><span class="pct-bar" style="width:78%"></span><span class="pct-val">43.1%</span></td></tr>
-      <tr><td>バルカン系</td><td class="pct-cell"><span class="pct-bar" style="width:75%"></span><span class="pct-val">41.7%</span></td></tr>
-      <tr><td>東ヨーロッパ系</td><td class="pct-cell"><span class="pct-bar" style="width:17%"></span><span class="pct-val">9.5%</span></td></tr>
-      <tr><td>南イタリア系</td><td class="pct-cell"><span class="pct-bar" style="width:10%"></span><span class="pct-val">5.7%</span></td></tr>
+          <tr><td>バルカン系</td><td class="pct-cell"><span class="pct-bar" style="width:75%"></span><span class="pct-val">41.7%</span></td></tr>
+          <tr><td>東ヨーロッパ系</td><td class="pct-cell"><span class="pct-bar" style="width:17%"></span><span class="pct-val">9.5%</span></td></tr>
+          <tr><td>南イタリア系</td><td class="pct-cell"><span class="pct-bar" style="width:10%"></span><span class="pct-val">5.7%</span></td></tr>
     </table>
 
     <p>MyHeritageはまた、より低い信頼度で検出された四つの<strong>追加的遺伝的グループ</strong>——主要な内訳には収まらない、より細かい集団シグナル——として、ブルガリア、セルビア／クロアチア／ボスニア・ヘルツェゴビナ、ルーマニア、そして予想外にもアイルランド（ケリー、コーク、リメリック）を示しています。</p>
 
     <p>文字通りに読むと、これら四つの見出しパーセンテージは家系図の円グラフのように見えます——まるでこのゲノムの家系図の43.1%がギリシャとアルバニアを経由し、5.7%が南イタリアを経由しているかのように。しかし、数字が意味するのはそうではありません。MyHeritageのアルゴリズムは、このゲノムの遺伝的変異を、それぞれのラベル付けされた地域に属すると自認する現在の人々から構築された参照パネルと比較し、それらのパネルの最もよく適合する混合を割り当てているのです。「ギリシャ・アルバニア系」と「バルカン系」は、ある時点で混ざり合った二つの別々の祖先集団ではありません——それらは同じ広い南東ヨーロッパのパレオバルカン遺伝子プールを囲む、重なり合った不完全な二つの枠であり、MyHeritageの参照パネルがたまたまギリシャ北部／アルバニア／北マケドニアを、より広いバルカン内陸部から区別しているために分かれているにすぎません。</p>
 
-    <p><strong>ギリシャ・アルバニア系（43.1%）</strong>は、ギリシャ人やアルバニア人の祖父母がいることを意味しません。このゲノムの遺伝的プロフィールが、これらの現代の参照集団に最も近いことを意味しており、それらの集団自体も、南東ヨーロッパ全体の基盤となっている同じ古代エーゲ海・アナトリア新石器・パレオバルカン基層の子孫です——この基層は、スラブ人到来以前のバルカン半島の古代<strong>トラキア人、ダキア人、イリュリア人</strong>をも生み出しました。現代のギリシャ人とアルバニア人は初期ヨーロッパ農耕民の祖先を高い割合で持ち、後のスラブ民族移動のシグナルを比較的少ししか持たないため、スラブ以前のパレオバルカン層の最も近い現存する代理となっています。<strong>バルカン系（41.7%）</strong>は、物語のもう半分——スラブ民族移動期の祖先と、6世紀のスラブ人の拡大が到来して合流する以前からすでにバルカン半島に住んでいた現地集団——を捉えています。合わせて43.1% + 41.7% = 84.8%というこの数字は、このゲノムがスラブ以前のパレオバルカン基層とスラブ民族移動期の層のほぼ正確な中間点に位置していることを示しており——東バルカンを遺伝的地域として特徴づけるのと同じ交差点的な位置です。</p>
+    <p><strong>ギリシャ・アルバニア系（43.1%）</strong>は、ギリシャ人やアルバニア人の祖父母がいることを意味しません。このゲノムの遺伝的プロフィールが、これらの現代の参照集団に最も近いことを意味しており、それらの集団自体も、南東ヨーロッパ全体の基盤となっている同じ古代エーゲ海・アナトリア新石器・パレオバルカン基層の子孫です——この基層は、スラブ人到来以前のバルカン半島の古代<strong>トラキア人、ダキア人、イリュリア人</strong>をも生み出しました。現代のギリシャ人とアルバニア人は初期ヨーロッパ農耕民の祖先を高い割合で持ち、後のスラブ民族移動のシグナルを比較的少ししか持たないため、スラブ以前のパレオバルカン層の最も近い現存する代理となっています。</p>
+    
+    <p><strong>バルカン系（41.7%）</strong>は、物語のもう半分——スラブ民族移動期の祖先と、6世紀のスラブ人の拡大が到来して合流する以前からすでにバルカン半島に住んでいた現地集団——を捉えています。合わせて43.1% + 41.7% = 84.8%というこの数字は、このゲノムがスラブ以前のパレオバルカン基層とスラブ民族移動期の層のほぼ正確な中間点に位置していることを示しており——東バルカンを遺伝的地域として特徴づけるのと同じ交差点的な位置です。</p>
 
-    <p>東ヨーロッパ系（9.5%）は、おそらく同じ連続体の北端を反映しています——ルーマニア、モルドバ、ウクライナへと北上する遺伝的勾配で、あらゆるバルカン集団が北の隣人と多かれ少なかれ共有するものであり、また層2でさらに論じる、北方のスラブ人の故郷のシグナル（スラブ民族移動の起源であるプリピャチ湿地付近から運ばれたバルト・森林地帯的祖先）の一部である可能性が十分にあります。南イタリア系（5.7%）は、他の同様のバルカン系プロフィールで果たしているのと非常によく似た役割を果たしている可能性が高いでしょう。南イタリアとバルカンは古い新石器時代・青銅器時代の地中海的祖先の層を共有しており、現代イタリア人と現代バルカン集団から構築された参照パネルは、その結果として部分的に重なり合います——現代の国名ラベルとして現れる共有された古代基層であり、系譜上のイタリア人祖先の証拠ではありません。</p>
+    <p><strong>東ヨーロッパ系（9.5%）</strong>は、おそらく同じ連続体の北端を反映しています——ルーマニア、モルドバ、ウクライナへと北上する遺伝的勾配で、あらゆるバルカン集団が北の隣人と多かれ少なかれ共有するものであり、また層2でさらに論じる、北方のスラブ人の故郷のシグナル（スラブ民族移動の起源であるプリピャチ湿地付近から運ばれたバルト・森林地帯的祖先）の一部である可能性が十分にあります。</p> 
+    
+    <p><strong>南イタリア系（5.7%）</strong>は、他の同様のバルカン系プロフィールで果たしているのと非常によく似た役割を果たしている可能性が高いでしょう。南イタリアとバルカンは古い新石器時代・青銅器時代の地中海的祖先の層を共有しており、現代イタリア人と現代バルカン集団から構築された参照パネルは、その結果として部分的に重なり合います——現代の国名ラベルとして現れる共有された古代基層であり、系譜上のイタリア人祖先の証拠ではありません。</p>
 
     <p>追加的遺伝的グループの方が、この層ではより興味深い部分です。四つのうち三つ——ブルガリア、セルビア／クロアチア／ボスニア・ヘルツェゴビナ、ルーマニア——は、層1のG25現代集団表がまったく異なる方法で独立に到達する東バルカン／ドナウ川下流域の位置を、より細かい解像度で確認しているにすぎません。四つ目のアイルランドはそのパターンにまったく当てはまらず、主要な物語の中に静かに折り込まれるのではなく、以下の「注目すべき発見」で直接取り上げます。</p>
 
@@ -396,12 +831,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
     <div class="plain-box">
       <span class="plain-label">簡単に言うと</span>
       この層は、本当に一つの考えについてのものです。<mark>ラベルは発見そのものではありません</mark>。国名の隣にあるパーセンテージは正確に見えますが、実際には誰か他人が構築した参照パネルと、そのプログラムの設計者がたまたま選んだカテゴリーを使って、このゲノムを比較したコンピュータープログラムの出力にすぎません。プログラムを変えれば、ラベルも変わります——ある計算ツールでの「Caucasian」は別のツールでは「NE-Euro」になりますが、どちらも同じ根底のDNAの重なり合う領域を記述しているのです。<em>信頼できる</em>のは、異なる作られ方をした複数のツールの間での一致です：Eurogenes、EUtest、HarappaWorld——異なる人々が異なる参照集団を使って構築した三つの計算ツール——がすべてブルガリア人とルーマニア人をリストの最上位に置くとき、その収束こそが本物の証拠です。単一の計算ツールの正確なパーセンテージはおおまかなスケッチにすぎませんが、複数の計算ツールが同じ二つの答えに行き着くことこそが、信頼に値する本当のシグナルです。
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> ラベルは発見そのものではありません——国名は現代の参照タグであり、家系図ではありません。</span></p>
     </div>
   </div>
 </div>
 
 
-<!-- ══ 層1 ══ -->
+<!-- ══ LAYER 1 ══ -->
 <div class="era-block" id="s_modern">
   <div class="era-marker">
     <span class="era-dot"></span>
@@ -412,7 +848,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
 
     <p>Global25の現代集団表で最も近い一致は<strong>ガガウズ人、距離0.0161</strong>で、ブルガリア人0.0172、ルーマニア人0.0197をわずかに上回っています。ガガウズ人は、モルドバ南部とベッサラビア地方のウクライナに集中して住む、テュルク語を話す正教会系の少数民族です。テュルク系言語を話すにもかかわらず、古代・現代のDNA研究は一貫して、ガガウズ人が隣人であるブルガリア人やルーマニア人と遺伝的に区別できないことを示しています——つまり、遺伝的な置き換えを伴わない言語の置き換えを経験した集団です。したがってガガウズ人が最上位に来ることは、テュルク系祖先のシグナルではありません。それは、ブルガリア人とルーマニア人がすでに示しているのと同じ東バルカン／ドナウ川下流域の位置を、少し異なる角度からアルゴリズムが確認したものであり——MyHeritageの追加的遺伝的グループ（ブルガリア、セルビア／クロアチア／ボスニア、ルーマニア）が層0ですでに指し示していたものでもあります。</p>
 
-    <p>マケドニア人（0.0243）、ギリシャ中央マケドニア（0.0277）、モンテネグロ人（0.0291）、アルバニア人とセルビア人（ともに0.0311）、モルドバ人（0.0332）が上位九つを構成し、すべてが緊密で一貫したバルカンのクラスターの中に収まっています。ギリシャ中央マケドニアの位置——5位で、モンテネグロ人、アルバニア人、セルビア人より近い——はそれ自体で注目に値します。エーゲ海に面したギリシャ集団が、最も緊密な一致のクラスターの後ろに遅れるのではなくその内側に入っていることは、MyHeritageの「ギリシャ・アルバニア系」成分が、重なり合う参照パネルの人工物ではなく、実質的な重みを持っていることと一致します。</p>
+    <p>マケドニア人（0.0242）、ギリシャ中央マケドニア（0.0277）、モンテネグロ人（0.0291）、アルバニア人とセルビア人（ともに0.0311）、モルドバ人（0.0332）が上位九つを構成し、すべてが緊密で一貫したバルカンのクラスターの中に収まっています。ギリシャ中央マケドニアの位置——5位で、モンテネグロ人、アルバニア人、セルビア人より近い——はそれ自体で注目に値します。エーゲ海に面したギリシャ集団が、最も緊密な一致のクラスターの後ろに遅れるのではなくその内側に入っていることは、MyHeritageの「ギリシャ・アルバニア系」成分が、重なり合う参照パネルの人工物ではなく、実質的な重みを持っていることと一致します。</p>
 
     <table class="dist-table">
       <thead><tr><th>現代集団</th><th>G25距離</th><th></th></tr></thead>
@@ -432,15 +868,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
     <h3 class="table-heading" style="margin-top:2rem">Eurogenes K36 — 上位10成分（キットTD3247381）</h3>
     <table class="data-table">
       <tr><td>イタリア系</td><td class="pct-cell"><span class="pct-bar" style="width:68%"></span><span class="pct-val">16.94%</span></td></tr>
-      <tr><td>東バルカン</td><td class="pct-cell"><span class="pct-bar" style="width:41%"></span><span class="pct-val">10.27%</span></td></tr>
-      <tr><td>東中央ヨーロッパ</td><td class="pct-cell"><span class="pct-bar" style="width:35%"></span><span class="pct-val">8.76%</span></td></tr>
-      <tr><td>東地中海</td><td class="pct-cell"><span class="pct-bar" style="width:32%"></span><span class="pct-val">8.06%</span></td></tr>
-      <tr><td>アルメニア</td><td class="pct-cell"><span class="pct-bar" style="width:29%"></span><span class="pct-val">7.25%</span></td></tr>
-      <tr><td>北コーカサス</td><td class="pct-cell"><span class="pct-bar" style="width:28%"></span><span class="pct-val">7.12%</span></td></tr>
-      <tr><td>フェノスカンジア</td><td class="pct-cell"><span class="pct-bar" style="width:28%"></span><span class="pct-val">7.08%</span></td></tr>
-      <tr><td>東ヨーロッパ</td><td class="pct-cell"><span class="pct-bar" style="width:23%"></span><span class="pct-val">5.73%</span></td></tr>
-      <tr><td>フランス系</td><td class="pct-cell"><span class="pct-bar" style="width:18%"></span><span class="pct-val">4.60%</span></td></tr>
-      <tr><td>北大西洋</td><td class="pct-cell"><span class="pct-bar" style="width:16%"></span><span class="pct-val">4.02%</span></td></tr>
+          <tr><td>東バルカン</td><td class="pct-cell"><span class="pct-bar" style="width:41%"></span><span class="pct-val">10.27%</span></td></tr>
+          <tr><td>東中央ヨーロッパ</td><td class="pct-cell"><span class="pct-bar" style="width:35%"></span><span class="pct-val">8.76%</span></td></tr>
+          <tr><td>東地中海</td><td class="pct-cell"><span class="pct-bar" style="width:32%"></span><span class="pct-val">8.06%</span></td></tr>
+          <tr><td>アルメニア</td><td class="pct-cell"><span class="pct-bar" style="width:29%"></span><span class="pct-val">7.25%</span></td></tr>
+          <tr><td>北コーカサス</td><td class="pct-cell"><span class="pct-bar" style="width:28%"></span><span class="pct-val">7.12%</span></td></tr>
+          <tr><td>フェノスカンジア</td><td class="pct-cell"><span class="pct-bar" style="width:28%"></span><span class="pct-val">7.08%</span></td></tr>
+          <tr><td>東ヨーロッパ</td><td class="pct-cell"><span class="pct-bar" style="width:23%"></span><span class="pct-val">5.73%</span></td></tr>
+          <tr><td>フランス系</td><td class="pct-cell"><span class="pct-bar" style="width:18%"></span><span class="pct-val">4.60%</span></td></tr>
+          <tr><td>北大西洋</td><td class="pct-cell"><span class="pct-bar" style="width:16%"></span><span class="pct-val">4.02%</span></td></tr>
     </table>
 
     <div class="insight-box">
@@ -451,12 +887,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
     <div class="plain-box">
       <span class="plain-label">簡単に言うと</span>
       このゲノムが比較されるすべての集団——ブルガリア人、ルーマニア人、ガガウズ人、ギリシャ人、マケドニア人、セルビア人——が同じ近隣、すなわち<strong>東バルカン</strong>、ブルガリア、ギリシャ、黒海沿岸が出会うまさにその場所を指しています。複数の異なる携帯電話の基地局で位置を三角測量するようなものだと考えてください。単一の基地局は正確な住所を示しませんが、<strong>九つ</strong>の基地局すべてが同じ大まかな地域で一致すれば、そこが本当に信号の発信源だと確信できます。ここで起きているのはまさにそれです——九つの独立した比較点が、ヨーロッパ中に散らばるのではなく、同じ<strong>緊密なクラスター</strong>に着地しているのです。Eurogenes K36の内訳は、同じ方向を指す、異なる作られ方をした二つ目の証拠を加えます。イタリア系と東バルカンを合わせてプロフィールの4分の1以上を占めることは、実はイタリアについてのことではまったくなく——その子孫が今も同じ地域に住んでいる、はるかに古い<strong>地中海の農耕集団</strong>の指標なのです。この層のどこにも、意外な場所からの祖先を示唆するものはありません。これは、いくつもの異なる方向から同じように確認された、一貫した、十分に裏付けられた<strong>地域的アイデンティティ</strong>です。
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> このゲノムは東バルカンのクラスター（ガガウズ人–ブルガリア人–ルーマニア人、エーゲ海寄りの引力を伴う）に位置しており、一つの「国」という箱に収まるわけではありません。</span></p>
     </div>
   </div>
 </div>
 
 
-<!-- ══ 層2 ══ -->
+<!-- ══ LAYER 2 ══ -->
 <div class="era-block" id="s_medieval">
   <div class="era-marker">
     <span class="era-dot era-dot--mid"></span>
@@ -467,7 +904,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
 
     <p class="descent-note">現代集団のラベルは、あなたが今どこに位置しているかを教えてくれます。そのバルカン成分がどのように形成されたかを理解するには、現代の層を取り除き、中世へと降りていく必要があります。</p>
 
-    <p>モデル3は、このデータセット全体で最も顕著な一つの数字を確認しています：<strong>ブルガリア中世、距離0.0267</strong>——第一次・第二次ブルガリア帝国時代にブルガリアに埋葬された個体から実際に回収された古代DNAへの、異例なほど小さな距離であり、モデル化された理論上の参照ではありません。これほど小さな距離は、このゲノムのG25座標が中世ブルガリアの遺伝的変異そのものの中心のごく近くに位置していることを意味します。</p>
+    <p>モデル3は、このデータセット全体で最も顕著な一つの数字を確認しています：<strong>ブルガリア中世、距離0.0267</strong>——第一次・第二次ブルガリア帝国時代にブルガリアに埋葬された個体から実際に回収された古代DNAへの、異例なほど小さな距離であり、モデル化された理論上の参照ではありません。これほど小さな距離は、このゲノムのG25座標が中世ブルガリアの遺伝的変異そのものの中心のごく近くに位置していることを意味します。 次に近い中世の参照は<strong>マケドニア中世（0.0362）</strong>で、同じ時代の別の実在する東バルカンの平均値です——やや離れてはいますが、同じクラスターの内側にしっかり収まっています。</p>
 
     <p>中世パネルの残りは、その数字に文脈を与えます。ロシア・ヴァイキングSG（0.0866）とその外れ値バリアント（0.1077）、ハンガリー後期アヴァール（0.1225）、セルビア中世ゲピド人（0.1382）、ハンガリー初期アヴァール（0.2152）、そして二つのアヴァール・エリート層（0.3029、0.4162）は、ブルガリア自体から外側へ広がっていく輪を描いています——ヴァイキング時代のルーシとの接触、次にブルガリア国家が統合される以前にこの地域を支配していたパンノニアのアヴァール可汗国、そして最後に、周囲の定住集団から最も遠く隔たった草原遊牧民的プロフィールを持つ、より遠いエリート層の埋葬です。この輪が不規則な飛びなく着実に広がっていること自体が示唆に富んでいます。それは、このゲノムにとってブルガリアが本当の中心に位置する、ノイズに囲まれた孤立したスパイクではない、一貫した中世バルカン／パンノニアの遺伝的景観を描いているのです。</p>
 
@@ -477,6 +914,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
       <thead><tr><th>中世集団</th><th>距離</th><th></th></tr></thead>
       <tbody>
         <tr><td>ブルガリア中世</td><td class="dist-val">0.0267</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:6%"></div></div></td></tr>
+        <tr><td>マケドニア中世</td><td class="dist-val">0.0362</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:9%"></div></div></td></tr>
         <tr><td>ブルガリア中世oEastAsia</td><td class="dist-val">0.0685</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:16%"></div></div></td></tr>
         <tr><td>ロシア・ヴァイキングSG</td><td class="dist-val">0.0866</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:20%"></div></div></td></tr>
         <tr><td>ロシア・ヴァイキングoSG</td><td class="dist-val">0.1077</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:25%"></div></div></td></tr>
@@ -538,12 +976,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
     <div class="plain-box">
       <span class="plain-label">簡単に言うと</span>
       この層全体から持ち帰るべき数字は<mark>0.0267</mark>です——中世ブルガリアの実際に発掘された骨格への距離です。この層の他のすべては、二つの方向でその数字に文脈を与えるためにあります。第一に、横方向：アヴァールの数字は特定の歴史的物語を語っています——このゲノムは、スラブ移住者がバルカンへ南下する際にアヴァール支配下のパンノニア回廊に<strong>吸収された一般的な集団</strong>に近く、彼らを統治していた<strong>草原由来の支配階級</strong>からは遠い位置にあります。これは偶然ではありません。アヴァールのエリート層そのものとつながりのある集団ではなく、スラブ民族の移動を生き抜いた集団に期待される遺伝的シグナルです。第二に、時間を遡る方向：それらすべてが起きる前に、すでにバルカンには人々が住んでいました——歴史上のトラキア人の祖先です——そして彼らの遺伝的シグナルは、層序表の最も奥、銅器時代と新石器時代の階層に現れています。したがって、この層全体が一つの連続した物語を語っています。古い現地の集団、後にそこへ加わった草原の牧畜民、さらに後にハンガリー経由で到来したスラブ移住者——それぞれの波が、前の波の上に重なるように、測定可能な痕跡を残しているのです。
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 最も近い中世の一致はブルガリア中世（0.027）で、マケドニア中世（0.036）がそのすぐ後に続く——スラブ以前の大きなバルカン層に中世初期の混合が加わったものであり、単一の純粋な部族ではありません。</span></p>
     </div>
   </div>
 </div>
 
 
-<!-- ══ 層3 ══ -->
+<!-- ══ LAYER 3 ══ -->
 <div class="era-block" id="s_bronze">
   <div class="era-marker">
     <span class="era-dot era-dot--mid"></span>
@@ -578,12 +1017,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
     <div class="plain-box">
       <span class="plain-label">簡単に言うと</span>
       一つに合流する二つの川を思い浮かべてください——<em>一方はアナトリアの古い農耕村落から上ってくる流れ、もう一方は黒海の北の馬を飼う草原から下ってくる流れ</em>——そしてこのゲノムは、草原側の岸よりも、アナトリア側の岸に少し寄った位置にあります。どちらの川も間違いなく水の一部であり、片方の祖先が存在してもう片方が存在しない、という話ではありません。<strong>50対50よりも60対40に近い分割</strong>で、農耕民側がわずかに先行しています。これは本物の、測定可能な傾きであり、どちらに転んでもおかしくないコイントスではありません——そして、現代集団のランキングから混血計算ツールまで、この報告書の他の部分でも繰り返し現れる、より古く、より南方の集団への同じ傾きです。同じ方向を指す小さなシグナルが何度も重なれば、真剣に受け止める価値のあるものになります。
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 約60対40——アナトリア農耕民が草原牧畜民をわずかに上回る：控えめだが一貫した傾きであり、青銅器時代の単一の支配的な起源ではありません。</span></p>
     </div>
   </div>
 </div>
 
 
-<!-- ══ 層4 ══ -->
+<!-- ══ LAYER 4 ══ -->
 <div class="era-block" id="s_neolithic">
   <div class="era-marker">
     <span class="era-dot era-dot--ancient"></span>
@@ -601,12 +1041,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
     <div class="plain-box">
       <span class="plain-label">簡単に言うと</span>
       これは発掘全体の中で<strong>最も古い確かな基盤</strong>です。十分に遡れば、この報告書のすべての証拠の線——現代集団、中世の墓、青銅器時代のクラスター——は、最終的に同じ場所にたどり着きます：ドナウ川沿いの小さな農耕村落、およそ8千年前、農耕そのものがまだヨーロッパで新しい発想だった頃です。その上に築かれたすべて——草原の移動、中世の王国、現代の国民——は、そこに最初に築かれた基礎の上に後から加えられたものにすぎません。
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 初期の農耕村落が、このゲノムの深い基盤を形成しています——発掘全体で最も古い確かな地盤です。</span></p>
     </div>
   </div>
 </div>
 
 
-<!-- ══ 層5 ══ -->
+<!-- ══ LAYER 5 ══ -->
 <div class="era-block" id="s_mesolithic">
   <div class="era-marker">
     <span class="era-dot era-dot--ancient"></span>
@@ -624,12 +1065,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
     <div class="plain-box">
       <span class="plain-label">簡単に言うと</span>
       二種類の異なる証拠、二つの異なる問い——混同しないことが大切です。<strong>距離の数字</strong>が答えるのは「他のすべてと比べてどれくらいか」という問いで——その答えは、WHGは実在するものの三つの主要な材料の中で最小である、ということです。<strong>セグメント一致</strong>が答えるのはまったく別の問いです：「この特定の古代の人物と共有している、実際の物理的なDNAの連なりはあるか」——そしてここでは、はい、確かに、二重に存在します。家族のレシピのようなものだと考えてください：距離の数字は、WHGが主要な材料ではなく小さな材料であることを教えてくれ、セグメント一致は、その材料の元の出どころに属していた本物の家宝のスパイス瓶を戸棚の中に見つけるようなものです。有用で具体的な証拠ですが——それだけでレシピ全体の割合を教えてくれるわけではありません。
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 狩猟採集民はヨーロッパの深層にある三つの流れの中で最小です——存在はするが希薄化されており、確認された共有セグメントは2つです。</span></p>
     </div>
   </div>
 </div>
 
 
-<!-- ══ 層6 ══ -->
+<!-- ══ LAYER 6 ══ -->
 <div class="era-block" id="s_archaic">
   <div class="era-marker">
     <span class="era-dot era-dot--ancient"></span>
@@ -663,7 +1105,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
     <p>このモデルは、上の標準的な三波モデルや深層祖先モデルよりも高い精度でエーゲ海／コーカサス回廊を解像するために、このキットのために特別に構築されました：</p>
 
     <table class="dist-table">
-      <thead><tr><th>集団</th><th>距離</th><th></th></tr></thead>
+      <thead><tr><th>集団</th><th>距離</th></tr></thead>
       <tbody>
         <tr><td>アルメニア銅器時代アレニ（南コーカサス銅器時代）</td><td class="dist-val">0.0921</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:31%"></div></div></td></tr>
         <tr><td>ギリシャ青銅器時代ミケーネ（青銅器時代エーゲ海）</td><td class="dist-val">0.0938</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:32%"></div></div></td></tr>
@@ -679,7 +1121,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
 
     <p>アルメニア銅器時代アレニ（0.0921）と青銅器時代ミケーネ・ギリシャ（0.0938）は、驚くべきことに、上の表の深層祖先集団のどれよりも——アナトリア農耕民の参照よりもさらに——このゲノムに近くなっています。どちらもエーゲ海・アナトリア・南コーカサスの青銅器時代回廊を代表しています：ミケーネ・ギリシャはその回廊の西端に位置し、アルメニア高地のクラ・アラクセス文化圏（ここではアレニと、0.1477のアルメニア前期青銅器時代クラ・アラクセス・ベルカベルによって代表されます）はその東端に位置します。このゲノムが、同じ青銅器時代の文化的・遺伝的回廊の両端のこれほど近くに位置しているという事実は、驚くべき、内的に整合した結果です——二つの無関係な偶然ではなく、一本の歴史的な貫通線上の二つの点なのです。</p>
 
-    <p>ギリシャ・ミノアン・ラシティ（0.1366）は、ミケーネ／アレニの組とアナトリアのバルチン参照（0.1613）の間に位置し、一方、イラン銅器時代の階層——セフ・ガビ（0.1836）、次にテペ・ヒッサル（0.2220）——は勾配をイラン高原のさらに奥へ延ばしており、ジョージア・コティアスCHG（0.2508）とイラン・ガンジ・ダレN（0.2910）が遠い端を固定しています。これは、上の深層祖先モデルですでに論じた同じ二つの集団です。</p>
+    <p>ギリシャ・ミノアン・ラシティ（0.1367）は、ミケーネ／アレニの組とアナトリアのバルチン参照（0.1613）の間に位置し、一方、イラン銅器時代の階層——セフ・ガビ（0.1836）、次にテペ・ヒッサル（0.2220）——は勾配をイラン高原のさらに奥へ延ばしており、ジョージア・コティアスCHG（0.2508）とイラン・ガンジ・ダレN（0.2910）が遠い端を固定しています。これは、上の深層祖先モデルですでに論じた同じ二つの集団です。</p>
 
     <div class="insight-box">
       <span class="insight-label">ヒートマップについての注記</span>
@@ -689,12 +1131,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
     <div class="plain-box">
       <span class="plain-label">簡単に言うと</span>
       この層では二つのことが起きており、明確に分けて考える価値があります。第一に、実際の発見：このゲノムは、<mark>この報告書全体でテストされた他のほとんどのどの集団よりも、青銅器時代のエーゲ海と南コーカサスの世界——ミケーネ・ギリシャ、アルメニアのクラ・アラクセス文化——に近い位置にあります</mark>。これには、前の層のアナトリア農耕民の参照も含まれます。これは本物の、具体的な、かなり顕著な結果です。第二に、滑らかにならすのではなく正確に述べる価値のある、本当に複雑な結果：このゲノムは、ヴィンディヤのネアンデルタール人ゲノムに対して特に、孤立した一致セグメントを少数持っていますが、エル・シドロンやメズマイスカヤに対しては何もありません。それは、疎ではあっても本物です——しかし、ネアンデルタール人祖先を全体として測定する方法ではなく、他の誰かより「多い」あるいは「少ない」ネアンデルタール人だと読むべきものでもありません。ヴィンディヤのゲノムは単に最もよく配列決定されたネアンデルタール人の参照であるため、あらゆる比較ツールがそれに最も強く依存するのです——最もはっきりした記憶を持つ目撃者が最も多く質問されるようなもので、その近くで実際により多くのことが起きたからではありません。ネアンデルタール人祖先を測定する正しい方法は、<em>ゲノム全体</em>を数千の位置にわたって一度に比較する、ゲノムワイドな手法です——そしてその尺度では、非アフリカ系祖先を持つほぼすべての人と同じく、通常の背景的なネアンデルタール人祖先がここにもほぼ間違いなく存在しています。
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 草原シグナルは、東ヨーロッパ狩猟採集民（EHG）よりもコーカサス狩猟採集民（CHG）に傾いており、最も近い青銅器時代の一致はエーゲ海と南コーカサスのものです——南東寄り、エーゲ海に傾いたパターンです。</span></p>
     </div>
   </div>
 </div>
 
 
-<!-- ══ 遺伝子マーカー ══ -->
+<!-- ══ GENETIC MARKERS ══ -->
 <div class="era-block" id="s_markers">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
@@ -728,12 +1171,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
     <div class="plain-box">
       <span class="plain-label">簡単に言うと</span>
       上の表のマーカーのほとんどは、単純で確立された事実です：茶色ではなく青い目、明るい肌、成人になると乳を快適に消化できないこと——世界中の個人向けDNA検査で報告される日常的な遺伝的特徴と同じもので、そこに集団史の文脈が加わっているだけです。<strong>EDAR/ABCC11のペア</strong>は、唯一の本当の謎です。東アジアの集団では、これら二つの遺伝子はほとんど常に一緒に伝わります。めったに離れて見られない二人の兄弟のように——何千年も前の同じ自然選択の波によって、一緒に引っ張られてきたからです。ここでは、一人の兄弟がもう一人を<strong>伴わずに</strong>現れました。これは特定の、珍しいパターンです。最も妥当な説明は、隠れた最近の東アジア系祖先ではありません。より古く、より遠回りな旅です——この特定の遺伝子変異が、青銅器時代にユーラシアを移動していた草原集団に便乗し、後に二つの遺伝子を束ねることになる東アジアの選択的一掃よりもはるか前にあったのかもしれません。これは本当に興味深い糸ですが、解決済みの事件ではなく、未解決の問いとして保持すべきです。
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 単一遺伝子の手がかりはヒントであり、測定された祖先の割合ではありません——EDARが通常のパートナーであるABCC11を伴わないことは、より古く間接的な経路を示唆します：興味深いものの、決着した問題ではありません。</span></p>
     </div>
   </div>
 </div>
 
 
-<!-- ══ 注目すべき発見 ══ -->
+<!-- ══ NOTABLE FINDINGS ══ -->
 <div class="era-block" id="s_surprises">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
@@ -779,12 +1223,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
     <div class="plain-box">
       <span class="plain-label">簡単に言うと</span>
       同じ家族で育った二人の兄弟が、同じ地域の物語の二つのバージョンを携えています。<em>同じ家で育った二人</em>が、共有された祖先から受け継いだ家宝のコレクションを、少しずつ異なる形で持つようになったようなものだと考えてください——どちらも間違いなく同じ家族の出身でありながら、目録は同一ではありません。スタイコのコレクションはやや南東寄り、ギリシャとコーカサスの方向に傾いており、ミンコのコレクションはやや北寄りで、より広いルーマニア・ブルガリアの中核に近くなっています。どちらのバージョンも他方より「よりバルカン的」というわけではありません——それらは同じ共有された遺産の上にある、二つの実在する、独立して測定可能なバリエーションであり、驚くべきことというより、兄弟の間で見られると予想される通りのものです。
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 二人の兄弟、一つの東バルカンの遺産——このプロフィールはやや南方・エーゲ海寄りで、ミンコはルーマニア・ブルガリアの中核にやや近い——それでも互いの方が（0.0142）、どの外部集団よりも近いのです。</span></p>
     </div>
   </div>
 </div>
 
 
-<!-- ══ 全体像 ══ -->
+<!-- ══ SYNTHESIS ══ -->
 <div class="era-block" id="s_synthesis" style="border-bottom:none">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
@@ -797,17 +1242,18 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
 
     <p>表層では、MyHeritageのギリシャ・アルバニア系（43.1%）とバルカン系（41.7%）の成分は、合わせて約85%となり、二つの重なり合うラベルのもとで一つのことを記述しています：ほぼ完全に南東ヨーロッパの遺伝的連続体の内側に位置するゲノムです。G25現代集団表は、これを独立して、より細かい解像度で確認しています——ガガウズ人、ブルガリア人、ルーマニア人が上位三位を占め、ギリシャ中央マケドニアがモンテネグロ人、アルバニア人、セルビア人より上の5位で近くに続いています。</p>
 
-    <p>さらに深く進むと、中世の層は、このゲノムを、ブルガリアの第一・第二帝国時代から回収された実際の古代DNAの異例なほど近くに位置づけ（距離0.0267）、中世バルカンとパンノニアの参照点からなる一貫した、着実に広がる輪——ヴァイキング時代のルーシとの接触、次にアヴァール可汗国、そしてそのより遠い遊牧民エリート——の中に埋め込んでいます。青銅器時代の層は、本物の非対称性を解決します：アナトリア農耕民のシグナル（バルチン、0.1613）は、草原牧畜民のシグナル（ヤムナヤ、0.1841）を、実質的な構造的な差で上回っており、この目的のために構築されたコーカサス解像度モデルは、これをこれまでで最も明確な形に鮮明化します——アルメニア銅器時代アレニと青銅器時代ミケーネ・ギリシャは、どちらもエーゲ海・アナトリア・南コーカサスの青銅器時代回廊の指標であり、テストされた他のどの古代集団よりもこのゲノムに近くランクされます。</p>
+    <p>さらに深く進むと、中世の層は、このゲノムを、ブルガリアの第一・第二帝国時代から回収された実際の古代DNAの異例なほど近くに位置づけ（距離0.0267、マケドニア中世が0.0362ですぐ後ろに続く）、中世バルカンとパンノニアの参照点からなる一貫した、着実に広がる輪——ヴァイキング時代のルーシとの接触、次にアヴァール可汗国、そしてそのより遠い遊牧民エリート——の中に埋め込んでいます。青銅器時代の層は、本物の非対称性を解決します：アナトリア農耕民のシグナル（バルチン、0.1613）は、草原牧畜民のシグナル（ヤムナヤ、0.1841）を、実質的な構造的な差で上回っており、この目的のために構築されたコーカサス解像度モデルは、これをこれまでで最も明確な形に鮮明化します——アルメニア銅器時代アレニと青銅器時代ミケーネ・ギリシャは、どちらもエーゲ海・アナトリア・南コーカサスの青銅器時代回廊の指標であり、テストされた他のどの古代集団よりもこのゲノムに近くランクされます。</p>
 
     <p>それらすべての下では、新石器時代の階層——マラク・プレスラヴェツとクレポスト、紀元前6千年紀頃に遡る発掘された二つのドナウ川の農耕村落——が、このゲノムが今なお測定可能な形でつながる最も深い基底を示しており、古代人類モデルのCHG＞EHGの重みづけ（コティアスがカレリアより近い）は、その農耕基層の上に到来した草原祖先の、特定の南東的な風味を特定しています。単一遺伝子マーカーは、もう一つの糸を加えます：通常は東アジア系祖先と結びつけられるEDAR変異が、通常の遺伝的パートナーを伴わずにここに存在していることは、最近の経路よりも、古く、草原を介した経路によりよく整合します。層を重ねるごとに、同じ結論が成り立ちます：アナトリア農耕民、コーカサスに重みを持つ草原牧畜民、そしてその中央を貫く、測定可能で十分に裏付けられたエーゲ海／南コーカサス青銅器時代の糸から組み立てられたゲノムです。</p>
 
     <p>残されているのは、さらに狭い課題です：層6で確認された八つの孤立したヴィンディヤ・セグメント一致の正確な染色体座標とcM長を抽出し、確認されたサンプルレベルの発見を、完全に位置の特定された発見に変えることです。</p>
-
+    
     <div class="plain-box">
       <span class="plain-label">簡単に言うと — 発掘全体を最初から最後まで</span>
       <p>この物語全体を一つの方向に読み進めると、古い家の壁の塗装の層を一枚ずつ剥がしていくように読めます——それぞれの塗り重ねがその下のものより新しく、どれもその前にあったものを消し去ってはいません。表層から始めましょう：最も近い生きている親戚が<strong>ブルガリア人、ルーマニア人、ガガウズ人</strong>である人物——しっかりと東バルカン的で、驚きはありません。数世紀を剥がすと、中世初期にハンガリーを通って南下し、すでにバルカンに住んでいた人々と融合した<strong>スラブ移住者</strong>にたどり着きます——このゲノムは、その過程に吸収された一般の集団に異例なほど近く、一時期それを支配していた草原の軍閥からは同じく異例なほど遠い位置にあります。さらに剥がしてスラブの層を過ぎると、すでにそこで待っていた人々にたどり着きます：<strong>トラキア人</strong>とそのパレオバルカンの隣人たち——スラブ語話者が到来するはるか以前から何千年もの間、この同じ土地を占めていた農耕民や丘陵の部族です。</p>
       <p style="margin-top:.8rem">トラキア人を過ぎてさらに遡ると、物語は名前のある民族についてのものではなくなり、集団規模の移動についてのものになります。約4千年前、黒海の北の草原から馬に乗った牧畜民である<strong>ヤムナヤ</strong>文化が押し寄せ、ヨーロッパの大部分の遺伝的構成を作り変えました——このゲノムも彼らのシグナルを持っており、特定の形で重みづけられています（ヤムナヤにも寄与した<strong>東部狩猟採集民</strong>、つまり<mark>EHG</mark>ではなく、<strong>コーカサス狩猟採集民</strong>、つまり<mark>CHG</mark>の側に傾いています）。それは、その移動の北の分岐ではなく、特に南東の、コーカサスに隣接する分岐を指し示しています。牧畜民の前には最初の農耕民がいました——現在のトルコである<strong>アナトリア</strong>を約8千年前に離れ、作物と家畜をゆっくりとバルカン半島へ歩いて運び、このゲノムの新石器時代の一致の元となった村々のような村落を築いた人々です。そして農耕民の前には、この土地は農業を一切行わなかった狩猟採集民のものでした——壁の塗装の最も古く最も薄い層として今なお現れる西ヨーロッパの分岐（<strong>WHG</strong>）で、ルクセンブルクの8,000年前の骨格との直接のセグメント一致に、かろうじて検出可能な形で現れています。</p>
       <p style="margin-top:.8rem">そしてそれよりさらに下には：非アフリカ系の祖先を持つほぼすべての人が少量の<strong>ネアンデルタール人</strong>のDNAを持っており、このゲノムもほぼ間違いなく例外ではありません——0.5cMのヒートマップは、<strong>ヴィンディヤ洞窟</strong>の個体に対して特に孤立した一致セグメントを示し、エル・シドロンとメズマイスカヤには何も示しません。これは、それ自体では測定可能な祖先シグナルというより、ヴィンディヤの参照ゲノムの品質によりよく整合する散在パターンです。狩猟採集民、次に農耕民、次に草原の牧畜民、次にトラキア人、次にスラブ移住者、次に中世ブルガリア人、そして今日見られる生きている親戚たち、そのすべての下に敷かれたネアンデルタール人祖先の背景的な糸——それぞれが、同じ連続した発掘の中で、実在し、それぞれ独立して確認された層なのです。</p>
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 狩猟採集民→農耕民→草原→トラキア人→スラブ人→現代の東バルカン人へと続く、一つの連続した物語。ネアンデルタール人の祖先は、小さな共有された古代の背景であり、家系図上の別の枝ではありません。</span></p>
     </div>
 
     <div class="insight-box insight-box--final">
@@ -822,7 +1268,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','E
         + MyHeritage ギリシャ・アルバニア系（43.1%）＋ バルカン系（41.7%） — 一つの南東ヨーロッパ連続体、二つの重なり合うラベル<br>
         = <strong>東バルカン交差点ゲノム — エーゲ海寄りバリアント</strong><br><br>
         <strong>最も近い現代集団：ガガウズ人 0.0161・ブルガリア人 0.0172</strong><br>
-        <strong>最も近い歴史的集団：ブルガリア中世 0.0267</strong><br>
+        <strong>最も近い歴史的集団：ブルガリア中世 0.0267・マケドニア中世 0.0362</strong><br>
         <strong>青銅器時代のバランス：バルチン 0.1613 &lt; ヤムナヤ 0.1841（農耕民寄り）</strong><br>
         <strong>エーゲ海／コーカサスのシグナル：アルメニアC アレニ 0.0921 — データセット全体で最も近い古代集団</strong><br>
         <strong>保留中：確認された8つのヴィンディヤ・セグメント一致の正確な染色体／cM座標</strong>
