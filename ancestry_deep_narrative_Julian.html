@@ -240,23 +240,19 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
  
 .marker-left {
-    position: absolute;
- 
-    right: calc(50% + var(--axis-half));
- 
-    width: 200px;
- 
-    border-top: 1px dotted var(--era-line);
+  position: absolute;
+  right: calc(50% + var(--axis-half));
+  width: 200px;
+  border-top: 1px dotted var(--era-line);
+  z-index: 5;
 }
  
 .marker-right {
-    position: absolute;
- 
-    left: calc(50% + var(--axis-half));
- 
-    width: 200px;
- 
-    border-top: 1px dotted var(--era-line);
+  position: absolute;
+  left: calc(50% + var(--axis-half));
+  width: 200px;
+  border-top: 1px dotted var(--era-line);
+  z-index: 5;
 }
 
 .marker-bc {
@@ -431,9 +427,10 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 }
  
 .strata-zone--deep2 {
-    background: #4a3d31;
+  background-color: #4a3d31;
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .45) 0px, rgba(255, 255, 255, .45) 2px, transparent 2px, transparent 8px);
 }
-.strata-zone--grey {
+  .strata-zone--grey {
     background: grey;
 }
  
@@ -1205,9 +1202,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>   
     <div class="strata-zone strata-zone--deep" style="top:69.50%;height:23.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
     </div>
-    <div class="strata-tick" style="top:74.50%;" title="Western European Hunter-Gatherers · Loschbour: WHG present in Europe: ~15,000–5,000 ya">
     </div>
-   </div>
    <div class="dual-hg-block" style="width:15px;">
       <div class="dual-hg-lane dual-hg-lane--2">
      <div class="strata-zone strata-zone--whg" style="top:34.00%;height:35.50%;" title="WHG">
