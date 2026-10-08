@@ -276,7 +276,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  
     transform: translate(-50%, -50%);
  
-    width: calc(var(--axis-half) * 60);
+    width: calc(var(--axis-half) * 100);
  
     text-align: center;
  
@@ -838,7 +838,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
 
   /* ── POPULATION IMAGES (ported from Minko/Stayko maps) ── */
-  .summary-images-container { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2.35rem 1.5rem; position: absolute; top: 46%; left: -8.25rem; transform: translate(-50%, -50%); width: max-content; z-index: 5; }
+  .summary-images-container { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2.35rem 1.5rem; position: absolute; top: 46%; left: -3.75rem; transform: translate(-50%, -50%); width: max-content; z-index: 5; }
   .summary-image { display: flex; flex-direction: column; align-items: center; width: 140px; flex-shrink: 0; }
   .summary-image img { width: 130px; height: 130px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; }
   .summary-image-text { margin-top: 0.55rem; color: var(--ink, #3c3226); font-weight: 600; text-align: center; font-size: 0.78rem; line-height: 1.25; letter-spacing: 0.02em; background-color: var(--parchment); }
@@ -1000,7 +1000,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    </span>
   </div>
   <div class="dual-head dual-head--time">
-   Time ↓
+   <span style="top:0%;">TIME<br>↓</span>
   </div>
   <div class="dual-head dual-head--maternal">
    <strong>
@@ -1118,13 +1118,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="dual-marker">
         <div class="marker-left" style="top:12.75%;"></div>
         <div class="marker-right" style="top:17.50%;"></div>
-        <span style="top:12.5%;">~600–900 AD</span>
+        <span style="top:12.75%;">~600–900 AD</span>
     </div>
     
     <div class="dual-marker">
         <div class="marker-left" style="top:21.50%;"></div>
         <div class="marker-left" style="top:15.50%;"></div>
-        <span style="top:21%;">~800–100 BC</span>
+        <span style="top:21.50%;">~800–100 BC</span>
     </div>
 
     <div class="dual-marker">
@@ -1136,13 +1136,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="dual-marker">
         <div class="marker-left" style="top:31.5%;"></div>
         
-        <span style="top:34%;">~5000 ya</span>
+        <span style="top:31.5%;">~5000 ya</span>
     </div>
     
     <div class="dual-marker">
         <div class="marker-left" style="top:44%;"></div>
         <div class="marker-right" style="top:38%;"></div>
-        <span style="top:42%;">~7000 ya</span>
+        <span style="top:44%;">~7000 ya</span>
     </div>
     
     <div class="dual-marker">
@@ -1155,19 +1155,19 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     <div class="dual-marker">
         <div class="marker-left" style="top:57%;"></div>
         
-        <span style="top:67%;">~14,000 ya</span>
+        <span style="top:57%;">~14,000 ya</span>
     </div>
     
     <div class="dual-marker">
         <div class="marker-left" style="top:66%;"></div>
         <div class="marker-right" style="top:54%;"></div>
-        <span style="top:82%;">~30k ya</span>
+        <span style="top:80%;">~30k ya</span>
     </div>
     
     <div class="dual-marker">
        
         <div class="marker-right" style="top:96%;"></div>
-        <span style="top:94%;">~60–70k ya</span>
+        <span style="top:92.5%;">~60–70k ya</span>
     </div>
  
        
@@ -1193,7 +1193,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    <div class="dual-rail">
     <div class="strata-zone strata-zone--modern" style="top:0.00%;height:11.50%;" title="Bulgarian · Paternal Anchor · Population present: ~681 AD – today">
     </div>
-    <div class="strata-zone strata-zone--slavic" style="top:11.50%;height:2.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
+    <div class="strata-zone strata-zone--slavic" style="top:11.50%;height:2.50%;" title="Slavic Migration · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
     </div>
     <div class="strata-zone strata-zone--byzantine" style="top:14.00%;height:2.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
     </div>
