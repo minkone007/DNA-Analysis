@@ -848,6 +848,18 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   .summary-image--portrait .summary-image-text { margin-top: 0.55rem; }
   /* Right-hand (maternal) image column: mirror of the paternal one on the left */
   .summary-images-container--m { left: auto; right: -8.25rem; transform: translate(50%, -50%); }
+  .summary-images-container--m::before {
+  content: '';
+  position: absolute;
+  left: 70px;
+  top: 6px;
+  bottom: 0;
+  width: 1px;
+  background: var(--era-line);
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
   /* Vertical line through each image column, starting at its dot and running behind the images */
   .summary-images-container > * { position: relative; z-index: 1; }
   /* The outer image columns need free space on both sides of the map; hide them on narrower screens */
