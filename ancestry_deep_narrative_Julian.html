@@ -840,7 +840,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
   /* ── POPULATION IMAGES (ported from Minko/Stayko maps) ── */
   .summary-images-container { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2.35rem 1.5rem; position: absolute; top: 46%; left: -8.25rem; transform: translate(-50%, -50%); width: max-content; z-index: 5; }
-  .summary-images-container::before { content: ''; position: absolute; left: 70px; top: 6px; bottom: 0; width: 1px; background: var(--era-line); transform: translateX(-50%); z-index: 0; pointer-events: none; }
   .summary-image { display: flex; flex-direction: column; align-items: center; width: 140px; flex-shrink: 0; }
   .summary-image img { width: 130px; height: 130px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; }
   .summary-image-text { margin-top: 0.55rem; color: var(--ink, #3c3226); font-weight: 600; text-align: center; font-size: 0.78rem; line-height: 1.25; letter-spacing: 0.02em; background-color: var(--parchment); }
@@ -970,8 +969,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           <span class="plain-label">In Plain Terms</span>
           In short: a balanced West-East Eurasian genome in which the paternal Eastern Balkan formation — Anatolian farmers, Caucasus-weighted steppe, WHG, and Slavic synthesis — meets a maternal Ryukyuan formation rich in <mark>Jomon hunter-gatherer ancestry</mark>. The two streams remain clearly distinguishable across modern, medieval, and ancient layers.
         </div>
-      </div> <!-- end era-content -->
-    </div> <!-- end era-block s_summary -->
+   
         <!-- ══ GENETIC STRATIGRAPHY ══ -->
 <section class="genetic-stratigraphy">
  <div class="strat-intro">
@@ -1478,7 +1476,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  </div> <!-- end dual-field -->
 </div> <!-- end strat-map-wrap -->
 </section>
-
+   </div> <!-- end era-content -->
+    </div> <!-- end era-block s_summary -->
 <!-- ══ LAYER 0: THE SURFACE ══ -->
 <div class="era-block" id="s_surface">
   <div class="era-marker">
