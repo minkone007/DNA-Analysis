@@ -15,15 +15,12 @@
   --gold-light:#e8d5a0;--east:#2a6b5a;--east-light:#5aab8a;--east-pale:#d4ede5;
   --steppe:#6b8a6b;--sea:#3a6b8a;--stone:#8a8a7a;--cinnabar:#8a2a1a;--era-line:#c8b89a;
   /* text tokens for light backgrounds (WCAG AA); --ink-light and --gold stay for dark surfaces */
-  --ink-muted:#6e5f4b;--gold-text:#80642a;
-}
+  --ink-muted:#6e5f4b;--gold-text:#80642a;}
 body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Georgia,serif;font-size:18px;line-height:1.9}
-
 .lang-bar{position:fixed;top:1rem;right:1.2rem;z-index:200;display:flex;gap:.4rem}
 .lang-btn{font-family:'Inter',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-decoration:none;padding:.3rem .7rem;border-radius:3px;background:rgba(28,22,16,.85);color:var(--ink-light);border:1px solid #3a3020;backdrop-filter:blur(4px);transition:color .15s,border-color .15s}
 .lang-btn:hover{color:var(--gold-light);border-color:var(--gold)}
 .lang-btn--active{color:var(--gold);border-color:var(--gold);pointer-events:none}
-
 .cover{background:var(--ink);color:var(--parchment);padding:6rem 4rem 5rem;position:relative;overflow:hidden}
 .cover::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.012) 40px,rgba(255,255,255,.012) 41px),repeating-linear-gradient(-45deg,transparent,transparent 80px,rgba(90,171,138,.04) 80px,rgba(90,171,138,.04) 81px);pointer-events:none}
 .cover::after{content:'';position:absolute;left:0;right:0;bottom:3.5rem;height:1px;background:linear-gradient(90deg,transparent 0%,var(--east) 30%,var(--gold) 60%,transparent 100%);opacity:.35}
@@ -36,7 +33,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .cover-stat-val{font-size:1.8rem;font-weight:600;color:var(--gold-light);font-family:'EB Garamond',serif}
 .cover-stat-val--east{color:var(--east-light)}
 .cover-stat-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light)}
-
 .nav-sidebar{position:fixed;left:0;top:0;bottom:0;width:210px;background:var(--ink);padding:2rem 1rem;overflow-y:auto;z-index:100}
 .nav-sidebar h4{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid #3a3020}
 .nav-link{display:block;font-family:'Inter',sans-serif;font-size:.73rem;color:var(--ink-light);text-decoration:none;padding:.3rem .4rem;border-radius:3px;margin-bottom:.1rem;line-height:1.4;transition:color .15s,background .15s}
@@ -45,23 +41,21 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .nav-link--east:hover{color:#a0dfc0}
 .nav-divider{border:none;border-top:1px solid #2a2218;margin:.8rem 0}
 .main-content{margin-left:200px}
-
 .era-block{display:flex;gap:0;padding:3.5rem 4rem 3.5rem 0;border-bottom:1px solid var(--parchment-dark);max-width:1100px;margin:0 auto}
 .era-marker{width:120px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
 .era-marker::before{content:'';position:absolute;left:50%;top:0;bottom:-3.5rem;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0}
-.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);align-self: center;z-index:1;flex-shrink:0}
+.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);align-self:center;z-index:1;flex-shrink:0}
 .era-dot--east{background:var(--east);box-shadow:0 0 0 3px var(--east)}
 .era-dot--mid{background:var(--steppe);box-shadow:0 0 0 3px var(--steppe)}
 .era-dot--ancient{background:var(--stone);box-shadow:0 0 0 3px var(--stone)}
 .era-dot--special{background:var(--accent);box-shadow:0 0 0 3px var(--accent)}
 .era-dot--dual{background:linear-gradient(135deg,var(--gold) 50%,var(--east) 50%);box-shadow:0 0 0 3px var(--era-line)}
-.era-label{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);text-align:center;line-height:1.4;background-color: var(--parchment);z-index:1}
+.era-label{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);text-align:center;line-height:1.4;background-color:var(--parchment);z-index:1}
 .era-content{flex:1;padding-left:2.5rem}
 .era-content h2{font-size:1.7rem;font-weight:600;color:var(--ink);margin-bottom:1.2rem;letter-spacing:-.01em;line-height:1.2}
 .era-content p{margin-bottom:1.1rem;color:var(--ink-mid);font-size:1rem;line-height:1.85}
 .descent-note{font-style:italic;color:var(--ink-muted)!important;font-size:.95rem!important;margin-bottom:1.6rem!important;padding-bottom:1rem;border-bottom:1px dashed var(--era-line)}
 .sub-heading{font-size:1.15rem;font-weight:600;color:var(--ink);margin:2rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px solid var(--parchment-dark)}
-
 .insight-box{background:var(--parchment-dark);border-left:4px solid var(--gold);padding:1.1rem 1.4rem;margin:1.5rem 0;border-radius:0 6px 6px 0}
 .insight-box--east{background:var(--east-pale);border-left-color:var(--east)}
 .insight-box--final{background:var(--ink);color:var(--parchment);border-color:var(--gold)}
@@ -77,7 +71,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .equation{font-family:'Inter',sans-serif;font-size:.88rem;line-height:2.1;color:var(--gold-light)}
 .equation strong{color:#fff;font-size:1rem}
 .equation .eq-east{color:var(--east-light)}
-
 .dist-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1.2rem 0}
 .dist-table th{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
 .dist-table td{padding:.32rem .5rem;border-bottom:1px solid var(--parchment-dark);vertical-align:middle}
@@ -87,7 +80,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .dist-bar-fill--gold{background:var(--gold)}
 .dist-bar-fill--steppe{background:var(--steppe)}
 .dist-val{font-family:'Inter',monospace;font-size:.78rem;color:var(--ink-muted)}
-
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0}
 .table-heading{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.6rem}
 .data-table{width:100%;border-collapse:collapse;font-size:.88rem}
@@ -98,7 +90,6 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .pct-bar--east{background:var(--east)}
 .pct-bar--steppe{background:var(--steppe)}
 .pct-val{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--ink-muted)}
-
 .snp-table-wrap{margin:1.5rem 0;overflow-x:auto}
 .snp-table{width:100%;border-collapse:collapse;font-size:.82rem}
 .snp-table th{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
@@ -112,746 +103,153 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .badge--west{background:rgba(184,154,90,.15);color:var(--gold-text);border:1px solid rgba(184,154,90,.3)}
 .badge--east{background:rgba(42,107,90,.12);color:var(--east);border:1px solid rgba(42,107,90,.25)}
 .badge--archaic{background:rgba(138,42,26,.08);color:var(--cinnabar);border:1px solid rgba(138,42,26,.2)}
-
 .disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-muted);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
-
-
-
-/* ═══════════════════════════════════════════════════════════════
-   GENETIC STRATIGRAPHY — DUAL LINEAGE
-   Paternal | Time Axis | Maternal
-   ═══════════════════════════════════════════════════════════════ */
- 
-.genetic-stratigraphy {
-    margin: 3.5rem 0 4.5rem;
-    padding: 2.5rem 0 3rem;
-    background: transparent;
-    border: none;
-}
- 
-/* ───────────────────────────────────────────────────────────────
-   INTRO
-   ─────────────────────────────────────────────────────────────── */
- 
-.strat-intro {
-    max-width: 720px;
-    margin: 0 auto 2.5rem;
-    text-align: center;
-}
- 
-.strat-kicker {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: .68rem;
-    font-weight: 700;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color:var(--gold-text);
-    margin-bottom: .35rem;
-}
- 
-.strat-intro h2 {
-    font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-    margin-bottom: .5rem;
-}
- 
-.strat-intro p {
-    color:var(--ink-muted);
-    font-size: .95rem;
-    line-height: 1.6;
-}
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   SHARED MAP CONTAINER
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-heads,
-.dual-field {
-    --axis-half: 1px;
- 
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-}
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   COLUMN HEADERS
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-heads {
-    display: grid;
-    grid-template-columns: 1fr calc(var(--axis-half) * 2) 1fr;
-    align-items: end;
-    margin-bottom: 1rem;
-}
- 
-.dual-head strong {
-    display: block;
-    font-size: .9rem;
-    letter-spacing: .04em;
-}
- 
-.dual-head span {
-    display: block;
-    font-size: 1rem;
-    color:var(--ink-muted);
-    margin: 0.15rem 5.5rem 0rem 5.5rem;
-}
- 
-.dual-head--paternal {
-    text-align: right;
-    padding-right: 1rem;
-}
- 
-.dual-head--maternal {
-    text-align: left;
-    padding-left: 1rem;
-}
- 
-.dual-head--time {
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-size: .65rem;
-    font-weight: 600;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color:var(--ink-muted);
-}
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   MAIN STRATIGRAPHY FIELD
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-field {
-    height: 1900px;
-    z-index: 5;
-    width: 100%;
-}
- 
- 
-/* ─────────────────────────────────────────────
-   TIMELINE MARKERS
-   ───────────────────────────────────────────── */
- 
-.dual-marker {
-    position: absolute;
-    inset: 0;
- 
-    z-index: 15;
-    pointer-events: none;
-}
- 
-.marker-left {
-    position: absolute;
- 
-    right: calc(50% + var(--axis-half));
- 
-    width: 200px;
- 
-    border-top: 1px dotted var(--era-line);
-}
- 
-.marker-right {
-    position: absolute;
- 
-    left: calc(50% + var(--axis-half));
- 
-    width: 200px;
- 
-    border-top: 1px dotted var(--era-line);
-}
-
-.marker-bc {
-    position: absolute;
- 
-    right: calc(45% + var(--axis-half));
- 
-    width: 50px;
- 
-    border-top: 1px dotted var(--era-line);
-}
-  
-.dual-marker > span {
-    position: absolute;
- 
-    left: 50%;
- 
-    transform: translate(-50%, -50%);
- 
-    width: 100px;
- 
-    text-align: center;
- 
-    font-family: 'Inter', sans-serif;
-    font-size: .65rem;
-    font-weight: 600;
-    letter-spacing: .05em;
- 
-    color:var(--ink-muted);
- 
-    white-space: nowrap; z-index: 2; background: rgba(245, 239, 228, .95); padding: 0 .35rem; box-sizing: border-box; }
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   LINEAGE COLUMNS
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-col {
-    position: absolute;
-    top: 0;
-    bottom: 0;
- 
-    width: calc(50% - var(--axis-half));
- 
-    --rail-w: 10px;
-    --hg-w: 0px;
- 
-    z-index: 1;
-}
- 
-.dual-col--p {
-    left: 0;
-}
- 
-.dual-col--m {
-    right: 0;
-}
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   STRATIGRAPHIC RAILS
-   ─────────────────────────────────────────────────────────────── */
- 
-/* ───────────────────────────────────────────────────────────────
-   STRATIGRAPHIC RAILS
-   ─────────────────────────────────────────────────────────────── */
-.dual-rail {
-    position: absolute;
-    top: 0;
-    bottom: 0;
- 
-    width: var(--rail-w);
-    min-height: 100%;
- 
-    z-index: 5;
- 
-    border-radius: 3px;
-    overflow: hidden;
-    background: transparent;
-    display: block;
-}
- 
-.dual-col--p .dual-rail {
-    right: 0;
-    background: transparent;
-}
- 
-.dual-col--m .dual-rail {
-    left: 0;
-}
- 
-/* ───────────────────────────────────────────────────────────────
-   STRATIGRAPHIC BANDS
-   ─────────────────────────────────────────────────────────────── */
- 
-.strata-zone {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    min-height: 1px;
- 
-    box-shadow:
-        inset 0 1px 0 rgba(245, 239, 228, .75);
-}
- 
+/* GENETIC STRATIGRAPHY — DUAL LINEAGE */
+.genetic-stratigraphy{margin:3.5rem 0 4.5rem;padding:2.5rem 0 3rem;background:transparent;border:none}
+/* INTRO */
+.strat-intro{max-width:720px;margin:0 auto 2.5rem;text-align:center}
+.strat-kicker{display:block;font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-text);margin-bottom:.35rem}
+.strat-intro h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:.5rem}
+.strat-intro p{color:var(--ink-muted);font-size:.95rem;line-height:1.6}
+/* SHARED MAP CONTAINER */
+.dual-heads,.dual-field{--axis-half:1px;max-width:1100px;margin:0 auto;position:relative}
+/* COLUMN HEADERS */
+.dual-heads{display:grid;grid-template-columns:1fr calc(var(--axis-half) * 2) 1fr;align-items:end;margin-bottom:1rem}
+.dual-head strong{display:block;font-size:.9rem;letter-spacing:.04em}
+.dual-head span{display:block;font-size:1rem;color:var(--ink-muted);margin:.15rem 5.5rem 0rem 5.5rem}
+.dual-head--paternal{text-align:right;padding-right:1rem}
+.dual-head--maternal{text-align:left;padding-left:1rem}
+.dual-head--time{text-align:center;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted)}
+/* MAIN STRATIGRAPHY FIELD */
+.dual-field{height:1900px;z-index:5;width:100%}
+/* TIMELINE MARKERS */
+.dual-marker{position:absolute;inset:0;z-index:15;pointer-events:none}
+.marker-left{position:absolute;right:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
+.marker-right{position:absolute;left:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
+.marker-bc{position:absolute;right:calc(45% + var(--axis-half));width:50px;border-top:1px dotted var(--era-line)}
+.dual-marker > span{position:absolute;left:50%;transform:translate(-50%,-50%);width:100px;text-align:center;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.05em;color:var(--ink-muted);white-space:nowrap;z-index:2;background:rgba(245,239,228,.95);padding:0 .35rem;box-sizing:border-box}
+/* LINEAGE COLUMNS */
+.dual-col{position:absolute;top:0;bottom:0;width:calc(50% - var(--axis-half));--rail-w:10px;--hg-w:0px;z-index:1}
+.dual-col--p{left:0}
+.dual-col--m{right:0}
+/* STRATIGRAPHIC RAILS */
+.dual-rail{position:absolute;top:0;bottom:0;width:var(--rail-w);min-height:100%;z-index:5;border-radius:3px;overflow:hidden;background:transparent;display:block}
+.dual-col--p .dual-rail{right:0;background:transparent}
+.dual-col--m .dual-rail{left:0}
+/* STRATIGRAPHIC BANDS */
+.strata-zone{position:absolute;left:0;width:100%;min-height:1px;box-shadow:inset 0 1px 0 rgba(245,239,228,.75)}
 /* Population / period colors */
-.strata-zone--modern {
-    background: var(--gold);
+.strata-zone--modern{background:var(--gold)}
+.strata-zone--slavic{background:var(--cinnabar)}
+.strata-zone--byzantine{background:#6b3a5c}
+.strata-zone--thracian{background:var(--accent)}
+.strata-zone--steppe{background:#7a5a8a}
+.strata-zone--farmer{background:var(--sea)}
+.strata-zone--eastasia{background:#d08a5b}
+.strata-zone--jomon{background:var(--east)}
+.strata-zone--hg{background-color:#b9c0c7;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.45) 0px,rgba(255,255,255,.45) 2px,transparent 2px,transparent 8px)}
+.strata-zone--whg{background:#8fa3ac}
+.strata-zone--ehg{background:#4a7a52}
+.strata-zone--chg{background:#7a6a4a}
+.strata-zone--deep{background:var(--ink)}
+.strata-zone--deep2{background:#4a3d31}
+.strata-zone--denisovan{background-color:#4a3d31;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.45) 0px,rgba(255,255,255,.45) 2px,transparent 2px,transparent 8px)}
+/* COMPARATIVE REFERENCE TICKS */
+.strata-tick{position:absolute;left:-4px;width:calc(var(--rail-w) + 8px);height:2px;background:var(--ink-light);opacity:.9;z-index:2}
+.strat-map-wrap{position:relative;width:100%;max-width:920px;margin:0 auto;padding:0 2rem;box-sizing:border-box}
+.annotation-lane{position:absolute;left:2rem;top:0;bottom:0;width:50px;z-index:5;pointer-events:none}
+/* HUNTER-GATHERER SUB-LANES */
+.dual-hg-block{position:absolute;top:0;bottom:0;z-index:2}
+.dual-col--p .dual-hg-block{right:var(--rail-w)}
+.dual-col--m .dual-hg-block{left:var(--rail-w)}
+.dual-hg-lane{position:absolute;top:0;bottom:0;width:5px;border-radius:2px;overflow:hidden}
+.dual-hg-lane--0{left:0}
+.dual-hg-lane--1{left:5px}
+.dual-hg-lane--2{left:10px}
+.dual-hg-lane--3{left:-5px}
+/* ANCESTRY CARDS */
+.dual-card{--bc:var(--ink-mid);--bw:3px;--bs:solid;position:absolute;transform:translateY(-50%);width:calc(100% - var(--rail-w) - var(--hg-w) - 28px);min-height:40px;padding:.45rem .7rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem 1rem;background:rgba(245,239,228,.82);border:none;border-radius:2px;z-index:2}
+.dual-col--p .dual-card{right:calc(var(--rail-w) + var(--hg-w) + 28px);border-left:var(--bw) var(--bs) var(--bc)}
+.dual-col--m .dual-card{left:calc(var(--rail-w) + var(--hg-w) + 28px);border-right:var(--bw) var(--bs) var(--bc)}
+/* CARD CONTENT */
+.band-label{min-width:0}
+.band-label strong{display:block;font-size:1rem;line-height:1.2;font-weight:600}
+.band-label span{display:block;margin-top:.12rem;font-size:.8rem;line-height:1.25;color:var(--ink-muted)}
+.band-distance{flex-shrink:0;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--ink-muted);white-space:nowrap}
+.deep-note{flex-basis:100%;font-size:.66rem;line-height:1.4;color:var(--ink-muted);font-style:italic}
+/* CARD TYPES */
+.band-slavic{--bc:var(--cinnabar)}
+.band-byzantine{--bc:#6b3a5c}
+.band-thracian{--bc:var(--accent)}
+.band-modern{--bc:var(--gold)}
+.band-steppe{--bc:#7a5a8a}
+.band-farmer{--bc:var(--sea)}
+.band-eastasia{--bc:#d08a5b}
+.band-whg{--bc:#8fa3ac}
+.band-jomon{--bc:var(--east)}
+.band-ehg{--bc:#4a7a52}
+.band-chg{--bc:#7a6a4a}
+.band-comparative{--bc:#9a8a6a;--bs:dashed}
+.band-deep{--bc:var(--ink);--bw:4px;background:rgba(28,22,16,.035)}
+.band-deep2{--bc:#4a3d31;--bw:4px;background:rgba(28,22,16,.2)}
+.band-deep2::before{content:"";position:absolute;inset:0;background:rgba(245,239,228,.82);z-index:-1}
+/* SHARED / BOTH-LINEAGES BAND */
+.dual-shared{position:absolute;left:0;right:0;transform:translateY(-50%);z-index:1;display:grid;grid-template-columns:1fr calc(var(--axis-half) * 2 + 30px) 1fr;align-items:center;min-height:70px;padding:.45rem .7rem;border-left:4px solid var(--ink);border-radius:2px}
+.dual-shared .deep-note{flex-basis:auto}
+/* MOBILE */
+@media (max-width: 700px){
+  .dual-heads,.dual-field{--axis-half:30px}
+  .dual-field{height:3200px}
+  /* Timeline labels */
+  .dual-marker > span{font-size:.5rem;white-space:normal;line-height:1.1}
+  /* Hide narrow rails on mobile */
+  .dual-rail,.dual-hg-block{display:none}
+  /* Cards become full width */
+  .dual-card{--rail-w:0px;width:100%;flex-direction:column;align-items:flex-start;padding:.4rem .45rem}
+  .dual-col--p .dual-card{right:0}
+  .dual-col--m .dual-card{left:0}
+  .band-label strong{font-size:.72rem}
+  .band-label span{font-size:.58rem}
+  .band-distance{font-size:.55rem;white-space:normal}
+  /* Shared bands */
+  .dual-shared{grid-template-columns:1fr;text-align:center}
+  .dual-shared-gap,.dual-shared .deep-note,.deep-note{display:none}
+  .dual-head span{display:none}
 }
- 
-.strata-zone--slavic {
-    background: var(--cinnabar);
+@media print{
+  .nav-sidebar,.lang-bar{display:none}
+  .main-content,.cover{margin-left:0}
 }
-
-.strata-zone--byzantine {
-    background: #6b3a5c;
+@media (max-width:900px){
+  .nav-sidebar{display:none}
+  .main-content,.cover{margin-left:0}
+  .era-block{padding:2rem 1.5rem;flex-direction:column}
+  .era-marker{width:100%;flex-direction:row;padding-top:0}
+  .era-marker::before{display:none}
+  .era-content{padding-left:0}
+  .two-col{grid-template-columns:1fr}
 }
-  
-.strata-zone--thracian {
-    background: var(--accent);
+/* POPULATION IMAGE COLUMNS (ported from Minko/Stayko maps) */
+.summary-images-container{display:flex;flex-direction:column;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:2.35rem 1.5rem;position:absolute;top:46%;left:-8.25rem;transform:translate(-50%,-50%);width:max-content;z-index:5}
+.summary-image{display:flex;flex-direction:column;align-items:center;width:140px;flex-shrink:0}
+.summary-image img{width:130px;height:130px;object-fit:contain;object-position:center top;background:#f5f0e6;box-sizing:border-box;display:block}
+.summary-image-text{margin-top:.55rem;color:var(--ink,#3c3226);font-weight:600;text-align:center;font-size:.78rem;line-height:1.25;letter-spacing:.02em;background-color:var(--parchment)}
+.summary-image--portrait{width:180px;margin:1.5rem 0 0 0}
+.summary-image--portrait img{width:160px;height:210px;object-fit:contain;object-position:center top;background:#f5f0e6;box-sizing:border-box;display:block;z-index:5}
+.summary-image--portrait .summary-image-text{margin-top:.55rem}
+/* Right-hand (maternal) image column: mirror of the paternal one on the left */
+.summary-images-container--m{left:auto;right:-8.25rem;transform:translate(50%,-50%);row-gap:12.5rem}
+.summary-images-container--m::before{content:'';position:absolute;left:70px;top:6px;bottom:0;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0;pointer-events:none}
+/* Keep each image and the dot above the column line */
+.summary-images-container > *{position:relative;z-index:1}
+/* The outer image columns need free space on both sides of the map; hide them on narrower screens */
+@media (max-width: 1300px){
+  .summary-images-container{display:none !important}
 }
- 
-.strata-zone--steppe {
-    background: #7a5a8a;
+@media (max-width: 700px){
+  .summary-image--portrait{width:130px;margin:.4rem auto 0}
+  .summary-image--portrait img{width:120px;height:160px}
 }
- 
-.strata-zone--farmer {
-    background: var(--sea);
-}
- 
-.strata-zone--eastasia {
-    background: #d08a5b;
-}
-
-.strata-zone--jomon {
-    background: var(--east);
-}
-
-.strata-zone--hg{
-    background-color:#b9c0c7;
-    background-image:repeating-linear-gradient(
-        135deg,
-        rgba(255,255,255,.45) 0px,
-        rgba(255,255,255,.45) 2px,
-        transparent 2px,
-        transparent 8px
-    );
-}  
-  
-.strata-zone--whg {
-    background: #8fa3ac;
-}
- 
-.strata-zone--ehg {
-    background: #4a7a52;
-}
- 
-.strata-zone--chg {
-    background: #7a6a4a;
-}
- 
-.strata-zone--deep {
-    background: var(--ink);
-}
- 
-.strata-zone--deep2 {
-    background: #4a3d31;
-}
-.strata-zone--denisovan {
-    background-color: #4a3d31;
-    background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .45) 0px, rgba(255, 255, 255, .45) 2px, transparent 2px, transparent 8px);
-}
- 
-/* ───────────────────────────────────────────────────────────────
-   COMPARATIVE REFERENCE TICKS
-   ─────────────────────────────────────────────────────────────── */
- 
-.strata-tick {
-    position: absolute;
-    left: -4px;
- 
-    width: calc(var(--rail-w) + 8px);
-    height: 2px;
- 
-    background: var(--ink-light);
-    opacity: .9;
- 
-    z-index: 2;
-}
-
-.strat-map-wrap{
-  position: relative;
-  width: 100%;
-  max-width: 920px;      /* was 1100px — pull it in */
-  margin: 0 auto;
-  padding: 0 2rem;       /* more side breathing room */
-  box-sizing: border-box;
-}
-
-.annotation-lane{
-  position: absolute;
-  left: 2rem;            /* match the padding */
-  top: 0;
-  bottom: 0;
-  width: 50px;
-  z-index: 5;
-  pointer-events: none;
-}
-
-/* ───────────────────────────────────────────────────────────────
-   HUNTER-GATHERER SUB-LANES
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-hg-block {
-    position: absolute;
-    top: 0;
-    bottom: 0;
- 
-    z-index: 2;
-}
- 
-.dual-col--p .dual-hg-block {
-    right: var(--rail-w);
-}
- 
-.dual-col--m .dual-hg-block {
-    left: var(--rail-w);
-}
- 
-.dual-hg-lane {
-    position: absolute;
-    top: 0;
-    bottom: 0;
- 
-    width: 5px;
- 
-    border-radius: 2px;
-    overflow: hidden;
-}
- 
-.dual-hg-lane--0 {
-    left: 0;
-}
- 
-.dual-hg-lane--1 {
-    left: 5px;
-}
- 
-.dual-hg-lane--2 {
-    left: 10px;
-}
-.dual-hg-lane--3 {
-    left: -5px;
-}
- 
-/* ───────────────────────────────────────────────────────────────
-   ANCESTRY CARDS
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-card {
-    --bc: var(--ink-mid);
-    --bw: 3px;
-    --bs: solid;
- 
-    position: absolute;
- 
-    transform: translateY(-50%);
- 
-    width: calc(
-        100% -
-        var(--rail-w) -
-        var(--hg-w) -
-        28px
-    );
- 
-    min-height: 40px;
- 
-    padding: .45rem .7rem;
- 
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
- 
-    gap: .3rem 1rem;
- 
-    background: rgba(245, 239, 228, .82);
- 
-    border: none;
-    border-radius: 2px;
- 
-    z-index: 2;
-}
- 
-.dual-col--p .dual-card {
-    right: calc(
-        var(--rail-w) +
-        var(--hg-w) +
-        28px
-    );
- 
-    border-left:
-        var(--bw)
-        var(--bs)
-        var(--bc);
-}
- 
-.dual-col--m .dual-card {
-    left: calc(
-        var(--rail-w) +
-        var(--hg-w) +
-        28px
-    );
- 
-    border-right:
-        var(--bw)
-        var(--bs)
-        var(--bc);
-}
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   CARD CONTENT
-   ─────────────────────────────────────────────────────────────── */
- 
-.band-label {
-    min-width: 0;
-}
- 
-.band-label strong {
-    display: block;
- 
-    font-size: 1rem;
-    line-height: 1.2;
-    font-weight: 600;
-}
- 
-.band-label span {
-    display: block;
- 
-    margin-top: .12rem;
- 
-    font-size: .8rem;
-    line-height: 1.25;
- 
-    color:var(--ink-muted);
-}
- 
-.band-distance {
-    flex-shrink: 0;
- 
-    font-family: 'Inter', sans-serif;
-    font-size: .63rem;
- 
-    color:var(--ink-muted);
- 
-    white-space: nowrap;
-}
- 
-.deep-note {
-    flex-basis: 100%;
- 
-    font-size: .66rem;
-    line-height: 1.4;
- 
-    color:var(--ink-muted);
- 
-    font-style: italic;
-}
- 
- 
-/* ───────────────────────────────────────────────────────────────
-   CARD TYPES
-   ─────────────────────────────────────────────────────────────── */
-  
-.band-slavic {
-    --bc: var(--cinnabar);
-}
-  
-.band-byzantine {
-    --bc: #6b3a5c;
-}
-  
-.band-thracian {
-    --bc: var(--accent);
-}
- 
-.band-modern {
-    --bc: var(--gold);
-}
- 
-.band-steppe {
-    --bc: #7a5a8a;
-}
- 
-.band-farmer {
-    --bc: var(--sea);
-}
- 
-.band-eastasia {
-    --bc: #d08a5b;
-}
- 
-.band-whg {
-    --bc: #8fa3ac;
-}
- 
-.band-jomon {
-    --bc: var(--east);
-}
- 
-.band-ehg {
-    --bc: #4a7a52;
-}
- 
-.band-chg {
-    --bc: #7a6a4a;
-}
- 
-.band-comparative {
-    --bc: #9a8a6a;
-    --bs: dashed;
-}
- 
-.band-deep {
-    --bc: var(--ink);
-    --bw: 4px;
- 
-    background: rgba(28, 22, 16, .035);
-}
- 
-.band-deep2 {
-    --bc: #4a3d31;
-    --bw: 4px;
- 
-    background: rgba(28, 22, 16, .2);
-}
-  
-.band-deep2::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(245, 239, 228, .82);
-  z-index: -1;
-} 
- 
-/* ───────────────────────────────────────────────────────────────
-   SHARED / BOTH-LINEAGES BAND
-   ─────────────────────────────────────────────────────────────── */
- 
-.dual-shared {
-    position: absolute;
-    left: 0;
-    right: 0;
- 
-    transform: translateY(-50%);
- 
-    z-index: 1;
- 
-    display: grid;
- 
-    grid-template-columns:
-        1fr
-        calc(var(--axis-half) * 2 + 30px)
-        1fr;
- 
-    align-items: center;
- 
-    min-height: 70px;
- 
-    padding: .45rem .7rem;
- 
-    border-left: 4px solid var(--ink);
- 
-    border-radius: 2px;
-}
- 
-.dual-shared .deep-note {
-    flex-basis: auto;
-}
- 
- 
-/* ═══════════════════════════════════════════════════════════════
-   MOBILE
-   ═══════════════════════════════════════════════════════════════ */
- 
-@media (max-width: 700px) {
- 
-    .dual-heads,
-    .dual-field {
-        --axis-half: 30px;
-    }
- 
-    .dual-field {
-        height: 3200px;
-    }
- 
-    /* Timeline labels */
-    .dual-marker > span {
-        font-size: .5rem;
-        white-space: normal;
-        line-height: 1.1;
-    }
- 
-    /* Hide narrow rails on mobile */
-    .dual-rail,
-    .dual-hg-block {
-        display: none;
-    }
- 
-    /* Cards become full width */
-    .dual-card {
-        --rail-w: 0px;
- 
-        width: 100%;
- 
-        flex-direction: column;
-        align-items: flex-start;
- 
-        padding: .4rem .45rem;
-    }
- 
-    .dual-col--p .dual-card {
-        right: 0;
-    }
- 
-    .dual-col--m .dual-card {
-        left: 0;
-    }
- 
-    .band-label strong {
-        font-size: .72rem;
-    }
- 
-    .band-label span {
-        font-size: .58rem;
-    }
- 
-    .band-distance {
-        font-size: .55rem;
-        white-space: normal;
-    }
- 
-    /* Shared bands */
-    .dual-shared {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
- 
-    .dual-shared-gap,
-    .dual-shared .deep-note,
-    .deep-note {
-        display: none;
-    }
- 
-    .dual-head span {
-        display: none;
-    }
-}
-  
-@media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
-@media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
-
-  /* ── POPULATION IMAGES (ported from Minko/Stayko maps) ── */
-  .summary-images-container { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2.35rem 1.5rem; position: absolute; top: 46%; left: -8.25rem; transform: translate(-50%, -50%); width: max-content; z-index: 5; }
-  .summary-image { display: flex; flex-direction: column; align-items: center; width: 140px; flex-shrink: 0; }
-  .summary-image img { width: 130px; height: 130px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; }
-  .summary-image-text { margin-top: 0.55rem; color: var(--ink, #3c3226); font-weight: 600; text-align: center; font-size: 0.78rem; line-height: 1.25; letter-spacing: 0.02em; background-color: var(--parchment); }
-  .summary-image--portrait { width: 180px; margin: 1.5rem 0 0 0; }
-  .summary-image--portrait img { width: 160px; height: 210px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; z-index: 5; }
-  .summary-image--portrait .summary-image-text { margin-top: 0.55rem; }
-  /* Right-hand (maternal) image column: mirror of the paternal one on the left */
-  .summary-images-container--m { left: auto; right: -8.25rem; transform: translate(50%, -50%);   row-gap: 12.5rem; }
-  .summary-images-container--m::before {
-  content: '';
-  position: absolute;
-  left: 70px;
-  top: 6px;
-  bottom: 0;
-  width: 1px;
-  background: var(--era-line);
-  transform: translateX(-50%);
-  z-index: 0;
-  pointer-events: none;
-}
-  /* Vertical line through each image column, starting at its dot and running behind the images */
-  .summary-images-container > * { position: relative; z-index: 1; }
-  /* The outer image columns need free space on both sides of the map; hide them on narrower screens */
-  @media (max-width: 1300px) { .summary-images-container { display: none !important; } }
-  @media (max-width: 700px) { .summary-image--portrait { width: 130px; margin: 0.4rem auto 0; } .summary-image--portrait img { width: 120px; height: 160px; } }
 </style>
 </head>
 <body>
@@ -930,7 +328,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     
         <p>Julian Nenov's genome is a genuine dual-ancestry profile: roughly half Eastern Balkan (paternal) and roughly half Ryukyuan Japanese (maternal). MyHeritage reports Japanese (Okinawa) at 61.6% alongside Balkan 21.2% and Greek and Albanian 10.8%. These labels should not be read as genealogical fractions; they reflect two largely non-overlapping ancestral streams that the algorithm is mapping onto modern reference populations. The Okinawa flag is especially informative — it signals a stronger Jomon hunter-gatherer component than is typical of mainland Japanese ancestry.</p>
     
-        <p>On the paternal side, Julian inherits the Eastern Balkan continuum that characterises his father Minko: closest modern matches remain Bulgarian and related Balkan groups, though diluted by the maternal East Asian contribution (G25 distance to Bulgarian ~<strong>0.126</strong>). The deeper structure mirrors the classic Balkan pattern — a substantial Paleo-Balkan (Anatolian Neolithic and local) substrate, a balanced-to-farmer-leaning Bronze Age synthesis of Anatolian farmers and Pontic steppe (Yamnaya-related) ancestry, a smaller Western Hunter-Gatherer contribution, and later shaping by the Slavic migrations that formed the medieval Bulgarian population.</p>
+        <p>On the paternal side, Julian inherits the Eastern Balkan continuum that characterizes his father Minko: closest modern matches remain Bulgarian and related Balkan groups, though diluted by the maternal East Asian contribution (G25 distance to Bulgarian ~<strong>0.126</strong>). The deeper structure mirrors the classic Balkan pattern — a substantial Paleo-Balkan (Anatolian Neolithic and local) substrate, a balanced-to-farmer-leaning Bronze Age synthesis of Anatolian farmers and Pontic steppe (Yamnaya-related) ancestry, a smaller Western Hunter-Gatherer contribution, and later shaping by the Slavic migrations that formed the medieval Bulgarian population.</p>
     
         <p>On the maternal side, the signal is distinctly Ryukyuan rather than mainland Japanese. Ancient DNA comparisons place the East Asian component closer to Jomon hunter-gatherers than to Han Chinese, consistent with the higher retention of pre-Yayoi ancestry characteristic of the Ryukyu Islands. A secondary northeastern Asian / Inner Asian steppe-related signal is also present, explaining both the Central Asian percentage and the unusually close ancient match to a medieval Mongolian reference — itself best understood as a geometric midpoint between West and East Eurasian variation rather than direct Mongolian ancestry.</p>
     
@@ -981,7 +379,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   
 <p>The left column follows the paternal (Eastern Balkan) lineage; the right column follows the maternal (Ryukyuan) lineage. <br>Cards sit at the approximate date of each reference sample on a single vertical timeline that compresses deep time.</p>
 
-<p>Coloured zones mark populations that form part of Julian’s reconstructed lineage. <br>Short ticks mark comparative references (e.g. Han Henan) used only to measure distance.</p>
+<p>Colored zones mark populations that form part of Julian’s reconstructed lineage. <br>Short ticks mark comparative references (e.g. Han Henan) used only to measure distance.</p>
 
 <p>The Neanderthal admixture window appears in both columns; <br>the faint Denisovan-related signal appears only on the maternal side.</p>
    
@@ -1010,47 +408,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 <div class="strat-map-wrap">
   <div class="annotation-lane" aria-hidden="true">
 
-    <div style="
-      position:absolute;
-      top:22%;
-      left:-45px;
-      width:100px;
-      height:19%;
-      border:1px dotted var(--era-line);
-      border-right:none;
-      border-radius:15px;
-      background:rgba(245,239,228);
-      z-index:-1;
-      pointer-events:none;
-    "></div>
+    <div style="position:absolute;top:22%;left:-45px;width:100px;height:19%;border:1px dotted var(--era-line);border-right:none;border-radius:15px;background:rgba(245,239,228);z-index:-1;pointer-events:none;"></div>
   
-     <div style="
-      position:absolute;
-      top:32%;
-      left:-30px;
-      width:50px;
-      height:19%;
-      border:1px dotted var(--era-line);
-      border-right:none;
-      border-radius:15px;
-      background:rgba(245,239,228);
-      z-index:0;
-      pointer-events:none;
-    "></div>
+     <div style="position:absolute;top:32%;left:-30px;width:50px;height:19%;border:1px dotted var(--era-line);border-right:none;border-radius:15px;background:rgba(245,239,228);z-index:0;pointer-events:none;"></div>
 
-    <div style="
-      position:absolute;
-      top:43%;
-      left:-15px;
-      width:50px;
-      height:15%;
-      border:1px dotted var(--era-line);
-      border-right:none;
-      border-radius:15px;
-      background:none;
-      z-index:0;
-      pointer-events:none;
-    "></div>
+    <div style="position:absolute;top:43%;left:-15px;width:50px;height:15%;border:1px dotted var(--era-line);border-right:none;border-radius:15px;background:none;z-index:0;pointer-events:none;"></div>
   </div>
 
   <div class="dual-field">
@@ -1528,7 +890,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <div class="era-content">
     <h2>The Medieval Stratum — Slavic Migrations and the Paternal Formation</h2>
 <p>Removing the surface layer of modern population labels, we reach the first historical stratum: the medieval migrations that shaped the populations Julian’s paternal genome most resembles.</p>
-<p>Between the 6th and 8th centuries AD, Slavic-speaking groups expanded from the Pripyat region into the Balkans. Analysis of the paternal genome places the Slavic contribution at roughly 32%, arriving via the Pannonian corridor rather than a direct eastern route. The larger component — approximately 48% — is the pre-existing Paleo-Balkan substrate (Thracian, Dacian, Illyrian and Romanised local populations). A further Byzantine Mediterranean overlay of around 20% reflects centuries of Eastern Roman presence. Together these streams formed the medieval Bulgarian genetic profile that remains Julian’s closest modern match.</p>
+<p>Between the 6th and 8th centuries AD, Slavic-speaking groups expanded from the Pripyat region into the Balkans. Analysis of the paternal genome places the Slavic contribution at roughly 32%, arriving via the Pannonian corridor rather than a direct eastern route. The larger component — approximately 48% — is the pre-existing Paleo-Balkan substrate (Thracian, Dacian, Illyrian and Romanized local populations). A further Byzantine Mediterranean overlay of around 20% reflects centuries of Eastern Roman presence. Together these streams formed the medieval Bulgarian genetic profile that remains Julian’s closest modern match.</p>
 <p>This Byzantine-era component is worth a closer look, since the label can mislead. Ancient DNA studies of the Roman-period Balkans find no genetic trace of settlers from Iron Age Italy, despite centuries of Roman political and military control — instead, the imperial period brought a documented influx of Anatolian and West Asian ancestry, concentrated in a comparatively narrow window of roughly the 1st to 3rd centuries AD. The Byzantine centuries that followed sustained this Anatolian-Balkan connection through trade, administration, and population movement, rather than introducing a second wave of comparable size. The "Italian" component in the K36 breakdown below reflects this same broader Mediterranean-Anatolian affinity, not descent from Roman colonists specifically — a distinction the ancient genetic data draws clearly, even where modern population-genetics calculators borrow national labels for convenience.</p>
 <p>Julian inherits this entire paternal formation at roughly half of his genome. The European components across the calculators reconstruct it consistently as an Eastern Balkan + East Mediterranean + Eastern European signature.</p>
 <p>When the ancient DNA database is searched for Julian’s closest ancient match overall, the result is <strong>Mongolia Arkhangai Early Medieval at a distance of 0.094</strong> — closer than any European or Japanese ancient sample in the tested set. This does not indicate Mongolian ancestry. Medieval Inner Asia sat at a genetic crossroads between West Eurasian steppe and East Asian worlds, making it a geometric midpoint that matches a genuine 50/50 West–East genome unusually well.</p>
@@ -1586,7 +948,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <div class="insight-box">
       <span class="insight-label">Chromosome Painting — Relative Signal Strength</span>
-      <p style="font-size:.88rem;color:var(--ink-mid);margin-bottom:1rem;line-height:1.7">The chart below summarises the relative density of allele overlap observed in Julian's GEDmatch chromosome painting — how consistently each reference population's row shows orange across his 22 chromosomes. This is a qualitative ranking of signal strength, not a percentage of ancestry. Both sides of his genome are represented: the paternal West Eurasian sequence on the left, the maternal East Asian sequence on the right.</p>
+      <p style="font-size:.88rem;color:var(--ink-mid);margin-bottom:1rem;line-height:1.7">The chart below summarizes the relative density of allele overlap observed in Julian's GEDmatch chromosome painting — how consistently each reference population's row shows orange across his 22 chromosomes. This is a qualitative ranking of signal strength, not a percentage of ancestry. Both sides of his genome are represented: the paternal West Eurasian sequence on the left, the maternal East Asian sequence on the right.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem">
         <div>
           <div style="font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text);margin-bottom:.8rem">Paternal — West Eurasian</div>
@@ -1666,7 +1028,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <p>This Anatolian Neolithic ancestry is what MyHeritage is partially capturing in the Greek and Albanian (10.8%) component. Modern Greeks carry a high proportion of Early European Farmer ancestry — among the highest of any European population — and when the algorithm identifies a Mediterranean farming-related signal in Julian's genome, it maps it to the modern population that most expresses that signal. It is not Italian or Greek ancestry in any genealogical sense. It is the shared agricultural bedrock of the entire eastern Mediterranean, arriving in the Balkans thousands of years before the concept of "Greek" or "Italian" nationhood existed.</p>
 
-    <p>On the maternal side, there is a parallel to the Neolithic story, though it operated independently and thousands of kilometres away. The Yayoi people — farmers and metalworkers from the Korean peninsula — arrived in Japan approximately 2,300 years ago and transformed the archipelago, absorbing and largely replacing the existing Jomon population in most regions. In the Ryukyu islands, this transformation was less complete. Julian's mother carries a Ryukyuan genetic profile in which the Yayoi continental layer is present but has not overwritten the older Jomon foundation to the same degree as on the mainland. The Korea Changhang ancient distance of 0.382 — ranking between Mongolia Medieval and Jomon in the ancient DNA comparisons — reflects this Yayoi-mediated continental layer in his mother's ancestry.</p>
+    <p>On the maternal side, there is a parallel to the Neolithic story, though it operated independently and thousands of kilometers away. The Yayoi people — farmers and metalworkers from the Korean peninsula — arrived in Japan approximately 2,300 years ago and transformed the archipelago, absorbing and largely replacing the existing Jomon population in most regions. In the Ryukyu islands, this transformation was less complete. Julian's mother carries a Ryukyuan genetic profile in which the Yayoi continental layer is present but has not overwritten the older Jomon foundation to the same degree as on the mainland. The Korea Changhang ancient distance of 0.382 — ranking between Mongolia Medieval and Jomon in the ancient DNA comparisons — reflects this Yayoi-mediated continental layer in his mother's ancestry.</p>
 
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
@@ -1774,7 +1136,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <p>At position rs17822931 in the ABCC11 gene, Julian's genotype is <strong>TC — heterozygous</strong>. His father carries CC at this position: wet earwax, the ancestral Western Eurasian variant, found at near-100% frequency in European populations. His mother almost certainly carries TT: dry earwax, the derived East Asian variant, found at near-100% frequency in Japanese, Korean, and Chinese populations, and nearly absent in Europeans. The T allele is part of a coordinated selective sweep that swept through East Asian populations approximately 30,000 years ago, affecting hair follicle thickness, sweat gland density, and earwax type simultaneously as a linked genetic unit. Julian's TC genotype means he received the Western Eurasian C from his father's Eastern Balkan lineage and the East Asian T from his mother's Ryukyuan heritage. At a single position in his genome, both ancestries are legible, one letter each.</p>
 
-    <p>The eye colour and pigmentation loci tell the same story. His <strong>HERC2 GA</strong> genotype at the primary eye colour switch combines his father's GG — the blue-eye haplotype, inherited ultimately from the Mesolithic Western Hunter-Gatherers who carried it at high frequency — with his mother's likely A allele, the ancestral dark-eye variant. Julian probably has hazel or intermediate eye colour: the oldest eye colour variant in Europe meeting the oldest eye colour variant in East Asia, heterozygous in one individual. His <strong>SLC45A2 CG</strong> genotype follows the same structure — his father's G allele, the European light-skin variant that spread with the Neolithic farmers, paired with the ancestral C allele from his mother's ancestry. Intermediate pigmentation is the expected result, and it is the literal average of two genetic worlds that diverged 40,000 years ago.</p>
+    <p>The eye color and pigmentation loci tell the same story. His <strong>HERC2 GA</strong> genotype at the primary eye color switch combines his father's GG — the blue-eye haplotype, inherited ultimately from the Mesolithic Western Hunter-Gatherers who carried it at high frequency — with his mother's likely A allele, the ancestral dark-eye variant. Julian probably has hazel or intermediate eye color: the oldest eye color variant in Europe meeting the oldest eye color variant in East Asia, heterozygous in one individual. His <strong>SLC45A2 CG</strong> genotype follows the same structure — his father's G allele, the European light-skin variant that spread with the Neolithic farmers, paired with the ancestral C allele from his mother's ancestry. Intermediate pigmentation is the expected result, and it is the literal average of two genetic worlds that diverged 40,000 years ago.</p>
 
     <div class="insight-box insight-box--dual">
       <span class="insight-label insight-label--white">The Molecular Record of a Meeting</span>
@@ -1785,7 +1147,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
-      Everything else in this report is statistics and population comparisons — this layer is different. These are individual letters in Julian's actual DNA, one from each parent, sitting right next to each other. At <strong>ABCC11</strong>, he has one letter that means "wet earwax, European-style" and one that means "dry earwax, East Asian-style" — literally his father's contribution and his mother's contribution, visible side by side at a single spot in his genome. Same story at the eye-colour and skin-colour genes: one letter says "blue eyes, ancient European," the other says "dark eyes, ancient East Asian," and having one of each is exactly why hazel or in-between eye colour is the expected result. This is about as close as genetics gets to literally showing you two family trees meeting in one person.
+      Everything else in this report is statistics and population comparisons — this layer is different. These are individual letters in Julian's actual DNA, one from each parent, sitting right next to each other. At <strong>ABCC11</strong>, he has one letter that means "wet earwax, European-style" and one that means "dry earwax, East Asian-style" — literally his father's contribution and his mother's contribution, visible side by side at a single spot in his genome. Same story at the eye-color and skin-color genes: one letter says "blue eyes, ancient European," the other says "dark eyes, ancient East Asian," and having one of each is exactly why hazel or in-between eye color is the expected result. This is about as close as genetics gets to literally showing you two family trees meeting in one person.
     </div>
   </div>
 </div>
@@ -1814,7 +1176,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <td class="snp-gene">HERC2</td>
             <td class="snp-geno snp-found--het">GA</td>
             <td><span class="heritage-badge badge--west">WHG G</span><span class="heritage-badge badge--east">East A</span></td>
-            <td class="snp-desc">Primary eye colour switch — G (blue-eye haplotype, Mesolithic WHG origin) from father, A (dark, ancestral) from mother. Hazel or intermediate eye colour likely.</td>
+            <td class="snp-desc">Primary eye color switch — G (blue-eye haplotype, Mesolithic WHG origin) from father, A (dark, ancestral) from mother. Hazel or intermediate eye color likely.</td>
           </tr>
           <tr>
             <td class="snp-gene">SLC45A2</td>
@@ -1844,7 +1206,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <td class="snp-gene">ADH1B</td>
             <td class="snp-geno snp-found--west">CC</td>
             <td><span class="heritage-badge badge--east">Note</span></td>
-            <td class="snp-desc">Alcohol metabolism — CC is the standard European variant. The fast-metabolising East Asian T allele (associated with the alcohol flush response) was not inherited. Consistent with Jomon-heavy ancestry, where this allele frequency differs from mainland Han populations.</td>
+            <td class="snp-desc">Alcohol metabolism — CC is the standard European variant. The fast-metabolizing East Asian T allele (associated with the alcohol flush response) was not inherited. Consistent with Jomon-heavy ancestry, where this allele frequency differs from mainland Han populations.</td>
           </tr>
           <tr>
             <td class="snp-gene">MTHFR</td>
@@ -1868,7 +1230,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
             <td class="snp-gene">CYP1A2</td>
             <td class="snp-geno snp-found--west">AA</td>
             <td><span class="heritage-badge badge--west">Fast</span></td>
-            <td class="snp-desc">Caffeine metabolism — fast metaboliser. Processes caffeine efficiently; lower cardiovascular risk from regular coffee consumption than slow metabolisers.</td>
+            <td class="snp-desc">Caffeine metabolism — fast metabolizer. Processes caffeine efficiently; lower cardiovascular risk from regular coffee consumption than slow metabolizers.</td>
           </tr>
           <tr>
             <td class="snp-gene">TCF7L2</td>
@@ -1885,7 +1247,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           <tr>
             <td class="snp-gene">APOE</td>
             <td class="snp-geno snp-found--west">CC</td>
-            <td><span class="heritage-badge badge--west">Favourable</span></td>
+            <td><span class="heritage-badge badge--west">Favorable</span></td>
             <td class="snp-desc">Alzheimer's disease risk — CC at this position is associated with a standard or reduced risk profile. No elevated APOE ε4 signal detected.</td>
           </tr>
         </tbody>
@@ -1911,7 +1273,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
     <p>The excavation is complete. Seven layers of time have been removed, and what they reveal is not a patchwork of separate ancestries but a single coherent story of how two long-separated human lineages came to meet in one person.</p>
 
-    <p>At the surface, Julian's genome registers most strongly as Bulgarian — the closest modern population at distance 0.126, the paternal anchor that remains the dominant signal even across 61% East Asian admixture. Beneath that surface, the medieval layer reveals the two streams that built the Bulgarian genetic profile: a Paleo-Balkan substrate of approximately 48% — the Thracians, Dacians, Illyrians, and Romanised Balkan populations already present before the migrations — and a Slavic migration contribution of approximately 32%, arriving through the Pannonian corridor already mixed with Central European elements. The closest single ancient match in the entire database — Mongolia Arkhangai Early Medieval at distance 0.094 — sits in this same medieval stratum, a finding the data presents without requiring resolution.</p>
+    <p>At the surface, Julian's genome registers most strongly as Bulgarian — the closest modern population at distance 0.126, the paternal anchor that remains the dominant signal even across 61% East Asian admixture. Beneath that surface, the medieval layer reveals the two streams that built the Bulgarian genetic profile: a Paleo-Balkan substrate of approximately 48% — the Thracians, Dacians, Illyrians, and Romanized Balkan populations already present before the migrations — and a Slavic migration contribution of approximately 32%, arriving through the Pannonian corridor already mixed with Central European elements. The closest single ancient match in the entire database — Mongolia Arkhangai Early Medieval at distance 0.094 — sits in this same medieval stratum, a finding the data presents without requiring resolution.</p>
 
     <p>Deeper still, the Bronze Age reveals itself on both sides simultaneously. The Yamnaya pastoralists at distance 0.195 and the Anatolian farmers at distance 0.206 are the two oldest substantial paternal contributions, the steppe and the soil of the Eastern Balkan world. On the maternal side, the Korea Changhang ancient sample at 0.382 marks the continental East Asian layer introduced through the Yayoi farming expansion into the Ryukyus — the same process that happened in Japan as the Anatolian expansion happened in Europe, arriving from the Korean peninsula rather than Anatolia, but structurally identical: an agricultural population transforming the lives of ancient hunter-gatherers.</p>
 
