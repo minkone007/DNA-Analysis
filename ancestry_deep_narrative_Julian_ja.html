@@ -1,753 +1,951 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
 <title>松下・ジュリアン — 深層祖先記録</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --parchment:#f5efe4;--parchment-dark:#ede3d0;--ink:#1c1610;--ink-mid:#4a3f30;
   --ink-light:#8a7a65;--accent:#7a3a1a;--accent-light:#c4845a;--gold:#b89a5a;
   --gold-light:#e8d5a0;--east:#2a6b5a;--east-light:#5aab8a;--east-pale:#d4ede5;
   --steppe:#6b8a6b;--sea:#3a6b8a;--stone:#8a8a7a;--cinnabar:#8a2a1a;--era-line:#c8b89a;
-}
-body{background:var(--parchment);color:var(--ink);font-family:'Noto Serif JP','EB Garamond',Georgia,serif;font-size:17px;line-height:2.0}
-
+  /* text tokens for light backgrounds (WCAG AA); --ink-light and --gold stay for dark surfaces */
+  --ink-muted:#6e5f4b;--gold-text:#80642a;}
+body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Georgia,serif;font-size:18px;line-height:1.9}
 .lang-bar{position:fixed;top:1rem;right:1.2rem;z-index:200;display:flex;gap:.4rem}
-.lang-btn{font-family:'Noto Sans JP','Inter',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-decoration:none;padding:.3rem .7rem;border-radius:3px;background:rgba(28,22,16,.85);color:var(--ink-light);border:1px solid #3a3020;backdrop-filter:blur(4px);transition:color .15s,border-color .15s}
+.lang-btn{font-family:'Inter',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-decoration:none;padding:.3rem .7rem;border-radius:3px;background:rgba(28,22,16,.85);color:var(--ink-light);border:1px solid #3a3020;backdrop-filter:blur(4px);transition:color .15s,border-color .15s}
 .lang-btn:hover{color:var(--gold-light);border-color:var(--gold)}
 .lang-btn--active{color:var(--gold);border-color:var(--gold);pointer-events:none}
-
 .cover{background:var(--ink);color:var(--parchment);padding:6rem 4rem 5rem;position:relative;overflow:hidden}
 .cover::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.012) 40px,rgba(255,255,255,.012) 41px),repeating-linear-gradient(-45deg,transparent,transparent 80px,rgba(90,171,138,.04) 80px,rgba(90,171,138,.04) 81px);pointer-events:none}
 .cover::after{content:'';position:absolute;left:0;right:0;bottom:3.5rem;height:1px;background:linear-gradient(90deg,transparent 0%,var(--east) 30%,var(--gold) 60%,transparent 100%);opacity:.35}
-.cover-eyebrow{font-family:'Noto Sans JP',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.15em;color:var(--gold);margin-bottom:1.5rem}
-.cover h1{font-size:3rem;font-weight:600;color:var(--parchment);line-height:1.2;margin-bottom:.5rem;letter-spacing:.04em}
-.cover-sub{font-size:1.2rem;font-style:italic;color:var(--gold-light);margin-bottom:.8rem;font-family:'Noto Serif JP',serif}
-.cover-sub2{font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:var(--east-light);letter-spacing:.06em;margin-bottom:3.5rem}
-.cover-meta{font-family:'Noto Sans JP',sans-serif;font-size:.75rem;color:var(--ink-light);border-top:1px solid #3a3020;padding-top:1.5rem;display:flex;gap:2.5rem;flex-wrap:wrap}
+.cover-eyebrow{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.cover h1{font-size:3.5rem;font-weight:400;letter-spacing:-.02em;color:var(--parchment);line-height:1.1;margin-bottom:.5rem}
+.cover-sub{font-size:1.3rem;font-style:italic;color:var(--gold-light);margin-bottom:.8rem}
+.cover-sub2{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--east-light);letter-spacing:.08em;margin-bottom:3.5rem}
+.cover-meta{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);border-top:1px solid #3a3020;padding-top:1.5rem;display:flex;gap:2.5rem;flex-wrap:wrap}
 .cover-stat{display:flex;flex-direction:column}
-.cover-stat-val{font-size:1.75rem;font-weight:600;color:var(--gold-light);font-family:'Noto Serif JP',serif}
+.cover-stat-val{font-size:1.8rem;font-weight:600;color:var(--gold-light);font-family:'EB Garamond',serif}
 .cover-stat-val--east{color:var(--east-light)}
-.cover-stat-label{font-size:.63rem;letter-spacing:.08em;color:var(--ink-light);font-family:'Noto Sans JP',sans-serif}
-
+.cover-stat-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light)}
 .nav-sidebar{position:fixed;left:0;top:0;bottom:0;width:210px;background:var(--ink);padding:2rem 1rem;overflow-y:auto;z-index:100}
-.nav-sidebar h4{font-family:'Noto Sans JP',sans-serif;font-size:.62rem;letter-spacing:.12em;color:var(--gold);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid #3a3020}
-.nav-link{display:block;font-family:'Noto Sans JP',sans-serif;font-size:.72rem;color:var(--ink-light);text-decoration:none;padding:.3rem .4rem;border-radius:3px;margin-bottom:.15rem;line-height:1.5;transition:color .15s,background .15s}
+.nav-sidebar h4{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid #3a3020}
+.nav-link{display:block;font-family:'Inter',sans-serif;font-size:.73rem;color:var(--ink-light);text-decoration:none;padding:.3rem .4rem;border-radius:3px;margin-bottom:.1rem;line-height:1.4;transition:color .15s,background .15s}
 .nav-link:hover{color:var(--gold-light);background:rgba(255,255,255,.05)}
 .nav-link--east{color:#5aab8a}
 .nav-link--east:hover{color:#a0dfc0}
 .nav-divider{border:none;border-top:1px solid #2a2218;margin:.8rem 0}
-.main-content{margin-left:210px}
-
+.main-content{margin-left:200px}
 .era-block{display:flex;gap:0;padding:3.5rem 4rem 3.5rem 0;border-bottom:1px solid var(--parchment-dark);max-width:1100px;margin:0 auto}
 .era-marker{width:120px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
 .era-marker::before{content:'';position:absolute;left:50%;top:0;bottom:-3.5rem;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0}
-.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);z-index:1;flex-shrink:0}
+.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);align-self:center;z-index:1;flex-shrink:0}
 .era-dot--east{background:var(--east);box-shadow:0 0 0 3px var(--east)}
 .era-dot--mid{background:var(--steppe);box-shadow:0 0 0 3px var(--steppe)}
 .era-dot--ancient{background:var(--stone);box-shadow:0 0 0 3px var(--stone)}
 .era-dot--special{background:var(--accent);box-shadow:0 0 0 3px var(--accent)}
 .era-dot--dual{background:linear-gradient(135deg,var(--gold) 50%,var(--east) 50%);box-shadow:0 0 0 3px var(--era-line)}
-.era-label{font-family:'Noto Sans JP',sans-serif;font-size:.6rem;font-weight:500;color:var(--ink-light);text-align:center;line-height:1.5;z-index:1}
+.era-label{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);text-align:center;line-height:1.4;background-color:var(--parchment);z-index:1}
 .era-content{flex:1;padding-left:2.5rem}
-.era-content h2{font-size:1.55rem;font-weight:600;color:var(--ink);margin-bottom:1.2rem;line-height:1.4;font-family:'Noto Serif JP',serif}
-.era-content p{margin-bottom:1.1rem;color:var(--ink-mid);font-size:.97rem;line-height:2.0}
-.sub-heading{font-size:1.1rem;font-weight:600;color:var(--ink);margin:2rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px solid var(--parchment-dark);font-family:'Noto Serif JP',serif}
-
+.era-content h2{font-size:1.7rem;font-weight:600;color:var(--ink);margin-bottom:1.2rem;letter-spacing:-.01em;line-height:1.2}
+.era-content p{margin-bottom:1.1rem;color:var(--ink-mid);font-size:1rem;line-height:1.85}
+.descent-note{font-style:italic;color:var(--ink-muted)!important;font-size:.95rem!important;margin-bottom:1.6rem!important;padding-bottom:1rem;border-bottom:1px dashed var(--era-line)}
+.sub-heading{font-size:1.15rem;font-weight:600;color:var(--ink);margin:2rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px solid var(--parchment-dark)}
 .insight-box{background:var(--parchment-dark);border-left:4px solid var(--gold);padding:1.1rem 1.4rem;margin:1.5rem 0;border-radius:0 6px 6px 0}
 .insight-box--east{background:var(--east-pale);border-left-color:var(--east)}
 .insight-box--final{background:var(--ink);color:var(--parchment);border-color:var(--gold)}
 .insight-box--dual{background:var(--ink);border:none;border-image:linear-gradient(135deg,var(--gold),var(--east)) 1;border-left:4px solid}
-.insight-label{font-family:'Noto Sans JP',sans-serif;font-size:.63rem;font-weight:600;letter-spacing:.08em;color:var(--gold);display:block;margin-bottom:.5rem}
-.insight-label--east{color:var(--east)}
+.insight-label{font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-text);display:block;margin-bottom:.5rem}
 .plain-box{background:rgba(58,107,138,.07);border-left:4px solid var(--sea);padding:1.1rem 1.4rem;margin:1.6rem 0;border-radius:0 6px 6px 0;color:var(--ink-mid)}
 .plain-box strong{color:var(--ink);font-weight:600}
 .plain-box em{font-style:italic;color:var(--ink)}
 .plain-box mark{background:var(--gold-light);color:var(--ink);padding:.05em .25em;border-radius:3px;font-style:normal}
 .plain-label{font-family:'Inter',sans-serif;font-style:normal;font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sea);display:block;margin-bottom:.45rem}
+.insight-label--east{color:var(--east)}
 .insight-label--white{color:var(--gold-light)}
-.equation{font-family:'Noto Sans JP',sans-serif;font-size:.86rem;line-height:2.2;color:var(--gold-light)}
-.equation strong{color:#fff;font-size:.98rem}
+.equation{font-family:'Inter',sans-serif;font-size:.88rem;line-height:2.1;color:var(--gold-light)}
+.equation strong{color:#fff;font-size:1rem}
 .equation .eq-east{color:var(--east-light)}
-
-.dist-table{width:100%;border-collapse:collapse;font-size:.84rem;margin:1.2rem 0}
-.dist-table th{font-family:'Noto Sans JP',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.06em;color:var(--ink-light);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
+.dist-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1.2rem 0}
+.dist-table th{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
 .dist-table td{padding:.32rem .5rem;border-bottom:1px solid var(--parchment-dark);vertical-align:middle}
 .dist-table tr:first-child td{font-weight:600;color:var(--ink)}
-.dist-bar-bg{width:150px;height:6px;background:var(--parchment-dark);border-radius:3px;display:inline-block;vertical-align:middle;margin-right:.5rem}
+.dist-bar-bg{width:160px;height:6px;background:var(--parchment-dark);border-radius:3px;display:inline-block;vertical-align:middle;margin-right:.5rem}
 .dist-bar-fill{height:100%;border-radius:3px;background:var(--east);display:block}
 .dist-bar-fill--gold{background:var(--gold)}
 .dist-bar-fill--steppe{background:var(--steppe)}
-.dist-val{font-family:'Inter',monospace;font-size:.78rem;color:var(--ink-light)}
-
+.dist-val{font-family:'Inter',monospace;font-size:.78rem;color:var(--ink-muted)}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0}
-.table-heading{font-family:'Noto Sans JP',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:var(--ink-light);margin-bottom:.6rem}
-.data-table{width:100%;border-collapse:collapse;font-size:.86rem}
+.table-heading{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.6rem}
+.data-table{width:100%;border-collapse:collapse;font-size:.88rem}
 .data-table td{padding:.3rem .4rem;border-bottom:1px solid var(--parchment-dark);vertical-align:middle}
-.pct-cell{width:68%}
+.pct-cell{width:70%}
 .pct-bar{display:inline-block;height:6px;border-radius:3px;vertical-align:middle;margin-right:.4rem;opacity:.75}
 .pct-bar--west{background:var(--gold)}
 .pct-bar--east{background:var(--east)}
 .pct-bar--steppe{background:var(--steppe)}
-.pct-val{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--ink-light)}
-
+.pct-val{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--ink-muted)}
 .snp-table-wrap{margin:1.5rem 0;overflow-x:auto}
-.snp-table{width:100%;border-collapse:collapse;font-size:.81rem}
-.snp-table th{font-family:'Noto Sans JP',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.06em;color:var(--ink-light);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
+.snp-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.snp-table th{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
 .snp-table td{padding:.35rem .5rem;border-bottom:1px solid var(--parchment-dark);vertical-align:top}
 .snp-gene{font-family:'Inter',sans-serif;font-weight:600;font-size:.82rem}
 .snp-geno{font-family:'Inter',monospace;font-weight:700;font-size:.9rem}
-.snp-found--west{color:var(--gold)}
+.snp-found--west{color:var(--gold-text)}
 .snp-found--het{color:var(--accent-light)}
-.snp-desc{font-size:.81rem;color:var(--ink-light);font-family:'Noto Sans JP',sans-serif;line-height:1.7}
-.heritage-badge{display:inline-flex;align-items:center;font-family:'Noto Sans JP',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.04em;padding:.25rem .7rem;border-radius:2px;margin:.2rem}
-.badge--west{background:rgba(184,154,90,.15);color:var(--gold);border:1px solid rgba(184,154,90,.3)}
+.snp-desc{font-size:.82rem;color:var(--ink-muted)}
+.heritage-badge{display:inline-flex;align-items:center;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .8rem;border-radius:2px;margin:.2rem}
+.badge--west{background:rgba(184,154,90,.15);color:var(--gold-text);border:1px solid rgba(184,154,90,.3)}
 .badge--east{background:rgba(42,107,90,.12);color:var(--east);border:1px solid rgba(42,107,90,.25)}
-.badge--steppe{background:rgba(107,138,107,.12);color:var(--steppe);border:1px solid rgba(107,138,107,.25)}
 .badge--archaic{background:rgba(138,42,26,.08);color:var(--cinnabar);border:1px solid rgba(138,42,26,.2)}
-
-.disclaimer{font-family:'Noto Sans JP',sans-serif;font-size:.75rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.8;border-top:1px solid var(--era-line)}
-
-@media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
-@media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
+.disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-muted);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
+/* GENETIC STRATIGRAPHY — DUAL LINEAGE */
+.genetic-stratigraphy{margin:3.5rem 0 4.5rem;padding:2.5rem 0 3rem;background:transparent;border:none}
+/* INTRO */
+.strat-intro{max-width:720px;margin:0 auto 2.5rem;text-align:center}
+.strat-kicker{display:block;font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-text);margin-bottom:.35rem}
+.strat-intro h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:.5rem}
+.strat-intro p{color:var(--ink-muted);font-size:.95rem;line-height:1.6}
+/* SHARED MAP CONTAINER */
+.dual-heads,.dual-field{--axis-half:1px;max-width:1100px;margin:0 auto;position:relative}
+/* COLUMN HEADERS */
+.dual-heads{display:grid;grid-template-columns:1fr calc(var(--axis-half) * 2) 1fr;align-items:end;margin-bottom:1rem}
+.dual-head strong{display:block;font-size:.9rem;letter-spacing:.04em}
+.dual-head span{display:block;font-size:1rem;color:var(--ink-muted);margin:.15rem 5.5rem 0rem 5.5rem}
+.dual-head--paternal{text-align:right;padding-right:1rem}
+.dual-head--maternal{text-align:left;padding-left:1rem}
+.dual-head--time{text-align:center;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted)}
+/* MAIN STRATIGRAPHY FIELD */
+.dual-field{height:1900px;z-index:5;width:100%}
+/* TIMELINE MARKERS */
+.dual-marker{position:absolute;inset:0;z-index:15;pointer-events:none}
+.marker-left{position:absolute;right:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
+.marker-right{position:absolute;left:calc(50% + var(--axis-half));width:200px;border-top:1px dotted var(--era-line)}
+.marker-bc{position:absolute;right:calc(46% + var(--axis-half));width:60px;z-index: 5;border-top:1px dotted var(--era-line)}
+.dual-marker > span{position:absolute;left:50%;transform:translate(-50%,-50%);width:100px;text-align:center;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.05em;color:var(--ink-muted);white-space:nowrap;z-index:2;background:rgba(245,239,228,.95);padding:0 .35rem;box-sizing:border-box}
+/* LINEAGE COLUMNS */
+.dual-col{position:absolute;top:0;bottom:0;width:calc(50% - var(--axis-half));--rail-w:10px;--hg-w:0px;z-index:1}
+.dual-col--p{left:0}
+.dual-col--m{right:0}
+/* STRATIGRAPHIC RAILS */
+.dual-rail{position:absolute;top:0;bottom:0;width:var(--rail-w);min-height:100%;z-index:5;border-radius:3px;overflow:hidden;background:transparent;display:block}
+.dual-col--p .dual-rail{right:0;background:transparent}
+.dual-col--m .dual-rail{left:0}
+/* STRATIGRAPHIC BANDS */
+.strata-zone{position:absolute;left:0;width:100%;min-height:1px;box-shadow:inset 0 1px 0 rgba(245,239,228,.75)}
+/* Population / period colors */
+.strata-zone--modern{background:var(--gold)}
+.strata-zone--slavic{background:var(--cinnabar)}
+.strata-zone--byzantine{background:#6b3a5c}
+.strata-zone--thracian{background:var(--accent)}
+.strata-zone--steppe{background:#7a5a8a}
+.strata-zone--farmer{background:var(--sea)}
+.strata-zone--eastasia{background:#d08a5b}
+.strata-zone--jomon{background:var(--east)}
+.strata-zone--hg{background-color:#b9c0c7;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.45) 0px,rgba(255,255,255,.45) 2px,transparent 2px,transparent 8px)}
+.strata-zone--whg{background:#8fa3ac}
+.strata-zone--ehg{background:#4a7a52}
+.strata-zone--chg{background:#7a6a4a}
+.strata-zone--deep{background:var(--ink)}
+.strata-zone--deep2{background:#4a3d31}
+.strata-zone--denisovan{background-color:#4a3d31;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.45) 0px,rgba(255,255,255,.45) 2px,transparent 2px,transparent 8px)}
+/* COMPARATIVE REFERENCE TICKS */
+.strata-tick{position:absolute;left:-4px;width:calc(var(--rail-w) + 8px);height:2px;background:var(--ink-light);opacity:.9;z-index:2}
+.strat-map-wrap{position:relative;width:100%;max-width:920px;margin:0 auto;padding:0 2rem;box-sizing:border-box}
+.annotation-lane{position:absolute;left:2rem;top:0;bottom:0;width:50px;z-index:5;pointer-events:none}
+/* HUNTER-GATHERER SUB-LANES */
+.dual-hg-block{position:absolute;top:0;bottom:0;z-index:2}
+.dual-col--p .dual-hg-block{right:var(--rail-w)}
+.dual-col--m .dual-hg-block{left:var(--rail-w)}
+.dual-hg-lane{position:absolute;top:0;bottom:0;width:5px;border-radius:2px;overflow:hidden}
+.dual-hg-lane--0{left:0}
+.dual-hg-lane--1{left:5px}
+.dual-hg-lane--2{left:10px}
+.dual-hg-lane--3{left:-5px}
+/* ANCESTRY CARDS */
+.dual-card{--bc:var(--ink-mid);--bw:3px;--bs:solid;position:absolute;transform:translateY(-50%);width:calc(100% - var(--rail-w) - var(--hg-w) - 28px);min-height:40px;padding:.45rem .7rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem 1rem;background:rgba(245,239,228,.82);border:none;border-radius:2px;z-index:2}
+.dual-col--p .dual-card{right:calc(var(--rail-w) + var(--hg-w) + 28px);border-left:var(--bw) var(--bs) var(--bc)}
+.dual-col--m .dual-card{left:calc(var(--rail-w) + var(--hg-w) + 28px);border-right:var(--bw) var(--bs) var(--bc)}
+/* CARD CONTENT */
+.band-label{min-width:0}
+.band-label strong{display:block;font-size:1rem;line-height:1.2;font-weight:600}
+.band-label span{display:block;margin-top:.12rem;font-size:.8rem;line-height:1.25;color:var(--ink-muted)}
+.band-distance{flex-shrink:0;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--ink-muted);white-space:nowrap}
+.deep-note{flex-basis:100%;font-size:.8rem;line-height:1.4;color:var(--ink-muted);font-style:italic}
+/* CARD TYPES */
+.band-slavic{--bc:var(--cinnabar)}
+.band-byzantine{--bc:#6b3a5c}
+.band-thracian{--bc:var(--accent)}
+.band-modern{--bc:var(--gold)}
+.band-steppe{--bc:#7a5a8a}
+.band-farmer{--bc:var(--sea)}
+.band-eastasia{--bc:#d08a5b}
+.band-whg{--bc:#8fa3ac}
+.band-jomon{--bc:var(--east)}
+.band-ehg{--bc:#4a7a52}
+.band-chg{--bc:#7a6a4a}
+.band-comparative{--bc:#9a8a6a;--bs:dashed}
+.band-deep{--bc:var(--ink);--bw:4px;background:rgba(28,22,16,.035)}
+.band-deep2{--bc:#4a3d31;--bw:4px;background:rgba(28,22,16,.2)}
+.band-deep2::before{content:"";position:absolute;inset:0;background:rgba(245,239,228,.82);z-index:-1}
+/* SHARED / BOTH-LINEAGES BAND */
+.dual-shared{position:absolute;left:0;right:0;transform:translateY(-50%);z-index:1;display:grid;grid-template-columns:1fr calc(var(--axis-half) * 2 + 50px) 1fr;align-items:center;min-height:70px;padding:.45rem .7rem;border-left:4px solid var(--ink);border-radius:2px}
+.dual-shared .deep-note{flex-basis:auto}
+/* MOBILE */
+@media (max-width: 700px){
+  .dual-heads,.dual-field{--axis-half:30px}
+  .dual-field{height:3200px}
+  /* Timeline labels */
+  .dual-marker > span{font-size:.5rem;white-space:normal;line-height:1.1}
+  /* Hide narrow rails on mobile */
+  .dual-rail,.dual-hg-block{display:none}
+  /* Cards become full width */
+  .dual-card{--rail-w:0px;width:100%;flex-direction:column;align-items:flex-start;padding:.4rem .45rem}
+  .dual-col--p .dual-card{right:0}
+  .dual-col--m .dual-card{left:0}
+  .band-label strong{font-size:.72rem}
+  .band-label span{font-size:.58rem}
+  .band-distance{font-size:.55rem;white-space:normal}
+  /* Shared bands */
+  .dual-shared{grid-template-columns:1fr;text-align:center}
+  .dual-shared-gap,.dual-shared .deep-note,.deep-note{display:none}
+  .dual-head span{display:none}
+}
+@media print{
+  .nav-sidebar,.lang-bar{display:none}
+  .main-content,.cover{margin-left:0}
+}
+@media (max-width:900px){
+  .nav-sidebar{display:none}
+  .main-content,.cover{margin-left:0}
+  .era-block{padding:2rem 1.5rem;flex-direction:column}
+  .era-marker{width:100%;flex-direction:row;padding-top:0}
+  .era-marker::before{display:none}
+  .era-content{padding-left:0}
+  .two-col{grid-template-columns:1fr}
+}
+/* POPULATION IMAGE COLUMNS (ported from Minko/Stayko maps) */
+.summary-images-container{display:flex;flex-direction:column;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:2.35rem 1.5rem;position:absolute;top:46%;left:-8.25rem;transform:translate(-50%,-50%);width:max-content;z-index:5}
+.summary-image{display:flex;flex-direction:column;align-items:center;width:140px;flex-shrink:0}
+.summary-image img{width:130px;height:130px;object-fit:contain;object-position:center top;background:#f5f0e6;box-sizing:border-box;display:block}
+.summary-image-text{margin-top:.55rem;color:var(--ink,#3c3226);font-weight:600;text-align:center;font-size:.78rem;line-height:1.25;letter-spacing:.02em;background-color:var(--parchment)}
+.summary-image--portrait{width:180px;margin:1.5rem 0 0 0}
+.summary-image--portrait img{width:160px;height:210px;object-fit:contain;object-position:center top;background:#f5f0e6;box-sizing:border-box;display:block;z-index:5}
+.summary-image--portrait .summary-image-text{margin-top:.55rem}
+/* Right-hand (maternal) image column: mirror of the paternal one on the left */
+.summary-images-container--m{left:auto;right:-8.25rem;transform:translate(50%,-50%);row-gap:12.5rem}
+.summary-images-container--m::before{content:'';position:absolute;left:70px;top:6px;bottom:0;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0;pointer-events:none}
+/* Keep each image and the dot above the column line */
+.summary-images-container > *{position:relative;z-index:1}
+/* The outer image columns need free space on both sides of the map; hide them on narrower screens */
+@media (max-width: 1300px){
+  .summary-images-container{display:none !important}
+}
+@media (max-width: 700px){
+  .summary-image--portrait{width:130px;margin:.4rem auto 0}
+  .summary-image--portrait img{width:120px;height:160px}
+}
 </style>
 </head>
 <body>
-
-<div class="lang-bar">
-  <a href="ancestry_deep_narrative_Julian.html" class="lang-btn">EN</a>
-  <a href="ancestry_deep_narrative_Julian_bg.html" class="lang-btn">БГ</a>
-  <a href="ancestry_deep_narrative_Julian_ja.html" class="lang-btn lang-btn--active">日本語</a>
-</div>
-
-<nav class="nav-sidebar">
-  <h4>発掘の層</h4>
-  <a href="#s_summary" class="nav-link">要約</a>
-  <a href="#s_surface" class="nav-link">層0 — 表層</a>
-  <a href="#s_modern" class="nav-link">層1 — 現代集団</a>
-  <a href="#s_medieval" class="nav-link">層2 — 中世</a>
-  <a href="#s_bronze" class="nav-link">層3 — 青銅器時代</a>
-  <a href="#s_neolithic" class="nav-link">層4 — 新石器時代</a>
-  <a href="#s_mesolithic" class="nav-link nav-link--east">層5 — 中石器時代</a>
-  <a href="#s_archaic" class="nav-link nav-link--east">層6 — 古代人類</a>
-  <hr class="nav-divider">
-  <a href="#s_molecular" class="nav-link">分子レベルの証拠</a>
-  <a href="#s_snps" class="nav-link">祖先SNPマーカー</a>
-  <a href="#s_synthesis" class="nav-link">全体像</a>
+<div class="lang-bar"><a class="lang-btn" href="ancestry_deep_narrative_Julian.html">EN</a> <a class="lang-btn" href="ancestry_deep_narrative_Julian_bg.html">БГ</a> <a class="lang-btn lang-btn--active" href="ancestry_deep_narrative_Julian_ja.html">日本語</a></div>
+<nav aria-label="レポートのセクション" class="nav-sidebar">
+<h4>発掘の層</h4>
+<a class="nav-link" href="#s_summary">要約</a>
+<a class="nav-link" href="#s_surface">層0 — 表層</a>
+<a class="nav-link" href="#s_modern">層1 — 現代集団</a>
+<a class="nav-link" href="#s_medieval">層2 — 中世</a>
+<a class="nav-link" href="#s_bronze">層3 — 青銅器時代</a>
+<a class="nav-link" href="#s_neolithic">層4 — 新石器時代</a>
+<a class="nav-link nav-link--east" href="#s_mesolithic">層5 — 中石器時代</a>
+<a class="nav-link nav-link--east" href="#s_archaic">層6 — 古代人類</a>
+<hr class="nav-divider"/>
+<a class="nav-link" href="#s_molecular">分子レベルの証拠</a>
+<a class="nav-link" href="#s_snps">祖先SNPマーカー</a>
+<a class="nav-link" href="#s_synthesis">全体像</a>
 </nav>
-
 <div class="main-content">
-
 <div class="cover">
-  <p class="cover-eyebrow">深層祖先記録</p>
-  <h1>松下・ジュリアン</h1>
-  <p class="cover-sub">一つのゲノムの考古学的発掘</p>
-  <p class="cover-sub2">東バルカン半島　·　琉球列島　·　ユーラシア草原　·　５万年の歴史</p>
-  <div class="cover-meta">
-    <div class="cover-stat">
-      <span class="cover-stat-val cover-stat-val--east">61.6%</span>
-      <span class="cover-stat-label">日本人 — MyHeritage</span>
-    </div>
-    <div class="cover-stat">
-      <span class="cover-stat-val">0.126</span>
-      <span class="cover-stat-label">ブルガリア人までのG25距離</span>
-    </div>
-    <div class="cover-stat">
-      <span class="cover-stat-val cover-stat-val--east">0.094</span>
-      <span class="cover-stat-label">最も近い古代の一致</span>
-    </div>
-    <div class="cover-stat">
-      <span class="cover-stat-val">8</span>
-      <span class="cover-stat-label">時代の層</span>
-    </div>
-    <div class="cover-stat">
-      <span class="cover-stat-val">2026年7月</span>
-      <span class="cover-stat-label">作成日</span>
-    </div>
-  </div>
+<p class="cover-eyebrow">深層祖先記録</p>
+<h1>松下・ジュリアン</h1>
+<p class="cover-sub">一つのゲノムの考古学的発掘</p>
+<p class="cover-sub2">東バルカン半島 · 琉球列島 · ユーラシア草原 · ５万年の歴史</p>
+<div class="cover-meta">
+<div class="cover-stat"><span class="cover-stat-val cover-stat-val--east">61.6%</span> <span class="cover-stat-label">日本人 — MyHeritage</span></div>
+<div class="cover-stat"><span class="cover-stat-val">0.126</span> <span class="cover-stat-label">ブルガリア人までのG25距離</span></div>
+<div class="cover-stat"><span class="cover-stat-val cover-stat-val--east">0.094</span> <span class="cover-stat-label">最も近い古代の一致</span></div>
+<div class="cover-stat"><span class="cover-stat-val">7</span> <span class="cover-stat-label">時代の層</span></div>
+<div class="cover-stat"><span class="cover-stat-val">2026年7月</span> <span class="cover-stat-label">作成日</span></div>
 </div>
-
-<div class="disclaimer">
-  資料出典：G25座標はMyHeritage生データをGlobal25 PCA参照空間に投影（スケール済み形式：Global25_PCA_pop_averages_scaled）。GEDmatch Eurogenes K36・K13・EUtest K15・Dodecad K12b・HarappaWorld・puntDNAL K10 Ancient、MyHeritage民族推定。参考文献：Haak et al. 2015、Gakuhari et al. 2020、McColl et al. 2018、Jinam et al. 2015、Reich et al. 2011。古代DNAによる祖先モデルは統計的な近似であり、直接的な家系上の血縁関係を示すものではありません。作成：2026年7月
 </div>
-  
-<!-- ══ 要約 ══ -->
+<div class="disclaimer"><strong>資料出典：</strong>G25座標は、アドミクスチャー計算機の出力をGlobal25参照集団座標（スケール済み形式）に合わせるカスタム最適化スクリプトで推定したものであり、生の遺伝子型データからの直接的なPCA投影ではありません。GEDmatch Eurogenes K36・K13・EUtest K15・Dodecad K12b・HarappaWorld・puntDNAL K10 Ancient、MyHeritage民族推定。参考文献：Haak et al. 2015、Gakuhari et al. 2020、McColl et al. 2018、Jinam et al. 2015、Reich et al. 2011。古代DNAによる祖先モデルは遺伝的関係を記述する統計的な近似であり、直接的な家系上の血縁関係を示すものではありません。作成：2026年7月</div>
+<!-- ══ EXECUTIVE SUMMARY ══ -->
 <div class="era-block" id="s_summary">
-  <div class="era-marker">
-    <span class="era-dot era-dot--special"></span>
-    <span class="era-label">発掘の前に<br>要約</span>
-  </div>
-  <div class="era-content">
-    <h2>二つの祖先の流れ、一つのゲノム</h2>
-
-    <p class="descent-note">以下、八つの層が続きます。それぞれ数千年ずつ古くなっていきます。しかしこのゲノムは、二つの別々の系統を同時にたどる一つの物語です。掘り下げる前に、発掘全体が示すものを見てみましょう。</p>
-
-    <p>ジュリアン・ネノフのゲノムは、真の二重祖先プロフィールです。父系はおよそ半分が東バルカン系、母系はおよそ半分が琉球系日本人です。MyHeritageの結果は日本人（沖縄）61.6%、バルカン系21.2%、ギリシャ・アルバニア系10.8%と表示しています。これらのラベルは家系図上の割合として読むべきではありません。アルゴリズムが現代の参照集団に対応づけている、ほとんど重なり合わない二つの祖先の流れを反映しているのです。「沖縄」という表示は特に重要な情報を伝えています——それは本土の日本人祖先に典型的なものよりも強い縄文狩猟採集民の成分を示しています。</p>
-
-    <p>父系側では、ジュリアンは父ミンコを特徴づける東バルカン系の連続体を受け継いでいます。最も近い現代の一致は依然としてブルガリア人および関連するバルカン系集団ですが、母系の東アジア系の寄与によって希釈されています（ブルガリア人までのG25距離 約<strong>0.126</strong>）。より深い構造は典型的なバルカンのパターンを反映しています——実質的なパレオバルカン（アナトリア新石器時代プラス現地）基層、アナトリア農耕民とポントス草原（ヤムナヤ関連）祖先とのバランスの取れた、やや農耕民寄りの青銅器時代の統合、より小さな西ヨーロッパ狩猟採集民の寄与、そして中世ブルガリア集団を形成したスラブ民族の移動による後の形成です。</p>
-
-    <p>母系側では、シグナルは本土日本ではなく明確に琉球系です。古代DNAの比較は、東アジア成分を漢族よりも縄文狩猟採集民に近い位置に置いており、琉球列島に特徴的な弥生以前の祖先のより高い保持と一致しています。副次的な北東アジア系／内陸アジア草原関連のシグナルも存在し、中央アジア系のパーセンテージと、中世モンゴルの参照との異例に近い古代の一致の両方を説明しています——これは直接的なモンゴル系祖先というより、西ユーラシアと東ユーラシアの変異の間の幾何学的な中間点として最もよく理解されます。</p>
-
-    <p><em>もう一つ触れておく価値のある糸があります。父系と母系の血統がこれほど古くに分岐したため、ジュリアンのゲノムに見られる二つの古代人類種のシグナルは同一ではなく非対称です——ネアンデルタール人の祖先は同じ古代の交配イベントから両親を通じて届きますが、縄文人とアンダマン諸島のオンゲ族を通じてたどれるかすかなデニソワ人関連のシグナルは、母系側からのみ届いています。</em></p>
-
-    <table class="dist-table">
-      <tr>
-        <th>層</th>
-        <th>最も近い一致</th>
-        <th>距離</th>
-      </tr>
-      <tr>
-        <td>現代集団（父系）</td>
-        <td>ブルガリア人</td>
-        <td class="dist-val">0.126</td>
-      </tr>
-      <tr>
-        <td>最も近い古代の一致（全体）</td>
-        <td>モンゴル・アルハンガイ初期中世</td>
-        <td class="dist-val">0.094</td>
-      </tr>
-      <tr>
-        <td>青銅器時代（父系）</td>
-        <td>ヤムナヤ／アナトリア新石器時代</td>
-        <td class="dist-val">0.195／0.206</td>
-      </tr>
-      <tr>
-        <td>中石器時代（母系）</td>
-        <td>縄文人（漢族より近い）</td>
-        <td class="dist-val">0.407／0.478</td>
-      </tr>
-    </table>
-
-    <div class="plain-box">
-      <span class="plain-label">簡単に言うと</span>
-      要するに、父系の東バルカン形成——アナトリア農耕民、コーカサス寄りの草原、西ヨーロッパ狩猟採集民、スラブ的統合——が、<mark>縄文狩猟採集民の祖先</mark>を豊富に持つ母系の琉球形成と出会う、バランスの取れた西・東ユーラシア系のゲノムです。二つの流れは、現代、中世、古代のあらゆる層を通じて明確に区別可能なままです。
-    </div>
-  </div>
+<div class="era-marker">
+<span class="era-dot era-dot--special"></span>
+<span class="era-label">発掘の前に<br/>要約</span>
+<div class="summary-image summary-image--portrait">
+<img alt="ジュリアン・ネノフ" height="210" src="images/julian.webp" width="160"/>
+<span class="summary-image-text">ジュリアン<br/>ネノフ</span>
 </div>
-
-<!-- ══ 層0 ══ -->
-<div class="era-block" id="s_surface">
-  <div class="era-marker">
-    <span class="era-dot era-dot--dual"></span>
-    <span class="era-label">層0<br>表層</span>
-  </div>
-  <div class="era-content">
-    <h2>ラベルが伝えていること — そして伝えていないこと</h2>
-
-    <p>すべての祖先報告書はパーセンテージと地名から始まります。ジュリアンのMyHeritage結果は、日本人61.6%（沖縄）、バルカン系21.2%、ギリシャ・アルバニア系10.8%、東ヨーロッパ系3.9%、中央アジア系2.5%と表示されています。これらの数字をそのまま読むと、異なる祖先集団がそれぞれ別々の割合を提供したかのように見えます。しかしこの読み方は正確ではなく、それを訂正するところから本当の物語が始まります。</p>
-
-    <p>これらのパーセンテージは、家系図が示すような意味での祖先の割合ではありません。アルゴリズムがジュリアンのDNAを現代の参照集団と比較し、「どの現代集団に最も似ているか、どのような割合で」と問いかけた結果です。答えは、アルゴリズムがどの参照集団を使用するか、それらがどのように定義されるか、どの遺伝的シグナルが最も診断的かによって変わります。同じゲノムを別のアルゴリズムで異なる参照パネルを使って解析すれば、異なるパーセンテージが得られます。このことは、本報告書のGEDmatchの計算ツールが繰り返し示しています。</p>
-
-    <p>パーセンテージのラベルの下でMyHeritageの結果が本当に伝えているのは次のことです。ジュリアンのゲノムには、ほとんど重なり合わない二つの主要な祖先の流れが含まれています。一方は東バルカン半島——現代のブルガリア人、ルーマニア人、ギリシャ人の遺伝的世界であり、古代ヨーロッパの農耕民、青銅器時代の草原牧畜民、バルカン先住民が幾重にも混ざり合っています。もう一方は日本南部の琉球列島——科学が確認した中で最も遺伝的に孤立した人類集団の一つ、縄文狩猟採集民の世界です。</p>
-
-    <p><strong>「沖縄」という表示がこの報告書全体で最も重要な詳細です。</strong>MyHeritageが地域の下位グループをこれほど明確に示すのは珍しいことです。沖縄と琉球列島は、本土の日本と遺伝的に異なります。本土の日本人は、もともと島々に住んでいた古代縄文狩猟採集民の遺産を約10〜15%持っており、残りは約２３００年前に朝鮮半島から移住した弥生農耕民由来です。沖縄の人々は縄文の遺産を最大40%持っており、弥生文化の拡散が琉球に到達したのがより遅く不完全だったためです。アルゴリズムが沖縄と表示するとき、それは本土日本の祖先から期待されるより強い縄文シグナルをジュリアンのゲノムに検出しています。母の家族は、東アジアに現存する最も古い遺伝的遺産の一つを不釣り合いなほど多く受け継いでいます。</p>
-
-    <p><strong>中央アジア系2.5%</strong>は誤りでも別の祖先集団でもありません。ジュリアンのゲノムの両側に同時に存在しています——父系バルカン側では青銅器時代の草原のつながりを通じた痕跡として、母系東アジア側では母の祖先の北東アジア大陸的成分を通じたより大きなシグナルとして。その出処は、より深く掘り下げることで明らかになります。</p>
-
-    <div class="insight-box insight-box--east">
-      <span class="insight-label insight-label--east">計算ツールによって数字が異なる理由</span>
-      異なるGEDmatch計算ツールから得られたジュリアンの結果は一見矛盾しているように見えます。あるツールは東アジア40%、別のツールは32%、また別のツールは29%と言います。どれも間違っていません。それぞれの計算ツールは異なる参照集団を使用し、異なる遺伝的次元を測定しています。重要なのは、一つのツールの正確なパーセンテージではなく、すべてのツールで一貫しているものです。ジュリアンのDNAで実行されたすべての計算ツールで変わらないことが二つあります。強い東バルカン系ヨーロッパのシグナルと、大陸系漢族よりも縄文人に関連する集団に近くクラスタリングする強い東アジアのシグナルです。それ以外はすべて、各ツールがどれだけ精密に解像できるかという問題です。
-    </div>
-    <!-- ═══ 層0 — 表層 (s_surface) — insert at the end ═══ -->
-    <div class="plain-box">
-      <span class="plain-label">簡単に言うと</span>
-      この層から持ち帰るべき一つの考えはこうです——<mark>ラベルは発見そのものではない</mark>。国名の隣にあるパーセンテージは精密に見えますが、実際には誰かが作った参照パネルとDNAを比較するコンピュータープログラムの出力にすぎず、そのプログラムの設計者がたまたま選んだカテゴリーを使っています。ここで本当に信頼できるのは、パーセンテージだけでは直接見えてこないことです——このゲノムは、東バルカン系と琉球系日本人という、<strong>ほとんど交わることのない二つの祖先</strong>が、ほぼ均等に混ざり合った真正なブレンドであり、一方の中にもう一方のわずかな痕跡が隠れているような構図ではありません。「沖縄」という表示が特に重要なのは、それが漠然とした「日本人」というラベルではないからです——アルゴリズムは、本土日本が示すよりも遺伝的に古く、より孤立したシグナルに気づいているのであり、バルカンの報告書で「ギリシャ・アルバニア系」が現代ギリシャよりも古い何かを指し示していたのと同じ構造です。異なる計算ツールが正確なパーセンテージ（40%対32%対29%）で一致しないのは矛盾ではありません——同じ実際のものを、異なる精度で測る四つの異なる物差しがあるだけです。
-    </div>
-  </div>
 </div>
-
-
-<!-- ══ 層1 ══ -->
-<div class="era-block" id="s_modern">
-  <div class="era-marker">
-    <span class="era-dot"></span>
-    <span class="era-label">層1<br>現代<br>集団</span>
-  </div>
-  <div class="era-content">
-    <h2>現代集団の地図 — ジュリアンが今どこに位置するか</h2>
-
-    <p>ジュリアンのDNA座標——MyHeritageの生データから世界中の研究者が使用する標準的な遺伝的参照空間に直接投影されたもの——を現代集団の平均値と比較すると、最も近い一致は<strong>ブルガリア人、距離0.126</strong>です。これは境界的または曖昧な結果ではありません。父系の東バルカン系祖先がジュリアンの遺伝的プロフィールで最も強い単一の極であり、約61%の東アジア系祖先の背景の中でも測定可能であるという明確なシグナルです。</p>
-
-    <p>父と息子の比較は印象的です。父親の最も近い現代集団も同じくブルガリア人で、距離0.016——現代集団への最も厳密な一致の一つです。ジュリアンのブルガリア人への距離は0.126——約8倍大きく、世界の全く異なる地域からの50%の混血の予想される効果と一致しています。同じ集団が同じ方向から両者を引き付けています。父系のアンカーはずれていません。ただ母の祖先が寄与する分だけ正確に希釈されています。</p>
-
-    <p>２番目に近い現代集団は<strong>モンゴル人、距離0.356</strong>で、次いで日本人が0.479、韓国人が0.487です。モンゴル人のランキング——MyHeritageが日本人の祖先を示しているにもかかわらず日本人より上位——は注目に値する発見です。ジュリアンにモンゴル人の祖先がいることを意味するのではありません。彼のゲノムの東アジア成分が、その具体的な出所がどこであれ、現代の日本人平均よりもモンゴル人の方に遺伝的空間で近い位置にあることを意味します。以下の古代DNAの層がこの発見の文脈を提供します。</p>
-
-    <div class="two-col">
-      <div>
-        <h3 class="table-heading">MyHeritage民族推定</h3>
-        <table class="data-table">
-          <tr><td>日本人（沖縄）</td><td class="pct-cell"><span class="pct-bar pct-bar--east" style="width:92%"></span><span class="pct-val">61.6%</span></td></tr>
-          <tr><td>バルカン系</td><td class="pct-cell"><span class="pct-bar pct-bar--west" style="width:32%"></span><span class="pct-val">21.2%</span></td></tr>
-          <tr><td>ギリシャ・アルバニア系</td><td class="pct-cell"><span class="pct-bar pct-bar--west" style="width:16%"></span><span class="pct-val">10.8%</span></td></tr>
-          <tr><td>東ヨーロッパ系</td><td class="pct-cell"><span class="pct-bar pct-bar--steppe" style="width:6%"></span><span class="pct-val">3.9%</span></td></tr>
-          <tr><td>中央アジア系</td><td class="pct-cell"><span class="pct-bar pct-bar--steppe" style="width:4%"></span><span class="pct-val">2.5%</span></td></tr>
-        </table>
-      </div>
-      <div>
-        <h3 class="table-heading">G25距離 — 現代集団</h3>
-        <table class="dist-table">
-          <tr><td>ブルガリア人</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--gold" style="width:20%"></div></div></td><td class="dist-val">0.126</td></tr>
-          <tr><td>モンゴル人</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:56%"></div></div></td><td class="dist-val">0.356</td></tr>
-          <tr><td>日本人</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:76%"></div></div></td><td class="dist-val">0.479</td></tr>
-          <tr><td>韓国人</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:78%"></div></div></td><td class="dist-val">0.487</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <p>GEDmatchの二集団オラクルは同じ現実を別の角度から確認します。Eurogenes K13は最良の二集団一致として日本人50%＋ルーマニア人50%（距離3.84）を見つけます。Dodecad K12bは韓国人50%＋ルーマニア人50%（距離4.91）を見つけます。これらは矛盾しているのではなく、異なる参照レンズを通じて同じ現実を反映しており、韓国人と日本人は東アジア成分の代替可能なプロキシとして、ルーマニア人は父親の東バルカン系ゲノムに最も近いプロキシとして機能しています。単集団計算ツールはウイグル族やウズベク族を最も近い一致として返しますが、これはジュリアンに中央アジアの祖先があるからではなく、それらの集団自体が約50%西ユーラシア系と50%東アジア系であり、真に両方であるプロフィールに最も近い利用可能な単集団近似値だからです。</p>
-      <!-- ═══ 層1 — 現代集団 (s_modern) — insert at the end ═══ -->
-    <div class="plain-box">
-      <span class="plain-label">簡単に言うと</span>
-      ここに登場するすべての参照集団は<strong>祖先ではなく、代理指標</strong>です。計算ツールが「最も近い一致：ウイグル族」と言うとき、それは中央アジア系の曾祖父母がいるという意味ではありません——ウイグルの人々が、たまたまこのゲノムとほぼ同じ東西50/50の遺伝的中間点に位置しているため、比較対象として最も近い既存の集団になっている、という地理的な偶然にすぎません。実際の根底にある構図は、具体的な集団名が示唆するよりもずっとシンプルです——<mark>バルカン系のシグナルと東アジア系のシグナルが、ほぼ同じ量で存在している</mark>だけであり、日本人＋ルーマニア人、韓国人＋ルーマニア人、ウイグル族、ウズベク族というすべてのオラクル結果は、同じ均等な分裂を説明する異なる言い方にすぎません。
-    </div>
-  </div>
-</div>
-
-
-<!-- ══ 層2 ══ -->
-<div class="era-block" id="s_medieval">
-  <div class="era-marker">
-    <span class="era-dot era-dot--mid"></span>
-    <span class="era-label">層2<br>中世<br>500〜1200年</span>
-  </div>
-  <div class="era-content">
-    <h2>中世の層 — スラブ民族の移動と父系の形成</h2>
-
-    <p>現代集団ラベルの表層を取り除くと、最初の歴史的層に到達します。ジュリアンの父系ゲノムが最も似ている集団を形作った中世の移動です。ジュリアンの最も近い現代の一致であるブルガリアの遺伝的プロフィールは、古来変わらないアイデンティティではありません。集団遺伝学が今や相当な精度で追跡できる特定の歴史的プロセスを通じて形成されました。</p>
-
-    <p>西暦6〜8世紀にかけて、スラブ語を話す集団が現代の南ベラルーシと西ウクライナにあるプリピャチ湿地の祖先の故郷から拡大し、バルカン半島の奥深くまで侵入しました。父親のゲノムの分析は、スラブ民族の移動による寄与を全体の祖先の約<strong>32%</strong>と推定します。これは直接的な東方ルートではなく、<strong>パンノニア回廊</strong>——カルパティア山脈を西に越え、ハンガリー盆地に入り、そこからバルカンへ南下——を通じて到達しました。この経路の数学的シグナルは父系ゲノムに最もよく一致するスラブ集団に見られます。ロシア人やウクライナ人の参照ではなく、モルドバ人やセルビア人の参照が、バルカンに到達する前にすでに中央ヨーロッパの要素を吸収したスラブの祖先を反映しています。</p>
-
-    <p>より大きな成分——父系ゲノムの約<strong>48%</strong>——はパレオバルカン基層です。スラブ人が到来する前からバルカン半島に住んでいた集団、古代のトラキア人、ダキア人、イリュリア人、ローマ化された地方住民の子孫であり、置き換えられたのではなく吸収されました。これはまさにMyHeritageがギリシャ・アルバニア系として捉えているものです——スラブ民族の移動より何千年も前から存在する深い地中海的・エーゲ海的遺伝的基盤です。9世紀に統合されたブルガリアの民族的アイデンティティはこれら二つの流れの総合であり、さらにトラキアとエーゲ海回廊を通じた数世紀にわたる東ローマ帝国の存在と人口移動を反映する約20%のビザンティン地中海的オーバーレイが加わります。</p>
-
-    <p>ジュリアンはこの父系の形成全体をゲノムの約50%として受け継いでいます。K36のヨーロッパ成分がこれを正確に再構成します。東バルカン（8.24%）、東地中海（7.65%）、東ヨーロッパ（7.06%）、イタリア系（6.00%）、イベリア系（4.45%）、北大西洋（4.66%）、フランス系（2.80%）、西地中海（2.57%）、北コーカサス（1.76%）、東中央ヨーロッパ（4.94%）、中央ヨーロッパ（0.42%）が合計でゲノムの約50%を占めます。</p>
-
-    <p>古代DNAの参照データベースでジュリアンに最も近い古代の一致を検索すると、結果は<strong>モンゴル・アルハンガイ県初期中世、距離0.094</strong>——データベース全体で単独で最も近い古代集団であり、どのヨーロッパの古代サンプルよりも、また縄文人よりも近いです。これが彼の最も近い古代の一致です。祖先という観点でそれが何を意味するかは、以下のより深い層が文脈を提供します。</p>
-
-    <div class="insight-box">
-      <span class="insight-label">古代距離の階層</span>
-      モデルBでテストされた四つの古代集団のジュリアンの真のG25座標に対するランキングは以下の通りです。中世の内陸アジアの一致と、はるかに遠い縄文人と漢族集団との対比が、古代DNA分析の中心的な定量的発見です。
-      <table class="dist-table" style="margin-top:.8rem">
-        <thead><tr><th>古代集団</th><th>距離</th><th></th></tr></thead>
-        <tbody>
-          <tr><td>モンゴル・アルハンガイ初期中世</td><td class="dist-val">0.094</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:14%"></div></div></td></tr>
-          <tr><td>韓国・昌原</td><td class="dist-val">0.382</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:58%"></div></div></td></tr>
-          <tr><td>日本縄文狩猟採集民</td><td class="dist-val">0.407</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:62%"></div></div></td></tr>
-          <tr><td>漢族（河南省）</td><td class="dist-val">0.478</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--gold" style="width:73%"></div></div></td></tr>
-        </tbody>
-      </table>
-    </div>
-        <!-- ═══ 層2 — 中世 (s_medieval) — insert at the end ═══ -->
-    <div class="plain-box">
-      <span class="plain-label">簡単に言うと</span>
-      ここでじっくり考える価値のある数字は<mark>0.094</mark>です——この報告書全体を通じて、ジュリアンに単独で最も近い古代の一致であり、それはブルガリアでも日本でもなく、中世のモンゴル集団です。これは本当に驚くべきことであり、正直な答えは、それが隠れたモンゴル系の祖先を示すものではない、ということです。中世の内陸アジアは、バルカン半島と同じように遺伝的な交差点に位置していました——西ユーラシア草原世界と東アジア世界の両方から影響を吸収しており、そのため、自分自身のゲノムがまさにその二つの世界のブレンドである人にとって、たとえその人の実際の祖先がそこに一度も足を踏み入れたことがなくても、異例に良い<strong>中間点の一致</strong>となります。二つの言語を流暢に話す通訳者を思い浮かべてください——どちらの側の人々からも「最も話しやすい」と感じられることが多いですが、どちらの側の祖先でもありません。実際にこのゲノムを形作ったのは以下のバルカンと東アジアの層であり、モンゴルとの一致は、ブレンドの幾何学的な性質が、同じような交差点に位置する別の集団を認識しているにすぎません。
-    </div>
-  </div>
-</div>
-
-
-<!-- ══ 層3 ══ -->
-<div class="era-block" id="s_bronze">
-  <div class="era-marker">
-    <span class="era-dot era-dot--mid"></span>
-    <span class="era-label">層3<br>青銅器時代<br>紀元前3000〜1200年</span>
-  </div>
-  <div class="era-content">
-    <h2>青銅器時代の層 — 両方向からの草原牧畜民</h2>
-
-    <p>中世の層の下を掘り進むと、ジュリアンの祖先の両側に横たわる青銅器時代の基盤に到達します。ここで古代DNAの画像が構造的に明確になります。モデルCでは——ジュリアンの座標をヨーロッパの祖先の三つの創設的な流れを表す古代集団に対してテスト——ヤムナヤとアナトリア新石器時代が近くはっきりと現れ、一方で縄文人と漢族ははるかに遠くなります。</p>
-
-    <table class="dist-table">
-      <thead><tr><th>古代集団</th><th>距離</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>ロシア・サマラ青銅器時代ヤムナヤ</td><td class="dist-val">0.195</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:30%"></div></div></td></tr>
-        <tr><td>トルコ・ボンジュクル新石器（アナトリア新石器）</td><td class="dist-val">0.206</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--gold" style="width:32%"></div></div></td></tr>
-        <tr><td>日本縄文人SG</td><td class="dist-val">0.400</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:62%"></div></div></td></tr>
-        <tr><td>ルクセンブルク・ロシュブールWHG</td><td class="dist-val">0.425</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:66%"></div></div></td></tr>
-        <tr><td>漢族（河南省）</td><td class="dist-val">0.478</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--gold" style="width:74%"></div></div></td></tr>
-      </tbody>
-    </table>
-
-    <p>ヤムナヤ（0.195）とアナトリア新石器時代（0.206）はモンゴル中世に次いで最も近い二つの古代集団であり、どちらも明確に父系由来です。これらは東バルカン系ゲノムの二つの最大の創設的流れを表しています。約８０００年前にバルカン半島に到達したアナトリアの農耕民と、約５０００年前にポントス・カスピ海草原からヨーロッパに押し寄せたヤムナヤとして知られる青銅器時代の草原牧畜民です。</p>
-
-    <p>ヤムナヤはヨーロッパの先史時代で最も重要な集団の一つです。ポントス草原で東部狩猟採集民とコーカサス狩猟採集民が融合して生まれ、紀元前3000年頃にあらゆる方向へ驚異的なスピードで拡大し、馬、車輪付き乗り物、そして現代ヨーロッパの大半の言語の祖先となる印欧祖語を携えてきました——ブルガリア語も含め、父親が話す言語です。ジュリアンのゲノム全体の約25%がこの単一の青銅器時代の拡大に由来し、父系のバルカン血統を通じて届いています。</p>
-
-    <p>モンゴル・アルハンガイ初期中世の距離0.094が示唆し始めること——そして以下の母系の層がさらに展開すること——は、草原関連のシグナルが<em>東</em>方向からも、母の祖先を通じて届いているということです。これらは同じ草原集団ではありません。ヤムナヤはポントス草原から西へ拡大しました。ジュリアンの母系の祖先につながる内陸アジアの草原世界は、同じ広大な草地システムの別の東方の腕を越えて拡大しました。ジュリアンはユーラシア草原の両端から草原関連のDNAを持っています。一方はブルガリア人の父から受け継いだ西の草原、もう一方は琉球人の母を通じて届いた東の草原であり、彼女自身の遺伝的歴史には北東アジア大陸的成分が含まれています。</p>
-
-    <p>GEDmatchの染色体ペインティングは青銅器時代の画像を直接読み取ることができる視覚的確認を提供します。父系の行を見ると、ジュリアンの染色体全体で最も密度が高く一貫したオレンジ色のシグナルはヤムナヤの行ではなく、<strong>バルチン・アナトリア新石器時代</strong>の個体から来ています——複数のバルチン・サンプルがほぼすべての染色体で強いアレル重複を示しています。ヤムナヤとサマラ草原の行は明確に存在しますが、バルチンに比べると視覚的に二次的です。この相対的な密度は意味を持っています。北ヨーロッパの集団と比べて東バルカン系の遺伝的プロフィールではアナトリア新石器時代農耕民の祖先が草原の祖先を典型的に上回ることを反映しています。同様に注目すべきは<strong>ハンガリー新石器時代とハンガリー青銅器時代</strong>のサンプルで、ペインティング全体で強いマッチングプロキシとして現れています。これらは別のハンガリーからの流入の証拠ではありません——それらはパンノニア回廊自体の遺伝的指紋です。ハンガリー盆地にすでに住んでいた青銅器時代の集団は、同じ回廊を南下するスラブ民族の移動に吸収され、バルカンに到達する前にその祖先が波に組み込まれました。ペインティングのハンガリーの行はその通過の染色体レベルの記録です。スウェーデンのモタラ狩猟採集民の行は存在しますが比較的まばらであり、スカンジナビアや北ヨーロッパの集団が示すよりも低い西ヨーロッパ狩猟採集民の割合を持つ東バルカン系のプロフィールと一致しています。</p>
-
-    <div class="insight-box">
-      <span class="insight-label">染色体ペインティング — 相対的シグナル強度</span>
-      <p style="font-size:.86rem;color:var(--ink-mid);margin-bottom:1rem;line-height:1.8;font-family:'Noto Sans JP',sans-serif">以下のグラフはジュリアンのGEDmatch染色体ペインティングで観察されたアレル重複密度の相対的な強度をまとめたものです——各参照集団の行が22染色体全体でどれだけ一貫してオレンジ色を示すか。これは祖先のパーセンテージではなく、シグナル強度の定性的なランキングです。ゲノムの両側を示しています。父系の西ユーラシア系を左側に、母系の東アジア系を右側に。</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem">
-        <div>
-          <div style="font-family:'Noto Sans JP',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.06em;color:var(--gold);margin-bottom:.8rem">父系 — 西ユーラシア系</div>
-          <div style="display:flex;flex-direction:column;gap:.5rem">
-            <div>
-              <div style="font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:var(--ink-mid);margin-bottom:.25rem">バルチン — アナトリア新石器時代</div>
-              <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:96%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
-            </div>
-            <div>
-              <div style="font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:var(--ink-mid);margin-bottom:.25rem">ハンガリー新石器・青銅器時代</div>
-              <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:88%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
-            </div>
-            <div>
-              <div style="font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:var(--ink-mid);margin-bottom:.25rem">ヤムナヤ / サマラ草原</div>
-              <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:78%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
-            </div>
-            <div>
-              <div style="font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:var(--ink-mid);margin-bottom:.25rem">ベル・ビーカー文化</div>
-              <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:68%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
-            </div>
-            <div>
-              <div style="font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:var(--ink-mid);margin-bottom:.25rem">LBK初期農耕民</div>
-              <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:58%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
-            </div>
-            <div>
-              <div style="font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:var(--ink-mid);margin-bottom:.25rem">モタラ西部狩猟採集民</div>
-              <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:42%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div style="font-family:'Noto Sans JP',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.06em;color:var(--east);margin-bottom:.8rem">母系 — 東アジア系</div>
-          <div style="display:flex;flex-direction:column;gap:.5rem">
-            <div>
-              <div style="font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:var(--ink-mid);margin-bottom:.25rem">縄文人 / 北東アジア系</div>
-              <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:94%;height:100%;background:var(--east);border-radius:4px;opacity:.85"></div></div>
-            </div>
-            <div>
-              <div style="font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:var(--ink-mid);margin-bottom:.25rem">アイヌ / 北海道</div>
-              <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:84%;height:100%;background:var(--east);border-radius:4px;opacity:.85"></div></div>
-            </div>
-            <div>
-              <div style="font-family:'Noto Sans JP',sans-serif;font-size:.76rem;color:var(--ink-mid);margin-bottom:.25rem">ニヴフ / シベリア系</div>
-              <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:66%;height:100%;background:var(--east);border-radius:4px;opacity:.85"></div></div>
-            </div>
-          </div>
-          <div style="margin-top:1.2rem;font-family:'Noto Sans JP',sans-serif;font-size:.71rem;color:var(--ink-light);line-height:1.7;border-top:1px solid var(--parchment-dark);padding-top:.8rem">
-            母系の縄文人/北東アジア系シグナルは父系のバルチン・シグナルに匹敵する密度に達しており、両方の祖先の流れがジュリアンのゲノムにほぼ均等に寄与していることの視覚的確認です。
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:1rem;font-family:'Noto Sans JP',sans-serif;font-size:.71rem;color:var(--ink-light);line-height:1.7;border-top:1px solid var(--era-line);padding-top:.8rem">
-        棒グラフの幅はGEDmatch染色体ペインティングで観察されたアレル重複密度に基づく定性的なシグナル強度を表しています。祖先のパーセンテージではなく、そのように読まないでください。
-      </div>
-    </div>
-        <!-- ═══ 層3 — 青銅器時代 (s_bronze) — insert at the end ═══ -->
-    <div class="plain-box">
-      <span class="plain-label">簡単に言うと</span>
-      この層は、二つの側面を持つ物語が単なる統計ではなく、視覚的にはっきりと見えてくる場所です。染色体ペインティングを、ページを並んで流れる二つの川のように思い浮かべてください——左側では、アナトリア農耕民と草原の牧畜民が染色体を次々と照らし出し、右側では、縄文人と北東アジアの参照集団が同じことを、父系側と<mark>匹敵する強さ</mark>で行っています。どちらの川も、もう一方の中に隠れたわずかな痕跡ではありません——両者はほぼ対等なパートナーです。そして父系側に限って言えば、アナトリア農耕民のシグナル（バルチン）は草原牧畜民のシグナル（ヤムナヤ）よりも明らかに強く現れており、これは東バルカン系のゲノム一般に見られる、農耕民寄りの同じパターンが、父から息子へとそのまま受け継がれたものです。
-    </div>
-  </div>
-</div>
-
-
-<!-- ══ 層4 ══ -->
-<div class="era-block" id="s_neolithic">
-  <div class="era-marker">
-    <span class="era-dot era-dot--ancient"></span>
-    <span class="era-label">層4<br>新石器時代<br>紀元前7000〜3000年</span>
-  </div>
-  <div class="era-content">
-    <h2>新石器時代の層 — 西側からの農耕民</h2>
-
-    <p>父系側の青銅器時代草原の層の下には、ジュリアンのゲノムへの最も古い実質的なヨーロッパの貢献があります。約８０００年前からアナトリアからヨーロッパへ農業を広めた初期新石器農耕民です。K10 Ancient計算ツールはジュリアンに19.48%の初期新石器農耕民の祖先を割り当てます。ゲノムへの父系と母系の寄与が約50%ずつであることを考えると、この数値はおそらく母系のシグナルではなく父系のヨーロッパ的農耕基板の大部分を表しています。</p>
-
-    <p>トルコ・ボンジュクル新石器時代（距離0.206）とトルコ・バルチンLN（距離0.230）がジュリアンの古代DNA結果に最も明確なアナトリア農耕民シグナルとして並んで現れます。これらは世界で最もよく研究された古代農耕集団の一つです——約８０００〜９０００年前に現在のトルコ北西部を離れ、ギリシャとブルガリアに渡り、農業、陶器、永続的集落をヨーロッパ全土に広めた人々です。バルカン半島が最初のヨーロッパの目的地であり、その遺産は今日もすべてのバルカン系ゲノムに測定可能です。</p>
-
-    <p>このアナトリア農耕民の祖先がMyHeritageがギリシャ・アルバニア系（10.8%）と捉えているものの一部です。現代のギリシャ人は初期ヨーロッパ農耕民の祖先を非常に高い割合で持っており——どのヨーロッパ集団の中でも最高レベルの一つ——アルゴリズムがジュリアンのゲノムに地中海農耕関連のシグナルを検出すると、そのシグナルを最もよく表現する現代集団に割り当てます。系譜上の意味でのイタリア系やギリシャ系の祖先ではありません。「ギリシャ」や「イタリア」という国民的アイデンティティが存在するよりもはるか以前に、東地中海全体の共有された農耕的基盤としてバルカン半島に到達したものです。</p>
-
-    <p>母系側には新石器時代の物語に対応するものがありますが、独立して何千キロも離れた場所で起きました。農耕民で金属細工師の弥生人——朝鮮半島から来た——は約２３００年前に日本に到来し、列島を変貌させ、ほとんどの地域で既存の縄文集団を吸収し大部分を置き換えました。琉球諸島ではこの変容はより不完全でした。ジュリアンの母は、弥生大陸的層は存在するものの本土の本州ほど古い縄文的基盤を消し去っていない琉球系の遺伝的プロフィールを持っています。</p>
-  </div>
-</div>
-
-
-<!-- ══ 層5 ══ -->
-<div class="era-block" id="s_mesolithic">
-  <div class="era-marker">
-    <span class="era-dot era-dot--east"></span>
-    <span class="era-label">層5<br>中石器時代<br>紀元前1万〜7000年</span>
-  </div>
-  <div class="era-content">
-    <h2>中石器時代の層 — 二つの狩猟採集民の世界</h2>
-
-    <p>ジュリアンの祖先の両側の農耕層の下には、農業革命を全く先行していた、ヨーロッパと東アジアの最も古い生き残りの人類集団が存在します。その後に続く農業の拡大によって部分的ではあるが決して完全には書き換えられなかった狩猟採集民たちです。</p>
-
-    <p><strong>父系側</strong>では、西ヨーロッパ狩猟採集民——最初の農耕民が到来する何千年も前からヨーロッパの森を歩き回った後氷河期の森の人々——が父親のゲノムの約15%を寄与し、母系の希釈後には約半分の割合でジュリアンに届きます。ルクセンブルク・ロシュブールは距離0.425でジュリアンの古代DNA結果にランクされます——存在し識別可能ですが、全体の座標を支配する東アジア成分の数学的現実を反映して、ヤムナヤとアナトリアのシグナルよりも大幅に低くランクされます。WHGの遺産は特定の遺伝的マーカー——特にジュリアンが父から受け継いだHERC2青い目のハプロタイプ——に確かに存在し可視です。</p>
-
-    <p><strong>母系側</strong>では、日本列島の縄文人が同等の位置を占めます。古代の、農耕以前の、ゲノム的に孤立した狩猟採集民集団であり、大陸の反対端で何千年もの間古代の遺伝的プロフィールを保持してきました。日本縄文狩猟採集民は距離0.407でランクされます。この距離と漢族・河南省の距離0.478——17%の差——の格差は、ジュリアンの東アジア祖先を大陸系東アジアの農耕集団よりも縄文狩猟採集民により明確に近い位置に置きます。</p>
-
-    <p>縄文人は海面が低く陸橋が大陸との往来を可能にしていた約３万〜１万６０００年前に日本列島に到達しました。海面が上昇すると、彼らは何千年もの間孤立し、地球上のどこにも見られない遺伝的プロフィールを発展させました。彼らは海の狩人、漁師、貝塚の建設者でした。古代DNAは彼らが黒い肌、波打つ髪、二重まぶたを持っていたことを示しており——大陸からの隔離の長い年月を反映した、現代の大陸系東アジア人とは大きく異なる表現型です。</p>
-
-    <div class="insight-box insight-box--east">
-      <span class="insight-label insight-label--east">二つの狩猟採集民の世界 — 一つのゲノム</span>
-      西ヨーロッパ狩猟採集民と縄文狩猟採集民が最後に共通の祖先を共有したのは約４万〜５万年前、解剖学的現代人が初めてアフリカから広がりユーラシア大陸の反対端を占める集団へと分化し始めた頃です。WHGは氷河期ヨーロッパの森と平原で進化し、縄文人の祖先はアジアの太平洋側の端で進化しました。どちらの集団も相手の存在を知りませんでした。ジュリアンのゲノムが二者を再び結びつけます。一方は15番染色体に青い目のアレルを、もう一方は反対側の染色体鎖に深い太平洋の祖先を寄与しており、どちらもこれまで交わったことのない親を通じて無傷で届いています。
-    </div>
-          <!-- ═══ 層4 — 新石器時代 (s_neolithic) — insert at the end ═══ -->
-    <div class="plain-box">
-      <span class="plain-label">簡単に言うと</span>
-      地球の反対側で起きた二つの農業革命が、どちらも一つのゲノムの中に響き渡っています。父系側では——約八千年前に<strong>アナトリア</strong>（現在のトルコ）を離れ、作物とともにバルカン半島へ歩いていった農耕民たち。母系側では——数千年後に朝鮮半島から日本へ農業をもたらした<strong>弥生人</strong>が、本土をほぼ完全に変貌させました——しかし、ジュリアンの母の家族の出身地である琉球諸島は、本土日本よりも古い狩猟採集民の基盤をより多く保持しました。新しい農耕民がやってきて、すでにそこにいた人々を完全に消し去るのではなく混じり合うという、同じ歴史的パターンが、二つの異なる大陸で独立して展開し、どちらもこの一人の人物にその痕跡を残しています。
-    </div>
-  </div>
-</div>
-
-
-<!-- ══ 層6 ══ -->
-<div class="era-block" id="s_archaic">
-  <div class="era-marker">
-    <span class="era-dot era-dot--ancient"></span>
-    <span class="era-label">層6<br>古代人類<br>５万年以上前</span>
-  </div>
-  <div class="era-content">
-    <h2>古代人類の堆積物 — ネアンデルタール人、デニソワ人、最古の遺産</h2>
-
-    <p>発掘の最深層、すべての歴史的移動と先史時代の集団移動の下に、ジュリアンのゲノムの最も古い遺伝的糸が横たわっています。現代人からではなく、私たちの祖先が何万年も前に出会い交配した二つの別の人類種から受け継がれたDNAです。</p>
-
-    <h3 class="sub-heading">ネアンデルタール人の遺産</h3>
-
-    <p>ジュリアンのゲノムにはネアンデルタール人のDNAが含まれています——非アフリカ系の人なら誰でも、約５〜６万年前に現代人がヨーロッパに到達する前に西アジアで起きた現代人とネアンデルタール人の交配から約1〜4%のネアンデルタール人の祖先を持ちます。ジュリアンのGEDmatch染色体ペインティングにはネアンデルタール人の参照ゲノムが上部の行に含まれており、それらの行のオレンジ色のセグメントが実際に何を意味するかを正確に理解することが重要です。各オレンジ色のブロックは、ネアンデルタール人の参照ゲノムがその染色体領域でジュリアンとアレルを共有することを示しています。これはアレル重複の測定であり、特定のネアンデルタール人個体からの直接降系を主張するものではありません。</p>
-
-    <p>これを踏まえると、ペインティングは<strong>ヴィンディア洞窟（クロアチア、約４万〜４万４０００年前）</strong>との明確で繰り返されるアレル共有を示しています——複数の染色体に散らばったマッチング。これは全く予想通りで、ヴィンディアは世界で最も高品質なヨーロッパのネアンデルタール人ゲノムであり、世界中のネアンデルタール人浸透研究の主要な参照として機能しているという意味で注目に値しません。現代のユーラシア人は一般にヴィンディア型集団との最も検出可能なアレル重複を示します。ジュリアンのヴィンディアシグナルはこの共有された人類の遺産を反映しており、特定のクロアチアのネアンデルタール人のつながりではありません。<strong>メズマイスカヤ（ロシア・アディゲ共和国、約２万９０００年前）</strong>、コーカサスのネアンデルタール人ゲノムに対してもより弱いが存在するシグナルが現れます。これもまた、特定の個体からの降系ではなく、広い意味でのネアンデルタール人浸透と一致するアレル共有を反映しています。</p>
-
-    <p>染色体ペインティングがはるかに力強く明らかにするのは、ネアンデルタール人の行の後に続くすべてのものです。オレンジ色のバンドは、父系側の西ヨーロッパ狩猟採集民、アナトリア新石器農耕民、ベル・ビーカー、ヤムナヤ草原、ヨーロッパ青銅器時代の参照ゲノムの行を通じて劇的かつ継続的に拡大し、さらに下の縄文人、アイヌ、北東アジアの参照ゲノムの行を通じても拡大します。通常の西ユーラシア集団系列と縄文人関連の東アジア集団からのこの圧倒的なシグナルがペインティングの真のヘッドラインです。G25モデルが見つけたものの視覚的確認です——父系側のWHG、農耕民、草原、母系側の縄文人と北東アジア——ネアンデルタール人の行が上部で両方の血統が共有する最も古くて最も普遍的な人類の遺産を表しています。</p>
-
-    <p>ジュリアンは両方の親からネアンデルタール人浸透セグメントを受け継いでいます。父親は染色体1のCLEC2D領域の位置rs12041331にホモ接合型GG遺伝子型を持っており、ヴィンディア洞窟ネアンデルタール人の参照ゲノムと一致します——自分自身の両親から受け継いだネアンデルタール人由来のアレルです。ゲノム全体に蓄積されたこれらの浸透したネアンデルタール人変異は、ケラチンと皮膚の機能、免疫応答、血液凝固に最も頻繁に影響します——現代人がネアンデルタール人がすでに何十万年もの間暮らしていた環境に入ったときに有用であることが証明された適応です。</p>
-
-    <h3 class="sub-heading">デニソワ人の遺産 — より深いシグナル</h3>
-
-    <p>すべての非アフリカ系集団に比較的均等に分布するネアンデルタール人との混血とは異なり、デニソワ人との混血は地理的に偏っています。大陸系東アジア人はデニソワ人のDNAを約0.2%持ちます。古代東南アジアと太平洋の世界に関連する集団はより多く持ちます——パプアやメラネシアの集団では最大5%です。ジュリアンの母系ゲノムの主要な部分を形成する縄文人は、東南アジアを通じた長い南下の移動中にデニソワ人と以前に交配した古代東南アジア狩猟採集民からの遺伝子流入を通じてオンゲ関連の祖先を持っていました。</p>
-
-    <p>モデルD——古代人類とデニソワ人関連のシグナルを検出するために特別に設計された——はジュリアンの座標をオンゲ（アンダマン諸島）、パプア人、縄文人、ヤムナヤ、アナトリア新石器時代と比較します。結果：</p>
-
-    <table class="dist-table">
-      <thead><tr><th>集団</th><th>距離</th><th>意義</th></tr></thead>
-      <tbody>
-        <tr><td>ロシア・サマラ青銅器時代ヤムナヤ</td><td class="dist-val">0.195</td><td style="font-size:.8rem;color:var(--ink-mid);font-family:'Noto Sans JP',sans-serif">父系青銅器時代草原 — 近くはっきり</td></tr>
-        <tr><td>トルコ・バルチンLN SG</td><td class="dist-val">0.230</td><td style="font-size:.8rem;color:var(--ink-mid);font-family:'Noto Sans JP',sans-serif">父系アナトリア新石器時代</td></tr>
-        <tr><td>オンゲ — アンダマン諸島</td><td class="dist-val">0.351</td><td style="font-size:.8rem;color:var(--ink-mid);font-family:'Noto Sans JP',sans-serif">深い東南アジア狩猟採集民 — デニソワ人保有</td></tr>
-        <tr><td>日本縄文狩猟採集民</td><td class="dist-val">0.407</td><td style="font-size:.8rem;color:var(--ink-mid);font-family:'Noto Sans JP',sans-serif">オンゲ関連の祖先を持つ</td></tr>
-        <tr><td>パプア人（HGDP）</td><td class="dist-val">0.744</td><td style="font-size:.8rem;color:var(--ink-mid);font-family:'Noto Sans JP',sans-serif">最高デニソワ人量 — 非常に遠い</td></tr>
-      </tbody>
-    </table>
-
-    <p>オンゲ族は地球上で最も遺伝的に孤立した集団の一つで——約６〜７万年前に南方沿岸ルートでアフリカを出た最初の解剖学的現代人の直接の子孫で、それ以来ほとんど外界と接触せずにアンダマン諸島に暮らし——パプア人に次いで二番目に高いデニソワ人との混血を持ちます。距離0.351でのジュリアンのアーケイックモデルへの彼らの近さは直接の祖先ではなく——縄文人チャンネルを通じて届く共有された深いシグナルを反映しています。</p>
-
-    <p>パプア人の距離0.744は決定的です。ジュリアンにはメラネシアやニューギニアの直接の祖先はいません。彼のゲノムに存在するデニソワ人シグナルは古く、希釈されており、中間集団の連鎖を通じて伝えられています——東南アジアでのデニソワ人の浸透から縄文人の祖先へ、琉球の集団を通じてジュリアンの母へ、そして彼へ。彼のK10 Ancientの結果はこれを独立して支持します。3.26%のベーリング人と1.16%の太平洋系成分がまさにこの縄文人を介した深い東南アジア的基盤を捉えています。</p>
-
-    <div class="insight-box insight-box--east">
-      <span class="insight-label insight-label--east">二つの古代人類種 — データが示すことについての注記</span>
-      染色体ペインティングとG25アーケイックモデルは同じ方向を示しています。ジュリアンは参照ゲノムとのアレル重複から推論され、座標にオンゲ関連の祖先が存在することから、ネアンデルタール人とデニソワ人の両方から浸透したセグメントを持ちます。これらは集団レベルの推論であり、特定の古代個体についての系譜上の主張ではありません。確信を持って言えるのは、両方の古代人類シグナルが存在すること、ネアンデルタール人シグナルは普遍的な人類の遺産として両方の親系統にわたって共有されること、デニソワ人関連シグナルは母系側の縄文人チャンネルを通じて特異的に届いていること——純粋にヨーロッパ系のプロフィールと彼のゲノムを区別する一つの古代人類の糸です。
-    </div>
-        <!-- ═══ 層5 — 中石器時代 (s_mesolithic) — insert at the end ═══ -->
-    <div class="plain-box">
-      <span class="plain-label">簡単に言うと</span>
-      これは家系図の両側にある<strong>最も古い確かな地盤</strong>であり、この二つの地盤は今まで一度も接触したことがありませんでした。氷河期ヨーロッパの西ヨーロッパ狩猟採集民と、アジア太平洋沿岸の縄文狩猟採集民は、<mark>四万年から五万年前</mark>に共通の祖先から分かれ、それ以来、人類史全体を通じてお互いに一切の接触がありませんでした——同じ元の家系図から分かれた、完全に別々の二つの枝が、地球の反対側で完全に孤立したまま成長してきたのです。彼らはついに一人の人物の中で再び出会います。一方の枝からの青い目の遺伝子、もう一方の枝からの深い太平洋の祖先、どちらも損なわれることなく、どちらも本物のまま、その分岐以来初めて同じゲノムの中に並んで存在しています。
-    </div>
-  </div>
-</div>
-
-
-<!-- ══ 分子レベルの証拠 ══ -->
-<div class="era-block" id="s_molecular">
-  <div class="era-marker">
-    <span class="era-dot era-dot--special"></span>
-    <span class="era-label">分子レベルの<br>証拠</span>
-  </div>
-  <div class="era-content">
-    <h2>二つの世界が一塩基対で読み取れる場所</h2>
-
-    <p>前の層はジュリアンの祖先を集団統計、古代DNA距離、歴史的物語を通じて描写しました。証拠の最終層は最も直接的なものです。彼自身のDNAファイルから直接読み取れる特定の位置で、二つの祖先の流れが一つのヌクレオチドに並んで見える場所です。</p>
-
-    <p>ABCC11遺伝子の位置rs17822931において、ジュリアンの遺伝子型は<strong>TC——ヘテロ接合型</strong>です。父親はこの位置にCC——湿性耳垢、ヨーロッパ集団で約100%の頻度で見られる西ユーラシア先祖型変異——を持ちます。母親はほぼ確実にTT——乾性耳垢、日本人、韓国人、中国人集団で約100%の頻度で見られる派生型東アジア変異（ヨーロッパ人にはほぼ存在しない）——を持ちます。Tアレルは約３万年前に東アジア集団を席巻した協調的な自然選択の一部であり、毛髪の太さ、汗腺の密度、耳垢の種類に連鎖した遺伝単位として同時に影響を与えました。ジュリアンのTC遺伝子型は父の東バルカン系血統からの西ユーラシア型Cと、母の琉球系遺産からの東アジア型Tを受け取ったことを意味します。ゲノムの一つの位置で、両方の祖先の流れが一文字ずつ読み取れます。</p>
-
-    <p>色素沈着SNPも並行して同じ物語を語ります。主要な目の色スイッチでの<strong>HERC2 GA</strong>遺伝子型は、父親のGG——青い目のハプロタイプ、最終的には高頻度でそれを持っていた中石器時代の西ヨーロッパ狩猟採集民から受け継いだもの——と、母親のおそらくAアレル——先祖型の暗い目の変異——を組み合わせています。ジュリアンはおそらくヘーゼル色または中間的な目の色を持つでしょう。ヨーロッパで最も古い目の色の変異が東アジアで最も古い目の色の変異と出会い、一人の個人の中でヘテロ接合型になっています。彼の<strong>SLC45A2 CG</strong>遺伝子型も同じ構造に従います——父のGアレル、新石器農耕民と共に広まったヨーロッパ系の明るい肌の変異と、母の祖先型Cアレルのペアです。中間的な色素沈着が予想される結果であり、４万年前に分岐した二つの遺伝的世界の文字通りの平均です。</p>
-
-    <div class="insight-box insight-box--dual">
-      <span class="insight-label insight-label--white">出会いの分子的記録</span>
-      <p style="color:var(--gold-light);font-size:.93rem;line-height:1.9;margin:0;font-family:'Noto Sans JP',sans-serif">
-        父親と母親が反対のアレルを持つ位置でのジュリアンのゲノムのすべてのヘテロ接合型SNPは、初めて出会う二つの血統の分子的記録です。ABCC11 TC、HERC2 GA、SLC45A2 CG——これらは抽象的なものや推定値ではありません。東バルカン半島の交差点と琉球列島が触れ合う正確なヌクレオチドであり、DNAという言語で一文字の精度で書かれ、彼の生のDNAファイルから読み取ることができます。
-      </p>
-    </div>
-        <!-- ═══ 層6 — 古代人類 (s_archaic) — insert at the end ═══ -->
-    <div class="plain-box">
-      <span class="plain-label">簡単に言うと</span>
-      二つの絶滅した人類の親戚が、一つのゲノムへ二つのまったく異なる経路をたどってきました。<strong>ネアンデルタール人</strong>のDNAはここでは普通の形で存在しています——アフリカ以外の出身者ならほぼ誰もが、何万年も前の交配から受け継いだものを持っており、バルカン側と日本側の両方に現れるのは、両方の祖先集団が同じ古代の出来事を経てきたからです。<strong>デニソワ人</strong>のDNAはより珍しい糸であり、一つの特定の長い連鎖を通じてのみここに届きました——デニソワ人が古代東南アジアの狩猟採集民と混血し、その狩猟採集民の子孫がアンダマン諸島のオンゲ族となり、別の系統では縄文人の祖先となり、縄文人がそれを琉球諸島を通じて伝え、ジュリアンの母を通じて彼に届いたのです。それはかすかなものです——この糸に最も近い代理指標であるオンゲ族でさえ、数値上はかなり離れています（0.351）——しかし、これはこの報告書全体の中で、バルカン側からは決して届き得なかった唯一の古代人類シグナルであり、家系図の日本側半分を区別する真正な特徴となっています。
-    </div>
-  </div>
-</div>
-
-
-<!-- ══ SNPテーブル ══ -->
-<div class="era-block" id="s_snps">
-  <div class="era-marker">
-    <span class="era-dot era-dot--special"></span>
-    <span class="era-label">祖先<br>SNPマーカー</span>
-  </div>
-  <div class="era-content">
-    <h2>主要な祖先情報・形質遺伝子型</h2>
-    <p>MyHeritageの生のDNAファイルからの直接遺伝子型の読み取りです。祖先情報を持つ座位でのヘテロ接合型の位置がこの表で生物学的に最も意味のある項目です——二つの親の血統がそれぞれ一つのアレルとして直接読み取れる位置です。</p>
-    <div class="snp-table-wrap">
-      <table class="snp-table">
-        <thead><tr><th>遺伝子</th><th>遺伝子型</th><th>由来</th><th>意義</th></tr></thead>
-        <tbody>
-          <tr>
-            <td class="snp-gene">ABCC11</td>
-            <td class="snp-geno snp-found--het">TC</td>
-            <td><span class="heritage-badge badge--west">西 C</span><span class="heritage-badge badge--east">東 T</span></td>
-            <td class="snp-desc">耳垢と汗腺のタイプ——Tは東アジア系の母から、Cはバルカン系の父から受け継いだ。データセットの中で最も直接的な単一座位での二重遺産の証拠。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">HERC2</td>
-            <td class="snp-geno snp-found--het">GA</td>
-            <td><span class="heritage-badge badge--west">WHG G</span><span class="heritage-badge badge--east">東 A</span></td>
-            <td class="snp-desc">主要な目の色スイッチ——G（青い目のハプロタイプ、中石器時代WHG由来）は父から、A（暗い、先祖型）は母から。ヘーゼル色または中間的な目の色が予想される。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">SLC45A2</td>
-            <td class="snp-geno snp-found--het">CG</td>
-            <td><span class="heritage-badge badge--west">西 G</span><span class="heritage-badge badge--east">東 C</span></td>
-            <td class="snp-desc">メラニン経路——G（ヨーロッパ系の明るい肌、新石器農耕民由来）は父から、C（先祖型）は母から。中間的な色素沈着が予想される。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">HERC2（OCA2）</td>
-            <td class="snp-geno snp-found--het">GA</td>
-            <td><span class="heritage-badge badge--west">父系</span><span class="heritage-badge badge--east">母系</span></td>
-            <td class="snp-desc">OCA2色素沈着調節因子——ヘテロ接合型、他の色素沈着座位が示す中間的な色素沈着プロフィールと一致。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">TYR</td>
-            <td class="snp-geno snp-found--het">AC</td>
-            <td><span class="heritage-badge badge--west">父系</span><span class="heritage-badge badge--east">母系</span></td>
-            <td class="snp-desc">チロシナーゼ酵素——このメラニン産生座位でヘテロ接合型、混合的な紫外線感受性プロフィール。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">LCT / MCM6</td>
-            <td class="snp-geno snp-found--west">AG</td>
-            <td><span class="heritage-badge badge--west">父系 T</span></td>
-            <td class="snp-desc">乳糖分解酵素持続性——父からヨーロッパ系の乳糖耐性アレルを受け継いだ。完全な乳糖耐性が予想される。この変異は青銅器時代の牧畜民集団と共に広まった。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">ADH1B</td>
-            <td class="snp-geno snp-found--west">CC</td>
-            <td><span class="heritage-badge badge--east">注目点</span></td>
-            <td class="snp-desc">アルコール代謝——CCは標準的なヨーロッパ型変異。速いアルコール代謝を示す東アジア型Tアレル（アジアンフラッシュに関連）は受け継いでいない。大陸系漢族とはアレル頻度が異なる縄文人系の豊富な祖先と一致。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">MTHFR</td>
-            <td class="snp-geno snp-found--west">GG</td>
-            <td><span class="heritage-badge badge--west">両方正常</span></td>
-            <td class="snp-desc">葉酸代謝——テストされた両方の位置でホモ接合型正常。父親の低活性C677Tアレルを受け継いでいない。葉酸代謝の懸念なし。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">BDNF</td>
-            <td class="snp-geno snp-found--west">CC</td>
-            <td><span class="heritage-badge badge--west">Val/Val</span></td>
-            <td class="snp-desc">標準的な高神経可塑性型。父親のMet66アレルを受け継いでいない。最適な活動依存性BDNF分泌のベースライン。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">COMT</td>
-            <td class="snp-geno snp-found--het">GG</td>
-            <td><span class="heritage-badge badge--east">Met/Met</span></td>
-            <td class="snp-desc">前頭前野でのドーパミン分解——Met/Metはドーパミンが長く留まることを意味し、より強いワーキングメモリと高い認知負荷時の高いストレス感受性と関連。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">CYP1A2</td>
-            <td class="snp-geno snp-found--west">AA</td>
-            <td><span class="heritage-badge badge--west">高速型</span></td>
-            <td class="snp-desc">カフェイン代謝——高速代謝型。カフェインを効率よく処理し、遅い代謝型よりもコーヒーの定期的な摂取からの心血管リスクが低い。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">TCF7L2</td>
-            <td class="snp-geno snp-found--het">CT</td>
-            <td><span class="heritage-badge badge--archaic">要観察</span></td>
-            <td class="snp-desc">2型糖尿病——ヒトゲノムで最も再現性の高いリスク変異。CTヘテロ接合型は生涯にわたって中程度に高いリスクを持つ。長期的な食事パターンへの意識が推奨される。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">FTO</td>
-            <td class="snp-geno snp-found--het">AT</td>
-            <td><span class="heritage-badge badge--archaic">中間型</span></td>
-            <td class="snp-desc">代謝リスク——AT中間リスク。TCF7L2 CTと組み合わせると代謝の状況は長期的な意識を要するが警戒するほどではない。</td>
-          </tr>
-          <tr>
-            <td class="snp-gene">APOE</td>
-            <td class="snp-geno snp-found--west">CC</td>
-            <td><span class="heritage-badge badge--west">良好型</span></td>
-            <td class="snp-desc">アルツハイマー病リスク——この位置でのCCは標準的または低減されたリスクプロフィールと関連。APOE ε4の上昇シグナルは検出されない。</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-        <!-- ═══ 祖先SNPマーカー (s_snps) — insert at the end, after the genotype table ═══ -->
-    <div class="plain-box">
-      <span class="plain-label">簡単に言うと</span>
-      この表の最初の四行——ABCC11、HERC2、SLC45A2、TYR——が本当の祖先の物語です。父と母がそれぞれ同じ遺伝子の異なるバージョンをはっきりと受け渡し、両方が同時に見える場所です。それ以降の行は、まったく別の種類の情報に切り替わります——祖先ではなく、健康や日常の生物学に関わる遺伝子（カフェイン代謝、糖尿病リスク、アルツハイマー病リスク）です。これらは生データの正確な読み取りですが、頭の中では別のものとして扱う価値があります——「中程度に上昇した糖尿病リスク」や「アルツハイマー病シグナルの上昇なし」と示す遺伝子型は、祖先の記録ではなく健康上のメモであり、これらの特定の行はどちらの親から受け継いだか、あるいはその遺伝子のバージョンが世界のどこに由来するかについて、何も語っていません。
-    </div>
-  </div>
-</div>
-
-
-<!-- ══ 全体像 ══ -->
-<div class="era-block" id="s_synthesis" style="border-bottom:none">
-  <div class="era-marker">
-    <span class="era-dot era-dot--dual"></span>
-    <span class="era-label">全体像</span>
-  </div>
-  <div class="era-content">
-    <h2>完全な発掘 — 八つの層すべてが一緒に語ること</h2>
-
-    <p>発掘は完了しました。時代の八つの層が取り除かれ、それらが明らかにするのは別々の祖先のパッチワークではなく、長い間離れていた二つの人類の血統がどのように一人の人間の中で出会ったかという一つの一貫した物語です。</p>
-
-    <p>表層では、ジュリアンのゲノムはブルガリア人として最も強く登録されます——最も近い現代集団、距離0.126、61%の東アジア系混血を超えても支配的なシグナルとして残る父系のアンカー。その表層の下、中世の層は二つの流れを明らかにします。ブルガリアの遺伝的プロフィールを形成した、約48%のパレオバルカン基層——移動以前から存在したトラキア人、ダキア人、イリュリア人、ローマ化されたバルカン集団——と、パンノニア回廊を通じて中央ヨーロッパの要素をすでに混ぜながら届いた約32%のスラブ民族移動の寄与です。データベース全体で単独で最も近い古代の一致——モンゴル・アルハンガイ初期中世、距離0.094——も同じ中世の層に位置しており、データが解決を求めることなく提示する発見です。</p>
-
-    <p>さらに深く、青銅器時代が両側で同時に姿を現します。距離0.195のヤムナヤ牧畜民と距離0.206のアナトリア農耕民が二つの最も古い実質的な父系の貢献であり、東バルカン世界の草原と土壌です。母系側では、距離0.382の韓国・昌原の古代サンプルが弥生農耕の拡大を通じて琉球に導入された大陸系東アジアの層を示します——ヨーロッパでアナトリアの拡大が起きたのと同じプロセスが日本で起きたもの、アナトリアではなく朝鮮半島から来ていますが、構造的に同一です。</p>
-
-    <p>中石器時代の層では、狩猟採集民が両側に現れます。父系側では西ヨーロッパ狩猟採集民——彼らの青い目のアレルがジュリアンのHERC2遺伝子型に無傷で保存されています。母系側では縄文狩猟採集民——彼らの古代太平洋的遺伝子シグナルが距離0.407で測定可能であり、あらゆる大陸系東アジア集団よりもジュリアンの座標に近いです。これら二つの狩猟採集民集団が最後に共通の祖先を共有したのは約４万〜５万年前です。ジュリアンのゲノムが二者を再び結びつけます。</p>
-
-    <p>発掘の最底部には古代人類の堆積物があります。両方の親系統からのネアンデルタール人のDNA、異なる地理的経路を通じて届いていますが同じ古代のレバントでの交配から。そして母系側からのデニソワ人のシグナル——東南アジアでのデニソワ人浸透から縄文人、琉球の集団を通じてジュリアンの母へ、そして彼自身へと達する連鎖で伝えられています。アンダマン諸島のオンゲ族が距離0.351でこの最も深い糸に最も近い古代のプロキシとして現れます——６万年間孤立した島々に住み、同じ古代人類の遺産の測定可能な痕跡をまだ持ち続けている集団です。</p>
-
-    <p>この組み合わせを記述するために設計された集団遺伝学の計算ツールは存在しません。なぜなら、この組み合わせは以前に名前のある現代集団として存在したことがないからです。すべてのツールがそれを異なる角度からアプローチし、異なる数値的答えを出します。しかしすべてのツールが同じ二つの極を見つけます。強い東バルカン系ヨーロッパのシグナルと、縄文人に近い強い東アジアのシグナルです。具体的な距離、具体的な古代集団、具体的なSNP遺伝子型——すべてが同じ方向を示しています。発掘は一貫しています。層は整合しています。物語は完結しています。</p>
-
-<!-- ═══ 全体像 (s_synthesis) — insert at the very end, after the ancestral equation ═══ -->
+<div class="era-content">
+<h2>二つの祖先の流れ、一つのゲノム</h2>
+<p class="descent-note">以下、七つの層が続きます。それぞれ前の層より数千年ずつ古くなっていきます。しかしこのゲノムは、二つの別々の系統を同時にたどる一つの物語です。どちらかに掘り進む前に、発掘全体が示すものを見てみましょう。</p>
+<p>ジュリアン・ネノフのゲノムは、真の二重祖先プロフィールです。父系はおよそ半分が東バルカン系、母系はおよそ半分が琉球系日本人です。MyHeritageの結果は日本人（沖縄）61.6%、バルカン系21.2%、ギリシャ・アルバニア系10.8%と表示しています。これらのラベルは家系図上の割合として読むべきではありません。アルゴリズムが現代の参照集団に対応づけている、ほとんど重なり合わない二つの祖先の流れを反映しているのです。「沖縄」という表示は特に重要な情報を伝えています——それは本土の日本人祖先に典型的なものよりも強い縄文狩猟採集民の成分を示しています。</p>
+<p>父系側では、ジュリアンは父ミンコを特徴づける東バルカン系の連続体を受け継いでいます。最も近い現代の一致は依然としてブルガリア人および関連するバルカン系集団ですが、母系の東アジア系の寄与によって希釈されています（ブルガリア人までのG25距離 約<strong>0.126</strong>）。より深い構造は典型的なバルカンのパターンを反映しています——実質的なパレオバルカン（アナトリア新石器時代プラス現地）基層、アナトリア農耕民とポントス草原（ヤムナヤ関連）祖先とのバランスの取れた、やや農耕民寄りの青銅器時代の統合、より小さな西ヨーロッパ狩猟採集民の寄与、そして中世ブルガリア集団を形成したスラブ民族の移動による後の形成です。</p>
+<p>母系側では、シグナルは本土の日本人ではなく、明確に琉球系です。古代DNAの比較は、東アジア系の成分を漢族よりも縄文狩猟採集民に近い位置に置いており、琉球列島に特徴的な、弥生以前の祖先がより多く保たれていることと一致します。副次的な北東アジア／内陸アジア草原関連のシグナルも存在し、中央アジア系のパーセンテージと、中世モンゴルの参照集団との異例に近い古代の一致の両方を説明します——これは直接的なモンゴル系祖先というより、西ユーラシアと東ユーラシアの変異の幾何学的な中間点として理解するのが最適です。</p>
+<p><em>もう一つ触れておきたい点があります。父系と母系の血統がこれほど古くに分岐したため、ジュリアンのゲノムに見られる二つの古代人類種のシグナルは同一ではなく非対称です——ネアンデルタール人の祖先は同じ古代の出来事から両親を通じて届きますが、縄文人とアンダマン諸島のオンゲ族を通じてたどれるかすかなデニソワ人関連のシグナルは、母方からのみ届いています。</em></p>
+<table class="dist-table">
+<tr>
+<th>層</th>
+<th>最も近い一致</th>
+<th>距離</th>
+</tr>
+<tr>
+<td>現代集団（父系）</td>
+<td>ブルガリア人</td>
+<td class="dist-val">0.126</td>
+</tr>
+<tr>
+<td>最も近い古代の一致（全体）</td>
+<td>モンゴル・アルハンガイ初期中世</td>
+<td class="dist-val">0.094</td>
+</tr>
+<tr>
+<td>青銅器時代（父系）</td>
+<td>ヤムナヤ／アナトリア新石器時代</td>
+<td class="dist-val">0.195／0.206</td>
+</tr>
+<tr>
+<td>中石器時代（母系）</td>
+<td>縄文人（漢族より近い）</td>
+<td class="dist-val">0.407／0.478</td>
+</tr>
+</table>
 <div class="plain-box">
-  <span class="plain-label">簡単に言うと — 二つの家系、一つのゲノム</span>
-  ほとんどの祖先の物語は一つの方向に進み、一本の線に沿って時間を遡ります。しかしこの物語は同時に二つの方向に進みます。なぜなら、これは実際には途中で出会う二つの別々の物語だからです。<strong>父系側</strong>を遡ると——現代のブルガリアとルーマニアの親族、次に中世初期にハンガリーを経由してやってきたスラブ系移民、さらにその前からすでにそこにいたトラキア人やその他の古いバルカンの人々、さらに遡って八千年前にバルカン半島へ歩いてきたアナトリアの農耕民と、その後にやってきたヤムナヤの草原牧畜民、そしてそれよりもさらに下には、今日でも無傷で受け継がれている青い目の遺伝子を持つ西ヨーロッパ狩猟採集民がいます。<strong>母系側</strong>を、まったく独立して遡ると——琉球および沖縄の親族が、異例なほど強い<strong>縄文</strong>系祖先を受け継いでいます。数万年にわたり日本列島でほぼ完全な孤立状態で暮らしていた狩猟採集民であり、数千年前に朝鮮半島から到来した弥生農耕民によって部分的にしか吸収されませんでした。
-  <br><br>
-  この二つの系統は<mark>四万年から五万年前</mark>に共通の人類の祖先から分岐し、その後まったく接触がありませんでした——一方の枝は氷河期ヨーロッパへ、もう一方は太平洋沿いのアジアへと向かい、一人の人物の中で出会うまで、その状態が続きました。これこそが、中世モンゴルとの一致を、無視するのではなく説明する価値のあるものにしている理由です——それは隠れた第三の祖先ではなく、本当に半分がヨーロッパ系で半分が東アジア系であるゲノムを、似たような歴史的交差点に位置する集団と比較したときに起こることなのです。そしてこれが、<strong>デニソワ人</strong>の痕跡を特に注目する価値がある理由でもあります——両側で同じ古代の出来事を通じて到達し、アフリカ以外のほぼ誰もが共通して持つネアンデルタール人のDNAとは異なり、この糸はたった一つの特定の方向からしか届き得ませんでした——縄文人を通じて、琉球諸島を経由して、母から息子へと。
+<span class="plain-label">簡単に言うと</span>
+          In short: a balanced West-East Eurasian genome in which the paternal Eastern Balkan formation — Anatolian farmers, Caucasus-weighted steppe, WHG, and Slavic synthesis — meets a maternal Ryukyuan formation rich in <mark>Jomon hunter-gatherer ancestry</mark>. The two streams remain clearly distinguishable across modern, medieval, and ancient layers.
+          <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 真の二重系統ゲノム——東バルカン系（父系）と琉球系日本人（母系）がほぼ等量で、縄文の色濃い「沖縄」シグナルが際立っています。</span></p>
 </div>
-    
-    <div class="insight-box insight-box--final">
-      <span class="insight-label insight-label--white">ジュリアンの祖先の方程式</span>
-      <div class="equation">
-        <span class="eq-east">約30% 縄文系琉球人 — 沖縄の母系基層</span><br>
-        <span class="eq-east">約15% 大陸系北東アジア人 — 弥生人介在、韓国近接型</span><br>
-        <span class="eq-east">約3% 古代シベリア / ベーリング人 — 縄文人経由</span><br>
-        <span class="eq-east">約1% デニソワ人関連 — オンゲ / 縄文人チャンネル</span><br>
-        ＝ <strong>母系東アジア系 約49%</strong>
-        <br><br>
-        約48% パレオバルカン基層 — トラキア系、ダキア系、イリュリア系、ビザンティン<br>
-        約32% スラブ民族移動の混血 — パンノニア回廊<br>
-        約20% ビザンティン地中海的引力 — エーゲ海とアナトリア<br>
-        （基底にある古代の層：アナトリア新石器農耕民、<br>
-        ヤムナヤ草原牧畜民、西ヨーロッパ狩猟採集民）<br>
-        ＝ <strong>父系東バルカン系 約50%</strong>
-        <br><br>
-        <strong>最も近い現代集団：ブルガリア人 — 0.126</strong><br>
-        <strong>最も近い古代集団：モンゴル・アルハンガイ中世 — 0.094</strong><br>
-        <strong>最古の受け継いだ糸：ネアンデルタール人（父系＋母系）・デニソワ人（母系）</strong>
-        <br><br>
-        <span style="font-size:.8rem;color:var(--ink-light)">
-          東バルカン半島 × 琉球列島 × 内陸アジア草原<br>
-          二つの狩猟採集民の血統 · 二つの草原世界 · 二つの古代人類種 · 一つのゲノム
-        </span>
-      </div>
-    </div>
-  </div>
+<!-- ══ GENETIC STRATIGRAPHY ══ -->
+<section class="genetic-stratigraphy">
+<div class="strat-intro">
+<span class="strat-kicker">年代マップ</span>
+<h2>遺伝的層序</h2>
+<p>左の列は父系（東バルカン）の系統を、右の列は母系（琉球）の系統をたどります。<br/>カードは、深い時間を圧縮した一本の縦の時間軸上に、各参照サンプルのおおよその年代で配置されています。</p>
+<p>色付きのゾーンは、ジュリアンの再構成された系統に含まれる集団を示します。<br/>短い目盛りは、距離の測定にのみ用いた比較用の参照集団（例：漢族・河南）を示します。</p>
+<p>ネアンデルタール人との混血の時期は両方の列に現れます。<br/>かすかなデニソワ人関連のシグナルは母系側にのみ現れます。</p>
 </div>
-
+<div class="dual-heads">
+<div class="dual-head dual-head--paternal"><strong> 父系 </strong> <span> 東バルカン · 西ユーラシア系統 </span></div>
+<div class="dual-head dual-head--time">
+</div>
+<div class="dual-head dual-head--maternal"><strong> 母系 </strong> <span> 琉球 · 東アジア系統 </span></div>
+</div>
+<!-- CHG → Yamnaya connector -->
+<div class="strat-map-wrap">
+<div aria-hidden="true" class="annotation-lane">
+<div style="position:absolute;top:22%;left:-45px;width:100px;height:19%;border:1px dotted var(--era-line);border-right:none;border-radius:15px;background:rgba(245,239,228);z-index:-1;pointer-events:none;"></div>
+<div style="position:absolute;top:32%;left:-30px;width:50px;height:19%;border:1px dotted var(--era-line);border-right:none;border-radius:15px;background:rgba(245,239,228);z-index:0;pointer-events:none;"></div>
+<div style="position:absolute;top:43%;left:-15px;width:50px;height:15%;border:1px dotted var(--era-line);border-right:none;border-radius:15px;background:none;z-index:0;pointer-events:none;"></div>
+</div>
+<div class="dual-field">
+<!-- population images: paternal column (left edge) -->
+<div class="summary-images-container">
+<span class="era-dot era-dot--special"></span>
+<div class="summary-image">
+<img alt="スラブ系" decoding="async" height="130" loading="lazy" src="images/slavic.webp" width="130"/>
+<span class="summary-image-text">スラブ系<br/>祖先</span>
+</div>
+<div class="summary-image">
+<img alt="トラキア系" decoding="async" height="130" loading="lazy" src="images/thracian.webp" width="130"/>
+<span class="summary-image-text">トラキア系<br/>祖先</span>
+</div>
+<div class="summary-image">
+<img alt="ヤムナヤ系" decoding="async" height="130" loading="lazy" src="images/yamnaya.webp" width="130"/>
+<span class="summary-image-text">ヤムナヤ系<br/>祖先</span>
+</div>
+<div class="summary-image">
+<img alt="EHG" decoding="async" height="130" loading="lazy" src="images/ehg.webp" width="130"/>
+<span class="summary-image-text">EHG<br/>祖先</span>
+</div>
+<div class="summary-image">
+<img alt="CHG" decoding="async" height="130" loading="lazy" src="images/chg.webp" width="130"/>
+<span class="summary-image-text">CHG<br/>祖先</span>
+</div>
+<div class="summary-image">
+<img alt="WHG" decoding="async" height="130" loading="lazy" src="images/whg.webp" width="130"/>
+<span class="summary-image-text">WHG<br/>祖先</span>
+</div>
+<div class="summary-image">
+<img alt="ネアンデルタール人" decoding="async" height="130" loading="lazy" src="images/neanderthal.webp" width="130"/>
+<span class="summary-image-text">ネアンデルタール系<br/>祖先</span>
+</div>
+</div>
+<!-- population images: maternal column (right edge) -->
+<div class="summary-images-container summary-images-container--m">
+<span class="era-dot era-dot--special"></span>
+<div class="summary-image">
+<img alt="弥生系" decoding="async" height="130" loading="lazy" src="images/yayoi.webp" width="130"/>
+<span class="summary-image-text">弥生系<br/>祖先</span>
+</div>
+<div class="summary-image">
+<img alt="漢族・河南" decoding="async" height="130" loading="lazy" src="images/henan.webp" width="130"/>
+<span class="summary-image-text">漢族・河南<br/>参照</span>
+</div>
+<div class="summary-image">
+<img alt="縄文系" decoding="async" height="130" loading="lazy" src="images/jomon.webp" width="130"/>
+<span class="summary-image-text">縄文系<br/>祖先</span>
+</div>
+<div class="summary-image">
+<img alt="デニソワ人" decoding="async" height="130" loading="lazy" src="images/denisovan.webp" width="130"/>
+<span class="summary-image-text">デニソワ系<br/>祖先</span>
+</div>
+</div>
+<div aria-hidden="true" class="dual-marker"><span style="top:0%;">時間<br/>↓</span></div>
+<div aria-hidden="true" class="dual-marker">
+<div class="marker-left" style="top:5.5%;"></div>
+<div class="marker-right" style="top:7.5%;"></div>
+<span style="top:5.5%;">現在</span>
+<div class="marker-left" style="top:12.75%;"></div>
+<div class="marker-right" style="top:17.50%;"></div>
+<span style="top:12.75%;">西暦600〜900年頃</span>
+<div class="marker-left" style="top:21.50%;"></div>
+<div class="marker-left" style="top:15.50%;"></div>
+<span style="top:21.50%;">紀元前800〜100年頃</span>
+<div class="marker-bc" style="top:28%;"></div>
+<div class="marker-bc" style="top:29%;"></div>
+<span style="top:28.5%;">~</span>
+<div class="marker-left" style="top:31.5%;"></div>
+<span style="top:31.5%;">約5000年前</span>
+<div class="marker-left" style="top:44%;"></div>
+<div class="marker-right" style="top:38%;"></div>
+<span style="top:44%;">約7500年前</span>
+<div class="marker-left" style="top:50%;"></div>
+<span style="top:50%;">約9000年前</span>
+<div class="marker-left" style="top:57%;"></div>
+<span style="top:57%;">約1万1500年前</span>
+<span style="top:66%;">約1万4000年前</span>
+<div class="marker-left" style="top:66%;"></div>
+<div class="marker-right" style="top:54%;"></div>
+<span style="top:80%;">約3万年前</span>
+<div class="marker-right" style="top:96%;"></div>
+<span style="top:92.5%;">約6万〜7万年前</span>
+</div>
+<div class="dual-shared band-deep" style="top:86.50%;">
+<div class="band-label"><strong> ネアンデルタール人との混血 </strong> <span> 約5万〜6万年前 · レバント／南西アジア · 両親から · ゲノムの約1〜4%<br/></span> <span class="band-epoch"> 混血イベントの時期：約5万〜6万年前 </span></div>
+<div class="dual-shared-gap">
+</div>
+<div class="deep-note">非アフリカ系集団全体に共通する普遍的なシグナルであり、このゲノムに特有の分析結果ではありません。クロモソーム・ペインティングでは、ヴィンディヤ洞窟との散在的なアレル共有と、メズマイスカヤに対するより弱いシグナルが示されていますが、これはアレルの重なりを測るものであり、それらの個体からの系譜的な子孫関係を意味するものではありません。</div>
+</div>
+<div class="dual-col dual-col--p" style="--hg-w:55px;">
+<div class="dual-rail">
+<div class="strata-zone strata-zone--modern" style="top:0.00%;height:11.50%;" title="ブルガリア人 · 父系の基準点 · 集団の存在：西暦681年〜現在">
+</div>
+<div class="strata-zone strata-zone--slavic" style="top:11.50%;height:2.50%;" title="スラブ民族の移動 · ビザンティンの存在 約330〜1453年；スラブ民族の移動 約500〜900年">
+</div>
+<div class="strata-zone strata-zone--byzantine" style="top:14.00%;height:2.50%;" title="スラブ民族の移動とビザンティン的統合 · ビザンティンの存在 約330〜1453年；スラブ民族の移動 約500〜900年">
+</div>
+<div class="strata-zone strata-zone--thracian" style="top:16.5%;height:11.50%;" title="パレオバルカン基層 · トラキア人 · 文化の存続期間：紀元前約1500年〜西暦46年">
+</div>
+<div class="strata-zone strata-zone--steppe" style="top:29.00%;height:16.00%;" title="ヤムナヤ／ポントス草原層 · 文化の活動期：紀元前約3300〜2600年">
+</div>
+<div class="strata-zone strata-zone--hg" style="top:34.00%;height:35.50%;" title="西ヨーロッパ狩猟採集民 · ロシュブール：ヨーロッパにおけるWHG：約1万5000〜5000年前">
+</div>
+<div class="strata-zone strata-zone--deep" style="top:69.50%;height:23.00%;" title="ネアンデルタール人との混血 · 約5万〜6万年前">
+</div>
+<div class="strata-tick" style="top:74.50%;" title="西ヨーロッパ狩猟採集民 · ロシュブール：ヨーロッパにおけるWHG：約1万5000〜5000年前">
+</div>
+</div>
+<div class="dual-hg-block" style="width:15px;">
+<div class="dual-hg-lane dual-hg-lane--2">
+<div class="strata-zone strata-zone--whg" style="top:34.00%;height:35.50%;" title="WHG">
+</div>
+</div>
+<div class="dual-hg-lane dual-hg-lane--0">
+<div class="strata-zone strata-zone--chg" style="top:50.00%;height:11.00%;" title="CHG">
+</div>
+</div>
+<div class="dual-hg-lane dual-hg-lane--1">
+<div class="strata-zone strata-zone--ehg" style="top:42.00%;height:17.00%;" title="EHG">
+</div>
+</div>
+<div class="dual-hg-lane dual-hg-lane--3">
+<div class="strata-zone strata-zone--farmer" style="top:46.50%;height:7.50%;" title="EEF">
+</div>
+</div>
+</div>
+<div class="dual-card band-modern" style="top:5.00%;">
+<div class="band-label"><strong> ブルガリア人・父系の基準点 </strong> <span> 最も近い現代集団（約61%が東アジア系祖先であっても） </span> <span class="band-epoch"> 集団の存在：西暦681年〜現在 </span></div>
+<div class="band-distance">G25: 0.126 · ミンコの0.021の約6倍</div>
+</div>
+<div class="dual-card band-slavic" style="top:12.00%;">
+<div class="band-label"><strong> スラブ民族の移動 </strong> <span> 6〜9世紀 · スラブ系約32%（パンノニア回廊） </span> <span class="band-epoch"> スラブ人の移動：西暦約500〜900年 </span></div>
+<div class="band-distance">G25: 0.297（モルドバ人） · 合計約52%（推定）</div>
+</div>
+<div class="dual-card band-byzantine" style="top:16.50%;">
+<div class="band-label"><strong>ローマ・ビザンティン的統合</strong> <span>1〜3世紀 · アナトリア系の混血約20%、ビザンティン支配下で強化 </span></div>
+</div>
+<div class="dual-card band-thracian" style="top:22.00%;">
+<div class="band-label"><strong> パレオバルカン基層・トラキア人 </strong> <span> トラキア系、ダキア系、イリュリア系 · 父系ゲノムの約48%（推定） </span> <span class="band-epoch"> 文化の存続期間：紀元前約1500年〜西暦46年 </span></div>
+<div class="band-distance">G25: 0.329（Bulgaria_IA）</div>
+</div>
+<div class="dual-card band-steppe" style="top:32.00%;">
+<div class="band-label"><strong> ヤムナヤ／ポントス草原層 </strong> <span> 青銅器時代の草原牧畜民 · 父系を通じて届いた、ゲノム全体の約25% · Bulgaria_EBA_Yamnayaはサマラの草原参照集団より近い </span> <span class="band-epoch"> 文化の活動期：紀元前約3300〜2600年 </span></div>
+<div class="band-distance">G25: 0.300 / 0.314</div>
+</div>
+<div class="dual-card band-farmer" style="top:50.50%;">
+<div class="band-label"><strong> アナトリア新石器・ボンジュクル／バルチン </strong> <span> バルカンへ入った最初の農耕民 · K10 Ancient：初期新石器農耕民19.48% · 他の二つの報告書と同様、ボンジュクルの方が近い </span> <span class="band-epoch"> 農耕文化：約1万300〜8000年前 </span></div>
+<div class="band-distance">G25: 0.357 / 0.376</div>
+</div>
+<div class="dual-card band-whg" style="top:66.50%;">
+<div class="band-label"><strong> WHG・ロシュブール </strong> <span> 中石器時代の西ヨーロッパ狩猟採集民 · HERC2の青い目ハプロタイプの由来 · 完全に西ユーラシア系の報告書よりも希釈されている </span> <span class="band-epoch"> ヨーロッパにおけるWHG：約1万5000〜5000年前 </span></div>
+<div class="band-distance">G25: 0.500</div>
+</div>
+<div class="dual-card band-ehg" style="top:43.00%;">
+<div class="band-label"><strong> EHG・カレリア </strong> <span> 東ヨーロッパ狩猟採集民 · ジュリアンではCHGをわずかに上回って近い——ミンコ／スタイコのパターンとは逆 </span> <span class="band-epoch"> EHG系統：約1万2000〜7000年前 </span></div>
+<div class="band-distance">G25: 0.350 · EHG &gt; CHG（ミンコ／スタイコとは逆）</div>
+</div>
+<div class="dual-card band-chg" style="top:58%;">
+<div class="band-label"><strong> CHG・コティアス </strong> <span> コーカサス狩猟採集民 · EHGとほぼ同等で、他の二つの報告書のような明確な優勢はない </span> <span class="band-epoch"> CHG系統：約1万3000〜9000年前 </span></div>
+<div class="band-distance">G25: 0.359</div>
+</div>
+</div>
+<div class="dual-col dual-col--m" style="--hg-w:55px;">
+<div class="dual-rail">
+<div class="strata-zone strata-zone--modern" style="top:0.00%;height:15.00%;" title="東アジアの現代連続体 · 連続体の形成：紀元前約300年〜現在">
+</div>
+<div class="strata-zone strata-zone--eastasia" style="top:15%;height:5.00%;" title="弥生の大陸系の層 · 韓国チャンハン · 弥生時代：紀元前約300年〜西暦300年">
+</div>
+<div class="strata-zone strata-zone--jomon" style="top:20.00%;height:8.00%;" title="縄文狩猟採集民 · 列島には約1万6000〜3万年前から">
+</div>
+<div class="strata-zone strata-zone--jomon" style="top:29.00%;height:41.50%;" title="縄文狩猟採集民 · 列島には約1万6000〜3万年前から">
+</div>
+<div class="strata-zone strata-zone--denisovan" style="top:70.50%;height:22.50%;" title="ネアンデルタール人との混血 · 約5万〜6万年前">
+</div>
+<div class="strata-zone strata-zone--deep2" style="top:92.50%;height:7.50%;" title="デニソワ人関連のシグナル · 分岐の時期：約6万〜7万年前">
+</div>
+</div>
+<div class="dual-hg-block" style="width:5px;">
+<div class="dual-hg-lane dual-hg-lane--0">
+<div class="strata-zone strata-zone--whg" style="top:34%;height:8%;" title="漢族・河南">
+</div>
+</div>
+</div>
+<div class="dual-card band-modern" style="top:7.50%;">
+<div class="band-label"><strong> 東アジアの現代連続体 </strong> <span> モンゴル人 · 日本人 · 韓国人 · MyHeritage：日本人（沖縄）61.6% </span> <span class="band-epoch"> 連続体の形成：紀元前約300年〜現在 </span></div>
+<div class="band-distance">G25: 0.356–0.487</div>
+</div>
+<div class="dual-card band-eastasia" style="top:17.50%;">
+<div class="band-label"><strong> 弥生の大陸系の層・韓国チャンハン </strong> <span> 約2300年前 · 母系ゲノムの約15%（推定） · 朝鮮半島の農耕民が、より遅く、より不完全に琉球へ到達 </span> <span class="band-epoch"> 弥生時代：紀元前約300年〜西暦300年 </span></div>
+<div class="band-distance">G25: 0.382</div>
+</div>
+<div class="dual-card band-comparative" style="top:38.00%;">
+<div class="band-label"><strong> 漢族・河南 </strong> <span> 大陸東アジアの農耕民の参照集団 · 縄文0.407は漢族0.478よりジュリアンに約17%近い </span> <span class="band-epoch"> 黄河農耕文化：約9000〜5000年前 </span></div>
+<div class="band-distance">G25: 0.478</div>
+</div>
+<div class="dual-card band-jomon" style="top:54.50%;">
+<div class="band-label"><strong> 縄文狩猟採集民 </strong> <span> 琉球の母系基層。K10 Ancientによるかすかな約3%の古代シベリア／ベーリンジア系シグナルを含む · 列島には約1万6000〜3万年前から </span> <span class="band-epoch"> 縄文時代：約1万6000〜2300年前 </span></div>
+<div class="band-distance">G25: 0.400–0.407</div>
+</div>
+<div class="dual-card band-deep2" style="top:97.00%;">
+<div class="band-label"><strong> デニソワ人関連のシグナル </strong> <span> オンゲ系統、約6万〜7万年前 · 母系ゲノムの約1%（推定） · 縄文を経由した母系のみ </span> <span class="band-epoch"> 分岐の時期：約6万〜7万年前 </span></div>
+<div class="band-distance">オンゲ G25: 0.351</div>
+<div class="deep-note">G25モデルにおけるオンゲ関連の祖先から推定したものであり、デニソワ人の直接の参照ゲノムによるものではありません。パプア人HGDP（0.744、最も高いデニソワ人の負荷）は非常に遠く、ジュリアンに直接のメラネシア系祖先はありません。この糸はかすかで古く、デニソワ人 → 東南アジアの狩猟採集民 → 縄文人 → 琉球人 → 母 → ジュリアンへと受け継がれてきました。</div>
+</div> <!-- end dual-card band-deep2 -->
+</div> <!-- end dual-col--m -->
+</div> <!-- end dual-field -->
+</div> <!-- end strat-map-wrap -->
+</section>
+</div> <!-- end era-content -->
+</div> <!-- end era-block s_summary -->
+<!-- ══ LAYER 0: THE SURFACE ══ -->
+<div class="era-block" id="s_surface">
+<div class="era-marker"><span class="era-dot era-dot--dual"></span> <span class="era-label">層0<br/>表層</span></div>
+<div class="era-content">
+<h2>ラベルが伝えていること — そして伝えていないこと</h2>
+<p>すべての祖先報告書はパーセンテージと地名から始まります。ジュリアンのMyHeritage結果は、日本人61.6%（沖縄）、バルカン系21.2%、ギリシャ・アルバニア系10.8%、東ヨーロッパ系3.9%、中央アジア系2.5%と表示されています。これらの数字をそのまま読むと、異なる祖先集団がそれぞれ別々の割合を提供したかのように見えます。しかしこの読み方は正確ではなく、それを訂正するところから本当の物語が始まります。</p>
+<p>これらのパーセンテージは、家系図が示すような祖先の割合ではありません。アルゴリズムがジュリアンのDNAを現代の参照集団と比較し、どの現存集団に最も似ているかを問うた出力です。参照パネルが違えば数値も変わり、同じゲノムを別の計算機にかければ別のパーセンテージが出ます。</p>
+<p>この結果が本当に伝えているのは、ジュリアンのゲノムにはほとんど重なり合わない二つの大きな祖先の流れがあるということです。一つは東バルカン——現代のブルガリア人、ルーマニア人、関連集団の遺伝的世界——にたどれます。もう一つは南日本の琉球諸島にたどれ、古代の縄文狩猟採集民の祖先が多いことで特徴づけられる地域です。</p>
+<p><strong>「沖縄」という表示は、この報告書全体で最も重要な詳細です。</strong>本土の日本人は通常10〜15%の縄文系祖先を持ちますが、沖縄の人々は最大で約40%を持ち得ます。後の弥生農耕民の拡大が琉球には不完全にしか及ばなかったためです。アルゴリズムは、通常の本土日本人の祖先から予想されるよりも強い縄文のシグナルを検出しています。</p>
+<p>中央アジア系の小さなパーセンテージは、独立した祖先集団ではありません。父系側ではわずかな痕跡（深い草原とのつながりを通じて）として、母系側ではより大きなシグナル（北東アジア系の祖先を通じて）として現れます。その意味はより深い層で明らかになります。</p>
+<div class="insight-box insight-box--east"><span class="insight-label insight-label--east">計算ツールによって数字が異なる理由</span> 異なるGEDmatch計算ツールから得られたジュリアンの結果は一見矛盾しているように見えます。あるツールは東アジア40%、別のツールは32%、また別のツールは29%と言います。どれも間違っていません。それぞれの計算ツールは異なる参照集団を使用し、異なる遺伝的次元を測定しています。重要なのは、一つのツールの正確なパーセンテージではなく、すべてのツールで一貫しているものです。ジュリアンのDNAで実行されたすべての計算ツールで変わらないことが二つあります。強い東バルカン系ヨーロッパのシグナルと、大陸系漢族よりも縄文人に関連する集団に近くクラスタリングする強い東アジアのシグナルです。それ以外はすべて、各ツールがどれだけ精密に解像できるかという問題です。</div>
+<div class="plain-box">
+<span class="plain-label">簡単に言うと</span>
+      The single idea to take from this layer is: <mark>the label is not the finding</mark>. A percentage next to a country name looks precise, but it's really the output of a computer program comparing DNA to a reference panel someone else built, using categories that program's designers happened to choose. What's actually reliable here is something the percentages alone don't show you directly: this genome is a genuine, roughly even blend of <strong>two ancestries that almost never meet</strong> — Eastern Balkan and Ryukyuan Japanese — rather than a small trace of one inside a mostly-the-other profile. The <strong>Okinawa flag</strong> specifically matters because it's not a vague "Japanese" label; it's the algorithm noticing a genetically older, more isolated signal than mainland Japan would show, the same way "Greek and Albanian" pointed at something older than modern Greece in the Balkan reports. Different calculators disagreeing on the exact percentage (40% vs 32% vs 29%) isn't a contradiction — it's four different rulers measuring the same real thing with different levels of precision.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> ラベルは発見そのものではありません——パーセンテージは参照パネルの出力にすぎず、どの計算機でも変わらないのは、東バルカン系の極と縄文に近い東アジア系の極という二つです。</span></p>
+</div>
+</div>
+</div>
+<!-- ══ LAYER 1: LIVING POPULATIONS ══ -->
+<div class="era-block" id="s_modern">
+<div class="era-marker"><span class="era-dot"></span> <span class="era-label">層1<br/>現代<br/>集団</span></div>
+<div class="era-content">
+<h2>現代集団の地図 — ジュリアンが今どこに位置するか</h2>
+<p>ジュリアンのDNA座標——MyHeritageの生データから世界中の研究者が使用する標準的な遺伝的参照空間に直接投影されたもの——を現代集団の平均値と比較すると、最も近い一致は<strong>ブルガリア人、距離0.126</strong>です。これは境界的または曖昧な結果ではありません。父系の東バルカン系祖先がジュリアンの遺伝的プロフィールで最も強い単一の極であり、約61%の東アジア系祖先の背景の中でも測定可能であるという明確なシグナルです。</p>
+<p>父と息子の比較は、希釈の度合いをはっきり示しています。父親の最も近い一致はルーマニア人（0.018）とブルガリア人（0.021）で、考えられる限り最も緊密な適合の一つです。ジュリアンのブルガリア人までの距離は0.126で、約6倍大きく、まったく異なる地域からの大幅な混血から予想されるとおりです。同じ集団が今も同じ方向に引き寄せていますが、母方の寄与によって薄められたのです。</p>
+<p>２番目に近い現代集団はモンゴル人（0.356）で、次いで日本人（0.479）、韓国人（0.487）です。モンゴル人が日本人より上位にあることは、ジュリアンにモンゴル人の祖先がいることを意味しません。彼のゲノムの東アジア系成分が、遺伝空間で現代日本人の平均よりもモンゴル人の平均に近い位置にあるということで、より深い層がこのパターンの理解を助けます。</p>
+<p>二集団オラクルは、異なるレンズを通して同じ根本的な姿を返します。おおよそ日本人50%＋ルーマニア人50%、または韓国人50%＋ルーマニア人50%です。単一集団の計算機はしばしばウイグル人やウズベク人を返しますが、それは中央アジア系祖先のためではなく、それらの集団自体が西ユーラシアと東ユーラシアのほぼ50対50の中間点にあり、便利な幾何学的代用になるからです。</p>
+<div class="two-col">
+<div>
+<h3 class="table-heading">MyHeritage民族推定</h3>
+<table class="data-table">
+<tr><td>日本人（沖縄）</td><td class="pct-cell"><span class="pct-bar pct-bar--east" style="width:92%"></span><span class="pct-val">61.6%</span></td></tr>
+<tr><td>バルカン系</td><td class="pct-cell"><span class="pct-bar pct-bar--west" style="width:32%"></span><span class="pct-val">21.2%</span></td></tr>
+<tr><td>ギリシャ・アルバニア系</td><td class="pct-cell"><span class="pct-bar pct-bar--west" style="width:16%"></span><span class="pct-val">10.8%</span></td></tr>
+<tr><td>東ヨーロッパ系</td><td class="pct-cell"><span class="pct-bar pct-bar--steppe" style="width:6%"></span><span class="pct-val">3.9%</span></td></tr>
+<tr><td>中央アジア系</td><td class="pct-cell"><span class="pct-bar pct-bar--steppe" style="width:4%"></span><span class="pct-val">2.5%</span></td></tr>
+</table>
+</div>
+<div>
+<h3 class="table-heading">G25距離 — 現代集団</h3>
+<table class="dist-table">
+<tr><td>ブルガリア人</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--gold" style="width:20%"></div></div></td><td class="dist-val">0.126</td></tr>
+<tr><td>モンゴル人</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:56%"></div></div></td><td class="dist-val">0.356</td></tr>
+<tr><td>日本人</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:76%"></div></div></td><td class="dist-val">0.479</td></tr>
+<tr><td>韓国人</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:78%"></div></div></td><td class="dist-val">0.487</td></tr>
+</table>
+</div>
+</div>
+<p>GEDmatchの二集団オラクルは同じ現実を別の角度から確認します。Eurogenes K13は最良の二集団一致として日本人50%＋ルーマニア人50%（距離3.84）を見つけます。Dodecad K12bは韓国人50%＋ルーマニア人50%（距離4.91）を見つけます。これらは矛盾しているのではなく、異なる参照レンズを通じて同じ現実を反映しており、韓国人と日本人は東アジア成分の代替可能なプロキシとして、ルーマニア人は父親の東バルカン系ゲノムに最も近いプロキシとして機能しています。単集団計算ツールはウイグル族やウズベク族を最も近い一致として返しますが、これはジュリアンに中央アジアの祖先があるからではなく、それらの集団自体が約50%西ユーラシア系と50%東アジア系であり、真に両方であるプロフィールに最も近い利用可能な単集団近似値だからです。</p>
+<div class="plain-box">
+<span class="plain-label">簡単に言うと</span>
+      Every reference population that comes up here is a <strong>proxy, not an ancestor</strong>. When a calculator says "closest match: Uyghur," it doesn't mean a Central Asian great-grandparent — it means Uyghur people happen to sit at roughly the same 50/50 East-West genetic midpoint that this genome does, so they're the nearest existing population to compare against, purely by coincidence of geography. The real, underlying picture is much simpler than the specific population names suggest: <mark>a Balkan signal and an East Asian signal, present in close to equal measure</mark>, with every oracle result — Japanese+Romanian, Korean+Romanian, Uyghur, Uzbek — just different ways of describing that same even split.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 出てくる集団はすべて祖先ではなく代用です——本当の姿は、バルカン系のシグナル（ブルガリア人、0.126）と東アジア系のシグナルがほぼ等量で存在するということです。</span></p>
+</div>
+</div>
+</div>
+<!-- ══ LAYER 2: MEDIEVAL ══ -->
+<div class="era-block" id="s_medieval">
+<div class="era-marker"><span class="era-dot era-dot--mid"></span> <span class="era-label">層2<br/>中世<br/>500〜1200年</span></div>
+<div class="era-content">
+<h2>中世の層——スラブ民族の移動と父系の形成</h2>
+<p>現代集団のラベルという表層を取り除くと、最初の歴史的な層に到達します。ジュリアンの父系ゲノムが最もよく似ている集団を形作った、中世の移動です。</p>
+<p>西暦6〜8世紀にかけて、スラブ語を話す集団がプリピャチ地方からバルカンへ拡大しました。父系ゲノムの分析では、スラブ系の寄与はおよそ32%で、直接の東方ルートではなくパンノニア回廊を経て到来したとされます。より大きな成分——約48%——は、すでに存在していたパレオバルカン基層（トラキア系、ダキア系、イリュリア系、ローマ化した現地集団）です。さらに約20%のビザンティン地中海的オーバーレイは、東ローマの数世紀にわたる存在を反映しています。これらの流れが合わさって、ジュリアンの最も近い現代の一致であり続ける中世ブルガリアの遺伝的プロフィールが形成されました。</p>
+<p>このビザンティン時代の成分は、ラベルが誤解を招きやすいため、詳しく見る価値があります。ローマ時代のバルカンの古代DNA研究では、数世紀にわたるローマの政治的・軍事的支配にもかかわらず、鉄器時代のイタリアからの入植者の遺伝的痕跡は見つかっていません——代わりに、帝政期には、おおよそ西暦1〜3世紀という比較的狭い期間に集中して、アナトリアと西アジア由来の祖先の流入があったことが記録されています。その後のビザンティンの数世紀は、同程度の規模の第二の波をもたらしたのではなく、交易、行政、人口移動を通じてこのアナトリアとバルカンのつながりを維持しました。以下のK36の内訳にある「イタリア」成分は、ローマ人入植者に特有の由来ではなく、この広い地中海・アナトリア的親和性を反映しています——現代の集団遺伝学の計算機が便宜上、国名のラベルを借りている場合でも、古代の遺伝データははっきりとこの区別を示しています。</p>
+<p>ジュリアンは、この父系の形成全体をゲノムのおよそ半分として受け継いでいます。各計算機のヨーロッパ系成分は、これを東バルカン＋東地中海＋東ヨーロッパの署名として一貫して再構成しています。</p>
+<p>古代DNAデータベースでジュリアンに最も近い古代の一致を検索すると、結果は<strong>モンゴル・アルハンガイ初期中世、距離0.094</strong>で、テストした集合の中のどのヨーロッパ系・日本系の古代サンプルよりも近くなります。これはモンゴル系祖先を示すものではありません。中世の内陸アジアは西ユーラシアの草原世界と東アジア世界の遺伝的な交差点にあり、真に50対50の東西ゲノムに異例なほどよく合う幾何学的な中間点になっているのです。</p>
+<div class="insight-box">
+<span class="insight-label">古代距離の階層</span>
+      The four ancient populations tested in Model B rank as follows against Julian's true G25 coordinates. The contrast between the medieval Inner Asian match and the much more distant Jomon and Han populations is the central quantitative finding of the ancient DNA analysis.
+      <table class="dist-table" style="margin-top:.8rem">
+<thead><tr><th>古代集団</th><th>距離</th><th></th></tr></thead>
+<tbody>
+<tr><td>モンゴル・アルハンガイ初期中世</td><td class="dist-val">0.094</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:14%"></div></div></td></tr>
+<tr><td>韓国・チャンハン</td><td class="dist-val">0.382</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:58%"></div></div></td></tr>
+<tr><td>日本縄文狩猟採集民</td><td class="dist-val">0.407</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:62%"></div></div></td></tr>
+<tr><td>漢族（河南省）</td><td class="dist-val">0.478</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--gold" style="width:73%"></div></div></td></tr>
+</tbody>
+</table>
+</div>
+<div class="plain-box">
+<span class="plain-label">簡単に言うと</span>
+      The number worth sitting with here is <mark>0.094</mark> — Julian's single closest ancient match anywhere in this whole report, and it's a medieval Mongolian population, not a Bulgarian or Japanese one. That's genuinely surprising, and the honest answer is that it doesn't point to a hidden Mongolian ancestor. Medieval Inner Asia sat at a genetic crossroads much like the Balkans did — it absorbed influences from both the West Eurasian steppe world and the East Asian world, which makes it an unusually good <strong>midpoint match</strong> for anyone whose own genome is itself a blend of those same two worlds, even if that person's actual ancestors never set foot there. Think of it like a translator who speaks two languages fluently — many find that person "the easiest to talk to" from either side, without being from either side's ancestry. The Balkan and East Asian layers below are what actually built this genome; the Mongolia match is the geometry of the blend recognizing another population that sits at a similar crossroads.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 最も近い古代の一致であるモンゴル・アルハンガイ（0.094）は、隠れたモンゴル系の祖先ではなく、西と東の中間点です。父系側は、スラブ時代の混合によって形作られたパレオバルカンの基盤です。</span></p>
+</div>
+</div>
+</div>
+<!-- ══ LAYER 3: BRONZE AGE ══ -->
+<div class="era-block" id="s_bronze">
+<div class="era-marker"><span class="era-dot era-dot--mid"></span> <span class="era-label">層3<br/>青銅器時代<br/>紀元前3000〜1200年</span></div>
+<div class="era-content">
+<h2>青銅器時代の層——両方向からの草原牧畜民</h2>
+<p>中世の層の下を掘り進むと、ジュリアンの祖先の両側の土台となる青銅器時代の基盤に到達します。古代DNAの姿が構造的に明確になるのはここです。モデルC——ジュリアンの座標を、ヨーロッパ系祖先の三つの起源の流れを表す古代集団と照合するもの——では、ヤムナヤとアナトリア新石器時代は近く明確に分離される一方、縄文と漢族はずっと遠くなります：</p>
+<table class="dist-table">
+<thead><tr><th>古代集団</th><th>距離</th><th></th></tr></thead>
+<tbody>
+<tr><td>ロシア・サマラ青銅器時代ヤムナヤ</td><td class="dist-val">0.195</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:30%"></div></div></td></tr>
+<tr><td>トルコ・ボンジュクル新石器（アナトリア新石器）</td><td class="dist-val">0.206</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--gold" style="width:32%"></div></div></td></tr>
+<tr><td>日本縄文人SG</td><td class="dist-val">0.400</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:62%"></div></div></td></tr>
+<tr><td>ルクセンブルク・ロシュブールWHG</td><td class="dist-val">0.425</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:66%"></div></div></td></tr>
+<tr><td>漢族（河南省）</td><td class="dist-val">0.478</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--gold" style="width:74%"></div></div></td></tr>
+</tbody>
+</table>
+<p>ヤムナヤ（0.195）とアナトリア新石器時代（0.206）はモンゴル中世に次いで最も近い二つの古代集団であり、どちらも明確に父系由来です。これらは東バルカン系ゲノムの二つの最大の創設的流れを表しています。約８０００年前にバルカン半島に到達したアナトリアの農耕民と、約５０００年前にポントス・カスピ海草原からヨーロッパに押し寄せたヤムナヤとして知られる青銅器時代の草原牧畜民です。</p>
+<p>ヤムナヤはヨーロッパの先史時代で最も重要な集団の一つです。ポントス草原で東部狩猟採集民とコーカサス狩猟採集民が融合して生まれ、紀元前3000年頃にあらゆる方向へ驚異的なスピードで拡大し、馬、車輪付き乗り物、そして現代ヨーロッパの大半の言語の祖先となる印欧祖語を携えてきました——ブルガリア語も含め、父親が話す言語です。ジュリアンのゲノム全体の約25%がこの単一の青銅器時代の拡大に由来し、父系のバルカン血統を通じて届いています。</p>
+<p>モンゴル・アルハンガイ初期中世の距離0.094が示唆し始めること——そして以下の母系の層がさらに展開すること——は、草原関連のシグナルが<em>東</em>方向からも、母の祖先を通じて届いているということです。これらは同じ草原集団ではありません。ヤムナヤはポントス草原から西へ拡大しました。ジュリアンの母系の祖先につながる内陸アジアの草原世界は、同じ広大な草地システムの別の東方の腕を越えて拡大しました。ジュリアンはユーラシア草原の両端から草原関連のDNAを持っています。一方はブルガリア人の父から受け継いだ西の草原、もう一方は琉球人の母を通じて届いた東の草原であり、彼女自身の遺伝的歴史には北東アジア大陸的成分が含まれています。</p>
+<p>GEDmatchの染色体ペインティングは、青銅器時代の姿を視覚的に裏づけており、直接読み取る価値があります。父系の行を見ると、ジュリアンの染色体全体で最も密で一貫したオレンジ色のシグナルは、ヤムナヤの行ではなく<strong>バルチン・アナトリア新石器時代</strong>の個体から来ています——複数のバルチンのサンプルが、ほぼすべての染色体で強い対立遺伝子の重なりを示しています。ヤムナヤとサマラ草原の行も確かに存在しますが、視覚的にはバルチンに次ぐものです。この相対的な密度には意味があります。それは東バルカンの遺伝的プロフィールを反映しており、そこではより北のヨーロッパ集団に比べて、アナトリア新石器時代の農耕民系祖先が通常、草原系祖先を上回ります。同様に注目すべきは<strong>ハンガリー新石器時代とハンガリー青銅器時代</strong>のサンプルで、ペインティング全体で強く一致する代用として現れます。これらは別個のハンガリーからの流入の証拠ではなく、パンノニア回廊そのものの遺伝的署名です。ハンガリー盆地にすでに住んでいた青銅器時代の集団は、同じ回廊を南下するスラブ民族の移動に吸収され、その祖先はバルカンに届く前に波の中に織り込まれました。ペインティングのハンガリーの行は、その通過の染色体レベルの記録です。スウェーデンのモタラ狩猟採集民の行は存在しますが比較的まばらで、東バルカンのプロフィールが、スカンジナビアや北ヨーロッパの集団が示すよりも低い西ヨーロッパ狩猟採集民の割合を持つことと一致しています。</p>
+<div class="insight-box">
+<span class="insight-label">染色体ペインティング — 相対的シグナル強度</span>
+<p style="font-size:.88rem;color:var(--ink-mid);margin-bottom:1rem;line-height:1.7">以下のグラフはジュリアンのGEDmatch染色体ペインティングで観察されたアレル重複密度の相対的な強度をまとめたものです——各参照集団の行が22染色体全体でどれだけ一貫してオレンジ色を示すか。これは祖先のパーセンテージではなく、シグナル強度の定性的なランキングです。ゲノムの両側を示しています。父系の西ユーラシア系を左側に、母系の東アジア系を右側に。</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+<div>
+<div style="font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text);margin-bottom:.8rem">父系 — 西ユーラシア系</div>
+<div style="display:flex;flex-direction:column;gap:.5rem">
+<div>
+<div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">バルチン — アナトリア新石器時代</div>
+<div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:96%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
+</div>
+<div>
+<div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">ハンガリー新石器・青銅器時代</div>
+<div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:88%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
+</div>
+<div>
+<div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">ヤムナヤ / サマラ草原</div>
+<div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:78%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
+</div>
+<div>
+<div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">ベル・ビーカー文化</div>
+<div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:68%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
+</div>
+<div>
+<div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">LBK初期農耕民</div>
+<div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:58%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
+</div>
+<div>
+<div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">モタラ西部狩猟採集民</div>
+<div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:42%;height:100%;background:var(--gold);border-radius:4px;opacity:.85"></div></div>
+</div>
+</div>
+</div>
+<div>
+<div style="font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--east);margin-bottom:.8rem">母系 — 東アジア系</div>
+<div style="display:flex;flex-direction:column;gap:.5rem">
+<div>
+<div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">縄文人 / 北東アジア系</div>
+<div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:94%;height:100%;background:var(--east);border-radius:4px;opacity:.85"></div></div>
+</div>
+<div>
+<div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">アイヌ / 北海道</div>
+<div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:84%;height:100%;background:var(--east);border-radius:4px;opacity:.85"></div></div>
+</div>
+<div>
+<div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">ニヴフ / シベリア系</div>
+<div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden"><div style="width:66%;height:100%;background:var(--east);border-radius:4px;opacity:.85"></div></div>
+</div>
+</div>
+<div style="margin-top:1.2rem;font-family:'Inter',sans-serif;font-size:.72rem;color:var(--ink-muted);line-height:1.6;border-top:1px solid var(--parchment-dark);padding-top:.8rem">母系側の縄文／北東アジア系のシグナルは、父系のバルチンのシグナルに匹敵する密度に達しています——両方の祖先の流れがジュリアンのゲノムにほぼ等しく寄与していることの視覚的な裏づけです。</div>
+</div>
+</div>
+<div style="margin-top:1rem;font-family:'Inter',sans-serif;font-size:.72rem;color:var(--ink-muted);line-height:1.6;border-top:1px solid var(--era-line);padding-top:.8rem">バーの幅は、GEDmatchの染色体ペインティングで観察された対立遺伝子の重なりの密度に基づく、定性的なシグナルの強さを表しています。祖先の割合（パーセンテージ）ではなく、そのように読むべきではありません。</div>
+</div>
+<div class="plain-box">
+<span class="plain-label">簡単に言うと</span>
+      This layer is where the two-sided story becomes visually obvious rather than just statistical. Picture the chromosome painting like two rivers running down the page side by side — on the left, Anatolian farmers and steppe herders lighting up chromosome after chromosome; on the right, Jomon and Northeast Asian references doing the same, at <mark>comparable strength</mark> to the paternal side. Neither river is a trace amount hiding in the other — they're roughly equal partners. And on the paternal side specifically, the Anatolian farmer signal (Barcin) runs noticeably stronger than the steppe-herder signal (Yamnaya), the same farmer-leaning pattern that shows up in Eastern Balkan genomes generally, now inherited straight down from father to son.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> ほぼ等しい二つの流れ——父系ではアナトリアの農耕民がヤムナヤの草原系祖先を上回り、別個の東方の草原関連シグナルは母を通じて届いています。</span></p>
+</div>
+</div>
+</div>
+<!-- ══ LAYER 4: NEOLITHIC ══ -->
+<div class="era-block" id="s_neolithic">
+<div class="era-marker"><span class="era-dot era-dot--ancient"></span> <span class="era-label">層4<br/>新石器時代<br/>紀元前7000〜3000年</span></div>
+<div class="era-content">
+<h2>新石器時代の層 — 西側からの農耕民</h2>
+<p>父系側の青銅器時代の草原の層の下には、ジュリアンのゲノムへの最も古い実質的なヨーロッパの寄与があります：約8000年前からアナトリアからヨーロッパへ農耕を広めた初期新石器時代の農耕民です。K10 Ancient計算機は、ジュリアンに初期新石器農耕民の祖先19.48%を割り当てており、これは父系のヨーロッパ系寄与の約40%に相当し、父親のより高い割合が、予想される50%の母方の混血によって希釈されたものです。</p>
+<p>トルコ・ボンジュクル新石器時代（距離0.206）とトルコ・バルチンLN（距離0.230）は、ジュリアンの古代DNAの結果の中で、最も明確なアナトリア農耕民のシグナルとして一緒に現れます。これらは世界で最もよく研究されている古代の農耕集団の一つで、約8000〜9000年前に現在のトルコ北西部を離れ、ギリシャとブルガリアに入り、ヨーロッパ全域に農耕、土器、定住を広めた人々です。バルカンは彼らにとって最初のヨーロッパの目的地であり、その遺産は今日のすべてのバルカンのゲノムで測定できます。K10 Ancient計算機は、ジュリアンに合計で初期新石器農耕民の祖先19.48%を割り当てており、この数字は、ゲノムへの父系と母系の寄与がほぼ等しいことを踏まえると、母系のシグナルではなく、父系のヨーロッパ系農耕民基層の大部分を表している可能性が高いといえます。</p>
+<p>このアナトリア農耕民の祖先がMyHeritageがギリシャ・アルバニア系（10.8%）と捉えているものの一部です。現代のギリシャ人は初期ヨーロッパ農耕民の祖先を非常に高い割合で持っており——どのヨーロッパ集団の中でも最高レベルの一つ——アルゴリズムがジュリアンのゲノムに地中海農耕関連のシグナルを検出すると、そのシグナルを最もよく表現する現代集団に割り当てます。系譜上の意味でのイタリア系やギリシャ系の祖先ではありません。「ギリシャ」や「イタリア」という国民的アイデンティティが存在するよりもはるか以前に、東地中海全体の共有された農耕的基盤としてバルカン半島に到達したものです。</p>
+<p>母系側には新石器時代の物語に対応するものがありますが、独立して、何千キロも離れた場所で起きました。朝鮮半島の農耕民であり金属加工者でもあった弥生の人々は、約2300年前に日本へ到来して列島を変容させ、ほとんどの地域で既存の縄文集団を吸収し、大部分を置き換えました。琉球諸島では、この変容はより不完全でした。ジュリアンの母は琉球系の遺伝的プロフィールを持ち、そこでは弥生の大陸系の層は存在するものの、本土ほどには古い縄文の基盤を上書きしていません。古代DNA比較で中世モンゴルと縄文の間に位置する韓国チャンハンの古代距離0.382は、母方の祖先におけるこの弥生を介した大陸系の層を反映しています。</p>
+<div class="plain-box">
+<span class="plain-label">簡単に言うと</span>
+      Two farming revolutions, on opposite sides of the planet, both echoing forward into one genome. On the paternal side: farmers who left <strong>Anatolia</strong> (today's Turkey) around eight thousand years ago and walked their crops into the Balkans. On the maternal side: the <strong>Yayoi</strong>, who brought farming from Korea into Japan a few thousand years later, transforming the mainland almost completely — but the Ryukyu Islands, where Julian's mother's family is from, held onto more of the older hunter-gatherer foundation than mainland Japan did. It's the same historical pattern — new farmers arriving and mixing with, rather than fully erasing, whoever was already there — playing out independently on two different continents, both leaving their mark on this one person.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 二つの独立した農耕革命——父系ではアナトリアの農耕民、母系では朝鮮半島からの弥生農耕民（琉球ではより不完全）。</span></p>
+</div>
+</div>
+</div>
+<!-- ══ LAYER 5: MESOLITHIC ══ -->
+<div class="era-block" id="s_mesolithic">
+<div class="era-marker"><span class="era-dot era-dot--east"></span> <span class="era-label">層5<br/>中石器時代<br/>紀元前1万〜7000年</span></div>
+<div class="era-content">
+<h2>中石器時代の層 — 二つの狩猟採集民の世界</h2>
+<p>ジュリアンの祖先の両側にある農耕の層の下には、ヨーロッパと東アジアで現存する最古の人類集団があります。農業革命よりはるか前に生きた狩猟採集民で、その遺伝的遺産は、後に続いた農耕民の拡大によって部分的には上書きされたものの、完全に上書きされることはありませんでした。</p>
+<p><strong>父系側</strong>では、西ヨーロッパ狩猟採集民——最初の農耕民が到来する何千年も前からヨーロッパの森を歩き回った後氷河期の森の人々——が父親のゲノムの約15%を寄与し、母系の希釈後には約半分の割合でジュリアンに届きます。ルクセンブルク・ロシュブールは距離0.425でジュリアンの古代DNA結果にランクされます——存在し識別可能ですが、全体の座標を支配する東アジア成分の数学的現実を反映して、ヤムナヤとアナトリアのシグナルよりも大幅に低くランクされます。WHGの遺産は特定の遺伝的マーカー——特にジュリアンが父から受け継いだHERC2青い目のハプロタイプ——に確かに存在し可視です。</p>
+<p><strong>母系側</strong>では、日本列島の縄文人が同等の位置を占めます。古代の、農耕以前の、ゲノム的に孤立した狩猟採集民集団であり、大陸の反対端で何千年もの間古代の遺伝的プロフィールを保持してきました。日本縄文狩猟採集民は距離0.407でランクされます。この距離と漢族・河南省の距離0.478——17%の差——の格差は、ジュリアンの東アジア祖先を大陸系東アジアの農耕集団よりも縄文狩猟採集民により明確に近い位置に置きます。</p>
+<p>縄文人は、海面が低く大陸から陸路での渡来が可能だった約3万〜1万6000年前に日本列島へ到達しました。海面が上昇すると、彼らは数千年にわたって孤立し、地球上のどこにも見られない遺伝的プロフィールを発達させました。彼らは海の狩猟民・漁撈民であり貝塚を築いた人々で、世界最古の焼成土器の作り手でした。古代DNAは、彼らが濃い肌色、波状または縮れた髪、二重まぶたを持っていたことを示しており、これは現代の本土の東アジア人とはかなり異なる表現型で、後に弥生農耕民を生み出すことになる大陸集団からの長い孤立を反映しています。</p>
+<div class="insight-box insight-box--east"><span class="insight-label insight-label--east">二つの狩猟採集民の世界、一つのゲノム</span> 西ヨーロッパ狩猟採集民と縄文狩猟採集民は、最初の解剖学的現生人類がアフリカから拡散し、ユーラシア大陸の両端に住むことになる集団へと分化し始めた約4万〜5万年前に、共通の祖先を共有していました。彼らは数万年にわたって完全な遺伝的孤立の中で進化しました——WHGは氷河期のヨーロッパの森と平原で、縄文の祖先はアジアの太平洋縁で。どちらの集団も、相手の存在を知りませんでした。ジュリアンのゲノムは、初めて両者を一つにします。一方は15番染色体の青い目の対立遺伝子を、もう一方は反対側の鎖に深い太平洋の祖先を寄与し、どちらも、それまで祖先が交わったことのない両親を通じて、そのままの形で届いています。</div>
+<div class="plain-box">
+<span class="plain-label">簡単に言うと</span>
+      This is the <strong>oldest solid ground</strong> on both sides of the family tree, and the two grounds never touched until now. Western Hunter-Gatherers in Ice Age Europe and Jomon hunter-gatherers on the Pacific coast of Asia split apart from a shared ancestor <mark>forty to fifty thousand years ago</mark> and then had zero contact with each other for the entire span of human history since — two completely separate branches of the same original family tree, growing in total isolation on opposite sides of the planet. They finally meet again in one person: the blue-eye gene from one branch, deep Pacific island ancestry from the other, both intact, both real, sitting together in the same genome for the first time since that split.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 一つのゲノムに二つの狩猟採集民の世界——父方の西ヨーロッパ狩猟採集民（青い目の対立遺伝子）と母方の縄文が、約4万〜5万年の隔たりを経て、ジュリアンの中で出会いました。</span></p>
+</div>
+</div>
+</div>
+<!-- ══ LAYER 6: ARCHAIC ══ -->
+<div class="era-block" id="s_archaic">
+<div class="era-marker"><span class="era-dot era-dot--ancient"></span> <span class="era-label">層6<br/>古代人類<br/>5万年以上前</span></div>
+<div class="era-content">
+<h2>古代人類の堆積物——ネアンデルタール人、デニソワ人、最古の遺産</h2>
+<p>発掘の最深層、すべての歴史的な移動と先史時代の人口移動の下には、ジュリアンのゲノムで最も古い遺伝の糸があります。それは現生人類からではなく、私たちの祖先が数万年前に出会い交雑した、他の二つの人類種から受け継いだDNAです。</p>
+<h3 class="sub-heading">ネアンデルタール人の遺産</h3>
+<p>ジュリアンのゲノムにはネアンデルタール人のDNAが含まれています——非アフリカ系の人なら誰でも、約5万〜6万年前に西アジアで現生人類とネアンデルタール人が交雑した結果として、約1〜4%のネアンデルタール人由来の祖先を持っています。彼のGEDmatch染色体ペインティングは最上段の行にネアンデルタール人の参照ゲノムを含んでおり、それらの行のオレンジ色のセグメントが実際に何を意味するのかを正確に理解することが重要です。各オレンジ色のブロックは、その染色体領域でネアンデルタール人の参照ゲノムがジュリアンと対立遺伝子を共有していることを示します。これは対立遺伝子の重なりの尺度であり、特定のネアンデルタール人個体からの直接の系統を主張するものではありません。</p>
+<p>これを踏まえると、ペインティングは<strong>ヴィンディア洞窟（クロアチア、約4万〜4万4000年前）</strong>との明確で繰り返される対立遺伝子の共有を示しており、複数の染色体にわたって散在する一致があります。ヴィンディアはこれまでに配列決定された中で最も質の高いヨーロッパのネアンデルタール人ゲノムであり、世界中のネアンデルタール人浸透研究の主要な参照であるため、これは全く予想どおりで、特筆すべきものではありません。現代のユーラシア人は一般に、ヴィンディア様の集団と検出可能な最大の対立遺伝子の重なりを示します。ジュリアンのヴィンディアのシグナルは、この共有された人類の遺産を反映しており、特定のクロアチアのネアンデルタール人の祖先を示すものではありません。より弱いながらも存在するシグナルは、コーカサスのネアンデルタール人ゲノムである<strong>メズマイスカヤ（ロシア、アディゲ共和国、約2万9000年前）</strong>に対しても現れます。これもまた、ネアンデルタール人浸透全般と一致する対立遺伝子の共有を反映しており、この個体からの系統ではありません。</p>
+<p>染色体ペインティングがはるかに力強く明らかにするのは、ネアンデルタール人の行の後に続くすべてのものです。オレンジ色のバンドは、父系側の西ヨーロッパ狩猟採集民、アナトリア新石器農耕民、ベル・ビーカー、ヤムナヤ草原、ヨーロッパ青銅器時代の参照ゲノムの行を通じて劇的かつ継続的に拡大し、さらに下の縄文人、アイヌ、北東アジアの参照ゲノムの行を通じても拡大します。通常の西ユーラシア集団系列と縄文人関連の東アジア集団からのこの圧倒的なシグナルがペインティングの真のヘッドラインです。G25モデルが見つけたものの視覚的確認です——父系側のWHG、農耕民、草原、母系側の縄文人と北東アジア——ネアンデルタール人の行が上部で両方の血統が共有する最も古くて最も普遍的な人類の遺産を表しています。</p>
+<p>ジュリアンは両方の親からネアンデルタール人浸透セグメントを受け継いでおり、上述のヴィンディアとメズマイスカヤの参照行に対する散在的な対立遺伝子の共有として見えます。両方の親の系統からゲノム全体に蓄積されたこれらの浸透セグメントは、ケラチンと皮膚の機能、免疫応答、血液凝固に最も多く影響します——ネアンデルタール人が数十万年にわたって暮らしていた環境に現生人類が入ったときに有用だった適応です。</p>
+<h3 class="sub-heading">デニソワ人の遺産 — より深いシグナル</h3>
+<p>すべての非アフリカ系集団に比較的均等に分布するネアンデルタール人との混血とは異なり、デニソワ人との混血は地理的に偏っています。大陸系東アジア人はデニソワ人のDNAを約0.2%持ちます。古代東南アジアと太平洋の世界に関連する集団はより多く持ちます——パプアやメラネシアの集団では最大5%です。ジュリアンの母系ゲノムの主要な部分を形成する縄文人は、東南アジアを通じた長い南下の移動中にデニソワ人と以前に交配した古代東南アジア狩猟採集民からの遺伝子流入を通じてオンゲ関連の祖先を持っていました。</p>
+<p>モデルD——古代人類およびデニソワ人関連のシグナルを検出するために特別に設計されたもの——は、ジュリアンの座標を、オンゲ族（古代アンダマン諸島民）、パプア人、縄文、ヤムナヤ、アナトリア新石器時代の集団と比較します。結果は次のとおりです：</p>
+<table class="dist-table">
+<thead><tr><th>集団</th><th>距離</th><th>意義</th></tr></thead>
+<tbody>
+<tr><td>ロシア・サマラ青銅器時代ヤムナヤ</td><td class="dist-val">0.195</td><td style="font-size:.82rem;color:var(--ink-mid)">父系青銅器時代草原 — 近くはっきり</td></tr>
+<tr><td>トルコ・バルチンLN SG</td><td class="dist-val">0.230</td><td style="font-size:.82rem;color:var(--ink-mid)">父系アナトリア新石器時代</td></tr>
+<tr><td>オンゲ — アンダマン諸島</td><td class="dist-val">0.351</td><td style="font-size:.82rem;color:var(--ink-mid)">深い東南アジア狩猟採集民 — デニソワ人保有</td></tr>
+<tr><td>日本縄文狩猟採集民</td><td class="dist-val">0.407</td><td style="font-size:.82rem;color:var(--ink-mid)">オンゲ関連の祖先を持つ</td></tr>
+<tr><td>パプア人（HGDP）</td><td class="dist-val">0.744</td><td style="font-size:.82rem;color:var(--ink-mid)">最高デニソワ人量 — 非常に遠い</td></tr>
+</tbody>
+</table>
+<p>オンゲ族は地球上で最も遺伝的に孤立した集団の一つで——約6万〜7万年前に南方沿岸ルートでアフリカを出た最初の現生人類の直系の子孫であり、アンダマン諸島で、それ以来外部との接触を最小限に抑えて暮らしてきました。彼らは、パプア人に次いで現代集団の中で2番目に高いデニソワ人の混血を持っています。ジュリアンの古代人類モデルで距離0.351（縄文の0.407より近い）に現れるのは、縄文の人々自身が深い歴史の一部としてオンゲ関連の祖先を持っていたことを反映しています。ジュリアンの座標のオンゲのシグナルは、縄文のチャンネルを通じて届いているのであり、独立した直接の源としてではありません。</p>
+<p>パプア人の距離0.744は決定的です。ジュリアンにはメラネシアやニューギニアの直接の祖先はいません。彼のゲノムに存在するデニソワ人シグナルは古く、希釈されており、中間集団の連鎖を通じて伝えられています——東南アジアでのデニソワ人の浸透から縄文人の祖先へ、琉球の集団を通じてジュリアンの母へ、そして彼へ。彼のK10 Ancientの結果はこれを独立して支持します。3.26%のベーリング人と1.16%の太平洋系成分がまさにこの縄文人を介した深い東南アジア的基盤を捉えています。</p>
+<div class="insight-box insight-box--east"><span class="insight-label insight-label--east">二つの古代人類種——データが示すことについての注記</span> 染色体ペインティングとG25の古代人類モデルは同じ方向を指しています：ジュリアンはネアンデルタール人とデニソワ人の両方からの浸透セグメントを持っており、それは参照ゲノムとの対立遺伝子の重なりと、座標に見られるオンゲ関連の祖先の存在から推論されます。これらは集団レベルの推論であり、特定の古代の個体についての家系上の主張ではありません。確信を持って言えるのは、二つの古代人類のシグナルがどちらも存在すること、ネアンデルタール人のシグナルは普遍的な人類の遺産として父系と母系の両方で共有されていること、そしてデニソワ人関連のシグナルは母系側の縄文のチャンネルを通じて特異的に届いていること——つまりこれが、彼のゲノムを純粋にヨーロッパ系のプロフィールから区別する唯一の古代人類の糸であるということです。染色体ペインティング最上段のネアンデルタール人の行は前者を、モデルDでのオンゲ距離0.351は後者を裏づけています。</div>
+<div class="plain-box">
+<span class="plain-label">簡単に言うと</span>
+      Two extinct human relatives, two completely different routes into one genome. <strong>Neanderthal</strong> DNA is here the ordinary way — virtually everyone outside Africa carries some, inherited from interbreeding tens of thousands of years ago, and it shows up on both the Balkan and Japanese sides because both of those ancestral populations passed through that same ancient event. <strong>Denisovan</strong> DNA is the more unusual thread, and it only got here through one specific, long chain: Denisovans mixed with ancient Southeast Asian hunter-gatherers, those hunter-gatherers' descendants became the Onge people of the Andaman Islands and, separately, ancestors of the Jomon, the Jomon passed it down through the Ryukyu Islands, and it reached Julian through his mother. It's faint — the Onge, the closest proxy for this thread, are still fairly distant in the numbers (0.351) — but it's the one archaic signal in this whole report that couldn't have arrived from the Balkan side no matter what, which makes it a genuine, distinguishing mark of the Japanese half of the family tree.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> ネアンデルタール人のDNAは両方の親から来ており、かすかなデニソワ人関連のシグナルは母方の縄文のチャンネルを通じてのみ届いています。</span></p>
+</div>
+</div>
+</div>
+<!-- ══ MOLECULAR EVIDENCE ══ -->
+<div class="era-block" id="s_molecular">
+<div class="era-marker"><span class="era-dot era-dot--special"></span> <span class="era-label">分子レベルの<br/>証拠</span></div>
+<div class="era-content">
+<h2>二つの世界が一塩基対で読み取れる場所</h2>
+<p>これまでの層は、ジュリアンの祖先を集団統計、古代DNAの距離、歴史的な物語を通じて描いてきました。最後の証拠の層は最も直接的です。彼自身のDNAの特定の位置で、二つの祖先の流れが一つのヌクレオチドに符号化されて並んで見えるのです。</p>
+<p>ABCC11遺伝子のrs17822931の位置で、ジュリアンの遺伝子型は<strong>TC——ヘテロ接合型</strong>です。父親はこの位置でCCを持ちます：湿った耳垢、ヨーロッパ人集団でほぼ100%の頻度で見られる祖先型の西ユーラシア型です。母親はほぼ確実にTTを持ちます：乾いた耳垢、日本人・韓国人・中国人集団でほぼ100%の頻度で見られ、ヨーロッパ人にはほとんど存在しない派生型の東アジア型です。T対立遺伝子は、約3万年前に東アジア集団に広まった協調的な選択的スイープの一部で、毛包の太さ、汗腺の密度、耳垢の種類に、連鎖した遺伝的単位として同時に影響を与えました。ジュリアンのTC遺伝子型は、父親の東バルカン系統から西ユーラシア型のCを、母親の琉球の血筋から東アジア型のTを受け取ったことを意味します。ゲノムのたった一つの位置で、両方の祖先が一文字ずつ読み取れるのです。</p>
+<p>目の色と色素沈着の遺伝子座も同じ物語を語ります。主要な目の色スイッチでの<strong>HERC2 GA</strong>遺伝子型は、父親のGG——最終的には高頻度で保有していた中石器時代の西ヨーロッパ狩猟採集民に由来する青い目のハプロタイプ——と、母親のおそらくA対立遺伝子、祖先型の濃い目の色の変異を組み合わせたものです。ジュリアンはおそらくヘーゼルまたは中間的な目の色を持っています：ヨーロッパ最古の目の色の変異と東アジア最古の目の色の変異が、一人の個体の中でヘテロ接合として出会っているのです。<strong>SLC45A2 CG</strong>遺伝子型も同じ構造をたどります——父親のG対立遺伝子、新石器時代の農耕民とともに広まったヨーロッパ型の明るい肌の変異が、母親の祖先に由来する祖先型のC対立遺伝子と対になっています。中間的な色素沈着は予想される結果であり、4万年前に分岐した二つの遺伝的世界の文字どおりの平均です。</p>
+<div class="insight-box insight-box--dual">
+<span class="insight-label insight-label--white">出会いの分子的記録</span>
+<p style="color:var(--gold-light);font-size:.95rem;line-height:1.85;margin:0">父親と母親が反対のアレルを持つ位置でのジュリアンのゲノムのすべてのヘテロ接合型SNPは、初めて出会う二つの血統の分子的記録です。ABCC11 TC、HERC2 GA、SLC45A2 CG——これらは抽象的なものや推定値ではありません。東バルカン半島の交差点と琉球列島が触れ合う正確なヌクレオチドであり、DNAという言語で一文字の精度で書かれ、彼の生のDNAファイルから読み取ることができます。</p>
+</div>
+<div class="plain-box">
+<span class="plain-label">簡単に言うと</span>
+      Everything else in this report is statistics and population comparisons — this layer is different. These are individual letters in Julian's actual DNA, one from each parent, sitting right next to each other. At <strong>ABCC11</strong>, he has one letter that means "wet earwax, European-style" and one that means "dry earwax, East Asian-style" — literally his father's contribution and his mother's contribution, visible side by side at a single spot in his genome. Same story at the eye-color and skin-color genes: one letter says "blue eyes, ancient European," the other says "dark eyes, ancient East Asian," and having one of each is exactly why hazel or in-between eye color is the expected result. This is about as close as genetics gets to literally showing you two family trees meeting in one person.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> ABCC11、HERC2、SLC45A2では、両親の祖先が一文字ずつ読み取れます——ヘテロ接合の位置は、二重の遺産を示す最も直接的な証拠です。</span></p>
+</div>
+</div>
+</div>
+<!-- ══ SNP TABLE ══ -->
+<div class="era-block" id="s_snps">
+<div class="era-marker"><span class="era-dot era-dot--special"></span> <span class="era-label">祖先<br/>SNPマーカー</span></div>
+<div class="era-content">
+<h2>主要な祖先情報・形質遺伝子型</h2>
+<p>ジュリアンのMyHeritage生DNAファイルからの直接の遺伝子型判定です。祖先情報に富む遺伝子座のヘテロ接合の位置は、この表の中で生物学的に最も意味のある項目です——二つの親の系統が、一つの対立遺伝子ずつ、直接読み取れる位置だからです。</p>
+<div class="snp-table-wrap">
+<table class="snp-table">
+<thead><tr><th>遺伝子</th><th>遺伝子型</th><th>由来</th><th>意義</th></tr></thead>
+<tbody>
+<tr>
+<td class="snp-gene">ABCC11</td>
+<td class="snp-geno snp-found--het">TC</td>
+<td><span class="heritage-badge badge--west">西 C</span><span class="heritage-badge badge--east">東 T</span></td>
+<td class="snp-desc">耳垢と汗腺の種類——Tは東アジア系の母から、Cはバルカン系の父から。データセットの中で、二重の遺産を最も直接的に示す単一遺伝子座の例。</td>
+</tr>
+<tr>
+<td class="snp-gene">HERC2</td>
+<td class="snp-geno snp-found--het">GA</td>
+<td><span class="heritage-badge badge--west">WHG G</span><span class="heritage-badge badge--east">東 A</span></td>
+<td class="snp-desc">主要な目の色スイッチ——G（青い目のハプロタイプ、中石器時代WHG由来）は父から、A（濃い色、祖先型）は母から。ヘーゼルまたは中間的な目の色の可能性が高い。</td>
+</tr>
+<tr>
+<td class="snp-gene">SLC45A2</td>
+<td class="snp-geno snp-found--het">CG</td>
+<td><span class="heritage-badge badge--west">西 G</span><span class="heritage-badge badge--east">東 C</span></td>
+<td class="snp-desc">メラニン経路——G（ヨーロッパ型の明るい肌、新石器時代の農耕民由来）は父から、C（祖先型）は母から。中間的な色素沈着が予想される。</td>
+</tr>
+<tr>
+<td class="snp-gene">HERC2（OCA2）</td>
+<td class="snp-geno snp-found--het">GA</td>
+<td><span class="heritage-badge badge--west">父系</span><span class="heritage-badge badge--east">母系</span></td>
+<td class="snp-desc">OCA2色素沈着調節因子——ヘテロ接合型、他の色素沈着座位が示す中間的な色素沈着プロフィールと一致。</td>
+</tr>
+<tr>
+<td class="snp-gene">TYR</td>
+<td class="snp-geno snp-found--het">AC</td>
+<td><span class="heritage-badge badge--west">父系</span><span class="heritage-badge badge--east">母系</span></td>
+<td class="snp-desc">チロシナーゼ酵素——このメラニン生成遺伝子座でヘテロ接合で、紫外線感受性のプロフィールは混合型。</td>
+</tr>
+<tr>
+<td class="snp-gene">LCT / MCM6</td>
+<td class="snp-geno snp-found--west">AG</td>
+<td><span class="heritage-badge badge--west">父系アレル</span></td>
+<td class="snp-desc">ラクターゼ活性持続——ヘテロ接合で、父から受け継いだヨーロッパ型の乳糖耐性対立遺伝子を1コピー持つ。完全な乳糖耐性が予想される。この変異は青銅器時代の牧畜民集団とともに広まり、ヨーロッパおよび関連集団以外ではまれ。</td>
+</tr>
+<tr>
+<td class="snp-gene">ADH1B</td>
+<td class="snp-geno snp-found--west">CC</td>
+<td><span class="heritage-badge badge--east">注目点</span></td>
+<td class="snp-desc">アルコール代謝——CCは標準的なヨーロッパ型。高速代謝型の東アジア型T対立遺伝子（アルコールによる顔面紅潮反応に関連）は受け継がれていない。この対立遺伝子の頻度が本土の漢族集団と異なる、縄文系の祖先が多いことと一致する。</td>
+</tr>
+<tr>
+<td class="snp-gene">MTHFR</td>
+<td class="snp-geno snp-found--west">GG</td>
+<td><span class="heritage-badge badge--west">両方正常</span></td>
+<td class="snp-desc">葉酸代謝——テストされた両方の位置でホモ接合型正常。父親の低活性C677Tアレルを受け継いでいない。葉酸代謝の懸念なし。</td>
+</tr>
+<tr>
+<td class="snp-gene">BDNF</td>
+<td class="snp-geno snp-found--west">CC</td>
+<td><span class="heritage-badge badge--west">Val/Val</span></td>
+<td class="snp-desc">標準的な高神経可塑性型。父親のMet66アレルを受け継いでいない。最適な活動依存性BDNF分泌のベースライン。</td>
+</tr>
+<tr>
+<td class="snp-gene">COMT</td>
+<td class="snp-geno snp-found--west">GG</td>
+<td><span class="heritage-badge badge--west">Val/Val</span></td>
+<td class="snp-desc">前頭前野でのドーパミン分解——Val/Valはドーパミンの分解が速いことを意味し、前頭前野のベースラインのドーパミンが低めで、急性ストレス下でのレジリエンスが高いとしばしば説明されるが、Met/Metのプロフィールと比べてワーキングメモリの成績がやや劣る代償がある。</td>
+</tr>
+<tr>
+<td class="snp-gene">CYP1A2</td>
+<td class="snp-geno snp-found--west">AA</td>
+<td><span class="heritage-badge badge--west">高速型</span></td>
+<td class="snp-desc">カフェイン代謝——高速代謝型。カフェインを効率よく処理し、日常的なコーヒー摂取による心血管リスクは、低速代謝型より低い。</td>
+</tr>
+<tr>
+<td class="snp-gene">TCF7L2</td>
+<td class="snp-geno snp-found--het">CT</td>
+<td><span class="heritage-badge badge--archaic">要観察</span></td>
+<td class="snp-desc">2型糖尿病——ヒトゲノムで最も再現性の高いリスク変異。CTヘテロ接合型は生涯にわたって中程度に高いリスクを持つ。長期的な食事パターンへの意識が推奨される。</td>
+</tr>
+<tr>
+<td class="snp-gene">FTO</td>
+<td class="snp-geno snp-found--het">AT</td>
+<td><span class="heritage-badge badge--archaic">中間型</span></td>
+<td class="snp-desc">代謝リスク——AT中間リスク。TCF7L2 CTと組み合わせると代謝の状況は長期的な意識を要するが警戒するほどではない。</td>
+</tr>
+<tr>
+<td class="snp-gene">APOE</td>
+<td class="snp-geno snp-found--west">CC</td>
+<td><span class="heritage-badge badge--west">良好型</span></td>
+<td class="snp-desc">アルツハイマー病リスク——この位置でのCCは標準的または低減されたリスクプロフィールと関連。APOE ε4の上昇シグナルは検出されない。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="plain-box">
+<span class="plain-label">簡単に言うと</span>
+      The first four rows of this table — ABCC11, HERC2, SLC45A2, TYR — are the real ancestry story: places where father and mother clearly handed down different versions of the same gene, and both are visible at once. The rows after that shift into a different kind of information entirely — genes tied to health and daily biology (caffeine metabolism, diabetes risk, Alzheimer's risk) rather than ancestry. They're accurate reads of the raw data, but worth keeping mentally separate: a genotype that flags "moderately elevated diabetes risk" or "no elevated Alzheimer's signal" is a health note, not a heritage one, and neither of those specific rows says anything about which parent it came from or where in the world that version of the gene originated.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> ヘテロ接合の祖先SNP行（ABCC11、HERC2、SLC45A2、TYR）が遺産の証拠で、残りは健康と形質に関する注記であり、祖先ではありません。</span></p>
+</div>
+</div>
+</div>
+<!-- ══ SYNTHESIS ══ -->
+<div class="era-block" id="s_synthesis" style="border-bottom:none">
+<div class="era-marker"><span class="era-dot era-dot--dual"></span> <span class="era-label">全体像</span></div>
+<div class="era-content">
+<h2>完全な発掘 — 七つの層すべてが共に語ること</h2>
+<p>発掘は完了しました。七つの時間の層が取り除かれ、それらが明らかにしたのは、別々の祖先のつぎはぎではなく、長く隔たっていた二つの人類の系統が一人の人間の中で出会うまでの、一貫した一つの物語です。</p>
+<p>表層では、ジュリアンのゲノムはブルガリア人として最も強く登録されます——最も近い現代集団、距離0.126、61%の東アジア系混血を超えても支配的なシグナルとして残る父系のアンカー。その表層の下、中世の層は二つの流れを明らかにします。ブルガリアの遺伝的プロフィールを形成した、約48%のパレオバルカン基層——移動以前から存在したトラキア人、ダキア人、イリュリア人、ローマ化されたバルカン集団——と、パンノニア回廊を通じて中央ヨーロッパの要素をすでに混ぜながら届いた約32%のスラブ民族移動の寄与です。データベース全体で単独で最も近い古代の一致——モンゴル・アルハンガイ初期中世、距離0.094——も同じ中世の層に位置しており、データが解決を求めることなく提示する発見です。</p>
+<p>さらに深く、青銅器時代が両側で同時に姿を現します。距離0.195のヤムナヤ牧畜民と距離0.206のアナトリア農耕民が二つの最も古い実質的な父系の貢献であり、東バルカン世界の草原と土壌です。母系側では、距離0.382の韓国・チャンハンの古代サンプルが弥生農耕の拡大を通じて琉球に導入された大陸系東アジアの層を示します——ヨーロッパでアナトリアの拡大が起きたのと同じプロセスが日本で起きたもの、アナトリアではなく朝鮮半島から来ていますが、構造的に同一です。</p>
+<p>中石器時代の層では、狩猟採集民が両側に現れます。父系側の西ヨーロッパ狩猟採集民——その青い目の対立遺伝子は、ジュリアンのHERC2遺伝子型の中にそのまま保たれています。母系側の縄文狩猟採集民——その古代の太平洋の遺伝的署名は距離0.407で測定でき、どの本土の東アジア集団よりもジュリアンの座標に近い位置にあります。これら二つの狩猟採集集団は、約4万〜5万年前に共通の祖先を共有していました。ジュリアンのゲノムは、両者を再び一つにしています。</p>
+<p>発掘の最底部には古代人類の堆積物があります。両方の親系統からのネアンデルタール人のDNAは、異なる地理的経路をたどりながらも、レバントでの同じ古代の交雑の出来事から届いています。そして母系側のデニソワ人のシグナル——東南アジアでのデニソワ人の浸透から、縄文人、琉球の集団、ジュリアンの母、そしてジュリアン自身へと続く連鎖を通じて伝えられました。アンダマン諸島のオンゲ族は、この最も深い糸に最も近い古代の代用として距離0.351に現れます——6万年間孤立した島々で暮らしながら、同じ古代人類の祖先の測定可能な痕跡を今も保っている集団です。</p>
+<p>この組み合わせを記述するために設計された集団遺伝学の計算機は一つもありません。この組み合わせは、名前のついた現代集団としてはこれまで存在しなかったからです。どのツールも異なる角度から近づき、異なる数値の答えを出します。しかしどのツールも同じ二つの極を見つけます：強い東バルカン系ヨーロッパのシグナルと、強い縄文に近い東アジアのシグナルです。特定の距離、特定の古代集団、特定のSNP遺伝子型は、すべて同じ方向を指しています。発掘は首尾一貫しています。層は整合しています。物語は完結しました。</p>
+<div class="plain-box">
+<span class="plain-label">簡単に言うと——二つの家系図、一つのゲノム</span>
+<p>ほとんどの祖先の物語は、一本の線に沿って時間をさかのぼる一方向のものです。この物語は同時に二つの方向へ進みます。本当は、途中で出会う二つの別々の物語だからです。<strong>父方</strong>をさかのぼってみましょう：現代のブルガリア人とルーマニア人の親族、次に中世初期にハンガリーを通ってやって来たスラブ系の移住者、次にすでにそこにいたトラキア人やその他の古いバルカンの人々、さらに遡って8000年前にバルカンへ歩いて入ったアナトリアの農耕民とその後に到来したヤムナヤの草原牧畜民、そしてその下には、青い目の遺伝子が今日もそのまま残る西ヨーロッパ狩猟採集民がいます。<strong>母方</strong>を、完全に独立してさかのぼってみましょう：琉球と沖縄の親族は、並外れて強い<strong>縄文</strong>の祖先を持っています——日本列島で何万年もほぼ完全な孤立の中で暮らし、数千年前に朝鮮半島から到来した弥生農耕民によって部分的にしか吸収されなかった狩猟採集民です。</p>
+<p style="margin-top:.8rem">これら二つの系統は<mark>四万〜五万年前</mark>に共通の人類の祖先から分かれ、その後は一切の接触がありませんでした——一方は氷河期のヨーロッパへ、もう一方はアジアの太平洋沿岸へと進み、一人の人間の中で出会うまで。だからこそ、中世モンゴルとの一致は無視するのではなく説明する価値があります。それは隠れた三人目の祖先ではなく、真に半分ヨーロッパ系で半分東アジア系のゲノムを、同じような歴史的な交差点にある集団と比べたときに起きることなのです。そして<strong>デニソワ人</strong>の痕跡を特に挙げる価値があるのもそのためです——両側に同じ古代の出来事で届き、アフリカ以外のほぼすべての人に共通するネアンデルタール人のDNAとは異なり、この糸は一つの特定の方向からしか入ってこられませんでした：縄文を通じ、琉球諸島を経て、母から息子へと。</p>
+<p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>要点：</strong> 二つの家系図、一つのゲノム：東バルカン系（父系）と琉球系（母系）の系統が最後に祖先を共有したのは約4万〜5万年前で、どのツールも同じ二つの極を見つけます。</span></p>
+</div>
+<div class="insight-box insight-box--final">
+<span class="insight-label insight-label--white">ジュリアンの祖先の方程式</span>
+<div class="equation"><span class="eq-east">約30% 縄文系琉球人 — 沖縄の母系基層</span><br/> <span class="eq-east">約15% 大陸系北東アジア人 — 弥生人介在、韓国近接型</span><br/> <span class="eq-east">約3% 古代シベリア / ベーリング人 — 縄文人経由</span><br/> <span class="eq-east">約1% デニソワ人関連 — オンゲ / 縄文人チャンネル</span><br/> ＝ <strong>母系東アジア系 約49%</strong> <br/><br/> 約48% パレオバルカン基層 — トラキア系、ダキア系、イリュリア系、ビザンティン<br/> 約32% スラブ民族移動の混血 — パンノニア回廊<br/> 約20% ビザンティン地中海的引力 — エーゲ海とアナトリア<br/> （基底にある古代の層：アナトリア新石器農耕民、<br/> ヤムナヤ草原牧畜民、西ヨーロッパ狩猟採集民）<br/> ＝ <strong>父系東バルカン系 約50%</strong> <br/><br/> <strong>最も近い現代集団：ブルガリア人 — 0.126</strong><br/> <strong>最も近い古代集団：モンゴル・アルハンガイ中世 — 0.094</strong><br/> <strong>最古の受け継いだ糸：ネアンデルタール人（父系＋母系）・デニソワ人（母系）</strong> <br/><br/> <span style="font-size:.8rem;color:var(--ink-light)"> 東バルカン半島 × 琉球列島 × 内陸アジア草原<br/> 二つの狩猟採集民の血統 · 二つの草原世界 · 二つの古代人類種 · 一つのゲノム </span></div>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
