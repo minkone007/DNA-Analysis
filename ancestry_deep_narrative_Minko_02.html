@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Minko Nenov — The Dig, story edition</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --parchment:#f5efe4;--parchment-dark:#ede3d0;--ink:#1c1610;--ink-mid:#4a3f30;
+  --ink-light:#8a7a65;--accent:#7a3a1a;--accent-light:#c4845a;--gold:#b89a5a;
+  --gold-light:#e8d5a0;--steppe:#6b8a6b;--sea:#3a6b8a;--stone:#8a8a7a;
+  --cinnabar:#8a2a1a;--era-line:#c8b89a;
+}
+body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Georgia,serif;font-size:18px;line-height:1.9}
+
+.lang-bar{position:fixed;top:1rem;right:1.2rem;z-index:200;display:flex;gap:.4rem}
+.lang-btn{font-family:'Inter',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-decoration:none;padding:.3rem .7rem;border-radius:3px;background:rgba(28,22,16,.85);color:var(--ink-light);border:1px solid #3a3020;backdrop-filter:blur(4px);transition:color .15s,border-color .15s}
+.lang-btn:hover{color:var(--gold-light);border-color:var(--gold)}
+.lang-btn--active{color:var(--gold);border-color:var(--gold);pointer-events:none}
+
+.cover{background:var(--ink);color:var(--parchment);padding:6rem 4rem 5rem;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.015) 40px,rgba(255,255,255,.015) 41px);pointer-events:none}
+.cover-eyebrow{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.cover h1{font-size:3.5rem;font-weight:400;letter-spacing:-.02em;color:var(--parchment);line-height:1.1;margin-bottom:.5rem}
+.cover-sub{font-size:1.3rem;font-style:italic;color:var(--gold-light);margin-bottom:.8rem}
+.cover-sub2{font-family:'Inter',sans-serif;font-size:.78rem;color:#a09070;letter-spacing:.08em;margin-bottom:3.5rem}
+.cover-meta{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);border-top:1px solid #3a3020;padding-top:1.5rem;display:flex;gap:2.5rem;flex-wrap:wrap}
+.cover-stat{display:flex;flex-direction:column}
+.cover-stat-val{font-size:1.8rem;font-weight:600;color:var(--gold-light);font-family:'EB Garamond',serif}
+.cover-stat-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-light)}
+
+.nav-sidebar{position:fixed;left:0;top:0;bottom:0;width:200px;background:var(--ink);padding:2rem 1rem;overflow-y:auto;z-index:100}
+.nav-sidebar h4{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid #3a3020}
+.nav-link{display:block;font-family:'Inter',sans-serif;font-size:.73rem;color:var(--ink-light);text-decoration:none;padding:.3rem .4rem;border-radius:3px;margin-bottom:.1rem;line-height:1.4;transition:color .15s,background .15s}
+.nav-link:hover{color:var(--gold-light);background:rgba(255,255,255,.05)}
+.nav-divider{border:none;border-top:1px solid #2a2218;margin:.8rem 0}
+.main-content{margin-left:200px}
+
+.era-block{display:flex;gap:0;padding:3.5rem 4rem 3.5rem 0;border-bottom:1px solid var(--parchment-dark);max-width:1100px;margin:0 auto}
+.era-marker{width:120px;flex-shrink:0;position:relative;padding-top:.35rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.era-marker::before{content:'';position:absolute;left:50%;top:0;bottom:-3.5rem;width:1px;background:var(--era-line);transform:translateX(-50%);z-index:0}
+.era-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parchment);box-shadow:0 0 0 3px var(--gold);align-self: center;z-index:1;flex-shrink:0}
+.era-dot--mid{background:var(--steppe);box-shadow:0 0 0 3px var(--steppe)}
+.era-dot--ancient{background:var(--stone);box-shadow:0 0 0 3px var(--stone)}
+.era-dot--special{background:var(--accent);box-shadow:0 0 0 3px var(--accent)}
+.era-label{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);text-align:center;line-height:1.4;background-color: var(--parchment);z-index:1}
+.era-content{flex:1;padding-left:2.5rem}
+.era-content h2{font-size:1.7rem;font-weight:600;color:var(--ink);margin-bottom:1.2rem;letter-spacing:-.01em;line-height:1.2}
+.era-content p{margin-bottom:1.1rem;color:var(--ink-mid);font-size:1rem;line-height:1.85}
+.sub-heading{font-size:1.15rem;font-weight:600;color:var(--ink);margin:2rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px solid var(--parchment-dark)}
+.descent-note{font-style:italic;color:var(--ink-light)!important;font-size:.95rem!important;margin-bottom:1.6rem!important;padding-bottom:1rem;border-bottom:1px dashed var(--era-line)}
+
+.insight-box{background:var(--parchment-dark);border-left:4px solid var(--gold);padding:1.1rem 1.4rem;margin:1.5rem 0;border-radius:0 6px 6px 0}
+.insight-box--final{background:var(--ink);color:var(--parchment);border-color:var(--gold)}
+.insight-label{font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.5rem}
+.plain-box{background:rgba(58,107,138,.07);border-left:4px solid var(--sea);padding:1.1rem 1.4rem;margin:1.6rem 0;border-radius:0 6px 6px 0;color:var(--ink-mid)}
+.plain-box strong{color:var(--ink);font-weight:600}
+.plain-box em{font-style:italic;color:var(--ink)}
+.plain-box mark{background:var(--gold-light);color:var(--ink);padding:.05em .25em;border-radius:3px;font-style:normal}
+.plain-label{font-family:'Inter',sans-serif;font-style:normal;font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sea);display:block;margin-bottom:.45rem}
+.insight-label--white{color:var(--gold-light)}
+.equation{font-family:'Inter',sans-serif;font-size:.88rem;line-height:2.1;color:var(--gold-light)}
+.equation strong{color:#fff;font-size:1rem}
+
+.dist-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1.2rem 0}
+.dist-table th{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
+.dist-table td{padding:.32rem .5rem;border-bottom:1px solid var(--parchment-dark);vertical-align:middle}
+.dist-table tr:first-child td{font-weight:600;color:var(--ink)}
+.dist-bar-bg{width:160px;height:6px;background:var(--parchment-dark);border-radius:3px;display:inline-block;vertical-align:middle;margin-right:.5rem}
+.dist-bar-fill{height:100%;border-radius:3px;background:var(--gold);display:block}
+.dist-bar-fill--steppe{background:var(--steppe)}
+.dist-bar-fill--stone{background:var(--stone)}
+.dist-val{font-family:'Inter',monospace;font-size:.78rem;color:var(--ink-light)}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0}
+.table-heading{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.6rem}
+.data-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.data-table td{padding:.3rem .4rem;border-bottom:1px solid var(--parchment-dark);vertical-align:middle}
+.pct-cell{width:70%}
+.pct-bar{display:inline-block;height:6px;background:var(--gold);border-radius:3px;vertical-align:middle;margin-right:.4rem;opacity:.75}
+.pct-val{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--ink-light)}
+
+.snp-table-wrap{margin:1.5rem 0;overflow-x:auto}
+.snp-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.snp-table th{font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);padding:.4rem .5rem;border-bottom:2px solid var(--parchment-dark);text-align:left}
+.snp-table td{padding:.35rem .5rem;border-bottom:1px solid var(--parchment-dark);vertical-align:top}
+.snp-rsid{font-family:'Inter',monospace;font-size:.78rem;color:var(--accent)}
+.snp-gene{font-family:'Inter',sans-serif;font-weight:600;font-size:.82rem}
+.snp-geno{font-family:'Inter',monospace;font-weight:700;font-size:.9rem}
+.snp-found{color:var(--steppe)}
+.snp-missing{color:var(--ink-light);font-weight:400;font-size:.78rem}
+.snp-desc{font-size:.82rem;color:var(--ink-light)}
+
+.disclaimer{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-light);background:var(--parchment-dark);padding:1rem 1.4rem;margin:0;line-height:1.6;border-top:1px solid var(--era-line)}
+
+/* ═══ GENETIC STRATIGRAPHY — CHRONOLOGICAL FIELD ═══ */
+.genetic-stratigraphy{margin:3.5rem 0 0;padding:1.5rem 0 0;background:transparent;border:none;border-radius:0}
+.strat-intro{max-width:720px;margin:0 auto 3rem;text-align:center}
+.strat-kicker{display:block;font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.strat-intro h2{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:.5rem}
+.strat-intro p{color:var(--ink-light);font-size:.95rem;line-height:1.6}
+.band-label{min-width:0}
+.band-label strong{display:block;font-size:.84rem;line-height:1.2;font-weight:600}
+.band-label span{display:block;margin-top:.12rem;font-size:.66rem;line-height:1.25;color:var(--ink-light)}
+.band-distance{flex-shrink:0;font-family:'Inter',sans-serif;font-size:.63rem;color:var(--ink-light);white-space:nowrap}
+.band-slavic{border-left-color:var(--cinnabar)}.band-thracian{border-left-color:var(--accent)}.band-modern{border-left-color:var(--gold)}
+.band-steppe{border-left-color:var(--steppe)}
+.band-farmer{border-left-color:var(--sea)}
+.band-whg{border-left-color:var(--stone)}
+.band-ehg{border-left-color:#5a7a5a}.band-chg{border-left-color:#7a6a4a}
+.band-deep{min-height:70px;background:rgba(28,22,16,.035);border:none;border-left:4px solid var(--ink);box-shadow:none}
+.deep-note{max-width:430px;margin-left:auto;font-size:.66rem;line-height:1.4;color:var(--ink-light);font-style:italic}
+@media (max-width:700px){
+.genetic-stratigraphy{padding:2rem 0 2.5rem}
+.band-label strong{font-size:.75rem}.band-label span{font-size:.60rem}.band-distance{font-size:.56rem}.deep-note{display:none}}
+ 
+.strata-zone{position:absolute;left:0;width:100%}
+.strata-zone--modern{background:var(--gold)}
+.strata-zone--slavic{background:var(--cinnabar)}.strata-zone--thracian{background:var(--accent)}
+.strata-zone--steppe{background:var(--steppe)}.strata-zone--farmer{background:var(--sea)}
+.strata-zone--whg{background:var(--stone)}.strata-zone--ehg{background:#5a7a5a}.strata-zone--chg{background:#7a6a4a}
+.strata-zone--deep{background:var(--ink)}
+
+/* ═══════════════════════════════════════════════════════════════
+   GENETIC STRATIGRAPHY — DUAL LINEAGE
+   ═══════════════════════════════════════════════════════════════ */
+.genetic-stratigraphy { margin: 3.5rem 0 4.5rem; padding: 2.5rem 0 3rem; background: transparent; border: none; --rail-w: 10px; --hg-w: 15px; --axis-w: 120px; }
+
+/* ── INTRO ── */
+.strat-intro { max-width: 720px; margin: 0 auto 2.5rem; text-align: center; }
+.strat-kicker { display: block; font-family: 'Inter', sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; }
+.strat-intro h2 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); margin-bottom: .5rem; }
+.strat-intro p { color: var(--ink-light); font-size: .95rem; line-height: 1.6; }
+
+/* ── SHARED MAP CONTAINER ── */
+.dual-heads, .dual-field { --axis-half: 60px; max-width: 1100px; margin: 0 auto; position: relative; }
+
+/* ── COLUMN HEADERS ── */
+.dual-heads { display: grid; grid-template-columns: 1fr calc(var(--axis-half) * 2) 1fr; align-items: end; margin-bottom: 1rem; max-width: 920px; padding: 0 2rem; box-sizing: border-box; }
+.dual-head strong { display: block; font-size: .9rem; letter-spacing: .04em; }
+.dual-head span { display: block; font-size: 1rem; color: var(--ink-light); margin-top: .15rem; }
+.dual-head--paternal { text-align: right; padding-right: 1rem; }
+.dual-head--time { position: relative; top: auto; left: auto; margin-bottom: 1rem; text-align: center; font-family: Inter, sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--ink-light); }
+
+/* ── MAIN STRATIGRAPHY FIELD ── */
+.dual-field { position: relative; z-index: 5; width: 100%; height: 1900px; --rail-w: 10px; --hg-w: 15px; --axis-w: 120px; --card-inset: 28px; --line-width: 55%; --connector-w: 24px; }
+.summary-images-container { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2.35rem 1.5rem; position: absolute; top: 46%; left: -8.25rem; transform: translate(-50%, -50%); width: max-content; z-index: 5; }
+.summary-image { display: flex; flex-direction: column; align-items: center; width: 140px; flex-shrink: 0; }
+.summary-image img { width: 130px; height: 130px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; }
+.summary-image-text { margin-top: 0.55rem; color: var(--ink, #3c3226); font-weight: 600; text-align: center; font-size: 0.78rem; line-height: 1.25; letter-spacing: 0.02em; background-color: var(--parchment); }
+.summary-image--portrait { width: 180px; margin: 1.5rem 0 0 0; }
+.summary-image--portrait img { width: 160px; height: 210px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; z-index: 5; }
+.summary-image--portrait .summary-image-text { margin-top: 0.55rem; }
+
+/* ── TIMELINE MARKERS ── */
+.dual-marker { position: absolute; inset: 0; z-index: auto; pointer-events: none; }
+.marker-left { position: absolute; right: calc(var(--rail-w) + var(--hg-w)); width: calc(var(--rail-w) + var(--line-width) + 50px); border-top: 1px dotted var(--era-line); z-index: 0; }
+.marker-bc { position: absolute; right: calc(var(--rail-w) + var(--hg-w) + -45px); width: 50px; border-top: 1px dotted var(--era-line); z-index: 0; }
+.dual-marker > span { position: absolute; left: auto; right: calc(var(--rail-w) + var(--hg-w) - 80px); width: var(--axis-w); transform: translateY(-50%); text-align: center; font-family: 'Inter', sans-serif; font-size: .65rem; font-weight: 600; letter-spacing: .05em; color: var(--ink-light); white-space: nowrap; z-index: 2; background: rgba(245, 239, 228, .95); padding: 0 .35rem; box-sizing: border-box; }
+
+/* ── LINEAGE COLUMNS ── */
+.dual-col { position: absolute; top: 0; bottom: 0; width: calc(50% - var(--axis-half)); z-index: 1; }
+.dual-col--p { right: 0; width: calc(50% - var(--axis-half)); }
+
+/* ── STRATIGRAPHIC RAILS ── */
+.dual-rail { position: absolute; top: 0; bottom: 0; width: var(--rail-w); min-height: 100%; z-index: 10; border-radius: 3px; overflow: hidden; background: transparent; display: block; }
+.dual-col--p .dual-rail { right: 0; background: transparent; }
+
+/* ── STRATIGRAPHIC BANDS ── */
+.strata-zone { position: absolute; left: 0; width: 100%; min-height: 1px; box-shadow: inset 0 1px 0 rgba(245, 239, 228, .75); }
+.strata-zone--modern { background: var(--gold); }
+.strata-zone--slavic { background: var(--cinnabar); }
+.strata-zone--byzantine { background: #6b3a5c; }
+.strata-zone--thracian { background: var(--accent); }
+.strata-zone--steppe { background: #7a5a8a; }
+.strata-zone--farmer { background: var(--sea); }
+.strata-zone--eastasia { background: #d08a5b; }
+.strata-zone--jomon { background: var(--east); }
+.strata-zone--hg { background-color: #b9c0c7; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.45) 0px, rgba(255,255,255,.45) 2px, transparent 2px, transparent 8px); }
+.strata-zone--whg { background: #8fa3ac; }
+.strata-zone--ehg { background: #4a7a52; }
+.strata-zone--chg { background: #7a6a4a; }
+.strata-zone--deep { background: var(--ink); }
+.strata-zone--deep2 { background-color: #4a3d31; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.45) 0px, rgba(255,255,255,.45) 2px, transparent 2px, transparent 8px); }
+.strata-zone--grey { background: grey; }
+.strata-tick { position: absolute; left: -4px; width: calc(var(--rail-w) + 8px); height: 2px; background: var(--ink-light); opacity: .9; z-index: 2; }
+.strat-map-wrap { position: relative; width: 100%; max-width: 920px; margin: 0 auto; padding: 0 2rem; box-sizing: border-box; }
+.annotation-lane { position: absolute; left: 2rem; top: 0; bottom: 0; width: 50px; z-index: 5; pointer-events: none; }
+
+/* ── HUNTER-GATHERER SUB-LANES ── */
+.dual-hg-block { position: absolute; top: 0; bottom: 0; z-index: 2; }
+.dual-col--p .dual-hg-block { right: var(--rail-w); }
+.dual-col--m .dual-hg-block { left: var(--rail-w); }
+.dual-hg-lane { position: absolute; top: 0; bottom: 0; width: 5px; border-radius: 2px; overflow: hidden; }
+.dual-hg-lane--0 { left: 0; }
+.dual-hg-lane--1 { left: 5px; }
+.dual-hg-lane--2 { left: 10px; }
+.dual-hg-lane--3 { left: -5px; }
+
+/* ── ANCESTRY CARDS ── */
+.dual-card { --bc: var(--ink-mid); --bw: 3px; --bs: solid; position: absolute; transform: translateY(-50%); width: calc(100% - var(--rail-w) - var(--hg-w) - 60px); min-height: 40px; padding: .45rem .7rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .3rem 1rem; background: rgba(245, 239, 228, .82); border: none; border-radius: 2px; z-index: 2; }
+.dual-col--p .dual-card { right: calc(var(--rail-w) + var(--hg-w) + var(--card-inset)); width: calc(100% - var(--rail-w) - var(--hg-w) - var(--card-inset) - 8px); border-right: var(--bw) var(--bs) var(--bc); }
+
+/* ── CARD CONTENT ── */
+.band-label { min-width: 0; }
+.band-label strong { display: block; font-size: 1rem; line-height: 1.2; font-weight: 600; }
+.band-label span { display: block; margin-top: .12rem; font-size: .8rem; line-height: 1.25; color: var(--ink-light); }
+.band-distance { flex-shrink: 0; font-family: 'Inter', sans-serif; font-size: .63rem; color: var(--ink-light); white-space: nowrap; }
+.deep-note { flex-basis: 100%; font-size: .66rem; line-height: 1.4; color: var(--ink-light); font-style: italic; }
+
+/* ── CARD TYPES ── */
+.band-slavic { --bc: var(--cinnabar); }
+.band-byzantine { --bc: #6b3a5c; }
+.band-thracian { --bc: var(--accent); }
+.band-modern { --bc: var(--gold); }
+.band-steppe { --bc: #7a5a8a; }
+.band-farmer { --bc: var(--sea); }
+.band-eastasia { --bc: #d08a5b; }
+.band-whg { --bc: #8fa3ac; }
+.band-jomon { --bc: var(--east); }
+.band-ehg { --bc: #4a7a52; }
+.band-chg { --bc: #7a6a4a; }
+.band-deep { --bc: var(--ink); --bw: 4px; background: rgba(28, 22, 16, .2); }
+.band-deep::before { content: ""; position: absolute; inset: 0; background: rgba(245, 239, 228, .82); z-index: -1; }
+.band-deep2 { --bc: #4a3d31; --bw: 4px; background: rgba(28, 22, 16, .2); }
+.band-deep2::before { content: ""; position: absolute; inset: 0; background: rgba(245, 239, 228, .82); z-index: -1; }
+
+/* ── SHARED / BOTH-LINEAGES BAND ── */
+.dual-shared { position: absolute; left: 0; right: 0; width: 85%; transform: translateY(-50%); z-index: 1; display: grid; grid-template-columns: 1fr calc(var(--axis-half) * 2 + 30px) 1fr; align-items: center; min-height: 70px; padding: .45rem .7rem; border-left: none; border-right: 4px solid var(--ink); border-radius: 2px; }
+.dual-field .band-deep { border-left: none; border-right: 4px solid var(--ink); }
+.dual-shared .deep-note { flex-basis: auto; }
+  
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE OPTIMIZATION
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 700px) {
+  html, body { overflow-x: hidden; }
+  .main-content, .cover { width: 100%; margin-left: 0; box-sizing: border-box; }
+  .main-content { padding: 0; }
+  h1 { font-size: clamp(2rem, 9vw, 3rem); line-height: 1.05; }
+  h2 { font-size: 1.35rem; line-height: 1.2; }
+  h3 { font-size: 1.05rem; line-height: 1.25; }
+  p { font-size: 0.92rem; line-height: 1.65; }
+  .cover { padding: 4rem 1.2rem 3rem; text-align: center; }
+  .era-block { padding: 2rem 1.2rem; flex-direction: column; }
+  .era-marker { width: 100%; flex-direction: column; align-items: center; margin-bottom: 1.25rem; gap: 0.6rem; }
+  .era-marker::before { display: none; }
+  .era-content { padding-left: 0; }
+  .summary-image--portrait { width: 130px; margin: 0.4rem auto 0; }
+  .summary-image--portrait img { width: 120px; height: 160px; }
+  .summary-images-container { display: none !important; } /* omit circular images on mobile */
+  .genetic-stratigraphy { padding: 2rem 0.75rem 2.5rem; }
+  .strat-intro { padding: 0 0.5rem; margin-bottom: 1.5rem; }
+  .strat-intro h2 { font-size: 1.3rem; }
+  .strat-intro p { font-size: 0.82rem; line-height: 1.5; }
+  .dual-rail, .dual-hg-block, .annotation-lane { display: none !important; }
+  .dual-field { height: auto !important; position: static; }
+  .dual-card { position: static !important; right: auto !important; left: auto !important; top: auto !important; width: 100% !important; margin: 0 0 1rem 0; padding: 0.7rem 0.85rem; border-left: 3px solid var(--era-line); background: rgba(245,239,228,0.6); border-radius: 0 4px 4px 0; }
+  .dual-shared-gap, .dual-shared .deep-note, .deep-note { display: none; }
+  .dual-head--time { position: static; top: auto; left: auto; font-size: 0.7rem; margin: 0 0 1.2rem; text-align: center; }
+  .lang-bar { padding: 0.4rem 0.6rem; gap: 0.3rem; }
+  .lang-btn { padding: 0.3rem 0.5rem; font-size: 0.65rem; }
+ .genetic-stratigraphy { overflow: visible; padding: 2rem 0.75rem 2.5rem; }
+
+  /* Kill the fixed height and absolute layout */
+  .dual-field { height: auto !important; min-height: 0 !important; position: relative !important; }
+
+  /* Hide only the pure decorative / absolute pieces */
+  .dual-rail,
+  .dual-hg-block,
+  .annotation-lane,
+  .dual-marker,
+  .marker-left,
+  .marker-bc { display: none !important; }
+
+  /* Force cards into normal document flow */
+  .dual-col { position: static !important; width: 100% !important; height: auto !important; }
+  .dual-card,
+  .dual-shared { 
+    position: static !important; 
+    top: auto !important; 
+    right: auto !important; 
+    left: auto !important; 
+    transform: none !important; 
+    width: 100% !important; 
+    margin: 0 0 1rem 0 !important;
+    display: block !important;
+  }
+
+  .summary-images-container { display: none !important; }
+  .dual-head--time { position: static; text-align: center; margin-bottom: 1rem; }
+}
+  
+@media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
+@media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
+
+/* story panels: one palette colour per layer; sizes match the expanded text */
+.era-content .story-panel{background:var(--pbg);color:var(--pfg);padding:1.5rem 1.7rem 1.35rem;border-radius:0 6px 6px 0;border-left:4px solid var(--pbd,rgba(0,0,0,.28))}
+.era-content .story-panel h2{color:var(--pfg);font-size:1.3rem;line-height:1.25;margin-bottom:.9rem}
+.era-content .story-panel p{color:var(--pfg);font-size:1rem;line-height:1.85;margin-bottom:1rem}
+.era-content .story-panel a{color:var(--pfg);text-underline-offset:3px}
+.era-content .story-panel .sure{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--pmute);display:flex;align-items:center;gap:.65rem;margin:.2rem 0 0}
+.meter{display:inline-flex;gap:3px;flex:none}
+.story-panel .meter i{width:.95rem;height:.38rem;background:var(--pfg);opacity:.28;border-radius:1px}
+.story-panel .m3 i,.story-panel .m2 i:nth-child(-n+2),.story-panel .m1 i:first-child{opacity:1}
+.pn-s_summary,.pn-s_synthesis{--pbg:#1c1610;--pfg:#f5efe4;--pmute:#cbbd9f;--pbd:#b89a5a}
+.pn-s_surface{--pbg:#8a8a7a;--pfg:#120d08;--pmute:#120d08}
+.pn-s_modern{--pbg:#b89a5a;--pfg:#1c1610;--pmute:#1c1610}
+.pn-s_medieval{--pbg:#8a2a1a;--pfg:#f5efe4;--pmute:#ecd9c8}
+.pn-s_bronze{--pbg:#7a5a8a;--pfg:#f7f1e6;--pmute:#e6dcee}
+.pn-s_neolithic{--pbg:#3a6b8a;--pfg:#f5efe4;--pmute:#d9e8f0}
+.pn-s_mesolithic{--pbg:#8fa3ac;--pfg:#1c1610;--pmute:#1c1610}
+.pn-s_archaic{--pbg:#7a6a4a;--pfg:#fbf5e8;--pmute:#eadfc4}
+.pn-s_surprises{--pbg:#7a3a1a;--pfg:#f5efe4;--pmute:#ebd6c4}
+.pn-s_snps{--pbg:#6b8a6b;--pfg:#120d08;--pmute:#120d08}
+details.curious{margin:1.4rem 0 0;border-top:1px dotted var(--era-line);padding-top:.9rem}
+details.curious>summary{cursor:pointer;list-style:none;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:.55rem}
+details.curious>summary::-webkit-details-marker{display:none}
+details.curious>summary::before{content:'+';display:inline-grid;place-items:center;width:1.25rem;height:1.25rem;border:1px solid var(--accent);border-radius:50%;font-size:.95rem;line-height:1}
+details.curious[open]>summary::before{content:'\2212'}
+details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.curious-body{margin-top:1.2rem}
+.disclaimer details.curious{margin-top:.8rem;padding-top:.6rem}
+.disclaimer a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <a href="ancestry_story_Minko.html" class="lang-btn lang-btn--active">EN</a>
+  <a href="ancestry_deep_narrative_Minko_bg.html" class="lang-btn">БГ</a>
+  <a href="ancestry_deep_narrative_Minko_ja.html" class="lang-btn">日本語</a>
+</div>
+
+<nav class="nav-sidebar">
+  <h4>The Dig</h4>
+  <a href="#s_summary" class="nav-link">Executive Summary</a>
+  <a href="#s_surface" class="nav-link"> 0 — The Surface</a>
+  <a href="#s_modern" class="nav-link"> 1 — Living Populations</a>
+  <a href="#s_medieval" class="nav-link"> 2 — Medieval Era</a>
+  <a href="#s_bronze" class="nav-link"> 3 — Bronze Age</a>
+  <a href="#s_neolithic" class="nav-link"> 4 — Neolithic</a>
+  <a href="#s_mesolithic" class="nav-link"> 5 — Mesolithic</a>
+  <a href="#s_archaic" class="nav-link"> 6 — Archaic</a>
+  <hr class="nav-divider">
+  <a href="#s_surprises" class="nav-link">Notable Findings</a>
+  <a href="#s_snps" class="nav-link">Ancestry SNPs</a>
+  <a href="#s_synthesis" class="nav-link">The Full Picture</a>
+</nav>
+
+<div class="main-content">
+
+<div class="cover">
+  <p class="cover-eyebrow">Deep Ancestry Report</p>
+  <h1>Minko Nenov</h1>
+  <p class="cover-sub">An Archaeological Excavation of One Genome</p>
+  <p class="cover-sub2">Eastern Balkans · The Black Sea steppe · Turkey · 50,000 years</p>
+  <div class="cover-meta">
+<div class="cover-stat"><span class="cover-stat-val">Romanian</span><span class="cover-stat-label">Closest living match</span></div>
+<div class="cover-stat"><span class="cover-stat-val">Medieval Macedonia</span><span class="cover-stat-label">Closest ancient match</span></div>
+<div class="cover-stat"><span class="cover-stat-val">7</span><span class="cover-stat-label">Layers of time</span></div>
+<div class="cover-stat"><span class="cover-stat-val">July 2026</span><span class="cover-stat-label">Generated</span></div>
+</div>
+</div>
+
+<div class="disclaimer">Everything on this page is a statistical estimate from ancient and modern DNA, not a family tree. Percentages shift a few points depending on the method, and the names of ancient peoples are labels for genetic groups. <a href="ancestry_deep_narrative_Minko.html">Read the technical report</a>.
+<details class="curious"><summary>Sources and methods</summary><div class="curious-body"><p>Sources: G25 coordinates modelled from GEDmatch K36/K15/K13 components via custom mapping script. GEDmatch Eurogenes K36, Dodecad V3, puntDNAL K15, EUtest K15, Ancient Eurasia K6, MyHeritage ethnicity estimates. Vahaduo Global25 scaled population averages. References: Haak et al. 2015, Olalde et al. 2019, Antonio et al. 2019, Gnecchi-Ruscone et al. 2022 (Avar). Ancient DNA ancestry models are statistical approximations describing genetic relationships, not direct genealogical descent. Generated July 2026.</p></div></details></div>
+ 
+<!-- ══ EXECUTIVE SUMMARY ══ -->
+<div class="era-block" id="s_summary">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+        <span class="era-label">Before the Dig<br>Executive Summary</span>
+            <div class="summary-image summary-image--portrait">
+              <img src="images/minko.webp" alt="The Author" width="160" height="210">
+              <span class="summary-image-text">MINKO<br>NENOV</span>
+            </div>
+         
+  </div>
+  <div class="era-content">
+<div class="story-panel pn-s_summary"><h2>The View From Above</h2>
+<div class="story"><p>Minko took a DNA test. It came back as percentages and country names. We set those aside and dug instead: down through the people who came before him, layer by layer, to the ones who lived 50,000 years ago.</p><p>The map below shows the whole dig at a glance, with today at the top and the deepest past at the bottom. Scroll on to go through it one layer at a time. Every layer ends with a <em>For the curious</em> fold-out holding the full science. Wherever a number appears, we say how sure we are.</p><p><a href="ancestry_deep_narrative_Minko.html">Read the technical report</a></p></div></div>
+<section class="genetic-stratigraphy">
+  <div class="strat-intro">
+  <span class="strat-kicker">Chronological Map</span>
+  <h2>Genetic Stratigraphy</h2>
+  <p>Populations and ancient reference samples used to interpret this profile.</p>
+  <p>
+    <strong>Top = today, bottom = deepest past.</strong>
+    The coloured column is this report’s narrative order, not exact start/end dates on a calendar.
+    Where WHG, EHG, and CHG overlap in time, the main column shows one neutral stretch; their true spans are in the thin lanes beside it.
+  </p>
+ </div>
+      
+  <!-- CHG → Yamnaya connector -->   
+<div class="strat-map-wrap">
+  
+  <div class="annotation-lane">
+
+    <div style="
+      position: absolute;
+      top: 21.5%;
+      left: 685%;
+      width: 280%;
+      height: 20%;
+      border: 1px dotted var(--era-line);
+      border-left: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: -1;
+      pointer-events: none;
+    "></div>
+
+    <div style="
+      position: absolute;
+      top: 31.5%;
+      left: 545%;
+      width: 280%;
+      height: 19%;
+      border: 1px dotted var(--era-line);
+      border-left: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: -1;
+      pointer-events: none;
+    "></div>
+  
+     <div style="
+      position: absolute;
+      top: 32%;
+      left: 30%;
+      width: 320%;
+      height: 19%;
+      border: 1px dotted var(--era-line);
+      border-right: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: 0;
+      pointer-events: none;
+    "></div>
+
+    <div style="
+      position: absolute;
+      top: 43%;
+      left: 65%;
+      width: 250%;
+      height: 15%;
+      border: 1px dotted var(--era-line);
+      border-right: none;
+      border-radius: 15px;
+      background: rgba(245, 239, 228);
+      z-index: 16;
+      pointer-events: none;
+    "></div>
+  </div>
+
+  <div class="dual-field">
+
+    <!-- images -->
+         <div class="summary-images-container">     
+         <span class="era-dot era-dot--special"></span>
+           <div class="summary-image">
+            <img src="images/slavic.webp" alt="Slavic" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">SLAVIC<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/thracian.webp" alt="Thracian" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">THRACIAN<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/yamnaya.webp" alt="Yamnaya" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">YAMNAYA<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/ehg.webp" alt="EHG" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">EHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/chg.webp" alt="CHG" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">CHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/whg.webp" alt="WHG" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">WHG<br>ANCESTRY</span>
+          </div>
+          <div class="summary-image">
+            <img src="images/neanderthal.webp" alt="Neanderthal" width="130" height="130" loading="lazy">
+            <span class="summary-image-text">NEANDERTHAL<br>ANCESTRY</span>
+          </div>
+           <span class="era-dot era-dot--special"></span>
+        </div>
+        <!-- images end -->
+    
+    <div class="dual-marker">
+    <div class="marker-left" style="top:5.5%;"></div>
+        <span style="top:0%;">TIME<br>↓</span>
+    </div>
+    <div class="dual-marker">
+        <div class="marker-left" style="top:5.5%;"></div>
+        <span style="top:5.5%;">TODAY</span>
+    </div>
+    
+   <div class="dual-marker">
+      <div class="marker-left" style="top:12.5%;"></div>
+      <span style="top:12.5%;">~600–900 AD</span>
+      <div class="marker-left" style="top:15.25%;"></div>
+      <span style="top:15.25%;">~0–300 AD</span>
+    </div>
+    
+    <div class="dual-marker">
+      <div class="marker-left" style="top:21.50%; width: 35%;"></div>
+      <span style="top:21.5%;">~800–100 BC</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-bc" style="top:27.75%;"></div>
+        <div class="marker-bc" style="top:29.25%;"></div>
+        <span style="top:28.5%;">~</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:31.5%; width: 35%;"></div>
+        <span style="top:31.5%;">~5000 ya</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:44%; width:44%;"></div>
+        <span style="top:44%;">~7,5k ya</span>
+    </div>
+    
+    <div class="dual-marker">
+        <div class="marker-left" style="top:50.5%; width:44%;"></div>
+        <span style="top:50.5%;">~9k ya</span>
+    </div>
+ 
+ <div class="dual-marker">
+        <div class="marker-left" style="top:58%;"></div>
+        <span style="top:58%;">~11,5k ya</span>
+    </div>
+    
+    <div class="dual-marker">
+      <div class="marker-left" style="top:66.5%;"></div>
+      <span style="top:66.5%;">~14k ya</span>
+    </div>
+    
+    <div class="dual-marker">
+      <div class="marker-left" style="top:88%;"></div>
+      <span style="top:78%;">~30k ya</span>
+    </div>
+    
+    <div class="dual-marker">
+        <span style="top:88%;">~50–60k ya</span>
+    </div>
+ 
+  <div class="dual-shared band-deep" style="top:88.00%;">
+   <div class="band-label">
+    <strong>
+     Neanderthal Admixture
+    </strong>
+    <span>
+     ~50,000–60,000 ya · Levant / Southwest Asia · from both parents · ~1–4% of the genome
+    </span>
+    <span class="band-epoch">
+     Admixture event window: ~50,000–60,000 ya
+    </span>
+   </div>
+   <div class="dual-shared-gap">
+   </div>
+   <div class="deep-note">
+    Universal signal across non-African populations, not an analysis specific to this genome. The chromosome painting shows scattered allele-sharing with Vindija Cave and a weaker signal against Mezmaiskaya, which measures allele overlap, not descent from those individuals.
+   </div>
+  </div>
+  <div class="dual-col dual-col--p" style="--hg-w:15px;">
+   <div class="dual-rail">
+    <div class="strata-zone strata-zone--modern" style="top:0.00%;height:11.25%;" title="Bulgarian · Eastern Balkan Anchor · Population present: ~681 AD – today">
+    </div>
+    <div class="strata-zone strata-zone--slavic" style="top:11.25%;height:2.75%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
+    </div>
+    <div class="strata-zone strata-zone--byzantine" style="top:14.00%;height:2.50%;" title="Slavic Migration &amp; Byzantine Synthesis · Byzantine presence ~330–1453 AD; Slavic migrations ~500–900 AD">
+    </div>
+    <div class="strata-zone strata-zone--thracian" style="top:16.5%;height:11.25%;" title="Paleo-Balkan Substrate · Thracians · Culture present: ~1500 BC – 46 AD">
+    </div>
+    <div class="strata-zone strata-zone--steppe" style="top:29.25%;height:16.00%;" title="Yamnaya / Pontic Steppe Horizon · Culture active: ~3300–2600 BC">
+    </div>   
+    <div class="strata-zone strata-zone--hg" style="top:34.00%;height:35.50%;" title="Western European Hunter-Gatherers · Loschbour: WHG present in Europe: ~15,000–5,000 ya">
+    </div>   
+    <div class="strata-zone strata-zone--deep" style="top:69.50%;height:19.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
+    </div>
+    <div class="strata-zone strata-zone--deep2" style="top:88.50%;height:9.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya">
+    </div>
+   </div>
+   <div class="dual-hg-block" style="width:15px;">
+      <div class="dual-hg-lane dual-hg-lane--2">
+     <div class="strata-zone strata-zone--whg" style="top:34.00%;height:35.50%;" title="WHG">
+     </div>
+    </div>
+     <div class="dual-hg-lane dual-hg-lane--0">
+     <div class="strata-zone strata-zone--chg" style="top:50.00%;height:11.00%;" title="CHG">
+     </div>
+    </div>
+    <div class="dual-hg-lane dual-hg-lane--1">
+     <div class="strata-zone strata-zone--ehg" style="top:42.00%;height:17.00%;" title="EHG">
+
+       
+
+     </div>
+    </div>
+    <div class="dual-hg-lane dual-hg-lane--3">
+     <div class="strata-zone strata-zone--farmer" style="top:46.50%;height:7.50%;" title="EEF">
+     </div>
+    </div>
+   </div>
+
+    <div class="dual-card band-modern" style="top:5.50%; right:100%; width:70%;">
+    <div class="band-label">
+     <strong>
+      Bulgarian · Modern Anchor
+     </strong>
+     <span>
+    Closest modern population · Eastern Balkan continuum (Romania / Bulgaria core) · G25 = genetic distance (lower = closer)
+     </span>
+     <span class="band-epoch">
+      Population present: ~681 AD – today
+     </span>
+    </div>
+    <div class="band-distance">
+    G25: 0.018 / 0.021
+    </div>
+   </div>
+    <div class="dual-card band-slavic" style="top:11.75%; right:120%; width:70%;">
+    <div class="band-label">
+     <strong>
+      Slavic Migration
+     </strong>
+     <span>
+      6th–9th c. · ~32% Slavic (est.) (Pannonian corridor)
+     </span>
+     <span class="band-epoch"></span>
+    </div>
+    <div class="band-distance">
+     G25: 0.122 (late Avar) / 0.214 (early Avar)
+    </div>
+   </div>
+   <div class="dual-card band-byzantine" style="top:15.75%; right:145%; width:70%;">
+     <div class="band-label">
+    <strong>Roman–Byzantine Synthesis</strong> 
+     <span>1st-3rd c. · ~20% Anatolian admixture, reinforced under Byzantine rule
+     </span>
+       <span class="band-epoch"></span>
+      </div>
+    </div>
+    <div class="dual-card band-thracian" style="top:22.00%; right:100%; width:70%;">
+    <div class="band-label">
+     <strong>
+      Paleo-Balkan Substrate · Thracians
+     </strong>
+     <span>
+      Thracian, Dacian, Illyrian · ~48% of the genome (est.)
+     </span>
+     <span class="band-epoch">
+      Culture present: ~1500 BC – 46 AD
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.088–0.096
+    </div>
+   </div>
+   <div class="dual-card band-steppe" style="top:32.00%; right:120%; width:70%;">
+    <div class="band-label">
+     <strong>
+      Yamnaya / Pontic Steppe Horizon
+     </strong>
+     <span>
+      Bronze Age steppe pastoralists · ~56% steppe contribution · Bulgaria_EBA_Yamnaya closer than the Samara steppe reference
+     </span>
+     <span class="band-epoch">
+      Culture active: ~3300–2600 BC
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.123 / 0.176
+    </div>
+   </div>
+   <div class="dual-card band-farmer" style="top:50.50%; right:120%; width:70%;">
+    <div class="band-label">
+     <strong>
+      Anatolian Neolithic · Boncuklu / Barcin
+     </strong>
+     <span>
+      First farmers into the Balkans · ~42% Early Neolithic Farmer
+     </span>
+     <span class="band-epoch">
+      Farming culture: ~10,300–8,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.142 / 0.171
+    </div>
+   </div>
+   <div class="dual-card band-whg" style="top:66.50%; right:75%; width:78%;">
+    <div class="band-label">
+     <strong>
+      WHG · Loschbour
+     </strong>
+     <span>
+      Western hunter-gatherers (WHG) · ~15,000–5,000 ya · Mesolithic Europe · source of the HERC2 blue-eye haplotype</span>
+     <span class="band-epoch"></span>
+    </div>
+    <div class="band-distance">
+     G25: 0.407
+    </div>
+   </div>
+   <div class="dual-card band-ehg" style="top:43.00%; right:150%; width:70%;">
+    <div class="band-label">
+     <strong>
+      EHG · Karelia
+     </strong>
+     <span>
+      Eastern hunter-gatherers (EHG) · secondary to Caucasus hunter-gatherers (CHG) in this profile — typical SE European steppe mix</span>
+     <span class="band-epoch">
+      EHG lineage: ~12,000–7,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.286
+    </div>
+   </div>
+   <div class="dual-card band-chg" style="top:58%; right:150%; width:70%;">
+    <div class="band-label">
+     <strong>
+      CHG · Kotias
+     </strong>
+     <span>
+      Caucasus hunter-gatherers (CHG) · the stronger side of the steppe mix in this genome</span>
+     <span class="band-epoch">
+      CHG lineage: ~13,000–9,000 ya
+     </span>
+    </div>
+    <div class="band-distance">
+     G25: 0.253
+    </div>
+   </div>
+   </div>
+   
+ </div> <!-- end dual-field -->
+</div> <!-- end strat-map-wrap -->
+</section>
+<details class="curious"><summary>For the curious</summary>
+<div class="curious-body">
+
+
+    <p class="descent-note">Seven layers follow, each a few thousand years deeper than the last. Before descending into them, here is what the whole excavation shows, top to bottom.</p>
+
+    <p>The genome sits at the centre of the Eastern Balkan genetic continuum. Modern population comparisons place it closest to Romanian, Bulgarian, and Gagauz references, forming a tight cluster with other Eastern Balkan groups — Montenegrin, Moldovan, Serbian, Macedonian. This matches the MyHeritage picture (Greek and Albanian ~47%, Balkan ~38%) once those two labels are read as overlapping windows onto the same Southeast European gene pool, rather than as separate ancestral fractions.</p>
+
+    <p>At the medieval level, the closest ancient matches are <strong>Macedonia Medieval (0.030)</strong> and <strong>Bulgaria Medieval (0.034)</strong> — a tight Eastern Balkan pair from the early–high medieval period, consistent with a population shaped by the Slavic migrations while retaining a substantial pre-Slavic Paleo-Balkan substrate. The Bronze Age  beneath it shows a near-balanced contribution from Anatolian Neolithic farmers and Pontic Steppe (Yamnaya-related) pastoralists — a roughly balanced synthesis with a modest steppe lean (about 52–56% steppe-related against 42–46% farmer-related, depending on the reference set). Western Hunter-Gatherer ancestry is present but forms the smallest of the three founding European streams, at about 2 percent as a standalone signal, with additional hunter-gatherer ancestry carried inside the steppe component itself that these models cannot separate.</p>
+
+    <p>Deeper still, the steppe ancestry appears weighted toward its Caucasus Hunter-Gatherer (CHG) side rather than its Eastern Hunter-Gatherer (EHG) side — a pattern typical of southeastern European profiles rather than the northern Corded Ware route. Single-gene markers confirm a classic European pigmentation profile — light skin, blue eyes — together with lactase persistence from one copy of the European allele. A homozygous East-Asian-associated EDAR variant is present without its usual ABCC11 partner allele, a combination more consistent with an old, indirect route of gene flow than with recent East Asian ancestry.</p>
+
+    <table class="dist-table">
+      <tr>
+        <th></th>
+        <th>Closest match</th>
+        <th>Distance</th>
+      </tr>
+      <tr>
+        <td>Modern population</td>
+        <td>Romanian</td>
+        <td class="dist-val">0.018</td>
+      </tr>
+      <tr>
+        <td>Medieval</td>
+        <td>Macedonia / Bulgaria Medieval</td>
+        <td class="dist-val">0.030 / 0.034</td>
+      </tr>
+      <tr>
+        <td>Bronze Age</td>
+        <td>Anatolian Neolithic / Yamnaya — near tie</td>
+        <td class="dist-val">0.171 / 0.176</td>
+      </tr>
+      <tr>
+        <td>Archaic steppe layer</td>
+        <td>CHG vs. EHG</td>
+        <td class="dist-val">0.253 / 0.286</td>
+      </tr>
+    </table>
+    <div class="insight-box">
+      <span class="insight-label">How to Read This Report</span>
+      <strong>Lower G25 distance = genetically closer.</strong>
+      These scores measure similarity to reference populations, not “percent of your ancestors.”
+      Modern labels (e.g. “Greek and Albanian,” “Balkan”) are names of present-day comparison groups — not proof of a Greek, Albanian, or other national ancestor in a family-tree sense.
+      Ancient labels (Yamnaya, Barcin, Thracian, etc.) are archaeological or genetic reference clusters used to describe deep structure. Percentages marked est. are narrative estimates; they overlap with the steppe and farmer figures (Slavic and Paleo-Balkan ancestry both contain steppe and farmer ancestry), so they are not slices of a single pie.
+      Work top to bottom: each layer is older than the one above it.
+    </div>
+    
+    
+    <!-- ══ GENETIC STRATIGRAPHY ══ -->
+
+   <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      In short: an Eastern Balkan genome built from a roughly balanced mixture (with a modest steppe lean) of Anatolian farmers and Caucasus-weighted steppe ancestry, with a smaller Western Hunter-Gatherer contribution underneath, later shaped by the Slavic migrations that produced the medieval Bulgarian population.
+      <p style="margin-top:.75rem; font-size:.92em; color:var(--ink-light);"><em>Sibling note:</em> Compared with Stayko, this profile sits slightly closer to the Romanian end of the Balkan continuum, while Stayko sits closer to the Gagauz, Bulgarian and Aegean end.</p>
+      <p>Everything that follows — <mark>seven layers, eight thousand years</mark> — is the evidence behind that one sentence.</p>
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Eastern Balkan profile — roughly balanced farmers + steppe (modest steppe lean), then Slavic-era shaping into a medieval Bulgarian-like population.</span></p>
+    </div>
+  
+</div></details>
+</div>
+</div>
+  
+<!-- ══ LAYER 0 ══ -->
+<div class="era-block" id="s_surface">
+  <div class="era-marker">
+    <span class="era-dot"></span>
+    <span class="era-label">Layer 0<br>The Surface</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel pn-s_surface"><h2>The label on the box is the least interesting part</h2>
+<div class="story"><p>The test says: 47% Greek and Albanian, 38% Balkan, 9% East European, 5% South Italian. That does not mean Minko has a Greek grandmother or an Italian great-grandfather. The test compares his DNA with people alive today and reports who he resembles. "Greek and Albanian" really means "looks like the people who carry the old Mediterranean farming heritage", a heritage shared by almost everyone in southeastern Europe.</p><p>Try a different test and the labels change. The DNA doesn't. So we ignore the labels and dig.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid</p></div></div>
+
+<details class="curious"><summary>For the curious</summary>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">What the Labels Are Telling Us — and What They Are Not</h3>
+
+    <p class="descent-note">An excavation has to start somewhere. This one starts at the surface, with the labels a standard DNA test hands you — and with why those labels are the least reliable part of the whole report.</p>
+
+    <p>MyHeritage's ethnicity estimate for this kit reads as follows:</p>
+
+    <table class="data-table">
+      <tr><td>Greek and Albanian</td><td class="pct-cell"><span class="pct-bar" style="width:78%"></span><span class="pct-val">46.8%</span></td></tr>
+          <tr><td>Балкански<span style="font-size:.75rem;color:var(--ink-light)">(Bosnia and Herzegovina)</span></td><td class="pct-cell"><span class="pct-bar" style="width:75%"></span><span class="pct-val">38.4%</span></td></tr>
+          <tr><td>East European</td><td class="pct-cell"><span class="pct-bar" style="width:17%"></span><span class="pct-val">8.8%</span></td></tr>
+          <tr><td>South Italian</td><td class="pct-cell"><span class="pct-bar" style="width:10%"></span><span class="pct-val">4.9%</span></td></tr>
+          <tr><td>Baltic</td><td class="pct-cell"><span class="pct-bar" style="width:10%"></span><span class="pct-val">1.1%</span></td></tr>
+    </table>
+    
+    <p>MyHeritage also flags four <strong>Additional Genetic Groups</strong> detected at lower confidence — finer-grained population signals the main breakdown doesn't have room for: Bulgaria, Romania, and Bosnia and Herzegovina.</p>
+    
+    <p>Every ancestry report begins with percentages and place names. The MyHeritage results read: Greek and Albanian 46.8%, Balkan 38.4%, East European 8.8%, South Italian 4.9%, Baltic 1.1%. A natural reading suggests a person who is part Greek, part Balkan, part East European — as though different ancestral populations contributed separate, countable slices. That reading is incorrect, and correcting it is where the real story begins.</p>
+
+    <p>These percentages are not ancestry fractions in the way a family tree would show them. They are the output of an algorithm comparing your DNA against modern reference populations and asking which living groups you most resemble, and in what proportions. The same genome run through a different algorithm with a different reference panel will produce different percentages — as the multiple GEDmatch calculators in this report demonstrate repeatedly. What matters is not the precise percentage from any single tool, but what is consistent across all of them.</p>
+
+    <p><strong>Greek and Albanian (46.8%)</strong> does not mean you have a Greek or Albanian grandparent. It means approximately half your genetic profile most closely resembles those modern reference populations, which are themselves descendants of the same ancient Aegean, Anatolian Neolithic, and Paleo-Balkan substrate that underlies all of southeastern Europe — the same substrate that also produced the ancient Thracians, Dacians, and Illyrians of the pre-Slavic Balkans. Modern Greeks and Albanians carry a high proportion of Early European Farmer ancestry and relatively less of the Slavic migration signal, making them the closest living proxies for the pre-Slavic Paleo-Balkan layer. When the algorithm encounters the strong Mediterranean and Anatolian Farmer component in this genome, it maps it to Greek and Albanian — not because of Greek or Albanian ancestry in any genealogical sense, but because those populations best preserve the ancient shared substrate that predates all modern Balkan national identities.</p>
+
+    <p><strong>Balkan (38.4%)</strong> captures your Slavic migration-era ancestry and the local Paleo-Balkan substrate — the populations already in the Balkans before the 6th-century Slavic expansions, plus the migrants themselves. The near-equal split between Greek/Albanian and Balkan is the mathematical expression of your position at the Eastern Balkan genetic crossroads, where the Mediterranean farming bedrock and the continental Slavic layer are present in approximately equal measure.</p>
+
+    <p><strong>South Italian (4.9%)</strong> is not Italian ancestry in any genealogical sense. Modern southern Italians and Balkan Greeks share large amounts of Anatolian Neolithic Farmer and Roman-era Eastern Mediterranean ancestry. This percentage is a mathematical reflection of the shared pre-Roman Mediterranean genetic substrate that once connected the entire central Mediterranean basin — the same ancient farming signal expressed through a different modern population label.</p>
+
+    <p><strong>East European (8.8%)</strong> is the northern Slavic overshoot — the Baltic and forest-zone signal carried from the Slavic homeland in the Pripyat marshes, not a separate East European ancestor. <strong>Baltic (1.1%)</strong> and the additional clusters noted by MyHeritage — Bulgaria, Romania, Serbia/Croatia/Bosnia — are the algorithm recognising that your genome sits at the precise centre of the Eastern Balkan genetic continuum, simultaneously resembling all neighbouring points on the same continuous landscape.</p>
+
+    <div class="insight-box">
+      <span class="insight-label">The Bottom Line</span>
+      Your MyHeritage results, properly interpreted, describe a single coherent genetic identity: the Eastern Balkan crossroads population, where Anatolian Neolithic farmers, Pontic Steppe pastoralists, and indigenous Paleo-Balkan populations converged and integrated over 8,000 years. The specific percentages reflect the proportions of each ancient layer, not the number of different ethnic ancestors.
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      The single idea to take from this layer is: <mark>the label is not the finding</mark>. A percentage next to a country name looks precise, but it's really the output of a computer program comparing your DNA to a reference panel someone else built, using categories that program's designers happened to choose. "Greek and Albanian" at 46.8% doesn't mean you have a Greek or Albanian ancestor — it means your genetic profile most closely resembles people who today carry the ancient Aegean and Anatolian farming substrate, the same substrate that produced the historical Thracians long before "Greek" or "Albanian" existed as national identities. Run the same DNA through a different tool with a different reference panel, and the label changes even though the underlying DNA hasn't moved an inch. What's actually reliable here is the near-even split between "Greek and Albanian" and "Balkan" — two overlapping windows onto the same Eastern Balkan position, both landing close to 50/50, which is exactly what you'd expect from someone sitting at the genuine crossroads of that region rather than off to one side of it.
+       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> The label is not the finding — country names are modern reference tags, not a family tree.</span></p>   
+    </div>
+  
+</div></details>
+</div>
+</div>
+
+
+<!-- ══ LAYER 1 ══ -->
+<div class="era-block" id="s_modern">
+  <div class="era-marker">
+    <span class="era-dot"></span>
+    <span class="era-label">Layer 1<br>Living<br>Populations</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel pn-s_modern"><h2>At home in Romania and Bulgaria</h2>
+<div class="story"><p>Set Minko's DNA beside people living now and the closest match is Romanians, then Bulgarians, then Gagauz (a Turkic-speaking Christian people of Moldova and Bulgaria), Montenegrins, Moldovans, Serbs and Macedonians. Not one country, but a whole neighbourhood, with his DNA near the middle of it.</p><p>It works like finding a phone with several towers: when seven of them point at the same spot, you trust the spot. Romanian beating Bulgarian by a hair doesn't make him "more Romanian". It says he sits almost exactly between two peoples who are close cousins.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid</p></div></div>
+
+<details class="curious"><summary>For the curious</summary>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">The Living Population Map — Where Your Genome Sits Today</h3>
+
+    <p>When your DNA coordinates are compared against modern population averages in the Global25 framework, the results form a geographically precise gradient. The closest modern match is <strong>Romanian at distance 0.018</strong>, followed immediately by Bulgarian at 0.021, Gagauz at 0.024, Montenegrin at 0.025, Moldovan at 0.025, Serbian at 0.026, and Macedonian at 0.026. Every population in the top seven sits below 0.027 — the threshold that represents a genuine, direct regional match. Greek Central Macedonia appears at 0.040 and Albanian at 0.042, already perceptibly more distant as the Mediterranean component begins to pull away from the Slavic migration signal.</p>
+
+    <p>The distances form a perfect geographic gradient: closest matches are all in the Eastern Balkans, the fit degrades systematically as you move either south toward the Mediterranean core or north toward the Slavic forest-steppe. Your genome does not sit near one modern population — it sits at the centre of a genetic continuum spanning the entire Eastern Balkan corridor from Moldova to Macedonia.</p>
+
+    <p>Romanian edges Bulgarian by a narrow margin — 0.018 versus 0.021 — a gap well within the resolution of modelled coordinates. What this tells us is not that you are Romanian rather than Bulgarian, but that you occupy the precise genetic midpoint between these two populations, which are themselves among the most genetically similar national groups in Europe. The GEDmatch single-population oracles across multiple calculators confirm this: Romanian and Bulgarian rank first and second interchangeably depending on which calculator is used, with Macedonian and Serbian always nearby. The relative distance to Greek Central Macedonia (0.040) and Albanian (0.042) — both significantly further than all northern Balkan populations — is the quantitative marker of your stronger Slavic and Romanian-corridor pull compared to the more southerly and Aegean-oriented profile of populations further down the peninsula.</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Modern Population</th><th>G25 Distance</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Romanian</td><td class="dist-val">0.018</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:18%"></div></div></td></tr>
+        <tr><td>Bulgarian</td><td class="dist-val">0.021</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:21%"></div></div></td></tr>
+        <tr><td>Gagauz</td><td class="dist-val">0.024</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:24%"></div></div></td></tr>
+        <tr><td>Montenegrin</td><td class="dist-val">0.025</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:25%"></div></div></td></tr>
+        <tr><td>Moldovan</td><td class="dist-val">0.025</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:25%"></div></div></td></tr>
+        <tr><td>Serbian</td><td class="dist-val">0.026</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:26%"></div></div></td></tr>
+        <tr><td>Macedonian</td><td class="dist-val">0.026</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:26%"></div></div></td></tr>
+        <tr><td>Greek Central Macedonia</td><td class="dist-val">0.040</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:40%"></div></div></td></tr>
+        <tr><td>Albanian</td><td class="dist-val">0.042</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:42%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <div class="two-col">
+      <div>
+        <h3 class="table-heading">MyHeritage Ethnicity Estimates</h3>
+        <table class="data-table">
+          <tr><td>Greek and Albanian</td><td class="pct-cell"><span class="pct-bar" style="width:70%"></span><span class="pct-val">46.8%</span></td></tr>
+          <tr><td>Balkan</td><td class="pct-cell"><span class="pct-bar" style="width:58%"></span><span class="pct-val">38.4%</span></td></tr>
+          <tr><td>East European</td><td class="pct-cell"><span class="pct-bar" style="width:13%"></span><span class="pct-val">8.8%</span></td></tr>
+          <tr><td>South Italian</td><td class="pct-cell"><span class="pct-bar" style="width:7%"></span><span class="pct-val">4.9%</span></td></tr>
+          <tr><td>Baltic</td><td class="pct-cell"><span class="pct-bar" style="width:2%"></span><span class="pct-val">1.1%</span></td></tr>
+        </table>
+      </div>
+      <div>
+        <h3 class="table-heading">Eurogenes K36 — Top Components</h3>
+        <table class="data-table">
+          <tr><td>East Balkan</td><td class="pct-cell"><span class="pct-bar" style="width:58%"></span><span class="pct-val">14.55%</span></td></tr>
+          <tr><td>Italian</td><td class="pct-cell"><span class="pct-bar" style="width:42%"></span><span class="pct-val">10.46%</span></td></tr>
+          <tr><td>East Med</td><td class="pct-cell"><span class="pct-bar" style="width:39%"></span><span class="pct-val">9.68%</span></td></tr>
+          <tr><td>Fennoscandian</td><td class="pct-cell"><span class="pct-bar" style="width:35%"></span><span class="pct-val">8.80%</span></td></tr>
+          <tr><td>East Central Euro</td><td class="pct-cell"><span class="pct-bar" style="width:34%"></span><span class="pct-val">8.55%</span></td></tr>
+          <tr><td>Central Euro</td><td class="pct-cell"><span class="pct-bar" style="width:31%"></span><span class="pct-val">7.72%</span></td></tr>
+          <tr><td>Iberian</td><td class="pct-cell"><span class="pct-bar" style="width:29%"></span><span class="pct-val">7.23%</span></td></tr>
+          <tr><td>North Atlantic</td><td class="pct-cell"><span class="pct-bar" style="width:22%"></span><span class="pct-val">5.45%</span></td></tr>
+          <tr><td>North Caucasian</td><td class="pct-cell"><span class="pct-bar" style="width:20%"></span><span class="pct-val">5.12%</span></td></tr>
+          <tr><td>Armenian</td><td class="pct-cell"><span class="pct-bar" style="width:19%"></span><span class="pct-val">4.86%</span></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <span class="insight-label">What K36 Reveals Beyond MyHeritage</span>
+      The Eurogenes K36 calculator breaks the genome into 36 fine-grained components, revealing structure that MyHeritage smooths over. The East Balkan component at 14.55% is the single highest signal — confirming the Eastern Balkan core. Italian (10.46%) and East Med (9.68%) together account for the shared Ancient Mediterranean bedrock. Fennoscandian (8.80%) captures northern hunter-gatherer DNA that arrived via the Steppe migrations. North Caucasian (5.12%) and Armenian (4.86%) reflect the Caucasus Hunter-Gatherer component inherited through the Yamnaya. The tiny East Central Asian (0.18%) and Indo-Chinese (1.46%) signals connect to the EDAR finding discussed in the Notable Findings section.
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      Seven different modern populations — Romanian, Bulgarian, Gagauz, Montenegrin, Moldovan, Serbian, Macedonian — all land within a hair's breadth of each other, all clearly in the same neighbourhood: the Eastern Balkans. Think of it like triangulating a location with several different phone towers: no single tower gives an exact address, but when seven of them all agree on the same small area, you can trust that's genuinely where the signal is coming from. Romanian edges out Bulgarian by the thinnest of margins — that's not you being "more Romanian than Bulgarian," it's you sitting almost exactly at the midpoint between two populations that are themselves nearly identical genetically. The K36 breakdown adds a second kind of evidence pointing the same way: East Balkan is the single largest component, and Italian plus East Med together form what's really a marker for the old Mediterranean farming population, not literal Italian ancestry. Nine separate measurements, one consistent answer.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> You sit in the Eastern Balkan cluster (Romania–Bulgaria core), not in one single “national” box.</span></p>
+    </div>
+  
+</div></details>
+</div>
+</div>
+
+
+<!-- ══ LAYER 2 ══ -->
+<div class="era-block" id="s_medieval">
+  <div class="era-marker">
+    <span class="era-dot era-dot--mid"></span>
+    <span class="era-label">Layer 2<br>Medieval<br>500–1200 AD</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel pn-s_medieval"><h2>The Slavs arrive, and mix with the people already here</h2>
+<div class="story"><p>Between the 6th and 9th centuries, Slavic-speaking families moved south into the Balkans. They didn't replace anyone. They mixed with the people already living there, the descendants of Thracians, Illyrians and Romans, plus Byzantine Greeks, and from that blend the medieval Bulgarians emerged.</p><p>Minko's DNA is closest to skeletons from medieval Macedonia and Bulgaria. There's a telling detail: he sits close to the ordinary people of that age, not to the Avars, the horse-lord rulers who governed the plain next door and carried far more East Asian steppe ancestry. The everyday people mixed; the ruling elite stayed distinct.</p><p>If we had to guess the mix: roughly a third Slavic, about half older Balkan peoples, a fifth Byzantine and Anatolian. Treat those fractions as a guess, not a measurement.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure of the story; the fractions are a rough guess</p></div></div>
+
+<details class="curious"><summary>For the curious</summary>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">The Medieval Stratum — Bulgaria in Deep Time</h3>
+
+    <p class="descent-note">The modern population labels tell us where you sit today. To understand how that Balkan component formed, we need to remove the modern layer and descend into the medieval period.</p>
+
+        <p>Beneath the modern population layer lies the first historical stratum: the medieval populations that directly preceded the communities your genome most resembles. On the consensus G25 coordinate, the closest medieval references are <strong>Macedonia Medieval (0.030)</strong> and <strong>Bulgaria Medieval (0.034)</strong>. Both are real ancient DNA averages from the Eastern Balkans in the medieval period — not theoretical labels. Bulgaria Medieval remains an excellent match and is still closer than almost all other ancients tested; it is simply not the single nearest row in this list.</p>
+
+    <p>Distances of ~0.03 mean the modelled coordinate sits close to those medieval Balkan averages in genetic space. That does not by itself prove unbroken residence in one town for twelve centuries. It does show that your profile is more consistent with early–high medieval Eastern Balkan variation than with more distant ancient or modern groups further afield.</p>
+
+    <p>The medieval distance table reveals additional structure. <strong>Russia Viking SG at 0.076</strong> reflects the shared northern European steppe-derived ancestry — Varangian merchants and mercenaries were active throughout the Byzantine and Bulgarian world, and the genetic distance here reflects common ancestry rather than direct Norse contact. A second Viking-era reference individual, Russia Viking o SG, ranks at 0.097 — the _o suffix denoting an outlier individual with atypical admixture. <strong>Hungary Late Avar at 0.122</strong> versus <strong>Hungary Early Avar at 0.214</strong> is a gap worth examining carefully.</p>
+
+    <p>The Avar Khaganate controlled the Pannonian Basin — modern Hungary — from 567 to 895 AD, precisely during and after the Slavic migrations into the Balkans. Early Avars (6th–7th century) carried substantial East Asian steppe ancestry — they were genetically distant from Balkan populations. Late Avars (7th–9th century) were already heavily admixed with local European populations, producing a composite that sits much closer to the Eastern Balkan profile. The gap between Early Avar (0.214) and Late Avar (0.122) is the genetic record of that absorption process.</p>
+
+    <p>The elite Avar burials sharpen this picture further. Hungary Late Avar Elite sits at distance 0.301 and Hungary Early Avar Elite at 0.414 — both dramatically more distant than the general Avar population. Elite Avar burials are archaeologically and genomically associated with the ruling steppe dynasty, which retained a much higher proportion of East Asian ancestry than the general population they governed. The fact that the elite are distant while the general Late Avar population (0.122) is close is a precise genomic confirmation: what is genetically proximate to this profile is not the East Asian ruling class of the Avar Khaganate, but the already-Europeanised mixed substrate of the general Late Avar population — the people who were being absorbed into the Slavic migrations as they moved southward through the Pannonian corridor into the Balkans.</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Medieval Population</th><th>Distance</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Macedonia Medieval</td><td class="dist-val">0.030</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:14%"></div></div></td></tr>
+        <tr><td>Bulgaria Medieval</td><td class="dist-val">0.034</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:16%"></div></div></td></tr>
+        <tr><td>Russia Viking SG</td><td class="dist-val">0.076</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:37%"></div></div></td></tr>
+        <tr><td>Russia Viking o SG</td><td class="dist-val">0.097</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:47%"></div></div></td></tr>
+        <tr><td>Hungary Late Avar</td><td class="dist-val">0.122</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:59%"></div></div></td></tr>
+        <tr><td>Serbia Medieval Gepidian</td><td class="dist-val">0.136</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:66%"></div></div></td></tr>
+        <tr><td>Hungary Early Avar</td><td class="dist-val">0.214</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:100%"></div></div></td></tr>
+        <tr><td>Hungary Late Avar Elite</td><td class="dist-val">0.301</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:100%"></div></div></td></tr>
+        <tr><td>Hungary Early Avar Elite</td><td class="dist-val">0.414</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:100%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <div class="insight-box">
+      <span class="insight-label">The Slavic Migration — Pannonian Routing</span>
+      A narrative historical model consistent with your genetic coordinates suggests a substantial Slavic migration-era contribution, a larger pre-Slavic Paleo-Balkan substrate, and a smaller Byzantine/Anatolian component — though these are directional estimates rather than formally validated ancestry proportions. The Slavic component did not arrive via a direct eastern route. The 4-population oracle consistently returns Moldavian and Serbian proxies rather than Russian or Ukrainian ones — the signature of a Slavic population that had already absorbed Central European elements before reaching the Balkans. The preferred migration route encoded in your data is the Pannonian corridor: west through southern Poland, across the Carpathians, into the Hungarian basin, then south under the Avar Khaganate's political umbrella.
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      The Avar numbers above tell a specific historical story once you know what to look for. This genome sits close to the <strong>ordinary population that got absorbed</strong> into the Avar-controlled Pannonian corridor as Slavic migrants moved south into the Balkans (Late Avar, 0.122), and far from the <strong>steppe-descended ruling class</strong> that governed over them (Early Avar, 0.214, and the two Elite tiers further still). That gap is the expected genetic signature of a population that lived through the Slavic migration, not one connected to the Avar political elite — the everyday people got absorbed and moved on; the ruling dynasty stayed genetically distinct.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Closest medieval matches are Eastern Balkan (Macedonia ~0.030, Bulgaria ~0.034) — older Balkan base plus early-medieval mixing, not a pure single tribe.</span></p>
+    </div>
+
+    <div class="insight-box">
+      <span class="insight-label">The Paleo-Balkan Substrate</span>
+      A substantial component of the genetic profile traces directionally to the populations already living in the Balkans before the Slavic arrivals — descendants of ancient Thracians, Dacians, Illyrians, and Romanised provincial populations. This is consistent with the dominant Mediterranean and Anatolian Neolithic signals in every calculator, and with what MyHeritage captures as the Greek and Albanian component. Modern Bulgarians, Greeks, and Albanians all carry varying proportions of this same pre-Slavic Balkan substrate — they are not genetically discrete categories but neighbouring positions in a continuum, and the boundary between them cannot be drawn cleanly from admixture percentages alone.
+    </div>
+
+    <p>An extended ancient DNA comparison against the full Bulgarian archaeological record — now run at higher precision, including several East Asian-admixed and outlier samples not in the original comparison — reveals a precise stratigraphic sequence. The distances form a coherent chronological gradient, closest to medieval, progressively more distant as the reference populations predate the Slavic synthesis:</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Bulgarian Ancient Population</th><th>Period / Note</th><th>Distance</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Bulgaria Medieval</td><td style="font-size:.78rem;color:var(--ink-light)">9th–14th c. AD</td><td class="dist-val">0.0340</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:20%"></div></div></td></tr>
+        <tr><td>Bulgaria EBA o2</td><td style="font-size:.78rem;color:var(--ink-light)">Early Bronze Age</td><td class="dist-val">0.0397</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:23%"></div></div></td></tr>
+        <tr><td>Bulgaria EBA oNorth (in prep.)</td><td style="font-size:.78rem;color:var(--ink-light)">Early Bronze Age, unpublished set</td><td class="dist-val">0.0483</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:28%"></div></div></td></tr>
+        <tr><td>Bulgaria EBA oNorth</td><td style="font-size:.78rem;color:var(--ink-light)">Early Bronze Age</td><td class="dist-val">0.0490</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:29%"></div></div></td></tr>
+        <tr><td>Bulgaria EBA MBA</td><td style="font-size:.78rem;color:var(--ink-light)">Early–Middle Bronze Age</td><td class="dist-val">0.0531</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:31%"></div></div></td></tr>
+        <tr><td>Bulgaria EBA Yamnaya o</td><td style="font-size:.78rem;color:var(--ink-light)">EBA Yamnaya-related</td><td class="dist-val">0.0596</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:35%"></div></div></td></tr>
+        <tr><td>Bulgaria Medieval oEastAsia</td><td style="font-size:.78rem;color:var(--ink-light)">Medieval, East-Asian-admixed outlier</td><td class="dist-val">0.0651</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:38%"></div></div></td></tr>
+        <tr><td>Bulgaria EBA</td><td style="font-size:.78rem;color:var(--ink-light)">Early Bronze Age</td><td class="dist-val">0.0707</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:41%"></div></div></td></tr>
+        <tr><td>Bulgaria C oSteppe</td><td style="font-size:.78rem;color:var(--ink-light)">Chalcolithic, steppe-admixed outlier</td><td class="dist-val">0.0784</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:46%"></div></div></td></tr>
+        <tr><td>Bulgaria BeliBreyag EBA</td><td style="font-size:.78rem;color:var(--ink-light)">Early Bronze Age (Beli Bryag)</td><td class="dist-val">0.0866</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:51%"></div></div></td></tr>
+        <tr><td>Bulgaria IA</td><td style="font-size:.78rem;color:var(--ink-light)">Iron Age</td><td class="dist-val">0.0882</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:52%"></div></div></td></tr>
+        <tr><td>Bulgaria LIA</td><td style="font-size:.78rem;color:var(--ink-light)">Late Iron Age</td><td class="dist-val">0.0906</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:53%"></div></div></td></tr>
+        <tr><td>Bulgaria EIA</td><td style="font-size:.78rem;color:var(--ink-light)">Early Iron Age</td><td class="dist-val">0.0959</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:56%"></div></div></td></tr>
+        <tr><td>Bulgaria MalakPreslavets N</td><td style="font-size:.78rem;color:var(--ink-light)">Neolithic (Malak Preslavets)</td><td class="dist-val">0.0985</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:58%"></div></div></td></tr>
+        <tr><td>Bulgaria MalakPreslavets N oLowEEF</td><td style="font-size:.78rem;color:var(--ink-light)">Neolithic, lower-farmer outlier</td><td class="dist-val">0.0996</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:58%"></div></div></td></tr>
+        <tr><td>Bulgaria MLBA</td><td style="font-size:.78rem;color:var(--ink-light)">Middle–Late Bronze Age</td><td class="dist-val">0.1161</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:68%"></div></div></td></tr>
+        <tr><td>Bulgaria Late Antiquity</td><td style="font-size:.78rem;color:var(--ink-light)">4th–7th c. AD</td><td class="dist-val">0.1174</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:69%"></div></div></td></tr>
+        <tr><td>Bulgaria Varna C</td><td style="font-size:.78rem;color:var(--ink-light)">Chalcolithic</td><td class="dist-val">0.1181</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:69%"></div></div></td></tr>
+        <tr><td>Bulgaria N oEEF</td><td style="font-size:.78rem;color:var(--ink-light)">Neolithic, farmer-profile outlier</td><td class="dist-val">0.1205</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:71%"></div></div></td></tr>
+        <tr><td>Bulgaria EBA Yamnaya</td><td style="font-size:.78rem;color:var(--ink-light)">EBA Yamnaya-related</td><td class="dist-val">0.1228</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:72%"></div></div></td></tr>
+        <tr><td>Bulgaria Krepost N</td><td style="font-size:.78rem;color:var(--ink-light)">Neolithic (Krepost)</td><td class="dist-val">0.1281</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:75%"></div></div></td></tr>
+        <tr><td>Bulgaria N o</td><td style="font-size:.78rem;color:var(--ink-light)">Neolithic, outlier</td><td class="dist-val">0.1337</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:78%"></div></div></td></tr>
+        <tr><td>Bulgaria C</td><td style="font-size:.78rem;color:var(--ink-light)">Chalcolithic</td><td class="dist-val">0.1402</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:82%"></div></div></td></tr>
+        <tr><td>Bulgaria EBA o1</td><td style="font-size:.78rem;color:var(--ink-light)">Early Bronze Age, outlier 1</td><td class="dist-val">0.1511</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:88%"></div></div></td></tr>
+        <tr><td>Bulgaria N</td><td style="font-size:.78rem;color:var(--ink-light)">Neolithic</td><td class="dist-val">0.1622</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:95%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <p>The gradient is historically interpretable, and the added precision sharpens several details. The genome is closest to the medieval Bulgarian population that emerged from the Slavic synthesis (0.0340), followed immediately by a tight cluster of Early Bronze Age samples (0.0397–0.0596) — the shared steppe and Anatolian Neolithic substrate that predates the Slavic arrival. Bulgaria Medieval oEastAsia (0.0651) — a medieval outlier individual carrying an additional East Asian-related signal, plausibly linked to Bulgar, Pecheneg, or Cuman contact — sits well behind the general medieval population, a useful negative control: this genome does not carry an elevated version of that specific medieval channel. The Iron Age tier (0.0882–0.0959) and the two Neolithic Malak Preslavets samples (0.0985–0.0996) sit in the middle of the gradient, while Middle–Late Bronze Age, Late Antiquity, and Chalcolithic Varna cluster tightly together around 0.116–0.118. The Chalcolithic and general Neolithic populations (0.140–0.162) remain the most distant — the oldest Bulgarian ancient DNA, predating the Bronze Age steppe admixture entirely, showing how much the steppe migrations transformed the genetic landscape of the Balkans.</p>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      The number to hold onto from this whole layer is <mark>0.034</mark> — the distance to real, excavated skeletons from medieval Bulgaria. Everything else in this expanded table gives that number context by going backwards in time. Reading down the list is like reading history in reverse: medieval Bulgaria first, then a tight run of Bronze Age samples, then Iron Age, then Neolithic, each tier a little further away than the last, all the way back to farming villages that are seven or eight thousand years older than the medieval graves at the top — the same ancestors of the historical <strong>Thracians</strong> referenced above, now showing up as the most distant tier in the actual numbers. That steady, sensible ordering — nothing wildly out of place — is itself a kind of confirmation: if the numbers had come out scrambled, with an ancient Neolithic sample somehow closer than a medieval one, it would be a red flag that something in the modelling had gone wrong. It didn't. One continuous line, running from a Danube farming village to a medieval Bulgarian grave.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> A large pre-Slavic Balkan layer sits under the medieval profile.</span></p>
+    </div>
+  
+</div></details>
+</div>
+</div>
+
+
+<!-- ══ LAYER 3 ══ -->
+<div class="era-block" id="s_bronze">
+  <div class="era-marker">
+    <span class="era-dot era-dot--mid"></span>
+    <span class="era-label">Layer 3<br>Bronze Age<br>3000–1200 BC</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel pn-s_bronze"><h2>Horse riders from the steppe</h2>
+<div class="story"><p>Around 5,000 years ago, herders from the grasslands north of the Black Sea, whom archaeologists call the Yamnaya, spread across Europe with horses and wagons. They carried a language family that includes Bulgarian, English and Hindi.</p><p>A bit more than half of Minko's ancestry traces to this wave: our best estimate is 52 to 56%. The herders were themselves a blend of two older hunter groups, and his steppe ancestry leans toward the mountain hunters of the Caucasus rather than the forest hunters of the north. That is a southeastern signature.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure; the split moves a few points between methods</p></div></div>
+
+<details class="curious"><summary>For the curious</summary>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">The Bronze Age Stratum — The Yamnaya Wave</h3>
+
+    <p class="descent-note">The medieval Balkan population was itself built from older populations. Beneath the Slavic and Paleo-Balkan layer lies the Bronze Age world of farmers and steppe pastoralists.</p>
+
+    <p>Beneath the medieval and historical layers, the Bronze Age foundations of the genome become measurable. Vahaduo Model C compares your coordinates against the three founding ancient streams of European ancestry, and the result is structurally clear:</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Ancient Population</th><th>Distance</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Turkey Boncuklu N (Anatolian, ~10,000 BC)</td><td class="dist-val">0.142</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:34%"></div></div></td></tr>
+        <tr><td>Turkey Barcin LN (Anatolian Neolithic, ~6500 BC)</td><td class="dist-val">0.171</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:41%"></div></div></td></tr>
+        <tr><td>Russia Samara EBA Yamnaya (~3000 BC)</td><td class="dist-val">0.176</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:42%"></div></div></td></tr>
+        <tr><td>Luxembourg Loschbour WHG (~7000 BC)</td><td class="dist-val">0.407</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:98%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <p>Barcin Anatolian Neolithic (0.171) and Yamnaya (0.176) are nearly tied in distance, and in modelled proportion the steppe-related share runs only modestly ahead of the farmer-related share (about 52–56% against 42–46%) — which is characteristic of Eastern Balkan profiles where both streams are well represented. The deep ancestry model assigns approximately <strong>56% Pontic Steppe Pastoralist ancestry (about 52% when the K36-only coordinate set is used)</strong> to your genome, expressed as a combination of Eastern Hunter-Gatherer and Caucasus Hunter-Gatherer components in its raw Stone Age form.</p>
+
+    <p>The Yamnaya were among the most consequential populations in European prehistory. Originating on the Pontic-Caspian steppe approximately 5,000 years ago from a merger of Eastern Hunter-Gatherers and Caucasus Hunter-Gatherers, they expanded with extraordinary speed in every direction, carrying horses, wheeled vehicles, and a Proto-Indo-European language ancestral to modern Bulgarian — the language in which this text might one day be read by descendants. In this model, a little over half of the genome is best explained by this single Bronze Age expansion.</p>
+
+    <p>Boncuklu (0.142) ranking above Barcin (0.171) is worth noting. Both are Anatolian Neolithic sites but Boncuklu is older — approximately 10,000 BC, pre-farming or proto-farming central Anatolia — while Barcin represents the classic northwestern Anatolian farming wave that entered Europe around 6,500 BC. The closer Boncuklu distance suggests your Anatolian Neolithic signal has depth, pointing toward a more ancient Anatolian substrate beneath the farming layer itself.</p>
+
+    <p>Loschbour WHG at 0.407 — the most distant ancient population tested — confirms that Western Hunter-Gatherer ancestry is real but secondary, the most diluted of the three founding streams.</p>
+
+    <p>One additional finding from the extended ancient distance analysis is worth noting: <strong>Russia Samara Sarmatian ranks at approximately 0.138</strong> — closer than Yamnaya and sitting between the Bronze Age steppe world and the medieval populations. The Sarmatians were Iron Age nomadic pastoralists who succeeded the Scythians on the Pontic steppe from approximately the 4th century BC onward, and were particularly active in the Danubian and Dacian regions that border the Eastern Balkans. Their proximity to this profile is consistent with the southeastern European steppe routing already identified in the CHG weighting — the same geographic corridor that connected the Pontic steppe to the Balkans through successive waves of steppe-related populations across two millennia.</p>
+
+    <div class="insight-box">
+      <span class="insight-label">Relative Signal Strength — Ancient Sources</span>
+      <p style="font-size:.88rem;color:var(--ink-mid);margin-bottom:1rem;line-height:1.7">The chart below summarises the relative proximity of major ancient reference populations to your G25 coordinates. Shorter bars indicate closer genetic affinity. These are modelled distances, not percentages of ancestry.</p>
+      <div style="display:flex;flex-direction:column;gap:.6rem">
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Bulgaria Medieval — historical continuity</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:8%;height:100%;background:var(--gold);border-radius:4px;opacity:.9"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Turkey Boncuklu N — deep Anatolian substrate</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:35%;height:100%;background:var(--gold);border-radius:4px;opacity:.9"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Russia Samara Yamnaya — Bronze Age steppe</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:43%;height:100%;background:var(--steppe);border-radius:4px;opacity:.9"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Turkey Barcin LN — Anatolian Neolithic farmers</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:43%;height:100%;background:var(--gold);border-radius:4px;opacity:.9"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Georgia Kotias CHG — Caucasus Hunter-Gatherer</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:62%;height:100%;background:var(--steppe);border-radius:4px;opacity:.7"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Russia Karelia EHG — Eastern Hunter-Gatherer</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:71%;height:100%;background:var(--steppe);border-radius:4px;opacity:.7"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Iran GanjDareh — Southwest Asian Neolithic</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:73%;height:100%;background:var(--gold);border-radius:4px;opacity:.6"></div></div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Luxembourg Loschbour WHG — Western Hunter-Gatherer</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:100%;height:100%;background:var(--stone);border-radius:4px;opacity:.7"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:1rem;font-family:'Inter',sans-serif;font-size:.72rem;color:var(--ink-light);border-top:1px solid var(--era-line);padding-top:.8rem">Bar lengths represent relative genetic distance — shorter = closer. They are not percentages of ancestry.</div>
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      Picture two rivers merging into one — <em>one flowing up from the old farming villages of Anatolia, the other down from the horse-herding steppe north of the Black Sea</em> — and this genome sits almost exactly where the two currents meet. The Anatolian farmer reference at 0.171 and Yamnaya at 0.176 are close enough to call a tie in distance, and the modelled shares are close too: a little over half of the deep ancestry (about 52–56%) traces to steppe pastoralists and a little under half (about 42–46%) to the farmers who were already settled in the region before the herders arrived. That's a near-balanced split with only a modest steppe lean — a different pattern than a more one-sided profile would show, and it's exactly what you'd expect from someone whose ancestors sat at the true crossroads rather than off toward one edge of it. Loschbour, the hunter-gatherer reference, remains the most distant population tested — present in the mix, but the smallest of the three ancient ingredients.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Roughly 42–46% Anatolian farmers and 52–56% steppe — a near-balanced mix with a modest steppe lean, not one dominant Bronze Age source.</span></p>
+    </div>
+  
+</div></details>
+</div>
+</div>
+
+
+<!-- ══ LAYER 4 ══ -->
+<div class="era-block" id="s_neolithic">
+  <div class="era-marker">
+    <span class="era-dot era-dot--ancient"></span>
+    <span class="era-label">Layer 4<br>Neolithic<br>7000–3000 BC</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel pn-s_neolithic"><h2>The first farmers walk in from Turkey</h2>
+<div class="story"><p>Before the herders came the farmers. Starting around 8,500 years ago, families from what is now Turkey crossed into Europe through the Balkans, with Bulgaria and Greece as their first stop, bringing wheat, sheep and permanent villages. They changed how people lived, and how Europeans look: light skin spread with them. Minko carries two copies of the light-skin variant.</p><p>Farmers account for roughly 42 to 46% of his ancestry, nearly level with the herders who came later. For comparison, Sardinians, whom later migrations mostly bypassed, carry about twice as much.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure</p></div></div>
+
+<details class="curious"><summary>For the curious</summary>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">The Neolithic Stratum — Farmers from Anatolia</h3>
+
+    <p class="descent-note">But the Bronze Age populations were not the beginning. Beneath the steppe expansion lies an even older European foundation: the first farmers.</p>
+
+    <p>Beneath the Bronze Age steppe layer lies the Anatolian Neolithic farming substrate — the oldest substantial European contribution to the genome. The deep ancestry model assigns approximately <strong>42% Anatolian Neolithic Farmer ancestry (about 46% when the K36-only coordinate set is used)</strong>, which is the expected proportion for a southeastern European with a strong Slavic component. For comparison: modern Sardinians, largely bypassed by later migrations, carry 75–85% Anatolian Neolithic ancestry; modern Greeks carry roughly 55–60%. The Eastern Balkan profile sits lower because the steppe migrations were more thorough here than in the Mediterranean south.</p>
+
+    <p>The Anatolian Neolithic farmers left what is now Turkey approximately 8,000–9,000 years ago and entered Europe through the Balkans first — Bulgaria and Greece were the initial destination of the farming expansion, not a secondary transit zone. This is why the Anatolian Neolithic signal is so strong and well-preserved in Eastern Balkan genomes: the Balkans were the landfall point, the place where Old Europe was first transformed by agriculture, and the genetic legacy of that first contact is measurably denser here than further west or north.</p>
+
+    <p>This ancestry is the genetic basis of what MyHeritage calls the Greek and Albanian and South Italian components. These are not recent Greek or Italian ancestors — they are the shared Mediterranean genetic bedrock, the legacy of the same Neolithic farmers who colonised the entire Mediterranean basin eight millennia ago. The SLC24A5 AA genotype (rs1426654) — skin lightening derived allele, homozygous — is the most direct physical trace of this ancestry, spreading through Europe precisely with the Neolithic farming expansion.</p>
+
+    <p>The Ancient Eurasia K6 calculator captures this most directly, assigning 42.59% Natufian ancestry — the Levantine hunter-gatherers who were the immediate ancestors of the Anatolian Neolithic farmers. Combined with the puntDNAL K15 Mediterranean component (33.31%) and the EUtest Atlantic and West Med signals, the Anatolian Neolithic substrate is the single largest ancient component in the genome across every calculator that measures it.</p>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      This is the <strong>oldest solid ground</strong> in the whole excavation. Roughly 40–45% of this genome traces back to farmers who walked out of Anatolia (modern Turkey) some eight or nine thousand years ago, bringing wheat, livestock, and permanent villages into Europe for the first time — and the Balkans weren't a stop along the way, they were the very first destination. That's why this signal runs so deep and clear here: Bulgaria and Greece were where "Old Europe" first met agriculture. For comparison, modern Sardinians — an island population later migrations mostly bypassed — carry close to twice as much of this ancestry today; the lower share here isn't a weaker connection to those farmers, it's the mark of everything that arrived afterward and diluted it: the steppe herders, then the Slavic migrations, layered on top of that original farming foundation.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Early farmers from Anatolia form the deep farming floor of this genome.</span></p>
+    </div>
+  
+</div></details>
+</div>
+</div>
+
+
+<!-- ══ LAYER 5 ══ -->
+<div class="era-block" id="s_mesolithic">
+  <div class="era-marker">
+    <span class="era-dot era-dot--ancient"></span>
+    <span class="era-label">Layer 5<br>Mesolithic<br>10,000–7000 BC</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel pn-s_mesolithic"><h2>The people who were here first</h2>
+<div class="story"><p>Hunters and gatherers lived across Europe long before farming, in forests and along rivers. Ancient DNA shows many of them had dark skin and blue eyes. In Europe, blue eyes are older than light skin.</p><p>Minko carries two copies of the blue-eye variant, passed down a line that runs back to them. Their share of his ancestry is small, about 2% standing on its own. More hides inside the steppe herders, who had already mixed with hunters before they ever reached the Balkans.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Solid for the eye colour; the 2% is a fair estimate</p></div></div>
+
+<details class="curious"><summary>For the curious</summary>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">The Mesolithic Stratum — The Hunter-Gatherers</h3>
+
+    <p class="descent-note">And even the first farmers were newcomers. Beneath the Neolithic layer are the hunter-gatherers who occupied Europe before agriculture.</p>
+
+    <p>Beneath the farming layers lies the oldest surviving European substrate: the Western Hunter-Gatherers who preceded the agricultural revolution entirely. Loschbour at 0.407 is the most distant ancient population in all models — present but clearly the most diluted of the three founding streams. The deep ancestry model assigns approximately <strong>2% standalone Western Hunter-Gatherer ancestry</strong>, which is the part the model can see on its own. Further hunter-gatherer ancestry is carried inside the steppe component, because the Yamnaya pastoralists themselves already carried hunter-gatherer ancestry from earlier mixing on the steppe, but these models cannot separate that share out. Calculators that pool all northern hunter-gatherer ancestry (Ancient Eurasia K6 reports 35.03% WHG, the GEDmatch Hunter-Gatherer vs Farmer calculator 36.92% Baltic HG) measure a broader quantity than this standalone figure.</p>
+
+    <p>The WHG are among the most important populations in European prehistory precisely because they are the oldest stratum — the people who inhabited Ice Age and post-Ice Age Europe for tens of thousands of years before farming transformed the continent. They were maritime and forest-edge hunters, fishers of rivers and coastlines, makers of sophisticated stone tools. Ancient DNA shows they had dark skin and frequently blue eyes — a counterintuitive combination that reflects the timing of adaptation: blue eyes evolved in Europe tens of thousands of years before lighter skin arrived with the Anatolian farmers.</p>
+
+    <p>The WHG legacy is visible in the HERC2 GG genotype at rs12913832 — the blue-eye haplotype, originating in WHG populations and now preserved in the genome as one of the oldest phenotypic traits. The 4-population G25 oracle, when modelling the genome from ancient sources, inserts La Braña alongside Greek-like Mediterranean populations precisely to account for this WHG component — modern Greeks carry relatively little of it, so the algorithm needs a dedicated WHG source to reproduce the specific Eastern Balkan signal.</p>
+
+    <div class="insight-box">
+      <span class="insight-label">Blue Eyes Before Fair Skin</span>
+      One of the most counterintuitive findings from ancient DNA is that blue eyes are older than fair skin in Europe. Mesolithic hunter-gatherers like La Braña had blue eyes (HERC2 GG) and dark skin — the opposite of how we typically imagine ancient Europeans. Fair skin arrived with the Anatolian farmers and their SLC24A5 derived allele. The genome carries both: the ancient blue-eye allele from the hunter-gatherers, and the Neolithic skin-lightening allele from the farmers — the two oldest pigmentation traits in European prehistory, each from a different ancestral population, both preserved intact.
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      Two different kinds of evidence, two different questions — worth keeping separate. The <strong>distance number</strong> answers "how much, relative to everything else?" — and the answer is: hunter-gatherer ancestry is real but the smallest of the three main ingredients: about 2% standing on its own, plus a further share that the models cannot separate out, tucked inside the steppe-herder signal itself (because those herders already carried hunter-gatherer DNA from their own mixing, long before they ever reached the Balkans). The genuinely fun fact here is the eye colour: this genome carries the blue-eye gene variant handed down from those same dark-skinned hunter-gatherers, which arrived in Europe thousands of years <em>before</em> light skin did. Blue eyes and dark skin, together, in the same ancient population — the opposite of the usual mental picture of an ancient European, and a trait still visibly carried forward today.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Hunter-gatherers are the smallest of the three deep European streams — still visible (e.g. blue-eye pathway).</span></p>
+    </div>
+  
+</div></details>
+</div>
+</div>
+
+
+<!-- ══ LAYER 6 ══ -->
+<div class="era-block" id="s_archaic">
+  <div class="era-marker">
+    <span class="era-dot era-dot--ancient"></span>
+    <span class="era-label">Layer 6<br>Archaic<br>50,000+ BP</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel pn-s_archaic"><h2>Even the hunters were a mix</h2>
+<div class="story"><p>Dig below the hunter-gatherers and there is still no single "original" people. The steppe herders were themselves a blend of two older hunter groups: hunters from the grasslands north of the Caucasus, and hunters from the Caucasus mountain valleys. Minko's steppe ancestry leans toward the mountain side, which is the pattern you would expect from steppe ancestry that entered Europe by its southeastern door.</p><p>Among the Bronze Age and earlier peoples tested, the closest matches turn out to be Armenia and Mycenaean Greece, two worlds that met where the Caucasus and the Aegean come together. That is not a recent link to Armenia or Greece. It is the faint echo of a shared Bronze Age world.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure; this is the deepest layer we can reach</p></div></div>
+
+<details class="curious"><summary>For the curious</summary>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">The Archaic Sediment — The Deep Ancestry Decomposition</h3>
+
+    <p class="descent-note">Even the hunter-gatherers were not a single, uniform people. Beneath their layer lie the older Stone Age populations that assembled them — the deepest resolution this excavation can reach.</p>
+
+    <p>Model 4 reaches beneath the three founding streams of European ancestry into the Stone Age populations that assembled them. The ranking reveals a specific structural detail about the composition of the steppe component:</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Deep Ancient Population</th><th>Distance</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Turkey Barcin LN — Anatolian Neolithic</td><td class="dist-val">0.171</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:42%"></div></div></td></tr>
+        <tr><td>Russia Samara EBA Yamnaya</td><td class="dist-val">0.176</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:43%"></div></div></td></tr>
+        <tr><td>Georgia Kotias CHG (~9000 BC)</td><td class="dist-val">0.253</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:62%"></div></div></td></tr>
+        <tr><td>Russia Karelia HG — EHG (~7000 BC)</td><td class="dist-val">0.286</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:70%"></div></div></td></tr>
+        <tr><td>Iran GanjDareh N (~10,000 BC)</td><td class="dist-val">0.294</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:72%"></div></div></td></tr>
+        <tr><td>Luxembourg Loschbour WHG</td><td class="dist-val">0.407</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:99%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <p>The key finding here is <strong>Georgia Kotias CHG at 0.253 ranking closer than Russia Karelia EHG at 0.286</strong>. The Yamnaya pastoralists were themselves assembled from two earlier populations: Eastern Hunter-Gatherers from the Russian grasslands north of the Caucasus, and Caucasus Hunter-Gatherers from the southern Caucasus valleys. The fact that Kotias CHG is closer than Karelia EHG tells us the steppe-related component in your genome appears relatively CHG-rich compared to EHG — consistent with the genetic structure of southeastern European Yamnaya-derived ancestry, which tends to carry proportionally more CHG than the northern European Corded Ware expansion. This is compatible with a southeastern Balkan entry point for your steppe ancestry, though the distance ratios alone cannot reconstruct the literal geographic routes your individual ancestors took.</p>
+
+    <p>Iran GanjDareh Neolithic at 0.294 is an early Iranian farming population, distinct from the Anatolian farmers. Its appearance reflects the Southwest Asian component visible across your calculators — arriving partly through the Yamnaya's CHG ancestry and partly as a separate ancient Iranian-related stream that contributed to both Anatolian and Balkan populations. This is what GEDmatch measures as West Asian or Caucasian across multiple calculators.</p>
+
+    <p>The Ancient Eurasia K6 calculator captures the deepest layers most explicitly, decomposing the genome into: <strong>42.59% Natufian</strong> (Levantine pre-farming hunter-gatherers, direct ancestors of the Anatolian farmers), <strong>35.03% Western Hunter-Gatherer</strong>, and <strong>19.05% Ancestral North Eurasian</strong> (the Siberian-related component that fed into both the Yamnaya steppe ancestry and, at trace levels, into the EDAR finding discussed below). These three components are the oldest measurable streams in the genome — not historical populations but ancient genetic substrates that predate agriculture, statehood, and language families. K6's 35.03% Western Hunter-Gatherer pools all northern hunter-gatherer ancestry, including the EHG-related share that the ancient-source model counts inside the steppe component, so it is not directly comparable with the model's ~2% standalone WHG figure.</p>
+
+    <h3 class="sub-heading">The Aegean Bronze Age and South Caucasus Signal — Model 5</h3>
+
+    <p>A Caucasus-resolution model testing coordinates against Bronze Age Aegean and South Caucasus Chalcolithic populations reveals a specific ancient affinity that the standard three-wave model does not resolve. The ranking:</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Population</th><th>Distance</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>Armenia C Areni (South Caucasus Chalcolithic)</td><td class="dist-val">0.100</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:24%"></div></div></td></tr>
+        <tr><td>Greece BA Mycenaean (Bronze Age Aegean)</td><td class="dist-val">0.106</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:26%"></div></div></td></tr>
+        <tr><td>Greece Minoan Lassithi</td><td class="dist-val">0.148</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:36%"></div></div></td></tr>
+        <tr><td>Armenia EBA Kura-Araxes Berkaber</td><td class="dist-val">0.154</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:38%"></div></div></td></tr>
+        <tr><td>Turkey Barcin LN</td><td class="dist-val">0.171</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:42%"></div></div></td></tr>
+        <tr><td>Iran C SehGabi (Iranian Chalcolithic)</td><td class="dist-val">0.191</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:47%"></div></div></td></tr>
+        <tr><td>Georgia Kotias CHG</td><td class="dist-val">0.253</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:62%"></div></div></td></tr>
+        <tr><td>Iran GanjDareh N</td><td class="dist-val">0.294</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:72%"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <p>Armenian Chalcolithic Areni (0.100) and Bronze Age Mycenaean (0.106) rank as the two closest populations in this model — closer than Barcin, closer than Kotias CHG, and well ahead of the deeper Iranian Neolithic references. These two populations represent a specific Bronze Age genetic world: the Aegean-Anatolian-South Caucasus corridor that connected the Mycenaean palace civilisations of Greece with the Kura-Araxes cultural sphere of the Armenian highlands. Both carried a CHG-rich ancestry combined with Anatolian Neolithic farmer substrate — precisely the combination that appears in elevated form in the Eastern Balkan profile. This is the ancient source of what GEDmatch calculators measure as Armenian, North Caucasian, and West Asian components — not recent ancestry from those regions but the deep Bronze Age substrate of the southeastern European world, preserved across 4,000 years of subsequent population movements.</p>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      Two things are worth taking from this deepest layer of the dig. First: the steppe herders who reached the Balkans weren't a uniform group — they themselves were a blend of two older populations, one from the grasslands north of the Caucasus (EHG) and one from the Caucasus mountain valleys themselves (CHG). This genome's steppe signal leans specifically toward the <mark>Caucasus-valley side</mark> of that blend, which is the pattern you'd expect from steppe ancestry that entered Europe via its southeastern doorway rather than sweeping in from the north. Second, and more striking: the closest ancient population found anywhere in this entire report isn't a farmer or a herder at all — it's Bronze Age Armenia, followed immediately by Bronze Age Mycenaean Greece. Both sit at the meeting point of the Caucasus and the Aegean, and both being this close is the deep, four-thousand-year-old root of the "Armenian" and "North Caucasian" slivers that keep showing up in modern admixture calculators — not a recent connection to Armenia or Greece, but the oldest, most distant echo of a shared Bronze Age world.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Steppe signal leans Caucasus hunter-gatherer (CHG) over eastern hunter-gatherer (EHG) — a southeastern pattern.</span></p>
+    </div>
+  
+</div></details>
+</div>
+</div>
+
+
+<!-- ══ NOTABLE FINDINGS ══ -->
+<div class="era-block" id="s_surprises">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+    <span class="era-label">Notable<br>Findings</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel pn-s_surprises"><h2>The things that don't fit neatly</h2>
+<div class="story"><p>A few findings refuse to sit in the tidy story. Minko carries two copies of a gene variant (EDAR) that is common in East Asia and almost never seen in the Balkans, but without the neighbouring variant that normally travels with it. That points to an old, indirect route, not a recent East Asian ancestor. Interesting, and not solved.</p><p>His steppe ancestry leans toward the Caucasus mountains rather than the northern forests. And his brother Stayko sits at a slightly different spot on the Balkan map: the two are closer to each other than to any other population tested, as brothers should be, yet each inherited a different mix of the same family story.</p><p class="sure"><span class="meter m1"><i></i><i></i><i></i></span>Open puzzles</p></div></div>
+
+<details class="curious"><summary>For the curious</summary>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">The Unexpected Signals</h3>
+
+    <h3 class="sub-heading">The EDAR / ABCC11 Paradox — rs3827760 AA · rs17822931 CC</h3>
+
+    <p>The most striking finding in the ancestry profile is the combination of two genotypes that should not co-exist in a European genome — and whose specific pairing carries a precise implication about the origin of a trace East Asian signal.</p>
+
+    <p>The genotype is <strong>homozygous AA at rs3827760 (EDAR)</strong> — two copies of the East Asian-derived allele at the ectodysplasin receptor gene that controls hair follicle thickness, sweat gland density, and incisor shape. In European populations this variant is found at frequencies approaching zero, typically under 1%. AA homozygosity is essentially unheard of in Balkan genomes.</p>
+
+    <p>But simultaneously, the genotype is <strong>CC at rs17822931 (ABCC11)</strong> — the wet earwax, Western Eurasian variant. In East Asian and Central Asian populations, EDAR 370A and the dry earwax ABCC11 T allele travel together as a linked haplotype block, because they were subject to the same selective sweep roughly 30,000 years ago in East Asia. A recent medieval Turkic contribution would have preserved this block intact. The CC genotype at ABCC11 means the haplotype block was broken up before it reached this lineage — the molecular signature of ancient admixture rather than recent admixture. Recombination separates linked variants over generations; the longer ago the East Asian ancestry arrived, the more thoroughly the block would have been disrupted.</p>
+
+    <p>Two explanations are consistent with this observation. The first and more discussed is <strong>deep steppe-mediated introgression</strong>: the Yamnaya and post-Yamnaya steppe populations had documented connections to Central Asian groups via the Afanasievo culture and subsequent steppe networks. Bronze Age and Iron Age steppe individuals from Sintashta, Srubnaya, and Scythian-era populations show variable but real East Asian-related ancestry acquired through contacts along the Siberian forest-steppe interface. The K36 signals — East Central Asian 0.18%, Indo-Chinese 1.46% — are at least consistent with ancient, diluted East Asian ancestry. The second possible explanation is <strong>pre-Bronze Age Siberian hunter-gatherer ancestry</strong>: the Ancestral North Eurasian component measurable in the EHG ancestry may have carried EDAR 370A at low frequency, bringing it westward through the Yamnaya expansion.</p>
+
+    <p>It is important to note what two SNPs cannot establish on their own. Confirming whether the EDAR-ABCC11 haplotype block has genuinely been broken by ancient recombination would require phased haplotype data across the surrounding genomic region, additional East Asian-associated markers, and ideally genome-wide PCA or IBD analysis. The genotype combination is a hypothesis-generating observation — interesting and worth investigating — but not sufficient by itself to place the East Asian signal definitively in any particular historical period.</p>
+
+    <div class="insight-box">
+      <span class="insight-label">The Haplotype Block Hypothesis</span>
+      When two variants are swept by the same selection event in the same population, they become genetically linked and travel together through generations. The longer since that shared origin, the more recombination events have separated them. EDAR AA paired with ABCC11 CC — the European earwax variant — is consistent with the East Asian ancestry having arrived long enough ago for recombination to begin separating the original block. EDAR AA paired with ABCC11 TT would be consistent with more recent arrival as an intact block. The CC genotype points toward an older rather than medieval origin for this signal, but establishing this with confidence requires more than two SNP positions.
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      In East Asian populations, these two genes almost always travel together, like two siblings rarely seen apart — they were pulled along by the same wave of natural selection thousands of years ago. Here, one sibling showed up <strong>without</strong> the other, which is a specific, unusual pattern. The most reasonable explanation isn't a hidden recent East Asian ancestor — say, from medieval Turkic-era contact — since that would be expected to bring both genes along together, still linked. It's an older, more roundabout journey instead: this particular gene variant possibly hitching a ride with steppe populations moving across Eurasia in the Bronze Age, long enough ago that ordinary genetic reshuffling had time to separate the two genes before they reached this lineage. It's a genuinely interesting thread worth holding loosely, not a solved case.
+   <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> EDAR without its usual ABCC11 partner points to an older, indirect route — interesting, not a closed case.</span></p>
+    </div>
+
+    <h3 class="sub-heading">The CHG Weighting — A Southeastern Steppe Signature</h3>
+
+    <p>The Model 4 finding that Georgia Kotias CHG (0.253) ranks closer than Russia Karelia EHG (0.286) is consistent with southeastern European Yamnaya-derived ancestry. The Yamnaya assembled from two hunter-gatherer populations in approximately equal proportions. The specific Yamnaya-related groups that entered the Balkans are documented in ancient DNA studies to carry proportionally more CHG and less EHG than the northern European Corded Ware expansion. The CHG weighting in this genome is compatible with that southeastern Balkan entry point — though distance ratios alone cannot reconstruct the literal geographic routes individual ancestors took. What can be said is that the steppe-related component appears relatively CHG-rich, in a way that is more consistent with southeastern than with northern European Yamnaya-derived ancestry.</p>
+
+    <h3 class="sub-heading">A Note on Family Context</h3>
+
+    <p>This DNA project also covers Stayko Nenov, analysed with the same overall framework — MyHeritage-derived ancestry information, Global25 modelling, ancient-population distance panels, Bulgarian archaeological references, admixture calculators, and selected ancestry-informative SNPs. With both brothers' consensus G25 coordinate sets now available, a direct vector comparison is possible for the first time — measuring the actual genetic displacement between the two of you, rather than inferring it indirectly from parallel comparisons against reference populations.</p>
+
+    <p>The Euclidean distance between the two consensus coordinate vectors — Minko_Consensus_G25_v1_sim_scaled and Stayko_Consensus_G25_v1_sim_scaled, computed directly across all 25 dimensions — is <strong>0.014205</strong>. For context: this is smaller than either brother's distance to any single reference population in the modern-population tables (Minko's closest is Romanian at 0.018; Stayko's closest is Gagauz at 0.0161). In other words, the two of you are genetically closer to each other than either of you is to any outside population tested in this entire report — exactly the expected signature of full siblings, and a useful anchor point for interpreting every other distance in this document.</p>
+
+    <p>Stayko's profile shows a somewhat stronger southern/Aegean–Mediterranean and Caucasus-facing signal than this one. His modern-population matches remain firmly within the Balkan continuum, but his position within that continuum sits shifted toward the southern end: Gagauz 0.0161, Bulgarian 0.0172, Romanian 0.0197, Macedonian 0.0243, and Greek Central Macedonia 0.0277, compared to this profile's Romanian 0.018, Bulgarian 0.021, Macedonian 0.026, and Greek Central Macedonia 0.040. On the ancient panel the pattern is consistent: Stayko sits nearer both Anatolian Neolithic references (Boncuklu 0.132 against 0.142, Barcin 0.161 against 0.171) and slightly farther from the Yamnaya references (Samara 0.184 against 0.176, Bulgaria EBA Yamnaya 0.131 against 0.123). The K36 breakdown points the same way: Armenian plus North Caucasian, the Caucasus-linked components, come to about 14.4% for Stayko (7.25% + 7.12%) against about 10.0% for Minko (4.86% + 5.12%), and the Mediterranean-type components (Italian plus West Med) to 25.2% against 13.9%. One genotype-level difference fits the same pattern: this genome carries LCT/MCM6 rs4988235 as A;G — one copy of the lactase-persistence allele — while Stayko carries the fully ancestral G;G, lactase-non-persistent genotype.</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Reference Population</th><th>Minko</th><th>Stayko</th></tr></thead>
+      <tbody>
+        <tr><td>Gagauz</td><td class="dist-val">0.0237</td><td class="dist-val">0.0161</td></tr>
+        <tr><td>Bulgarian</td><td class="dist-val">0.0212</td><td class="dist-val">0.0172</td></tr>
+        <tr><td>Romanian</td><td class="dist-val">0.0181</td><td class="dist-val">0.0197</td></tr>
+        <tr><td>Macedonian</td><td class="dist-val">0.0264</td><td class="dist-val">0.0243</td></tr>
+        <tr><td>Greek Central Macedonia</td><td class="dist-val">0.0398</td><td class="dist-val">0.0277</td></tr>
+        <tr><td>Albanian</td><td class="dist-val">0.0422</td><td class="dist-val">0.0311</td></tr>
+      </tbody>
+    </table>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      Two brothers, raised in the same family, carrying two versions of the same regional story. Think of it like <em>two people who both grew up in the same house</em> but ended up with slightly different collections of hand-me-down heirlooms from their shared ancestors — both unmistakably from the same family, just not identical inventories. This profile sits a little closer to the Romanian end of the continuum; Stayko's sits closer to the Gagauz, Bulgarian and Aegean end, toward Greece. Neither version is "more Balkan" than the other — they're two real, independently measurable variations on the same shared inheritance. And the number that ties it all together, <mark>0.0142</mark>, is the actual measured genetic distance between the two of you — smaller than either brother's distance to any outside population tested anywhere in this report, confirming in hard numbers what was always obvious without them: you're closer to each other than to anyone else.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Two siblings, one Eastern Balkan inheritance — this profile slightly nearer the Romanian end; Stayko nearer the Gagauz, Bulgarian and Aegean end — still closer to each other (0.0142) than to any outside population.</span></p>
+    </div>
+  
+</div></details>
+</div>
+</div>
+
+
+<!-- ══ SNPs ══ -->
+<div class="era-block" id="s_snps">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+    <span class="era-label">Ancestry<br>SNPs</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel pn-s_snps"><h2>Clues written in single letters</h2>
+<div class="story"><p>Some clues are single letters in the DNA, read straight from Minko's raw data. Light skin, inherited from the first farmers. Blue eyes, from the hunters who were here first. And the ability to digest milk as an adult, from one copy of the milk-drinking variant that spread with the herders.</p><p>These are direct readings, not estimates. But one gene is a hint about one trait, never a percentage of ancestry.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid, read straight from the DNA</p></div></div>
+
+<details class="curious"><summary>For the curious</summary>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Key Ancestry-Informative Genotypes</h3>
+    <p>Direct genotype calls from MyHeritage raw DNA for ancestry-relevant positions. These are not estimates — they are the actual nucleotides read from the DNA file.</p>
+    <div class="snp-table-wrap">
+      <table class="snp-table">
+        <thead><tr><th>rsID</th><th>Gene</th><th>Genotype</th><th>Significance</th></tr></thead>
+        <tbody>
+          <tr><td class="snp-rsid">rs3827760</td><td class="snp-gene">EDAR</td><td class="snp-geno snp-found">AA</td><td class="snp-desc">East Asian hair follicle / sweat gland variant — homozygous, near-zero frequency in European populations. Ancient steppe-mediated signal.</td></tr>
+          <tr><td class="snp-rsid">rs17822931</td><td class="snp-gene">ABCC11</td><td class="snp-geno snp-found">CC</td><td class="snp-desc">Wet earwax — Western Eurasian variant. Decoupled from EDAR AA; consistent with the East Asian signal having arrived long enough ago for recombination to separate the linked haplotype block. Hypothesis-generating — requires phased haplotype data to confirm.</td></tr>
+          <tr><td class="snp-rsid">rs1426654</td><td class="snp-gene">SLC24A5</td><td class="snp-geno snp-found">AA</td><td class="snp-desc">Major skin lightening locus — homozygous derived allele. Spread with Anatolian Neolithic farming expansion ~8,000 years ago.</td></tr>
+          <tr><td class="snp-rsid">rs12913832</td><td class="snp-gene">HERC2</td><td class="snp-geno snp-found">GG</td><td class="snp-desc">Primary blue-eye switch — GG haplotype originating in Mesolithic Western Hunter-Gatherers. Predates fair skin in Europe by thousands of years.</td></tr>
+          <tr><td class="snp-rsid">rs4988235</td><td class="snp-gene">LCT/MCM6</td><td class="snp-geno snp-found">AG</td><td class="snp-desc">Lactase persistence — heterozygous carrier. Sufficient for full lactose tolerance. Spread with Bronze Age pastoralist populations.</td></tr>
+          <tr><td class="snp-rsid">rs1042602</td><td class="snp-gene">TYR</td><td class="snp-geno snp-found">CA</td><td class="snp-desc">Tyrosinase — heterozygous. Mixed UV sensitivity and freckling profile.</td></tr>
+          <tr><td class="snp-rsid">rs1800414</td><td class="snp-gene">OCA2</td><td class="snp-geno snp-found">TT</td><td class="snp-desc">Ancestral genotype at this position — not the derived allele, an East-Asia-specific skin-lightening variant essentially absent outside that region.</td></tr>
+          <tr><td class="snp-rsid">rs1805007</td><td class="snp-gene">MC1R</td><td class="snp-geno snp-missing">NOT ON CHIP</td><td class="snp-desc">Red hair variant (Arg151Cys) — not genotyped on the MyHeritage array.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      Most of these markers are simple, settled facts about physical appearance: blue eyes, light skin, an unusual but real ability to digest milk as an adult. The genuine puzzle is the <strong>EDAR/ABCC11 pair</strong> above. In East Asian populations these two genes almost always travel together — carrying one usually means carrying the other, because they were pulled along by the same wave of natural selection. Here, one showed up <strong>without</strong> its usual partner, which points toward an old, indirect route into this lineage rather than a recent one.
+    <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Single-gene clues are hints, not a measured ancestry percentage.</span></p>
+    </div>
+  
+</div></details>
+</div>
+</div>
+
+
+<!-- ══ SYNTHESIS ══ -->
+<div class="era-block" id="s_synthesis" style="border-bottom:none">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+    <span class="era-label">The Full<br>Picture</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel pn-s_synthesis"><h2>A crossroads, not a single story</h2>
+<div class="story"><p>Farmers from the southeast, herders from the northeast and hunters who were here first, layered together, then mixed with the Slavs and the older peoples of the Balkans. Minko's DNA isn't one people. It's the meeting place of several, which is exactly what the Eastern Balkans has always been.</p><p>Beneath all of it, as for almost everyone with ancestry from outside Africa, sits a small slice of Neanderthal DNA, about 1 to 4%. Minko almost certainly carries it too, though we haven't mapped where.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure overall</p></div></div>
+
+<details class="curious"><summary>For the curious</summary>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">The Complete Excavation — What All Seven Layers Tell Together</h3>
+
+    <p>The excavation is complete. Seven layers of time have been removed, and what they reveal is not a collection of separate ancestries but a single coherent story: the genetic record of the Eastern Balkan crossroads, where the three founding streams of European ancestry converged in their most complete and balanced form.</p>
+
+    <p>At the surface, the MyHeritage percentages describe the profile in modern population terms — Greek and Albanian, Balkan, South Italian — labels that obscure more than they reveal. The G25 distances cut through the labelling and place the genome precisely: Romanian at 0.018, Bulgarian at 0.021, a tight arc of Eastern Balkan populations. And the closest medieval numbers — <strong>Macedonia Medieval 0.030</strong> and <strong>Bulgaria Medieval 0.034</strong> — show this is not only a modern population match: the profile sits with early–high medieval Eastern Balkan variation as well.</p>
+
+    <p>Beneath the modern layer, the medieval stratum reveals the population structure that built the Bulgarian genetic profile: a substantial pre-Slavic Paleo-Balkan substrate — the Thracians, Dacians, Illyrians, and Romanised Balkan populations present before the migrations — and a Slavic migration contribution arriving through the Pannonian corridor already mixed with Central European elements. These are directional estimates from the oracle models, not formally validated ancestry proportions. The Late Avar affinity (0.122) versus Early Avar (0.214) — and especially the gap to Avar Elite (0.301/0.414) — identifies the already-Europeanised general Avar substrate rather than the East Asian ruling class as the genetically proximate Pannonian signal.</p>
+
+    <p>Deeper, the Bronze Age reveals the Yamnaya wave — Barcin at 0.171, Yamnaya at 0.176, nearly tied in distance, with a modest steppe lean in modelled proportion. The CHG weighting — Kotias 0.253 closer than Karelia 0.286 — is consistent with southeastern European Yamnaya-derived ancestry, where the CHG component tends to be proportionally higher than in the northern Corded Ware expansion. Model 5 adds precision: Armenia C Areni (0.100) and Mycenaean (0.106) as the two closest populations in the Caucasus resolution model, pointing toward the specific Aegean-Anatolian-South Caucasus Bronze Age corridor that underlies the Armenian, North Caucasian, and West Asian signals in every calculator.</p>
+
+    <p>Beneath all of that, the Neolithic tier — Anatolian farmers who reached the Balkans some eight thousand years ago, carrying the Natufian-derived substrate that Ancient Eurasia K6 measures at 42.59% — marks the deepest floor this genome still measurably connects to, while the Mesolithic layer beneath it contributes the oldest single trait in the whole profile: the blue-eye allele at HERC2, inherited from hunter-gatherers who had dark skin and blue eyes thousands of years before the Anatolian farmers brought fair skin into the region. At the very base of the excavation, the archaic sediment: the CHG-weighted steppe signal, and the EDAR observation — AA homozygous at the East Asian hair follicle gene, CC at the European earwax gene — consistent with the East Asian signal having arrived long enough ago for recombination to begin separating the linked haplotype block, though establishing this with confidence requires phased haplotype analysis beyond what two SNP positions can provide.</p>
+
+    <p>The result is a genome that every calculator, every oracle, and every ancient DNA distance places at the same location: the Eastern Balkan crossroads, where the three founding streams of European ancestry — Anatolian farmers, Pontic steppe pastoralists, and European hunter-gatherers — converged in their most complete and balanced expression, producing a genetic profile that is remarkably well described by the medieval Bulgarian population and by the Bronze Age Aegean-Caucasus corridor that preceded it.</p>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms — The Whole Excavation, Start to Finish</span>
+      <p>Run the whole story in one direction, and it reads like peeling back layers of paint on an old house — each coat newer than the one beneath it, none of them erasing what came before. Start at the surface: a person whose closest living relatives are <strong>Romanian and Bulgarian</strong> — solidly Eastern Balkan, no surprises. Peel back a few centuries and you reach the <strong>Slavic migrants</strong> who moved south through Hungary in the early Middle Ages and merged with whoever was already living in the Balkans — this genome sits unusually close to the ordinary population absorbed into that process, and just as unusually far from the steppe warlords who briefly ruled over it. Peel back further, past the Slavic layer, and you reach the people who were already there waiting: the <strong>Thracians</strong> and their Paleo-Balkan neighbours, farmers and hill-tribes who'd occupied this same stretch of land for thousands of years before any Slavic-speaker arrived.</p>
+      <p style="margin-top:.8rem">Go back further still, past the Thracians, and the story stops being about named peoples and starts being about population-scale migrations. Around four thousand years ago, horse-riding herders from the <strong>Yamnaya</strong> culture swept out of the steppe north of the Black Sea and reshaped the genetics of most of Europe — this genome carries their signal in near balance with the farmers who came before them (about 52–56% steppe-related against 42–46% farmer-related). That balance is itself informative: it places this genome closer to the genuine crossroads of those two ancient worlds than to either edge of it. Weighted specifically toward the <strong>Caucasus Hunter-Gatherers</strong> (<mark>CHG</mark>) side of the steppe signal rather than the <strong>Eastern Hunter-Gatherers</strong> (<mark>EHG</mark>) side, it points toward the southeastern, Caucasus-adjacent branch of that migration. Before the herders, there were the first farmers — people who left <strong>Anatolia</strong>, in what's now Turkey, around eight thousand years ago and slowly walked their crops and livestock into the Balkans. And before the farmers, this land belonged to hunter-gatherers who never farmed at all — dark-skinned, blue-eyed people whose eye-colour gene is still carried today, the oldest single trait in this entire profile, older than fair skin itself.</p>
+      <p style="margin-top:.8rem">And beneath even that: virtually everyone with non-African ancestry carries a small amount of <strong>Neanderthal</strong> DNA, and this genome is almost certainly no exception, even though no specific segment-level test has been run to locate it here. Hunter-gatherers, then farmers, then steppe herders, then Thracians, then Slavic migrants, then medieval Bulgarians, then the living relatives found today — each one a real, separately-confirmed layer in the same continuous excavation.</p>
+    <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> One continuous story from hunter-gatherers → farmers → steppe → Thracians → Slavs → modern Eastern Balkan. Neanderthal DNA, if present, is a small shared archaic background — not a separate branch on the family tree.</span></p>
+    </div>
+
+    <div class="insight-box insight-box--final">
+      <span class="insight-label insight-label--white">The Ancestral Equation</span>
+      <div class="equation">
+        Anatolian Neolithic Farmers — Balkan landfall, ~8000 BC<br>
+        + Western Hunter-Gatherers — blue-eye substrate, &gt;10,000 BC<br>
+        + Yamnaya Steppe Pastoralists — CHG-weighted, southeastern affinity<br>
+        = Pre-Slavic Balkan Substrate<br><br>
+        + Paleo-Balkan continuity — Thracian, Dacian, Illyrian, Byzantine<br>
+        + Slavic migration — Pannonian corridor, 6th–8th century AD<br>
+        + Byzantine Mediterranean pull<br>
+        = <strong>Eastern Balkan Crossroads Genome</strong><br><br>
+        <strong>Closest modern: Romanian 0.018 · Bulgarian 0.021</strong><br>
+        <strong>Closest medieval: Macedonia 0.030 · Bulgaria 0.034</strong><br>
+        <strong>Aegean Bronze Age signal: Armenia C Areni 0.100 · Mycenaean 0.106</strong><br>
+        <strong>Archaic threads: CHG-weighted steppe signal · EDAR AA (hypothesis-generating)</strong><br>
+        <strong>Sibling distance (vs. Stayko): 0.0142 — closer than to any outside population tested</strong>
+      </div>
+    </div>
+  
+</div></details>
+</div>
+</div>
+
+</div>
+</body>
+</html>
