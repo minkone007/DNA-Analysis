@@ -300,13 +300,13 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 
 /* story panels: one palette colour per layer; sizes match the expanded text */
 .era-content .story-panel {
-  position: relative;                 /* required for the pseudo */
-  background: var(--pbg);             /* keep the solid original color */
+  position: relative;
+  background: color-mix(in srgb, var(--pbg) 35%, transparent);  /* same opacity */
   color: var(--pfg);
   padding: 1.5rem 1.7rem 1.35rem;
   border-radius: 0 6px 6px 0;
   border-left: 4px solid var(--pbd, rgba(0, 0, 0, .28));
-  z-index: 1;                         /* so content stays above the pseudo */
+  z-index: 1;
 }
 
 .era-content .story-panel::before {
@@ -317,7 +317,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   left: 50%;
   width: 100vw;
   margin-left: -50vw;
-  background: color-mix(in srgb, var(--pbg) 35%, transparent);  /* ← opacity version */
+  background: color-mix(in srgb, var(--pbg) 35%, transparent);  /* identical */
   z-index: -1;
   pointer-events: none;
 }
