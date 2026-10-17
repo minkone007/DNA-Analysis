@@ -298,11 +298,15 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
 
-/* story panels: palette variables only; tinted full-width band behind a solid left rule */
+/* story panels: no fill; four frame lines in the layer colour that run past the corners */
 body{color:var(--ink)}
-.main-content{overflow-x:clip}
-.era-content .story-panel{position:relative;z-index:1;background:none;color:var(--ink);padding:1.5rem 1.7rem 1.35rem;margin-top:0;border-left:4px solid var(--pc)}
-.era-content .story-panel::before{content:"";position:absolute;top:-2rem;bottom:-4rem;left:50%;width:100vw;margin-left:-50vw;background:color-mix(in srgb,var(--pc) var(--pt,5%),transparent);z-index:-1}
+.era-block{--ext:2.4rem;--lw:3px}
+.era-content .story-panel{position:relative;background:none;color:var(--ink);padding:1.5rem 1.7rem 1.35rem;margin-top:.55rem}
+.era-content .story-panel::before{content:"";position:absolute;inset:calc(-1 * var(--ext));pointer-events:none;background:
+ linear-gradient(var(--pc),var(--pc)) left 0 top var(--ext)/100% var(--lw) no-repeat,
+ linear-gradient(var(--pc),var(--pc)) left 0 bottom var(--ext)/100% var(--lw) no-repeat,
+ linear-gradient(var(--pc),var(--pc)) left var(--ext) top 0/var(--lw) 100% no-repeat,
+ linear-gradient(var(--pc),var(--pc)) right var(--ext) top 0/var(--lw) 100% no-repeat}
 .era-content .story-panel h2{color:var(--ink);font-size:1.3rem;line-height:1.25;margin-bottom:.9rem}
 .era-content .story-panel p{color:var(--ink);font-size:1rem;line-height:1.85;margin-bottom:1rem}
 .era-content .story-panel a{color:var(--accent);text-underline-offset:3px}
@@ -310,28 +314,22 @@ body{color:var(--ink)}
 .meter{display:inline-flex;gap:3px;flex:none}
 .story-panel .meter i{width:.95rem;height:.38rem;background:var(--ink);opacity:.2;border-radius:1px}
 .story-panel .m3 i,.story-panel .m2 i:nth-child(-n+2),.story-panel .m1 i:first-child{opacity:.85}
-.pn-s_summary{--pc:var(--ink);--pt:0%}
+.era-block>.era-marker>.era-dot{background:var(--pc);box-shadow:0 0 0 3px var(--pc)}
+.pn-s_summary{--pc:var(--ink)}
 .pn-s_surface{--pc:var(--stone)}
 .pn-s_modern{--pc:var(--gold)}
-.pn-s_medieval{--pc:var(--cinnabar);--pt:5%}
+.pn-s_medieval{--pc:var(--cinnabar)}
 .pn-s_bronze{--pc:var(--steppe)}
 .pn-s_neolithic{--pc:var(--sea)}
 .pn-s_mesolithic{--pc:var(--ink-light)}
-.pn-s_archaic{--pc:var(--accent);--pt:5%}
-.pn-s_surprises{--pc:var(--accent-light);--pt:5%}
-.pn-s_snps{--pc:var(--gold-light);--pt:5%}
-.pn-s_synthesis{--pc:var(--ink-mid);--pt:5%}
-.era-block .era-label{color:var(--ink-mid)}
-@media(max-width:900px){.era-content .story-panel{margin-top:0}}
-details.curious{margin:1.4rem 0 0;border-top:1px dotted var(--era-line);padding-top:.9rem}
-details.curious>summary{cursor:pointer;list-style:none;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:.55rem}
-details.curious>summary::-webkit-details-marker{display:none}
-details.curious>summary::before{content:'+';display:inline-grid;place-items:center;width:1.25rem;height:1.25rem;border:0px solid var(--accent);border-radius:50%;font-size:.95rem;line-height:1}
-details.curious[open]>summary::before{content:'\2212'}
-details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-.curious-body{margin-top:1.2rem}
-.disclaimer details.curious{margin-top:.8rem;padding-top:.6rem}
+.pn-s_archaic{--pc:var(--accent)}
+.pn-s_surprises{--pc:var(--accent-light)}
+.pn-s_snps{--pc:var(--gold)}
+.pn-s_synthesis{--pc:var(--ink-mid)}
+.curious-label{display:flex;align-items:center;gap:.8rem;margin:3rem 0 1.3rem;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;color:var(--accent)}
+.curious-label::after{content:"";flex:1;border-top:1px dotted var(--ink-light)}
 .disclaimer a{color:var(--accent)}
+@media(max-width:900px){.era-block{--ext:.9rem}.era-content .story-panel{margin-top:0}}
 </style>
 </head>
 <body>
@@ -373,11 +371,10 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
 </div>
 </div>
 
-<div class="disclaimer">
-<details class="curious"><summary>Sources and methods</summary><div class="curious-body"><p>Sources: G25 coordinates modelled from GEDmatch K36/K15/K13 components via custom mapping script. GEDmatch Eurogenes K36, Dodecad V3, puntDNAL K15, EUtest K15, Ancient Eurasia K6, MyHeritage ethnicity estimates. Vahaduo Global25 scaled population averages. References: Haak et al. 2015, Olalde et al. 2019, Antonio et al. 2019, Gnecchi-Ruscone et al. 2022 (Avar). Ancient DNA ancestry models are statistical approximations describing genetic relationships, not direct genealogical descent. Generated July 2026.</p></div></details></div>
+<div class="disclaimer">Everything on this page is a statistical estimate from ancient and modern DNA, not a family tree. Percentages shift a few points depending on the method, and the names of ancient peoples are labels for genetic groups. <a href="ancestry_deep_narrative_Minko.html">Read the technical report</a>.<br><br><strong>Sources and methods.</strong> Sources: G25 coordinates modelled from GEDmatch K36/K15/K13 components via custom mapping script. GEDmatch Eurogenes K36, Dodecad V3, puntDNAL K15, EUtest K15, Ancient Eurasia K6, MyHeritage ethnicity estimates. Vahaduo Global25 scaled population averages. References: Haak et al. 2015, Olalde et al. 2019, Antonio et al. 2019, Gnecchi-Ruscone et al. 2022 (Avar). Ancient DNA ancestry models are statistical approximations describing genetic relationships, not direct genealogical descent. Generated July 2026.</div>
  
 <!-- ══ EXECUTIVE SUMMARY ══ -->
-<div class="era-block" id="s_summary">
+<div class="era-block pn-s_summary" id="s_summary">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
         <span class="era-label">Before the Dig<br>Executive Summary</span>
@@ -388,8 +385,8 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
          
   </div>
   <div class="era-content">
-<div class="story-panel pn-s_summary"><h2>The View From Above</h2>
-<div class="story"><p>Minko took a DNA test. It came back as percentages and country names. We set those aside and dug instead: down through the people who came before him, layer by layer, to the ones who lived 50,000 years ago.</p><p>The map below shows the whole dig at a glance, with today at the top and the deepest past at the bottom. Scroll on to go through it one layer at a time. Every layer ends with a <em>For the curious</em> fold-out holding the full science. Wherever a number appears, we say how sure we are.</p></div></div>
+<div class="story-panel"><h2>The View From Above</h2>
+<div class="story"><p>Minko took a DNA test. It came back as percentages and country names. We set those aside and dug instead: down through the people who came before him, layer by layer, to the ones who lived 50,000 years ago.</p><p>The map below shows the whole dig at a glance, with today at the top and the deepest past at the bottom. Scroll on to go through it one layer at a time. Every layer ends with a <em>For the curious</em> fold-out holding the full science. Wherever a number appears, we say how sure we are.</p><p><a href="ancestry_deep_narrative_Minko.html">Read the technical report</a></p></div></div>
 <section class="genetic-stratigraphy">
   <div class="strat-intro">
   <span class="strat-kicker">Chronological Map</span>
@@ -755,7 +752,7 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
  </div> <!-- end dual-field -->
 </div> <!-- end strat-map-wrap -->
 </section>
-<details class="curious"><summary>For the curious</summary>
+<div class="curious"><p class="curious-label">For the curious</p>
 <div class="curious-body">
 
 
@@ -814,21 +811,21 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Eastern Balkan profile — roughly balanced farmers + steppe (modest steppe lean), then Slavic-era shaping into a medieval Bulgarian-like population.</span></p>
     </div>
   
-</div></details>
+</div></div>
 </div>
 </div>
   
 <!-- ══ LAYER 0 ══ -->
-<div class="era-block" id="s_surface">
+<div class="era-block pn-s_surface" id="s_surface">
   <div class="era-marker">
     <span class="era-dot"></span>
     <span class="era-label">Layer 0<br>The Surface</span>
   </div>
   <div class="era-content">
-<div class="story-panel pn-s_surface"><h2>The label on the box is the least interesting part</h2>
+<div class="story-panel"><h2>The label on the box is the least interesting part</h2>
 <div class="story"><p>The test says: 47% Greek and Albanian, 38% Balkan, 9% East European, 5% South Italian. That does not mean Minko has a Greek grandmother or an Italian great-grandfather. The test compares his DNA with people alive today and reports who he resembles. "Greek and Albanian" really means "looks like the people who carry the old Mediterranean farming heritage", a heritage shared by almost everyone in southeastern Europe.</p><p>Try a different test and the labels change. The DNA doesn't. So we ignore the labels and dig.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid</p></div></div>
 
-<details class="curious"><summary>For the curious</summary>
+<div class="curious"><p class="curious-label">For the curious</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">What the Labels Are Telling Us — and What They Are Not</h3>
 
@@ -869,22 +866,22 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
        <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> The label is not the finding — country names are modern reference tags, not a family tree.</span></p>   
     </div>
   
-</div></details>
+</div></div>
 </div>
 </div>
 
 
 <!-- ══ LAYER 1 ══ -->
-<div class="era-block" id="s_modern">
+<div class="era-block pn-s_modern" id="s_modern">
   <div class="era-marker">
     <span class="era-dot"></span>
     <span class="era-label">Layer 1<br>Living<br>Populations</span>
   </div>
   <div class="era-content">
-<div class="story-panel pn-s_modern"><h2>At home in Romania and Bulgaria</h2>
+<div class="story-panel"><h2>At home in Romania and Bulgaria</h2>
 <div class="story"><p>Set Minko's DNA beside people living now and the closest match is Romanians, then Bulgarians, then Gagauz (a Turkic-speaking Christian people of Moldova and Bulgaria), Montenegrins, Moldovans, Serbs and Macedonians. Not one country, but a whole neighbourhood, with his DNA near the middle of it.</p><p>It works like finding a phone with several towers: when seven of them point at the same spot, you trust the spot. Romanian beating Bulgarian by a hair doesn't make him "more Romanian". It says he sits almost exactly between two peoples who are close cousins.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid</p></div></div>
 
-<details class="curious"><summary>For the curious</summary>
+<div class="curious"><p class="curious-label">For the curious</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">The Living Population Map — Where Your Genome Sits Today</h3>
 
@@ -948,22 +945,22 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> You sit in the Eastern Balkan cluster (Romania–Bulgaria core), not in one single “national” box.</span></p>
     </div>
   
-</div></details>
+</div></div>
 </div>
 </div>
 
 
 <!-- ══ LAYER 2 ══ -->
-<div class="era-block" id="s_medieval">
+<div class="era-block pn-s_medieval" id="s_medieval">
   <div class="era-marker">
     <span class="era-dot era-dot--mid"></span>
     <span class="era-label">Layer 2<br>Medieval<br>500–1200 AD</span>
   </div>
   <div class="era-content">
-<div class="story-panel pn-s_medieval"><h2>The Slavs arrive, and mix with the people already here</h2>
+<div class="story-panel"><h2>The Slavs arrive, and mix with the people already here</h2>
 <div class="story"><p>Between the 6th and 9th centuries, Slavic-speaking families moved south into the Balkans. They didn't replace anyone. They mixed with the people already living there, the descendants of Thracians, Illyrians and Romans, plus Byzantine Greeks, and from that blend the medieval Bulgarians emerged.</p><p>Minko's DNA is closest to skeletons from medieval Macedonia and Bulgaria. There's a telling detail: he sits close to the ordinary people of that age, not to the Avars, the horse-lord rulers who governed the plain next door and carried far more East Asian steppe ancestry. The everyday people mixed; the ruling elite stayed distinct.</p><p>If we had to guess the mix: roughly a third Slavic, about half older Balkan peoples, a fifth Byzantine and Anatolian. Treat those fractions as a guess, not a measurement.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure of the story; the fractions are a rough guess</p></div></div>
 
-<details class="curious"><summary>For the curious</summary>
+<div class="curious"><p class="curious-label">For the curious</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">The Medieval Stratum — Bulgaria in Deep Time</h3>
 
@@ -1051,22 +1048,22 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> A large pre-Slavic Balkan layer sits under the medieval profile.</span></p>
     </div>
   
-</div></details>
+</div></div>
 </div>
 </div>
 
 
 <!-- ══ LAYER 3 ══ -->
-<div class="era-block" id="s_bronze">
+<div class="era-block pn-s_bronze" id="s_bronze">
   <div class="era-marker">
     <span class="era-dot era-dot--mid"></span>
     <span class="era-label">Layer 3<br>Bronze Age<br>3000–1200 BC</span>
   </div>
   <div class="era-content">
-<div class="story-panel pn-s_bronze"><h2>Horse riders from the steppe</h2>
+<div class="story-panel"><h2>Horse riders from the steppe</h2>
 <div class="story"><p>Around 5,000 years ago, herders from the grasslands north of the Black Sea, whom archaeologists call the Yamnaya, spread across Europe with horses and wagons. They carried a language family that includes Bulgarian, English and Hindi.</p><p>A bit more than half of Minko's ancestry traces to this wave: our best estimate is 52 to 56%. The herders were themselves a blend of two older hunter groups, and his steppe ancestry leans toward the mountain hunters of the Caucasus rather than the forest hunters of the north. That is a southeastern signature.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure; the split moves a few points between methods</p></div></div>
 
-<details class="curious"><summary>For the curious</summary>
+<div class="curious"><p class="curious-label">For the curious</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">The Bronze Age Stratum — The Yamnaya Wave</h3>
 
@@ -1140,22 +1137,22 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Roughly 42–46% Anatolian farmers and 52–56% steppe — a near-balanced mix with a modest steppe lean, not one dominant Bronze Age source.</span></p>
     </div>
   
-</div></details>
+</div></div>
 </div>
 </div>
 
 
 <!-- ══ LAYER 4 ══ -->
-<div class="era-block" id="s_neolithic">
+<div class="era-block pn-s_neolithic" id="s_neolithic">
   <div class="era-marker">
     <span class="era-dot era-dot--ancient"></span>
     <span class="era-label">Layer 4<br>Neolithic<br>7000–3000 BC</span>
   </div>
   <div class="era-content">
-<div class="story-panel pn-s_neolithic"><h2>The first farmers walk in from Turkey</h2>
+<div class="story-panel"><h2>The first farmers walk in from Turkey</h2>
 <div class="story"><p>Before the herders came the farmers. Starting around 8,500 years ago, families from what is now Turkey crossed into Europe through the Balkans, with Bulgaria and Greece as their first stop, bringing wheat, sheep and permanent villages. They changed how people lived, and how Europeans look: light skin spread with them. Minko carries two copies of the light-skin variant.</p><p>Farmers account for roughly 42 to 46% of his ancestry, nearly level with the herders who came later. For comparison, Sardinians, whom later migrations mostly bypassed, carry about twice as much.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure</p></div></div>
 
-<details class="curious"><summary>For the curious</summary>
+<div class="curious"><p class="curious-label">For the curious</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">The Neolithic Stratum — Farmers from Anatolia</h3>
 
@@ -1175,22 +1172,22 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Early farmers from Anatolia form the deep farming floor of this genome.</span></p>
     </div>
   
-</div></details>
+</div></div>
 </div>
 </div>
 
 
 <!-- ══ LAYER 5 ══ -->
-<div class="era-block" id="s_mesolithic">
+<div class="era-block pn-s_mesolithic" id="s_mesolithic">
   <div class="era-marker">
     <span class="era-dot era-dot--ancient"></span>
     <span class="era-label">Layer 5<br>Mesolithic<br>10,000–7000 BC</span>
   </div>
   <div class="era-content">
-<div class="story-panel pn-s_mesolithic"><h2>The people who were here first</h2>
+<div class="story-panel"><h2>The people who were here first</h2>
 <div class="story"><p>Hunters and gatherers lived across Europe long before farming, in forests and along rivers. Ancient DNA shows many of them had dark skin and blue eyes. In Europe, blue eyes are older than light skin.</p><p>Minko carries two copies of the blue-eye variant, passed down a line that runs back to them. Their share of his ancestry is small, about 2% standing on its own. More hides inside the steppe herders, who had already mixed with hunters before they ever reached the Balkans.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Solid for the eye colour; the 2% is a fair estimate</p></div></div>
 
-<details class="curious"><summary>For the curious</summary>
+<div class="curious"><p class="curious-label">For the curious</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">The Mesolithic Stratum — The Hunter-Gatherers</h3>
 
@@ -1213,22 +1210,22 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Hunter-gatherers are the smallest of the three deep European streams — still visible (e.g. blue-eye pathway).</span></p>
     </div>
   
-</div></details>
+</div></div>
 </div>
 </div>
 
 
 <!-- ══ LAYER 6 ══ -->
-<div class="era-block" id="s_archaic">
+<div class="era-block pn-s_archaic" id="s_archaic">
   <div class="era-marker">
     <span class="era-dot era-dot--ancient"></span>
     <span class="era-label">Layer 6<br>Archaic<br>50,000+ BP</span>
   </div>
   <div class="era-content">
-<div class="story-panel pn-s_archaic"><h2>Even the hunters were a mix</h2>
+<div class="story-panel"><h2>Even the hunters were a mix</h2>
 <div class="story"><p>Dig below the hunter-gatherers and there is still no single "original" people. The steppe herders were themselves a blend of two older hunter groups: hunters from the grasslands north of the Caucasus, and hunters from the Caucasus mountain valleys. Minko's steppe ancestry leans toward the mountain side, which is the pattern you would expect from steppe ancestry that entered Europe by its southeastern door.</p><p>Among the Bronze Age and earlier peoples tested, the closest matches turn out to be Armenia and Mycenaean Greece, two worlds that met where the Caucasus and the Aegean come together. That is not a recent link to Armenia or Greece. It is the faint echo of a shared Bronze Age world.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure; this is the deepest layer we can reach</p></div></div>
 
-<details class="curious"><summary>For the curious</summary>
+<div class="curious"><p class="curious-label">For the curious</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">The Archaic Sediment — The Deep Ancestry Decomposition</h3>
 
@@ -1280,22 +1277,22 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Steppe signal leans Caucasus hunter-gatherer (CHG) over eastern hunter-gatherer (EHG) — a southeastern pattern.</span></p>
     </div>
   
-</div></details>
+</div></div>
 </div>
 </div>
 
 
 <!-- ══ NOTABLE FINDINGS ══ -->
-<div class="era-block" id="s_surprises">
+<div class="era-block pn-s_surprises" id="s_surprises">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
     <span class="era-label">Notable<br>Findings</span>
   </div>
   <div class="era-content">
-<div class="story-panel pn-s_surprises"><h2>The things that don't fit neatly</h2>
+<div class="story-panel"><h2>The things that don't fit neatly</h2>
 <div class="story"><p>A few findings refuse to sit in the tidy story. Minko carries two copies of a gene variant (EDAR) that is common in East Asia and almost never seen in the Balkans, but without the neighbouring variant that normally travels with it. That points to an old, indirect route, not a recent East Asian ancestor. Interesting, and not solved.</p><p>His steppe ancestry leans toward the Caucasus mountains rather than the northern forests. And his brother Stayko sits at a slightly different spot on the Balkan map: the two are closer to each other than to any other population tested, as brothers should be, yet each inherited a different mix of the same family story.</p><p class="sure"><span class="meter m1"><i></i><i></i><i></i></span>Open puzzles</p></div></div>
 
-<details class="curious"><summary>For the curious</summary>
+<div class="curious"><p class="curious-label">For the curious</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">The Unexpected Signals</h3>
 
@@ -1352,22 +1349,22 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Two siblings, one Eastern Balkan inheritance — this profile slightly nearer the Romanian end; Stayko nearer the Gagauz, Bulgarian and Aegean end — still closer to each other (0.0142) than to any outside population.</span></p>
     </div>
   
-</div></details>
+</div></div>
 </div>
 </div>
 
 
 <!-- ══ SNPs ══ -->
-<div class="era-block" id="s_snps">
+<div class="era-block pn-s_snps" id="s_snps">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
     <span class="era-label">Ancestry<br>SNPs</span>
   </div>
   <div class="era-content">
-<div class="story-panel pn-s_snps"><h2>Clues written in single letters</h2>
+<div class="story-panel"><h2>Clues written in single letters</h2>
 <div class="story"><p>Some clues are single letters in the DNA, read straight from Minko's raw data. Light skin, inherited from the first farmers. Blue eyes, from the hunters who were here first. And the ability to digest milk as an adult, from one copy of the milk-drinking variant that spread with the herders.</p><p>These are direct readings, not estimates. But one gene is a hint about one trait, never a percentage of ancestry.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid, read straight from the DNA</p></div></div>
 
-<details class="curious"><summary>For the curious</summary>
+<div class="curious"><p class="curious-label">For the curious</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">Key Ancestry-Informative Genotypes</h3>
     <p>Direct genotype calls from MyHeritage raw DNA for ancestry-relevant positions. These are not estimates — they are the actual nucleotides read from the DNA file.</p>
@@ -1393,22 +1390,22 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
     <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Single-gene clues are hints, not a measured ancestry percentage.</span></p>
     </div>
   
-</div></details>
+</div></div>
 </div>
 </div>
 
 
 <!-- ══ SYNTHESIS ══ -->
-<div class="era-block" id="s_synthesis" style="border-bottom:none">
+<div class="era-block pn-s_synthesis" id="s_synthesis" style="border-bottom:none">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
     <span class="era-label">The Full<br>Picture</span>
   </div>
   <div class="era-content">
-<div class="story-panel pn-s_synthesis"><h2>A crossroads, not a single story</h2>
+<div class="story-panel"><h2>A crossroads, not a single story</h2>
 <div class="story"><p>Farmers from the southeast, herders from the northeast and hunters who were here first, layered together, then mixed with the Slavs and the older peoples of the Balkans. Minko's DNA isn't one people. It's the meeting place of several, which is exactly what the Eastern Balkans has always been.</p><p>Beneath all of it, as for almost everyone with ancestry from outside Africa, sits a small slice of Neanderthal DNA, about 1 to 4%. Minko almost certainly carries it too, though we haven't mapped where.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure overall</p></div></div>
 
-<details class="curious"><summary>For the curious</summary>
+<div class="curious"><p class="curious-label">For the curious</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">The Complete Excavation — What All Seven Layers Tell Together</h3>
 
@@ -1451,7 +1448,7 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
       </div>
     </div>
   
-</div></details>
+</div></div>
 </div>
 </div>
 
