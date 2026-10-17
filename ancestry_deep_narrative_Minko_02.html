@@ -301,8 +301,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 /* story panels: palette variables only; tinted full-width band behind a solid left rule */
 body{color:var(--ink)}
 .main-content{overflow-x:clip}
-.era-content .story-panel{position:relative;z-index:1;background:none;color:var(--ink);padding:1.5rem 1.7rem 1.35rem;margin-top:-3.5rem;border-left:4px solid var(--pc)}
-.era-content .story-panel::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;background:color-mix(in srgb,var(--pc) var(--pt,5%),transparent);z-index:-1}
+.era-content .story-panel{position:relative;z-index:1;background:none;color:var(--ink);padding:1.5rem 1.7rem 1.35rem;margin-top:0;border-left:4px solid var(--pc)}
+.era-content .story-panel::before{content:"";position:absolute;top:-2rem;bottom:-4rem;left:50%;width:100vw;margin-left:-50vw;background:color-mix(in srgb,var(--pc) var(--pt,5%),transparent);z-index:-1}
 .era-content .story-panel h2{color:var(--ink);font-size:1.3rem;line-height:1.25;margin-bottom:.9rem}
 .era-content .story-panel p{color:var(--ink);font-size:1rem;line-height:1.85;margin-bottom:1rem}
 .era-content .story-panel a{color:var(--accent);text-underline-offset:3px}
@@ -373,7 +373,7 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
 </div>
 </div>
 
-<div class="disclaimer">Everything on this page is a statistical estimate from ancient and modern DNA, not a family tree. Percentages shift a few points depending on the method, and the names of ancient peoples are labels for genetic groups. <a href="ancestry_deep_narrative_Minko.html">Read the technical report</a>.
+<div class="disclaimer">
 <details class="curious"><summary>Sources and methods</summary><div class="curious-body"><p>Sources: G25 coordinates modelled from GEDmatch K36/K15/K13 components via custom mapping script. GEDmatch Eurogenes K36, Dodecad V3, puntDNAL K15, EUtest K15, Ancient Eurasia K6, MyHeritage ethnicity estimates. Vahaduo Global25 scaled population averages. References: Haak et al. 2015, Olalde et al. 2019, Antonio et al. 2019, Gnecchi-Ruscone et al. 2022 (Avar). Ancient DNA ancestry models are statistical approximations describing genetic relationships, not direct genealogical descent. Generated July 2026.</p></div></details></div>
  
 <!-- ══ EXECUTIVE SUMMARY ══ -->
@@ -389,7 +389,7 @@ details.curious>summary:focus-visible{outline:2px solid var(--accent);outline-of
   </div>
   <div class="era-content">
 <div class="story-panel pn-s_summary"><h2>The View From Above</h2>
-<div class="story"><p>Minko took a DNA test. It came back as percentages and country names. We set those aside and dug instead: down through the people who came before him, layer by layer, to the ones who lived 50,000 years ago.</p><p>The map below shows the whole dig at a glance, with today at the top and the deepest past at the bottom. Scroll on to go through it one layer at a time. Every layer ends with a <em>For the curious</em> fold-out holding the full science. Wherever a number appears, we say how sure we are.</p><p><a href="ancestry_deep_narrative_Minko.html">Read the technical report</a></p></div></div>
+<div class="story"><p>Minko took a DNA test. It came back as percentages and country names. We set those aside and dug instead: down through the people who came before him, layer by layer, to the ones who lived 50,000 years ago.</p><p>The map below shows the whole dig at a glance, with today at the top and the deepest past at the bottom. Scroll on to go through it one layer at a time. Every layer ends with a <em>For the curious</em> fold-out holding the full science. Wherever a number appears, we say how sure we are.</p></div></div>
 <section class="genetic-stratigraphy">
   <div class="strat-intro">
   <span class="strat-kicker">Chronological Map</span>
