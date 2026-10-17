@@ -298,47 +298,31 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
 
-/* story panels: one palette colour per layer; sizes match the expanded text */
-.era-content .story-panel {
-  position: relative;
-  background: color-mix(in srgb, var(--pbg) 35%, transparent);  /* same opacity */
-  color: var(--pfg);
-  padding: 1.5rem 1.7rem 1.35rem;
-  border-radius: 0 6px 6px 0;
-  border-left: 4px solid var(--pbd, rgba(0, 0, 0, .28));
-  z-index: 1;
-}
-
-.era-content .story-panel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 100vw;
-  margin-left: -50vw;
-  background: color-mix(in srgb, var(--pbg) 35%, transparent);  /* identical */
-  z-index: -1;
-  pointer-events: none;
-}
-
-.era-content .story-panel h2{color:var(--pfg);font-size:1.3rem;line-height:1.25;margin-bottom:.9rem}
-.era-content .story-panel p{color:var(--pfg);font-size:1rem;line-height:1.85;margin-bottom:1rem}
-.era-content .story-panel a{color:var(--pfg);text-underline-offset:3px}
-.era-content .story-panel .sure{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--pmute);display:flex;align-items:center;gap:.65rem;margin:.2rem 0 0}
+/* story panels: palette variables only; tinted full-width band behind a solid left rule */
+body{color:var(--ink)}
+.main-content{overflow-x:clip}
+.era-content .story-panel{position:relative;z-index:1;background:none;color:var(--ink);padding:1.5rem 1.7rem 1.35rem;margin-top:-3.5rem;border-left:4px solid var(--pc)}
+.era-content .story-panel::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;background:color-mix(in srgb,var(--pc) var(--pt,16%),transparent);z-index:-1}
+.era-content .story-panel h2{color:var(--ink);font-size:1.3rem;line-height:1.25;margin-bottom:.9rem}
+.era-content .story-panel p{color:var(--ink);font-size:1rem;line-height:1.85;margin-bottom:1rem}
+.era-content .story-panel a{color:var(--accent);text-underline-offset:3px}
+.era-content .story-panel .sure{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);display:flex;align-items:center;gap:.65rem;margin:.2rem 0 0}
 .meter{display:inline-flex;gap:3px;flex:none}
-.story-panel .meter i{width:.95rem;height:.38rem;background:var(--pfg);opacity:.28;border-radius:1px}
-.story-panel .m3 i,.story-panel .m2 i:nth-child(-n+2),.story-panel .m1 i:first-child{opacity:1}
-.pn-s_summary,.pn-s_synthesis{--pbg:#1c1610;--pfg:#f5efe4;--pmute:#cbbd9f;--pbd:#b89a5a}
-.pn-s_surface{--pbg:#8a8a7a;--pfg:#120d08;--pmute:#120d08}
-.pn-s_modern{--pbg:#b89a5a;--pfg:#1c1610;--pmute:#1c1610}
-.pn-s_medieval{--pbg:#8a2a1a;--pfg:#f5efe4;--pmute:#ecd9c8}
-.pn-s_bronze{--pbg:#7a5a8a;--pfg:#f7f1e6;--pmute:#e6dcee}
-.pn-s_neolithic{--pbg:#3a6b8a;--pfg:#f5efe4;--pmute:#d9e8f0}
-.pn-s_mesolithic{--pbg:#8fa3ac;--pfg:#1c1610;--pmute:#1c1610}
-.pn-s_archaic{--pbg:#7a6a4a;--pfg:#fbf5e8;--pmute:#eadfc4}
-.pn-s_surprises{--pbg:#7a3a1a;--pfg:#f5efe4;--pmute:#ebd6c4}
-.pn-s_snps{--pbg:#6b8a6b;--pfg:#120d08;--pmute:#120d08}
+.story-panel .meter i{width:.95rem;height:.38rem;background:var(--ink);opacity:.2;border-radius:1px}
+.story-panel .m3 i,.story-panel .m2 i:nth-child(-n+2),.story-panel .m1 i:first-child{opacity:.85}
+.pn-s_summary{--pc:var(--ink);--pt:9%}
+.pn-s_surface{--pc:var(--stone)}
+.pn-s_modern{--pc:var(--gold)}
+.pn-s_medieval{--pc:var(--cinnabar);--pt:13%}
+.pn-s_bronze{--pc:var(--steppe)}
+.pn-s_neolithic{--pc:var(--sea)}
+.pn-s_mesolithic{--pc:var(--ink-light)}
+.pn-s_archaic{--pc:var(--accent);--pt:13%}
+.pn-s_surprises{--pc:var(--accent-light);--pt:22%}
+.pn-s_snps{--pc:var(--gold-light);--pt:45%}
+.pn-s_synthesis{--pc:var(--ink-mid);--pt:11%}
+.era-block .era-label{color:var(--ink-mid)}
+@media(max-width:900px){.era-content .story-panel{margin-top:0}}
 details.curious{margin:1.4rem 0 0;border-top:1px dotted var(--era-line);padding-top:.9rem}
 details.curious>summary{cursor:pointer;list-style:none;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:.55rem}
 details.curious>summary::-webkit-details-marker{display:none}
