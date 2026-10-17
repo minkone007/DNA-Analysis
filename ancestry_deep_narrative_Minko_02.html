@@ -303,11 +303,11 @@ body{color:var(--ink)}
 .era-block{--ext:.5rem;--lw:1px}
 .era-content .story-panel{position:relative;background:none;color:var(--ink);padding:1.5rem 1.7rem 1.35rem;margin-top:.55rem}
 
-.era-content .story-panel::before {
+.era-content .story-panel::after {
   content: "";
   position: absolute;
-  inset: -10px;                   /* ← expands 10px on all four sides */
-  background: lightgoldenrodyellow;
+  inset: -10px;                     /* ← expands 10px on all sides */
+  background: lightgoldenrodyellow; /* or whatever color you want */
   z-index: -1;
   pointer-events: none;
 }
