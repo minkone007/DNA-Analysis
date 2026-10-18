@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Минко Ненов — Дълбок разказ за произхода</title>
+<title>Минко Ненов — Разкопката, разказна версия</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -112,7 +112,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .band-whg{border-left-color:var(--stone)}
 .band-ehg{border-left-color:#5a7a5a}.band-chg{border-left-color:#7a6a4a}
 .band-deep{min-height:70px;background:rgba(28,22,16,.035);border:none;border-left:4px solid var(--ink);box-shadow:none}
-.deep-note{max-width:430px;margin-left:auto;font-size:.75rem;line-height:1.4;color:var(--ink-light);font-style:italic}
+.deep-note{max-width:430px;margin-left:auto;font-size:.66rem;line-height:1.4;color:var(--ink-light);font-style:italic}
 @media (max-width:700px){
 .genetic-stratigraphy{padding:2rem 0 2.5rem}
 .band-label strong{font-size:.75rem}.band-label span{font-size:.60rem}.band-distance{font-size:.56rem}.deep-note{display:none}}
@@ -127,7 +127,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 /* ═══════════════════════════════════════════════════════════════
    GENETIC STRATIGRAPHY — DUAL LINEAGE
    ═══════════════════════════════════════════════════════════════ */
-.genetic-stratigraphy { margin: 3.5rem 0 4.5rem; padding: 2.5rem 0 3rem; background: transparent; border: none; --rail-w: 10px; --hg-w: 15px; --axis-w: 120px; }
+.genetic-stratigraphy { margin: 3.5rem 0 0rem; padding: 2.5rem 0 0rem; background: transparent; border: none; --rail-w: 10px; --hg-w: 15px; --axis-w: 120px; }
 
 /* ── INTRO ── */
 .strat-intro { max-width: 720px; margin: 0 auto 2.5rem; text-align: center; }
@@ -150,9 +150,9 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .summary-images-container { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2.35rem 1.5rem; position: absolute; top: 46%; left: -8.25rem; transform: translate(-50%, -50%); width: max-content; z-index: 5; }
 .summary-image { display: flex; flex-direction: column; align-items: center; width: 140px; flex-shrink: 0; }
 .summary-image img { width: 130px; height: 130px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; }
-.summary-image-text{margin-top:.55rem;color:var(--ink,#3c3226);font-weight:600;text-align:center;font-size:.78rem;line-height:1.25;letter-spacing:.02em;z-index:5;background-color:var(--parchment)}
-.summary-image--portrait { width: 180px; margin: 1.5rem 0 0 0; }
-.summary-image--portrait img { width: 160px; height: 210px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; z-index: 5; }
+.summary-image-text { margin-top: 0.55rem; color: var(--ink, #3c3226); font-weight: 600; text-align: center; font-size: 0.78rem; line-height: 1.25; letter-spacing: 0.02em; z-index: 5;background-color: var(--parchment); }
+.summary-image--portrait { width: 180px; margin: 1rem 0 0 0; }
+.summary-image--portrait img { width: 160px; height: 150px; object-fit: contain; object-position: center top; background: #f5f0e6; box-sizing: border-box; display: block; z-index: 5; }
 .summary-image--portrait .summary-image-text { margin-top: 0.55rem; }
 
 /* ── TIMELINE MARKERS ── */
@@ -209,7 +209,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .band-label strong { display: block; font-size: 1rem; line-height: 1.2; font-weight: 600; }
 .band-label span { display: block; margin-top: .12rem; font-size: .8rem; line-height: 1.25; color: var(--ink-light); }
 .band-distance { flex-shrink: 0; font-family: 'Inter', sans-serif; font-size: .63rem; color: var(--ink-light); white-space: nowrap; }
-.deep-note { flex-basis: 100%; font-size: .8rem; line-height: 1.4; color: var(--ink-light); font-style: italic; }
+.deep-note { flex-basis: 100%; font-size: .66rem; line-height: 1.4; color: var(--ink-light); font-style: italic; }
 
 /* ── CARD TYPES ── */
 .band-slavic { --bc: var(--cinnabar); }
@@ -229,7 +229,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 .band-deep2::before { content: ""; position: absolute; inset: 0; background: rgba(245, 239, 228, .82); z-index: -1; }
 
 /* ── SHARED / BOTH-LINEAGES BAND ── */
-.dual-shared { position: absolute; left: 0; right: 0; width: 85%; transform: translateY(-50%); z-index: 1; display: grid; grid-template-columns: 1fr calc(var(--axis-half) * 2) 1fr; align-items: center; min-height: 70px; padding: .45rem .7rem; border-left: none; border-right: 4px solid var(--ink); border-radius: 2px; }
+.dual-shared { position: absolute; left: 0; right: 0; width: 85%; transform: translateY(-50%); z-index: 1; display: grid; grid-template-columns: 1fr calc(var(--axis-half) * 2 + 30px) 1fr; align-items: center; min-height: 70px; padding: .45rem .7rem; border-left: none; border-right: 4px solid var(--ink); border-radius: 2px; }
 .dual-field .band-deep { border-left: none; border-right: 4px solid var(--ink); }
 .dual-shared .deep-note { flex-basis: auto; }
   
@@ -297,13 +297,47 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   
 @media print{.nav-sidebar,.lang-bar{display:none}.main-content,.cover{margin-left:0}}
 @media(max-width:900px){.nav-sidebar{display:none}.main-content,.cover{margin-left:0}.era-block{padding:2rem 1.5rem;flex-direction:column}.era-marker{width:100%;flex-direction:row;padding-top:0}.era-marker::before{display:none}.era-content{padding-left:0}.two-col{grid-template-columns:1fr}}
+
+/* story panels: no fill; four frame lines in the layer colour that run past the corners */
+body{color:var(--ink)}
+.era-block{--ext:.5rem;--lw:1px}
+.era-content .story-panel{position:relative;background:none;color:var(--ink);padding:1.5rem 1.7rem 1.35rem;margin-top:.55rem}
+.era-content .story-panel::after{content:"";position:absolute;inset:-3px;background:color-mix(in srgb,var(--pc)5%,transparent);z-index:-1;pointer-events:none;}
+.era-content .story-panel::before{content:"";position:absolute;inset:calc(-1 * var(--ext));pointer-events:none;background:
+ linear-gradient(var(--pc),var(--pc)) left 0 top var(--ext)/100% var(--lw) no-repeat,
+ linear-gradient(var(--pc),var(--pc)) left 0 bottom var(--ext)/100% var(--lw) no-repeat,
+ linear-gradient(var(--pc),var(--pc)) left var(--ext) top 0/var(--lw) 100% no-repeat,
+ linear-gradient(var(--pc),var(--pc)) right var(--ext) top 0/var(--lw) 100% no-repeat}
+.era-content .story-panel h2{color:var(--ink);font-size:1.3rem;line-height:1.25;margin-bottom:.9rem}
+.era-content .story-panel p{color:var(--ink);font-size:1rem;line-height:1.85;margin-bottom:1rem}
+.era-content .story-panel a{color:var(--accent);text-underline-offset:3px}
+.era-content .story-panel .sure{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);display:flex;align-items:center;gap:.65rem;margin:.2rem 0 0}
+.meter{display:inline-flex;gap:3px;flex:none}
+.story-panel .meter i{width:.95rem;height:.38rem;background:var(--ink);opacity:.2;border-radius:1px}
+.story-panel .m3 i,.story-panel .m2 i:nth-child(-n+2),.story-panel .m1 i:first-child{opacity:.85}
+.era-block>.era-marker>.era-dot{background:var(--pc);box-shadow:0 0 0 3px var(--pc)}
+.pn-s_summary{--pc:var(--sea)}
+.pn-s_surface{--pc:var(--stone)}
+.pn-s_modern{--pc:var(--gold)}
+.pn-s_medieval{--pc:var(--cinnabar)}
+.pn-s_bronze{--pc:var(--steppe)}
+.pn-s_neolithic{--pc:var(--sea)}
+.pn-s_mesolithic{--pc:var(--ink-light)}
+.pn-s_archaic{--pc:var(--accent)}
+.pn-s_surprises{--pc:var(--accent-light)}
+.pn-s_snps{--pc:var(--gold)}
+.pn-s_synthesis{--pc:var(--ink-mid)}
+.curious-label{display:flex;align-items:center;gap:.8rem;margin:2rem 0 1.3rem;font-family:'EB Garamond',Georgia, serif;font-style:italic;font-size:.82rem;font-weight:600;color:var(--cinnabar)!important;}
+.curious-label::after{content:"";flex:1;border-top:1px dotted var(--ink-light)}
+.disclaimer a{color:var(--accent)}
+@media(max-width:900px){.era-block{--ext:.9rem}.era-content .story-panel{margin-top:0}}
 </style>
 </head>
 <body>
 
 <div class="lang-bar">
-  <a href="ancestry_deep_narrative_Minko.html" class="lang-btn">EN</a>
-  <a href="ancestry_deep_narrative_Minko_bg.html" class="lang-btn lang-btn--active">БГ</a>
+  <a href="ancestry_deep_narrative_Minko.html" class="lang-btn lang-btn--active">EN</a>
+  <a href="ancestry_deep_narrative_Minko_bg.html" class="lang-btn">БГ</a>
   <a href="ancestry_deep_narrative_Minko_ja.html" class="lang-btn">日本語</a>
 </div>
 
@@ -326,103 +360,48 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
 <div class="main-content">
 
 <div class="cover">
-  <p class="cover-eyebrow">Дълбок разказ за произхода</p>
+  <p class="cover-eyebrow">Доклад за дълбокия произход</p>
   <h1>Минко Ненов</h1>
   <p class="cover-sub">Археологическо разкопаване на един геном</p>
-  <p class="cover-sub2">Източни Балкани · Понтийска степ · Анадола · 50 000 години</p>
+  <p class="cover-sub2">Източни Балкани · Черноморската степ · Турция · 50 000 години</p>
   <div class="cover-meta">
-    <div class="cover-stat">
-      <span class="cover-stat-val">0,018</span>
-      <span class="cover-stat-label">G25 дистанция до румънците</span>
-    </div>
-    <div class="cover-stat">
-      <span class="cover-stat-val">0,030</span>
-      <span class="cover-stat-label">Най-близка средновековна (Македония)</span>
-    </div>
-    <div class="cover-stat">
-      <span class="cover-stat-val">8</span>
-      <span class="cover-stat-label">Времеви слоя</span>
-    </div>
-    <div class="cover-stat">
-      <span class="cover-stat-val">юли 2026</span>
-      <span class="cover-stat-label">Генериран</span>
-    </div>
-  </div>
+<div class="cover-stat"><span class="cover-stat-val">Румънци</span><span class="cover-stat-label">Най-близко живо съвпадение</span></div>
+<div class="cover-stat"><span class="cover-stat-val">Средновековна Македония</span><span class="cover-stat-label">Най-близко древно съвпадение</span></div>
+<div class="cover-stat"><span class="cover-stat-val">7</span><span class="cover-stat-label">Времеви слоя</span></div>
+<div class="cover-stat"><span class="cover-stat-val">юли 2026</span><span class="cover-stat-label">Генерирано</span></div>
+</div>
 </div>
 
-<div class="disclaimer">
-  Източници: G25 координати, моделирани от компонентите на GEDmatch K36/K15/K13 чрез custom скрипт за картографиране. GEDmatch Eurogenes K36, Dodecad V3, puntDNAL K15, EUtest K15, Ancient Eurasia K6, оценки за етническа принадлежност на MyHeritage. Мащабирани средни стойности на популации от Vahaduo Global25. Литература: Haak et al. 2015, Olalde et al. 2019, Antonio et al. 2019, Gnecchi-Ruscone et al. 2022 (авари). Моделите за древен произход са статистически приближения на генетични връзки, а не пряко родословно потекло. Генериран юли 2026.
-</div>
+<div class="disclaimer"><strong>Източници и методи:</strong> G25 координати, моделирани от компонентите на GEDmatch K36/K15/K13 чрез персонализиран скрипт за картографиране. GEDmatch Eurogenes K36, Dodecad V3, puntDNAL K15, EUtest K15, Ancient Eurasia K6, оценки за етническа принадлежност на MyHeritage. Мащабирани средни стойности на популации от Vahaduo Global25. Литература: Haak et al. 2015, Olalde et al. 2019, Antonio et al. 2019, Gnecchi-Ruscone et al. 2022 (авари). Моделите за древен произход са статистически приближения, които описват генетични връзки, а не пряко родословно потекло. Генерирано юли 2026.</div>
  
 <!-- ══ EXECUTIVE SUMMARY ══ -->
-<div class="era-block" id="s_summary">
+<div class="era-block pn-s_summary" id="s_summary">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
-      <span class="era-label">Преди разкопката<br>Резюме</span>
+        <span class="era-label">Резюме</span>
             <div class="summary-image summary-image--portrait">
               <img src="images/minko.webp" alt="Авторът" width="160" height="210">
               <span class="summary-image-text">МИНКО<br>НЕНОВ</span>
             </div>
          
   </div>
-  <div class="era-content">
-    <h2>Погледът отгоре</h2>
+   <div class="era-content">
+    <div class="story-panel">
+      <h2>Погледът отгоре</h2>
+      <div class="story">
+        <p>Минко си направи ДНК тест и резултатите дойдоха като спретнат списък от проценти и имена на държави. Под списъка се крие една много по-стара разкопка — надолу през хората, живели преди него, пласт по пласт, докато се стигне до онези, които са живели преди петдесет хиляди години.</p>
+        <p>Картата по-долу показва цялата разкопка наведнъж: настоящето на повърхността, най-дълбокото минало най-долу. Като минаваме през пластовете един по един, се разгръща пълен научен разказ — числа, подробности и степента на сигурност зад всяка находка.</p>
+      </div> <!-- .story -->
+    </div> <!-- .story-panel -->
 
-    <p class="descent-note">Следват седем пласта, всеки по няколко хиляди години по-дълбок от предишния. Преди да се спуснем в тях, ето какво показва цялата разкопка, от началото до края.</p>
-
-    <p>Този геном се намира в центъра на източнобалканския генетичен континуум. Сравненията с модерни популации го поставят най-близо до румънците, българите и гагаузите, образувайки тесен клъстер с други източнобалкански групи — черногорци, молдовци, сърби, македонци. Това съответства на картината на MyHeritage (гръцки и албански ~47%, балкански ~38%), ако тези два етикета се разбират като припокриващи се прозорци към един и същ югоизточноевропейски генофонд, а не като отделни родови дялове.</p>
-
-    <p>На средновековно ниво най-близките древни съвпадения са <strong>Македония, Средновековие (0,030)</strong> и <strong>България, Средновековие (0,034)</strong> — тясна източнобалканска двойка от ранно- до късносредновековния период, съответстваща на популация, оформена от славянските миграции, същевременно запазила значителен предславянски палеобалкански субстрат. Бронзовата епоха под него показва почти балансиран принос от <mark>анадолски неолитни фермери и понтийски степни (свързани с Ямна) пастири</mark> — приблизително балансиран синтез с умерен степен наклон (около 52–56% степна срещу 42–46% фермерска родственост, според използвания референтен набор). Западната ловно-събирателска родственост (ЗЛС) присъства, но представлява най-малкия от трите основополагащи европейски потока, при около 2 процента като самостоятелен сигнал, като допълнителна ловно-събирателска родственост е пренесена вътре в самия степен компонент и тези модели не могат да я отделят.</p>
-
-    <p>На още по-голяма дълбочина степната родственост изглежда с по-силно изразена кавказка ловно-събирателска (КЛС) страна, отколкото източна ловно-събирателска (ИЛС) страна — модел, типичен за югоизточноевропейските профили, а не за северния Шнуркерамичен маршрут. Единичните генни маркери потвърждават класически европейски пигментационен профил — светла кожа, сини очи — заедно с лактазна персистентност от едно копие на европейския алел. Хомозиготен, свързан с Източна Азия EDAR вариант присъства без обичайния си партньорски алел ABCC11 — комбинация, по-съвместима със стар, косвен път на генен поток, отколкото със скорошна източноазиатска родственост.</p>
-
-    <table class="dist-table">
-      <tr>
-        <th></th>
-        <th>Най-близко съвпадение</th>
-        <th>Дистанция</th>
-      </tr>
-      <tr>
-        <td>Модерна популация</td>
-        <td>Румънци</td>
-        <td class="dist-val">0,018</td>
-      </tr>
-      <tr>
-        <td>Средновековие</td>
-        <td>Македония / България, Средновековие</td>
-        <td class="dist-val">0,030 / 0,034</td>
-      </tr>
-      <tr>
-        <td>Бронзова епоха</td>
-        <td>Анадолски неолит / Ямна — почти изравнени</td>
-        <td class="dist-val">0,171 / 0,176</td>
-      </tr>
-      <tr>
-        <td>Архаичен степен пласт</td>
-        <td>КЛС спрямо ИЛС</td>
-        <td class="dist-val">0,253 / 0,286</td>
-      </tr>
-    </table>
-    <div class="insight-box">
-      <span class="insight-label">Как да четем този доклад</span>
-      <strong>По-ниска G25 дистанция = генетично по-близо.</strong>
-      Тези стойности измерват сходство с референтни популации, а не „процент от предците ви“.
-      Съвременните етикети (напр. „гръцки и албански“, „балкански“) са имена на днешни сравнителни групи — не доказателство за гръцки, албански или друг национален предшественик в смисъла на родословно дърво.
-      Древните етикети (Ямна, Барджън, траки и др.) са археологически или генетични референтни клъстери, използвани за описание на дълбоката структура. Процентите, означени с „оценка“, са разказвателни оценки; те се припокриват със степните и фермерските стойности (славянската и палеобалканската родственост съдържат и степна, и фермерска родственост), затова не са части от една обща торта.
-      Четете отгоре надолу: всеки пласт е по-стар от този над него.
-    </div>
     
-    
-    <!-- ══ GENETIC STRATIGRAPHY ══ -->
-<section class="genetic-stratigraphy">
+  <section class="genetic-stratigraphy">
   <div class="strat-intro">
   <span class="strat-kicker">Хронологична карта</span>
   <h2>Генетична стратиграфия</h2>
-  <p>Популации и древни референтни проби, използвани за интерпретация на този профил.</p>
+  <p>Популации и древни референтни проби, използвани за тълкуване на този профил.</p>
   <p>
-    <strong>Горе = днес, долу = най-дълбокото минало.</strong>
-    Оцветената колона следва разказания в доклада ред, а не точни календарни дати за начало и край.
-    Където ЗЛС, ИЛС и КЛС се припокриват във времето, основната колона показва един неутрален отрязък; истинските им обхвати са в тънките ленти до нея.
+    <strong>Горе = днес, долу = най-дълбокото минало.</strong> Оцветената колона следва разказания в доклада ред, а не точни календарни дати за начало и край. Където ЗЛС, ИЛС и КЛС се припокриват във времето, основната колона показва един неутрален отрязък; истинските им обхвати са в тънките ленти до нея.
   </p>
  </div>
       
@@ -589,14 +568,14 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
   <div class="dual-shared band-deep" style="top:88.00%;">
    <div class="band-label">
     <strong>
-             Неандерталска примес
-            </strong>
-            <span>
-             ~50 000–60 000 г. назад · Левант / Югозападна Азия · от двамата родители · ~1–4% от генома
-            </span>
-            <span class="band-epoch">
-             Прозорец на примеса: ~50 000–60 000 г. назад
-            </span>
+     Неандерталска примес
+    </strong>
+    <span>
+     ~50 000–60 000 г. назад · Левант / Югозападна Азия · от двамата родители · ~1–4% от генома
+    </span>
+    <span class="band-epoch">
+     Прозорец на примеса: ~50 000–60 000 г. назад
+    </span>
    </div>
    <div class="dual-shared-gap">
    </div>
@@ -608,19 +587,19 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
    <div class="dual-rail">
     <div class="strata-zone strata-zone--modern" style="top:0.00%;height:11.25%;" title="Българи · Източнобалканска котва · Наличие на популацията: ~681 г. – днес">
     </div>
-    <div class="strata-zone strata-zone--slavic" style="top:11.25%;height:2.75%;" title="Славянска миграция и византийски синтез · Византийско присъствие ~330–1453 г.; славянски миграции ~500–900 г.">
+    <div class="strata-zone strata-zone--slavic" style="top:11.25%;height:2.75%;" title="Славянска миграция &amp; византийски синтез · Византийско присъствие ~330–1453 г.; славянски миграции ~500–900 г.">
     </div>
-    <div class="strata-zone strata-zone--byzantine" style="top:14.00%;height:2.50%;" title="Славянска миграция и византийски синтез · Византийско присъствие ~330–1453 г.; славянски миграции ~500–900 г.">
+    <div class="strata-zone strata-zone--byzantine" style="top:14.00%;height:2.50%;" title="Славянска миграция &amp; византийски синтез · Византийско присъствие ~330–1453 г.; славянски миграции ~500–900 г.">
     </div>
     <div class="strata-zone strata-zone--thracian" style="top:16.5%;height:11.25%;" title="Палеобалкански субстрат · Траки · Културата налична: ~1500 г. пр.н.е. – 46 г.">
     </div>
-    <div class="strata-zone strata-zone--steppe" style="top:29.25%;height:16.00%;" title="Ямна / понтийско-степен хоризонт · Културата активна: ~3300–2600 г. пр.н.е.">
+    <div class="strata-zone strata-zone--steppe" style="top:29.25%;height:16.00%;" title="Ямна / понтийски степен хоризонт · Културата активна: ~3300–2600 г. пр.н.е.">
     </div>   
-    <div class="strata-zone strata-zone--hg" style="top:34.00%;height:35.50%;" title="Западноевропейски ловци-събирачи · Лошбур: ЗЛС в Европа: ~15 000–5000 г. назад">
+    <div class="strata-zone strata-zone--hg" style="top:34.00%;height:35.50%;" title="Западноевропейски ловци-събирачи · Лошбур: ЗЛС в Европа: ~15 000–5000 г. назад">
     </div>   
-    <div class="strata-zone strata-zone--deep" style="top:69.50%;height:19.00%;" title="Неандерталска примес · ~50 000–60 000 г. назад">
+    <div class="strata-zone strata-zone--deep" style="top:69.50%;height:19.00%;" title="Неандерталска примес · ~50 000–60 000 г. назад">
     </div>
-    <div class="strata-zone strata-zone--deep2" style="top:88.50%;height:9.00%;" title="Неандерталска примес · ~50 000–60 000 г. назад">
+    <div class="strata-zone strata-zone--deep2" style="top:88.50%;height:9.00%;" title="Неандерталска примес · ~50 000–60 000 г. назад">
     </div>
    </div>
    <div class="dual-hg-block" style="width:15px;">
@@ -640,7 +619,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      </div>
     </div>
     <div class="dual-hg-lane dual-hg-lane--3">
-     <div class="strata-zone strata-zone--farmer" style="top:46.50%;height:7.50%;" title="Ранни европейски земеделци">
+     <div class="strata-zone strata-zone--farmer" style="top:46.50%;height:7.50%;" title="ЕЕФ">
      </div>
     </div>
    </div>
@@ -658,77 +637,77 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      </span>
     </div>
     <div class="band-distance">
-    G25: 0.018 / 0.021
+    G25: 0,018 / 0,021
     </div>
    </div>
     <div class="dual-card band-slavic" style="top:11.75%; right:120%; width:70%;">
     <div class="band-label">
      <strong>
-              Славянска миграция
-             </strong>
-             <span>
-              VI–IX в. · ~32% славянски принос (оценка) (Панонски коридор)
-             </span>
-             <span class="band-epoch"></span>
+      Славянска миграция
+     </strong>
+     <span>
+      VI–IX в. · ~32% славянски принос (оценка) (Панонски коридор)
+     </span>
+     <span class="band-epoch"></span>
     </div>
     <div class="band-distance">
-     G25: 0.122 (к. авари) / 0.214 (р. авари)
+     G25: 0,122 (к. авари) / 0,214 (р. авари)
     </div>
    </div>
    <div class="dual-card band-byzantine" style="top:15.75%; right:145%; width:70%;">
      <div class="band-label">
-    <strong>Римско-византийски синтез</strong>
-             <span>I–III в. · ~20% анадолска примес, подсилена при византийско владичество
-             </span>
-               <span class="band-epoch"></span>
+    <strong>Римско-византийски синтез</strong> 
+     <span>I–III в. · ~20% анадолска примес, подсилена при византийско владичество
+     </span>
+       <span class="band-epoch"></span>
       </div>
     </div>
     <div class="dual-card band-thracian" style="top:22.00%; right:100%; width:70%;">
     <div class="band-label">
      <strong>
-              Палеобалкански субстрат · Траки
-             </strong>
-             <span>
-              Тракийци, Даки, Илири · ~48% от генома (оценка)
-             </span>
-             <span class="band-epoch">
-              Културата налична: ~1500 г. пр.н.е. – 46 г.
-             </span>
+      Палеобалкански субстрат · Траки
+     </strong>
+     <span>
+      Траки, даки, илири · ~48% от генома (оценка)
+     </span>
+     <span class="band-epoch">
+      Културата налична: ~1500 г. пр.н.е. – 46 г.
+     </span>
     </div>
     <div class="band-distance">
-     G25: 0.088–0.096
+     G25: 0,088–0,096
     </div>
    </div>
    <div class="dual-card band-steppe" style="top:32.00%; right:120%; width:70%;">
     <div class="band-label">
      <strong>
-              Ямна / понтийско-степен хоризонт
-             </strong>
-             <span>
-              Степни скотовъди от бронзовата епоха · ~56% степен принос · Bulgaria_EBA_Yamnaya по-близка от степната референция Самара
-             </span>
-             <span class="band-epoch">
-              Културата активна: ~3300–2600 г. пр.н.е.
-             </span>
+      Ямна / понтийски степен хоризонт
+     </strong>
+     <span>
+      Степни скотовъдци от бронзовата епоха · ~56% степен принос · Bulgaria_EBA_Yamnaya по-близка от степната референция Самара
+     </span>
+     <span class="band-epoch">
+      Културата активна: ~3300–2600 г. пр.н.е.
+     </span>
     </div>
     <div class="band-distance">
-     G25: 0.123 / 0.176
+     G25: 0,123 / 0,176
     </div>
    </div>
    <div class="dual-card band-farmer" style="top:50.50%; right:120%; width:70%;">
     <div class="band-label">
      <strong>
-              Анадолски неолит · Бонджуклу / Барджън
-             </strong>
-             <span>
-              Първите земеделци на Балканите · ~42% ранни неолитни земеделци
-             </span>
-             <span class="band-epoch">
-              Земеделска култура: ~10 300–8000 г. назад
-             </span>
+      Анадолски неолит · Бонджуклу / Барджън
+     </strong>
+     <span>
+      Първите земеделци на Балканите · ~42% ранни неолитни земеделци
+     </span>
+     <span class="band-epoch">
+      Земеделска култура: ~10 300–8000 г. назад
+     </span>
     </div>
     <div class="band-distance">
-     G25: 0.142 / 0.171
+     G25: 0,142 / 0,171
     </div>
    </div>
    <div class="dual-card band-whg" style="top:66.50%; right:75%; width:78%;">
@@ -737,11 +716,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       ЗЛС · Лошбур
      </strong>
      <span>
-      Западни ловци-събирачи (ЗЛС) · ~15 000–5000 г. назад · мезолитна Европа · източник на хаплотипа HERC2 за сини очи</span>
+      Западни ловци-събирачи (ЗЛС) · ~15 000–5000 г. назад · мезолитна Европа · източник на хаплотипа HERC2 за сини очи</span>
      <span class="band-epoch"></span>
     </div>
     <div class="band-distance">
-     G25: 0.407
+     G25: 0,407
     </div>
    </div>
    <div class="dual-card band-ehg" style="top:43.00%; right:150%; width:70%;">
@@ -752,11 +731,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      <span>
       Източни ловци-събирачи (ИЛС) · вторични спрямо кавказките ловци-събирачи (КЛС) в този профил — типична югоизточноевропейска степна смес</span>
      <span class="band-epoch">
-      ИЛС линия: ~12 000–7000 г. назад
+      ИЛС линия: ~12 000–7000 г. назад
      </span>
     </div>
     <div class="band-distance">
-     G25: 0.286
+     G25: 0,286
     </div>
    </div>
    <div class="dual-card band-chg" style="top:58%; right:150%; width:70%;">
@@ -767,11 +746,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
      <span>
       Кавказки ловци-събирачи (КЛС) · по-силната страна на степната смес в този геном</span>
      <span class="band-epoch">
-      КЛС линия: ~13 000–9000 г. назад
+      КЛС линия: ~13 000–9000 г. назад
      </span>
     </div>
     <div class="band-distance">
-     G25: 0.253
+     G25: 0,253
     </div>
    </div>
    </div>
@@ -779,80 +758,136 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
  </div> <!-- end dual-field -->
 </div> <!-- end strat-map-wrap -->
 </section>
-   <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      Накратко: източнобалкански геном, изграден от приблизително балансирана смес (с умерен степен наклон) от анадолски фермери и степна родственост с кавказки превес, с по-малък принос на западни ловци-събирачи в основата, оформен по-късно от славянските миграции, породили средновековната българска популация.
-      <p style="margin-top:.75rem; font-size:.92em; color:var(--ink-light);"><em>Забележка за брата:</em> В сравнение със Стайко този профил е малко по-близо до румънския край на балканския континуум, докато Стайко е по-близо до гагаузкия, българския и егейския край.</p>
-      <p>Всичко, което следва — <mark>седем пласта, осем хиляди години</mark> — е доказателството зад това едно изречение.</span></p>
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Източнобалкански профил — приблизително балансирани фермери + степ (умерен степен наклон), след това оформяне в славянската епоха към средновековна българоподобна популация.</p>
+<div class="curious"><p class="curious-label">Разкопката</p>
+<div class="curious-body">
 
+
+    <p class="descent-note">Следват седем слоя, всеки с няколко хиляди години по-дълбок от предишния. Преди да слезем в тях, ето какво показва цялата разкопка, отгоре надолу.</p>
+
+    <p>Този геном се намира в центъра на източнобалканския генетичен континуум. Сравненията със съвременни популации го поставят най-близо до <strong>румънците, българите</strong> и <strong>гагаузите</strong>, в тесен клъстер с други източнобалкански групи — черногорци, молдовци, сърби, македонци. Това съответства на картината на MyHeritage (гръцки и албански ~47%, балкански ~38%), стига тези два етикета да се четат като припокриващи се прозорци към един и същ югоизточноевропейски генофонд, а не като отделни родови дялове.</p>
+
+    <p>На средновековно ниво най-близките древни съвпадения са <strong>Македония, Средновековие (0,030)</strong> и <strong>България, Средновековие (0,034)</strong> — тясна източнобалканска двойка от ранно- до високосредновековния период, съответстваща на популация, оформена от <strong>славянските</strong> миграции, която същевременно е запазила значителен предславянски <strong>палеобалкански</strong> субстрат. Бронзовата епоха под него показва почти балансиран принос от <strong>анадолски неолитни земеделци</strong> и <strong>понтийски степни (свързани с Ямна) скотовъдци</strong> — приблизително балансиран синтез с умерен степен наклон (около 52–56% степна срещу 42–46% земеделска родственост, според използвания референтен набор). <strong>Западната ловно-събирателска родственост</strong> (ЗЛС) присъства, но е най-малкият от трите основополагащи европейски потока — около 2 процента като самостоятелен сигнал, като допълнителна ловно-събирателска родственост е пренесена вътре в самия степен компонент и тези модели не могат да я отделят.</p>
+
+    <p>На още по-голяма дълбочина степната родственост изглежда натежала към <strong>кавказката ловно-събирателска</strong> (КЛС) страна, а не към <strong>източната ловно-събирателска</strong> (ИЛС) — модел, типичен за югоизточноевропейските профили, а не за северния път на шнуркерамичната култура. Единичните генни маркери потвърждават класически европейски пигментационен профил — светла кожа, сини очи — заедно с лактазна персистентност от едно копие на европейския алел. Налице е хомозиготен, свързан с Източна Азия вариант на EDAR без обичайния му партньорски алел на ABCC11 — комбинация, по-съвместима със стар, непряк път на генен поток, отколкото със скорошен източноазиатски произход.</p>
+
+    <table class="dist-table">
+      <tr>
+        <th></th>
+        <th>Най-близко съвпадение</th>
+        <th>Дистанция</th>
+      </tr>
+      <tr>
+        <td>Модерна популация</td>
+        <td>Румънци</td>
+        <td class="dist-val">0,018</td>
+      </tr>
+      <tr>
+        <td>Средновековие</td>
+        <td>Македония / България, Средновековие</td>
+        <td class="dist-val">0,030 / 0,034</td>
+      </tr>
+      <tr>
+        <td>Бронзова епоха</td>
+        <td>Анадолски неолит / Ямна — почти изравнени</td>
+        <td class="dist-val">0,171 / 0,176</td>
+      </tr>
+      <tr>
+        <td>Архаичен степен пласт</td>
+        <td>КЛС спрямо ИЛС</td>
+        <td class="dist-val">0,253 / 0,286</td>
+      </tr>
+    </table>
+    <div class="insight-box">
+      <span class="insight-label">Как да четем този доклад</span> <strong>По-ниска G25 дистанция = генетично по-близо.</strong> Тези стойности измерват сходство с референтни популации, а не „процент от предците ви“. Съвременните етикети (напр. „гръцки и албански“, „балкански“) са имена на днешни сравнителни групи — не доказателство за гръцки, албански или друг национален предшественик в смисъла на родословно дърво. Древните етикети (Ямна, Барджън, траки и др.) са археологически или генетични референтни клъстери, използвани за описание на дълбоката структура. Процентите, означени с „оценка“, са разказвателни оценки; те се припокриват със степните и земеделските стойности (славянският и палеобалканският произход съдържат и степна, и земеделска родственост), затова не са отрязъци от една обща торта. Четете отгоре надолу: всеки слой е по-стар от този над него.
     </div>
-  </div>
+    
+    
+    <!-- ══ GENETIC STRATIGRAPHY ══ -->
+
+   <div class="plain-box">
+      <span class="plain-label">С прости думи</span> Накратко: източнобалкански геном, изграден от приблизително балансирана смес (с умерен степен наклон) от анадолски земеделци и степна родственост с кавказки превес, с по-малък принос на западни ловци-събирачи в основата, оформен по-късно от славянските миграции, породили средновековната българска популация.
+      <p style="margin-top:.75rem; font-size:.92em; color:var(--ink-light);"><em>Забележка за брата:</em> В сравнение със Стайко този профил е малко по-близо до румънския край на балканския континуум, докато Стайко е по-близо до гагаузкия, българския и егейския край.</p>
+      <p>Всичко, което следва — <mark>седем слоя, петдесет хиляди години</mark> — е доказателството зад това едно изречение.</p>
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Източнобалкански профил — приблизително балансирани земеделци + степ (умерен степен наклон), след това оформяне в славянската епоха към средновековна българоподобна популация.</span></p>
+    </div>
+  
+</div></div>
+</div>
 </div>
   
 <!-- ══ LAYER 0 ══ -->
-<div class="era-block" id="s_surface">
+<div class="era-block pn-s_surface" id="s_surface">
   <div class="era-marker">
     <span class="era-dot"></span>
     <span class="era-label">Слой 0<br>Повърхността</span>
   </div>
   <div class="era-content">
-    <h2>Какво казват процентите — и какво не казват</h2>
+<div class="story-panel"><h2>Етикетът на кутията е най-неинтересната част</h2>
+<div class="story"><p>Тестът казва: 47% гръцки и албански, 38% балкански, 9% източноевропейски, 5% южноиталиански. Това не означава, че Минко има гръцка баба или италиански прадядо. Тестът сравнява неговата ДНК с хората, живеещи днес, и отчита на кого прилича. „Гръцки и албански“ всъщност значи „прилича на хората, които носят старото средиземноморско земеделско наследство“ — наследство, споделено от почти всички в Югоизточна Европа.</p><p>Пробвайте друг тест и етикетите ще се променят. ДНК-то — не. Затова пренебрегваме етикетите и копаем.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Сигурно</p></div></div>
 
-    <p class="descent-note">Всяка разкопка трябва да започне отнякъде. Тази започва от повърхността, с етикетите, които всеки стандартен ДНК тест ви дава — и с това защо точно тези етикети са най-ненадеждната част от целия доклад.</p>
+<div class="curious"><p class="curious-label">Разкопката</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Какво ни казват етикетите — и какво не ни казват</h3>
 
-    <p>Оценката на MyHeritage за етническата принадлежност на този кит изглежда така:</p>
+    <p class="descent-note">Всяка разкопка трябва да започне отнякъде. Тази започва от повърхността, с етикетите, които стандартният ДНК тест ви връчва — и с обяснение защо точно тези етикети са най-ненадеждната част от целия доклад.</p>
+
+    <p>Оценката на MyHeritage за етническата принадлежност на този кит е следната:</p>
 
     <table class="data-table">
-      <tr><td>Гръцки и албански</td><td class="pct-cell"><span class="pct-bar" style="width:78%"></span><span class="pct-val">46.8%</span></td></tr>
-          <tr><td>Балкански<span style="font-size:.75rem;color:var(--ink-light)">(Босна и Херцеговина)</span></td><td class="pct-cell"><span class="pct-bar" style="width:75%"></span><span class="pct-val">38.4%</span></td></tr>
-          <tr><td>Източноевропейски</td><td class="pct-cell"><span class="pct-bar" style="width:17%"></span><span class="pct-val">8.8%</span></td></tr>
-          <tr><td>Южноиталиански</td><td class="pct-cell"><span class="pct-bar" style="width:10%"></span><span class="pct-val">4.9%</span></td></tr>
-          <tr><td>Балтийски</td><td class="pct-cell"><span class="pct-bar" style="width:10%"></span><span class="pct-val">1.1%</span></td></tr>
+      <tr><td>Гръцки и албански</td><td class="pct-cell"><span class="pct-bar" style="width:78%"></span><span class="pct-val">46,8%</span></td></tr>
+          <tr><td>Балкански<span style="font-size:.75rem;color:var(--ink-light)">(Босна и Херцеговина)</span></td><td class="pct-cell"><span class="pct-bar" style="width:75%"></span><span class="pct-val">38,4%</span></td></tr>
+          <tr><td>Източноевропейски</td><td class="pct-cell"><span class="pct-bar" style="width:17%"></span><span class="pct-val">8,8%</span></td></tr>
+          <tr><td>Южноиталиански</td><td class="pct-cell"><span class="pct-bar" style="width:10%"></span><span class="pct-val">4,9%</span></td></tr>
+          <tr><td>Балтийски</td><td class="pct-cell"><span class="pct-bar" style="width:10%"></span><span class="pct-val">1,1%</span></td></tr>
     </table>
     
-    <p>MyHeritage отбелязва и четири <strong>допълнителни генетични групи</strong>, установени с по-ниска увереност — по-фини популационни сигнали, за които основната разбивка няма място: България, Румъния, и Босна и Херцеговина.</p>
+    <p>MyHeritage отбелязва и три <strong>допълнителни генетични групи</strong>, установени с по-ниска увереност — по-фини популационни сигнали, за които основната разбивка няма място: България, Румъния и Босна и Херцеговина.</p>
     
-    <p>Всеки доклад за произхода започва с проценти и имена на места. Резултатите на MyHeritage гласят: гръцки и албански 46,8%, балкански 38,4%, източноевропейски 8,8%, южноиталиански 4,9%, балтийски 1,1%. Буквалният прочит подсказва човек, който е отчасти грък, отчасти балканец, отчасти източноевропеец — сякаш различни родови популации са допринесли отделни, преброими дялове. Това четене е погрешно, и коригирането му е там, където всъщност започва истинската история.</p>
+    <p>Всеки доклад за произхода започва с проценти и имена на места. Резултатите на MyHeritage гласят: гръцки и албански 46,8%, балкански 38,4%, източноевропейски 8,8%, южноиталиански 4,9%, балтийски 1,1%. Буквалният прочит подсказва човек, който е отчасти грък, отчасти балканец, отчасти източноевропеец — сякаш различни родови популации са допринесли отделни, преброими дялове. Това четене е погрешно, и коригирането му е точно там, където започва истинската история.</p>
 
-    <p>Тези проценти не са родови дялове по начина, по който би ги показало родословно дърво. Те са резултат от алгоритъм, сравняващ вашето ДНК със съвременни референтни популации и питащ на кои живи групи най-много приличате, и в какви пропорции. Същият геном, пуснат през различен алгоритъм с различен референтен панел, ще произведе различни проценти — както многократно показват няколкото калкулатора на GEDmatch в този доклад. От значение не е точният процент на който и да е отделен инструмент, а това, което е постоянно във всички тях.</p>
+    <p>Тези проценти не са родови дялове по начина, по който би ги показало родословно дърво. Те са резултат от алгоритъм, който сравнява вашата ДНК със съвременни референтни популации и пита на кои живи групи най-много приличате и в какви пропорции. Същият геном, пуснат през различен алгоритъм с различен референтен панел, ще даде различни проценти — както многократно показват няколкото калкулатора на GEDmatch в този доклад. От значение не е точният процент на един отделен инструмент, а онова, което е постоянно във всички тях.</p>
 
-    <p><strong>Гръцки и албански (46,8%)</strong> не означава, че имате гръцки или албански дядо или баба. Означава, че приблизително половината от генетичния ви профил най-тясно прилича на тези съвременни референтни популации, които самите те са потомци на същия древен егейски, анадолски неолитен и палеобалкански субстрат, който лежи в основата на цяла Югоизточна Европа — същия субстрат, който е породил и древните траки, даки и илири от предславянските Балкани. Съвременните гърци и албанци носят висок дял ранноевропейска фермерска родственост и сравнително по-малко от сигнала на славянската миграция, което ги прави най-близките живи заместители на предславянския палеобалкански пласт. Когато алгоритъмът срещне силния средиземноморски и анадолски фермерски компонент в този геном, го присвоява на гръцки и албански — не заради гръцка или албанска родственост в родословен смисъл, а защото тези популации най-добре запазват древния споделен субстрат, който предхожда всички съвременни балкански национални идентичности.</p>
+    <p><strong>Гръцки и албански (46,8%)</strong> не означава, че имате гръцки или албански дядо или баба. Означава, че приблизително половината от генетичния ви профил най-много прилича на тези съвременни референтни популации, които самите те са потомци на същия древен егейски, анадолски неолитен и палеобалкански субстрат, лежащ в основата на цяла Югоизточна Европа — същия субстрат, който е породил и древните траки, даки и илири от предславянските Балкани. Съвременните гърци и албанци носят висок дял ранноевропейска земеделска родственост и сравнително по-малко от сигнала на славянската миграция, което ги прави най-близките живи заместители на предславянския палеобалкански пласт. Когато алгоритъмът срещне силния средиземноморски и анадолски земеделски компонент в този геном, го отнася към „гръцки и албански“ — не заради гръцки или албански произход в родословен смисъл, а защото тези популации най-добре са запазили древния споделен субстрат, който предхожда всички съвременни балкански национални идентичности.</p>
 
-    <p><strong>Балкански (38,4%)</strong> обхваща родствеността от епохата на славянската миграция и местния палеобалкански субстрат — популациите, вече намиращи се на Балканите преди експанзиите на славяните през VI век, плюс самите мигранти. Почти равният дял между „гръцки/албански" и „балкански" е математическият израз на позицията ви на източнобалканския генетичен кръстопът, където средиземноморската фермерска основа и континенталният славянски пласт присъстват в приблизително равна степен.</p>
+    <p><strong>Балкански (38,4%)</strong> обхваща родствеността от епохата на славянската миграция и местния палеобалкански субстрат — популациите, които вече са били на Балканите преди славянските експанзии през VI век, плюс самите мигранти. Почти равното разделение между „гръцки/албански“ и „балкански“ е математическият израз на вашата позиция на източнобалканския генетичен кръстопът, където средиземноморската земеделска основа и континенталният славянски слой присъстват в приблизително равна степен.</p>
 
-    <p><strong>Южноиталиански (4,9%)</strong> не е италианска родственост в никакъв родословен смисъл. Съвременните южни италианци и балканските гърци споделят големи количества анадолска неолитна фермерска и римска източносредиземноморска родственост. Този процент е математическо отражение на споделения предримски средиземноморски генетичен субстрат, който някога е свързвал целия централносредиземноморски басейн — същият древен фермерски сигнал, изразен чрез различен съвременен популационен етикет.</p>
+    <p><strong>Южноиталиански (4,9%)</strong> не е италиански произход в никакъв родословен смисъл. Съвременните южни италианци и балканските гърци споделят големи количества анадолска неолитна земеделска и римска източносредиземноморска родственост. Този процент е математическо отражение на споделения предримски средиземноморски генетичен субстрат, който някога е свързвал целия централносредиземноморски басейн — същият древен земеделски сигнал, изразен чрез друг съвременен популационен етикет.</p>
 
-    <p><strong>Източноевропейски (8,8%)</strong> е северното славянско надхвърляне — балтийският и горски сигнал, донесен от славянската прародина в Припятските блата, а не отделен източноевропейски предшественик. <strong>Балтийски (1,1%)</strong> и допълнителните клъстери, отбелязани от MyHeritage — България, Румъния, Сърбия/Хърватия/Босна — са алгоритъмът, разпознаващ, че геномът ви се намира точно в центъра на източнобалканския генетичен континуум, приличайки едновременно на всички съседни точки от един и същ непрекъснат пейзаж.</p>
+    <p><strong>Източноевропейски (8,8%)</strong> е северното славянско „надхвърляне“ — балтийският и горски сигнал, донесен от славянската прародина в Припятските блата, а не отделен източноевропейски предшественик. <strong>Балтийски (1,1%)</strong> и допълнителните клъстери, отбелязани от MyHeritage — България, Румъния, Сърбия/Хърватия/Босна — са алгоритъмът, който разпознава, че геномът ви се намира точно в центъра на източнобалканския генетичен континуум и едновременно прилича на всички съседни точки от един и същ непрекъснат пейзаж.</p>
 
     <div class="insight-box">
-      <span class="insight-label">Заключението</span>
-      Резултатите ви от MyHeritage, правилно тълкувани, описват единна, свързана генетична идентичност: популацията от източнобалканския кръстопът, където анадолски неолитни фермери, понтийски степни овчари и местни палеобалкански популации са се срещнали и слели в продължение на 8000 години. Конкретните проценти отразяват пропорциите на всеки древен пласт, а не броя на различните етнически предци.
+      <span class="insight-label">Заключението</span> Резултатите ви от MyHeritage, правилно изтълкувани, описват една-единствена свързана генетична идентичност: популацията от източнобалканския кръстопът, където анадолски неолитни земеделци, понтийски степни скотовъдци и местни палеобалкански популации са се срещнали и слели в продължение на 8000 години. Конкретните проценти отразяват пропорциите на всеки древен слой, а не броя на различните етнически предци.
     </div>
 
     <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      Важната сентенция от този слой, е: <mark>етикетът не е находката</mark>. Процентът до името на страна изглежда точен, но всъщност е просъто сравнение вашето ДНК с референтен панел от компютърна програма. „Гръцки и албански" при 46,8% не означава, че имате гръцки или албански предшественик — означава, че генетичният ви профил най-тясно прилича на хора, които днес носят древния егейски и анадолски фермерски субстрат, същия субстрат, породил историческите траки много преди „гръцки" или „албански" да съществуват като национални идентичности. Същото ДНК пуснато през различен инструмент с различен референтен панел би сменило етикета, въпреки че самото ДНК остава непроменено дори и на йота. Основната сентенция тук, е почти равният дял между „гръцки и албански" и „балкански" — два припокриващи се прозореца към една и съща източнобалканска позиция, и двата стигащи близо до 50/50, което е точно очакваното от някой, седящ на истинския кръстопът на региона, а не встрани от него.
+      <span class="plain-label">С прости думи</span> Единствената идея, която да отнесете от този слой, е: <mark>етикетът не е находката</mark>. Процентът до името на държава изглежда точен, но всъщност е резултат от компютърна програма, която сравнява вашата ДНК с референтен панел, изграден от някой друг, по категории, които създателите на програмата са избрали. „Гръцки и албански“ при 46,8% не означава, че имате гръцки или албански предшественик — означава, че генетичният ви профил най-много прилича на хора, които днес носят древния егейски и анадолски земеделски субстрат, същия субстрат, породил историческите траки много преди „гръцки“ или „албански“ да съществуват като национални идентичности. Пуснете същата ДНК през друг инструмент с друг референтен панел и етикетът ще се смени, макар самата ДНК да не се е променила ни най-малко. Наистина надеждното тук е почти равното разделение между „гръцки и албански“ и „балкански“ — два припокриващи се прозореца към една и съща източнобалканска позиция, и двата близо до 50/50, което е точно очакваното от човек, стоящ на истинския кръстопът на региона, а не встрани от него.
        <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Етикетът не е находката — имената на държави са съвременни референтни тагове, а не родословно дърво.</span></p>   
     </div>
-  </div>
+  
+</div></div>
+</div>
 </div>
 
 
 <!-- ══ LAYER 1 ══ -->
-<div class="era-block" id="s_modern">
+<div class="era-block pn-s_modern" id="s_modern">
   <div class="era-marker">
     <span class="era-dot"></span>
     <span class="era-label">Слой 1<br>Живи<br>популации</span>
   </div>
   <div class="era-content">
-    <h2>Картата на живите популации — къде се намира геномът ви днес</h2>
+<div class="story-panel"><h2>Като у дома в Румъния и България</h2>
+<div class="story"><p>Поставете ДНК на Минко до хората, живеещи днес, и най-близо са румънците, после българите, после гагаузите (тюркоезичен християнски народ в Молдова и България), черногорците, молдовците, сърбите и македонците. Не една държава, а цял квартал, като неговата ДНК е някъде по средата.</p><p>Работи като засичане на телефон по няколко кули: когато седем от тях сочат към едно и също място, вярвате на мястото. Това, че румънците изпреварват българите на косъм, не го прави „повече румънец“. Означава, че той стои почти точно между два народа, които са близки братовчеди.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Сигурно</p></div></div>
 
-    <p>Когато координатите на ДНК ви се сравняват спрямо средните стойности на съвременни популации в рамките на Global25, резултатите образуват географски точен градиент. Най-близкото съвременно съвпадение е <strong>румънците на дистанция 0,018</strong>, следвани непосредствено от българите на 0,021, гагаузите на 0,024, черногорците на 0,025, молдовците на 0,025, сърбите на 0,026 и македонците на 0,026. Всяка популация в първите седем се намира под 0,027 — прагът, представляващ истинско, пряко регионално съвпадение. Гърците от Централна Македония се появяват на 0,040, а албанците на 0,042, вече осезаемо по-далечни, тъй като средиземноморският компонент започва да се отдалечава от сигнала на славянската миграция.</p>
+<div class="curious"><p class="curious-label">Разкопката</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Картата на живите популации — къде се намира геномът ви днес</h3>
 
-    <p>Дистанциите образуват съвършен географски градиент: най-близките съвпадения са всички в Източните Балкани, а съответствието систематично се влошава, докато се движите или на юг към средиземноморското ядро, или на север към славянската лесостепна зона. Геномът ви не се намира близо до една-единствена съвременна популация — намира се в центъра на генетичен континуум, обхващащ целия източнобалкански коридор от Молдова до Македония.</p>
+    <p>Когато координатите на вашата ДНК се сравнят със средните стойности на съвременните популации в рамката Global25, резултатите образуват географски точен градиент. Най-близкото съвременно съвпадение са <strong>румънците на дистанция 0,018</strong>, следвани непосредствено от българите на 0,021, гагаузите на 0,024, черногорците на 0,025, молдовците на 0,025, сърбите на 0,026 и македонците на 0,026. Всяка популация от първите седем е под 0,027 — прага, който отбелязва истинско, пряко регионално съвпадение. Гърците от Централна Македония се появяват на 0,040, а албанците на 0,042 — вече осезаемо по-далеч, тъй като средиземноморският компонент започва да се отделя от сигнала на славянската миграция.</p>
 
-    <p>Румънците изпреварват българите с малка разлика — 0,018 срещу 0,021 — разлика, напълно в рамките на разделителната способност на моделираните координати. Това, което ни казва, не е че сте румънец, а не българин, а че заемате точния генетичен център между тези две популации, които самите те са сред най-генетично сходните национални групи в Европа. Единичните популационни оракули на GEDmatch в няколко калкулатора потвърждават това: румънци и българи се редуват на първо и второ място в зависимост от използвания калкулатор, като македонци и сърби винаги са наблизо. Относителната дистанция до гърците от Централна Македония (0,040) и албанците (0,042) — и двете значително по-далечни от всички северни балкански популации — е количественият маркер на по-силното ви привличане към славянския и румънския коридор в сравнение с по-южния профил, с по-силно изразен егейски компонент, на популациите по-надолу на полуострова.</p>
+    <p>Дистанциите образуват съвършен географски градиент: най-близките съвпадения са всички в Източните Балкани, а съответствието систематично се влошава, колкото повече се движите или на юг към средиземноморското ядро, или на север към славянската лесостепна зона. Геномът ви не се намира близо до една-единствена съвременна популация — той е в центъра на генетичен континуум, обхващащ целия източнобалкански коридор от Молдова до Македония.</p>
+
+    <p>Румънците изпреварват българите с малка разлика — 0,018 срещу 0,021 — разлика, която е напълно в рамките на разделителната способност на моделираните координати. Това не ни казва, че сте румънец, а не българин, а че заемате точния генетичен център между тези две популации, които самите те са сред най-генетично сходните национални групи в Европа. Еднопопулационните оракули на GEDmatch в няколко калкулатора потвърждават това: румънци и българи се редуват на първо и второ място в зависимост от използвания калкулатор, като македонци и сърби винаги са наблизо. Относителната дистанция до гърците от Централна Македония (0,040) и до албанците (0,042) — и двете значително по-далеч от всички северни балкански популации — е количественият белег за по-силното ви привличане към славянския и румънския коридор в сравнение с по-южния и по-егейски ориентиран профил на популациите по-надолу по полуострова.</p>
 
     <table class="dist-table">
       <thead><tr><th>Модерна популация</th><th>G25 дистанция</th><th></th></tr></thead>
@@ -881,7 +916,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         </table>
       </div>
       <div>
-        <h3 class="table-heading">Eurogenes K36 — Топ компоненти</h3>
+        <h3 class="table-heading">Eurogenes K36 — основни компоненти</h3>
         <table class="data-table">
           <tr><td>Източнобалкански</td><td class="pct-cell"><span class="pct-bar" style="width:58%"></span><span class="pct-val">14,55%</span></td></tr>
           <tr><td>Италиански</td><td class="pct-cell"><span class="pct-bar" style="width:42%"></span><span class="pct-val">10,46%</span></td></tr>
@@ -898,39 +933,44 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
 
     <div class="insight-box">
-      <span class="insight-label">Какво разкрива K36 отвъд MyHeritage</span>
-      Калкулаторът Eurogenes K36 разбива генома на 36 фино-детайлизирани компонента, разкривайки структура, която MyHeritage изглажда. Източнобалканският компонент при 14,55% е единственият най-висок сигнал — потвърждавайки източнобалканското ядро. Италиански (10,46%) и източносредиземноморски (9,68%) заедно съставят споделената древна средиземноморска основа. Феноскандинавски (8,80%) улавя северна ловно-събирателска ДНК, донесена чрез степните миграции. Севернокавказки (5,12%) и арменски (4,86%) отразяват компонента на кавказките ловци-събирачи, наследен чрез Ямна. Малките сигнали от Източноцентрална Азия (0,18%) и Индокитай (1,46%) се свързват с находката за EDAR, разгледана в раздел „Забележителни находки".
+      <span class="insight-label">Какво разкрива K36 отвъд MyHeritage</span> Калкулаторът Eurogenes K36 разбива генома на 36 фино-детайлизирани компонента и разкрива структура, която MyHeritage заглажда. Източнобалканският компонент при 14,55% е най-силният единичен сигнал — той потвърждава източнобалканското ядро. Италианският (10,46%) и източносредиземноморският (9,68%) заедно съставят споделената древна средиземноморска основа. Феноскандинавският (8,80%) улавя северна ловно-събирателска ДНК, пристигнала със степните миграции. Севернокавказкият (5,12%) и арменският (4,86%) отразяват компонента на кавказките ловци-събирачи, наследен чрез Ямна. Малките сигнали от Източноцентрална Азия (0,18%) и Индокитай (1,46%) се свързват с находката за EDAR, разгледана в раздела „Забележителни находки“.
     </div>
 
     <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      Седем различни съвременни популации — румънци, българи, гагаузи, черногорци, молдовци, сърби, македонци — всички попадат на косъм една от друга, всички ясно в един и същ квартал: Източните Балкани. Мисли за това като триангулиране на местоположение с няколко различни телефонни кули: нито една кула не дава точен адрес, но когато седем от тях всички се съгласят за една и съща малка зона, можеш да си уверен, че наистина оттам идва сигналът. Румънците изпреварват българите с най-тънката възможна разлика — това не означава, че сте „повече румънец, отколкото българин", а че седите почти точно по средата между две популации, които самите те са почти идентични генетически. Разбивката на K36 добавя втори вид доказателство, сочещо в същата посока: източнобалкански е единственият най-голям компонент, а италиански плюс източносредиземноморски заедно формират това, което всъщност е маркер за старата средиземноморска фермерска популация, а не буквална италианска родственост. Девет отделни измервания, един последователен отговор.
+      <span class="plain-label">С прости думи</span> Седем различни съвременни популации — румънци, българи, гагаузи, черногорци, молдовци, сърби, македонци — попадат на косъм една от друга и всички са ясно в един и същ квартал: Източните Балкани. Представете си триангулиране на местоположение с няколко телефонни кули: нито една кула не дава точен адрес, но когато седем от тях се споразумеят за една и съща малка зона, можете да сте сигурни, че сигналът наистина идва оттам. Румънците изпреварват българите с най-тънката възможна разлика — това не означава, че сте „повече румънец, отколкото българин“, а че стоите почти точно по средата между две популации, които самите те са почти идентични генетично. Разбивката на K36 добавя втори вид доказателство в същата посока: източнобалканският е най-големият единичен компонент, а италианският плюс източносредиземноморският заедно са всъщност белег за старата средиземноморска земеделска популация, а не за буквален италиански произход. Девет отделни измервания, един последователен отговор.
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Вие се намирате в източнобалканския клъстер (ядро Румъния–България), а не в една-единствена „национална“ кутия.</span></p>
     </div>
-  </div>
+  
+</div></div>
+</div>
 </div>
 
 
 <!-- ══ LAYER 2 ══ -->
-<div class="era-block" id="s_medieval">
+<div class="era-block pn-s_medieval" id="s_medieval">
   <div class="era-marker">
     <span class="era-dot era-dot--mid"></span>
     <span class="era-label">Слой 2<br>Средновековие<br>500–1200 г.</span>
   </div>
   <div class="era-content">
-    <h2>Средновековният пласт — България в далечното минало</h2>
+<div class="story-panel"><h2>Славяните идват и се смесват с хората, които вече са тук</h2>
+<div class="story"><p>Между VI и IX век славяноезични семейства се придвижват на юг към Балканите. Те не заместват никого. Смесват се с хората, които вече живеят там — потомци на траки, илири и римляни, плюс византийски гърци — и от тази смес възникват средновековните българи.</p><p>ДНК на Минко е най-близо до скелети от средновековна Македония и България. Има показателен детайл: той е близо до обикновените хора от онази епоха, а не до аварите — конните владетели, управлявали равнината наблизо и носили много повече източноазиатска степна родственост. Обикновените хора се смесват; управляващата върхушка остава различна.</p><p>Ако трябва да налучкаме сместа: приблизително една трета славяни, около половината по-стари балкански народи, една пета византийци и анадолци. Приемайте тези дялове като предположение, а не като измерване.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Доста сигурно за историята; дяловете са грубо предположение</p></div></div>
 
-    <p class="descent-note">Етикетите на съвременните популации ни казват къде се намирате днес. За да разберем как се е формирал този балкански компонент, трябва да премахнем съвременния пласт и да слезем в средновековния период.</p>
+<div class="curious"><p class="curious-label">Разкопката</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Средновековният пласт — България в далечното минало</h3>
+
+    <p class="descent-note">Етикетите на съвременните популации ни казват къде се намирате днес. За да разберем как се е формирал този балкански компонент, трябва да махнем съвременния слой и да слезем в средновековния период.</p>
 
         <p>Под пласта на съвременните популации лежи първият исторически пласт: средновековните популации, непосредствено предшестващи общностите, на които геномът ви най-много прилича. По консенсусната G25 координата най-близките средновековни референции са <strong>Македония, Средновековие (0,030)</strong> и <strong>България, Средновековие (0,034)</strong>. И двете са реални средни стойности на древна ДНК от Източните Балкани през средновековния период — не теоретични етикети. България, Средновековие остава отлично съвпадение и все още е по-близо от почти всички други тествани древни популации; просто не е единственият най-близък ред в този списък.</p>
 
-    <p>Дистанции от ~0,03 означават, че моделираната координата се намира близо до тези средновековни балкански средни стойности в генетичното пространство. Това само по себе си не доказва непрекъснато пребиваване в един град в продължение на дванадесет века. То обаче показва, че профилът ви е по-съвместим с ранно- до високосредновековната източнобалканска вариация, отколкото с по-далечни древни или съвременни групи.</p>
+    <p>Дистанции от ~0,03 означават, че моделираната координата се намира близо до тези средновековни балкански средни стойности в генетичното пространство. Това само по себе си не доказва непрекъснато живеене в един град в продължение на дванадесет века. То обаче показва, че профилът ви е по-съвместим с ранно- до високосредновековната източнобалканска вариация, отколкото с по-далечни древни или съвременни групи.</p>
 
-    <p>Средновековната дистанционна таблица разкрива допълнителна структура. <strong>Русия, Викинги SG на 0,076</strong> отразява споделената северноевропейска степно-произхождаща родственост — варяжки търговци и наемници са били активни навсякъде в Византийския и българския свят, и генетичната дистанция тук отразява обща родственост, а не пряк норвежки контакт. Втора референция от епохата на викингите, Русия, Викинги o SG, се класира на 0,097 — суфиксът „_o" обозначава индивид-отклонение с нетипичен примес. <strong>Унгария, Късни авари на 0,122</strong> срещу <strong>Унгария, Ранни авари на 0,214</strong> е разлика, заслужаваща внимателно разглеждане.</p>
+    <p>Средновековната таблица с дистанции разкрива допълнителна структура. <strong>Русия, Викинги SG на 0,076</strong> отразява споделената северноевропейска, произхождаща от степта родственост — варяжки търговци и наемници са били активни из целия византийски и български свят, а генетичната дистанция тук отразява обща родственост, а не пряк норвежки контакт. Втора референция от епохата на викингите, Русия, Викинги o SG, е на 0,097 — суфиксът „_o“ обозначава индивид-отклонение с нетипичен примес. <strong>Унгария, Късни авари на 0,122</strong> срещу <strong>Унгария, Ранни авари на 0,214</strong> е разлика, която заслужава внимателно разглеждане.</p>
 
-    <p>Аварският хаганат контролира Панонската низина — съвременна Унгария — от 567 до 895 г., точно по време и след славянските миграции към Балканите. Ранните авари (VI–VII в.) носят значителна източноазиатска степна родственост — те са били генетически далечни от балканските популации. Късните авари (VII–IX в.) вече са били силно примесени с местни европейски популации, произвеждайки състав, който се намира много по-близо до източнобалканския профил. Разликата между ранните авари (0,214) и късните авари (0,122) е генетичният запис на този процес на поглъщане.</p>
+    <p>Аварският хаганат контролира Панонската низина — днешна Унгария — от 567 до 895 г., точно по време и след славянските миграции към Балканите. Ранните авари (VI–VII в.) носят значителна източноазиатска степна родственост — те са били генетично далечни от балканските популации. Късните авари (VII–IX в.) вече са силно примесени с местни европейски популации и дават състав, който е много по-близо до източнобалканския профил. Разликата между ранните авари (0,214) и късните авари (0,122) е генетичният запис на този процес на поглъщане.</p>
 
-    <p>Елитните аварски погребения изострят тази картина още повече. Унгарската късна аварска елита се намира на дистанция 0,301, а ранната аварска елита на 0,414 — и двете драматично по-далечни от общото аварско население. Елитните аварски погребения са археологически и геномно свързани с управляващата степна династия, която е запазила много по-висок дял източноазиатска родственост от общото население, което е управлявала. Фактът, че елитът е далечен, докато общото късноаварско население (0,122) е близко, е точно геномно потвърждение: генетически близко до този профил не е източноазиатската управляваща класа на Аварския хаганат, а вече европеизираният смесен субстрат на общото късноаварско население — хората, които са били поглъщани в славянските миграции, докато са се придвижвали на юг през панонския коридор към Балканите.</p>
+    <p>Елитните аварски погребения изострят тази картина още повече. Унгарската късна аварска елита е на дистанция 0,301, а ранната аварска елита — на 0,414; и двете са драматично по-далеч от общото аварско население. Елитните аварски погребения са свързани археологически и геномно с управляващата степна династия, която е запазила много по-висок дял източноазиатска родственост от населението, което е управлявала. Фактът, че елитът е далечен, докато общото късноаварско население (0,122) е близо, е точно геномно потвърждение: генетично близо до този профил не е източноазиатската управляваща класа на Аварския хаганат, а вече европеизираният смесен субстрат на общото късноаварско население — хората, които са били поглъщани от славянските миграции, докато са се придвижвали на юг през панонския коридор към Балканите.</p>
 
     <table class="dist-table">
       <thead><tr><th>Средновековна популация</th><th>Дистанция</th><th></th></tr></thead>
@@ -948,22 +988,19 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </table>
 
     <div class="insight-box">
-      <span class="insight-label">Славянската миграция — Панонски маршрут</span>
-      Наративен исторически модел, съответстващ на генетичните ви координати, предполага значителен принос от епохата на славянската миграция, по-голям предславянски палеобалкански субстрат и по-малък византийско-анадолски компонент — макар че това са насочени оценки, а не формално валидирани родствени пропорции. Славянският компонент не е пристигнал по пряк източен маршрут. Оракулът с 4 популации последователно връща молдовски и сръбски заместители, а не руски или украински — характерният признак на славянска популация, вече погълнала централноевропейски елементи преди да достигне Балканите. Предпочитаният маршрут на миграция, закодиран във вашите данни, е панонският коридор: на запад през Южна Полша, през Карпатите, в унгарската низина, после на юг под политическия чадър на Аварския хаганат.
+      <span class="insight-label">Славянската миграция — панонски маршрут</span> Наративен исторически модел, съответстващ на вашите генетични координати, предполага значителен принос от епохата на славянската миграция, по-голям предславянски палеобалкански субстрат и по-малък византийско-анадолски компонент — макар това да са насочени оценки, а не формално валидирани родови пропорции. Славянският компонент не е пристигнал по пряк източен маршрут. Оракулът с 4 популации последователно връща молдовски и сръбски заместители, а не руски или украински — белег на славянска популация, която вече е погълнала централноевропейски елементи, преди да достигне Балканите. Предпочитаният миграционен маршрут, закодиран във вашите данни, е панонският коридор: на запад през Южна Полша, през Карпатите, в унгарската низина, после на юг под политическия чадър на Аварския хаганат.
     </div>
 
     <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      Аварските числа по-горе разказват конкретна историческа история, щом знаеш какво да търсиш. Този геном се намира близо до <strong>обикновеното население, погълнато</strong> в контролирания от аварите панонски коридор, докато славянските мигранти са се придвижвали на юг към Балканите (Късни авари, 0,122), и далеч от <strong>степно-произхождащата управляваща класа</strong>, която е управлявала над тях (Ранни авари, 0,214, и двете елитни нива още по-далеч). Тази разлика е очакваният генетичен сигнал на популация, преживяла славянската миграция, а не свързана с аварския политически елит — обикновените хора са били погълнати и са продължили напред; управляващата династия е останала генетически различна.
+      <span class="plain-label">С прости думи</span> Аварските числа по-горе разказват конкретна историческа история, щом знаете какво да търсите. Този геном е близо до <strong>обикновеното население, което е било погълнато</strong> в контролирания от аварите панонски коридор, докато славянските мигранти са се придвижвали на юг към Балканите (Късни авари, 0,122), и далеч от <strong>управляващата класа със степен произход</strong>, управлявала над тях (Ранни авари, 0,214, и двете елитни нива — още по-далеч). Тази разлика е очакваният генетичен отпечатък на популация, преживяла славянската миграция, а не свързана с аварската политическа върхушка — обикновените хора са били погълнати и са продължили напред; управляващата династия е останала генетично различна.
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Най-близките средновековни съвпадения са източнобалкански (Македония ~0,030, България ~0,034) — по-стара балканска основа плюс ранносредновековно смесване, а не едно чисто племе.</span></p>
     </div>
 
     <div class="insight-box">
-      <span class="insight-label">Палеобалканският субстрат</span>
-      Значителен компонент от генетичния профил проследява насочено към популациите, вече живеещи на Балканите преди пристигането на славяните — потомци на древни траки, даки, илири и романизирани провинциални популации. Това съответства на доминиращите средиземноморски и анадолски неолитни сигнали във всеки калкулатор, и на това, което MyHeritage улавя като компонента „гръцки и албански". Съвременните българи, гърци и албанци всички носят различни пропорции от този същия предславянски балкански субстрат — те не са генетически отделни категории, а съседни позиции в един континуум, и границата между тях не може да бъде начертана чисто само от процентите на примес.
+      <span class="insight-label">Палеобалканският субстрат</span> Значителен компонент от генетичния профил води, като посока, към популациите, които вече са живеели на Балканите преди пристигането на славяните — потомци на древни траки, даки, илири и романизирани провинциални популации. Това съответства на доминиращите средиземноморски и анадолски неолитни сигнали във всеки калкулатор и на онова, което MyHeritage улавя като компонента „гръцки и албански“. Съвременните българи, гърци и албанци носят в различни пропорции същия този предславянски балкански субстрат — те не са генетично отделни категории, а съседни позиции в един континуум и границата между тях не може да бъде начертана чисто само от процентите на примес.
     </div>
 
-    <p>Разширено сравнение на древна ДНК спрямо пълния български археологически архив — вече изпълнено с по-висока точност, включващо няколко източноазиатски-примесени проби и проби-отклонения, отсъстващи от първоначалното сравнение — разкрива точна стратиграфска последователност. Дистанциите образуват свързан хронологичен градиент, най-близък до средновековието, постепенно по-отдалечен, колкото повече референтните популации предхождат славянския синтез:</p>
+    <p>Разширено сравнение на древна ДНК с пълния български археологически архив — вече изпълнено с по-висока точност и включващо няколко източноазиатски-примесени проби и проби-отклонения, които липсваха в първоначалното сравнение — разкрива точна стратиграфска последователност. Дистанциите образуват свързан хронологичен градиент: най-близо до средновековието и постепенно по-далеч, колкото повече референтните популации предхождат славянския синтез:</p>
 
     <table class="dist-table">
       <thead><tr><th>Древна българска популация</th><th>Период / Бележка</th><th>Дистанция</th><th></th></tr></thead>
@@ -973,7 +1010,7 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         <tr><td>България, РБЕ, oСевер (в подготовка)</td><td style="font-size:.78rem;color:var(--ink-light)">Ранна бронзова епоха, непубликуван набор</td><td class="dist-val">0,0483</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:28%"></div></div></td></tr>
         <tr><td>България, РБЕ, oСевер</td><td style="font-size:.78rem;color:var(--ink-light)">Ранна бронзова епоха</td><td class="dist-val">0,0490</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:29%"></div></div></td></tr>
         <tr><td>България, РБЕ–СБЕ</td><td style="font-size:.78rem;color:var(--ink-light)">Ранна–Средна бронзова епоха</td><td class="dist-val">0,0531</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:31%"></div></div></td></tr>
-        <tr><td>България, РБЕ, Ямна o</td><td style="font-size:.78rem;color:var(--ink-light)">РБЕ, свързана с Ямна култура</td><td class="dist-val">0,0596</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:35%"></div></div></td></tr>
+        <tr><td>България, РБЕ, Ямна o</td><td style="font-size:.78rem;color:var(--ink-light)">РБЕ, свързана с Ямна</td><td class="dist-val">0,0596</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:35%"></div></div></td></tr>
         <tr><td>България, Средновековие, oИзточна Азия</td><td style="font-size:.78rem;color:var(--ink-light)">Средновековие, източноазиатски примес (отклонение)</td><td class="dist-val">0,0651</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:38%"></div></div></td></tr>
         <tr><td>България, РБЕ</td><td style="font-size:.78rem;color:var(--ink-light)">Ранна бронзова епоха</td><td class="dist-val">0,0707</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:41%"></div></div></td></tr>
         <tr><td>България, Х, oСтепен</td><td style="font-size:.78rem;color:var(--ink-light)">Халколит, степен примес (отклонение)</td><td class="dist-val">0,0784</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:46%"></div></div></td></tr>
@@ -982,12 +1019,12 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         <tr><td>България, КЖЕ</td><td style="font-size:.78rem;color:var(--ink-light)">Късна желязна епоха</td><td class="dist-val">0,0906</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:53%"></div></div></td></tr>
         <tr><td>България, РЖЕ</td><td style="font-size:.78rem;color:var(--ink-light)">Ранна желязна епоха</td><td class="dist-val">0,0959</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:56%"></div></div></td></tr>
         <tr><td>България, Малък Преславец, Н</td><td style="font-size:.78rem;color:var(--ink-light)">Неолит (Малък Преславец)</td><td class="dist-val">0,0985</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:58%"></div></div></td></tr>
-        <tr><td>България, Малък Преславец, Н, oНиско ЕЕФ</td><td style="font-size:.78rem;color:var(--ink-light)">Неолит, отклонение с по-нисък фермерски дял</td><td class="dist-val">0,0996</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:58%"></div></div></td></tr>
+        <tr><td>България, Малък Преславец, Н, oНиско ЕЕФ</td><td style="font-size:.78rem;color:var(--ink-light)">Неолит, отклонение с по-нисък земеделски дял</td><td class="dist-val">0,0996</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:58%"></div></div></td></tr>
         <tr><td>България, СБЕ–КБЕ</td><td style="font-size:.78rem;color:var(--ink-light)">Средна–Късна бронзова епоха</td><td class="dist-val">0,1161</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:68%"></div></div></td></tr>
         <tr><td>България, Късна античност</td><td style="font-size:.78rem;color:var(--ink-light)">IV–VII в.</td><td class="dist-val">0,1174</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:69%"></div></div></td></tr>
         <tr><td>България, Варна, Х</td><td style="font-size:.78rem;color:var(--ink-light)">Халколит</td><td class="dist-val">0,1181</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:69%"></div></div></td></tr>
-        <tr><td>България, Н, oЕЕФ</td><td style="font-size:.78rem;color:var(--ink-light)">Неолит, отклонение с фермерски профил</td><td class="dist-val">0,1205</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:71%"></div></div></td></tr>
-        <tr><td>България, РБЕ, Ямна</td><td style="font-size:.78rem;color:var(--ink-light)">РБЕ, свързана с Ямна култура</td><td class="dist-val">0,1228</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:72%"></div></div></td></tr>
+        <tr><td>България, Н, oЕЕФ</td><td style="font-size:.78rem;color:var(--ink-light)">Неолит, отклонение със земеделски профил</td><td class="dist-val">0,1205</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:71%"></div></div></td></tr>
+        <tr><td>България, РБЕ, Ямна</td><td style="font-size:.78rem;color:var(--ink-light)">РБЕ, свързана с Ямна</td><td class="dist-val">0,1228</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:72%"></div></div></td></tr>
         <tr><td>България, Крепост, Н</td><td style="font-size:.78rem;color:var(--ink-light)">Неолит (Крепост)</td><td class="dist-val">0,1281</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:75%"></div></div></td></tr>
         <tr><td>България, Н, o</td><td style="font-size:.78rem;color:var(--ink-light)">Неолит, отклонение</td><td class="dist-val">0,1337</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:78%"></div></div></td></tr>
         <tr><td>България, Х</td><td style="font-size:.78rem;color:var(--ink-light)">Халколит</td><td class="dist-val">0,1402</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:82%"></div></div></td></tr>
@@ -996,49 +1033,55 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
       </tbody>
     </table>
 
-    <p>Градиентът е исторически тълкуваем, а добавената точност изостря няколко детайла. Геномът е най-близо до средновековната българска популация, възникнала от славянския синтез (0,0340), следвана непосредствено от тесен клъстер от проби от ранната бронзова епоха (0,0397–0,0596) — споделеният степен и анадолски неолитен субстрат, предхождащ пристигането на славяните. „България, Средновековие, oИзточна Азия" (0,0651) — средновековен индивид-отклонение, носещ допълнителен източноазиатски-свързан сигнал, вероятно свързан с контакт с българи, печенеги или кумани — се намира значително след общата средновековна популация, полезен отрицателен контрол: този геном не носи повишена версия на този конкретен средновековен канал. Нивото на желязната епоха (0,0882–0,0959) и двете неолитни проби от Малък Преславец (0,0985–0,0996) се намират в средата на градиента, докато Средна–Късна бронзова епоха, Късна античност и халколитната Варна се групират тясно заедно около 0,116–0,118. Халколитните и общата неолитна популация (0,140–0,162) остават най-отдалечени — най-старата налична българска древна ДНК, предхождаща изцяло бронзовоепохския степен примес, показвайки колко много степните миграции са преобразили генетичния пейзаж на Балканите.</p>
+    <p>Градиентът е исторически тълкуваем, а добавената точност изостря няколко детайла. Геномът е най-близо до средновековната българска популация, възникнала от славянския синтез (0,0340), следвана непосредствено от тесен клъстер от проби от ранната бронзова епоха (0,0397–0,0596) — споделеният степен и анадолски неолитен субстрат, предхождащ пристигането на славяните. „България, Средновековие, oИзточна Азия“ (0,0651) — средновековен индивид-отклонение с допълнителен източноазиатски сигнал, вероятно свързан с контакт с българи, печенеги или кумани — е значително след общата средновековна популация и служи като полезен отрицателен контрол: този геном не носи повишена версия на този конкретен средновековен канал. Нивото на желязната епоха (0,0882–0,0959) и двете неолитни проби от Малък Преславец (0,0985–0,0996) са в средата на градиента, докато Средна–Късна бронзова епоха, Късна античност и халколитна Варна се групират плътно около 0,116–0,118. Халколитните и общите неолитни популации (0,140–0,162) остават най-отдалечени — най-старата българска древна ДНК, предхождаща изцяло степния примес от бронзовата епоха, която показва колко много степните миграции са преобразили генетичния пейзаж на Балканите.</p>
 
     <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      Числото, което си струва да се запомни от целия този слой, е <mark>0,034</mark> — дистанцията до реални, разкопани скелети от средновековна България. Всичко останало в тази разширена таблица поставя това число в контекст, отивайки назад във времето. Четенето надолу по списъка е като четене на историята в обратен ред: първо средновековна България, после тесен ред от бронзовоепохски проби, после желязна епоха, после неолит, всяко ниво малко по-далеч от предишното, чак до земеделски села, които са със седем-осем хиляди години по-стари от средновековните гробове най-отгоре — същите предци на историческите <strong>траки</strong>, споменати по-горе, вече появяващи се като най-отдалеченото ниво в реалните числа. Тази стабилна, разумна подредба — нищо диво не на място — сама по себе си е вид потвърждение: ако числата бяха излезли объркани, с древна неолитна проба, някак си по-близка от средновековна, това би било червен флаг, че нещо в моделирането е сбъркано. Не е. Една непрекъсната линия, вървяща от дунавско земеделско село до средновековен български гроб.
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Голям предславянски балкански пласт лежи под средновековния профил.</span></p>
+      <span class="plain-label">С прости думи</span> Числото, което си струва да запомните от целия този слой, е <mark>0,034</mark> — дистанцията до реални, разкопани скелети от средновековна България. Всичко останало в тази разширена таблица дава на това число контекст, като върви назад във времето. Четенето надолу по списъка е като четене на историята отзад напред: първо средновековна България, после тесен ред проби от бронзовата епоха, после желязна епоха, после неолит — всяко ниво малко по-далеч от предишното, чак до земеделски села, по-стари със седем-осем хиляди години от средновековните гробове най-отгоре — същите предци на историческите <strong>траки</strong>, споменати по-горе, които тук се появяват като най-отдалеченото ниво в реалните числа. Тази стабилна, разумна подредба — нищо не е диво не на място — сама по себе си е вид потвърждение: ако числата бяха излезли объркани, с древна неолитна проба по някакъв начин по-близка от средновековна, това би било червен флаг, че нещо в моделирането е сбъркано. Не е. Една непрекъсната линия, която тръгва от дунавско земеделско село и стига до средновековен български гроб.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Голям предславянски балкански слой лежи под средновековния профил.</span></p>
     </div>
-  </div>
+  
+</div></div>
+</div>
 </div>
 
 
 <!-- ══ LAYER 3 ══ -->
-<div class="era-block" id="s_bronze">
+<div class="era-block pn-s_bronze" id="s_bronze">
   <div class="era-marker">
     <span class="era-dot era-dot--mid"></span>
     <span class="era-label">Слой 3<br>Бронзова епоха<br>3000–1200 г. пр.н.е.</span>
   </div>
   <div class="era-content">
-    <h2>Пластът на бронзовата епоха — вълната на Ямна</h2>
+<div class="story-panel"><h2>Конници от степта</h2>
+<div class="story"><p>Преди около 5000 години скотовъдци от тревните земи на север от Черно море, които археолозите наричат Ямна, се разпространяват из Европа с коне и коли. Те носят езиково семейство, към което принадлежат българският, английският и хинди.</p><p>Малко повече от половината от произхода на Минко води към тази вълна: най-добрата ни оценка е от 52 до 56%. Самите скотовъдци са смес от две по-стари ловни групи, а степният му произход клони към планинските ловци от Кавказ, а не към горските ловци от севера. Това е югоизточен отпечатък.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Доста сигурно; разделението се движи с няколко пункта между методите</p></div></div>
 
-    <p class="descent-note">Самата средновековна балканска популация е изградена от по-стари популации. Под славянския и палеобалканския пласт лежи светът на бронзовата епоха — фермери и степни пастири.</p>
+<div class="curious"><p class="curious-label">Разкопката</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Пластът на бронзовата епоха — вълната на Ямна</h3>
 
-    <p>Под средновековния и историческия пласт стават измерими бронзовоепохските основи на генома. Vahaduo Модел C сравнява координатите ви спрямо трите основополагащи древни потока на европейската родственост, и резултатът е структурно ясен:</p>
+    <p class="descent-note">Самата средновековна балканска популация е изградена от по-стари популации. Под славянския и палеобалканския слой лежи светът на бронзовата епоха — земеделци и степни скотовъдци.</p>
+
+    <p>Под средновековните и историческите слоеве стават измерими основите на генома от бронзовата епоха. Vahaduo Модел C сравнява вашите координати с трите основополагащи древни потока на европейската родственост и резултатът е структурно ясен:</p>
 
     <table class="dist-table">
       <thead><tr><th>Древна популация</th><th>Дистанция</th><th></th></tr></thead>
       <tbody>
-        <tr><td>Турция, Бонджуклу Н (Анадол, ~10 000 г. пр.н.е.)</td><td class="dist-val">0,142</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:34%"></div></div></td></tr>
+        <tr><td>Турция, Бонджуклу Н (Анадол, ~10 000 г. пр.н.е.)</td><td class="dist-val">0,142</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:34%"></div></div></td></tr>
         <tr><td>Турция, Барджън КН (анадолски неолит, ~6500 г. пр.н.е.)</td><td class="dist-val">0,171</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:41%"></div></div></td></tr>
         <tr><td>Русия, Самара, РБЕ Ямна (~3000 г. пр.н.е.)</td><td class="dist-val">0,176</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:42%"></div></div></td></tr>
         <tr><td>Люксембург, Лошбур, ЗЛС (~7000 г. пр.н.е.)</td><td class="dist-val">0,407</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:98%"></div></div></td></tr>
       </tbody>
     </table>
 
-    <p>Анадолският неолит Барджън (0,171) и Ямна (0,176) са почти изравнени по дистанция, а по моделирана пропорция степният дял е само умерено пред фермерския (около 52–56% срещу 42–46%) — което е характерно за източнобалкански профили, където и двата потока са добре представени. Дълбокият родов модел приписва приблизително <strong>56% понтийска степна пастирска родственост (около 52%, ако се използва само наборът координати от K36)</strong> на генома ви, изразена като комбинация от компоненти на източни ловци-събирачи и кавказки ловци-събирачи в суровата им каменно-епохска форма.</p>
+    <p>Анадолският неолит Барджън (0,171) и Ямна (0,176) са почти изравнени по дистанция, а по моделирана пропорция степният дял е само умерено пред земеделския (около 52–56% срещу 42–46%) — което е характерно за източнобалкански профили, където и двата потока са добре представени. Дълбокият родов модел приписва на вашия геном приблизително <strong>56% понтийска степна скотовъдна родственост (около 52%, когато се използва само наборът координати от K36)</strong>, изразена като комбинация от компоненти на източни ловци-събирачи и кавказки ловци-събирачи в суровата им каменноепохска форма.</p>
 
-    <p>Ямна са сред най-значимите популации в европейската праистория. Произхождащи от понтийско-каспийската степ преди приблизително 5000 години от сливането на източни ловци-събирачи и кавказки ловци-събирачи, те се разпространяват с изключителна скорост във всички посоки, носейки коне, колесни превозни средства и прото-индоевропейски език, предшественик на съвременния български — езикът, на който този текст може някой ден да бъде прочетен от потомци. В този модел малко над половината от генома се обяснява най-добре с тази единствена бронзовоепохска експанзия.</p>
+    <p>Ямна са сред най-значимите популации в европейската праистория. Произхождащи от понтийско-каспийската степ преди приблизително 5000 години от сливането на източни ловци-събирачи и кавказки ловци-събирачи, те се разпространяват с изключителна скорост във всички посоки и носят коне, колесни превозни средства и праиндоевропейски език, предшественик на съвременния български — езикът, на който този текст някой ден може да бъде четен от потомци. В този модел малко над половината от генома се обяснява най-добре с тази единствена експанзия от бронзовата епоха.</p>
 
-    <p>Класирането на Бонджуклу (0,142) над Барджън (0,171) заслужава внимание. И двата са анадолски неолитни обекти, но Бонджуклу е по-стар — приблизително 10 000 г. пр.н.е., предфермерски или протофермерски централен Анадол — докато Барджън представлява класическата северозападна анадолска фермерска вълна, навлязла в Европа около 6500 г. пр.н.е. По-близката дистанция до Бонджуклу подсказва, че анадолският ви неолитен сигнал има дълбочина, сочейки към по-древен анадолски субстрат под самия фермерски пласт.</p>
+    <p>Това, че Бонджуклу (0,142) е пред Барджън (0,171), заслужава внимание. И двата са анадолски неолитни обекта, но Бонджуклу е по-стар — приблизително 10 000 г. пр.н.е., предземеделски или протоземеделски централен Анадол — докато Барджън представлява класическата северозападна анадолска земеделска вълна, навлязла в Европа около 6500 г. пр.н.е. По-близката дистанция до Бонджуклу подсказва, че анадолският ви неолитен сигнал има дълбочина и сочи към по-древен анадолски субстрат под самия земеделски слой.</p>
 
-    <p>Лошбур ЗЛС на 0,407 — най-отдалечената тествана древна популация — потвърждава, че родствеността от западни ловци-събирачи е реална, но второстепенна, най-разредена от трите основополагащи потока.</p>
+    <p>Лошбур ЗЛС на 0,407 — най-отдалечената тествана древна популация — потвърждава, че родствеността от западни ловци-събирачи е реална, но второстепенна и най-разредена от трите основополагащи потока.</p>
 
-    <p>Едно допълнително откритие от разширения анализ на древни дистанции си струва да се отбележи: <strong>Русия, Самара, сармати се класират на приблизително 0,138</strong> — по-близо от Ямна и седящи между бронзовоепохския степен свят и средновековните популации. Сарматите са били железноепохски номадски пастири, наследили скитите на понтийската степ приблизително от IV в. пр.н.е. нататък, и са били особено активни в дунавските и дакийските региони, граничещи с Източните Балкани. Тяхната близост до този профил съответства на вече идентифицираното югоизточноевропейско степно маршрутиране в тегловния анализ на КЛС — същият географски коридор, свързал понтийската степ с Балканите чрез последователни вълни от степно-свързани популации в продължение на две хилядолетия.</p>
+    <p>Едно допълнително откритие от разширения анализ на древни дистанции заслужава да се отбележи: <strong>Русия, Самара, сармати са на приблизително 0,138</strong> — по-близо от Ямна и между степния свят на бронзовата епоха и средновековните популации. Сарматите са железноепохски номадски скотовъдци, наследили скитите на понтийската степ приблизително от IV в. пр.н.е. нататък, и са били особено активни в дунавските и дакийските райони, граничещи с Източните Балкани. Близостта им до този профил съответства на югоизточния европейски степен маршрут, вече установен чрез натежалостта към КЛС — същия географски коридор, свързал понтийската степ с Балканите чрез последователни вълни от степно свързани популации в продължение на две хилядолетия.</p>
 
     <div class="insight-box">
       <span class="insight-label">Относителна сила на сигнала — древни източници</span>
@@ -1057,8 +1100,8 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
           <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:43%;height:100%;background:var(--steppe);border-radius:4px;opacity:.9"></div></div>
         </div>
         <div>
-          <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Турция, Барджън КН — анадолски неолитни фермери</div>
-          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:43%;height:100%;background:var(--gold);border-radius:4px;opacity:.9"></div></div>
+          <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Турция, Барджън КН — анадолски неолитни земеделци</div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:42%;height:100%;background:var(--gold);border-radius:4px;opacity:.9"></div></div>
         </div>
         <div>
           <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Грузия, Котиас, КЛС — кавказки ловец-събирач</div>
@@ -1066,11 +1109,11 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         </div>
         <div>
           <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Русия, Карелия, ИЛС — източен ловец-събирач</div>
-          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:71%;height:100%;background:var(--steppe);border-radius:4px;opacity:.7"></div></div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:70%;height:100%;background:var(--steppe);border-radius:4px;opacity:.7"></div></div>
         </div>
         <div>
           <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Иран, Гандж Даре — югозападноазиатски неолит</div>
-          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:73%;height:100%;background:var(--gold);border-radius:4px;opacity:.6"></div></div>
+          <div style="height:8px;border-radius:4px;background:var(--parchment-dark);overflow:hidden;width:100%"><div style="width:72%;height:100%;background:var(--gold);border-radius:4px;opacity:.6"></div></div>
         </div>
         <div>
           <div style="font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink-mid);margin-bottom:.25rem">Люксембург, Лошбур, ЗЛС — западен ловец-събирач</div>
@@ -1081,85 +1124,102 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
 
     <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      Представи си две реки, сливащи се в една — <em>едната течаща нагоре от старите земеделски села на Анадола, другата надолу от конно-овчарската степ на север от Черно море</em> — и този геном се намира почти точно там, където двете течения се срещат. Анадолската фермерска референция на 0,171 и Ямна на 0,176 са достатъчно близки, за да се нарекат равенство по дистанция, а и моделираните дялове са близки: малко над половината от дълбоката родственост (около 52–56%) проследява към степни овчари, а малко под половината (около 42–46%) към фермерите, вече заселени в региона преди пристигането на овчарите. Това е почти балансирано разделение само с умерен степен наклон — различен модел от този, който би показал по-едностранен профил, и е точно очакваното от някой, чиито предци са седели на истинския кръстопът, а не встрани от него. Лошбур, референцията за ловец-събирач, остава най-отдалечената тествана популация — присъства в сместа, но е най-малката от трите древни съставки.
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Около 42–46% анадолски фермери и 52–56% степ — почти балансирана смес с умерен степен наклон, а не един доминиращ източник от бронзовата епоха.</span></p>
+      <span class="plain-label">С прости думи</span> Представете си две реки, които се сливат в една — <em>едната тече нагоре от старите земеделски села на Анадола, другата — надолу от конно-скотовъдната степ на север от Черно море</em> — и този геном стои почти точно там, където двете течения се срещат. Анадолската земеделска референция на 0,171 и Ямна на 0,176 са достатъчно близки, за да ги наречем равенство по дистанция, а и моделираните дялове са близки: малко над половината от дълбоката родственост (около 52–56%) води към степни скотовъдци, а малко под половината (около 42–46%) — към земеделците, вече заселени в региона преди пристигането на скотовъдците. Това е почти балансирано разделение само с умерен степен наклон — различен модел от този, който би показал по-едностранен профил, и точно очакваното от човек, чиито предци са стояли на истинския кръстопът, а не към единия му край. Лошбур, референцията за ловци-събирачи, остава най-отдалечената тествана популация — присъства в сместа, но е най-малката от трите древни съставки.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Около 42–46% анадолски земеделци и 52–56% степ — почти балансирана смес с умерен степен наклон, а не един доминиращ източник от бронзовата епоха.</span></p>
     </div>
-  </div>
+  
+</div></div>
+</div>
 </div>
 
 
 <!-- ══ LAYER 4 ══ -->
-<div class="era-block" id="s_neolithic">
+<div class="era-block pn-s_neolithic" id="s_neolithic">
   <div class="era-marker">
     <span class="era-dot era-dot--ancient"></span>
     <span class="era-label">Слой 4<br>Неолит<br>7000–3000 г. пр.н.е.</span>
   </div>
   <div class="era-content">
-    <h2>Неолитният пласт — фермери от Анадола</h2>
+<div class="story-panel"><h2>Първите земеделци идват пеша от Турция</h2>
+<div class="story"><p>Преди скотовъдците са дошли земеделците. Започвайки преди около 8500 години, семейства от днешна Турция преминават в Европа през Балканите, като България и Гърция са първата им спирка, и носят пшеница, овце и постоянни села. Те променят начина, по който хората живеят, и начина, по който изглеждат европейците: светлата кожа се разпространява с тях. Минко носи две копия на варианта за светла кожа.</p><p>Земеделците са около 42 до 46% от произхода му — почти наравно със скотовъдците, дошли по-късно. За сравнение, сардинците, които по-късните миграции до голяма степен са подминали, носят около два пъти повече.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Доста сигурно</p></div></div>
 
-    <p class="descent-note">Но популациите от бронзовата епоха не са били началото. Под степната експанзия лежи още по-стара европейска основа: първите фермери.</p>
+<div class="curious"><p class="curious-label">Разкопката</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Неолитният пласт — земеделци от Анадола</h3>
 
-    <p>Под бронзовоепохския степен пласт лежи анадолският неолитен фермерски субстрат — най-старият значителен европейски принос към генома. Дълбокият родов модел приписва приблизително <strong>42% анадолска неолитна фермерска родственост (около 46%, ако се използва само наборът координати от K36)</strong>, което е очакваната пропорция за югоизточен европеец със силен славянски компонент. За сравнение: съвременните сардинци, до голяма степен подминати от по-късните миграции, носят 75–85% анадолска неолитна родственост; съвременните гърци носят приблизително 55–60%. Източнобалканският профил се намира по-ниско, защото степните миграции тук са били по-задълбочени, отколкото в средиземноморския юг.</p>
+    <p class="descent-note">Но популациите от бронзовата епоха не са били началото. Под степната експанзия лежи още по-стара европейска основа: първите земеделци.</p>
 
-    <p>Анадолските неолитни фермери напускат днешна Турция преди приблизително 8000–9000 години и навлизат в Европа първо през Балканите — България и Гърция са били първоначалната дестинация на фермерската експанзия, а не вторична транзитна зона. Точно затова анадолският неолитен сигнал е толкова силен и добре запазен в източнобалканските геноми: Балканите са били точката на приземяване, мястото, където „Старата Европа" за първи път е преобразена от земеделието, и генетичното наследство на този първи контакт е измеримо по-гъсто тук, отколкото по-нататък на запад или север.</p>
+    <p>Под степния слой на бронзовата епоха лежи анадолският неолитен земеделски субстрат — най-старият значителен европейски принос към генома. Дълбокият родов модел приписва приблизително <strong>42% анадолска неолитна земеделска родственост (около 46%, когато се използва само наборът координати от K36)</strong>, което е очакваната пропорция за югоизточен европеец със силен славянски компонент. За сравнение: съвременните сардинци, до голяма степен подминати от по-късните миграции, носят 75–85% анадолска неолитна родственост; съвременните гърци носят приблизително 55–60%. Източнобалканският профил е по-нисък, защото степните миграции тук са били по-задълбочени, отколкото в средиземноморския юг.</p>
 
-    <p>Тази родственост е генетичната основа на това, което MyHeritage нарича компонентите „гръцки и албански" и „южноиталиански". Това не са скорошни гръцки или италиански предци — те са споделената средиземноморска генетична основа, наследството на същите неолитни фермери, колонизирали целия средиземноморски басейн преди осем хилядолетия. Генотипът SLC24A5 AA (rs1426654) — производният алел за изсветляване на кожата, хомозиготен — е най-прякото физическо доказателство за тази родственост, разпространило се из Европа точно с неолитната фермерска експанзия.</p>
+    <p>Анадолските неолитни земеделци напускат днешна Турция преди приблизително 8000–9000 години и навлизат в Европа първо през Балканите — България и Гърция са първоначалната дестинация на земеделската експанзия, а не вторична транзитна зона. Затова анадолският неолитен сигнал е толкова силен и добре запазен в източнобалканските геноми: Балканите са били мястото на приземяване, където „Старата Европа“ за първи път е преобразена от земеделието, а генетичното наследство от този първи контакт е измеримо по-гъсто тук, отколкото по-на запад или на север.</p>
 
-    <p>Калкулаторът Ancient Eurasia K6 улавя това най-пряко, приписвайки 42,59% натуфийска родственост — левантинските предфермерски ловци-събирачи, непосредствени предци на анадолските неолитни фермери. Комбиниран със средиземноморския компонент на puntDNAL K15 (33,31%) и атлантическите и западносредиземноморските сигнали на EUtest, анадолският неолитен субстрат е единственият най-голям древен компонент в генома във всеки калкулатор, който го измерва.</p>
+    <p>Тази родственост е генетичната основа на онова, което MyHeritage нарича компоненти „гръцки и албански“ и „южноиталиански“. Това не са скорошни гръцки или италиански предци — те са споделената средиземноморска генетична основа, наследство на същите неолитни земеделци, колонизирали целия средиземноморски басейн преди осем хилядолетия. Генотипът SLC24A5 AA (rs1426654) — производен алел за изсветляване на кожата, хомозиготен — е най-прякото физическо доказателство за тази родственост, която се разпространява из Европа точно с неолитната земеделска експанзия.</p>
+
+    <p>Калкулаторът Ancient Eurasia K6 улавя това най-пряко, като приписва 42,59% натуфийска родственост — левантинските ловци-събирачи, непосредствени предци на анадолските неолитни земеделци. Заедно със средиземноморския компонент на puntDNAL K15 (33,31%) и атлантическите и западносредиземноморските сигнали на EUtest, анадолският неолитен субстрат е най-големият единичен древен компонент в генома във всеки калкулатор, който го измерва.</p>
 
     <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      Това е <strong>най-старата твърда почва</strong> в цялата разкопка. Приблизително 40–45% от този геном проследява назад към фермери, напуснали Анадола (съвременна Турция) преди около осем-девет хиляди години, донасяйки пшеница, добитък и постоянни села в Европа за първи път — и Балканите не са били спирка по пътя, те са били самата първа дестинация. Точно затова този сигнал е толкова дълбок и ясен тук: България и Гърция са мястото, където „Старата Европа" за първи път среща земеделието. За сравнение, съвременните сардинци — островна популация, до голяма степен подмината от по-късните миграции — носят близо два пъти повече от тази родственост днес; по-ниският дял тук не е по-слаба връзка с онези фермери, а белег на всичко, пристигнало по-късно и я разредило: степните овчари, после славянските миграции, наслоени върху тази оригинална земеделска основа.
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Ранните фермери от Анадола формират дълбокото фермерско дъно на този геном.</span></p>
+      <span class="plain-label">С прости думи</span> Това е <strong>най-старата твърда почва</strong> в цялата разкопка. Приблизително 40–45% от този геном води към земеделци, напуснали Анадола (днешна Турция) преди около осем-девет хиляди години, които за първи път донасят в Европа пшеница, добитък и постоянни села — и Балканите не са били спирка по пътя, а самата първа дестинация. Затова този сигнал е толкова дълбок и ясен тук: България и Гърция са мястото, където „Старата Европа“ за първи път среща земеделието. За сравнение, съвременните сардинци — островна популация, до голяма степен подмината от по-късните миграции — носят днес близо два пъти повече от тази родственост; по-ниският дял тук не е по-слаба връзка с онези земеделци, а белег на всичко, пристигнало по-късно и разредило я: степните скотовъдци, после славянските миграции, наслоени върху тази първоначална земеделска основа.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Ранните земеделци от Анадола формират дълбокото земеделско дъно на този геном.</span></p>
     </div>
-  </div>
+  
+</div></div>
+</div>
 </div>
 
 
 <!-- ══ LAYER 5 ══ -->
-<div class="era-block" id="s_mesolithic">
+<div class="era-block pn-s_mesolithic" id="s_mesolithic">
   <div class="era-marker">
     <span class="era-dot era-dot--ancient"></span>
-    <span class="era-label">Слой 5<br>Мезолит<br>10 000–7000 г. пр.н.е.</span>
+    <span class="era-label">Слой 5<br>Мезолит<br>10 000–7000 г. пр.н.е.</span>
   </div>
   <div class="era-content">
-    <h2>Мезолитният пласт — ловците-събирачи</h2>
+<div class="story-panel"><h2>Хората, които са били тук първи</h2>
+<div class="story"><p>Ловци и събирачи са живели из Европа много преди земеделието — в гори и по реки. Древната ДНК показва, че много от тях са имали тъмна кожа и сини очи. В Европа сините очи са по-стари от светлата кожа.</p><p>Минко носи две копия на варианта за сини очи, предаден по линия, която води обратно към тях. Техният дял от произхода му е малък — около 2% самостоятелно. Още повече се крие вътре в степните скотовъдци, които вече са се смесили с ловци, преди изобщо да достигнат Балканите.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Сигурно за цвета на очите; 2% е добра оценка</p></div></div>
 
-    <p class="descent-note">И дори първите фермери са били новодошли. Под неолитния пласт са ловците-събирачи, обитавали Европа преди земеделието.</p>
+<div class="curious"><p class="curious-label">Разкопката</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Мезолитният пласт — ловците-събирачи</h3>
 
-    <p>Под фермерските пластове лежи най-старият оцелял европейски субстрат: западните ловци-събирачи, предхождащи изцяло земеделската революция. Лошбур на 0,407 е най-отдалечената древна популация във всички модели — присъства, но ясно е най-разредена от трите основополагащи потока. Дълбокият родов модел приписва приблизително <strong>2% самостоятелна западна ловно-събирателска родственост</strong>, и това е частта, която моделът вижда самостоятелно. Допълнителна ловно-събирателска родственост е пренесена вътре в степния компонент, защото самите степни пастири от Ямна вече са носили ловно-събирателска родственост от по-ранно смесване в степта, но тези модели не могат да отделят този дял. Калкулаторите, които обединяват цялата северна ловно-събирателска родственост (Ancient Eurasia K6 отчита 35,03% ЗЛС, а калкулаторът на GEDmatch за ловци-събирачи срещу фермери — 36,92% балтийски ЛС), измерват по-широка величина от тази самостоятелна стойност.</p>
+    <p class="descent-note">И дори първите земеделци са били новодошли. Под неолитния слой са ловците-събирачи, обитавали Европа преди земеделието.</p>
 
-    <p>ЗЛС са сред най-важните популации в европейската праистория точно защото са най-старият пласт — хората, обитавали ледниковата и следледниковата Европа в продължение на десетки хиляди години преди земеделието да преобрази континента. Те са били морски и горски ловци, рибари на реки и брегове, създатели на сложни каменни инструменти. Древната ДНК показва, че са имали тъмна кожа и често сини очи — контраинтуитивна комбинация, отразяваща времето на адаптация: сините очи се развиват в Европа десетки хиляди години преди по-светлата кожа да пристигне с анадолските фермери.</p>
+    <p>Под земеделските слоеве лежи най-старият оцелял европейски субстрат: западните ловци-събирачи, предхождащи изцяло земеделската революция. Лошбур на 0,407 е най-отдалечената древна популация във всички модели — присъства, но ясно е най-разредена от трите основополагащи потока. Дълбокият родов модел приписва приблизително <strong>2% самостоятелна родственост от западни ловци-събирачи</strong> — частта, която моделът вижда сам по себе си. Допълнителна ловно-събирателска родственост е пренесена вътре в степния компонент, защото самите степни скотовъдци от Ямна вече са носили ловно-събирателска родственост от по-ранно смесване в степта, но тези модели не могат да отделят този дял. Калкулаторите, които обединяват цялата северна ловно-събирателска родственост (Ancient Eurasia K6 отчита 35,03% ЗЛС, а калкулаторът на GEDmatch за ловци-събирачи срещу земеделци — 36,92% балтийски ЛС), измерват по-широка величина от тази самостоятелна стойност.</p>
 
-    <p>Наследството на ЗЛС е видимо в генотипа HERC2 GG при rs12913832 — хаплотипът за сини очи, произхождащ от ЗЛС популации и сега запазен в генома като една от най-старите фенотипни черти. Оракулът с 4 популации по G25, когато моделира генома от древни източници, вмъква Ла Браня наред с гръцко-подобни средиземноморски популации точно за да отчете този ЗЛС компонент — съвременните гърци носят сравнително малко от него, така че алгоритъмът се нуждае от специален ЗЛС източник, за да възпроизведе специфичния източнобалкански сигнал.</p>
+    <p>ЗЛС са сред най-важните популации в европейската праистория точно защото са най-старият слой — хората, обитавали ледниковата и следледниковата Европа в продължение на десетки хиляди години, преди земеделието да преобрази континента. Те са били морски и горски ловци, рибари по реки и брегове, майстори на сложни каменни сечива. Древната ДНК показва, че са имали тъмна кожа и често сини очи — контраинтуитивна комбинация, отразяваща времето на адаптацията: сините очи се развиват в Европа десетки хиляди години преди по-светлата кожа да пристигне с анадолските земеделци.</p>
+
+    <p>Наследството на ЗЛС личи в генотипа HERC2 GG при rs12913832 — хаплотипът за сини очи, произхождащ от популациите на ЗЛС и днес запазен в генома като една от най-старите фенотипни черти. Оракулът с 4 популации по G25, когато моделира генома от древни източници, вмъква Ла Браня наред с гръцко-подобни средиземноморски популации точно за да отчете този ЗЛС компонент — съвременните гърци носят сравнително малко от него, така че алгоритъмът се нуждае от специален ЗЛС източник, за да възпроизведе специфичния източнобалкански сигнал.</p>
 
     <div class="insight-box">
-      <span class="insight-label">Сини очи преди светла кожа</span>
-      Едно от най-контраинтуитивните открития от древната ДНК е, че сините очи са по-стари от светлата кожа в Европа. Мезолитни ловци-събирачи като Ла Браня са имали сини очи (HERC2 GG) и тъмна кожа — обратното на това, което обикновено си представяме за древните европейци. Светлата кожа пристига с анадолските фермери и техния производен алел на SLC24A5. Геномът носи и двете: древния алел за сини очи от ловците-събирачи, и неолитния алел за изсветляване на кожата от фермерите — двете най-стари пигментационни черти в европейската праистория, всяка от различна родова популация, и двете запазени непокътнати.
+      <span class="insight-label">Сини очи преди светла кожа</span> Едно от най-контраинтуитивните открития от древната ДНК е, че сините очи са по-стари от светлата кожа в Европа. Мезолитни ловци-събирачи като Ла Браня са имали сини очи (HERC2 GG) и тъмна кожа — обратното на това, което обикновено си представяме за древните европейци. Светлата кожа пристига с анадолските земеделци и техния производен алел на SLC24A5. Геномът носи и двете: древния алел за сини очи от ловците-събирачи и неолитния алел за изсветляване на кожата от земеделците — двете най-стари пигментационни черти в европейската праистория, всяка от различна родова популация, и двете запазени непокътнати.
     </div>
 
     <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      Два различни вида доказателства, два различни въпроса — заслужаващи да бъдат разграничени. <strong>Числото за дистанция</strong> отговаря на въпроса „колко, спрямо всичко останало?" — и отговорът е: ловно-събирателската родственост е реална, но е най-малката от трите основни съставки: около 2% стоят самостоятелно, плюс още един дял, който моделите не могат да отделят, скрит вътре в самия степно-овчарски сигнал (защото тези овчари вече са носили ловно-събирателско ДНК от собственото си смесване, много преди изобщо да достигнат Балканите). Наистина забавният факт тук е цветът на очите: този геном носи гена за сини очи, предаден от същите тъмнокожи ловци-събирачи, който пристига в Европа хиляди години <em>преди</em> светлата кожа. Сини очи и тъмна кожа, заедно, в една и съща древна популация — обратното на обичайната мисловна картина за древен европеец, и черта, все още видимо предавана напред.
+      <span class="plain-label">С прости думи</span> Два различни вида доказателства, два различни въпроса — заслужава си да ги държим отделно. <strong>Числото за дистанция</strong> отговаря на въпроса „колко, спрямо всичко останало?“ — и отговорът е: ловно-събирателската родственост е реална, но е най-малката от трите основни съставки: около 2% стоят самостоятелно, плюс още един дял, който моделите не могат да отделят, скрит вътре в самия степно-скотовъден сигнал (защото тези скотовъдци вече са носили ловно-събирателска ДНК от собственото си смесване много преди изобщо да достигнат Балканите). Наистина забавният факт тук е цветът на очите: този геном носи варианта на гена за сини очи, предаден от същите тъмнокожи ловци-събирачи, който пристига в Европа хиляди години <em>преди</em> светлата кожа. Сини очи и тъмна кожа заедно, в една и съща древна популация — обратното на обичайната представа за древен европеец и черта, която и днес се предава видимо.
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Ловците-събирачи са най-малкият от трите дълбоки европейски потока — все още видими (напр. по пътя на сините очи).</span></p>
     </div>
-  </div>
+  
+</div></div>
+</div>
 </div>
 
 
 <!-- ══ LAYER 6 ══ -->
-<div class="era-block" id="s_archaic">
+<div class="era-block pn-s_archaic" id="s_archaic">
   <div class="era-marker">
     <span class="era-dot era-dot--ancient"></span>
-    <span class="era-label">Слой 6<br>Архаичен<br>50 000+ г. пр. сег.</span>
+    <span class="era-label">Слой 6<br>Архаичен<br>50 000+ г. пр. сег.</span>
   </div>
   <div class="era-content">
-    <h2>Архаичният седимент — разлагането на дълбоката родственост</h2>
+<div class="story-panel"><h2>Дори ловците са били смес</h2>
+<div class="story"><p>Копайте под ловците-събирачи и все още няма един-единствен „първоизточен“ народ. Степните скотовъдци сами са смес от две по-стари ловни групи: ловци от тревните земи на север от Кавказ и ловци от кавказките планински долини. Степният произход на Минко клони към планинската страна — модел, какъвто бихте очаквали от степен произход, влязъл в Европа през югоизточната си врата.</p><p>Сред тестваните популации от бронзовата епоха и по-рано най-близки се оказват Армения и микенска Гърция — два свята, срещнали се там, където Кавказ и Егейско море се събират. Това не е скорошна връзка с Армения или Гърция. Това е слабото ехо на един споделен свят от бронзовата епоха.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Доста сигурно; това е най-дълбокият слой, до който можем да стигнем</p></div></div>
 
-    <p class="descent-note">Дори ловците-събирачи не са били единен, еднороден народ. Под техния пласт лежат по-старите каменноепохски популации, които са ги съставили — най-дълбоката разделителна способност, до която тази разкопка може да достигне.</p>
+<div class="curious"><p class="curious-label">Разкопката</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Архаичният седимент — разлагането на дълбоката родственост</h3>
 
-    <p>Модел 4 достига под трите основополагащи потока на европейската родственост до популациите от каменната епоха, които са ги съставили. Класирането разкрива конкретен структурен детайл за състава на степния компонент:</p>
+    <p class="descent-note">Дори ловците-събирачи не са били единен, еднороден народ. Под техния слой лежат по-старите каменноепохски популации, които са ги съставили — най-дълбоката разделителна способност, до която тази разкопка може да достигне.</p>
+
+    <p>Модел 4 достига под трите основополагащи потока на европейската родственост до каменноепохските популации, които са ги съставили. Класирането разкрива конкретен структурен детайл за състава на степния компонент:</p>
 
     <table class="dist-table">
       <thead><tr><th>Дълбока древна популация</th><th>Дистанция</th><th></th></tr></thead>
@@ -1167,90 +1227,94 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
         <tr><td>Турция, Барджън КН — анадолски неолит</td><td class="dist-val">0,171</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:42%"></div></div></td></tr>
         <tr><td>Русия, Самара, РБЕ Ямна</td><td class="dist-val">0,176</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:43%"></div></div></td></tr>
         <tr><td>Грузия, Котиас, КЛС (~9000 г. пр.н.е.)</td><td class="dist-val">0,253</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:62%"></div></div></td></tr>
-        <tr><td>Русия, Карелия, ИЛС (~7000 г. пр.н.е.)</td><td class="dist-val">0,286</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:70%"></div></div></td></tr>
-        <tr><td>Иран, Гандж Даре, Н (~10 000 г. пр.н.е.)</td><td class="dist-val">0,294</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:72%"></div></div></td></tr>
+        <tr><td>Русия, Карелия, ИЛС (~7000 г. пр.н.е.)</td><td class="dist-val">0,286</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:70%"></div></div></td></tr>
+        <tr><td>Иран, Гандж Даре, Н (~10 000 г. пр.н.е.)</td><td class="dist-val">0,294</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:72%"></div></div></td></tr>
         <tr><td>Люксембург, Лошбур, ЗЛС</td><td class="dist-val">0,407</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:99%"></div></div></td></tr>
       </tbody>
     </table>
 
-    <p>Ключовата находка тук е <strong>Грузия, Котиас, КЛС на 0,253, класиращ се по-близо от Русия, Карелия, ИЛС на 0,286</strong>. Степните пастири от Ямна сами по себе си са съставени от две по-ранни популации: източни ловци-събирачи от руските степи на север от Кавказ, и кавказки ловци-събирачи от южните кавказки долини. Фактът, че Котиас КЛС е по-близо от Карелия ИЛС, ни казва, че степно-свързаният компонент в генома ви изглежда сравнително богат на КЛС спрямо ИЛС — съответстващо на генетичната структура на югоизточноевропейската родственост, произхождаща от Ямна, която обикновено носи пропорционално повече КЛС от северноевропейската Шнуркерамична експанзия. Това е съвместимо с югоизточен балкански входен пункт за степната ви родственост, макар само съотношенията на дистанциите да не могат да реконструират буквалните географски маршрути, изминати от отделните ви предци.</p>
+    <p>Ключовата находка тук е <strong>Грузия, Котиас, КЛС на 0,253, по-близо от Русия, Карелия, ИЛС на 0,286</strong>. Степните скотовъдци от Ямна сами са съставени от две по-ранни популации: източни ловци-събирачи от руските степи на север от Кавказ и кавказки ловци-събирачи от южните кавказки долини. Фактът, че Котиас КЛС е по-близо от Карелия ИЛС, ни казва, че степно свързаният компонент във вашия геном изглежда сравнително богат на КЛС спрямо ИЛС — в съответствие с генетичната структура на югоизточноевропейската родственост, произхождаща от Ямна, която обикновено носи пропорционално повече КЛС от северноевропейската експанзия на шнуркерамичната култура. Това е съвместимо с югоизточен балкански входен пункт за вашата степна родственост, макар само съотношенията на дистанциите да не могат да възстановят буквалните географски маршрути, изминати от отделните ви предци.</p>
 
-    <p>Иран, Гандж Даре, Неолит на 0,294 е ранна иранска фермерска популация, различна от анадолските фермери. Появата ѝ отразява югозападноазиатския компонент, видим в калкулаторите ви — пристигащ отчасти чрез КЛС родствеността на Ямна и отчасти като отделен древен ирански-свързан поток, допринесъл както за анадолските, така и за балканските популации. Това е това, което GEDmatch измерва като западноазиатски или кавказки в няколко калкулатора.</p>
+    <p>Иран, Гандж Даре, Неолит на 0,294 е ранна иранска земеделска популация, различна от анадолските земеделци. Появата ѝ отразява югозападноазиатския компонент, видим във вашите калкулатори — пристигащ отчасти чрез КЛС родствеността на Ямна и отчасти като отделен древен, свързан с Иран поток, допринесъл както за анадолските, така и за балканските популации. Това е онова, което GEDmatch измерва като западноазиатско или кавказко в няколко калкулатора.</p>
 
-    <p>Калкулаторът Ancient Eurasia K6 улавя най-дълбоките пластове най-изрично, разлагайки генома на: <strong>42,59% натуфийски</strong> (левантински предфермерски ловци-събирачи, преки предци на анадолските фермери), <strong>35,03% западни ловци-събирачи</strong>, и <strong>19,05% предшестващ северноевразийски</strong> (сибирски-свързаният компонент, допринесъл както за степната родственост на Ямна, така и, в следови нива, за находката за EDAR, разгледана по-долу). Тези три компонента са най-старите измерими потоци в генома — не исторически популации, а древни генетични субстрати, предхождащи земеделието, държавността и езиковите семейства. Имайте предвид, че 35,03% „западни ловци-събирачи“ в K6 обединяват цялата северна ловно-събирателска родственост, включително свързания с ИЛС дял, който моделът с древни източници отчита вътре в степния компонент, затова не е пряко съпоставим със самостоятелната стойност от ~2% ЗЛС в модела.</p>
+    <p>Калкулаторът Ancient Eurasia K6 улавя най-дълбоките слоеве най-изрично, като разлага генома на: <strong>42,59% натуфийски</strong> (левантински предземеделски ловци-събирачи, преки предци на анадолските земеделци), <strong>35,03% западни ловци-събирачи</strong> и <strong>19,05% предшестващ северноевразийски</strong> (сибирски компонент, допринесъл както за степната родственост на Ямна, така и — на следови нива — за находката за EDAR, разгледана по-долу). Тези три компонента са най-старите измерими потоци в генома — не исторически популации, а древни генетични субстрати, предхождащи земеделието, държавността и езиковите семейства. Имайте предвид, че 35,03% „западни ловци-събирачи“ в K6 обединяват цялата северна ловно-събирателска родственост, включително свързания с ИЛС дял, който моделът с древни източници отчита вътре в степния компонент, затова не е пряко съпоставим със самостоятелната стойност от ~2% ЗЛС в модела.</p>
 
     <h3 class="sub-heading">Егейският бронзовоепохски и южнокавказки сигнал — Модел 5</h3>
 
-    <p>Модел с висока разделителна способност за Кавказ, тестващ координатите спрямо бронзовоепохски егейски и южнокавказки халколитни популации, разкрива конкретен древен афинитет, който стандартният модел с три вълни не разрешава. Класирането:</p>
+    <p>Модел с висока разделителна способност за Кавказ, който тества координатите спрямо бронзовоепохски егейски и южнокавказки халколитни популации, разкрива конкретен древен афинитет, който стандартният модел с три вълни не разрешава. Класирането:</p>
 
     <table class="dist-table">
       <thead><tr><th>Популация</th><th>Дистанция</th><th></th></tr></thead>
       <tbody>
-        <tr><td>Армения, Арени, Х (Южен Кавказ)</td><td class="dist-val">0,100</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:24%"></div></div></td></tr>
-        <tr><td>Гърция, Микена, БЕ (Егейско море)</td><td class="dist-val">0,106</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:26%"></div></div></td></tr>
+        <tr><td>Армения, Арени, Х (южнокавказки халколит)</td><td class="dist-val">0,100</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:24%"></div></div></td></tr>
+        <tr><td>Гърция, Микена, БЕ (бронзова епоха, Егейско море)</td><td class="dist-val">0,106</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:26%"></div></div></td></tr>
         <tr><td>Гърция, Ласити, минойска</td><td class="dist-val">0,148</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:36%"></div></div></td></tr>
         <tr><td>Армения, РБЕ, Кура-Аракс (Беркабер)</td><td class="dist-val">0,154</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--steppe" style="width:38%"></div></div></td></tr>
         <tr><td>Турция, Барджън КН</td><td class="dist-val">0,171</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:42%"></div></div></td></tr>
-        <tr><td>Иран, Сех Габи, Х (иранска)</td><td class="dist-val">0,191</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:47%"></div></div></td></tr>
+        <tr><td>Иран, Сех Габи, Х (ирански халколит)</td><td class="dist-val">0,191</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:47%"></div></div></td></tr>
         <tr><td>Грузия, Котиас, КЛС</td><td class="dist-val">0,253</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:62%"></div></div></td></tr>
         <tr><td>Иран, Гандж Даре, Н</td><td class="dist-val">0,294</td><td><div class="dist-bar-bg"><div class="dist-bar-fill dist-bar-fill--stone" style="width:72%"></div></div></td></tr>
       </tbody>
     </table>
 
-    <p>Арменската халколитна Арени (0,100) и бронзовоепохската Микена (0,106) се класират като двете най-близки популации в този модел — по-близо от Барджън, по-близо от Котиас КЛС, и много пред по-дълбоките ирански неолитни референции. Тези две популации представляват конкретен бронзовоепохски генетичен свят: егейско-анадолско-южнокавказкия коридор, свързал микенските дворцови цивилизации на Гърция с културната сфера Кура-Аракс на арменските планини. И двете носят богата на КЛС родственост, комбинирана с анадолски неолитен фермерски субстрат — точно комбинацията, появяваща се в повишена форма в източнобалканския профил. Това е древният източник на това, което калкулаторите на GEDmatch измерват като арменски, севернокавказки и западноазиатски компоненти — не скорошна родственост от тези региони, а дълбокият бронзовоепохски субстрат на югоизточноевропейския свят, запазен през 4000 години последващи популационни движения.</p>
+    <p>Арменската халколитна Арени (0,100) и бронзовоепохската Микена (0,106) се класират като двете най-близки популации в този модел — по-близо от Барджън, по-близо от Котиас КЛС и много пред по-дълбоките ирански неолитни референции. Тези две популации представляват конкретен генетичен свят от бронзовата епоха: егейско-анадолско-южнокавказкия коридор, свързал микенските дворцови цивилизации на Гърция с културната сфера Кура-Аракс на арменските планини. И двете носят богата на КЛС родственост, съчетана с анадолски неолитен земеделски субстрат — точно комбинацията, която се появява в по-силна форма в източнобалканския профил. Това е древният източник на онова, което калкулаторите на GEDmatch измерват като арменски, севернокавказки и западноазиатски компоненти — не скорошен произход от тези региони, а дълбокият субстрат на югоизточноевропейския свят от бронзовата епоха, запазен през 4000 години на последвали популационни движения.</p>
 
     <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      Две неща си струват да се вземат от този най-дълбок слой на разкопката. Първо: степните овчари, достигнали Балканите, не са били еднородна група — самите те са били смес от две по-стари популации, едната от пасищата на север от Кавказ (ИЛС), другата от самите кавказки планински долини (КЛС). Степният сигнал на този геном се накланя специфично към <mark>кавказко-долинната страна</mark> на тази смес, което е моделът, който бихте очаквали от степна родственост, влязла в Европа през нейната югоизточна врата, а не нахлула от север. Второ, и по-поразително: най-близката древна популация, намерена навсякъде в целия този доклад, изобщо не е фермер или овчар — това е бронзовоепохска Армения, следвана непосредствено от бронзовоепохска Микенска Гърция. И двете се намират на мястото на срещата на Кавказ и Егейско море, и близостта и на двете е дълбокият, четирихилядолетен корен на арменските и севернокавказките частици, продължаващи да се появяват в съвременните калкулатори за примес — не скорошна връзка с Армения или Гърция, а най-старото, най-отдалеченото ехо на споделен бронзовоепохски свят.
+      <span class="plain-label">С прости думи</span> Две неща си струва да се отнесат от този най-дълбок слой на разкопката. Първо: степните скотовъдци, достигнали Балканите, не са били еднородна група — самите те са били смес от две по-стари популации, едната от тревните земи на север от Кавказ (ИЛС), другата от самите кавказки планински долини (КЛС). Степният сигнал на този геном клони специално към <mark>страната на кавказките долини</mark> в тази смес — модел, какъвто бихте очаквали от степен произход, влязъл в Европа през югоизточната си врата, а не нахлул от север. Второ и по-поразително: най-близката древна популация, открита където и да е в целия този доклад, изобщо не е земеделец или скотовъдец — тя е Армения от бронзовата епоха, следвана непосредствено от микенска Гърция от бронзовата епоха. И двете стоят на мястото на срещата на Кавказ и Егейско море, а това, че и двете са толкова близо, е дълбокият, четирихилядолетен корен на „арменските“ и „севернокавказките“ частици, които продължават да се появяват в съвременните калкулатори за примес — не скорошна връзка с Армения или Гърция, а най-старото, най-далечно ехо на един споделен свят от бронзовата епоха.
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Степният сигнал клони към кавказките ловци-събирачи (КЛС) пред източните ловци-събирачи (ИЛС) — югоизточен модел.</span></p>
     </div>
-  </div>
+  
+</div></div>
+</div>
 </div>
 
 
 <!-- ══ NOTABLE FINDINGS ══ -->
-<div class="era-block" id="s_surprises">
+<div class="era-block pn-s_surprises" id="s_surprises">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
     <span class="era-label">Забележителни<br>находки</span>
   </div>
   <div class="era-content">
-    <h2>Неочакваните сигнали</h2>
+<div class="story-panel"><h2>Нещата, които не се вписват гладко</h2>
+<div class="story"><p>Някои находки отказват да се впишат в подредената история. Минко носи две копия на генен вариант (EDAR), който е често срещан в Източна Азия и почти не се среща на Балканите, но без съседния вариант, който обикновено пътува с него. Това сочи към стар, непряк път, а не към скорошен източноазиатски предшественик. Интересно и нерешено.</p><p>Степният му произход клони към Кавказките планини, а не към северните гори. А брат му Стайко е на малко по-различно място на балканската карта: двамата са по-близо един до друг, отколкото до която и да е друга тествана популация, както подобава на братя, но всеки е наследил различна смес от една и съща семейна история.</p><p class="sure"><span class="meter m1"><i></i><i></i><i></i></span>Открити загадки</p></div></div>
+
+<div class="curious"><p class="curious-label">Разкопката</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Неочакваните сигнали</h3>
 
     <h3 class="sub-heading">Парадоксът EDAR / ABCC11 — rs3827760 AA · rs17822931 CC</h3>
 
-    <p>Най-поразителната находка в родовия профил е комбинацията от два генотипа, които не би трябвало да съществуват заедно в европейски геном — и чието конкретно съчетание носи точна импликация за произхода на следов източноазиатски сигнал.</p>
+    <p>Най-поразителната находка в родовия профил е комбинацията от два генотипа, които не би трябвало да съжителстват в европейски геном — и чието конкретно съчетание носи точна подсказка за произхода на следов източноазиатски сигнал.</p>
 
-    <p>Генотипът е <strong>хомозиготен AA при rs3827760 (EDAR)</strong> — две копия на източноазиатски-произхождащия алел в гена на ектодисплазиновия рецептор, контролиращ дебелината на космените фоликули, гъстотата на потните жлези и формата на резците. В европейските популации този вариант се среща с честоти, приближаващи нула, обикновено под 1%. Хомозиготността AA е практически нечувана в балкански геноми.</p>
+    <p>Генотипът е <strong>хомозиготен AA при rs3827760 (EDAR)</strong> — две копия на източноазиатския алел в гена на ектодисплазиновия рецептор, който контролира дебелината на космените фоликули, гъстотата на потните жлези и формата на резците. В европейските популации този вариант се среща с честоти, близки до нула, обикновено под 1%. Хомозиготността AA е практически нечувана в балкански геноми.</p>
 
-    <p>Но едновременно с това, генотипът е <strong>CC при rs17822931 (ABCC11)</strong> — вариантът за влажна ушна кал, западноевразийски. В източноазиатските и централноазиатските популации, EDAR 370A и алелът T за суха ушна кал на ABCC11 пътуват заедно като свързан хаплотипен блок, защото са били подложени на един и същ селективен натиск преди приблизително 30 000 години в Източна Азия. Скорошен средновековен тюркски принос би запазил този блок непокътнат. Генотипът CC при ABCC11 означава, че хаплотипният блок е бил разбит преди да достигне тази родова линия — молекулярният сигнал на древен, а не скорошен примес. Рекомбинацията разделя свързани варианти през поколенията; колкото по-отдавна е пристигнала източноазиатската родственост, толкова по-задълбочено би бил нарушен блокът.</p>
+    <p>Но същевременно генотипът е <strong>CC при rs17822931 (ABCC11)</strong> — вариантът за влажна ушна кал, западноевразийският. В източноазиатските и централноазиатските популации EDAR 370A и алелът T на ABCC11 за суха ушна кал пътуват заедно като свързан хаплотипен блок, защото са подложени на един и същ селективен натиск преди приблизително 30 000 години в Източна Азия. Скорошен средновековен тюркски принос би запазил този блок непокътнат. Генотипът CC при ABCC11 означава, че хаплотипният блок е бил разбит, преди да достигне тази линия — молекулярният отпечатък на древен, а не на скорошен примес. Рекомбинацията разделя свързаните варианти през поколенията; колкото по-отдавна е пристигнала източноазиатската родственост, толкова по-задълбочено би бил нарушен блокът.</p>
 
-    <p>Две обяснения съответстват на това наблюдение. Първото и по-обсъждано е <strong>дълбока степно-медиирана интрогресия</strong>: Ямна и постямненските степни популации имат документирани връзки с централноазиатски групи чрез културата Афанасиево и последващите степни мрежи. Бронзовоепохски и железноепохски степни индивиди от Синташта, Срубна и скитската епоха показват вариращо, но реално източноазиатски-свързана родственост, придобита чрез контакти по сибирско-лесостепния интерфейс. Сигналите от K36 — Източноцентрална Азия 0,18%, Индокитай 1,46% — са поне съвместими с древна, разредена източноазиатска родственост. Второто възможно обяснение е <strong>предбронзовоепохска сибирска ловно-събирателска родственост</strong>: измеримият компонент на предшестващ северноевразийски в ИЛС родствеността може да е носил EDAR 370A с ниска честота, донасяйки го на запад чрез експанзията на Ямна.</p>
+    <p>Две обяснения съответстват на това наблюдение. Първото и по-обсъждано е <strong>дълбока степно-медиирана интрогресия</strong>: Ямна и постямненските степни популации имат документирани връзки с централноазиатски групи чрез културата Афанасиево и последвалите степни мрежи. Бронзовоепохски и железноепохски степни индивиди от Синташта, Срубна и от скитската епоха показват променлива, но реална източноазиатска родственост, придобита чрез контакти по сибирско-лесостепния интерфейс. Сигналите от K36 — Източноцентрална Азия 0,18%, Индокитай 1,46% — са поне съвместими с древна, разредена източноазиатска родственост. Второто възможно обяснение е <strong>предбронзовоепохска сибирска ловно-събирателска родственост</strong>: измеримият компонент на предшестващ северноевразийски в ИЛС родствеността може да е носил EDAR 370A с ниска честота и да го е донесъл на запад чрез експанзията на Ямна.</p>
 
-    <p>Важно е да се отбележи какво два SNP-а не могат да установят сами по себе си. Потвърждаването дали хаплотипният блок EDAR-ABCC11 наистина е бил разбит от древна рекомбинация би изисквало фазирани хаплотипни данни в целия околен геномен регион, допълнителни източноазиатски-свързани маркери, и в идеалния случай PCA анализ или IBD анализ на целия геном. Комбинацията от генотипове е наблюдение, генериращо хипотези — интересно и заслужаващо изследване — но само по себе си не е достатъчно, за да постави източноазиатския сигнал категорично в определен исторически период.</p>
+    <p>Важно е да се отбележи какво два SNP-а не могат да установят сами по себе си. Потвърждаването дали хаплотипният блок EDAR-ABCC11 наистина е бил разбит от древна рекомбинация би изисквало фазирани хаплотипни данни за околния геномен регион, допълнителни източноазиатски маркери и в идеалния случай PCA или IBD анализ на целия геном. Комбинацията от генотипове е наблюдение, което генерира хипотези — интересно и заслужаващо изследване — но само по себе си не е достатъчно, за да постави категорично източноазиатския сигнал в определен исторически период.</p>
 
     <div class="insight-box">
-      <span class="insight-label">Хипотезата за хаплотипния блок</span>
-      Когато два варианта бъдат подложени на селекция от едно и също събитие в една и съща популация, те стават генетически свързани и пътуват заедно през поколенията. Колкото по-отдавна е общият им произход, толкова повече рекомбинационни събития са ги разделили. EDAR AA, съчетан с ABCC11 CC — европейският вариант за ушна кал — съответства на източноазиатската родственост, пристигнала достатъчно отдавна, за да може рекомбинацията да започне да разделя оригиналния блок. EDAR AA, съчетан с ABCC11 TT, би съответствало на по-скорошно пристигане като непокътнат блок. Генотипът CC сочи по-скоро към по-стар, отколкото средновековен произход на този сигнал, но установяването на това с увереност изисква повече от две SNP позиции.
+      <span class="insight-label">Хипотезата за хаплотипния блок</span> Когато два варианта бъдат подложени на селекция от едно и също събитие в една и съща популация, те стават генетично свързани и пътуват заедно през поколенията. Колкото по-отдавна е общият им произход, толкова повече рекомбинационни събития са ги разделили. EDAR AA, съчетан с ABCC11 CC — европейския вариант за ушна кал — съответства на източноазиатска родственост, пристигнала достатъчно отдавна, за да може рекомбинацията да започне да разделя първоначалния блок. EDAR AA, съчетан с ABCC11 TT, би съответствало на по-скорошно пристигане като непокътнат блок. Генотипът CC сочи по-скоро към по-стар, отколкото към средновековен произход на този сигнал, но установяването на това с увереност изисква повече от две SNP позиции.
     </div>
 
     <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      В източноазиатските популации тези два гена почти винаги пътуват заедно, като двама братя или сестри, рядко виждани поотделно — те са били издърпани заедно от една и съща вълна на естествен подбор преди хиляди години. Тук единият се появи <strong>без</strong> другия, което е конкретен, необичаен модел. Най-разумното обяснение не е скрит скорошен източноазиатски предшественик — да речем, от средновековен тюркски контакт — тъй като това би се очаквало да донесе и двата гена заедно, все още свързани. Вместо това е по-старо, по-заобиколно пътуване: този конкретен генен вариант, вероятно пътувал със степни популации, движещи се през Евразия в бронзовата епоха, достатъчно отдавна, че обикновеното генетично разбъркване да има време да раздели двата гена, преди да достигнат тази родова линия. Това е наистина интересна нишка, заслужаваща да се държи хлабаво, а не решен случай.
+      <span class="plain-label">С прости думи</span> В източноазиатските популации тези два гена почти винаги пътуват заедно, като двама братя или сестри, които рядко се виждат поотделно — повлечени са заедно от една и съща вълна на естествения подбор преди хиляди години. Тук единият се е появил <strong>без</strong> другия, което е конкретен, необичаен модел. Най-разумното обяснение не е скрит скорошен източноазиатски предшественик — да речем, от средновековен тюркски контакт — тъй като това би донесло и двата гена заедно, все още свързани. Вместо това е по-старо, по-заобиколно пътуване: този конкретен генен вариант вероятно е пътувал със степни популации, движещи се през Евразия в бронзовата епоха, достатъчно отдавна, за да има обикновеното генетично разбъркване време да раздели двата гена, преди да достигнат тази линия. Това е наистина интересна нишка, която заслужава да се държи хлабаво, а не решен случай.
    <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> EDAR без обичайния си партньор ABCC11 сочи към по-стар, непряк път — интересно, но не и затворен случай.</span></p>
     </div>
 
-    <h3 class="sub-heading">Степента на КЛС — югоизточен степен сигнал</h3>
+    <h3 class="sub-heading">Натежалостта към КЛС — югоизточен степен отпечатък</h3>
 
-    <p>Находката от Модел 4, че Грузия, Котиас, КЛС (0,253) се класира по-близо от Русия, Карелия, ИЛС (0,286), съответства на югоизточноевропейска родственост, произхождаща от Ямна. Ямна се сформира от две ловно-събирателски популации в приблизително равни пропорции. Конкретните групи, свързани с Ямна, навлезли на Балканите, са документирани в изследвания на древна ДНК да носят пропорционално повече КЛС и по-малко ИЛС от северноевропейската Шнуркерамична експанзия. Съотношението КЛС/ИЛС в този геном е съвместимо с този югоизточен балкански входен пункт — макар само съотношенията на дистанциите да не могат да реконструират буквалните географски маршрути, изминати от отделните предци. Това, което може да се каже, е, че степно-свързаният компонент изглежда сравнително богат на КЛС, по начин, по-съвместим с югоизточна, отколкото със северноевропейска родственост, произхождаща от Ямна.</p>
+    <p>Находката от Модел 4, че Грузия, Котиас, КЛС (0,253) е по-близо от Русия, Карелия, ИЛС (0,286), съответства на югоизточноевропейска родственост, произхождаща от Ямна. Ямна се е сформирала от две ловно-събирателски популации в приблизително равни пропорции. Конкретните групи, свързани с Ямна, които навлизат на Балканите, са документирани в изследвания на древна ДНК като носещи пропорционално повече КЛС и по-малко ИЛС от северноевропейската експанзия на шнуркерамичната култура. Натежалостта към КЛС в този геном е съвместима с този югоизточен балкански входен пункт — макар само съотношенията на дистанциите да не могат да възстановят буквалните географски маршрути на отделните предци. Което може да се каже, е, че степно свързаният компонент изглежда сравнително богат на КЛС, по начин, по-съвместим с югоизточна, отколкото със северноевропейска родственост, произхождаща от Ямна.</p>
 
     <h3 class="sub-heading">Бележка за семейния контекст</h3>
 
-    <p>Този ДНК проект обхваща и Стайко Ненов, анализиран със същата обща рамка — родова информация от MyHeritage, моделиране по Global25, дистанционни панели за древни популации, български археологически референции, калкулатори за примес и подбрани SNP маркери, свързани с произхода. С наличните вече консенсусни G25 координатни набори и на двамата братя, за първи път е възможно директно векторно сравнение — измерващо действителното генетично разместване между двама ви, вместо да се извежда косвено от паралелни сравнения спрямо референтни популации.</p>
+    <p>Този ДНК проект обхваща и Стайко Ненов, анализиран със същата обща рамка — родова информация от MyHeritage, моделиране по Global25, панели с дистанции до древни популации, български археологически референции, калкулатори за примес и подбрани SNP маркери, информативни за произхода. С наличните вече консенсусни G25 координатни набори и на двамата братя за първи път е възможно директно векторно сравнение — то измерва действителното генетично разстояние между двама ви, вместо то да се извежда косвено от паралелни сравнения с референтни популации.</p>
 
-    <p>Евклидовата дистанция между двата консенсусни координатни вектора — Minko_Consensus_G25_v1_sim_scaled и Stayko_Consensus_G25_v1_sim_scaled, изчислена директно във всичките 25 измерения — е <strong>0,014205</strong>. За контекст: това е по-малко от дистанцията на всеки от братята до която и да е отделна референтна популация в таблиците с модерни популации (най-близката за Минко е румънците на 0,018; най-близката за Стайко са гагаузите на 0,0161). С други думи, двама вие сте генетически по-близо един до друг, отколкото всеки от вас е до която и да е външна популация, тествана в целия този доклад — точно очакваният сигнал на родни братя, и полезна отправна точка за тълкуване на всяка друга дистанция в този документ.</p>
+    <p>Евклидовата дистанция между двата консенсусни координатни вектора — Minko_Consensus_G25_v1_sim_scaled и Stayko_Consensus_G25_v1_sim_scaled, изчислена директно във всичките 25 измерения — е <strong>0,014205</strong>. За контекст: това е по-малко от дистанцията на всеки от братята до която и да е отделна референтна популация в таблиците със съвременни популации (най-близки за Минко са румънците на 0,018; най-близки за Стайко са гагаузите на 0,0161). С други думи, двамата сте генетично по-близо един до друг, отколкото всеки от вас е до която и да е външна популация, тествана в целия този доклад — точно очакваният отпечатък на родни братя и полезна отправна точка за тълкуването на всяка друга дистанция в този документ.</p>
 
-    <p>Профилът на Стайко показва малко по-силен южен/егейско-средиземноморски сигнал и по-силен кавказки сигнал от този. Модерните му популационни съвпадения остават твърдо в балканския континуум, но позицията му вътре в този континуум е изместена към южния край: гагаузи 0,0161, българи 0,0172, румънци 0,0197, македонци 0,0243 и гърци от Централна Македония 0,0277, сравнено с румънци 0,018, българи 0,021, македонци 0,026 и гърци от Централна Македония 0,040 в този профил. На панела с древни популации картината е съгласувана: Стайко е по-близо до двете анадолски неолитни референции (Бонджуклу 0,132 срещу 0,142, Барджън 0,161 срещу 0,171) и малко по-далеч от референциите на Ямна (Самара 0,184 срещу 0,176, българската РБЕ Ямна 0,131 срещу 0,123). K36 сочи в същата посока: Армения плюс Северен Кавказ — компонентите, свързани с кавказките ловци-събирачи — възлизат на около 14,4% при Стайко (7,25% + 7,12%) срещу около 10,0% при Минко (4,86% + 5,12%), а средиземноморските компоненти (италиански плюс западносредиземноморски) са 25,2% срещу 13,9%. Една разлика на ниво генотип съответства на същата картина: този геном носи LCT/MCM6 rs4988235 като A;G — едно копие на алела за лактазна персистентност — докато Стайко носи напълно предшестващия, лактазно-неперсистентен генотип G;G.</p>
+    <p>Профилът на Стайко показва малко по-силен южен/егейско-средиземноморски и кавказки сигнал от този. Съвременните му съвпадения остават твърдо в балканския континуум, но позицията му вътре в него е изместена към южния край: гагаузи 0,0161, българи 0,0172, румънци 0,0197, македонци 0,0243 и гърци от Централна Македония 0,0277, сравнено с румънци 0,018, българи 0,021, македонци 0,026 и гърци от Централна Македония 0,040 при този профил. На панела с древни популации картината е съгласувана: Стайко е по-близо до двете анадолски неолитни референции (Бонджуклу 0,132 срещу 0,142, Барджън 0,161 срещу 0,171) и малко по-далеч от референциите на Ямна (Самара 0,184 срещу 0,176, българската РБЕ Ямна 0,131 срещу 0,123). Разбивката на K36 сочи в същата посока: арменският плюс севернокавказкият — компонентите, свързани с Кавказ — възлизат на около 14,4% при Стайко (7,25% + 7,12%) срещу около 10,0% при Минко (4,86% + 5,12%), а средиземноморските компоненти (италиански плюс западносредиземноморски) са 25,2% срещу 13,9%. Една разлика на ниво генотип съответства на същата картина: този геном носи LCT/MCM6 rs4988235 като A;G — едно копие на алела за лактазна персистентност — докато Стайко носи напълно предшестващия, лактазно-неперсистентен генотип G;G.</p>
 
     <table class="dist-table">
       <thead><tr><th>Референтна популация</th><th>Минко</th><th>Стайко</th></tr></thead>
@@ -1265,32 +1329,38 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </table>
 
     <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      Двама братя, отгледани в едно и също семейство, носещи две версии на една и съща регионална история. Мисли за това като <em>двама души, израснали в една и съща къща</em>, но завършили с леко различни колекции от наследствени вещи от общите си предци — и двете несъмнено от едно и също семейство, просто не идентични инвентари. Този профил се намира малко по-близо до румънския край на континуума; този на Стайко е по-близо до гагаузкия, българския и егейския край, към Гърция. Нито една от версиите не е „по-балканска" от другата — те са две реални, независимо измерими вариации на едно и също споделено наследство. А числото, което свързва всичко, <mark>0,0142</mark>, е действителната измерена генетична дистанция между двама ви — по-малка от дистанцията на всеки брат до която и да е външна популация, тествана навсякъде в този доклад, потвърждавайки с твърди числа това, което винаги е било очевидно и без тях: вие сте по-близо един до друг, отколкото до когото и да било другиго.
+      <span class="plain-label">С прости думи</span> Двама братя, отгледани в едно и също семейство, носещи две версии на една и съща регионална история. Представете си <em>двама души, израснали в една и съща къща</em>, но завършили с малко различни колекции от наследствени вещи от общите си предци — и двамата несъмнено от едно и също семейство, просто не с еднакъв инвентар. Този профил е малко по-близо до румънския край на континуума; този на Стайко е по-близо до гагаузкия, българския и егейския край, към Гърция. Нито една версия не е „по-балканска“ от другата — те са две реални, независимо измерими вариации на едно и също споделено наследство. А числото, което свързва всичко, <mark>0,0142</mark>, е действителната измерена генетична дистанция между двама ви — по-малка от дистанцията на който и да е от братята до която и да е външна популация, тествана навсякъде в този доклад, и потвърждава с твърди числа онова, което винаги е било очевидно и без тях: вие сте по-близо един до друг, отколкото до когото и да било другиго.
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Двама братя, едно източнобалканско наследство — този профил е малко по-близо до румънския край; Стайко е по-близо до гагаузкия, българския и егейския край — и все пак са по-близо един до друг (0,0142), отколкото до която и да е външна популация.</span></p>
     </div>
-  </div>
+  
+</div></div>
+</div>
 </div>
 
 
 <!-- ══ SNPs ══ -->
-<div class="era-block" id="s_snps">
+<div class="era-block pn-s_snps" id="s_snps">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
     <span class="era-label">Генетични<br>маркери</span>
   </div>
   <div class="era-content">
-    <h2>Ключови генотипове, информативни за произхода</h2>
-    <p>Преки генотипни отчитания от суровото ДНК на MyHeritage за позиции, свързани с произхода. Това не са оценки — те са действителните нуклеотиди, прочетени от ДНК файла.</p>
+<div class="story-panel"><h2>Улики, написани с единични букви</h2>
+<div class="story"><p>Някои улики са единични букви в ДНК, прочетени направо от суровите данни на Минко. Светла кожа — наследена от първите земеделци. Сини очи — от ловците, които са били тук първи. И способността да се смила мляко като възрастен — от едно копие на варианта за пиене на мляко, разпространил се със скотовъдците.</p><p>Това са преки отчитания, а не оценки. Но един ген е намек за една черта, никога процент от произхода.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Сигурно, прочетено направо от ДНК</p></div></div>
+
+<div class="curious"><p class="curious-label">Разкопката</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Ключови генотипове, информативни за произхода</h3>
+    <p>Преки генотипни отчитания от суровата ДНК на MyHeritage за позиции, свързани с произхода. Това не са оценки — те са действителните нуклеотиди, прочетени от ДНК файла.</p>
     <div class="snp-table-wrap">
       <table class="snp-table">
         <thead><tr><th>rsID</th><th>Ген</th><th>Генотип</th><th>Значение</th></tr></thead>
         <tbody>
           <tr><td class="snp-rsid">rs3827760</td><td class="snp-gene">EDAR</td><td class="snp-geno snp-found">AA</td><td class="snp-desc">Източноазиатски вариант за космени фоликули/потни жлези — хомозиготен, почти нулева честота в европейските популации. Древен степно-медииран сигнал.</td></tr>
-          <tr><td class="snp-rsid">rs17822931</td><td class="snp-gene">ABCC11</td><td class="snp-geno snp-found">CC</td><td class="snp-desc">Влажна ушна кал — западноевразийски вариант. Разделен от EDAR AA; съответства на източноазиатска родственост, пристигнала достатъчно отдавна, за да позволи на рекомбинацията да раздели свързания хаплотипен блок. Генерира хипотези — изисква фазирани хаплотипни данни за потвърждение.</td></tr>
+          <tr><td class="snp-rsid">rs17822931</td><td class="snp-gene">ABCC11</td><td class="snp-geno snp-found">CC</td><td class="snp-desc">Влажна ушна кал — западноевразийски вариант. Разделен от EDAR AA; съответства на източноазиатски сигнал, пристигнал достатъчно отдавна, за да позволи на рекомбинацията да раздели свързания хаплотипен блок. Генерира хипотези — изисква фазирани хаплотипни данни за потвърждение.</td></tr>
           <tr><td class="snp-rsid">rs1426654</td><td class="snp-gene">SLC24A5</td><td class="snp-geno snp-found">AA</td><td class="snp-desc">Основен локус за изсветляване на кожата — хомозиготен производен алел. Разпространил се с експанзията на анадолското неолитно земеделие преди ~8000 години.</td></tr>
           <tr><td class="snp-rsid">rs12913832</td><td class="snp-gene">HERC2</td><td class="snp-geno snp-found">GG</td><td class="snp-desc">Основният превключвател за сини очи — хаплотип GG, произхождащ от мезолитни западни ловци-събирачи. Предхожда светлата кожа в Европа с хиляди години.</td></tr>
-          <tr><td class="snp-rsid">rs4988235</td><td class="snp-gene">LCT/MCM6</td><td class="snp-geno snp-found">AG</td><td class="snp-desc">Лактазна персистентност — хетерозиготен носител. Достатъчен за пълна лактозна толерантност. Разпространила се с бронзовоепохски пастирски популации.</td></tr>
+          <tr><td class="snp-rsid">rs4988235</td><td class="snp-gene">LCT/MCM6</td><td class="snp-geno snp-found">AG</td><td class="snp-desc">Лактазна персистентност — хетерозиготен носител. Достатъчен за пълна лактозна толерантност. Разпространила се с бронзовоепохски скотовъдни популации.</td></tr>
           <tr><td class="snp-rsid">rs1042602</td><td class="snp-gene">TYR</td><td class="snp-geno snp-found">CA</td><td class="snp-desc">Тирозиназа — хетерозиготен. Смесен профил на UV чувствителност и лунички.</td></tr>
           <tr><td class="snp-rsid">rs1800414</td><td class="snp-gene">OCA2</td><td class="snp-geno snp-found">TT</td><td class="snp-desc">Предшестващ генотип на тази позиция — не производният алел, който е специфичен за Източна Азия вариант за изсветляване на кожата, практически отсъстващ извън този регион.</td></tr>
           <tr><td class="snp-rsid">rs1805007</td><td class="snp-gene">MC1R</td><td class="snp-geno snp-missing">НЕ Е ГЕНОТИПИРАН</td><td class="snp-desc">Вариант за червена коса (Arg151Cys) — не е генотипиран на масива на MyHeritage.</td></tr>
@@ -1299,62 +1369,70 @@ body{background:var(--parchment);color:var(--ink);font-family:'EB Garamond',Geor
     </div>
 
     <div class="plain-box">
-      <span class="plain-label">С прости думи</span>
-      Повечето от тези маркери са прости, установени факти за физическия вид: сини очи, светла кожа, необичайна, но реална способност да се преработва мляко като възрастен. Истинската загадка е двойката <strong>EDAR/ABCC11</strong> по-горе. В източноазиатските популации тези два гена почти винаги пътуват заедно — носенето на единия обикновено означава носене и на другия, защото са били издърпани заедно от една и съща вълна на естествен подбор. Тук единият се появи <strong>без</strong> обичайния си партньор, което сочи към стар, косвен път в тази родова линия, а не скорошен.
+      <span class="plain-label">С прости думи</span> Повечето от тези маркери са прости, установени факти за външния вид: сини очи, светла кожа, необичайна, но реална способност да се смила мляко като възрастен. Истинската загадка е двойката <strong>EDAR/ABCC11</strong> по-горе. В източноазиатските популации тези два гена почти винаги пътуват заедно — носенето на единия обикновено означава носене и на другия, защото са повлечени от една и съща вълна на естествения подбор. Тук единият се появи <strong>без</strong> обичайния си партньор, което сочи към стар, непряк път в тази линия, а не към скорошен.
     <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Единичните генни улики са намеци, а не измерен процент на произход.</span></p>
     </div>
-  </div>
+  
+</div></div>
+</div>
 </div>
 
 
 <!-- ══ SYNTHESIS ══ -->
-<div class="era-block" id="s_synthesis" style="border-bottom:none">
+<div class="era-block pn-s_synthesis" id="s_synthesis" style="border-bottom:none">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
     <span class="era-label">Пълната<br>картина</span>
   </div>
   <div class="era-content">
-    <h2>Пълната разкопка — какво разказват заедно всичките седем слоя</h2>
+<div class="story-panel"><h2>Кръстопът, а не една-единствена история</h2>
+<div class="story"><p>Земеделци от югоизток, скотовъдци от североизток и ловци, които са били тук първи — наслоени заедно, после смесени със славяните и с по-старите народи на Балканите. ДНК на Минко не е един народ. Тя е мястото на срещата на няколко — точно каквото Източните Балкани винаги са били.</p><p>Под всичко това, както при почти всеки с произход извън Африка, стои малък дял неандерталска ДНК — около 1 до 4%. Минко почти сигурно я носи също, макар да не сме картографирали къде.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Доста сигурно като цяло</p></div></div>
 
-    <p>Разкопката е завършена. Седем слоя от времето са отстранени, и това, което разкриват, не е колекция от отделни родове, а една свързана история: генетичният запис на източнобалканския кръстопът, където трите основополагащи потока на европейската родственост са се срещнали в най-пълната и балансирана форма.</p>
+<div class="curious"><p class="curious-label">Разкопката</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Пълната разкопка — какво разказват заедно всичките седем слоя</h3>
 
-    <p>На повърхността процентите на MyHeritage описват профила в термините на съвременни популации — гръцки и албански, балкански, южноиталиански — етикети, които прикриват повече, отколкото разкриват. G25 дистанциите разсичат етикетирането и поставят генома точно: румънци на 0,018, българи на 0,021, тесен дъгообразен низ от източнобалкански популации. А най-близките средновековни числа — <strong>Македония, Средновековие 0,030</strong> и <strong>България, Средновековие 0,034</strong> — показват, че това не е само съвпадение със съвременна популация: профилът се нарежда и до ранно- до високосредновековната източнобалканска вариация.</p>
+    <p>Разкопката е завършена. Седем слоя от времето са отстранени и онова, което разкриват, не е колекция от отделни родове, а една свързана история: генетичният запис на източнобалканския кръстопът, където трите основополагащи потока на европейската родственост са се срещнали в най-пълната и балансирана си форма.</p>
 
-    <p>Под съвременния пласт средновековният пласт разкрива популационната структура, изградила българския генетичен профил: значителен предславянски палеобалкански субстрат — траките, даките, илирите и романизираните балкански популации, присъстващи преди миграциите — и принос от славянската миграция, пристигащ през панонския коридор, вече примесен с централноевропейски елементи. Това са насочени оценки от оракулските модели, а не формално валидирани родствени пропорции. Афинитетът към Късните авари (0,122) спрямо Ранните авари (0,214) — и особено разликата до аварската елита (0,301/0,414) — идентифицира вече европеизирания общ аварски субстрат, а не източноазиатската управляваща класа, като генетически близкия панонски сигнал.</p>
+    <p>На повърхността процентите на MyHeritage описват профила в термините на съвременни популации — гръцки и албански, балкански, южноиталиански — етикети, които скриват повече, отколкото разкриват. G25 дистанциите разсичат етикетирането и поставят генома точно: румънци на 0,018, българи на 0,021, тясна дъга от източнобалкански популации. А най-близките средновековни числа — <strong>Македония, Средновековие 0,030</strong> и <strong>България, Средновековие 0,034</strong> — показват, че това не е само съвпадение със съвременна популация: профилът се нарежда и до ранно- до високосредновековната източнобалканска вариация.</p>
 
-    <p>По-дълбоко, бронзовата епоха разкрива вълната на Ямна — Барджън на 0,171, Ямна на 0,176, почти изравнени по дистанция, с умерен степен наклон по моделирана пропорция. Съотношението КЛС/ИЛС — Котиас 0,253, по-близо от Карелия 0,286 — съответства на югоизточноевропейска родственост, произхождаща от Ямна, където компонентът КЛС обикновено е пропорционално по-висок, отколкото в северната Шнуркерамична експанзия. Модел 5 добавя точност: „Армения, Арени, Х" (0,100) и „Микена" (0,106) като двете най-близки популации в модела за кавказка разделителна способност, сочейки към конкретния егейско-анадолско-южнокавказки бронзовоепохски коридор, лежащ в основата на арменските, севернокавказките и западноазиатските сигнали във всеки калкулатор.</p>
+    <p>Под съвременния слой средновековният пласт разкрива популационната структура, изградила българския генетичен профил: значителен предславянски палеобалкански субстрат — траките, даките, илирите и романизираните балкански популации, присъстващи преди миграциите — и принос от славянската миграция, пристигащ през панонския коридор, вече примесен с централноевропейски елементи. Това са насочени оценки от оракулските модели, а не формално валидирани родови пропорции. Афинитетът към Късните авари (0,122) спрямо Ранните авари (0,214) — и особено разликата до аварската елита (0,301/0,414) — идентифицира вече европеизирания общ аварски субстрат, а не източноазиатската управляваща класа, като генетично близкия панонски сигнал.</p>
 
-    <p>Под всичко това неолитното ниво — анадолски фермери, достигнали Балканите преди около осем хиляди години, носещи натуфийски-произхождащия субстрат, който Ancient Eurasia K6 измерва на 42,59% — бележи най-дълбокия под, до който този геном все още измеримо се докосва, докато мезолитният пласт под него допринася най-старата единична черта в целия профил: алелът за сини очи при HERC2, наследен от ловци-събирачи, които са имали тъмна кожа и сини очи хиляди години преди анадолските фермери да донесат светлата кожа в региона. В самата основа на разкопката, архаичният седимент: съотношението КЛС/ИЛС на степния сигнал, и наблюдението за EDAR — хомозиготен AA при източноазиатския ген за космени фоликули, CC при европейския ген за ушна кал — съответстващи на източноазиатския сигнал, пристигнал достатъчно отдавна, за да може рекомбинацията да започне да разделя свързания хаплотипен блок, макар установяването на това с увереност да изисква фазиран хаплотипен анализ, надхвърлящ това, което могат да предоставят две SNP позиции.</p>
+    <p>По-дълбоко бронзовата епоха разкрива вълната на Ямна — Барджън на 0,171, Ямна на 0,176, почти изравнени по дистанция, с умерен степен наклон по моделирана пропорция. Натежалостта към КЛС — Котиас 0,253, по-близо от Карелия 0,286 — съответства на югоизточноевропейска родственост, произхождаща от Ямна, където компонентът КЛС обикновено е пропорционално по-висок, отколкото в северната експанзия на шнуркерамичната култура. Модел 5 добавя точност: „Армения, Арени, Х“ (0,100) и „Микена“ (0,106) като двете най-близки популации в модела с кавказка разделителна способност, които сочат към конкретния егейско-анадолско-южнокавказки коридор от бронзовата епоха, лежащ в основата на арменските, севернокавказките и западноазиатските сигнали във всеки калкулатор.</p>
 
-    <p>Резултатът е геном, който всеки калкулатор, всеки оракул и всяка древна ДНК дистанция поставят на едно и също място: източнобалканския кръстопът, където трите основополагащи потока на европейската родственост — анадолски фермери, понтийски степни пастири и европейски ловци-събирачи — са се срещнали в най-пълния и балансиран си израз, произвеждайки генетичен профил, забележително добре описан от средновековната българска популация и от бронзовоепохския егейско-кавказки коридор, предхождащ я.</p>
+    <p>Под всичко това неолитното ниво — анадолски земеделци, достигнали Балканите преди около осем хиляди години и носещи произхождащия от натуфийците субстрат, който Ancient Eurasia K6 измерва на 42,59% — отбелязва най-дълбокото дъно, с което този геном все още се свързва измеримо, докато мезолитният слой под него допринася най-старата единична черта в целия профил: алелът за сини очи при HERC2, наследен от ловци-събирачи, които са имали тъмна кожа и сини очи хиляди години преди анадолските земеделци да донесат светлата кожа в региона. В самата основа на разкопката е архаичният седимент: степният сигнал с натежалост към КЛС и наблюдението за EDAR — хомозиготен AA при източноазиатския ген за космени фоликули, CC при европейския ген за ушна кал — съответстващи на източноазиатски сигнал, пристигнал достатъчно отдавна, за да може рекомбинацията да започне да разделя свързания хаплотипен блок, макар установяването на това с увереност да изисква анализ на фазирани хаплотипи, надхвърлящ онова, което могат да дадат две SNP позиции.</p>
+
+    <p>Резултатът е геном, който всеки калкулатор, всеки оракул и всяка дистанция до древна ДНК поставят на едно и също място: източнобалканския кръстопът, където трите основополагащи потока на европейската родственост — анадолски земеделци, понтийски степни скотовъдци и европейски ловци-събирачи — са се срещнали в най-пълния и балансиран си израз и са създали генетичен профил, забележително добре описан от средновековната българска популация и от егейско-кавказкия коридор на бронзовата епоха, предхождащ я.</p>
 
     <div class="plain-box">
       <span class="plain-label">С прости думи — цялата разкопка, от началото до края</span>
-      <p>Изкарай цялата история в една посока и тя се чете като белене на слоеве боя от стара къща — всеки слой по-нов от предишния, никой от тях не заличава това, което е било преди. Започни от повърхността: човек, чиито най-близки живи роднини са <strong>румънци и българи</strong> — твърдо източнобалкански, без изненади. Обели няколко века назад и стигаш до <strong>славянските мигранти</strong>, придвижили се на юг през Унгария в ранното Средновековие и слели се с тези, които вече са живеели на Балканите — този геном се намира необичайно близо до обикновеното население, погълнато в този процес, и също толкова необичайно далеч от степните военачалници, управлявали го за кратко. Обели по-нататък, отвъд славянския пласт, и стигаш до хората, които вече са чакали там: <strong>траките</strong> и техните палеобалкански съседи, земеделци и планински племена, обитавали този същия участък земя хиляди години преди пристигането на който и да е славяноезичен.</p>
-      <p style="margin-top:.8rem">Върни се още по-назад, отвъд траките, и историята престава да е за именувани народи и започва да е за миграции в мащаба на цели популации. Преди около четири хиляди години конни овчари от културата <strong>Ямна</strong> нахлуват от степта на север от Черно море и преобразяват генетиката на по-голямата част от Европа — този геном носи техния сигнал в близък баланс с фермерите, дошли преди тях (около 52–56% степна срещу 42–46% фермерска родственост). Този баланс сам по себе си е показателен: поставя този геном по-близо до истинския кръстопът на онези два древни свята, отколкото до който и да е негов край. С по-силен принос от <strong>кавказките ловци-събирачи</strong> (<mark>КЛС</mark>) страната на степния сигнал, отколкото от <strong>източните ловци-събирачи</strong> (<mark>ИЛС</mark>) страната, той сочи към югоизточния, кавказки-съседен клон на тази миграция. Преди овчарите е имало първите фермери — хора, напуснали <strong>Анадола</strong>, в днешна Турция, преди около осем хиляди години и бавно пренесли културите и добитъка си на Балканите. А преди фермерите тази земя е принадлежала на ловци-събирачи, които изобщо не са земеделствали — тъмнокожи, синеоки хора, чийто ген за цвят на очите все още се носи днес, най-старата единична черта в целия този профил, по-стара дори от светлата кожа.</p>
-      <p style="margin-top:.8rem">И под дори това: почти всеки с не-африкански произход носи малко количество <strong>неандерталска</strong> ДНК, и този геном почти сигурно не е изключение, макар да не е изпълнен конкретен тест на ниво сегмент, за да се локализира тук. Ловци-събирачи, после фермери, после степни овчари, после траки, после славянски мигранти, после средновековни българи, после живите роднини, открити днес — всеки от тях е реален, отделно потвърден пласт в една и съща непрекъсната разкопка.</p>
-    <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Една непрекъсната история: ловци-събирачи → фермери → степ → траки → славяни → съвременна източнобалканска популация. ДНК от неандерталци, ако е налична, е малък споделен архаичен фон — а не отделен клон на родословното дърво.</span></p>
+      <p>Изиграйте цялата история в една посока и ще се чете като белене на слоеве боя от стара къща — всеки слой по-нов от този под него, никой не заличава онова, което е било преди. Започнете от повърхността: човек, чиито най-близки живи роднини са <strong>румънци и българи</strong> — твърдо източнобалкански, без изненади. Обелете няколко века назад и стигате до <strong>славянските мигранти</strong>, придвижили се на юг през Унгария в ранното Средновековие и слели се с онези, които вече са живеели на Балканите — този геном е необичайно близо до обикновеното население, погълнато в този процес, и също толкова необичайно далеч от степните военачалници, управлявали го за кратко. Обелете още по-назад, отвъд славянския слой, и стигате до хората, които вече са чакали там: <strong>траките</strong> и техните палеобалкански съседи, земеделци и планински племена, обитавали същия този участък земя хиляди години преди пристигането на който и да е славяноезичен.</p>
+      <p style="margin-top:.8rem">Върнете се още по-назад, отвъд траките, и историята престава да е за именувани народи и започва да е за миграции в мащаба на цели популации. Преди около пет хиляди години конни скотовъдци от културата <strong>Ямна</strong> нахлуват от степта на север от Черно море и преобразяват генетиката на по-голямата част от Европа — този геном носи техния сигнал в почти равновесие със земеделците, дошли преди тях (около 52–56% степна срещу 42–46% земеделска родственост). Този баланс сам по себе си е показателен: поставя този геном по-близо до истинския кръстопът на онези два древни свята, отколкото до който и да е техен край. С натежалост към страната на <strong>кавказките ловци-събирачи</strong> (<mark>КЛС</mark>) в степния сигнал, а не към тази на <strong>източните ловци-събирачи</strong> (<mark>ИЛС</mark>), той сочи към югоизточния, съседен на Кавказ клон на тази миграция. Преди скотовъдците са били първите земеделци — хора, напуснали <strong>Анадола</strong>, в днешна Турция, преди около осем хиляди години и бавно пренесли посевите и добитъка си на Балканите. А преди земеделците тази земя е принадлежала на ловци-събирачи, които изобщо не са земеделствали — тъмнокожи, синеоки хора, чийто ген за цвят на очите все още се носи днес, най-старата единична черта в целия този профил, по-стара дори от светлата кожа.</p>
+      <p style="margin-top:.8rem">И под дори това: почти всеки с неафрикански произход носи малко количество <strong>неандерталска</strong> ДНК и този геном почти сигурно не е изключение, макар да не е изпълнен конкретен тест на ниво сегмент, който да я локализира тук. Ловци-събирачи, после земеделци, после степни скотовъдци, после траки, после славянски мигранти, после средновековни българи, после живите роднини, открити днес — всеки от тях е реален, отделно потвърден слой в една и съща непрекъсната разкопка.</p>
+    <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Извод:</strong> Една непрекъсната история: ловци-събирачи → земеделци → степ → траки → славяни → съвременна източнобалканска популация. Неандерталската ДНК, ако е налична, е малък споделен архаичен фон — а не отделен клон на родословното дърво.</span></p>
     </div>
 
     <div class="insight-box insight-box--final">
       <span class="insight-label insight-label--white">Родовото уравнение</span>
       <div class="equation">
-        Анадолски неолитни фермери — балканско приземяване, ~8000 г. пр.н.е.<br>
-        + Западни ловци-събирачи — субстрат за сини очи, &gt;10 000 г. пр.н.е.<br>
-        + Степни пастири от Ямна — с по-силно изразен кавказки (КЛС) компонент, югоизточен афинитет<br>
+        Анадолски неолитни земеделци — балканско приземяване, ~8000 г. пр.н.е.<br>
+        + Западни ловци-събирачи — субстрат за сини очи, &gt;10 000 г. пр.н.е.<br>
+        + Степни скотовъдци от Ямна — с натежалост към КЛС, югоизточен афинитет<br>
         = Предславянски балкански субстрат<br><br>
         + Палеобалканска приемственост — тракийска, дакийска, илирска, византийска<br>
         + Славянска миграция — панонски коридор, VI–VIII в.<br>
         + Византийско средиземноморско привличане<br>
         = <strong>Геном от източнобалканския кръстопът</strong><br><br>
-        <strong>Най-близка модерна: румънци 0,018 · българи 0,021</strong><br>
-        <strong>Най-близка средновековна: Македония 0,030 · България 0,034</strong><br>
+        <strong>Най-близки модерни: румънци 0,018 · българи 0,021</strong><br>
+        <strong>Най-близки средновековни: Македония 0,030 · България 0,034</strong><br>
         <strong>Егейски бронзовоепохски сигнал: Армения, Арени, Х 0,100 · Микена 0,106</strong><br>
-        <strong>Архаични нишки: степен сигнал с по-силен кавказки компонент · EDAR AA (генериращо хипотези)</strong><br>
+        <strong>Архаични нишки: степен сигнал с натежалост към КЛС · EDAR AA (генерира хипотези)</strong><br>
         <strong>Дистанция до брата (спрямо Стайко): 0,0142 — по-близо, отколкото до която и да е външна тествана популация</strong>
       </div>
     </div>
-  </div>
+  
+</div></div>
+</div>
 </div>
 
 </div>
