@@ -245,7 +245,7 @@
             <p><strong>Not assessable on this file:</strong> APOE (rs429358 is missing), CYP2C19 *2, VKORC1, key G6PD and HFE C282Y variants, FOXO3, MC1R R151C, DPYD *2A, CYP2D6 copy number, HLA alleles themselves, and rare high-risk variants such as BRCA1/2, Lynch syndrome genes and LRRK2/GBA. A normal result on this page does not rule those out.</p>
             <p><strong>ClinVar check:</strong> Variants on your file were matched against ClinVar's pathogenic and likely pathogenic entries. Only two one-star (single-submitter) entries turned up, in CAV3 (rs1008642) and TG (rs2294024). Both are carried by about 33% and 48% of people in the Tuscan reference, far too common to cause disease, so they were set aside as annotation artefacts. The check covers only variants present on the file.</p>
             <p>Read this as a set of tendencies, not predictions. With about 40 scored traits, four or five scores are expected to reach |z| 1.64 by chance alone; here seven reach it (six disease scores and height), and only height passes |z| 2. Infection, lifestyle and screening usually matter more than genes.</p>
-            <p><strong>Robustness:</strong> the tiered scores and height were recomputed against an Iberian reference (1000 Genomes IBS). All nine tier assignments held (Parkinson's moves right onto the moderate threshold, z +1.01 against +0.96), and height stays low (z -2.04 against -2.20).</p>
+            <p><strong>Robustness:</strong> the tiered scores and height were recomputed against an Iberian reference (1000 Genomes IBS). Eight of the nine tier assignments held. Psoriasis drops just below the moderate cut-offs (z +0.88 against +1.02), and two scores that are neutral here cross a threshold in the Iberian version: Parkinson's (z +1.01 against +0.96, moderate) and lung cancer (z -1.24 against -1.02, favourable). All three are borderline in either reference. Height stays low (z -1.98 against -2.16).</p>
           </div>
           <div class="zchart">
             <h3 class="zchart-title">Where your tiered scores fall</h3>
@@ -658,7 +658,7 @@
                   <div class="narrative-kicker">Deeper Analysis</div>
                   <div class="narrative-text">
                     <p>This is the most extreme of your eight quantitative scores, so treat it as a flag, not a verdict. Your measured height is far more informative than any score. Height genetics also differ between European regions, and the reference here is Tuscan, not Bulgarian, so part of any gap may be a poor match rather than biology.</p>
-                    <p>Re-centring on Iberian (IBS) frequencies instead of Tuscan ones gives z -2.04 (2nd percentile, -1.82 without the strongest locus), so the result does not depend on that choice of southern-European reference. There is no Bulgarian panel in the 1000 Genomes data.</p>
+                    <p>Re-centring on Iberian (IBS) frequencies instead of Tuscan ones gives z -1.98 (2nd percentile, -1.76 without the strongest locus), so the result does not depend on that choice of southern-European reference. There is no Bulgarian panel in the 1000 Genomes data.</p>
                     <p>An earlier version of this guide treated the T allele at HMGA2 as the taller one. Birth-size studies in the catalog point the other way, and the published literature as I recall it has C raising height; the adult-height direction itself was not verified here.</p>
                   </div>
                 </div>
@@ -1819,6 +1819,7 @@
                   <div class="narrative-kicker">Deeper Analysis</div>
                   <div class="narrative-text">
                     <p>Smoking is by far the biggest factor in lung cancer, and a typical or low score does not make smoking safe. The chromosome-15 marker works largely through smoking behaviour. If you smoke or used to, ask your doctor whether you qualify for lung cancer screening.</p>
+                    <p>With Iberian frequencies instead of Tuscan ones the score is z -1.24 (-0.74 without TERT), which would reach the favourable tier, so the Tuscan result sits just short of it.</p>
                   </div>
                 </div>
                 <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog lung cancer scores (13 loci, TSI-centred); CHRNA5 direction checked against catalog rows.</p>
@@ -2324,6 +2325,7 @@
                   <div class="narrative-kicker">Deeper Analysis</div>
                   <div class="narrative-text">
                     <p>Psoriasis often appears after infections, stress or skin injury and can run in families. The score here is only a loose ranking, and the HLA stand-in is the more informative piece.</p>
+                    <p>With Iberian frequencies instead of Tuscan ones the score is z +0.88 (+0.57 without the strongest locus), just under the moderate cut-offs, so treat the tier as borderline.</p>
                   </div>
                 </div>
                 <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog psoriasis scores (43 loci, HLA excluded); rs10484554 direction checked against catalog rows.</p>
