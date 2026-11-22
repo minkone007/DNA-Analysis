@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Julian Nenov - Genetic Health Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+        --paper: #fdfcfa; --paper-2: #f4f1eb; --ink: #1a1612; --ink-2: #4a4238; --ink-3: #8a7f72;
+        --rule: #ddd8cf; --blue: #1a4b7a; --nav-w: 210px;
+        --risk-elevated: #c0392b; --risk-moderate: #c97b2a; --risk-favourable: #2d7a4f;
+        --blue-tint: rgba(26, 75, 122, 0.05);
+        --cat-a: #5a7290; --cat-b: #8a6a4a; --cat-c: #a89464; --cat-d: #8a7f72; --cat-e: #6b8a7a;
+    }
+    body { background: var(--paper); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.85; }
+    .narrative-body em, .narrative-body i, .narrative-text em, .narrative-text i { font-style: normal; }
+
+    .nav-sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: var(--nav-w); background: #fff; border-right: 1px solid var(--rule); overflow-y: auto; z-index: 200; display: flex; flex-direction: column; }
+    .nav-head { padding: 1.4rem 1rem 1rem; border-bottom: 1px solid var(--rule); }
+    .nav-brand { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 600; letter-spacing: .04em; color: var(--ink-3); margin-bottom: .2rem; }
+    .nav-person { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--ink); }
+    .nav-links { flex: 1; overflow-y: auto; padding: .8rem .7rem; }
+    .nav-link { display: flex; align-items: center; gap: .45rem; font-family: 'EB Garamond', serif; font-size: .92rem; color: var(--ink-3); text-decoration: none; padding: .25rem .4rem; border-radius: 3px; line-height: 1.4; margin-bottom: .1rem; }
+    .nav-link:hover { background: var(--paper-2); color: var(--blue); }
+    .nav-score { padding: .8rem 1rem; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .3rem; }
+    .ns { display: flex; flex-direction: column; align-items: center; }
+    .ns-val { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 700; }
+    .ns-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .72rem; font-weight: 600; color: var(--ink-3); }
+    .lang-bar { padding: .5rem 1rem; border-top: 1px solid var(--rule); display: flex; gap: .4rem; }
+    .lang-btn { font-family: 'EB Garamond', serif; font-weight: 700; font-size: .8rem; padding: .2rem .5rem; border-radius: 3px; border: 1px solid var(--rule); color: var(--ink-3); text-decoration: none; }
+    .lang-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+    .mobile-bar { display: none; }
+
+    .cover { margin-left: var(--nav-w); background: var(--ink); color: #f0ebe3; padding: 5rem 3.5rem 4rem; position: relative; }
+    .cover-eyebrow { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 600; letter-spacing: .04em; color: #7fa8c4; margin-bottom: 1.2rem; }
+    .cover h1 { font-family: 'EB Garamond', serif; font-size: 3.2rem; font-weight: 400; color: #f0ebe3; margin-bottom: .2rem; }
+    .cover-sub { font-size: 1.05rem; font-style: italic; color: #7fa8c4; margin-bottom: 3.5rem; }
+    .cover-stats { display: flex; gap: 3rem; flex-wrap: wrap; border-top: 1px solid #2d3f52; padding-top: 1.5rem; }
+    .cs { display: flex; flex-direction: column; }
+    .cs-val { font-family: 'EB Garamond', serif; font-size: 1.85rem; font-weight: 700; color: #f0ebe3; }
+    .cs-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .78rem; font-weight: 500; color: #5a7a94; }
+
+    .main { margin-left: var(--nav-w); width: calc(100vw - var(--nav-w)); padding: 0 3.5rem 6rem; }
+    .main-inner { max-width: 920px; margin-left: auto; margin-right: auto; }
+    .disclaimer { font-family: 'EB Garamond', serif; font-size: .92rem; line-height: 1.6; background: #fffbeb; border-left: 3px solid #d97706; padding: .8rem 1.2rem; color: #78450a; margin: 2.5rem 0 0; }
+    .report-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+    .section-heading { font-family: 'EB Garamond', serif; font-size: 1.8rem; font-weight: 600; margin-bottom: .5rem; color: var(--ink); }
+
+    .narrative-body p { margin-bottom: .9rem; font-size: .98rem; line-height: 1.9; color: var(--ink-2); }
+
+    .trait-row { display: grid; grid-template-columns: 78px 1fr; column-gap: 1.8rem; padding: 2.6rem 0; border-bottom: 1px solid var(--rule); }
+    .trait-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .trait-spine { position: relative; display: flex; flex-direction: column; align-items: center; padding-top: .4rem; }
+    .spine-dot { width: 13px; height: 13px; border-radius: 50%; background: currentColor; border: 2px solid var(--paper); box-shadow: 0 0 0 2px currentColor; flex-shrink: 0; z-index: 1; }
+    .spine-line { position: absolute; top: 15px; bottom: -2.6rem; left: 50%; width: 1px; background: var(--rule); transform: translateX(-50%); }
+    .spine-risk { margin-top: .6rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .74rem; font-weight: 600; text-align: center; line-height: 1.3; }
+    .trait-title { font-family: 'EB Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink); margin-bottom: 1.4rem; letter-spacing: -.01em; }
+
+    .trait-narrative { display: flex; flex-direction: column; gap: 2rem; }
+    .narrative-unit { display: grid; grid-template-columns: 118px 1fr; gap: 1.4rem; }
+    .narrative-kicker { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .9rem; line-height: 1.3rem; font-weight: 600; color: var(--ink-3); padding-top: .1rem; }
+    .narrative-text p { font-size: 1rem; line-height: 1.9; color: var(--ink-2); margin-bottom: .9rem; }
+    .narrative-text p:last-child { margin-bottom: 0; }
+    .narrative-unit--gwas .narrative-kicker { position: relative; color: var(--blue); padding-left: 1.5rem; }
+    .narrative-unit--gwas .narrative-kicker::before { content: ""; position: absolute; left: 0; top: .35rem; width: 9px; height: 9px; border-radius: 50%; background: var(--blue); border: 2px solid var(--paper); box-shadow: 0 0 0 2px var(--blue); z-index: 1; }
+    .narrative-unit--gwas .narrative-kicker::after { content: ""; position: absolute; left: 4px; top: 1.15rem; bottom: 0; width: 1px; background: var(--rule); }
+    .narrative-unit--gwas .narrative-text { padding-left: 1.6rem; }
+    .narrative-unit--gwas .narrative-text strong { color: var(--blue); font-weight: 700; }
+    .risk-pill { display: inline-block; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 700; padding: .25rem .75rem; border-radius: 4px; color: #fff; white-space: nowrap; }
+    .narrative-unit--deep { display: block; }
+    .narrative-unit--deep .narrative-kicker { margin-bottom: .6rem; }
+
+    .pgs-badge { display: inline-block; font-family: 'Inter', monospace; font-size: .78rem; font-weight: 600; color: var(--blue); background: var(--blue-tint); padding: .3rem .7rem; border-radius: 4px; margin-bottom: 0; }
+    .risk-balance { margin: 0 0 1.4rem; }
+    .risk-balance-track { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+    .risk-balance-prot { background: var(--risk-favourable); }
+    .risk-balance-risk { background: var(--risk-elevated); }
+    .risk-balance-labels { display: flex; justify-content: space-between; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+    .rb-risk { color: var(--risk-elevated); font-weight: 600; }
+    .rb-prot { color: var(--risk-favourable); font-weight: 600; }
+    .loci-bar { margin: 0 0 1.4rem; }
+    .loci-bar-track { height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+    .loci-bar-fill { height: 100%; }
+    .loci-bar-label { display: block; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+
+    .drug-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+    .drug-card { background: #fff; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+    .drug-card-head { padding: .8rem 1rem; border-bottom: 1px solid var(--rule); }
+    .drug-card-top { display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem; }
+    .drug-enzyme { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 700; color: var(--ink-3); }
+    .drug-genotype { font-family: 'Inter', monospace; font-size: .8rem; font-weight: 600; color: var(--blue); margin-bottom: .2rem; }
+    .drug-affected { font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-3); }
+    .drug-card-body { padding: 1rem; }
+    .drug-narrative { font-family: 'EB Garamond', serif; font-size: .93rem; color: var(--ink-2); line-height: 1.75; margin-bottom: .8rem; }
+    .drug-action { padding: .6rem .8rem; background: var(--paper-2); border-radius: 4px; font-family: 'EB Garamond', serif; font-size: .88rem; color: var(--ink-3); line-height: 1.55; }
+
+    .marker-votes { margin: 0 0 1.4rem; }
+    .marker-tally { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: .8rem; }
+    .marker-tally-item { display: flex; align-items: center; gap: .4rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .85rem; color: var(--ink-3); }
+    .marker-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .marker-tag-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .marker-tag-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .marker-tag-gene { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .8rem; color: var(--ink-2); }
+    .marker-tag-rsid { font-family: 'Inter', monospace; font-size: .72rem; color: var(--ink-3); }
+    .marker-tag-geno { font-family: 'Inter', monospace; font-weight: 700; font-size: .78rem; color: var(--blue); }
+    .marker-tag { display: flex; align-items: flex-start; gap: .4rem; background: var(--paper-2); border-radius: 4px; padding: .3rem .6rem; cursor: default; }
+    .marker-tag-main { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+    .marker-tag--primary { border: 1.5px solid var(--blue); background: var(--blue-tint); }
+    .marker-tag--primary .marker-tag-gene { font-weight: 700; }
+    .marker-tag--minor { opacity: .62; }
+    .marker-tag-weight { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .68rem; font-weight: 600; color: var(--blue); }
+    .marker-tag--minor .marker-tag-weight { color: var(--ink-3); }
+    .marker-tag--primary .marker-tag-gene { font-weight: 700; }
+    .marker-tag--ruleout { opacity: .75; }
+    .marker-tag--secondary { border: 1px solid var(--rule); }
+    .marker-tag--modifier { border: 1px dashed var(--rule); }
+
+    @media(max-width: 768px) {
+        .nav-sidebar { display: none; }
+        .cover, .main { margin-left: 0; }
+        .cover { padding: 3rem 1.2rem 2.5rem; }
+        .cover h1 { font-size: 2.1rem; }
+        .cover-sub { font-size: .95rem; margin-bottom: 2rem; }
+        .cover-stats { gap: 1.5rem 2rem; }
+        .cs-val { font-size: 1.4rem; }
+        .main { padding: 0 1.2rem 4rem; width: 100vw; }
+        body { font-size: 16px; }
+
+        .mobile-bar {
+            display: flex; align-items: center; justify-content: space-between; gap: .8rem;
+            position: sticky; top: 0; z-index: 150;
+            background: #fff; border-bottom: 1px solid var(--rule);
+            padding: .7rem 1.2rem;
+        }
+        .mobile-person { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .95rem; }
+        .mobile-nav-select {
+            font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-2);
+            border: 1px solid var(--rule); border-radius: 4px; padding: .3rem .5rem; background: #fff;
+        }
+
+        .trait-row { grid-template-columns: 44px 1fr; column-gap: 1rem; }
+        .spine-risk { display: none; }
+        .narrative-unit { grid-template-columns: 1fr; gap: .5rem; }
+        .narrative-unit--gwas .narrative-kicker::after { display: none; }
+        .narrative-unit--gwas .narrative-text { padding-left: 0; }
+
+        .drug-grid { grid-template-columns: 1fr; }
+    }
+    
+.zstrips{margin:0 0 1.4rem}.zstrip{margin:0 0 .9rem}
+.zstrip-name{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.2rem .8rem;font-family:'EB Garamond',serif;font-size:.85rem;color:var(--ink-2)}
+.zstrip-name span:last-child{color:var(--ink-3)}
+.zstrip-track{position:relative;height:8px;border-radius:4px;background:var(--paper-2);margin-top:.45rem}
+.zstrip-band{position:absolute;left:33.33%;width:33.34%;top:0;bottom:0;background:#e4ddd0}
+.zstrip-tick{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--ink-3)}
+.zstrip-dot{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);border:2px solid var(--paper);box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.zstrip-ring{position:absolute;top:50%;width:10px;height:10px;border-radius:50%;transform:translate(-50%,-50%);border:2px solid;background:var(--paper)}
+.zstrip-scale{display:flex;justify-content:space-between;font-family:'EB Garamond',serif;font-size:.72rem;color:var(--ink-3);margin-top:.4rem}
+.zstrip-key{font-family:'EB Garamond',serif;font-size:.72rem;color:var(--ink-3);margin-top:.2rem}
+.zchart{margin:1.6rem 0 0}.zchart-title{font-family:'EB Garamond',serif;font-size:1.15rem;margin:0 0 .3rem;color:var(--ink)}
+.zchart-note{font-size:.82rem;color:var(--ink-3);margin:0 0 .9rem;line-height:1.5}
+.zrow{display:grid;grid-template-columns:11rem 1fr 3rem;align-items:center;gap:.8rem;margin:0 0 .55rem}
+.zrow-name{font-family:'EB Garamond',serif;font-size:.85rem;color:var(--ink-2)}
+.zrow .zstrip-track{margin-top:0}.zrow-z{font-family:'EB Garamond',serif;font-size:.8rem;color:var(--ink-3);text-align:right}
+@media(max-width:600px){.zrow{grid-template-columns:7.5rem 1fr 2.6rem;gap:.5rem}}
+
+.gstrip{margin:14px 0 4px}.gstrip-name{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;color:var(--ink-3);margin-bottom:6px}
+.gstrip-bar{display:flex;gap:3px;height:32px}.gstrip-seg{display:flex;align-items:center;justify-content:center;font-size:.72rem;background:rgba(128,128,128,.14);color:var(--ink-3);border-radius:4px;min-width:64px;overflow:hidden;white-space:nowrap}
+.gstrip-seg.you{color:#fff;font-weight:600}.gstrip-cap{font-size:.7rem;color:var(--ink-3);margin-top:5px}
+</style>
+  </head>
+  <body>
+    <div class="mobile-bar">
+      <span class="mobile-person">Julian Nenov</span>
+      <select class="mobile-nav-select" onchange="if(this.value) location.hash=this.value;">
+        <option value="">Jump to…</option>
+        <option value="s_synthesis">Overview</option>
+        <option value="s_appearance">Physical Appearance &amp; Traits</option>
+        <option value="s_cardio">Cardiovascular Health</option>
+        <option value="s_metabolic">Metabolic Health</option>
+        <option value="s_brain">Brain &amp; Mental Health</option>
+        <option value="s_immune">Immune &amp; Autoimmune Health</option>
+        <option value="s_lifestyle">Lifestyle &amp; Nutrition</option>
+        <option value="s_pharma">Drug Response</option>
+      </select>
+    </div>
+    <aside class="nav-sidebar">
+      <div class="nav-head">
+        <div class="nav-brand">Personal Genomics</div>
+        <div class="nav-person">Julian Nenov</div>
+      </div>
+      <nav class="nav-links"><a href="#s_synthesis" class="nav-link">Overview</a><a href="#s_appearance" class="nav-link">Physical Appearance &amp; Traits</a><a href="#s_cardio" class="nav-link">Cardiovascular Health</a><a href="#s_metabolic" class="nav-link">Metabolic Health</a><a href="#s_brain" class="nav-link">Brain &amp; Mental Health</a><a href="#s_immune" class="nav-link">Immune &amp; Autoimmune Health</a><a href="#s_lifestyle" class="nav-link">Lifestyle &amp; Nutrition</a><a href="#s_pharma" class="nav-link">Drug Response</a><a href="health_guide_Julian_appendix_en_draft.html" class="nav-link" style="margin-top:14px;font-weight:600">Parent appendix &rarr;</a></nav>
+      <div class="nav-score">
+        <div class="ns"><span class="ns-val" style="color:#c0392b">2</span><span class="ns-lbl">Elevated</span></div>
+        <div class="ns"><span class="ns-val" style="color:#c97b2a">1</span><span class="ns-lbl">Moderate</span></div>
+        <div class="ns"><span class="ns-val" style="color:#2d7a4f">0</span><span class="ns-lbl">Favourable</span></div>
+      </div>
+      <div class="lang-bar"><a href="health_guide_Julian_en_draft.html" class="lang-btn">EN</a> <a href="#" class="lang-btn">БГ</a> <a href="#" class="lang-btn">日本語</a></div>
+    </aside>
+    <div class="cover">
+      <p class="cover-eyebrow">Personal Genomics Report</p>
+      <h1>Julian Nenov</h1>
+      <p class="cover-sub">Genetic Health Guide</p>
+      <div class="cover-stats">
+        <div class="cs"><span class="cs-val">21</span><span class="cs-lbl">Traits analysed</span></div>
+        <div class="cs"><span class="cs-val" style="color:#f87171">2</span><span class="cs-lbl">Elevated signals</span></div>
+        <div class="cs"><span class="cs-val" style="color:#86efac">0</span><span class="cs-lbl">Favourable signals</span></div>
+        <div class="cs"><span class="cs-val">November 22, 2026</span><span class="cs-lbl">Generated</span></div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="main-inner">
+        <div class="disclaimer"><strong>Sources:</strong> GWAS Catalog scores from European-ancestry studies, centred on the expected distribution for a child of a Tuscan-type father (1000 Genomes TSI, IBS checked) and a Japanese mother (JPT), plus hand-checked markers. Genotypes come from a MyHeritage low-pass sequencing file (imputed; not clinical grade). Scores are rankings, not risks. Chromosome X is scored as a single copy from the Japanese side.<br><strong>Important:</strong> This guide is for personal educational purposes only - not a medical diagnosis. Never change a medicine because of this page. Generated November 22, 2026.</div>
+        <section class="report-section" id="s_synthesis">
+          <h2 class="section-heading">Overview</h2>
+          <div class="narrative-body">
+            <h2>Julian&#39;s Genetic Story - The Big Picture</h2>
+            <p>Every polygenic score is <strong>centred on the expected distribution for a child of a Tuscan-type (Italian) father and a Japanese mother</strong>, because Julian&#39;s ancestry is half Japanese and half Bulgarian. For each variant the expected dosage is the father-side frequency plus the Japanese frequency, and the X chromosome is counted from the Japanese side only. Zero means typical for that parentage; the scores are rankings, not risks. The effect sizes come from European-ancestry studies, so they are less accurate for the Japanese half of his genome. Allele strand was verified at every locus that can be checked (2,036 of 2,036 concordant), and the file is consistent with Minko and Ai as parents (0.3% Mendelian conflicts, in line with genotyping noise; X chromosome from Ai).</p>
+            <p>This main guide covers traits that are useful or relevant in childhood: growth, blood fats, immune conditions, lifestyle markers and how medicines may be handled. Adult-onset conditions (brain, cancer, heart, eye, longevity and the psychiatric scores) are in a separate <a href="health_guide_Julian_appendix_en_draft.html">parent appendix</a>, kept apart on purpose so that Julian reads only what suits his age and the parents decide when to share the rest.</p>
+            <p>The strongest signal on this page is <strong>psoriasis</strong> (higher than expected, robust to the reference), and <strong>LDL cholesterol</strong> and <strong>total cholesterol</strong> lean higher, driven partly by an APOE-region stand-in. The type 1 diabetes tier is borderline. Everything else is close to typical.</p>
+            <p>This is a first draft. The official hair, eye and skin predictor was unreachable, so that card reports genotypes only; the Bulgarian and Japanese versions will follow.</p>
+          </div>
+        </section>
+        <section class="report-section" id="s_appearance">
+          <h2 class="section-heading">Physical Appearance &amp; Traits</h2>
+          <div class="trait-row" id="n_height">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Score below typical</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Height (genetic score)</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z -1.62, 5th percentile, across 1507 loci (Julian carries 875 score-raising alleles against about 856 expected). Without the strongest locus the score is z -1.46. The same tier holds with Iberian father-side frequencies (z -1.60).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Height (genetic score)</span><span>z -1.62 &middot; 5th percentile &middot; 1507 loci &middot; IBS check z -1.60</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:25.7%;color:var(--risk-favourable)" title="without the strongest locus: z -1.46"></span><span class="zstrip-dot" style="left:23.0%;background:var(--risk-favourable)" title="z -1.62"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk A carried 2 time(s) of 2 (effect -0.079); frequency 0.53 on the father-side reference, 0.77 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">GDF5</span><span class="marker-tag-rsid">rs143384</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two A alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk A carried 0 time(s) of 2 (effect +0.050); frequency 0.71 on the father-side reference, 0.37 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CCDC26</span><span class="marker-tag-rsid">rs4733724</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk A carried 2 time(s) of 2 (effect -0.041); frequency 0.68 on the father-side reference, 0.25 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TGFB2</span><span class="marker-tag-rsid">rs6657275</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two A alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk C carried 1 time(s) of 2 (effect -0.053); frequency 0.00 on the father-side reference, 0.30 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">WASHC3</span><span class="marker-tag-rsid">rs17032220</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One C allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk A carried 0 time(s) of 2 (effect +0.046); frequency 0.36 on the father-side reference, 0.34 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TBX2-AS1 - TBX4</span><span class="marker-tag-rsid">rs757608</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No A allele</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>This score describes a genetic <em>tendency</em> relative to children of similar parentage. It is not a forecast of adult height. Parents&#39; heights, nutrition, sleep and puberty timing matter more, and paediatric growth charts are the proper tool for a growing child.</p>
+                    <p>The score is the sum of more than a thousand small effects, so no single variant drives it; the ring and dot are close together.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog Height scores (1507 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_pigment">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Genotypes only; no colour call</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Eye, Hair and Skin Colour</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Markers</div>
+                  <div class="narrative-text">
+                    <p>The official HIrisPlex-S web tool (Erasmus MC) could not be reached when this guide was built, so it produced no eye, hair or skin probabilities. This card therefore reports Julian&#39;s genotypes at the pigmentation markers and makes <strong>no colour prediction</strong>. A home-made model is not substituted, because the earlier page&#39;s own model had errors.</p>
+                    <p>Julian carries one copy of each allele at the three strongest markers, one from each parent: HERC2 rs12913832 (AG), SLC45A2 rs16891982 (CG) and SLC24A5 rs1426654 (AG). The OCA2 marker rs1800407 is CC. In the tool&#39;s coding, 27 of 41 markers could be counted from his file. Only one of the typed MC1R markers is present (rs2228479, one copy); four are missing, including R151C (rs1805007), so red-hair likelihood cannot be assessed.</p>
+                  </div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="The strongest eye-colour marker. One allele from Minko (GG) and one from Ai (AA); heterozygotes usually sit between the two extremes (recalled, qualitative only).">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">HERC2</span><span class="marker-tag-rsid">rs12913832</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">One copy of each allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Skin and hair pigmentation marker. Minko GG, Ai CC.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SLC45A2</span><span class="marker-tag-rsid">rs16891982</span><span class="marker-tag-geno">CG</span><span class="marker-tag-weight">One copy of each allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Skin-pigmentation marker; the light-skin allele is near-universal in Europeans and rare in East Asians. Minko AA, Ai GG.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SLC24A5</span><span class="marker-tag-rsid">rs1426654</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">One copy of each allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="No copy of the variant allele counted by the tool (T on the forward strand). Frequency 0.10 in Tuscans.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">OCA2</span><span class="marker-tag-rsid">rs1800407</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Usual form</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Counted twice by the HIrisPlex-S coding (C on the forward strand).">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TYRP1</span><span class="marker-tag-rsid">rs683</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">Two copies counted</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--ruleout" title="rs885479, rs1805007 (R151C), rs312262906 and rs3212355 are not typed in this file. The other typed MC1R markers are mostly zero; rs2228479 (V92M) is present once.">
+                      <span class="marker-tag-dot" style="background:var(--cat-f)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MC1R</span><span class="marker-tag-rsid">4 of 11 markers</span><span class="marker-tag-geno">not on file</span><span class="marker-tag-weight">Red-hair markers incomplete</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>Heterozygosity at the main markers means Julian&#39;s colouring is hard to call from genetics alone, and the tools were built on European samples, so they are less reliable for him. The best guide is the colours of his parents and relatives. If the official tool becomes reachable, its probabilities can be added here without changing anything else.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> Raw-file genotypes and the HIrisPlex-S upload report (27 of 41 markers counted); no official predictor output.</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_edar">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">One East Asian variant copy</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Hair Thickness and Teeth Shape (EDAR)</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Markers</div>
+                  <div class="narrative-text">
+                    <p>EDAR rs3827760 is GA: one copy of the variant that is very common in East Asian ancestry and almost absent in Europeans, inherited from Ai.</p>
+                    <p>This variant is linked to thicker, straighter hair and shovel-shaped incisors (from the literature, not checked here). It is an ancestry marker, not a health marker.</p>
+                  </div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="G is the East Asian-common allele (direction from memory; unverified here); Ai has two copies, Minko none.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">EDAR</span><span class="marker-tag-rsid">rs3827760</span><span class="marker-tag-geno">GA</span><span class="marker-tag-weight">One variant copy</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>Hair thickness cannot be predicted well from one variant; this card is descriptive.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> Raw-file genotype; trio check (Julian GA, Minko AA, Ai GG).</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_cardio">
+          <h2 class="section-heading">Cardiovascular Health</h2>
+          <div class="trait-row" id="n_ldl">
+            <div class="trait-spine" style="color:var(--risk-elevated)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Higher signal</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">LDL Cholesterol</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z +2.25, 99th percentile, across 79 loci (Julian carries 32 score-raising alleles against about 30 expected). Without the strongest locus the score is z +1.71. The same tier holds with Iberian father-side frequencies (z +2.21).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>LDL Cholesterol</span><span>z +2.25 &middot; 99th percentile &middot; 79 loci &middot; IBS check z +2.21</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:78.5%;color:var(--risk-elevated)" title="without the strongest locus: z +1.71"></span><span class="zstrip-dot" style="left:87.5%;background:var(--risk-elevated)" title="z +2.25"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk G carried 1 time(s) of 2 (effect +0.223); frequency 0.16 on the father-side reference, 0.09 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">APOC1</span><span class="marker-tag-rsid">rs4420638</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One G allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk A carried 0 time(s) of 2 (effect -0.095); frequency 0.89 on the father-side reference, 0.68 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">APOA5</span><span class="marker-tag-rsid">rs2266788</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk C carried 2 time(s) of 2 (effect +0.077); frequency 0.95 on the father-side reference, 0.27 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ADH1B</span><span class="marker-tag-rsid">rs1229984</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two C alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk T carried 0 time(s) of 2 (effect -0.241); frequency 0.13 on the father-side reference, 0.00 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LDLR</span><span class="marker-tag-rsid">rs6511720</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No T allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk C carried 0 time(s) of 2 (effect -0.108); frequency 0.05 on the father-side reference, 0.23 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CEACAM16-AS1, PVR</span><span class="marker-tag-rsid">rs754340</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No C allele</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>The strongest contributor is an APOE-region stand-in (rs4420638). The APOE test itself (rs429358) is not on the chip, and rs7412 is CC, which is the usual non-ε2 genotype, so no APOE type can be called.</p>
+                    <p>A score like this shows a tendency towards higher LDL in adulthood. It does not mean Julian has high cholesterol now. Many paediatric guidelines suggest one lipid check in late childhood (commonly 9&ndash;11 years; recalled, unverified), which is worth asking his paediatrician about, especially given this score. If anything on this page worries you, the right step is a conversation with a doctor, not the score.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog LDL cholesterol scores (79 loci; TSI father + JPT mother, IBS father checked). APOE not assessable (rs429358 missing); rs7412 CC.</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_totchol">
+            <div class="trait-spine" style="color:var(--risk-moderate)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Moderate score</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Total Cholesterol</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z +1.64, 95th percentile, across 90 loci (Julian carries 31 score-raising alleles against about 32 expected). Without the strongest locus the score is z +0.87. The same tier holds with Iberian father-side frequencies (z +1.53).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Total Cholesterol</span><span>z +1.64 &middot; 95th percentile &middot; 90 loci &middot; IBS check z +1.53</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:64.5%;color:var(--risk-moderate)" title="without the strongest locus: z +0.87"></span><span class="zstrip-dot" style="left:77.3%;background:var(--risk-moderate)" title="z +1.64"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk A carried 0 time(s) of 2 (effect -0.104); frequency 0.89 on the father-side reference, 0.68 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">APOA5</span><span class="marker-tag-rsid">rs2266788</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk C carried 2 time(s) of 2 (effect +0.065); frequency 0.95 on the father-side reference, 0.27 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ADH1B</span><span class="marker-tag-rsid">rs1229984</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two C alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk T carried 2 time(s) of 2 (effect -0.027); frequency 0.13 on the father-side reference, 0.35 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">YDJC</span><span class="marker-tag-rsid">rs2298428</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two T alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk A carried 2 time(s) of 2 (effect -0.019); frequency 0.43 on the father-side reference, 0.05 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MKRN2, RAF1</span><span class="marker-tag-rsid">rs3729931</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two A alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk T carried 0 time(s) of 2 (effect -0.221); frequency 0.13 on the father-side reference, 0.00 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LDLR</span><span class="marker-tag-rsid">rs6511720</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No T allele</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>Total cholesterol largely follows LDL, so this score echoes the LDL card. It adds little on its own.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog Total cholesterol scores (90 loci; TSI father + JPT mother, IBS father checked). Overlaps heavily with the LDL score.</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_tg">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Typical range</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Triglycerides</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z +1.85, 97th percentile, across 71 loci (Julian carries 30 score-raising alleles against about 28 expected). Without the strongest locus the score is z +0.13. The same tier holds with Iberian father-side frequencies (z +1.86).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Triglycerides</span><span>z +1.85 &middot; 97th percentile &middot; 71 loci &middot; IBS check z +1.86</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:52.2%;color:var(--blue)" title="without the strongest locus: z +0.13"></span><span class="zstrip-dot" style="left:80.8%;background:var(--blue)" title="z +1.85"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk A carried 0 time(s) of 2 (effect -0.282); frequency 0.89 on the father-side reference, 0.68 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">APOA5</span><span class="marker-tag-rsid">rs2266788</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk A carried 1 time(s) of 2 (effect -0.174); frequency 0.21 on the father-side reference, 0.11 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LPL - RPL30P9</span><span class="marker-tag-rsid">rs17091905</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk C carried 1 time(s) of 2 (effect +0.113); frequency 0.05 on the father-side reference, 0.02 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC02594</span><span class="marker-tag-rsid">rs76868109</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One C allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk A carried 2 time(s) of 2 (effect -0.082); frequency 0.25 on the father-side reference, 0.67 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">APOB</span><span class="marker-tag-rsid">rs673548</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two A alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk A carried 2 time(s) of 2 (effect +0.030); frequency 0.22 on the father-side reference, 0.38 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SLCO1B1</span><span class="marker-tag-rsid">rs4149081</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two A alleles</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>The raw score looks high (z +1.85), but almost all of it comes from one locus, APOA5 rs2266788. Without it the score is near zero, so this is treated as a single-variant effect and not as a tier. Triglycerides in children respond strongly to sugary drinks, weight and activity.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog Triglycerides scores (71 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_hdl">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Typical range</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">HDL Cholesterol</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z -0.36, 36th percentile, across 87 loci (Julian carries 34 score-raising alleles against about 32 expected). Without the strongest locus the score is z +0.48. The same tier holds with Iberian father-side frequencies (z -0.46).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>HDL Cholesterol</span><span>z -0.36 &middot; 36th percentile &middot; 87 loci &middot; IBS check z -0.46</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:58.0%;color:var(--blue)" title="without the strongest locus: z +0.48"></span><span class="zstrip-dot" style="left:44.0%;background:var(--blue)" title="z -0.36"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk A carried 0 time(s) of 2 (effect +0.123); frequency 0.89 on the father-side reference, 0.68 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">APOA5</span><span class="marker-tag-rsid">rs2266788</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk C carried 1 time(s) of 2 (effect -0.142); frequency 0.05 on the father-side reference, 0.02 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC02594</span><span class="marker-tag-rsid">rs76868109</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One C allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk A carried 1 time(s) of 2 (effect +0.160); frequency 0.21 on the father-side reference, 0.11 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LPL - RPL30P9</span><span class="marker-tag-rsid">rs17091905</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk G carried 2 time(s) of 2 (effect +0.247); frequency 0.73 on the father-side reference, 0.87 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CETP</span><span class="marker-tag-rsid">rs9939224</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two G alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk A carried 2 time(s) of 2 (effect +0.071); frequency 0.25 on the father-side reference, 0.67 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">APOB</span><span class="marker-tag-rsid">rs673548</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two A alleles</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>Julian sits close to the middle of the expected range, with no strong pull either way.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog HDL cholesterol scores (87 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_metabolic">
+          <h2 class="section-heading">Metabolic Health</h2>
+          <div class="trait-row" id="n_bmi">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Typical range</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Body Mass Index</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z -0.22, 41st percentile, across 366 loci (Julian carries 394 score-raising alleles against about 388 expected). Without the strongest locus the score is z -0.48. The same tier holds with Iberian father-side frequencies (z -0.30).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Body Mass Index</span><span>z -0.22 &middot; 41st percentile &middot; 366 loci &middot; IBS check z -0.30</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:42.0%;color:var(--blue)" title="without the strongest locus: z -0.48"></span><span class="zstrip-dot" style="left:46.3%;background:var(--blue)" title="z -0.22"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk C carried 0 time(s) of 2 (effect -0.027); frequency 0.71 on the father-side reference, 0.86 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SH2B1 - ATP2A1-AS1</span><span class="marker-tag-rsid">rs7359397</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No C allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk C carried 1 time(s) of 2 (effect +0.055); frequency 0.79 on the father-side reference, 0.88 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC01875 - TMEM18</span><span class="marker-tag-rsid">rs6548238</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One C allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk C carried 0 time(s) of 2 (effect -0.026); frequency 0.59 on the father-side reference, 0.65 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MTCH2</span><span class="marker-tag-rsid">rs3817334</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No C allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk C carried 2 time(s) of 2 (effect +0.039); frequency 0.95 on the father-side reference, 0.27 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ADH1B</span><span class="marker-tag-rsid">rs1229984</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two C alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk C carried 1 time(s) of 2 (effect +0.031); frequency 0.88 on the father-side reference, 1.00 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">GPRC5B - GPR139</span><span class="marker-tag-rsid">rs12444979</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One C allele</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>The genetic score for BMI is close to typical. Weight in childhood is shaped far more by food environment, activity, sleep and growth stage than by these variants.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog Body mass index scores (366 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_mthfr">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Common variants; no action</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">MTHFR (Folate Pathway)</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Markers</div>
+                  <div class="narrative-text">
+                    <p>MTHFR rs1801133 (C677T) is GG, so there is no C677T variant. rs1801131 (A1298C) is GG, so there are two copies of the 1298C variant (on the forward strand, G is the variant allele).</p>
+                    <p>Neither result is a diagnosis. Two 1298C copies alone have little effect on folate levels, and MTHFR variants are common. This card replaces a mistaken reading on the earlier page.</p>
+                  </div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Forward strand: G is the usual form and A the C677T variant.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MTHFR</span><span class="marker-tag-rsid">rs1801133</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">No C677T variant</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Forward strand: T is the usual form and G the A1298C variant (from memory; unverified here).">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MTHFR</span><span class="marker-tag-rsid">rs1801131</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">Two 1298C copies</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>A normal diet with leafy greens, legumes and fortified grains covers folate for nearly everyone. Supplements should only follow a doctor&#39;s advice.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> Raw-file genotypes; strand orientation from the raw file.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_brain">
+          <h2 class="section-heading">Brain &amp; Mental Health</h2>
+          <div class="trait-row" id="n_migraine">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Typical range</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Migraine</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z +0.90, 81st percentile, across 24 loci (Julian carries 25 risk alleles against about 20 expected). Without the strongest locus the score is z +0.26. The same tier holds with Iberian father-side frequencies (z +0.97).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Migraine</span><span>z +0.90 &middot; 81st percentile &middot; 24 loci &middot; IBS check z +0.97</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:54.3%;color:var(--blue)" title="without the strongest locus: z +0.26"></span><span class="zstrip-dot" style="left:65.0%;background:var(--blue)" title="z +0.90"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk T carried 2 time(s) of 2 (OR 1.18); frequency 0.24 on the father-side reference, 0.74 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CPQ - TSPYL5</span><span class="marker-tag-rsid">rs1835740</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two T alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk T carried 2 time(s) of 2 (OR 1.11); frequency 0.09 on the father-side reference, 0.36 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SUGCT</span><span class="marker-tag-rsid">rs4379368</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two T alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk T carried 0 time(s) of 2 (OR 1.15); frequency 0.35 on the father-side reference, 0.60 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">U3 - LINC01985</span><span class="marker-tag-rsid">rs6790925</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No T allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk C carried 2 time(s) of 2 (OR 1.09); frequency 0.47 on the father-side reference, 0.38 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PRDM16</span><span class="marker-tag-rsid">rs2651899</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two C alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk C carried 1 time(s) of 2 (OR 1.20); frequency 0.29 on the father-side reference, 0.27 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MEF2D</span><span class="marker-tag-rsid">rs3790455</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One C allele</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>Migraine tendencies are common and mostly benign in children, and they often show up as headaches with nausea or light sensitivity. Regular triggers (missed meals, poor sleep, dehydration, screen glare) matter more than the score. Frequent or severe headaches, headaches with vomiting on waking, or any change in vision or balance should be seen by a doctor.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog migraine scores (24 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_immune">
+          <h2 class="section-heading">Immune &amp; Autoimmune Health</h2>
+          <div class="trait-row" id="n_psoriasis">
+            <div class="trait-spine" style="color:var(--risk-elevated)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Higher signal</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Psoriasis</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z +1.96, 97th percentile, across 43 loci (Julian carries 44 risk alleles against about 37 expected). Without the strongest locus the score is z +1.47. The same tier holds with Iberian father-side frequencies (z +1.88).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Psoriasis</span><span>z +1.96 &middot; 97th percentile &middot; 43 loci &middot; IBS check z +1.88</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:74.5%;color:var(--risk-elevated)" title="without the strongest locus: z +1.47"></span><span class="zstrip-dot" style="left:82.7%;background:var(--risk-elevated)" title="z +1.96"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk A carried 1 time(s) of 2 (OR 1.60); frequency 0.09 on the father-side reference, 0.14 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TNIP1 - ANXA6</span><span class="marker-tag-rsid">rs17728338</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk T carried 2 time(s) of 2 (OR 1.36); frequency 0.61 on the father-side reference, 0.52 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">IL12B-AS1</span><span class="marker-tag-rsid">rs7709212</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two T alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk G carried 2 time(s) of 2 (OR 1.20); frequency 0.34 on the father-side reference, 0.19 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">NOS2</span><span class="marker-tag-rsid">rs4795067</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two G alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk T carried 2 time(s) of 2 (OR 1.22); frequency 0.47 on the father-side reference, 0.17 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">REL-DT</span><span class="marker-tag-rsid">rs702873</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two T alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk T carried 0 time(s) of 2 (OR 1.30); frequency 0.29 on the father-side reference, 0.62 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">IFIH1</span><span class="marker-tag-rsid">rs3747517</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No T allele</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>This is Julian&#39;s most notable higher-than-expected signal on the main page, and it holds up when the reference is changed. The main contributor is TNIP1/ANXA6 (rs17728338). Psoriasis causes scaly, well-defined patches, often on elbows, knees and scalp, and can first appear in childhood, sometimes after a sore throat (recalled, unverified).</p>
+                    <p>The HLA-C risk stand-in (rs10484554) is CC, the usual form. HLA alleles are not scored. A higher score is a tendency, not a diagnosis; persistent scaly patches are a reason to see a doctor or dermatologist.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog psoriasis scores (43 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_t1d">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Typical range; borderline</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Type 1 Diabetes</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z -0.88, 19th percentile, across 40 loci (Julian carries 27 risk alleles against about 32 expected). Without the strongest locus the score is z -1.22. With Iberian father-side frequencies the score is z -1.06 (favourable), so this tier is borderline.</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Type 1 Diabetes</span><span>z -0.88 &middot; 19th percentile &middot; 40 loci &middot; IBS check z -1.06</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:29.7%;color:var(--blue)" title="without the strongest locus: z -1.22"></span><span class="zstrip-dot" style="left:35.3%;background:var(--blue)" title="z -0.88"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk G carried 1 time(s) of 2 (OR 1.28); frequency 0.06 on the father-side reference, 0.21 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CTRB2 - CTRB1</span><span class="marker-tag-rsid">rs7202877</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One G allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk A carried 1 time(s) of 2 (OR 1.20); frequency 0.17 on the father-side reference, 0.00 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">BACH2</span><span class="marker-tag-rsid">rs72928038</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk G carried 1 time(s) of 2 (OR 1.20); frequency 0.81 on the father-side reference, 0.99 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">Y_RNA - IL10</span><span class="marker-tag-rsid">rs3024505</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One G allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk G carried 1 time(s) of 2 (OR 1.40); frequency 0.64 on the father-side reference, 0.76 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">INS-IGF2, IGF2</span><span class="marker-tag-rsid">rs1004446</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One G allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk T carried 0 time(s) of 2 (OR 1.30); frequency 0.29 on the father-side reference, 0.23 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ERBB3</span><span class="marker-tag-rsid">rs2292239</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No T allele</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>This is borderline: the score looks lower than typical with Iberian father-side frequencies and neutral with Tuscan ones, so it is labelled typical. The strongest loci are at INS (rs1004446, one risk copy) and CTRB1/2. HLA, the dominant genetic factor in type 1 diabetes, is not captured here.</p>
+                    <p>A genetic score does not replace symptom awareness. Excess thirst, frequent urination, tiredness and weight loss in a child need same-day medical attention.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog type 1 diabetes scores (40 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_crohn">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Typical range</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Crohn's Disease</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z +0.08, 53rd percentile, across 123 loci (Julian carries 122 risk alleles against about 120 expected). Without the strongest locus the score is z +0.37. The same tier holds with Iberian father-side frequencies (z +0.07).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Crohn's Disease</span><span>z +0.08 &middot; 53rd percentile &middot; 123 loci &middot; IBS check z +0.07</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:56.2%;color:var(--blue)" title="without the strongest locus: z +0.37"></span><span class="zstrip-dot" style="left:51.3%;background:var(--blue)" title="z +0.08"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk C carried 0 time(s) of 2 (OR 1.19); frequency 0.79 on the father-side reference, 0.57 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MRPS35P3 - IPMK</span><span class="marker-tag-rsid">rs1819658</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No C allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk T carried 2 time(s) of 2 (OR 1.19); frequency 0.54 on the father-side reference, 0.37 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">EMSY - LINC02757</span><span class="marker-tag-rsid">rs2155219</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two T alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk T carried 2 time(s) of 2 (OR 1.19); frequency 0.51 on the father-side reference, 0.47 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC01475</span><span class="marker-tag-rsid">rs4409764</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two T alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk G carried 0 time(s) of 2 (OR 1.11); frequency 0.71 on the father-side reference, 0.85 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC02940 - RPL23AP12</span><span class="marker-tag-rsid">rs2836878</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No G allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk C carried 2 time(s) of 2 (OR 1.13); frequency 0.36 on the father-side reference, 0.29 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">IL27</span><span class="marker-tag-rsid">rs26528</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two C alleles</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>The score sits close to typical. The rare high-risk NOD2 variants (rs2066845, rs2066847) are not on the chip, and rs2066844 is CC (no R702W variant), so a normal result does not exclude NOD2-related disease. Persistent diarrhoea, blood in stool, or poor growth are reasons to see a doctor whatever the score.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog crohn scores (123 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_ibd">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Typical range</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Inflammatory Bowel Disease</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z -0.73, 23rd percentile, across 164 loci (Julian carries 159 risk alleles against about 164 expected). Without the strongest locus the score is z -0.31. The same tier holds with Iberian father-side frequencies (z -0.73).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Inflammatory Bowel Disease</span><span>z -0.73 &middot; 23rd percentile &middot; 164 loci &middot; IBS check z -0.73</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:44.8%;color:var(--blue)" title="without the strongest locus: z -0.31"></span><span class="zstrip-dot" style="left:37.8%;background:var(--blue)" title="z -0.73"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk G carried 0 time(s) of 2 (OR 1.25); frequency 0.71 on the father-side reference, 0.85 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC02940 - RPL23AP12</span><span class="marker-tag-rsid">rs2836878</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No G allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk C carried 0 time(s) of 2 (OR 1.17); frequency 0.78 on the father-side reference, 0.86 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ZFP90</span><span class="marker-tag-rsid">rs1728785</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No C allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk C carried 2 time(s) of 2 (OR 1.14); frequency 0.31 on the father-side reference, 0.22 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ATXN2L</span><span class="marker-tag-rsid">rs8049439</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two C alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk A carried 1 time(s) of 2 (OR 1.25); frequency 0.19 on the father-side reference, 0.01 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">Y_RNA - IL10</span><span class="marker-tag-rsid">rs3024505</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk T carried 2 time(s) of 2 (OR 1.18); frequency 0.51 on the father-side reference, 0.47 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC01475</span><span class="marker-tag-rsid">rs4409764</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two T alleles</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>The IBD score is also in the typical range, slightly towards lower. It overlaps with the Crohn&#39;s card.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog inflammatory bowel scores (164 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_celiac">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Typical range</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Coeliac Disease</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z +0.44, 67th percentile, across 18 loci (Julian carries 12 risk alleles against about 10 expected). Without the strongest locus the score is z +0.01. The same tier holds with Iberian father-side frequencies (z +0.38).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Coeliac Disease</span><span>z +0.44 &middot; 67th percentile &middot; 18 loci &middot; IBS check z +0.38</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:50.2%;color:var(--blue)" title="without the strongest locus: z +0.01"></span><span class="zstrip-dot" style="left:57.3%;background:var(--blue)" title="z +0.44"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk A carried 2 time(s) of 2 (OR 1.16); frequency 0.62 on the father-side reference, 0.35 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ZMIZ1</span><span class="marker-tag-rsid">rs1250552</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two A alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk G carried 2 time(s) of 2 (OR 1.12); frequency 0.35 on the father-side reference, 0.46 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ARHGAP31</span><span class="marker-tag-rsid">rs11712165</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two G alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk G carried 2 time(s) of 2 (OR 1.13); frequency 0.49 on the father-side reference, 0.60 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CCR4 - GLB1</span><span class="marker-tag-rsid">rs13314993</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two G alleles</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk T carried 0 time(s) of 2 (OR 1.19); frequency 0.21 on the father-side reference, 0.39 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">IL18RAP - SLC9A4</span><span class="marker-tag-rsid">rs917997</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No T allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk T carried 0 time(s) of 2 (OR 1.14); frequency 0.25 on the father-side reference, 0.46 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ICOS</span><span class="marker-tag-rsid">rs4675374</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No T allele</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>Coeliac disease needs HLA-DQ2 or DQ8, which the chip cannot type. As stand-ins, rs2187668 (the DQ2.5 tag; T is the tag allele) is CC, so the DQ2.5 tag allele is absent; a DQ8 stand-in (rs7454108) is TT, but its allele direction was not verified here, so DQ8 is not called. Stand-ins are imperfect. The non-HLA score is typical.</p>
+                    <p>Symptoms such as ongoing stomach pain, poor growth, anaemia or chronic diarrhoea are reasons to ask about testing, and gluten should not be removed before testing.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog celiac disease scores (18 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_asthma">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Typical range</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Asthma</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z -0.12, 45th percentile, across 56 loci (Julian carries 53 risk alleles against about 51 expected). Without the strongest locus the score is z -0.57. The same tier holds with Iberian father-side frequencies (z -0.25).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Asthma</span><span>z -0.12 &middot; 45th percentile &middot; 56 loci &middot; IBS check z -0.25</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:40.5%;color:var(--blue)" title="without the strongest locus: z -0.57"></span><span class="zstrip-dot" style="left:48.0%;background:var(--blue)" title="z -0.12"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk T carried 1 time(s) of 2 (OR 1.19); frequency 0.03 on the father-side reference, 0.00 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">EMSY</span><span class="marker-tag-rsid">rs61894547</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One T allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk A carried 1 time(s) of 2 (OR 1.19); frequency 0.86 on the father-side reference, 0.86 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">IL1RL1, IL18R1</span><span class="marker-tag-rsid">rs10197862</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk A carried 0 time(s) of 2 (OR 1.41); frequency 0.17 on the father-side reference, 0.10 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CDHR3</span><span class="marker-tag-rsid">rs6967330</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk G carried 1 time(s) of 2 (OR 1.18); frequency 0.51 on the father-side reference, 1.00 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">FUT2 - MAMSTR</span><span class="marker-tag-rsid">rs281379</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One G allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk T carried 2 time(s) of 2 (OR 1.16); frequency 0.64 on the father-side reference, 0.92 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CLEC16A</span><span class="marker-tag-rsid">rs7203459</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two T alleles</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>The genetic score is a little below typical. Childhood asthma depends heavily on infections, allergies, smoke and air quality, so this tells you little about Julian&#39;s chances. Night cough, wheeze or breathlessness on exercise should be checked by a doctor.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog asthma scores (56 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_hypothyroid">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Typical range</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Underactive Thyroid</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog; reference: expected for a child of a Tuscan-type father and a Japanese mother):</strong> z -0.17, 43rd percentile, across 28 loci (Julian carries 25 risk alleles against about 23 expected). Without the strongest locus the score is z +0.32. The same tier holds with Iberian father-side frequencies (z -0.20).</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Underactive Thyroid</span><span>z -0.17 &middot; 43rd percentile &middot; 28 loci &middot; IBS check z -0.20</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:55.3%;color:var(--blue)" title="without the strongest locus: z +0.32"></span><span class="zstrip-dot" style="left:47.2%;background:var(--blue)" title="z -0.17"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than expected</span><span>expected range for a Tuscan-type father and Japanese mother</span><span>higher than expected</span></div>
+                  <div class="zstrip-key">Filled dot: Julian's score. Hollow ring: his score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Risk T carried 1 time(s) of 2 (OR 1.28); frequency 0.66 on the father-side reference, 0.93 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PTCSC2</span><span class="marker-tag-rsid">rs925489</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One T allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk A carried 1 time(s) of 2 (OR 1.15); frequency 0.17 on the father-side reference, 0.00 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">BACH2</span><span class="marker-tag-rsid">rs10944479</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One A allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Risk C carried 0 time(s) of 2 (OR 1.30); frequency 0.06 on the father-side reference, 0.36 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">VAV3</span><span class="marker-tag-rsid">rs4915077</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No C allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk T carried 0 time(s) of 2 (OR 1.20); frequency 0.53 on the father-side reference, 0.00 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ATXN2, SH2B3</span><span class="marker-tag-rsid">rs3184504</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No T allele</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="Risk C carried 2 time(s) of 2 (OR 1.06); frequency 0.45 on the father-side reference, 0.27 in Japanese. Direction taken from the GWAS Catalog row.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC01475</span><span class="marker-tag-rsid">rs10748781</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two C alleles</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>The score is typical. Thyroid conditions can start in childhood or adolescence, and slowing growth, tiredness or cold intolerance are reasons for a blood test whatever the score.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog hypothyroidism scores (28 loci; TSI father + JPT mother, IBS father checked).</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_lifestyle">
+          <h2 class="section-heading">Lifestyle &amp; Nutrition</h2>
+          <div class="trait-row" id="n_lactose">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">One persistence allele</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Lactose Tolerance</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Markers</div>
+                  <div class="narrative-text">
+                    <p>MCM6 rs4988235 is AG: one copy of the lactase-persistence allele (A), inherited from Minko. Persistence is dominant, so Julian is expected to keep digesting lactose into adulthood. Ai has no persistence allele (GG).</p>
+                    <p>Lactose intolerance can still come from other causes such as a stomach infection or coeliac disease.</p>
+                  </div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="A is the lactase-persistence allele in Europeans. Frequency about 0.09 in Tuscans; it is almost absent in Japanese.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MCM6 / LCT</span><span class="marker-tag-rsid">rs4988235</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">One persistence allele</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>If milk causes bloating or diarrhoea, lactose-free options exist; this card only gives the genetic tendency.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> Raw-file genotype; trio check consistent.</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_vitd">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Mixed markers</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Vitamin D Handling</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Markers</div>
+                  <div class="narrative-text">
+                    <p>GC rs2282679 is TT and CYP2R1 rs10741657 is AG. These markers have modest effects on blood vitamin D; the effect directions are from memory and unverified here.</p>
+                  </div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="Vitamin D-binding protein gene; the TT genotype is the commoner form in Tuscans (0.76).">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">GC</span><span class="marker-tag-rsid">rs2282679</span><span class="marker-tag-geno">TT</span><span class="marker-tag-weight">Common form</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="Vitamin D activation gene; one copy of each allele.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CYP2R1</span><span class="marker-tag-rsid">rs10741657</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">Heterozygous</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>Vitamin D status depends mostly on sunlight, diet and skin tone. A blood test, not these markers, is the way to know.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> Raw-file genotypes; directions from memory (unverified).</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_alcohol_caff">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Fast metaboliser tag</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Caffeine Speed</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Markers</div>
+                  <div class="narrative-text">
+                    <p>CYP1A2 rs762551 is AA. The A allele is linked to faster caffeine breakdown (from the literature, direction unverified here). Caffeine intake in children is best kept low regardless.</p>
+                  </div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="A is the fast-breakdown allele (recalled). Frequency 0.62 in Tuscans.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CYP1A2</span><span class="marker-tag-rsid">rs762551</span><span class="marker-tag-geno">AA</span><span class="marker-tag-weight">Fast-metaboliser genotype</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>For a 12-year-old, the practical advice is to limit energy drinks and large amounts of cola whatever the genotype.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> Raw-file genotype; direction from memory.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_pharma">
+          <h2 class="section-heading">Drug Response</h2>
+          <div class="trait-row" id="n_pharma">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Mostly typical; some not assessable</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Medicine-Response Markers</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Markers</div>
+                  <div class="narrative-text">
+                    <p>These markers describe how Julian&#39;s body may handle certain medicines. They are a conversation-starter with a doctor or pharmacist, never a reason to change a medicine.</p>
+                    <p><strong>Not assessable on this chip:</strong> CYP2C19 *2 (rs4244285), which is common in East Asian ancestry, so Julian&#39;s CYP2C19 status cannot be called; VKORC1; CYP2C9 *3; DPYD *2A. CYP2D6 copy number is also not covered.</p>
+                  </div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="*17 raises CYP2C19 activity (recalled). Absent here.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CYP2C19</span><span class="marker-tag-rsid">rs12248560</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">No *17 copy</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="*3 abolishes function and is more common in East Asians (recalled).">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CYP2C19</span><span class="marker-tag-rsid">rs4986893</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">No *3 copy</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--ruleout" title="The commonest loss-of-function allele; not typed on this chip.">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CYP2C19</span><span class="marker-tag-rsid">rs4244285</span><span class="marker-tag-geno">not on file</span><span class="marker-tag-weight">*2 cannot be called</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="*4 is the commonest European loss-of-function allele (recalled).">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CYP2D6</span><span class="marker-tag-rsid">rs3892097</span><span class="marker-tag-geno">CC</span><span class="marker-tag-weight">No *4 copy</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="*10 is common in Japanese; this marker was added outside the original list and its allele direction is from memory.">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CYP2D6</span><span class="marker-tag-rsid">rs1065852</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">No *10 copy (direction unverified)</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="No variant allele at the thiopurine markers. The earlier page misread CC at NUDT15 as a risk; CC is the normal genotype.">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TPMT / NUDT15</span><span class="marker-tag-rsid">rs1142345, rs116855232</span><span class="marker-tag-geno">TT / CC</span><span class="marker-tag-weight">Normal at both</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="The C allele reduces transporter activity (statin muscle effects in adults). Relevant only if Julian ever takes a statin.">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SLCO1B1</span><span class="marker-tag-rsid">rs4149056</span><span class="marker-tag-geno">CT</span><span class="marker-tag-weight">One reduced-function copy</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="CYP2C9 *2 absent; CYP3A5 CC corresponds to the usual non-expresser pattern in Europeans (recalled).">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CYP2C9 / CYP3A5</span><span class="marker-tag-rsid">rs1799853, rs776746</span><span class="marker-tag-geno">CC / CC</span><span class="marker-tag-weight">No *2; *3/*3</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p><strong>Never change or stop a medicine because of this page.</strong> A pharmacist or doctor can arrange clinical testing when it is relevant. Codeine and tramadol, in particular, are dosed with great care in children regardless of genotype.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> Raw-file genotypes; star-allele directions largely recalled and unverified here.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
