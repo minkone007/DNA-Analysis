@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>松下・ジュリアン - 遺伝的健康ガイド</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+        --paper: #fdfcfa; --paper-2: #f4f1eb; --ink: #1a1612; --ink-2: #4a4238; --ink-3: #8a7f72;
+        --rule: #ddd8cf; --blue: #1a4b7a; --nav-w: 210px;
+        --risk-elevated: #c0392b; --risk-moderate: #c97b2a; --risk-favourable: #2d7a4f;
+        --blue-tint: rgba(26, 75, 122, 0.05);
+        --cat-a: #5a7290; --cat-b: #8a6a4a; --cat-c: #a89464; --cat-d: #8a7f72; --cat-e: #6b8a7a;
+    }
+    body { background: var(--paper); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.85; }
+    .narrative-body em, .narrative-body i, .narrative-text em, .narrative-text i { font-style: normal; }
+
+    .nav-sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: var(--nav-w); background: #fff; border-right: 1px solid var(--rule); overflow-y: auto; z-index: 200; display: flex; flex-direction: column; }
+    .nav-head { padding: 1.4rem 1rem 1rem; border-bottom: 1px solid var(--rule); }
+    .nav-brand { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 600; letter-spacing: .04em; color: var(--ink-3); margin-bottom: .2rem; }
+    .nav-person { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--ink); }
+    .nav-links { flex: 1; overflow-y: auto; padding: .8rem .7rem; }
+    .nav-link { display: flex; align-items: center; gap: .45rem; font-family: 'EB Garamond', serif; font-size: .92rem; color: var(--ink-3); text-decoration: none; padding: .25rem .4rem; border-radius: 3px; line-height: 1.4; margin-bottom: .1rem; }
+    .nav-link:hover { background: var(--paper-2); color: var(--blue); }
+    .nav-score { padding: .8rem 1rem; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .3rem; }
+    .ns { display: flex; flex-direction: column; align-items: center; }
+    .ns-val { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 700; }
+    .ns-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .72rem; font-weight: 600; color: var(--ink-3); }
+    .lang-bar { padding: .5rem 1rem; border-top: 1px solid var(--rule); display: flex; gap: .4rem; }
+    .lang-btn { font-family: 'EB Garamond', serif; font-weight: 700; font-size: .8rem; padding: .2rem .5rem; border-radius: 3px; border: 1px solid var(--rule); color: var(--ink-3); text-decoration: none; }
+    .lang-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+    .mobile-bar { display: none; }
+
+    .cover { margin-left: var(--nav-w); background: var(--ink); color: #f0ebe3; padding: 5rem 3.5rem 4rem; position: relative; }
+    .cover-eyebrow { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 600; letter-spacing: .04em; color: #7fa8c4; margin-bottom: 1.2rem; }
+    .cover h1 { font-family: 'EB Garamond', serif; font-size: 3.2rem; font-weight: 400; color: #f0ebe3; margin-bottom: .2rem; }
+    .cover-sub { font-size: 1.05rem; font-style: italic; color: #7fa8c4; margin-bottom: 3.5rem; }
+    .cover-stats { display: flex; gap: 3rem; flex-wrap: wrap; border-top: 1px solid #2d3f52; padding-top: 1.5rem; }
+    .cs { display: flex; flex-direction: column; }
+    .cs-val { font-family: 'EB Garamond', serif; font-size: 1.85rem; font-weight: 700; color: #f0ebe3; }
+    .cs-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .78rem; font-weight: 500; color: #5a7a94; }
+
+    .main { margin-left: var(--nav-w); width: calc(100vw - var(--nav-w)); padding: 0 3.5rem 6rem; }
+    .main-inner { max-width: 920px; margin-left: auto; margin-right: auto; }
+    .disclaimer { font-family: 'EB Garamond', serif; font-size: .92rem; line-height: 1.6; background: #fffbeb; border-left: 3px solid #d97706; padding: .8rem 1.2rem; color: #78450a; margin: 2.5rem 0 0; }
+    .report-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+    .section-heading { font-family: 'EB Garamond', serif; font-size: 1.8rem; font-weight: 600; margin-bottom: .5rem; color: var(--ink); }
+
+    .narrative-body p { margin-bottom: .9rem; font-size: .98rem; line-height: 1.9; color: var(--ink-2); }
+
+    .trait-row { display: grid; grid-template-columns: 78px 1fr; column-gap: 1.8rem; padding: 2.6rem 0; border-bottom: 1px solid var(--rule); }
+    .trait-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .trait-spine { position: relative; display: flex; flex-direction: column; align-items: center; padding-top: .4rem; }
+    .spine-dot { width: 13px; height: 13px; border-radius: 50%; background: currentColor; border: 2px solid var(--paper); box-shadow: 0 0 0 2px currentColor; flex-shrink: 0; z-index: 1; }
+    .spine-line { position: absolute; top: 15px; bottom: -2.6rem; left: 50%; width: 1px; background: var(--rule); transform: translateX(-50%); }
+    .spine-risk { margin-top: .6rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .74rem; font-weight: 600; text-align: center; line-height: 1.3; }
+    .trait-title { font-family: 'EB Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink); margin-bottom: 1.4rem; letter-spacing: -.01em; }
+
+    .trait-narrative { display: flex; flex-direction: column; gap: 2rem; }
+    .narrative-unit { display: grid; grid-template-columns: 118px 1fr; gap: 1.4rem; }
+    .narrative-kicker { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .9rem; line-height: 1.3rem; font-weight: 600; color: var(--ink-3); padding-top: .1rem; }
+    .narrative-text p { font-size: 1rem; line-height: 1.9; color: var(--ink-2); margin-bottom: .9rem; }
+    .narrative-text p:last-child { margin-bottom: 0; }
+    .narrative-unit--gwas .narrative-kicker { position: relative; color: var(--blue); padding-left: 1.5rem; }
+    .narrative-unit--gwas .narrative-kicker::before { content: ""; position: absolute; left: 0; top: .35rem; width: 9px; height: 9px; border-radius: 50%; background: var(--blue); border: 2px solid var(--paper); box-shadow: 0 0 0 2px var(--blue); z-index: 1; }
+    .narrative-unit--gwas .narrative-kicker::after { content: ""; position: absolute; left: 4px; top: 1.15rem; bottom: 0; width: 1px; background: var(--rule); }
+    .narrative-unit--gwas .narrative-text { padding-left: 1.6rem; }
+    .narrative-unit--gwas .narrative-text strong { color: var(--blue); font-weight: 700; }
+    .risk-pill { display: inline-block; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 700; padding: .25rem .75rem; border-radius: 4px; color: #fff; white-space: nowrap; }
+    .narrative-unit--deep { display: block; }
+    .narrative-unit--deep .narrative-kicker { margin-bottom: .6rem; }
+
+    .pgs-badge { display: inline-block; font-family: 'Inter', monospace; font-size: .78rem; font-weight: 600; color: var(--blue); background: var(--blue-tint); padding: .3rem .7rem; border-radius: 4px; margin-bottom: 0; }
+    .risk-balance { margin: 0 0 1.4rem; }
+    .risk-balance-track { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+    .risk-balance-prot { background: var(--risk-favourable); }
+    .risk-balance-risk { background: var(--risk-elevated); }
+    .risk-balance-labels { display: flex; justify-content: space-between; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+    .rb-risk { color: var(--risk-elevated); font-weight: 600; }
+    .rb-prot { color: var(--risk-favourable); font-weight: 600; }
+    .loci-bar { margin: 0 0 1.4rem; }
+    .loci-bar-track { height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+    .loci-bar-fill { height: 100%; }
+    .loci-bar-label { display: block; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+
+    .drug-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+    .drug-card { background: #fff; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+    .drug-card-head { padding: .8rem 1rem; border-bottom: 1px solid var(--rule); }
+    .drug-card-top { display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem; }
+    .drug-enzyme { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 700; color: var(--ink-3); }
+    .drug-genotype { font-family: 'Inter', monospace; font-size: .8rem; font-weight: 600; color: var(--blue); margin-bottom: .2rem; }
+    .drug-affected { font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-3); }
+    .drug-card-body { padding: 1rem; }
+    .drug-narrative { font-family: 'EB Garamond', serif; font-size: .93rem; color: var(--ink-2); line-height: 1.75; margin-bottom: .8rem; }
+    .drug-action { padding: .6rem .8rem; background: var(--paper-2); border-radius: 4px; font-family: 'EB Garamond', serif; font-size: .88rem; color: var(--ink-3); line-height: 1.55; }
+
+    .marker-votes { margin: 0 0 1.4rem; }
+    .marker-tally { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: .8rem; }
+    .marker-tally-item { display: flex; align-items: center; gap: .4rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .85rem; color: var(--ink-3); }
+    .marker-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .marker-tag-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .marker-tag-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .marker-tag-gene { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .8rem; color: var(--ink-2); }
+    .marker-tag-rsid { font-family: 'Inter', monospace; font-size: .72rem; color: var(--ink-3); }
+    .marker-tag-geno { font-family: 'Inter', monospace; font-weight: 700; font-size: .78rem; color: var(--blue); }
+    .marker-tag { display: flex; align-items: flex-start; gap: .4rem; background: var(--paper-2); border-radius: 4px; padding: .3rem .6rem; cursor: default; }
+    .marker-tag-main { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+    .marker-tag--primary { border: 1.5px solid var(--blue); background: var(--blue-tint); }
+    .marker-tag--primary .marker-tag-gene { font-weight: 700; }
+    .marker-tag--minor { opacity: .62; }
+    .marker-tag-weight { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .68rem; font-weight: 600; color: var(--blue); }
+    .marker-tag--minor .marker-tag-weight { color: var(--ink-3); }
+    .marker-tag--primary .marker-tag-gene { font-weight: 700; }
+    .marker-tag--ruleout { opacity: .75; }
+    .marker-tag--secondary { border: 1px solid var(--rule); }
+    .marker-tag--modifier { border: 1px dashed var(--rule); }
+
+    @media(max-width: 768px) {
+        .nav-sidebar { display: none; }
+        .cover, .main { margin-left: 0; }
+        .cover { padding: 3rem 1.2rem 2.5rem; }
+        .cover h1 { font-size: 2.1rem; }
+        .cover-sub { font-size: .95rem; margin-bottom: 2rem; }
+        .cover-stats { gap: 1.5rem 2rem; }
+        .cs-val { font-size: 1.4rem; }
+        .main { padding: 0 1.2rem 4rem; width: 100vw; }
+        body { font-size: 16px; }
+
+        .mobile-bar {
+            display: flex; align-items: center; justify-content: space-between; gap: .8rem;
+            position: sticky; top: 0; z-index: 150;
+            background: #fff; border-bottom: 1px solid var(--rule);
+            padding: .7rem 1.2rem;
+        }
+        .mobile-person { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .95rem; }
+        .mobile-nav-select {
+            font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-2);
+            border: 1px solid var(--rule); border-radius: 4px; padding: .3rem .5rem; background: #fff;
+        }
+
+        .trait-row { grid-template-columns: 44px 1fr; column-gap: 1rem; }
+        .spine-risk { display: none; }
+        .narrative-unit { grid-template-columns: 1fr; gap: .5rem; }
+        .narrative-unit--gwas .narrative-kicker::after { display: none; }
+        .narrative-unit--gwas .narrative-text { padding-left: 0; }
+
+        .drug-grid { grid-template-columns: 1fr; }
+    }
+    
+.zstrips{margin:0 0 1.4rem}.zstrip{margin:0 0 .9rem}
+.zstrip-name{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.2rem .8rem;font-family:'EB Garamond',serif;font-size:.85rem;color:var(--ink-2)}
+.zstrip-name span:last-child{color:var(--ink-3)}
+.zstrip-track{position:relative;height:8px;border-radius:4px;background:var(--paper-2);margin-top:.45rem}
+.zstrip-band{position:absolute;left:33.33%;width:33.34%;top:0;bottom:0;background:#e4ddd0}
+.zstrip-tick{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--ink-3)}
+.zstrip-dot{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);border:2px solid var(--paper);box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.zstrip-ring{position:absolute;top:50%;width:10px;height:10px;border-radius:50%;transform:translate(-50%,-50%);border:2px solid;background:var(--paper)}
+.zstrip-scale{display:flex;justify-content:space-between;font-family:'EB Garamond',serif;font-size:.72rem;color:var(--ink-3);margin-top:.4rem}
+.zstrip-key{font-family:'EB Garamond',serif;font-size:.72rem;color:var(--ink-3);margin-top:.2rem}
+.zchart{margin:1.6rem 0 0}.zchart-title{font-family:'EB Garamond',serif;font-size:1.15rem;margin:0 0 .3rem;color:var(--ink)}
+.zchart-note{font-size:.82rem;color:var(--ink-3);margin:0 0 .9rem;line-height:1.5}
+.zrow{display:grid;grid-template-columns:11rem 1fr 3rem;align-items:center;gap:.8rem;margin:0 0 .55rem}
+.zrow-name{font-family:'EB Garamond',serif;font-size:.85rem;color:var(--ink-2)}
+.zrow .zstrip-track{margin-top:0}.zrow-z{font-family:'EB Garamond',serif;font-size:.8rem;color:var(--ink-3);text-align:right}
+@media(max-width:600px){.zrow{grid-template-columns:7.5rem 1fr 2.6rem;gap:.5rem}}
+
+.gstrip{margin:14px 0 4px}.gstrip-name{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;color:var(--ink-3);margin-bottom:6px}
+.gstrip-bar{display:flex;gap:3px;height:32px}.gstrip-seg{display:flex;align-items:center;justify-content:center;font-size:.72rem;background:rgba(128,128,128,.14);color:var(--ink-3);border-radius:4px;min-width:64px;overflow:hidden;white-space:nowrap}
+.gstrip-seg.you{color:#fff;font-weight:600}.gstrip-cap{font-size:.7rem;color:var(--ink-3);margin-top:5px}
+</style>
+  </head>
+  <body>
+    <div class="mobile-bar">
+      <span class="mobile-person">松下・ジュリアン</span>
+      <select class="mobile-nav-select" onchange="if(this.value) location.hash=this.value;">
+        <option value="">移動先を選択…</option>
+        <option value="s_synthesis">概要</option>
+        <option value="s_appearance">身体的特徴</option>
+        <option value="s_cardio">心血管の健康</option>
+        <option value="s_metabolic">代謝の健康</option>
+        <option value="s_brain">脳・認知・神経系の健康</option>
+        <option value="s_eye">目の健康</option>
+        <option value="s_cancer">がんリスク</option>
+        <option value="s_immune">免疫・自己免疫疾患</option>
+        <option value="s_longevity">長寿と加齢</option>
+        <option value="s_clinvar">単一遺伝子の所見（ClinVar）</option>
+      </select>
+    </div>
+    <aside class="nav-sidebar">
+      <div class="nav-head">
+        <div class="nav-brand">パーソナルゲノミクス</div>
+        <div class="nav-person">松下・ジュリアン</div>
+      </div>
+      <nav class="nav-links"><a href="#s_synthesis" class="nav-link">概要</a><a href="#s_appearance" class="nav-link">身体的特徴</a><a href="#s_cardio" class="nav-link">心血管の健康</a><a href="#s_metabolic" class="nav-link">代謝の健康</a><a href="#s_brain" class="nav-link">脳・認知・神経系の健康</a><a href="#s_eye" class="nav-link">目の健康</a><a href="#s_cancer" class="nav-link">がんリスク</a><a href="#s_immune" class="nav-link">免疫・自己免疫疾患</a><a href="#s_longevity" class="nav-link">長寿と加齢</a><a href="#s_clinvar" class="nav-link">単一遺伝子の所見（ClinVar）</a><a href="health_guide_Julian_ja_draft.html" class="nav-link" style="margin-top:14px;font-weight:600">&larr; ジュリアンのガイド</a></nav>
+      <div class="nav-score">
+        <div class="ns"><span class="ns-val" style="color:#c0392b">1</span><span class="ns-lbl">上昇</span></div>
+        <div class="ns"><span class="ns-val" style="color:#c97b2a">2</span><span class="ns-lbl">中程度</span></div>
+        <div class="ns"><span class="ns-val" style="color:#2d7a4f">2</span><span class="ns-lbl">良好</span></div>
+      </div>
+      <div class="lang-bar"><a href="health_guide_Julian_appendix_en_draft.html" class="lang-btn">EN</a> <a href="health_guide_Julian_appendix_bg_draft.html" class="lang-btn">БГ</a> <a href="health_guide_Julian_appendix_ja_draft.html" class="lang-btn">日本語</a></div>
+    </aside>
+    <div class="cover">
+      <p class="cover-eyebrow">パーソナルゲノムレポート</p>
+      <h1>松下・ジュリアン</h1>
+      <p class="cover-sub">保護者向け付録 ― 成人期に発症する形質</p>
+      <div class="cover-stats">
+        <div class="cs"><span class="cs-val">36</span><span class="cs-lbl">分析した形質数</span></div>
+        <div class="cs"><span class="cs-val" style="color:#f87171">1</span><span class="cs-lbl">上昇シグナル数</span></div>
+        <div class="cs"><span class="cs-val" style="color:#86efac">2</span><span class="cs-lbl">良好シグナル数</span></div>
+        <div class="cs"><span class="cs-val">2026年11月22日</span><span class="cs-lbl">作成日</span></div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="main-inner">
+        <div class="disclaimer"><strong>情報源：</strong>ヨーロッパ系を対象としたGWAS Catalogのスコア。トスカーナ型の父親（1000 Genomes TSI、IBSで確認）と日本人の母親（JPT）から期待される分布を基準に中心化し、手作業で確認したマーカーを加えています。ジェノタイプはMyHeritageの低カバレッジシーケンスファイル（インピュテーション済み。臨床グレードではありません）によるものです。スコアは順位付けであり、リスクそのものではありません。X染色体は日本人側からの1コピーとして評価しています。<br><strong>重要：</strong>このガイドは個人的な学習目的のみを意図したものであり、医学的な診断ではありません。このページを理由に薬を変更することは、決してしないでください。作成日：2026年11月22日。</div>
+        <section class="report-section" id="s_synthesis">
+          <h2 class="section-heading">概要</h2>
+          <div class="narrative-body">
+            <h2>保護者向け付録 ― 成人期に発症する形質</h2>
+            <p><strong>ジュリアンの保護者の方へ。</strong>ジュリアンは12歳です。この付録には、主に成人期に現れる状態のスコアを載せています。小児遺伝学の一般的な助言では、子ども時代に役立つ場合を除き、成人期に発症する状態の検査は勧められていません。この情報は一般向けのファイルに基づくもので、臨床検査ではありません。ジュリアンが何をいつ知るかを、保護者の方が決められるように提供しています。</p>
+            <p>すべてのポリジェニックスコアは、<strong>トスカーナ型（イタリア系）の父親と日本人の母親を持つ子どもに期待される分布を基準に中心化</strong>されています。ジュリアンのルーツは半分が日本、半分がブルガリアだからです。各バリアントの期待用量は、父方側の頻度と日本人の頻度の和とし、X染色体は日本人側のみで数えています。ゼロはその親の組み合わせとして典型的であることを意味し、スコアは順位付けであって、リスクそのものではありません。効果量はヨーロッパ系を対象とした研究に基づくため、ゲノムの日本由来の半分については精度が下がります。鎖の向きは確認可能なすべての遺伝子座で検証しており（2,036件中2,036件が一致）、ファイルはミンコとアイを両親とすることと整合しています（メンデル遺伝の矛盾は0.3%で、ジェノタイピングの通常のノイズの範囲内。X染色体はアイ由来）。</p>
+            <p>期待より高いシグナルは2つあります。<strong>パーキンソン病</strong>（幅広く頑健ですが、絶対的な大きさは小さい）と、より穏やかですが<strong>多発性硬化症</strong>および<strong>乳がん</strong>です。うつ病と脳卒中のスコアは期待より低めです。いずれも、ジュリアンがその状態になる、またはならないと言っているわけではありません。APOE（アルツハイマー病）はこのチップでは評価できませんでした。<a href="health_guide_Julian_ja_draft.html">ジュリアンの本編ガイド</a>に戻る。</p>
+          </div>
+        </section>
+        <section class="report-section" id="s_appearance">
+          <h2 class="section-heading">身体的特徴</h2>
+          <div class="trait-row" id="n_alopecia">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">男性型脱毛症</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -1.04、15パーセンタイル、8遺伝子座（ジュリアンは7個のリスクアレルを持ち、期待値は約8個です）。最も強い遺伝子座を除くとスコアはz -0.47です。イベリア系の父方頻度を使っても同じ区分になります（z -1.03）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>男性型脱毛症</span><span>z -1.04 &middot; 15パーセンタイル &middot; 8遺伝子座 &middot; IBSでの確認 z -1.03</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:42.2%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z -0.47"></span><span class="zstrip-dot" style="left:32.7%;background:var(--blue)" title="z -1.04"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中0個持っています（OR 1.60）。頻度は父方側の基準集団で0.45、日本人で0.26です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC01432</span><span class="marker-tag-rsid">rs6047844</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中0個持っています（OR 1.29）。頻度は父方側の基準集団で0.43、日本人で0.42です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">HDAC9</span><span class="marker-tag-rsid">rs2073963</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中1個持っています（OR 1.33）。頻度は父方側の基準集団で0.71、日本人で0.75です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CIROZ</span><span class="marker-tag-rsid">rs12565727</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中0個持っています（OR 1.27）。頻度は父方側の基準集団で0.47、日本人で0.02です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RNU6-832P - MTCO2P25</span><span class="marker-tag-rsid">rs6945541</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Cアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中2個持っています（OR 1.33）。頻度は父方側の基準集団で0.64、日本人で1.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MAPT-AS1, SPPL2C</span><span class="marker-tag-rsid">rs12373124</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>8つの遺伝子座で、典型よりやや低めのスコアですが、区分の基準には達しません。薄毛が問題になるのは成人後です。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：男性型脱毛症（8遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_cardio">
+          <h2 class="section-heading">心血管の健康</h2>
+          <div class="trait-row" id="n_cad">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">冠動脈疾患</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -0.89、19パーセンタイル、83遺伝子座（ジュリアンは73個のリスクアレルを持ち、期待値は約77個です）。最も強い遺伝子座を除くとスコアはz -0.57です。イベリア系の父方頻度を使っても同じ区分になります（z -0.79）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>冠動脈疾患</span><span>z -0.89 &middot; 19パーセンタイル &middot; 83遺伝子座 &middot; IBSでの確認 z -0.79</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:40.5%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z -0.57"></span><span class="zstrip-dot" style="left:35.2%;background:var(--blue)" title="z -0.89"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中1個持っています（OR 1.62）。頻度は父方側の基準集団で0.64、日本人で0.81です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LRP1</span><span class="marker-tag-rsid">rs11172113</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中1個持っています（OR 1.17）。頻度は父方側の基準集団で0.87、日本人で0.99です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PLPP3</span><span class="marker-tag-rsid">rs17114036</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中2個持っています（OR 1.07）。頻度は父方側の基準集団で0.11、日本人で0.36です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">APOA5</span><span class="marker-tag-rsid">rs662799</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中1個持っています（OR 1.12）。頻度は父方側の基準集団で0.15、日本人で0.09です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MRAS</span><span class="marker-tag-rsid">rs2306374</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Cアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中0個持っています（OR 1.06）。頻度は父方側の基準集団で0.63、日本人で0.74です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RASGEF1B</span><span class="marker-tag-rsid">rs11099493</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型よりやや低めのスコアです。成人期の心臓病のリスクは、主に血圧、脂質、喫煙、体重、活動量によるもので、これらは子ども時代から整えていくことができます。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：冠動脈疾患（83遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_af">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">心房細動</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.19、57パーセンタイル、75遺伝子座（ジュリアンは65個のリスクアレルを持ち、期待値は約64個です）。最も強い遺伝子座を除くとスコアはz -0.10です。イベリア系の父方頻度を使っても同じ区分になります（z +0.10）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>心房細動</span><span>z +0.19 &middot; 57パーセンタイル &middot; 75遺伝子座 &middot; IBSでの確認 z +0.10</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:48.3%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z -0.10"></span><span class="zstrip-dot" style="left:53.2%;background:var(--blue)" title="z +0.19"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルGを2個中1個持っています（OR 1.19）。頻度は父方側の基準集団で0.16、日本人で0.12です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">HCN4</span><span class="marker-tag-rsid">rs7164883</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Gアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中0個持っています（OR 1.52）。頻度は父方側の基準集団で0.28、日本人で0.01です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">KCNN3</span><span class="marker-tag-rsid">rs13376333</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中1個持っています（OR 1.20）。頻度は父方側の基準集団で0.16、日本人で0.25です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ZFHX3</span><span class="marker-tag-rsid">rs2106261</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中2個持っています（OR 1.11）。頻度は父方側の基準集団で0.75、日本人で0.39です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TBX5</span><span class="marker-tag-rsid">rs883079</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中0個持っています（OR 1.07）。頻度は父方側の基準集団で0.52、日本人で0.79です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SPATS2L</span><span class="marker-tag-rsid">rs295114</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Cアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型的な範囲です。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：心房細動（75遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_stroke">
+            <div class="trait-spine" style="color:var(--risk-favourable)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">低めのシグナル</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">脳卒中</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -1.10、14パーセンタイル、15遺伝子座（ジュリアンは5個のリスクアレルを持ち、期待値は約10個です）。最も強い遺伝子座を除くとスコアはz -0.80です。イベリア系の父方頻度を使っても同じ区分になります（z -1.08）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>脳卒中</span><span>z -1.10 &middot; 14パーセンタイル &middot; 15遺伝子座 &middot; IBSでの確認 z -1.08</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:36.7%;color:var(--risk-favourable)" title="最も強い遺伝子座を除いた場合: z -0.80"></span><span class="zstrip-dot" style="left:31.7%;background:var(--risk-favourable)" title="z -1.10"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルAを2個中0個持っています（OR 1.26）。頻度は父方側の基準集団で0.26、日本人で0.33です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">NINJ2-AS1 - LINC02455</span><span class="marker-tag-rsid">rs12425791</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中0個持っています（OR 1.17）。頻度は父方側の基準集団で0.15、日本人で0.61です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ZFHX3</span><span class="marker-tag-rsid">rs7193343</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中1個持っています（OR 1.37）。頻度は父方側の基準集団で0.16、日本人で0.47です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC01438</span><span class="marker-tag-rsid">rs2200733</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルGを2個中0個持っています（OR 1.08）。頻度は父方側の基準集団で0.43、日本人で0.63です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LRRTM4</span><span class="marker-tag-rsid">rs1922809</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中2個持っています（OR 1.09）。頻度は父方側の基準集団で0.48、日本人で0.66です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">FGG - LRAT</span><span class="marker-tag-rsid">rs6536024</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Cアレルを2つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>期待より低いスコアですが、脳卒中のリスクは、人生の後半の血圧と生活習慣に圧倒的に左右されます。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：脳卒中（15遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_vte">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">静脈血栓塞栓症</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -0.27、39パーセンタイル、12遺伝子座（ジュリアンは7個のリスクアレルを持ち、期待値は約6個です）。最も強い遺伝子座を除くとスコアはz +0.46です。イベリア系の父方頻度を使っても同じ区分になります（z -0.21）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>静脈血栓塞栓症</span><span>z -0.27 &middot; 39パーセンタイル &middot; 12遺伝子座 &middot; IBSでの確認 z -0.21</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:57.7%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z +0.46"></span><span class="zstrip-dot" style="left:45.5%;background:var(--blue)" title="z -0.27"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルAを2個中0個持っています（OR 1.34）。頻度は父方側の基準集団で0.38、日本人で0.42です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ABO</span><span class="marker-tag-rsid">rs687289</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中2個持っています（OR 1.12）。頻度は父方側の基準集団で0.71、日本人で0.68です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SLC44A2</span><span class="marker-tag-rsid">rs2288904</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中1個持っています（OR 1.22）。頻度は父方側の基準集団で0.21、日本人で0.48です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">FGA - FGG</span><span class="marker-tag-rsid">rs2066865</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中1個持っています（OR 1.19）。頻度は父方側の基準集団で0.41、日本人で0.29です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">F11, F11-AS1</span><span class="marker-tag-rsid">rs2289252</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを1個中1個持っています（OR 1.06）。頻度は父方側の基準集団で0.39、日本人で0.27です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MIR1587 - RPS11P7</span><span class="marker-tag-rsid">rs3002417</span><span class="marker-tag-geno">1個中1個</span><span class="marker-tag-weight">Tアレルを持つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型的です。主な凝固関連のバリアント（第V因子ライデン、プロトロンビン）はここではスコアに含めていません。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：静脈血栓塞栓症（12遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_htn">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">限定的なカバレッジ</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">高血圧</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -0.06、48パーセンタイル、3遺伝子座（ジュリアンは0個のリスクアレルを持ち、期待値は約1個です）。最も強い遺伝子座を除くとスコアはz +0.83です。遺伝子座が非常に少ないため、参考として示すにとどめます。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>高血圧</span><span>z -0.06 &middot; 48パーセンタイル &middot; 3遺伝子座 &middot; IBSでの確認 z -0.11</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:63.8%;color:var(--ink-3)" title="最も強い遺伝子座を除いた場合: z +0.83"></span><span class="zstrip-dot" style="left:49.0%;background:var(--ink-3)" title="z -0.06"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中0個持っています（OR 1.09）。頻度は父方側の基準集団で0.26、日本人で0.29です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PRDM8 - FGF5</span><span class="marker-tag-rsid">rs16998073</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中0個持っています（OR 0.95）。頻度は父方側の基準集団で0.26、日本人で0.24です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ABO - Y_RNA</span><span class="marker-tag-rsid">rs495828</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中0個持っています（OR 0.90）。頻度は父方側の基準集団で0.08、日本人で0.09です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PLEKHG1</span><span class="marker-tag-rsid">rs17080093</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>カバーされている遺伝子座は3つだけなので、区分は付けていません。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：高血圧（3遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_hf">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">限定的なカバレッジ</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">心不全</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.55、71パーセンタイル、1遺伝子座（ジュリアンは2個のリスクアレルを持ち、期待値は約2個です）。遺伝子座が少なすぎるため、区分は付けていません。遺伝子座が非常に少ないため、参考として示すにとどめます。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>心不全</span><span>z +0.55 &middot; 71パーセンタイル &middot; 1遺伝子座 &middot; IBSでの確認 z +0.54</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-dot" style="left:59.2%;background:var(--ink-3)" title="z +0.55"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルCを2個中2個持っています（OR 1.06）。頻度は父方側の基準集団で0.81、日本人で0.93です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CELSR2</span><span class="marker-tag-rsid">rs660240</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Cアレルを2つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>遺伝子座は1つだけです。参考として示しています。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：心不全（1遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_metabolic">
+          <h2 class="section-heading">代謝の健康</h2>
+          <div class="trait-row" id="n_t2d">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">2型糖尿病</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -0.31、38パーセンタイル、129遺伝子座（ジュリアンは130個のリスクアレルを持ち、期待値は約131個です）。最も強い遺伝子座を除くとスコアはz -0.72です。イベリア系の父方頻度を使っても同じ区分になります（z -0.33）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>2型糖尿病</span><span>z -0.31 &middot; 38パーセンタイル &middot; 129遺伝子座 &middot; IBSでの確認 z -0.33</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:38.0%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z -0.72"></span><span class="zstrip-dot" style="left:44.8%;background:var(--blue)" title="z -0.31"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中1個持っています（OR 1.37）。頻度は父方側の基準集団で0.37、日本人で0.03です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TCF7L2</span><span class="marker-tag-rsid">rs7903146</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを1個中0個持っています（OR 1.27）。頻度は父方側の基準集団で0.76、日本人で0.65です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MRFAP1P1 - DUSP9</span><span class="marker-tag-rsid">rs5945326</span><span class="marker-tag-geno">1個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中1個持っています（OR 1.14）。頻度は父方側の基準集団で0.91、日本人で0.96です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ARAP1</span><span class="marker-tag-rsid">rs1552224</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルGを2個中0個持っています（OR 1.15）。頻度は父方側の基準集団で0.23、日本人で0.47です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CDKAL1</span><span class="marker-tag-rsid">rs7756992</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中0個持っています（OR 1.11）。頻度は父方側の基準集団で0.59、日本人で0.33です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">HHEX - Y_RNA</span><span class="marker-tag-rsid">rs1111875</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Cアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型的なスコアです。2型糖尿病は、これらのバリアントよりも、体重、活動量、食事に大きく左右されます。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：2型糖尿病（129遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_gout">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">痛風</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -0.78、22パーセンタイル、64遺伝子座（ジュリアンは55個のリスクアレルを持ち、期待値は約54個です）。最も強い遺伝子座を除くとスコアはz -0.06です。イベリア系の父方頻度を使っても同じ区分になります（z -0.77）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>痛風</span><span>z -0.78 &middot; 22パーセンタイル &middot; 64遺伝子座 &middot; IBSでの確認 z -0.77</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:49.0%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z -0.06"></span><span class="zstrip-dot" style="left:37.0%;background:var(--blue)" title="z -0.78"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中0個持っています（OR 1.75）。頻度は父方側の基準集団で0.05、日本人で0.73です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ADH1B</span><span class="marker-tag-rsid">rs1229984</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中0個持っています（OR 0.71）。頻度は父方側の基準集団で0.33、日本人で0.48です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SLC2A9</span><span class="marker-tag-rsid">rs4697701</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中0個持っています（OR 1.88）。頻度は父方側の基準集団で0.06、日本人で0.32です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ABCG2</span><span class="marker-tag-rsid">rs2231142</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中1個持っています（OR 1.28）。頻度は父方側の基準集団で0.50、日本人で0.98です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SLC22A11</span><span class="marker-tag-rsid">rs2078267</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Cアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中2個持っています（OR 1.17）。頻度は父方側の基準集団で0.28、日本人で1.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RREB1</span><span class="marker-tag-rsid">rs11755724</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Aアレルを2つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型的で、やや低めに傾いています。ADH1B rs1229984はCCです。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：痛風（64遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_ckd">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">限定的なカバレッジ</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">慢性腎臓病</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -0.66、25パーセンタイル、7遺伝子座（ジュリアンは6個のリスクアレルを持ち、期待値は約7個です）。最も強い遺伝子座を除くとスコアはz -0.06です。遺伝子座が非常に少ないため、参考として示すにとどめます。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>慢性腎臓病</span><span>z -0.66 &middot; 25パーセンタイル &middot; 7遺伝子座 &middot; IBSでの確認 z -0.59</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:49.0%;color:var(--ink-3)" title="最も強い遺伝子座を除いた場合: z -0.06"></span><span class="zstrip-dot" style="left:39.0%;background:var(--ink-3)" title="z -0.66"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルGを2個中0個持っています（OR 1.55）。頻度は父方側の基準集団で0.06、日本人で0.32です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ABCG2</span><span class="marker-tag-rsid">rs4148155</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中0個持っています（OR 1.16）。頻度は父方側の基準集団で0.34、日本人で0.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PRKAG2</span><span class="marker-tag-rsid">rs7805747</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中2個持っています（OR 1.08）。頻度は父方側の基準集団で0.83、日本人で0.62です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">WDR72</span><span class="marker-tag-rsid">rs17730281</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルGを2個中2個持っています（OR 1.25）。頻度は父方側の基準集団で0.84、日本人で1.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">UMOD</span><span class="marker-tag-rsid">rs12917707</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中1個持っています（OR 1.07）。頻度は父方側の基準集団で0.45、日本人で0.97です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">GATM</span><span class="marker-tag-rsid">rs1145077</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>遺伝子座は7つだけなので、区分は付けていません。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：慢性腎臓病（7遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_nafld">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">限定的なカバレッジ</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">脂肪肝</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.05、52パーセンタイル、3遺伝子座（ジュリアンは3個のリスクアレルを持ち、期待値は約3個です）。最も強い遺伝子座を除くとスコアはz -0.35です。遺伝子座が非常に少ないため、参考として示すにとどめます。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>脂肪肝</span><span>z +0.05 &middot; 52パーセンタイル &middot; 3遺伝子座 &middot; IBSでの確認 z +0.12</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:44.2%;color:var(--ink-3)" title="最も強い遺伝子座を除いた場合: z -0.35"></span><span class="zstrip-dot" style="left:50.8%;background:var(--ink-3)" title="z +0.05"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中2個持っています（OR 1.15）。頻度は父方側の基準集団で0.73、日本人で0.83です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MTARC1</span><span class="marker-tag-rsid">rs2642442</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中0個持っています（OR 1.40）。頻度は父方側の基準集団で0.05、日本人で0.07です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TM6SF2</span><span class="marker-tag-rsid">rs58542926</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルCを2個中1個持っています（OR 0.87）。頻度は父方側の基準集団で0.49、日本人で0.42です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">GCKR</span><span class="marker-tag-rsid">rs1260326</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Cアレルを1つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>遺伝子座は3つだけなので、区分は付けていません。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：脂肪肝（3遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_gall">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">胆石</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.63、74パーセンタイル、11遺伝子座（ジュリアンは7個のリスクアレルを持ち、期待値は約8個です）。最も強い遺伝子座を除くとスコアはz +0.23です。イベリア系の父方頻度を使っても同じ区分になります（z +0.59）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>胆石</span><span>z +0.63 &middot; 74パーセンタイル &middot; 11遺伝子座 &middot; IBSでの確認 z +0.59</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:53.8%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z +0.23"></span><span class="zstrip-dot" style="left:60.5%;background:var(--blue)" title="z +0.63"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中2個持っています（OR 1.28）。頻度は父方側の基準集団で0.68、日本人で1.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ABCG8</span><span class="marker-tag-rsid">rs4245791</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中1個持っています（OR 0.95）。頻度は父方側の基準集団で0.86、日本人で0.94です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">NUP153</span><span class="marker-tag-rsid">rs2228375</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルCを2個中0個持っています（OR 1.11）。頻度は父方側の基準集団で0.28、日本人で0.08です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MARCHF8</span><span class="marker-tag-rsid">rs970548</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Cアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中1個持っています（OR 1.07）。頻度は父方側の基準集団で0.27、日本人で0.18です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">UGT1A10, UGT1A4, UGT1A</span><span class="marker-tag-rsid">rs4148325</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中1個持っています（OR 0.94）。頻度は父方側の基準集団で0.79、日本人で0.79です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">KDELR2, DAGLB</span><span class="marker-tag-rsid">rs3828944</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Cアレルを1つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>遺伝子座は11個で、典型的な範囲です。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：胆石（11遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_osteo">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">限定的なカバレッジ</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">骨粗しょう症</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.76、77パーセンタイル、1遺伝子座（ジュリアンは0個のリスクアレルを持ち、期待値は約0個です）。遺伝子座が少なすぎるため、区分は付けていません。遺伝子座が非常に少ないため、参考として示すにとどめます。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>骨粗しょう症</span><span>z +0.76 &middot; 77パーセンタイル &middot; 1遺伝子座 &middot; IBSでの確認 z +0.74</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-dot" style="left:62.7%;background:var(--ink-3)" title="z +0.76"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルGを2個中0個持っています（OR 0.87）。頻度は父方側の基準集団で0.30、日本人で0.13です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">WNT16 - FAM3C</span><span class="marker-tag-rsid">rs10242100</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>遺伝子座は1つだけです。参考として示しています。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：骨粗しょう症（1遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_brain">
+          <h2 class="section-heading">脳・認知・神経系の健康</h2>
+          <div class="trait-row" id="n_alz">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">アルツハイマー病</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +1.09、86パーセンタイル、33遺伝子座（ジュリアンは22個のリスクアレルを持ち、期待値は約22個です）。最も強い遺伝子座を除くとスコアはz -0.53です。イベリア系の父方頻度を使っても同じ区分になります（z +1.07）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>アルツハイマー病</span><span>z +1.09 &middot; 86パーセンタイル &middot; 33遺伝子座 &middot; IBSでの確認 z +1.07</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:41.2%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z -0.53"></span><span class="zstrip-dot" style="left:68.2%;background:var(--blue)" title="z +1.09"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルGを2個中1個持っています（OR 2.53）。頻度は父方側の基準集団で0.10、日本人で0.12です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TOMM40</span><span class="marker-tag-rsid">rs2075650</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Gアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中2個持っています（OR 1.32）。頻度は父方側の基準集団で0.84、日本人で0.32です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">KIR3DL2</span><span class="marker-tag-rsid">rs640345</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルCを2個中2個持っています（OR 0.90）。頻度は父方側の基準集団で0.41、日本人で0.24です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CLU</span><span class="marker-tag-rsid">rs9331896</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Cアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中0個持っています（OR 1.17）。頻度は父方側の基準集団で0.42、日本人で0.31です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">BIN1 - NIFKP9</span><span class="marker-tag-rsid">rs6733839</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルGを2個中1個持っています（OR 1.10）。頻度は父方側の基準集団で0.84、日本人で0.96です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SLC24A4</span><span class="marker-tag-rsid">rs10498633</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Gアレルを1つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>このスコアにはAPOEは<em>含まれていません</em>。rs429358はチップにないうえ、rs7412はCCです。最も大きな単一の寄与はTOMM40（rs2075650）というAPOE領域の代理マーカーで、それを除くとスコアは典型より低く（z &minus;0.53）なります。つまり全体のスコアは単一の遺伝子座に左右されており、区分とはしていません。APOEについて詳しく知るかどうかは、成人したジュリアン自身が決めることです。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：アルツハイマー病（33遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。APOEは評価できません（rs429358がありません）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_pd">
+            <div class="trait-spine" style="color:var(--risk-elevated)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">高めのシグナル</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">パーキンソン病</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +2.47、99パーセンタイル、22遺伝子座（ジュリアンは27個のリスクアレルを持ち、期待値は約19個です）。最も強い遺伝子座を除くとスコアはz +2.21です。イベリア系の父方頻度を使っても同じ区分になります（z +2.59）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>パーキンソン病</span><span>z +2.47 &middot; 99パーセンタイル &middot; 22遺伝子座 &middot; IBSでの確認 z +2.59</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:86.8%;color:var(--risk-elevated)" title="最も強い遺伝子座を除いた場合: z +2.21"></span><span class="zstrip-dot" style="left:91.2%;background:var(--risk-elevated)" title="z +2.47"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルCを2個中1個持っています（OR 1.23）。頻度は父方側の基準集団で0.21、日本人で0.14です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TMEM175</span><span class="marker-tag-rsid">rs34311866</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Cアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中2個持っています（OR 1.10）。頻度は父方側の基準集団で0.34、日本人で0.33です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RIT2</span><span class="marker-tag-rsid">rs12456492</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中2個持っています（OR 1.09）。頻度は父方側の基準集団で0.42、日本人で0.17です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SPATA19 - IGSF9B</span><span class="marker-tag-rsid">rs329648</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルGを2個中2個持っています（OR 1.18）。頻度は父方側の基準集団で0.79、日本人で0.46です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MCCC1</span><span class="marker-tag-rsid">rs12637471</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中1個持っています（OR 1.15）。頻度は父方側の基準集団で0.15、日本人で0.02です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LRRK2-DT, LRRK2</span><span class="marker-tag-rsid">rs76904798</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>これは全ガイドの中で最も強いシグナルで、しかも幅広いものです。ジュリアンは期待値約19個に対して27個のリスクアレルを持ち、突出した単一の遺伝子座はありません（最上位を除いてもz +2.21）。先頭はTMEM175（rs34311866）で、そのリスクアレルの頻度はIBS基準（0.14）のほうがTSI（0.21）よりかなり低くなっています。区分は両方で保たれます。LRRK2とGBAのバリアントはチップにありません。スコアが高いことは、絶対的には小さく、人生の後半に現れる傾向が高まることを意味します。運動と頭部外傷を避けることが、最も裏付けのある一般的な対策です（記憶に基づく、未確認）。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：パーキンソン病（22遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_depr">
+            <div class="trait-spine" style="color:var(--risk-favourable)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">低めのシグナル</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">うつ病</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -1.34、9パーセンタイル、12遺伝子座（ジュリアンは7個のリスクアレルを持ち、期待値は約11個です）。最も強い遺伝子座を除くとスコアはz -1.21です。イベリア系の父方頻度を使っても同じ区分になります（z -1.16）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>うつ病</span><span>z -1.34 &middot; 9パーセンタイル &middot; 12遺伝子座 &middot; IBSでの確認 z -1.16</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:29.8%;color:var(--risk-favourable)" title="最も強い遺伝子座を除いた場合: z -1.21"></span><span class="zstrip-dot" style="left:27.7%;background:var(--risk-favourable)" title="z -1.34"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルGを2個中0個持っています（OR 1.16）。頻度は父方側の基準集団で0.13、日本人で0.17です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">C3orf70 - EHHADH-AS1</span><span class="marker-tag-rsid">rs7647854</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルCを2個中0個持っています（OR 1.08）。頻度は父方側の基準集団で0.07、日本人で0.48です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ANK3</span><span class="marker-tag-rsid">rs10994359</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Cアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中0個持っています（OR 1.04）。頻度は父方側の基準集団で0.50、日本人で0.19です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RN7SKP19 - LINC01360</span><span class="marker-tag-rsid">rs12129573</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中1個持っています（OR 1.02）。頻度は父方側の基準集団で0.87、日本人で0.96です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SLC30A9 - BEND4</span><span class="marker-tag-rsid">rs34937911</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中1個持っています（OR 1.03）。頻度は父方側の基準集団で0.65、日本人で0.93です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC02796</span><span class="marker-tag-rsid">rs2568958</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>期待より低いスコアですが、うつ病は、これらのバリアントよりも、人生の出来事、健康状態、環境に大きく左右され、そのポリジェニックスコアも弱いものです。どのスコアもジュリアンの自己認識を左右しないよう、付録に置いています。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：うつ病（12遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_bipolar">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">双極性障害</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -0.26、40パーセンタイル、19遺伝子座（ジュリアンは17個のリスクアレルを持ち、期待値は約18個です）。最も強い遺伝子座を除くとスコアはz -0.75です。イベリア系の父方頻度を使っても同じ区分になります（z -0.30）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>双極性障害</span><span>z -0.26 &middot; 40パーセンタイル &middot; 19遺伝子座 &middot; IBSでの確認 z -0.30</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:37.5%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z -0.75"></span><span class="zstrip-dot" style="left:45.7%;background:var(--blue)" title="z -0.26"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中0個持っています（OR 0.90）。頻度は父方側の基準集団で0.50、日本人で0.34です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">HSPD1P6 - LINC02033</span><span class="marker-tag-rsid">rs9834970</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中2個持っています（OR 0.92）。頻度は父方側の基準集団で0.49、日本人で0.65です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MIR2113 - EIF4EBP2P3</span><span class="marker-tag-rsid">rs12202969</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中2個持っています（OR 1.05）。頻度は父方側の基準集団で0.53、日本人で0.17です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MCHR1 - SLC25A17</span><span class="marker-tag-rsid">rs5758064</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中2個持っています（OR 0.89）。頻度は父方側の基準集団で0.92、日本人で0.54です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ANK3</span><span class="marker-tag-rsid">rs10994415</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルGを2個中0個持っています（OR 1.06）。頻度は父方側の基準集団で0.46、日本人で0.52です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">FURIN</span><span class="marker-tag-rsid">rs4702</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>スコアは典型的です。精神疾患のポリジェニックスコアは個人についてほとんど予測できないため、付録に置いています。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：双極性障害（19遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_schiz">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">統合失調症</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.37、64パーセンタイル、112遺伝子座（ジュリアンは109個のリスクアレルを持ち、期待値は約112個です）。最も強い遺伝子座を除くとスコアはz +0.11です。イベリア系の父方頻度を使っても同じ区分になります（z +0.24）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>統合失調症</span><span>z +0.37 &middot; 64パーセンタイル &middot; 112遺伝子座 &middot; IBSでの確認 z +0.24</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:51.8%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z +0.11"></span><span class="zstrip-dot" style="left:56.2%;background:var(--blue)" title="z +0.37"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中2個持っています（OR 1.09）。頻度は父方側の基準集団で0.33、日本人で0.31です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MAU2 - GATAD2A</span><span class="marker-tag-rsid">rs2905424</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルCを2個中0個持っています（OR 1.07）。頻度は父方側の基準集団で0.70、日本人で0.70です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PCGEM1 - SLC44A3P1</span><span class="marker-tag-rsid">rs59979824</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Cアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中0個持っています（OR 1.07）。頻度は父方側の基準集団で0.46、日本人で0.84です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PLCH2</span><span class="marker-tag-rsid">rs4648845</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中0個持っています（OR 1.06）。頻度は父方側の基準集団で0.67、日本人で0.81です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TMTC1</span><span class="marker-tag-rsid">rs679087</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Cアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中0個持っています（OR 1.09）。頻度は父方側の基準集団で0.59、日本人で0.46です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MAD1L1</span><span class="marker-tag-rsid">rs58120505</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>スコアは典型的です。他の精神疾患のスコアと同様、弱い順位付けであり、特定の個人については何も言えません。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：統合失調症（112遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_rls">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">限定的なカバレッジ</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">むずむず脚症候群</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.10、54パーセンタイル、3遺伝子座（ジュリアンは2個のリスクアレルを持ち、期待値は約2個です）。最も強い遺伝子座を除くとスコアはz -0.50です。遺伝子座が非常に少ないため、参考として示すにとどめます。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>むずむず脚症候群</span><span>z +0.10 &middot; 54パーセンタイル &middot; 3遺伝子座 &middot; IBSでの確認 z +0.19</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:41.7%;color:var(--ink-3)" title="最も強い遺伝子座を除いた場合: z -0.50"></span><span class="zstrip-dot" style="left:51.7%;background:var(--ink-3)" title="z +0.10"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルGを2個中1個持っています（OR 1.60）。頻度は父方側の基準集団で0.29、日本人で0.26です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MEIS1</span><span class="marker-tag-rsid">rs2300478</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Gアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中0個持っています（OR 1.31）。頻度は父方側の基準集団で0.21、日本人で0.33です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PTPRD</span><span class="marker-tag-rsid">rs1975197</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中1個持っています（OR 1.55）。頻度は父方側の基準集団で0.70、日本人で0.35です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">BTBD9</span><span class="marker-tag-rsid">rs3923809</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>カバーされている遺伝子座は3つだけなので、区分は付けられません。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：むずむず脚症候群（3遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_eye">
+          <h2 class="section-heading">目の健康</h2>
+          <div class="trait-row" id="n_amd">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">加齢黄斑変性</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.24、60パーセンタイル、16遺伝子座（ジュリアンは18個のリスクアレルを持ち、期待値は約15個です）。最も強い遺伝子座を除くとスコアはz +1.45です。イベリア系の父方頻度を使っても同じ区分になります（z +0.21）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>加齢黄斑変性</span><span>z +0.24 &middot; 60パーセンタイル &middot; 16遺伝子座 &middot; IBSでの確認 z +0.21</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:74.2%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z +1.45"></span><span class="zstrip-dot" style="left:54.0%;background:var(--blue)" title="z +0.24"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルGを2個中0個持っています（OR 3.40）。頻度は父方側の基準集団で0.17、日本人で0.41です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">HTRA1-AS1, HTRA1</span><span class="marker-tag-rsid">rs3793917</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中2個持っています（OR 2.08）。頻度は父方側の基準集団で0.75、日本人で0.59です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CFH</span><span class="marker-tag-rsid">rs800292</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中2個持っています（OR 1.67）。頻度は父方側の基準集団で0.88、日本人で0.36です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CFHR5</span><span class="marker-tag-rsid">rs12116643</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中1個持っています（OR 1.30）。頻度は父方側の基準集団で0.84、日本人で0.91です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">APOC1</span><span class="marker-tag-rsid">rs4420638</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中0個持っています（OR 1.15）。頻度は父方側の基準集団で0.57、日本人で0.40です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TNFRSF10A-DT</span><span class="marker-tag-rsid">rs13278062</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>スコアは典型的に見えますが、1つのバリアント（HTRA1 rs3793917）で押し下げられています。ジュリアンはこのリスクアレルを1コピーも持っていません。このアレルは日本人側（0.41）のほうがトスカーナ系（0.17）よりずっと多いため、期待される個数が高くなります。この遺伝子座を除くとスコアはz +1.45です。人生の後半に心に留めておく傾向として受け止めてください。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：加齢黄斑変性（16遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_glaucoma">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">緑内障</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.16、56パーセンタイル、21遺伝子座（ジュリアンは22個のリスクアレルを持ち、期待値は約20個です）。最も強い遺伝子座を除くとスコアはz -0.32です。イベリア系の父方頻度を使っても同じ区分になります（z +0.17）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>緑内障</span><span>z +0.16 &middot; 56パーセンタイル &middot; 21遺伝子座 &middot; IBSでの確認 z +0.17</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:44.7%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z -0.32"></span><span class="zstrip-dot" style="left:52.7%;background:var(--blue)" title="z +0.16"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルCを2個中2個持っています（OR 1.20）。頻度は父方側の基準集団で0.23、日本人で0.43です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PLEKHA7</span><span class="marker-tag-rsid">rs11024102</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Cアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中1個持っています（OR 1.48）。頻度は父方側の基準集団で0.67、日本人で0.78です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CDKN2B-AS1</span><span class="marker-tag-rsid">rs4977756</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中0個持っています（OR 1.19）。頻度は父方側の基準集団で0.36、日本人で0.55です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ABCA1 - CT70</span><span class="marker-tag-rsid">rs2472493</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中1個持っています（OR 1.31）。頻度は父方側の基準集団で0.58、日本人で1.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">HERC2</span><span class="marker-tag-rsid">rs12913832</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルGを2個中2個持っています（OR 1.15）。頻度は父方側の基準集団で0.70、日本人で0.22です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">DPM2 - EEIG1</span><span class="marker-tag-rsid">rs3739821</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型的な範囲です。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：緑内障（21遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_cancer">
+          <h2 class="section-heading">がんリスク</h2>
+          <div class="trait-row" id="n_breast">
+            <div class="trait-spine" style="color:var(--risk-moderate)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">中程度のスコア</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">乳がん（男性・女性）</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +1.06、86パーセンタイル、116遺伝子座（ジュリアンは115個のリスクアレルを持ち、期待値は約107個です）。最も強い遺伝子座を除くとスコアはz +0.62です。イベリア系の父方頻度を使っても同じ区分になります（z +1.11）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>乳がん（男性・女性）</span><span>z +1.06 &middot; 86パーセンタイル &middot; 116遺伝子座 &middot; IBSでの確認 z +1.11</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:60.3%;color:var(--risk-moderate)" title="最も強い遺伝子座を除いた場合: z +0.62"></span><span class="zstrip-dot" style="left:67.7%;background:var(--risk-moderate)" title="z +1.06"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中2個持っています（OR 1.16）。頻度は父方側の基準集団で0.32、日本人で0.25です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RALY</span><span class="marker-tag-rsid">rs2284378</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中0個持っています（OR 0.89）。頻度は父方側の基準集団で0.81、日本人で0.57です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MRPS30-DT</span><span class="marker-tag-rsid">rs10941679</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中0個持っています（OR 0.92）。頻度は父方側の基準集団で0.72、日本人で0.97です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CDYL2</span><span class="marker-tag-rsid">rs13329835</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中0個持っています（OR 1.24）。頻度は父方側の基準集団で0.28、日本人で0.24です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CASC16</span><span class="marker-tag-rsid">rs4784227</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中1個持っています（OR 1.18）。頻度は父方側の基準集団で0.25、日本人で0.22です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TERT</span><span class="marker-tag-rsid">rs10069690</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>スコアは中程度で、基準値の近くにあります。乳がんは男性ではまれで、このカードは参考として載せています。BRCA1/2の変異のようなまれな高リスクバリアントは、このチップでは評価できません。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：乳がん（男性・女性）（116遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_prostate">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">前立腺がん</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.48、69パーセンタイル、115遺伝子座（ジュリアンは110個のリスクアレルを持ち、期待値は約109個です）。最も強い遺伝子座を除くとスコアはz +0.28です。イベリア系の父方頻度を使っても同じ区分になります（z +0.43）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>前立腺がん</span><span>z +0.48 &middot; 69パーセンタイル &middot; 115遺伝子座 &middot; IBSでの確認 z +0.43</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:54.7%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z +0.28"></span><span class="zstrip-dot" style="left:58.0%;background:var(--blue)" title="z +0.48"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中1個持っています（OR 1.25）。頻度は父方側の基準集団で0.21、日本人で0.27です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PRNCR1, CASC19, PCAT1</span><span class="marker-tag-rsid">rs1016343</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中2個持っています（OR 1.13）。頻度は父方側の基準集団で0.48、日本人で0.61です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RPS25P10 - BIK</span><span class="marker-tag-rsid">rs5759167</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中1個持っています（OR 1.15）。頻度は父方側の基準集団で0.97、日本人で0.80です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SUN2</span><span class="marker-tag-rsid">rs138708</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Gアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中2個持っています（OR 1.09）。頻度は父方側の基準集団で0.18、日本人で0.65です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">THADA</span><span class="marker-tag-rsid">rs1465618</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中0個持っています（OR 1.08）。頻度は父方側の基準集団で0.59、日本人で0.60です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">VAMP8</span><span class="marker-tag-rsid">rs10187424</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型的なスコアです。前立腺がんが問題になるのは、成人後期になってからです。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：前立腺がん（115遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_crc">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">大腸がん</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.75、77パーセンタイル、44遺伝子座（ジュリアンは44個のリスクアレルを持ち、期待値は約42個です）。最も強い遺伝子座を除くとスコアはz +0.21です。イベリア系の父方頻度を使っても同じ区分になります（z +0.89）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>大腸がん</span><span>z +0.75 &middot; 77パーセンタイル &middot; 44遺伝子座 &middot; IBSでの確認 z +0.89</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:53.5%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z +0.21"></span><span class="zstrip-dot" style="left:62.5%;background:var(--blue)" title="z +0.75"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルCを2個中1個持っています（OR 1.26）。頻度は父方側の基準集団で0.08、日本人で0.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC00536 - EIF3H</span><span class="marker-tag-rsid">rs16892766</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Cアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルCを2個中2個持っています（OR 1.11）。頻度は父方側の基準集団で0.55、日本人で0.58です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">DDHD1-DT - MIR5580</span><span class="marker-tag-rsid">rs4444235</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Cアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中2個持っています（OR 1.08）。頻度は父方側の基準集団で0.51、日本人で0.42です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ZMIZ1-AS1</span><span class="marker-tag-rsid">rs704017</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中1個持っています（OR 1.11）。頻度は父方側の基準集団で0.25、日本人で0.04です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RNU1-150P - TTC33</span><span class="marker-tag-rsid">rs1445011</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Cアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中0個持っています（OR 1.14）。頻度は父方側の基準集団で0.37、日本人で0.16です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LIMA1</span><span class="marker-tag-rsid">rs34245511</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Cアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型的で、やや高めに傾いています。スクリーニングの判断は、このスコアではなく、年齢と家族歴によって行われます。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：大腸がん（44遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_lung">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">肺がん</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.20、58パーセンタイル、13遺伝子座（ジュリアンは9個のリスクアレルを持ち、期待値は約8個です）。最も強い遺伝子座を除くとスコアはz -0.38です。イベリア系の父方頻度を使っても同じ区分になります（z +0.05）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>肺がん</span><span>z +0.20 &middot; 58パーセンタイル &middot; 13遺伝子座 &middot; IBSでの確認 z +0.05</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:43.7%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z -0.38"></span><span class="zstrip-dot" style="left:53.3%;background:var(--blue)" title="z +0.20"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルAを2個中1個持っています（OR 1.26）。頻度は父方側の基準集団で0.39、日本人で0.02です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PSMA4 - CHRNA5</span><span class="marker-tag-rsid">rs2036527</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中2個持っています（OR 0.89）。頻度は父方側の基準集団で0.42、日本人で0.68です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CYP2A6</span><span class="marker-tag-rsid">rs56113850</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中1個持っています（OR 0.84）。頻度は父方側の基準集団で0.58、日本人で0.73です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TERT</span><span class="marker-tag-rsid">rs2853677</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中0個持っています（OR 1.16）。頻度は父方側の基準集団で0.04、日本人で0.28です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">VTI1A</span><span class="marker-tag-rsid">rs11196088</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中0個持っています（OR 0.95）。頻度は父方側の基準集団で0.45、日本人で0.34です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">JADE2</span><span class="marker-tag-rsid">rs329122</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型的な範囲です。たばこを避けることは、どの遺伝的バリアントよりもはるかに重要です。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：肺がん（13遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_melanoma">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">メラノーマ</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.40、65パーセンタイル、27遺伝子座（ジュリアンは24個のリスクアレルを持ち、期待値は約21個です）。最も強い遺伝子座を除くとスコアはz +0.02です。イベリア系の父方頻度を使っても同じ区分になります（z +0.46）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>メラノーマ</span><span>z +0.40 &middot; 65パーセンタイル &middot; 27遺伝子座 &middot; IBSでの確認 z +0.46</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:50.3%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z +0.02"></span><span class="zstrip-dot" style="left:56.7%;background:var(--blue)" title="z +0.40"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルTを2個中2個持っています（OR 1.15）。頻度は父方側の基準集団で0.46、日本人で0.33です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CTXND2</span><span class="marker-tag-rsid">rs7412746</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Tアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中1個持っています（OR 1.17）。頻度は父方側の基準集団で0.11、日本人で0.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">STN1 - SLK</span><span class="marker-tag-rsid">rs7902587</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中2個持っています（OR 1.12）。頻度は父方側の基準集団で0.42、日本人で0.39です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC01488 - PNCRNA-D</span><span class="marker-tag-rsid">rs498136</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Aアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中2個持っています（OR 1.09）。頻度は父方側の基準集団で0.32、日本人で0.37です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TERT</span><span class="marker-tag-rsid">rs7705526</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Aアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中0個持っています（OR 1.13）。頻度は父方側の基準集団で0.24、日本人で0.63です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC01505</span><span class="marker-tag-rsid">rs10739221</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>スコアは典型的です。日焼け止めなどの紫外線対策はどの子どもにも妥当です。本編ガイドの色素沈着のカードには、色の予測ではなく、ジュリアンの遺伝子型を示しています。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：メラノーマ（27遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_gastric">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">限定的なカバレッジ</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">胃がん</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.64、74パーセンタイル、1遺伝子座（ジュリアンは2個のリスクアレルを持ち、期待値は約2個です）。遺伝子座が少なすぎるため、区分は付けていません。遺伝子座が非常に少ないため、参考として示すにとどめます。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>胃がん</span><span>z +0.64 &middot; 74パーセンタイル &middot; 1遺伝子座 &middot; IBSでの確認 z +0.65</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-dot" style="left:60.7%;background:var(--ink-3)" title="z +0.64"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルCを2個中2個持っています（OR 1.44）。頻度は父方側の基準集団で0.88、日本人で0.79です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">HNF1B</span><span class="marker-tag-rsid">rs17138478</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Cアレルを2つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>遺伝子座は1つだけです。参考として示しています。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：胃がん（1遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_thyroid">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">限定的なカバレッジ</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">甲状腺がん</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +2.22、99パーセンタイル、6遺伝子座（ジュリアンは6個のリスクアレルを持ち、期待値は約3個です）。最も強い遺伝子座を除くとスコアはz +1.93です。遺伝子座が非常に少ないため、参考として示すにとどめます。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>甲状腺がん</span><span>z +2.22 &middot; 99パーセンタイル &middot; 6遺伝子座 &middot; IBSでの確認 z +2.46</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:82.2%;color:var(--ink-3)" title="最も強い遺伝子座を除いた場合: z +1.93"></span><span class="zstrip-dot" style="left:87.0%;background:var(--ink-3)" title="z +2.22"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルAを2個中1個持っています（OR 1.75）。頻度は父方側の基準集団で0.34、日本人で0.05です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PTCSC2</span><span class="marker-tag-rsid">rs965513</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中1個持っています（OR 1.41）。頻度は父方側の基準集団で0.11、日本人で0.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">STN1 - SLK</span><span class="marker-tag-rsid">rs7902587</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルCを2個中2個持っています（OR 1.34）。頻度は父方側の基準集団で0.40、日本人で0.70です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">DIRC3</span><span class="marker-tag-rsid">rs966423</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Cアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中1個持っています（OR 1.23）。頻度は父方側の基準集団で0.34、日本人で0.26です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MAFTRR, LINC01229</span><span class="marker-tag-rsid">rs17767383</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルTを2個中0個持っています（OR 1.81）。頻度は父方側の基準集団で0.05、日本人で0.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC00609 - MBIP</span><span class="marker-tag-rsid">rs116909374</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>高いz（+2.2〜+2.5）の遺伝子座は6つありますが、区分を付けるには少なすぎます。甲状腺がんはまれで、このスコアが個人について持つ予測力はわずかです。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：甲状腺がん（6遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_immune">
+          <h2 class="section-heading">免疫・自己免疫疾患</h2>
+          <div class="trait-row" id="n_ra">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">関節リウマチ</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.34、63パーセンタイル、82遺伝子座（ジュリアンは66個のリスクアレルを持ち、期待値は約68個です）。最も強い遺伝子座を除くとスコアはz +0.76です。イベリア系の父方頻度を使っても同じ区分になります（z +0.30）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>関節リウマチ</span><span>z +0.34 &middot; 63パーセンタイル &middot; 82遺伝子座 &middot; IBSでの確認 z +0.30</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:62.7%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z +0.76"></span><span class="zstrip-dot" style="left:55.7%;background:var(--blue)" title="z +0.34"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルGを2個中0個持っています（OR 1.32）。頻度は父方側の基準集団で0.39、日本人で0.45です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TRAF1</span><span class="marker-tag-rsid">rs3761847</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルCを2個中2個持っています（OR 1.13）。頻度は父方側の基準集団で0.13、日本人で0.46です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">UBE2L3 - YDJC</span><span class="marker-tag-rsid">rs11089637</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Cアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中0個持っています（OR 1.13）。頻度は父方側の基準集団で0.22、日本人で0.70です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">FAM167A - BLK</span><span class="marker-tag-rsid">rs2736340</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Tアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中0個持っています（OR 0.83）。頻度は父方側の基準集団で0.41、日本人で0.13です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ANKRD55</span><span class="marker-tag-rsid">rs7731626</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中0個持っています（OR 0.93）。頻度は父方側の基準集団で0.67、日本人で0.82です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">NTRK1</span><span class="marker-tag-rsid">rs12756019</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型的な範囲です。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：関節リウマチ（82遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_ms">
+            <div class="trait-spine" style="color:var(--risk-moderate)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">中程度のスコア</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">多発性硬化症</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +1.26、90パーセンタイル、92遺伝子座（ジュリアンは100個のリスクアレルを持ち、期待値は約95個です）。最も強い遺伝子座を除くとスコアはz +1.02です。イベリア系の父方頻度を使っても同じ区分になります（z +1.24）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>多発性硬化症</span><span>z +1.26 &middot; 90パーセンタイル &middot; 92遺伝子座 &middot; IBSでの確認 z +1.24</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:67.0%;color:var(--risk-moderate)" title="最も強い遺伝子座を除いた場合: z +1.02"></span><span class="zstrip-dot" style="left:71.0%;background:var(--risk-moderate)" title="z +1.26"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルAを2個中2個持っています（OR 1.22）。頻度は父方側の基準集団で0.86、日本人で0.35です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">CD58</span><span class="marker-tag-rsid">rs1335532</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Aアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中1個持っています（OR 1.15）。頻度は父方側の基準集団で0.17、日本人で0.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">BACH2</span><span class="marker-tag-rsid">rs72928038</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルCを2個中1個持っています（OR 1.15）。頻度は父方側の基準集団で0.89、日本人で0.95です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RMI2</span><span class="marker-tag-rsid">rs6498184</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Cアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中2個持っています（OR 1.10）。頻度は父方側の基準集団で0.30、日本人で0.47です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RPL13P2 - CD40</span><span class="marker-tag-rsid">rs6032662</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Cアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルGを2個中0個持っています（OR 1.10）。頻度は父方側の基準集団で0.64、日本人で0.52です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">PVT1</span><span class="marker-tag-rsid">rs6990534</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>どちらの基準でも保たれる中程度のシグナルです。最も強い遺伝子座はCD58（rs1335532）です。MSの主な遺伝要因であるHLA-DRB1*15:01は、ここでは捉えられていません。ビタミンDの不足、喫煙、エプスタイン・バールウイルス感染は、よく知られた修正可能な要因です（記憶に基づく、未確認）。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：多発性硬化症（92遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_lupus">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">ループス</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -0.26、40パーセンタイル、44遺伝子座（ジュリアンは31個のリスクアレルを持ち、期待値は約33個です）。最も強い遺伝子座を除くとスコアはz -0.97です。イベリア系の父方頻度を使っても同じ区分になります（z -0.24）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>ループス</span><span>z -0.26 &middot; 40パーセンタイル &middot; 44遺伝子座 &middot; IBSでの確認 z -0.24</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:33.8%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z -0.97"></span><span class="zstrip-dot" style="left:45.7%;background:var(--blue)" title="z -0.26"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルAを2個中1個持っています（OR 1.95）。頻度は父方側の基準集団で0.07、日本人で0.02です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">C1orf21 - EDEM3</span><span class="marker-tag-rsid">rs10911628</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルTを2個中1個持っています（OR 1.73）。頻度は父方側の基準集団で0.23、日本人で0.29です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">STAT4</span><span class="marker-tag-rsid">rs11889341</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Tアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中0個持っています（OR 1.20）。頻度は父方側の基準集団で0.61、日本人で0.72です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">BANK1</span><span class="marker-tag-rsid">rs10028805</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中0個持っています（OR 1.23）。頻度は父方側の基準集団で0.22、日本人で0.70です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">FAM167A - BLK</span><span class="marker-tag-rsid">rs2736337</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Cアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルGを2個中1個持っています（OR 1.25）。頻度は父方側の基準集団で0.91、日本人で0.91です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LINC02132 - LINC01082</span><span class="marker-tag-rsid">rs11644034</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Gアレルを1つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型的で、やや低めに傾いています。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：ループス（44遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_as">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">典型的な範囲</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">強直性脊椎炎</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -0.20、42パーセンタイル、10遺伝子座（ジュリアンは9個のリスクアレルを持ち、期待値は約10個です）。最も強い遺伝子座を除くとスコアはz +0.12です。イベリア系の父方頻度を使っても同じ区分になります（z -0.18）。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>強直性脊椎炎</span><span>z -0.20 &middot; 42パーセンタイル &middot; 10遺伝子座 &middot; IBSでの確認 z -0.18</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:52.0%;color:var(--blue)" title="最も強い遺伝子座を除いた場合: z +0.12"></span><span class="zstrip-dot" style="left:46.7%;background:var(--blue)" title="z -0.20"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルGを2個中0個持っています（OR 1.11）。頻度は父方側の基準集団で0.41、日本人で0.63です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">GATD3</span><span class="marker-tag-rsid">rs7282490</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Gアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中1個持っています（OR 1.13）。頻度は父方側の基準集団で0.12、日本人で0.25です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">GPR35</span><span class="marker-tag-rsid">rs4676410</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中1個持っています（OR 1.27）。頻度は父方側の基準集団で0.44、日本人で0.26です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RN7SL51P - RN7SL18P</span><span class="marker-tag-rsid">rs10865331</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルGを2個中1個持っています（OR 1.13）。頻度は父方側の基準集団で0.60、日本人で0.81です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TNFRSF1A</span><span class="marker-tag-rsid">rs1860545</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Gアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルAを2個中1個持っています（OR 1.12）。頻度は父方側の基準集団で0.59、日本人で0.81です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-e)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">FCGR2A</span><span class="marker-tag-rsid">rs1801274</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Aアレルを1つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>典型的です。HLA-B27の目印はスコアに含めていません。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：強直性脊椎炎（10遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_graves">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">限定的なカバレッジ</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">バセドウ病</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z -0.25、40パーセンタイル、1遺伝子座（ジュリアンは0個のリスクアレルを持ち、期待値は約0個です）。遺伝子座が少なすぎるため、区分は付けていません。遺伝子座が非常に少ないため、参考として示すにとどめます。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>バセドウ病</span><span>z -0.25 &middot; 40パーセンタイル &middot; 1遺伝子座 &middot; IBSでの確認 z -0.29</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-dot" style="left:45.8%;background:var(--ink-3)" title="z -0.25"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルAを2個中0個持っています（OR 1.63）。頻度は父方側の基準集団で0.06、日本人で0.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">AP4B1-AS1, PTPN22</span><span class="marker-tag-rsid">rs2476601</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>遺伝子座は1つだけです。参考として示しています。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：バセドウ病（1遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_longevity">
+          <h2 class="section-heading">長寿と加齢</h2>
+          <div class="trait-row" id="n_lifespan">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">限定的なカバレッジ</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">寿命・長寿</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +0.17、57パーセンタイル、3遺伝子座（ジュリアンは4個のスコアを上げるアレルを持ち、期待値は約4個です）。最も強い遺伝子座を除くとスコアはz +0.42です。遺伝子座が非常に少ないため、参考として示すにとどめます。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>寿命・長寿</span><span>z +0.17 &middot; 57パーセンタイル &middot; 3遺伝子座 &middot; IBSでの確認 z +0.24</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:57.0%;color:var(--ink-3)" title="最も強い遺伝子座を除いた場合: z +0.42"></span><span class="zstrip-dot" style="left:52.8%;background:var(--ink-3)" title="z +0.17"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルAを2個中0個持っています（効果量 +0.355）。頻度は父方側の基準集団で0.13、日本人で0.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">SMARCA4 - LDLR</span><span class="marker-tag-rsid">rs142158911</span><span class="marker-tag-geno">2個中0個</span><span class="marker-tag-weight">Aアレルなし</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルGを2個中2個持っています（効果量 +0.322）。頻度は父方側の基準集団で0.86、日本人で1.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">MAGI3</span><span class="marker-tag-rsid">rs1230666</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Gアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中2個持っています（効果量 +0.764）。頻度は父方側の基準集団で0.94、日本人で1.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">LPA</span><span class="marker-tag-rsid">rs10455872</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Aアレルを2つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>遺伝子座は3つだけです。数値は参考として示しています。遺伝的スコアが寿命について説明できる部分はごくわずかです。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：寿命・長寿（3遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_telomere">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">限定的なカバレッジ</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">テロメア長</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">スコアとマーカー</div>
+                  <div class="narrative-text">
+                    <p><strong>中心化スコア（GWAS Catalog。基準：トスカーナ型の父親と日本人の母親を持つ子どもに期待される分布）：</strong>z +1.62、95パーセンタイル、4遺伝子座（ジュリアンは6個のスコアを上げるアレルを持ち、期待値は約4個です）。最も強い遺伝子座を除くとスコアはz +0.15です。遺伝子座が非常に少ないため、参考として示すにとどめます。</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>テロメア長</span><span>z +1.62 &middot; 95パーセンタイル &middot; 4遺伝子座 &middot; IBSでの確認 z +1.44</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:52.5%;color:var(--ink-3)" title="最も強い遺伝子座を除いた場合: z +0.15"></span><span class="zstrip-dot" style="left:77.0%;background:var(--ink-3)" title="z +1.62"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>期待より低い</span><span>トスカーナ型の父親と日本人の母親から期待される範囲</span><span>期待より高い</span></div>
+                  <div class="zstrip-key">塗りつぶした点：ジュリアンのスコア。中抜きのリング：最も強い単一の遺伝子座を除いたスコア。</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="リスクアレルAを2個中2個持っています（効果量 +0.082）。頻度は父方側の基準集団で0.32、日本人で0.37です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">TERT</span><span class="marker-tag-rsid">rs7705526</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Aアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルAを2個中2個持っています（効果量 -0.041）。頻度は父方側の基準集団で0.34、日本人で0.33です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">POT1</span><span class="marker-tag-rsid">rs59294613</span><span class="marker-tag-geno">2個中2個</span><span class="marker-tag-weight">Aアレルを2つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="リスクアレルCを2個中1個持っています（効果量 -0.064）。頻度は父方側の基準集団で0.84、日本人で1.00です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">STN1</span><span class="marker-tag-rsid">rs9419958</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Cアレルを1つ</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--modifier" title="リスクアレルCを2個中1個持っています（効果量 +0.035）。頻度は父方側の基準集団で0.35、日本人で0.45です。方向はGWAS Catalogの該当行に基づきます。">
+                      <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">AIF1 - PRRC2A</span><span class="marker-tag-rsid">rs2736176</span><span class="marker-tag-geno">2個中1個</span><span class="marker-tag-weight">Cアレルを1つ</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>遺伝子座は4つだけで、区分は付けません。テロメア長は健康の指標となる検査ではありません。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> GWAS Catalog：テロメア長（4遺伝子座。父方TSI＋母方JPT、父方IBSで確認）。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="report-section" id="s_clinvar">
+          <h2 class="section-heading">単一遺伝子の所見（ClinVar）</h2>
+          <div class="trait-row" id="n_clinvar">
+            <div class="trait-spine" style="color:var(--blue)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">確認された所見なし</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">病的バリアントのスキャン（ClinVar）</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">まれなバリアントのスキャン</div>
+                  <div class="narrative-text">
+                    <p>このスキャンでは、ジュリアンのファイルの全バリアントを、星1つ以上のClinVarの記載と照合しました。12件が一致し、異なるバリアントは11個でしたが、<strong>確認された所見は1つもありません</strong>。</p>
+                    <p>10行は、どちらの鎖でもClinVarのアレルの組み合わせと対応させることができません。1行（OCA2）は親との照合を通らず、1行（RBM8A）はほぼ確実に一般的なアレルです。挙げられたバリアントのうち、この両親から生まれた子どもの保因者判定として妥当なものはありません。</p>
+                  </div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                    <div class="marker-tag marker-tag--primary" title="ジュリアンはAGですが、両親はともにGGです。シーケンスファイルの読み取り誤りの可能性が最も高いです。">
+                      <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">OCA2</span><span class="marker-tag-rsid">rs150335311</span><span class="marker-tag-geno">AG</span><span class="marker-tag-weight">トリオの矛盾</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--secondary" title="家族3人ともGGで、rs139428292でも同じです。">
+                      <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">RBM8A</span><span class="marker-tag-rsid">rs201779890</span><span class="marker-tag-geno">GG</span><span class="marker-tag-weight">一般的なアレルの可能性が高い</span></div>
+                    </div>
+                    <div class="marker-tag marker-tag--ruleout" title="ジュリアンの文字は、どちらの鎖でもClinVarの参照/変異アレルの組み合わせと一致しません。">
+                      <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                      <div class="marker-tag-main"><span class="marker-tag-gene">ほかの10行</span><span class="marker-tag-rsid">10 entries</span><span class="marker-tag-geno">一致なし</span><span class="marker-tag-weight">アレルが対応しない</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">詳細分析</div>
+                  <div class="narrative-text">
+                    <p>各行（両親の遺伝子型を併記）：</p>
+                    <ul>
+                      <li><strong>CHD2</strong> rs2272457 ― ジュリアン TT、ミンコ TT、アイ TC。ClinVar：Pathogenic（1つ星。疾患名の記載なし）。ジュリアンの2つの文字のうち少なくとも1つがClinVarのアレル（C/G）のどちらでもないため、この記載は同じ位置の別のバリアントを指しており、記載どおりのバリアントは持っていません。</li>
+                      <li><strong>VWF</strong> rs1800379 ― ジュリアン GA、ミンコ GA、アイ AA。ClinVar：Pathogenic（1つ星。疾患名の記載なし）。ジュリアンの2つの文字のうち少なくとも1つがClinVarのアレル（A/T）のどちらでもないため、この記載は同じ位置の別のバリアントを指しており、記載どおりのバリアントは持っていません。</li>
+                      <li><strong>RBM8A</strong> rs201779890 ― ジュリアン GG、ミンコ GG、アイ GG。ClinVar：Pathogenic/Likely pathogenic/Pathogenic, low penetrance（2つ星。Radial aplasia-thrombocytopenia syndrome）。ジュリアンも両親もGGで、RBM8Aのもう一つの既知のバリアント（rs139428292）でも3人ともGGです。頻度の低い2つのリスクアレルが3人全員にあるとは考えにくく、Gはほぼ確実に一般的なアレルです。この部位は回文型（C/G）のため、鎖の向きは未確認でした。記憶に基づく（未確認の）情報では、この症候群には別個の1q21.1欠失も必要で、2つのリスクアレルは低頻度です。</li>
+                      <li><strong>MYO7A</strong> rs1052030 ― ジュリアン CT、ミンコ TC、アイ CC。ClinVar：Pathogenic/Likely pathogenic（2つ星。Autosomal recessive nonsyndromic hearing loss 2;Usher syndrome type 1）。ジュリアンの2つの文字のうち少なくとも1つがClinVarのアレル（T/A）のどちらでもないため、この記載は同じ位置の別のバリアントを指しており、記載どおりのバリアントは持っていません。</li>
+                      <li><strong>CAV3</strong> rs1008642 ― ジュリアン TC、ミンコ TT、アイ CC。ClinVar：Pathogenic（2つ星。Distal myopathy, Tateyama type）。ジュリアンの2つの文字のうち少なくとも1つがClinVarのアレル（C/G）のどちらでもないため、この記載は同じ位置の別のバリアントを指しており、記載どおりのバリアントは持っていません。</li>
+                      <li><strong>OCA2</strong> rs150335311 ― ジュリアン AG、ミンコ GG、アイ GG。ClinVar：Pathogenic/Likely pathogenic（2つ星。Tyrosinase-positive oculocutaneous albinism）。ジュリアンはAGですが、両親はともにGGであり、メンデル遺伝と矛盾します。読み取り誤りの可能性が最も高いです。仮に事実だとしても、劣性の白皮症バリアントを1コピー持つだけでは症状は出ません。</li>
+                      <li><strong>CAV3</strong> rs1008642 ― ジュリアン TC、ミンコ TT、アイ CC。ClinVar：Pathogenic（1つ星。Long QT syndrome）。ジュリアンの2つの文字のうち少なくとも1つがClinVarのアレル（C/A）のどちらでもないため、この記載は同じ位置の別のバリアントを指しており、記載どおりのバリアントは持っていません。</li>
+                      <li><strong>GBE1</strong> rs2229519 ― ジュリアン CT、ミンコ TT、アイ CC。ClinVar：Pathogenic（1つ星。Glycogen storage disease, type IV）。ジュリアンの2つの文字のうち少なくとも1つがClinVarのアレル（T/A）のどちらでもないため、この記載は同じ位置の別のバリアントを指しており、記載どおりのバリアントは持っていません。</li>
+                      <li><strong>ABCB11</strong> rs2287616 ― ジュリアン AG、ミンコ AA、アイ AG。ClinVar：Likely pathogenic（1つ星。Progressive familial intrahepatic cholestasis type 2）。ジュリアンの2つの文字のうち少なくとも1つがClinVarのアレル（A/C）のどちらでもないため、この記載は同じ位置の別のバリアントを指しており、記載どおりのバリアントは持っていません。</li>
+                      <li><strong>TG</strong> rs2294024 ― ジュリアン CT、ミンコ TT、アイ CC。ClinVar：Pathogenic（1つ星。疾患名の記載なし）。ジュリアンの2つの文字のうち少なくとも1つがClinVarのアレル（C/A）のどちらでもないため、この記載は同じ位置の別のバリアントを指しており、記載どおりのバリアントは持っていません。</li>
+                      <li><strong>MTRR</strong> rs1532268 ― ジュリアン CT、ミンコ CT、アイ CC。ClinVar：Likely pathogenic（1つ星。Neural tube defects, folate-sensitive）。ジュリアンの2つの文字のうち少なくとも1つがClinVarのアレル（C/A）のどちらでもないため、この記載は同じ位置の別のバリアントを指しており、記載どおりのバリアントは持っていません。</li>
+                      <li><strong>HSD17B4</strong> rs25640 ― ジュリアン AA、ミンコ AA、アイ AG。ClinVar：Likely pathogenic（1つ星。Bifunctional peroxisomal enzyme deficiency）。ジュリアンの2つの文字のうち少なくとも1つがClinVarのアレル（G/C）のどちらでもないため、この記載は同じ位置の別のバリアントを指しており、記載どおりのバリアントは持っていません。</li>
+                    </ul>
+                    <p>単一の提出者による記載は、ClinVarの根拠の中で最も弱い水準です。また、これらの遺伝子の多くには、かなり前に分類された一般的な良性バリアントがあります。見つけられるのはチップに載っているバリアントだけで、ファイルにないまれなバリアントは除外できません。低カバレッジのシーケンスファイルは臨床検査ではありません。臨床的な疑問が生じた場合は、臨床シーケンスが適切な方法です。</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>根拠：</strong> ClinVar variant_summaryのスキャン（星1つ以上、頻度フィルターなし）。ジュリアン、ミンコ、アイの生ファイルの遺伝子型を使用。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
