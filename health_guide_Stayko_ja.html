@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Stayko Nenov - Genetic Health Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+        --paper: #fdfcfa; --paper-2: #f4f1eb; --ink: #1a1612; --ink-2: #4a4238; --ink-3: #8a7f72;
+        --rule: #ddd8cf; --blue: #1a4b7a; --nav-w: 210px;
+        --risk-elevated: #c0392b; --risk-moderate: #c97b2a; --risk-favourable: #2d7a4f;
+        --blue-tint: rgba(26, 75, 122, 0.05);
+        --cat-a: #5a7290; --cat-b: #8a6a4a; --cat-c: #a89464; --cat-d: #8a7f72; --cat-e: #6b8a7a;
+    }
+    body { background: var(--paper); color: var(--ink); font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.85; }
+    .narrative-body em, .narrative-body i, .narrative-text em, .narrative-text i { font-style: normal; }
+
+    .nav-sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: var(--nav-w); background: #fff; border-right: 1px solid var(--rule); overflow-y: auto; z-index: 200; display: flex; flex-direction: column; }
+    .nav-head { padding: 1.4rem 1rem 1rem; border-bottom: 1px solid var(--rule); }
+    .nav-brand { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 600; letter-spacing: .04em; color: var(--ink-3); margin-bottom: .2rem; }
+    .nav-person { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--ink); }
+    .nav-links { flex: 1; overflow-y: auto; padding: .8rem .7rem; }
+    .nav-link { display: flex; align-items: center; gap: .45rem; font-family: 'EB Garamond', serif; font-size: .92rem; color: var(--ink-3); text-decoration: none; padding: .25rem .4rem; border-radius: 3px; line-height: 1.4; margin-bottom: .1rem; }
+    .nav-link:hover { background: var(--paper-2); color: var(--blue); }
+    .nav-score { padding: .8rem 1rem; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .3rem; }
+    .ns { display: flex; flex-direction: column; align-items: center; }
+    .ns-val { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 700; }
+    .ns-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .72rem; font-weight: 600; color: var(--ink-3); }
+    .lang-bar { padding: .5rem 1rem; border-top: 1px solid var(--rule); display: flex; gap: .4rem; }
+    .lang-btn { font-family: 'EB Garamond', serif; font-weight: 700; font-size: .8rem; padding: .2rem .5rem; border-radius: 3px; border: 1px solid var(--rule); color: var(--ink-3); text-decoration: none; }
+    .lang-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+    .mobile-bar { display: none; }
+
+    .cover { margin-left: var(--nav-w); background: var(--ink); color: #f0ebe3; padding: 5rem 3.5rem 4rem; position: relative; }
+    .cover-eyebrow { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 600; letter-spacing: .04em; color: #7fa8c4; margin-bottom: 1.2rem; }
+    .cover h1 { font-family: 'EB Garamond', serif; font-size: 3.2rem; font-weight: 400; color: #f0ebe3; margin-bottom: .2rem; }
+    .cover-sub { font-size: 1.05rem; font-style: italic; color: #7fa8c4; margin-bottom: 3.5rem; }
+    .cover-stats { display: flex; gap: 3rem; flex-wrap: wrap; border-top: 1px solid #2d3f52; padding-top: 1.5rem; }
+    .cs { display: flex; flex-direction: column; }
+    .cs-val { font-family: 'EB Garamond', serif; font-size: 1.85rem; font-weight: 700; color: #f0ebe3; }
+    .cs-lbl { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .78rem; font-weight: 500; color: #5a7a94; }
+
+    .main { margin-left: var(--nav-w); width: calc(100vw - var(--nav-w)); padding: 0 3.5rem 6rem; }
+    .main-inner { max-width: 920px; margin-left: auto; margin-right: auto; }
+    .disclaimer { font-family: 'EB Garamond', serif; font-size: .92rem; line-height: 1.6; background: #fffbeb; border-left: 3px solid #d97706; padding: .8rem 1.2rem; color: #78450a; margin: 2.5rem 0 0; }
+    .report-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+    .section-heading { font-family: 'EB Garamond', serif; font-size: 1.8rem; font-weight: 600; margin-bottom: .5rem; color: var(--ink); }
+
+    .narrative-body p { margin-bottom: .9rem; font-size: .98rem; line-height: 1.9; color: var(--ink-2); }
+
+    .trait-row { display: grid; grid-template-columns: 78px 1fr; column-gap: 1.8rem; padding: 2.6rem 0; border-bottom: 1px solid var(--rule); }
+    .trait-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .trait-spine { position: relative; display: flex; flex-direction: column; align-items: center; padding-top: .4rem; }
+    .spine-dot { width: 13px; height: 13px; border-radius: 50%; background: currentColor; border: 2px solid var(--paper); box-shadow: 0 0 0 2px currentColor; flex-shrink: 0; z-index: 1; }
+    .spine-line { position: absolute; top: 15px; bottom: -2.6rem; left: 50%; width: 1px; background: var(--rule); transform: translateX(-50%); }
+    .spine-risk { margin-top: .6rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .74rem; font-weight: 600; text-align: center; line-height: 1.3; }
+    .trait-title { font-family: 'EB Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink); margin-bottom: 1.4rem; letter-spacing: -.01em; }
+
+    .trait-narrative { display: flex; flex-direction: column; gap: 2rem; }
+    .narrative-unit { display: grid; grid-template-columns: 118px 1fr; gap: 1.4rem; }
+    .narrative-kicker { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .9rem; line-height: 1.3rem; font-weight: 600; color: var(--ink-3); padding-top: .1rem; }
+    .narrative-text p { font-size: 1rem; line-height: 1.9; color: var(--ink-2); margin-bottom: .9rem; }
+    .narrative-text p:last-child { margin-bottom: 0; }
+    .narrative-unit--gwas .narrative-kicker { position: relative; color: var(--blue); padding-left: 1.5rem; }
+    .narrative-unit--gwas .narrative-kicker::before { content: ""; position: absolute; left: 0; top: .35rem; width: 9px; height: 9px; border-radius: 50%; background: var(--blue); border: 2px solid var(--paper); box-shadow: 0 0 0 2px var(--blue); z-index: 1; }
+    .narrative-unit--gwas .narrative-kicker::after { content: ""; position: absolute; left: 4px; top: 1.15rem; bottom: 0; width: 1px; background: var(--rule); }
+    .narrative-unit--gwas .narrative-text { padding-left: 1.6rem; }
+    .narrative-unit--gwas .narrative-text strong { color: var(--blue); font-weight: 700; }
+    .risk-pill { display: inline-block; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .8rem; font-weight: 700; padding: .25rem .75rem; border-radius: 4px; color: #fff; white-space: nowrap; }
+    .narrative-unit--deep { display: block; }
+    .narrative-unit--deep .narrative-kicker { margin-bottom: .6rem; }
+
+    .pgs-badge { display: inline-block; font-family: 'Inter', monospace; font-size: .78rem; font-weight: 600; color: var(--blue); background: var(--blue-tint); padding: .3rem .7rem; border-radius: 4px; margin-bottom: 0; }
+    .risk-balance { margin: 0 0 1.4rem; }
+    .risk-balance-track { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+    .risk-balance-prot { background: var(--risk-favourable); }
+    .risk-balance-risk { background: var(--risk-elevated); }
+    .risk-balance-labels { display: flex; justify-content: space-between; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+    .rb-risk { color: var(--risk-elevated); font-weight: 600; }
+    .rb-prot { color: var(--risk-favourable); font-weight: 600; }
+    .loci-bar { margin: 0 0 1.4rem; }
+    .loci-bar-track { height: 6px; border-radius: 3px; overflow: hidden; background: var(--paper-2); }
+    .loci-bar-fill { height: 100%; }
+    .loci-bar-label { display: block; margin-top: .4rem; font-family: 'EB Garamond', serif; font-size: .8rem; color: var(--ink-3); }
+
+    .drug-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+    .drug-card { background: #fff; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+    .drug-card-head { padding: .8rem 1rem; border-bottom: 1px solid var(--rule); }
+    .drug-card-top { display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem; }
+    .drug-enzyme { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .88rem; font-weight: 700; color: var(--ink-3); }
+    .drug-genotype { font-family: 'Inter', monospace; font-size: .8rem; font-weight: 600; color: var(--blue); margin-bottom: .2rem; }
+    .drug-affected { font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-3); }
+    .drug-card-body { padding: 1rem; }
+    .drug-narrative { font-family: 'EB Garamond', serif; font-size: .93rem; color: var(--ink-2); line-height: 1.75; margin-bottom: .8rem; }
+    .drug-action { padding: .6rem .8rem; background: var(--paper-2); border-radius: 4px; font-family: 'EB Garamond', serif; font-size: .88rem; color: var(--ink-3); line-height: 1.55; }
+
+    .marker-votes { margin: 0 0 1.4rem; }
+    .marker-tally { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: .8rem; }
+    .marker-tally-item { display: flex; align-items: center; gap: .4rem; font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .85rem; color: var(--ink-3); }
+    .marker-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .marker-tag-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .marker-tag-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .marker-tag-gene { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .8rem; color: var(--ink-2); }
+    .marker-tag-rsid { font-family: 'Inter', monospace; font-size: .72rem; color: var(--ink-3); }
+    .marker-tag-geno { font-family: 'Inter', monospace; font-weight: 700; font-size: .78rem; color: var(--blue); }
+    .marker-tag { display: flex; align-items: flex-start; gap: .4rem; background: var(--paper-2); border-radius: 4px; padding: .3rem .6rem; cursor: default; }
+    .marker-tag-main { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+    .marker-tag--primary { border: 1.5px solid var(--blue); background: var(--blue-tint); }
+    .marker-tag--primary .marker-tag-gene { font-weight: 700; }
+    .marker-tag--minor { opacity: .62; }
+    .marker-tag-weight { font-family: 'EB Garamond', serif; font-style: italic; font-variant-caps: small-caps; font-size: .68rem; font-weight: 600; color: var(--blue); }
+    .marker-tag--minor .marker-tag-weight { color: var(--ink-3); }
+    .marker-tag--primary .marker-tag-gene { font-weight: 700; }
+    .marker-tag--ruleout { opacity: .75; }
+    .marker-tag--secondary { border: 1px solid var(--rule); }
+    .marker-tag--modifier { border: 1px dashed var(--rule); }
+
+    @media(max-width: 768px) {
+        .nav-sidebar { display: none; }
+        .cover, .main { margin-left: 0; }
+        .cover { padding: 3rem 1.2rem 2.5rem; }
+        .cover h1 { font-size: 2.1rem; }
+        .cover-sub { font-size: .95rem; margin-bottom: 2rem; }
+        .cover-stats { gap: 1.5rem 2rem; }
+        .cs-val { font-size: 1.4rem; }
+        .main { padding: 0 1.2rem 4rem; width: 100vw; }
+        body { font-size: 16px; }
+
+        .mobile-bar {
+            display: flex; align-items: center; justify-content: space-between; gap: .8rem;
+            position: sticky; top: 0; z-index: 150;
+            background: #fff; border-bottom: 1px solid var(--rule);
+            padding: .7rem 1.2rem;
+        }
+        .mobile-person { font-family: 'EB Garamond', serif; font-weight: 600; font-size: .95rem; }
+        .mobile-nav-select {
+            font-family: 'EB Garamond', serif; font-size: .85rem; color: var(--ink-2);
+            border: 1px solid var(--rule); border-radius: 4px; padding: .3rem .5rem; background: #fff;
+        }
+
+        .trait-row { grid-template-columns: 44px 1fr; column-gap: 1rem; }
+        .spine-risk { display: none; }
+        .narrative-unit { grid-template-columns: 1fr; gap: .5rem; }
+        .narrative-unit--gwas .narrative-kicker::after { display: none; }
+        .narrative-unit--gwas .narrative-text { padding-left: 0; }
+
+        .drug-grid { grid-template-columns: 1fr; }
+    }
+    
+.zstrips{margin:0 0 1.4rem}.zstrip{margin:0 0 .9rem}
+.zstrip-name{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.2rem .8rem;font-family:'EB Garamond',serif;font-size:.85rem;color:var(--ink-2)}
+.zstrip-name span:last-child{color:var(--ink-3)}
+.zstrip-track{position:relative;height:8px;border-radius:4px;background:var(--paper-2);margin-top:.45rem}
+.zstrip-band{position:absolute;left:33.33%;width:33.34%;top:0;bottom:0;background:#e4ddd0}
+.zstrip-tick{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--ink-3)}
+.zstrip-dot{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);border:2px solid var(--paper);box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.zstrip-ring{position:absolute;top:50%;width:10px;height:10px;border-radius:50%;transform:translate(-50%,-50%);border:2px solid;background:var(--paper)}
+.zstrip-scale{display:flex;justify-content:space-between;font-family:'EB Garamond',serif;font-size:.72rem;color:var(--ink-3);margin-top:.4rem}
+.zstrip-key{font-family:'EB Garamond',serif;font-size:.72rem;color:var(--ink-3);margin-top:.2rem}
+.zchart{margin:1.6rem 0 0}.zchart-title{font-family:'EB Garamond',serif;font-size:1.15rem;margin:0 0 .3rem;color:var(--ink)}
+.zchart-note{font-size:.82rem;color:var(--ink-3);margin:0 0 .9rem;line-height:1.5}
+.zrow{display:grid;grid-template-columns:11rem 1fr 3rem;align-items:center;gap:.8rem;margin:0 0 .55rem}
+.zrow-name{font-family:'EB Garamond',serif;font-size:.85rem;color:var(--ink-2)}
+.zrow .zstrip-track{margin-top:0}.zrow-z{font-family:'EB Garamond',serif;font-size:.8rem;color:var(--ink-3);text-align:right}
+@media(max-width:600px){.zrow{grid-template-columns:7.5rem 1fr 2.6rem;gap:.5rem}}
+
+.gstrip{margin:14px 0 4px}.gstrip-name{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;color:var(--ink-3);margin-bottom:6px}
+.gstrip-bar{display:flex;gap:3px;height:32px}.gstrip-seg{display:flex;align-items:center;justify-content:center;font-size:.72rem;background:rgba(128,128,128,.14);color:var(--ink-3);border-radius:4px;min-width:64px;overflow:hidden;white-space:nowrap}
+.gstrip-seg.you{color:#fff;font-weight:600}.gstrip-cap{font-size:.7rem;color:var(--ink-3);margin-top:5px}
+</style>
+  </head>
+<body>
+  <div class="mobile-bar">
+    <span class="mobile-person">ネノフ・スタイコ</span>
+  </div>
+  <aside class="nav-sidebar">
+    <div class="nav-head">
+      <div class="nav-brand">パーソナルゲノミクス</div>
+      <div class="nav-person">ネノフ・スタイコ</div>
+    </div>
+    <nav class="nav-links">
+      <a class="nav-link" href="#s_synthesis">概要と総合的な統合分析</a>
+      <a class="nav-link" href="#s_appearance">身体的特徴</a>
+      <a class="nav-link" href="#s_cardio">心血管の健康</a>
+      <a class="nav-link" href="#s_metabolic">代謝の健康</a>
+      <a class="nav-link" href="#s_brain">脳・認知・神経系の健康</a>
+      <a class="nav-link" href="#s_eye">目の健康</a>
+      <a class="nav-link" href="#s_cancer">がんリスク</a>
+      <a class="nav-link" href="#s_immune">免疫・自己免疫疾患</a>
+      <a class="nav-link" href="#s_longevity">長寿と加齢</a>
+      <a class="nav-link" href="#s_lifestyle">生活習慣・栄養</a>
+      <a class="nav-link" href="#s_pharma">薬理ゲノミクス</a>
+    </nav>
+    <div class="nav-score">
+      <div class="ns">
+        <span class="ns-val" style="color:#c0392b">1</span>
+        <span class="ns-lbl">上昇</span>
+      </div>
+      <div class="ns">
+        <span class="ns-val" style="color:#c97b2a">1</span>
+        <span class="ns-lbl">中程度</span>
+      </div>
+      <div class="ns">
+        <span class="ns-val" style="color:#2d7a4f">9</span>
+        <span class="ns-lbl">良好</span>
+      </div>
+    </div>
+    <div class="lang-bar">
+      <a class="lang-btn" href="health_guide_Stayko_en.html">EN</a>
+      <a class="lang-btn" href="health_guide_Stayko_bg.html">БГ</a>
+      <a class="lang-btn" href="health_guide_Stayko_ja.html">日本語</a>
+    </div>
+  </aside>
+  <div class="cover">
+    <p class="cover-eyebrow">パーソナルゲノムレポート</p>
+    <h1>ネノフ・スタイコ</h1>
+    <p class="cover-sub">遺伝的健康ガイド</p>
+    <div class="cover-stats">
+      <div class="cs">
+        <span class="cs-val">49</span>
+        <span class="cs-lbl">分析した形質数</span>
+      </div>
+      <div class="cs">
+        <span class="cs-val" style="color:#f87171">1</span>
+        <span class="cs-lbl">上昇シグナル数</span>
+      </div>
+      <div class="cs">
+        <span class="cs-val" style="color:#86efac">9</span>
+        <span class="cs-lbl">良好シグナル数</span>
+      </div>
+      <div class="cs">
+        <span class="cs-val">2026年11月23日</span>
+        <span class="cs-lbl">作成日</span>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="main-inner">
+      <div class="disclaimer">
+        <strong>情報源：</strong> ヨーロッパ系の研究によるGWASカタログのスコアを、1000人ゲノム計画のトスカーナ人（TSI）のアレル頻度を基準に中心化し、イベリア人（IBS）でも確認しています。 アレルの方向は、可能な限りカタログの行で確認しています。文献に基づくものは「未検証」と明記しています。 これは医学的な助言ではなく、医師の診察の代わりにはなりません。</div>
+      <section class="report-section" id="s_synthesis">
+        <h2 class="section-heading">概要と総合的な統合分析</h2>
+        <div class="narrative-body">
+          <h2>あなたの遺伝的ストーリー - 全体像</h2>
+          <p>このガイドは、すべての形質について同じ方法で、あなたの生のゲノムを読み解いたものです。すべてのポリジェニックスコアは、 <strong>トスカーナ人の参照集団を基準に中心化</strong> （1000人ゲノム計画 TSI）を基準に中心化し、2つ目のイベリア人の参照集団（IBS）でも確認しています。zスコアが0であれば、その参照集団として典型的であることを意味し、スコアはリスクではなく順位です。</p>
+          <p>ほとんどの形質は平均に近い位置にあります。 階層に入るには、スコア化された遺伝子座が8つ以上あり、最も影響の大きい単一の遺伝子座を除いてもスコアが保たれる必要があります。</p>
+          <ul>
+            <li>
+              <strong>確認が必要な所見が1つ</strong> - 第V因子ライデンを1コピー（rs6025 TC）。 血栓のカードを参照してください。頼りにする前に、臨床検査での確認が必要です。</li>
+            <li>
+              <strong>上昇：</strong> 統合失調症のスコア（z +1.97）。 <strong>中程度：</strong> 緑内障のスコア（z +1.22）。</li>
+            <li>
+              <strong>良好：</strong> ループス（z -1.94）、前立腺がん（z -2.31）、多発性硬化症（z -1.10）、関節リウマチ（z -1.10）、アルツハイマー病（z -1.09）、強直性脊椎炎（z -1.20）、セリアック病（z -1.01）、片頭痛（z -1.00）、大腸がん（z -1.07）。 セリアック病と片頭痛はしきい値ちょうどで、大腸がんは2つ目の参照集団では典型的な範囲です。</li>
+            <li>
+              <strong>目立つ形質が1つ</strong> - 身長のスコアは低めです（z -2.66）。実際に測った身長のほうが、はるかに多くの情報を示します。</li>
+          </ul>
+          <p>
+          <strong>このファイルでは評価できないもの：</strong> APOE（rs429358が欠落）、CYP2C19 *2、VKORC1、G6PDとHFE C282Yの主要バリアント、MC1R R151C、DPYD *2A、CYP2D6のコピー数、HLAアレル、そして稀な高リスク遺伝子。</p>
+          <p>
+          <strong>ClinVarの確認：</strong> ファイル上の、1つ星または2つ星の病的登録10件が一致しました。そのうち9件は成り立ちません。あなたの遺伝子型に、ClinVarが挙げているアレルが含まれていないためです。 10件目のRBM8A rs201779890（GG）は近い親族にも見られ、参照アレルの頻度からは、真のバリアントではなく鎖の向きの報告によるアーティファクトと考えられます（未検証）。 ClinVarの所見は、確認を通過したものはありませんでした。同じ登録（CAV3 rs1008642とTG rs2294024）は、アノテーション上のアーティファクトとして除外しました。</p>
+          <p>
+          <strong>目・髪・肌の色</strong> は、確率を示さず遺伝子型のみを示しています。公開されているIrisPlexの重みと、公式のHIrisPlex-Sツールが利用できなかったためです。</p>
+          <p>
+          <strong>頑健性の確認：</strong> 各階層を、イベリア人の参照集団（IBS）でも再計算しました。11の階層の判定のうち9つは変わりませんでした。境界線上のもの： 喘息はここでは典型的で、IBSでは良好です（z -0.98に対して-1.17）； 心房細動はここでは典型的で、IBSでは良好です（z -0.91に対して-1.13）； 大腸がんはここでは良好で、IBSでは典型的です（z -1.07に対して-0.85）； 片頭痛はここでは良好で、IBSでは典型的です（z -1.00に対して-0.88）。 これらはいずれも、どちらの参照集団でも境界線上にあります。</p>
+          <p>これは予測ではなく、傾向の集まりとして読んでください。このページを理由に薬を変更することは、決してしないでください。</p>
+        </div>
+        <div class="zchart">
+          <h3 class="zchart-title">階層付きスコアの位置</h3>
+          <p class="zchart-note">それぞれの点は、トスカーナ人の参照集団と比べた、1つの形質についてのあなたのスコアです。ゼロが典型的な値で、網掛けの帯は典型的な範囲（1標準偏差以内）を示します。 中空のリングは、最も影響の大きい単一の遺伝子座を除いた場合のスコアを示します。リングと点が食い違う場合、そのスコアは1つの遺伝子座に依存しています。 上昇、中程度、良好のいずれかの階層に入る形質のみを表示しています。ほかに身長と男性型脱毛症も示しています。 25の形質は典型的な範囲にあり、プロットしていません。 順位付けするには遺伝子座が少なすぎる6つの形質は、下に別に示しています。</p>
+          <div class="zrow">
+            <span class="zrow-name">統合失調症 <span style="color:var(--ink-3);font-size:.75em">（112遺伝子座）</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:79.3%;color:var(--risk-elevated)" title="最上位の遺伝子座を除いた場合: z +1.76">
+            </span>
+              <span class="zstrip-dot" style="left:82.8%;background:var(--risk-elevated)" title="z +1.97">
+            </span>
+            </div>
+            <span class="zrow-z">+1.97</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">緑内障 <span style="color:var(--ink-3);font-size:.75em">（21遺伝子座）</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:80.8%;color:var(--risk-moderate)" title="最上位の遺伝子座を除いた場合: z +1.85">
+            </span>
+              <span class="zstrip-dot" style="left:70.3%;background:var(--risk-moderate)" title="z +1.22">
+            </span>
+            </div>
+            <span class="zrow-z">+1.22</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">片頭痛 <span style="color:var(--ink-3);font-size:.75em">（24遺伝子座）</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:38.8%;color:var(--risk-favourable)" title="最上位の遺伝子座を除いた場合: z -0.67">
+            </span>
+              <span class="zstrip-dot" style="left:33.3%;background:var(--risk-favourable)" title="z -1.00">
+            </span>
+            </div>
+            <span class="zrow-z">-1.00</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">セリアック病 <span style="color:var(--ink-3);font-size:.75em">（18遺伝子座）</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:39.2%;color:var(--risk-favourable)" title="最上位の遺伝子座を除いた場合: z -0.65">
+            </span>
+              <span class="zstrip-dot" style="left:33.2%;background:var(--risk-favourable)" title="z -1.01">
+            </span>
+            </div>
+            <span class="zrow-z">-1.01</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">大腸がん <span style="color:var(--ink-3);font-size:.75em">(44遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:25.0%;color:var(--risk-favourable)" title="最上位の遺伝子座を除いた場合: z -1.50">
+            </span>
+              <span class="zstrip-dot" style="left:32.2%;background:var(--risk-favourable)" title="z -1.07">
+            </span>
+            </div>
+            <span class="zrow-z">-1.07</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">アルツハイマー病 <span style="color:var(--ink-3);font-size:.75em">(33遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:30.7%;color:var(--risk-favourable)" title="最上位の遺伝子座を除いた場合: z -1.16">
+            </span>
+              <span class="zstrip-dot" style="left:31.8%;background:var(--risk-favourable)" title="z -1.09">
+            </span>
+            </div>
+            <span class="zrow-z">-1.09</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">関節リウマチ <span style="color:var(--ink-3);font-size:.75em">（82遺伝子座）</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:37.3%;color:var(--risk-favourable)" title="最上位の遺伝子座を除いた場合: z -0.76">
+            </span>
+              <span class="zstrip-dot" style="left:31.7%;background:var(--risk-favourable)" title="z -1.10">
+            </span>
+            </div>
+            <span class="zrow-z">-1.10</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">多発性硬化症 <span style="color:var(--ink-3);font-size:.75em">（92遺伝子座）</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:25.8%;color:var(--risk-favourable)" title="最上位の遺伝子座を除いた場合: z -1.45">
+            </span>
+              <span class="zstrip-dot" style="left:31.7%;background:var(--risk-favourable)" title="z -1.10">
+            </span>
+            </div>
+            <span class="zrow-z">-1.10</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">強直性脊椎炎 <span style="color:var(--ink-3);font-size:.75em">(10遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:38.0%;color:var(--risk-favourable)" title="最上位の遺伝子座を除いた場合: z -0.72">
+            </span>
+              <span class="zstrip-dot" style="left:30.0%;background:var(--risk-favourable)" title="z -1.20">
+            </span>
+            </div>
+            <span class="zrow-z">-1.20</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">ループス <span style="color:var(--ink-3);font-size:.75em">(44遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:10.8%;color:var(--risk-favourable)" title="最上位の遺伝子座を除いた場合: z -2.35">
+            </span>
+              <span class="zstrip-dot" style="left:17.7%;background:var(--risk-favourable)" title="z -1.94">
+            </span>
+            </div>
+            <span class="zrow-z">-1.94</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">前立腺がん <span style="color:var(--ink-3);font-size:.75em">（115遺伝子座）</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:15.8%;color:var(--risk-favourable)" title="最上位の遺伝子座を除いた場合: z -2.05">
+            </span>
+              <span class="zstrip-dot" style="left:11.5%;background:var(--risk-favourable)" title="z -2.31">
+            </span>
+            </div>
+            <span class="zrow-z">-2.31</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">男性型脱毛症 <span style="color:var(--ink-3);font-size:.75em">(8遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:78.2%;color:var(--ink-3)" title="最上位の遺伝子座を除いた場合: z +1.69">
+            </span>
+              <span class="zstrip-dot" style="left:57.2%;background:var(--ink-3)" title="z +0.43">
+            </span>
+            </div>
+            <span class="zrow-z">+0.43</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">身長（典型より低い） <span style="color:var(--ink-3);font-size:.75em">(1,507遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:9.5%;color:var(--ink-3)" title="最上位の遺伝子座を除いた場合: z -2.43">
+            </span>
+              <span class="zstrip-dot" style="left:5.7%;background:var(--ink-3)" title="z -2.66">
+            </span>
+            </div>
+            <span class="zrow-z">-2.66</span>
+          </div>
+          <p class="zchart-note" style="margin-top:1rem">順位付けするには遺伝子座が少なすぎる形質（参考として表示しており、階層はありません）：</p>
+          <div class="zrow">
+            <span class="zrow-name">むずむず脚症候群 <span style="color:var(--ink-3);font-size:.75em">(3遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:49.0%;color:var(--ink-3)" title="最上位の遺伝子座を除いた場合: z -0.06">
+            </span>
+              <span class="zstrip-dot" style="left:56.7%;background:var(--ink-3)" title="z +0.40">
+            </span>
+            </div>
+            <span class="zrow-z">+0.40</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">甲状腺がん <span style="color:var(--ink-3);font-size:.75em">(6遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:50.0%;color:var(--ink-3)" title="最上位の遺伝子座を除いた場合: z -0.00">
+            </span>
+              <span class="zstrip-dot" style="left:42.5%;background:var(--ink-3)" title="z -0.45">
+            </span>
+            </div>
+            <span class="zrow-z">-0.45</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">テロメア長 <span style="color:var(--ink-3);font-size:.75em">(4遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:49.0%;color:var(--ink-3)" title="最上位の遺伝子座を除いた場合: z -0.06">
+            </span>
+              <span class="zstrip-dot" style="left:59.3%;background:var(--ink-3)" title="z +0.56">
+            </span>
+            </div>
+            <span class="zrow-z">+0.56</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">寿命 <span style="color:var(--ink-3);font-size:.75em">(3遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:59.8%;color:var(--ink-3)" title="最上位の遺伝子座を除いた場合: z +0.59">
+            </span>
+              <span class="zstrip-dot" style="left:54.2%;background:var(--ink-3)" title="z +0.25">
+            </span>
+            </div>
+            <span class="zrow-z">+0.25</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">脂肪肝 <span style="color:var(--ink-3);font-size:.75em">(3遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:46.0%;color:var(--ink-3)" title="最上位の遺伝子座を除いた場合: z -0.24">
+            </span>
+              <span class="zstrip-dot" style="left:54.2%;background:var(--ink-3)" title="z +0.25">
+            </span>
+            </div>
+            <span class="zrow-z">+0.25</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">慢性腎臓病 <span style="color:var(--ink-3);font-size:.75em">(7遺伝子座)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:53.0%;color:var(--ink-3)" title="最上位の遺伝子座を除いた場合: z +0.18">
+            </span>
+              <span class="zstrip-dot" style="left:45.3%;background:var(--ink-3)" title="z -0.28">
+            </span>
+            </div>
+            <span class="zrow-z">-0.28</span>
+          </div>
+        </div>
+        <div class="narrative-body">
+          <h3>意図的に除外したもの</h3>
+          <p>乳がん（男性ではまれ）、高血圧（一致したカタログの行が使えなかったため）、および遺伝子座が1つだけの形質（胃がん、バセドウ病、骨粗鬆症、心不全）。 COMT、BDNF、苦味に関わる遺伝子は、カタログがそれらについての主張を裏づけていなかったため、除外しました。</p>
+        </div>
+      </section>
+      <section class="report-section" id="s_appearance">
+        <h2 class="section-heading">身体的特徴</h2>
+        <div class="trait-row" id="n_eye">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">遺伝子型のみ：色の判定なし</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">目の色</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>ここでは確率も色も示していません。</strong> 公開されているIrisPlexの重みはこのガイドでは利用できなかったため、6つのIrisPlexマーカーを遺伝子型と各アレルの方向として示しており、パーセンテージには換算していません。</p>
+                  <p>最も影響の大きいマーカーであるHERC2 rs12913832はGGで、一般に明るい色の目と関連する遺伝子型です（文献に基づく。未検証）。 ほかの5つは混在しており、これはよくあることです。緑やヘーゼルは、最も予測しにくい区分です。 実際の目の色と見比べてください。遺伝子型はパターンを示すものであり、判定ではありません。</p>
+                </div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Gアレルは明るい色の目と関連します（文献に基づく。未検証）。参照集団でのGの頻度は0.42です。 このSNPのカタログの行は、主に反対側の文字が記載された髪の色の行です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">HERC2</span>
+                      <span class="marker-tag-rsid">rs12913832</span>
+                      <span class="marker-tag-geno">GG</span>
+                      <span class="marker-tag-weight">最も影響の大きい目の色のマーカー</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="Tは緑ではなく青い目と関連します（アイスランド人の研究、オッズ比2.06、確認済み）。参照集団でのTの頻度は0.38です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">SLC24A4</span>
+                      <span class="marker-tag-rsid">rs12896399</span>
+                      <span class="marker-tag-geno">TG</span>
+                      <span class="marker-tag-weight">Tアレルを1つ</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="Cは稀なアレル（0.03）で、濃い色素と関連します（文献に基づく）。GGはヨーロッパ人に通常の遺伝子型です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-c)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">SLC45A2</span>
+                      <span class="marker-tag-rsid">rs16891982</span>
+                      <span class="marker-tag-geno">GG</span>
+                      <span class="marker-tag-weight">Cアレルなし</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--modifier" title="参照集団でのTの頻度は0.10です。カタログではTが茶色ではなく金髪と関連します（確認済み）。 目の色への影響は文献に基づきます（未検証）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-d)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">OCA2</span>
+                      <span class="marker-tag-rsid">rs1800407</span>
+                      <span class="marker-tag-geno">CT</span>
+                      <span class="marker-tag-weight">Tアレルを1つ</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--modifier" title="Aはカタログの行で金髪と関連します（確認済み）。参照集団での頻度は0.25です。目の色の方向は文献に基づきます（未検証）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">TYR</span>
+                      <span class="marker-tag-rsid">rs1393350</span>
+                      <span class="marker-tag-geno">GG</span>
+                      <span class="marker-tag-weight">Aアレルなし</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--modifier" title="Tはカタログの行で日焼けしにくい反応と関連します（確認済み）。参照集団でのTの頻度は0.09です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">IRF4</span>
+                      <span class="marker-tag-rsid">rs12203592</span>
+                      <span class="marker-tag-geno">CT</span>
+                      <span class="marker-tag-weight">Tアレルを1つ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_hairskin">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">遺伝子型のみ：色の判定なし</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">髪と肌の色素</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>髪や肌の色の判定はしていません。</strong> 公式のHIrisPlex-Sツールに接続できず、41マーカーのうち14がこのファイルにありません（MC1Rの11マーカーのうち3つを含みます）。そのため、遺伝子型のみを示しています。</p>
+                  <p>ファイルにあるMC1Rの赤毛バリアントは、いずれも持っていません（最も強いrs1805008はCCです）。 金髪と関連するKITLGを1コピーとTYRを1コピー持つ一方で、SLC24A5（AA）とSLC45A2（GG）はヨーロッパ人に典型的な明るい肌の遺伝子型です。 IRF4 CTは、日焼けしにくい反応を示します。 全体として、色白のパターンと読めます。日焼け対策と定期的な皮膚のチェックが望ましいです。</p>
+                </div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Tは赤毛のアレルです（オッズ比12.84、確認済み）。Cは通常の型です（0.95）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">MC1R</span>
+                      <span class="marker-tag-rsid">rs1805008</span>
+                      <span class="marker-tag-geno">CC</span>
+                      <span class="marker-tag-weight">赤毛のTアレルなし</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="Cは金髪のアレルです（オッズ比1.66、確認済み）。Cは稀です（0.04）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">KITLG</span>
+                      <span class="marker-tag-rsid">rs12821256</span>
+                      <span class="marker-tag-geno">CT</span>
+                      <span class="marker-tag-weight">金髪に関わるCアレルを1つ</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="Aは茶色や黒ではなく金髪と関連します（確認済み）。参照集団での頻度は0.51です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-c)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">TYR</span>
+                      <span class="marker-tag-rsid">rs1042602</span>
+                      <span class="marker-tag-geno">CA</span>
+                      <span class="marker-tag-weight">Aアレルを1つ</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--modifier" title="Aはヨーロッパ人の明るい肌のアレルです（文献に基づく。未検証）。参照集団でのAは1.00で、ヨーロッパ人に典型的な遺伝子型です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-d)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">SLC24A5</span>
+                      <span class="marker-tag-rsid">rs1426654</span>
+                      <span class="marker-tag-geno">AA</span>
+                      <span class="marker-tag-weight">明るい肌のアレル×2</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--modifier" title="Tは日焼けしにくい反応と関連します（確認済み）。参照集団では0.09です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">IRF4</span>
+                      <span class="marker-tag-rsid">rs12203592</span>
+                      <span class="marker-tag-geno">CT</span>
+                      <span class="marker-tag-weight">Tアレルを1つ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_hairloss">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">保護的なX連鎖マーカー</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">男性型脱毛症</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z +0.43、67パーセンタイル、8遺伝子座。最も影響の大きい遺伝子座（rs2497938）を除くとz +1.69。 スコアは全体として典型に近く、1つの保護的なマーカーがスコアを下げ、ほかは平均付近にあるため、階層にはしていません。</p>
+                  <p>
+                  <strong>アンドロゲン受容体の領域：</strong> rs2497938はCCです。カタログの行では、Tアレルが脱毛の多さ、Cが少なさと関連するため、CCは保護的な遺伝子型です。 このマーカーはX染色体上にあり、X染色体は母親から受け継ぎます。 rs2180439（TT）はX染色体上にない別のマーカーで、カタログの研究によって方向が食い違うため、使用していません。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>男性型脱毛症</span>
+                    <span>z +0.43 · 67パーセンタイル · 8遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:78.2%;color:var(--blue)" title="最上位の遺伝子座を除いた場合: z +1.69">
+                  </span>
+                    <span class="zstrip-dot" style="left:57.2%;background:var(--blue)" title="z +0.43">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Tは脱毛のリスクを高め、Cは下げます（カタログの行、確認済み）。参照集団でのCの頻度は0.18です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">AR領域</span>
+                      <span class="marker-tag-rsid">rs2497938</span>
+                      <span class="marker-tag-geno">CC</span>
+                      <span class="marker-tag-weight">保護的なアレル</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_height">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">典型より低いスコア</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">身長</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>身長のスコア（1つの大規模な研究、研究内の遺伝子座は2,230、トスカーナ人の参照集団を基準に中心化）：</strong> z -2.66、0パーセンタイル、1507遺伝子座。最も影響の大きい遺伝子座（rs798554）を除くとz -2.43； on the second reference (IBS) z -2.48. これは典型的な範囲より低いスコアであり、階層ではありません。</p>
+                  <p>実際に測った身長のほうが、このスコアよりはるかに多くの情報を示します。このスコアが説明できるのは、人による違いの一部だけです。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>身長</span>
+                    <span>z -2.66 · 0パーセンタイル · 1507遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:9.5%;color:var(--blue)" title="最上位の遺伝子座を除いた場合: z -2.43">
+                  </span>
+                    <span class="zstrip-dot" style="left:5.7%;background:var(--blue)" title="z -2.66">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="report-section" id="s_cardio">
+        <h2 class="section-heading">心血管の健康</h2>
+        <div class="trait-row" id="n_ldl_apoe">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">ε2ではない。ε4の状態は未確定</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">LDLコレステロールとAPOE</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア：</strong> z -0.03、49パーセンタイル、79遺伝子座。最も影響の大きい遺伝子座（rs2266788）を除くとz -0.33。 どちらも典型的な範囲内です。</p>
+                  <p>
+                  <strong>APOE：</strong> rs7412はCCで、ε2アレルは持っていません（TはAPOE ε2を示し、カタログの行で脂質を下げます。確認済み）。 APOEの2つ目のマーカーであるrs429358はファイルにないため、ε3かε4かを直接読み取ることはできません。 近くの2つの代理マーカー（rs4420638とrs2075650）はどちらもAAで、ヨーロッパ人でε4と一緒に伝わりやすいGアレルを持っていないことを意味します。 これはよく見られるε3/ε3のパターンと合致しますが、代理マーカーは判定ではありません。</p>
+                  <p>APOEの状態を知るかどうかは、個人的な選択です。確かな答えが必要になった場合は、カウンセリングを併せた臨床的なAPOE検査が確実な方法です。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>LDLコレステロール</span>
+                    <span>z -0.03 · 49パーセンタイル · 79遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:44.5%;color:var(--blue)" title="最上位の遺伝子座を除いた場合: z -0.33">
+                  </span>
+                    <span class="zstrip-dot" style="left:49.5%;background:var(--blue)" title="z -0.03">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="CCはε2を持たない一般的な遺伝子型です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">APOE</span>
+                      <span class="marker-tag-rsid">rs7412</span>
+                      <span class="marker-tag-geno">CC</span>
+                      <span class="marker-tag-weight">ε2ではない</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="ε3とε4を区別するために必要ですが、ファイルにありません。">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">APOE</span>
+                      <span class="marker-tag-rsid">rs429358</span>
+                      <span class="marker-tag-geno">-</span>
+                      <span class="marker-tag-weight">ファイルにない</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--modifier" title="Gはカタログの行でLDLを上げます（確認済み）。ε4の目印になるという点は文献に基づきます（未検証）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-c)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">APOC1</span>
+                      <span class="marker-tag-rsid">rs4420638</span>
+                      <span class="marker-tag-geno">AA</span>
+                      <span class="marker-tag-weight">ε4の目印となるGアレルなし</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--modifier" title="Gはカタログでアルツハイマー病のリスクアレルです。参照集団での頻度は0.10です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-d)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">TOMM40</span>
+                      <span class="marker-tag-rsid">rs2075650</span>
+                      <span class="marker-tag-geno">AA</span>
+                      <span class="marker-tag-weight">ε4の目印となるGアレルなし</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--modifier" title="Gは中性脂肪を上げます（カタログ、確認済み）。参照集団でのGは0.11です。遺伝子はAPOA5です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">APOA5</span>
+                      <span class="marker-tag-rsid">rs2266788</span>
+                      <span class="marker-tag-geno">GA</span>
+                      <span class="marker-tag-weight">中性脂肪を上げるアレルを1つ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_clots">
+          <div class="trait-spine" style="color:#c97b2a">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">第V因子ライデンを1コピー（1回の判定）：確認が必要</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">血栓と第V因子</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>第V因子（F5）rs6025はTCです。</strong> カタログの行では、Tアレルが静脈血栓症のリスクアレルです（ヨーロッパ人の3つの大規模研究）。 トスカーナ人の参照集団での頻度はほぼゼロのため、Tを1コピー持つことは珍しいことです。 このパターンは、第V因子ライデンのヘテロ接合の保因者と合致します。ほとんどの保因者は実際に血栓症を起こさない、よく見られる血栓傾向です。 これがライデンアレルであるという点は文献に基づきます（ここでは未検証）。</p>
+                  <p>
+                  <strong>これは診断ではなく、手がかりとして受け止めてください。</strong> これは低カバレッジの全ゲノムファイルによる1回の判定であり、この種のデータによる稀なバリアントの判定は誤っていることがあります。 臨床的な第V因子ライデン検査が、確認するための方法です。 確認された場合は、長時間の移動、手術、ホルモン治療の前に医師に伝える価値があります。 このページを理由に薬を変更することは、決してしないでください。</p>
+                  <p>プロトロンビンrs1799963はGGで、もう一つのよく見られる血栓性バリアントのコピーはありません。 静脈血栓症のスコア (z +1.30, 90th percentile, from 12 loci; without its strongest locus (rs6025) z -0.92) ほぼ完全にrs6025に依存しているため、階層にはしていません。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>静脈血栓塞栓症</span>
+                    <span>z +1.30 · 90パーセンタイル · 12遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:34.7%;color:#c97b2a" title="最上位の遺伝子座を除いた場合: z -0.92">
+                  </span>
+                    <span class="zstrip-dot" style="left:71.7%;background:#c97b2a" title="z +1.30">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Tはカタログのリスクアレルです。参照集団での頻度はほぼ0です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">F5</span>
+                      <span class="marker-tag-rsid">rs6025</span>
+                      <span class="marker-tag-geno">TC</span>
+                      <span class="marker-tag-weight">Tアレルを1つ（リスクアレル）</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="プロトロンビンのバリアントアレルはAです（文献に基づく。未検証）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">F2</span>
+                      <span class="marker-tag-rsid">rs1799963</span>
+                      <span class="marker-tag-geno">GG</span>
+                      <span class="marker-tag-weight">バリアントのコピーなし</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="report-section" id="s_metabolic">
+        <h2 class="section-heading">代謝の健康</h2>
+        <div class="trait-row" id="n_t2d">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">典型的な範囲</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">2型糖尿病</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z -0.46、32パーセンタイル、129遺伝子座。最も影響の大きい遺伝子座（rs1387153）を除くとz -0.69。 イベリア人（IBS）の参照集団ではz -0.54（最も影響の大きい遺伝子座を除くと-0.76）です。</p>
+                  <p>スコアは典型の範囲のうち良好な側にありますが、順位付けするほど離れてはいません。体重、活動量、家族歴のほうが、このスコアよりはるかに大きく影響します。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>2型糖尿病</span>
+                    <span>z -0.46 · 32パーセンタイル · 129遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:38.5%;color:var(--blue)" title="最上位の遺伝子座を除いた場合: z -0.69">
+                  </span>
+                    <span class="zstrip-dot" style="left:42.3%;background:var(--blue)" title="z -0.46">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_bmi">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">典型的な範囲</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">BMI（体格指数）</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z +0.04、51パーセンタイル、366遺伝子座。最も影響の大きい遺伝子座（rs7243357）を除くとz +0.23。 イベリア人（IBS）の参照集団ではz -0.01（最も影響の大きい遺伝子座を除くと+0.18）です。</p>
+                  <p>BMIのスコアは1つの大規模な研究（ヨーロッパ系の約110万人、366遺伝子座をスコア化）に基づき、実質的に典型的な値です。あなたの年齢でのBMIは、主に生活習慣で決まります。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>BMI（体格指数）</span>
+                    <span>z +0.04 · 51パーセンタイル · 366遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:53.8%;color:var(--blue)" title="最上位の遺伝子座を除いた場合: z +0.23">
+                  </span>
+                    <span class="zstrip-dot" style="left:50.7%;background:var(--blue)" title="z +0.04">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_gout">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">典型的な範囲</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">痛風</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z +0.13、55パーセンタイル、64遺伝子座。最も影響の大きい遺伝子座（rs4697701）を除くとz +0.39。 イベリア人（IBS）の参照集団ではz +0.15（最も影響の大きい遺伝子座を除くと+0.44）です。</p>
+                  <p>典型的な範囲です。最も影響の大きい遺伝子座は、最もよく知られた尿酸の遺伝子であるSLC2A9です。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>痛風</span>
+                    <span>z +0.13 · 55パーセンタイル · 64遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:56.5%;color:var(--blue)" title="最上位の遺伝子座を除いた場合: z +0.39">
+                  </span>
+                    <span class="zstrip-dot" style="left:52.2%;background:var(--blue)" title="z +0.13">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_liver_kidney">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">遺伝子座が少なすぎる</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">脂肪肝と慢性腎臓病</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z +0.25、60パーセンタイル、3遺伝子座。最も影響の大きい遺伝子座（rs2642442）を除くとz -0.24。 イベリア人（IBS）の参照集団ではz +0.37（最も影響の大きい遺伝子座を除くと-0.18）です。</p>
+                  <p>脂肪肝（3遺伝子座）と慢性腎臓病（7遺伝子座、z -0.28）は、どちらも順位付けするには遺伝子座が少なすぎます。 順位付けするにはスコア化された遺伝子座が少なすぎるため、参考情報にとどまり、階層にはしていません。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>脂肪肝と慢性腎臓病</span>
+                    <span>z +0.25 · 60パーセンタイル · 3遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:46.0%;color:var(--blue)" title="最上位の遺伝子座を除いた場合: z -0.24">
+                  </span>
+                    <span class="zstrip-dot" style="left:54.2%;background:var(--blue)" title="z +0.25">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_mthfr">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">C677Tのコピーなし</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">MTHFR</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>rs1801133はGGです。</strong> カタログの行では、Aアレルが44,000人を超えるヨーロッパ人でホモシステインを上げます。あなたはAを持っていないため、通常の型で、バリアントの影響は想定されません。 この結果を理由にメチル葉酸を摂る必要はありません。</p>
+                  <p>
+                  <strong>rs1801131はGTです。</strong> Gアレルを1コピー持っています（1298Cバリアント、文献に基づく。未検証）。 これは非常によく見られるバリアントで、単独では効果が弱いものです。カタログには、これに関連するより強い形質はありません。</p>
+                </div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Aはカタログでホモシステインを上げます（確認済み）。参照集団でのAは0.47です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">MTHFR</span>
+                      <span class="marker-tag-rsid">rs1801133</span>
+                      <span class="marker-tag-geno">GG</span>
+                      <span class="marker-tag-weight">C677Tのコピーなし</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="Gは1298Cバリアントです（文献に基づく。未検証）。参照集団では0.31です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">MTHFR</span>
+                      <span class="marker-tag-rsid">rs1801131</span>
+                      <span class="marker-tag-geno">GT</span>
+                      <span class="marker-tag-weight">1298Cを1コピー</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_gall">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">1つの遺伝子座に依存</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">胆石</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z -1.08、14パーセンタイル、11遺伝子座。最も影響の大きい遺伝子座（rs4245791）を除くとz +0.81。 イベリア人（IBS）の参照集団ではz -1.04（最も影響の大きい遺伝子座を除くと+0.52）です。</p>
+                  <p>スコアは良好に見えますが、1つの遺伝子座（ABCG8）に依存しています。それを除くとスコアはプラスになります。順位付けはしていません。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>胆石</span>
+                    <span>z -1.08 · 14パーセンタイル · 11遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:63.5%;color:var(--blue)" title="最上位の遺伝子座を除いた場合: z +0.81">
+                  </span>
+                    <span class="zstrip-dot" style="left:32.0%;background:var(--blue)" title="z -1.08">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="report-section" id="s_brain">
+        <h2 class="section-heading">脳・認知・神経系の健康</h2>
+        <div class="trait-row" id="n_scz">
+          <div class="trait-spine" style="color:#c0392b">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">上昇したスコア</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">統合失調症</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z +1.97、98パーセンタイル、112遺伝子座。最も影響の大きい遺伝子座（rs75968099）を除くとz +1.76。 2つ目の参照集団（IBS）ではz +1.72（最も影響の大きい遺伝子座を除くと+1.53）で、シグナルは変わりません。</p>
+                  <p>これは、多数の小さな効果から作られたポリジェニックスコアです。 統合失調症は、生涯で人口のおよそ1%が経験します（文献に基づく。未検証）。スコアが高い人のほとんどは、発症しません。 このスコアは何かを診断することはできず、あなたについての判断に使えるものでもありません。 このファイルでスコアが高いため、示しているだけです。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>統合失調症</span>
+                    <span>z +1.97 · 98パーセンタイル · 112遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:79.3%;color:#c0392b" title="最上位の遺伝子座を除いた場合: z +1.76">
+                  </span>
+                    <span class="zstrip-dot" style="left:82.8%;background:#c0392b" title="z +1.97">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_alz">
+          <div class="trait-spine" style="color:#2d7a4f">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">良好なスコア</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">アルツハイマー病（ポリジェニックな部分）</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z -1.09、14パーセンタイル、33遺伝子座。最も影響の大きい遺伝子座（rs2075650）を除くとz -1.16。 イベリア人（IBS）の参照集団ではz -1.04（最も影響の大きい遺伝子座を除くと-1.08）です。</p>
+                  <p>ポリジェニックな部分は良好な側にあり、2つのAPOE代理マーカー（rs4420638、rs2075650）にはGアレルがありません。 rs429358はファイルにないため、APOE ε4は直接読み取れません。LDLとAPOEのカードを参照してください。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>アルツハイマー病（ポリジェニックな部分）</span>
+                    <span>z -1.09 · 14パーセンタイル · 33遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:30.7%;color:#2d7a4f" title="最上位の遺伝子座を除いた場合: z -1.16">
+                  </span>
+                    <span class="zstrip-dot" style="left:31.8%;background:#2d7a4f" title="z -1.09">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_migraine">
+          <div class="trait-spine" style="color:#2d7a4f">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">境界線上で良好</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">片頭痛</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z -1.00、16パーセンタイル、24遺伝子座。最も影響の大きい遺伝子座（rs6790925）を除くとz -0.67。 イベリア人（IBS）の参照集団ではz -0.88（最も影響の大きい遺伝子座を除くと-0.54）です。</p>
+                  <p>トスカーナ人の参照集団ではしきい値ちょうどで、2つ目の参照集団では典型的です。所見ではなく、弱い傾きとして受け止めてください。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>片頭痛</span>
+                    <span>z -1.00 · 16パーセンタイル · 24遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:38.8%;color:#2d7a4f" title="最上位の遺伝子座を除いた場合: z -0.67">
+                  </span>
+                    <span class="zstrip-dot" style="left:33.3%;background:#2d7a4f" title="z -1.00">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="report-section" id="s_eye">
+        <h2 class="section-heading">目の健康</h2>
+        <div class="trait-row" id="n_glaucoma">
+          <div class="trait-spine" style="color:#c97b2a">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">中程度のスコア</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">緑内障</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z +1.22、89パーセンタイル、21遺伝子座。最も影響の大きい遺伝子座（rs12913832）を除くとz +1.85。 イベリア人（IBS）の参照集団ではz +1.24で、結果は変わりません。 最も影響の大きい遺伝子座であるHERC2 rs12913832がスコアを下げているため、それを除くとスコアは高くなります。</p>
+                  <p>緑内障は、初期には症状が出ないことがよくあります。スコアにかかわらず、あなたの年齢では、眼圧の検査を含む定期的な眼科検診が現実的な対策です。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>緑内障</span>
+                    <span>z +1.22 · 89パーセンタイル · 21遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:80.8%;color:#c97b2a" title="最上位の遺伝子座を除いた場合: z +1.85">
+                  </span>
+                    <span class="zstrip-dot" style="left:70.3%;background:#c97b2a" title="z +1.22">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="report-section" id="s_cancer">
+        <h2 class="section-heading">がんリスク</h2>
+        <div class="trait-row" id="n_prostate">
+          <div class="trait-spine" style="color:#2d7a4f">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">良好なスコア</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">前立腺がん</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z -2.31、1パーセンタイル、115遺伝子座。最も影響の大きい遺伝子座（rs11263763）を除くとz -2.05。 イベリア人（IBS）の参照集団ではz -2.40で、結果は変わりません。</p>
+                  <p>良好なスコアは、典型より低めの傾向であり、保護ではありません。前立腺がん検診を受けるかどうかは、あなたと医師が決めることです。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>前立腺がん</span>
+                    <span>z -2.31 · 1パーセンタイル · 115遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:15.8%;color:#2d7a4f" title="最上位の遺伝子座を除いた場合: z -2.05">
+                  </span>
+                    <span class="zstrip-dot" style="left:11.5%;background:#2d7a4f" title="z -2.31">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_crc">
+          <div class="trait-spine" style="color:#2d7a4f">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">境界線上で良好</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">大腸がん</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z -1.07、14パーセンタイル、44遺伝子座。最も影響の大きい遺伝子座（rs7226855）を除くとz -1.50。 イベリア人（IBS）の参照集団ではz -0.85（最も影響の大きい遺伝子座を除くと-1.33）です。</p>
+                  <p>境界線上です。トスカーナ人の参照集団ではスコアは良好ですが、2つ目では典型的です。 rs6983267はTTです。カタログではTが大腸がんのリスクの低さ、Gが前立腺がんのリスクの高さと関連するため、Gは持っていません。</p>
+                  <p>国の保健制度が勧める年齢での検診が、現実的な対策であることに変わりはありません。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>大腸がん</span>
+                    <span>z -1.07 · 14パーセンタイル · 44遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:25.0%;color:#2d7a4f" title="最上位の遺伝子座を除いた場合: z -1.50">
+                  </span>
+                    <span class="zstrip-dot" style="left:32.2%;background:#2d7a4f" title="z -1.07">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Tは大腸がんのリスクを下げ、Gは前立腺がんのリスクを上げます（確認済み）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">8q24</span>
+                      <span class="marker-tag-rsid">rs6983267</span>
+                      <span class="marker-tag-geno">TT</span>
+                      <span class="marker-tag-weight">Gアレルなし</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="report-section" id="s_immune">
+        <h2 class="section-heading">免疫・自己免疫疾患</h2>
+        <div class="trait-row" id="n_lupus">
+          <div class="trait-spine" style="color:#2d7a4f">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">良好なスコア</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">ループス</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z -1.94、3パーセンタイル、44遺伝子座。最も影響の大きい遺伝子座（rs9888739）を除くとz -2.35。 イベリア人（IBS）の参照集団ではz -1.92で、結果は変わりません。</p>
+                  <p>
+                  <strong>TYK2:</strong> rs34536443はGGで、通常の遺伝子型です（Cアレルは稀で、参照集団の3%、より少ない保護的な型です）。リスクの所見ではありません。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>ループス</span>
+                    <span>z -1.94 · 3パーセンタイル · 44遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:10.8%;color:#2d7a4f" title="最上位の遺伝子座を除いた場合: z -2.35">
+                  </span>
+                    <span class="zstrip-dot" style="left:17.7%;background:#2d7a4f" title="z -1.94">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Cは稀で保護的なアレルです（参照集団で0.03）。GGはそれを持っていません。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">TYK2</span>
+                      <span class="marker-tag-rsid">rs34536443</span>
+                      <span class="marker-tag-geno">GG</span>
+                      <span class="marker-tag-weight">通常の遺伝子型</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_ms">
+          <div class="trait-spine" style="color:#2d7a4f">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">良好なスコア</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">多発性硬化症</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z -1.10、14パーセンタイル、92遺伝子座。最も影響の大きい遺伝子座（rs883871）を除くとz -1.45。 イベリア人（IBS）の参照集団ではz -1.13（最も影響の大きい遺伝子座を除くと-1.47）です。</p>
+                  <p>HLA代理マーカーrs3135388はGGで、多発性硬化症と関連するAアレルは持っていません（参照集団で0.08）。HLAの代理マーカーは大まかなものです。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>多発性硬化症</span>
+                    <span>z -1.10 · 14パーセンタイル · 92遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:25.8%;color:#2d7a4f" title="最上位の遺伝子座を除いた場合: z -1.45">
+                  </span>
+                    <span class="zstrip-dot" style="left:31.7%;background:#2d7a4f" title="z -1.10">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Aはカタログの多発性硬化症のリスクアレルです（確認済み）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">HLA-DRA</span>
+                      <span class="marker-tag-rsid">rs3135388</span>
+                      <span class="marker-tag-geno">GG</span>
+                      <span class="marker-tag-weight">Aアレルなし</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_ra">
+          <div class="trait-spine" style="color:#2d7a4f">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">良好なスコア</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">関節リウマチ</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z -1.10、14パーセンタイル、82遺伝子座。最も影響の大きい遺伝子座（rs7731626）を除くとz -0.76。 イベリア人（IBS）の参照集団ではz -1.15（最も影響の大きい遺伝子座を除くと-0.82）です。</p>
+                  <p>HLA代理マーカーrs6457617はTTで、カタログが関節リウマチと関連づけるアレル（オッズ比2.36）を2コピー持っていますが、このアレルは一般的で（0.53）、HLAの代理マーカーは大まかなものです。 82遺伝子座にわたるポリジェニックスコアは良好なため、両方を示しています。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>関節リウマチ</span>
+                    <span>z -1.10 · 14パーセンタイル · 82遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:37.3%;color:#2d7a4f" title="最上位の遺伝子座を除いた場合: z -0.76">
+                  </span>
+                    <span class="zstrip-dot" style="left:31.7%;background:#2d7a4f" title="z -1.10">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Tはカタログのリスクアレルです（確認済み）。頻度0.53の一般的な型です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">HLA-DQB1</span>
+                      <span class="marker-tag-rsid">rs6457617</span>
+                      <span class="marker-tag-geno">TT</span>
+                      <span class="marker-tag-weight">一般的でリスクに関わるアレルを2つ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_celiac">
+          <div class="trait-spine" style="color:#2d7a4f">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">境界線上で良好</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">セリアック病</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z -1.01、16パーセンタイル、18遺伝子座。最も影響の大きい遺伝子座（rs3184504）を除くとz -0.65。 イベリア人（IBS）の参照集団ではz -1.11（最も影響の大きい遺伝子座を除くと-0.72）です。</p>
+                  <p>境界線上です。スコアはしきい値ちょうどです。 DQ2.5の代理マーカーrs2187668はCCです（Tなし、参照集団で0.12。関連は文献に基づく。未検証）。セリアック病の可能性は低くなりますが、除外はできません。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>セリアック病</span>
+                    <span>z -1.01 · 16パーセンタイル · 18遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:39.2%;color:#2d7a4f" title="最上位の遺伝子座を除いた場合: z -0.65">
+                  </span>
+                    <span class="zstrip-dot" style="left:33.2%;background:#2d7a4f" title="z -1.01">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="セリアック病と関連するDQ2.5型の代理マーカーです（文献に基づく。未検証）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">HLA-DQA1</span>
+                      <span class="marker-tag-rsid">rs2187668</span>
+                      <span class="marker-tag-geno">CC</span>
+                      <span class="marker-tag-weight">代理マーカーのコピーなし</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_as">
+          <div class="trait-spine" style="color:#2d7a4f">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">良好なスコア</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">強直性脊椎炎</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z -1.20、12パーセンタイル、10遺伝子座。最も影響の大きい遺伝子座（rs10865331）を除くとz -0.72。 イベリア人（IBS）の参照集団ではz -1.19（最も影響の大きい遺伝子座を除くと-0.72）です。</p>
+                  <p>HLA-B27の代理マーカーrs4349859はGGで、Aはありません（参照集団で0.01。カタログではAが強直性脊椎炎と関連）。スコア化したのは10遺伝子座のみのため、控えめに読んでください。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>強直性脊椎炎</span>
+                    <span>z -1.20 · 12パーセンタイル · 10遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:38.0%;color:#2d7a4f" title="最上位の遺伝子座を除いた場合: z -0.72">
+                  </span>
+                    <span class="zstrip-dot" style="left:30.0%;background:#2d7a4f" title="z -1.20">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Aはカタログの強直性脊椎炎のアレルです（確認済み）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">MICA-AS1</span>
+                      <span class="marker-tag-rsid">rs4349859</span>
+                      <span class="marker-tag-geno">GG</span>
+                      <span class="marker-tag-weight">代理マーカーのコピーなし</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="report-section" id="s_longevity">
+        <h2 class="section-heading">長寿と加齢</h2>
+        <div class="trait-row" id="n_lifespan">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">遺伝子座が少なすぎる</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">寿命とテロメア長</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z +0.25、60パーセンタイル、3遺伝子座。最も影響の大きい遺伝子座（rs142158911）を除くとz +0.59。 イベリア人（IBS）の参照集団ではz +0.34（最も影響の大きい遺伝子座を除くと-0.02）です。</p>
+                  <p>寿命のスコア化された遺伝子座は3つ、テロメア長は4つです（z +0.56）。どちらも順位付けできません。 順位付けするにはスコア化された遺伝子座が少なすぎるため、参考情報にとどまり、階層にはしていません。 TERT rs2736100はCA、MYNN rs10936599はTCです（Tを1コピー、カタログの行でテロメアを短くすることと関連。確認済み）。 FOXO3はファイルにありません。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>寿命とテロメア長</span>
+                    <span>z +0.25 · 60パーセンタイル · 3遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:59.8%;color:var(--blue)" title="最上位の遺伝子座を除いた場合: z +0.59">
+                  </span>
+                    <span class="zstrip-dot" style="left:54.2%;background:var(--blue)" title="z +0.25">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_hdl">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">1つの遺伝子座に依存</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">HDLコレステロール</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>中心化スコア（GWASカタログ、トスカーナ人の参照集団）：</strong> z +1.02、85パーセンタイル、87遺伝子座。最も影響の大きい遺伝子座（rs17091905）を除くとz +0.03。 イベリア人（IBS）の参照集団ではz +0.89（最も影響の大きい遺伝子座を除くと-0.18）です。</p>
+                  <p>HDLのスコアは高く見えますが、LPL遺伝子座に依存しています（それを除くとzは0付近）。そのため階層にはしていません。</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>HDLコレステロール</span>
+                    <span>z +1.02 · 85パーセンタイル · 87遺伝子座</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:50.5%;color:var(--blue)" title="最上位の遺伝子座を除いた場合: z +0.03">
+                  </span>
+                    <span class="zstrip-dot" style="left:67.0%;background:var(--blue)" title="z +1.02">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>典型より低い</span>
+                  <span>トスカーナ人（TSI）の典型的な範囲</span>
+                  <span>典型より高い</span>
+                </div>
+                <div class="zstrip-key">塗りつぶしの点：あなたのスコア。中空のリング：最も影響の大きい単一の遺伝子座を除いた場合のあなたのスコア。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="report-section" id="s_lifestyle">
+        <h2 class="section-heading">生活習慣・栄養</h2>
+        <div class="trait-row" id="n_lactose">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">持続型のコピーは検出されず</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">乳糖</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>MCM6 rs4988235はGGです。</strong> カタログの行では、Aアレルがラクターゼの量を高めます。あなたはAを持っておらず、ラクターゼ非持続性と合致します（参照集団でのAは0.09。成人の乳糖耐性との関連は文献に基づく。未検証）。 2つ目のラクターゼのマーカー（rs182549）はファイルにないため、部分的な評価です。 どのくらい乳製品に耐えられるかは、ご自身の経験のほうがよく判断できます。</p>
+                </div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Aはラクターゼの量を高めます（確認済み）。参照集団では0.09です。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">MCM6</span>
+                      <span class="marker-tag-rsid">rs4988235</span>
+                      <span class="marker-tag-geno">GG</span>
+                      <span class="marker-tag-weight">Aアレルなし</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_alcohol">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">通常の遺伝子型</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">アルコールの代謝</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>ALDH2 rs671はGG</strong>で、通常の型です。顔面紅潮を起こすAアレルは、ヨーロッパ人にはありません（参照集団でのG 1.00）。 <strong>ADH1B rs1229984はCC</strong>で、一般的な型（0.95）です。カタログでは、稀なTアレルより週の飲酒量がわずかに多いことと関連します。どちらもリスクの所見ではありません。アルコールは、遺伝子型にかかわらず、いくつかのがんや肝臓のリスクを高めます。</p>
+                </div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Aアレルは東アジアにみられるバリアントです。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">ALDH2</span>
+                      <span class="marker-tag-rsid">rs671</span>
+                      <span class="marker-tag-geno">GG</span>
+                      <span class="marker-tag-weight">正常</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="Cはカタログの行で週の飲酒量が多いことと関連します（確認済み）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">ADH1B</span>
+                      <span class="marker-tag-rsid">rs1229984</span>
+                      <span class="marker-tag-geno">CC</span>
+                      <span class="marker-tag-weight">一般的な型</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_vitd">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">通常、またはやや良好</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">ビタミンD</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>GC rs2282679はTT</strong>：カタログがビタミンD不足と関連づけるGアレルは持っていません（参照集団で0.24）。 <strong>CYP2R1 rs10741657はGA</strong>：値が高いことと関連するAアレルを1コピー持っています。どちらも実際の値を示すものではなく、それを知るのは血液検査です。日光が少ないこと、室内での仕事、冬の時期のほうが影響は大きくなります。</p>
+                </div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Gは不足のリスクを高めます（確認済み）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">GC</span>
+                      <span class="marker-tag-rsid">rs2282679</span>
+                      <span class="marker-tag-geno">TT</span>
+                      <span class="marker-tag-weight">Gアレルなし</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="AはビタミンDの値を上げます（確認済み）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">CYP2R1</span>
+                      <span class="marker-tag-rsid">rs10741657</span>
+                      <span class="marker-tag-geno">GA</span>
+                      <span class="marker-tag-weight">Aアレルを1つ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_iron">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">C282Yは評価不可</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">鉄過剰（HFE）</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">スコアとマーカー</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>HFE C282Y（rs1800562）はファイルにありません</strong>。そのため、主要な鉄過剰のバリアントは評価できません。 <strong>rs1799945（H63D）はGC</strong>：Gアレルを1コピー持っています（参照集団で0.18。H63Dであることは文献に基づく。未検証）。単独では意味を持つことはまれです。鉄が気になる場合の実際の検査は、フェリチンとトランスフェリン飽和度です。</p>
+                </div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="H63Dであることは文献に基づきます（未検証）。">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">HFE</span>
+                      <span class="marker-tag-rsid">rs1799945</span>
+                      <span class="marker-tag-geno">GC</span>
+                      <span class="marker-tag-weight">H63Dを1コピー</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="report-section" id="s_pharma">
+        <h2 class="section-heading">薬理ゲノミクス</h2>
+        <p class="pharma-intro">これらのカードは、遺伝子が、よく使われる一部の薬の体内での扱われ方をどう変えうるかを示しています。 <strong>このページを理由に薬を変更することは、決してしないでください</strong>。処方する医師や薬剤師と話し始めるきっかけとして使ってください。重要な遺伝子のいくつかは、このファイルでは十分に判定できておらず、HLAの薬物反応アレルは、目印となるSNPからは確実には判定できません。</p>
+        <div class="drug-grid">
+          <div class="drug-card">
+            <div class="drug-card-head">
+              <div class="drug-card-top">
+                <span class="drug-enzyme">SLCO1B1</span>
+                <span class="risk-pill" style="background:#2d7a4f;">機能低下型のコピーなし</span>
+              </div>
+              <div class="drug-genotype">rs4149056 TT</div>
+              <div class="drug-affected">影響を受ける薬剤：シンバスタチンやほかの一部のスタチンによる筋肉の副作用。</div>
+            </div>
+            <div class="drug-card-body">
+              <p class="drug-narrative">rs4149056はTTで、通常の型です（トスカーナ人の参照集団でのTは0.79）。機能低下型のアレルはCです（文献に基づく。未検証）。このマーカーから、スタチンについて追加の注意は生じません。</p>
+              <p class="drug-narrative">
+              <em>検証できなかったこと：</em> どの文字が機能低下型のアレルかは、カタログの行ではなく文献に基づきます。</p>
+              <div class="drug-action">
+                <strong>臨床的な意義：</strong> この薬が処方される場合は、このカードを処方する医師や薬剤師に伝えてください。このページを理由に薬を変更することは、決してしないでください。</div>
+            </div>
+          </div>
+          <div class="drug-card">
+            <div class="drug-card-head">
+              <div class="drug-card-top">
+                <span class="drug-enzyme">CYP2C19</span>
+                <span class="risk-pill" style="background:#8a7f72;">評価不可</span>
+              </div>
+              <div class="drug-genotype">*17なし（rs12248560 CC）、*3なし（rs4986893 GG）、*2（rs4244285）はファイルにない</div>
+              <div class="drug-affected">影響を受ける薬剤：クロピドグレル；いくつかの抗うつ薬の血中濃度</div>
+            </div>
+            <div class="drug-card-body">
+              <p class="drug-narrative">主要な機能喪失マーカーである*2はファイルにないため、*17と*3がなくても、代謝型は判定できません。</p>
+              <p class="drug-narrative">
+              <em>検証できなかったこと：</em> CYP2C19 *2.</p>
+              <div class="drug-action">
+                <strong>臨床的な意義：</strong> クロピドグレルや長期の胃酸抑制薬を医師が選ぶ場合は、CYP2C19の臨床検査が、確実に知るための方法です。</div>
+            </div>
+          </div>
+          <div class="drug-card">
+            <div class="drug-card-head">
+              <div class="drug-card-top">
+                <span class="drug-enzyme">CYP2D6</span>
+                <span class="risk-pill" style="background:#8a7f72;">*4なし；コピー数は未判定</span>
+              </div>
+              <div class="drug-genotype">*4 (rs3892097) CC; コピー数は未判定</div>
+              <div class="drug-affected">影響を受ける薬剤：コデインとトラマドール、多くの抗うつ薬</div>
+            </div>
+            <div class="drug-card-body">
+              <p class="drug-narrative">機能しない*4アレルは持っていません（参照集団でのTは0.19。*4であることは文献に基づく。未検証）。 これは、他のバリアントや遺伝子の重複を除外するものではありません。SNPファイルからは読み取れません。</p>
+              <p class="drug-narrative">
+              <em>検証できなかったこと：</em> 遺伝子のコピー数と、CYP2D6のほかのバリアント。</p>
+              <div class="drug-action">
+                <strong>臨床的な意義：</strong> この薬が処方される場合は、このカードを処方する医師や薬剤師に伝えてください。このページを理由に薬を変更することは、決してしないでください。</div>
+            </div>
+          </div>
+          <div class="drug-card">
+            <div class="drug-card-head">
+              <div class="drug-card-top">
+                <span class="drug-enzyme">CYP2C9 / VKORC1</span>
+                <span class="risk-pill" style="background:#8a7f72;">一部のみ判定</span>
+              </div>
+              <div class="drug-genotype">CYP2C9 *2なし（rs1799853 CC）；VKORC1 rs9923231とCYP2C9 *3はファイルにない</div>
+              <div class="drug-affected">影響を受ける薬剤：ワルファリン</div>
+            </div>
+            <div class="drug-card-body">
+              <p class="drug-narrative">ワルファリンの用量は、主にVKORC1、CYP2C9、CYP4F2に左右されます。CYP2C9 *2アレルは持っていません（カタログの行で確認済み）が、VKORC1と*3が欠けているため、用量は推定できません。</p>
+              <p class="drug-narrative">
+              <em>検証できなかったこと：</em> VKORC1 rs9923231とCYP2C9 *3（rs1057910）。</p>
+              <div class="drug-action">
+                <strong>臨床的な意義：</strong> ワルファリンが処方されることがあれば、医療チームは血液検査（INR）で効果を直接モニタリングします。これは、どの遺伝的推定よりも確実です。</div>
+            </div>
+          </div>
+          <div class="drug-card">
+            <div class="drug-card-head">
+              <div class="drug-card-top">
+                <span class="drug-enzyme">TPMT / NUDT15</span>
+                <span class="risk-pill" style="background:#2d7a4f;">検査した範囲でバリアントなし</span>
+              </div>
+              <div class="drug-genotype">TPMT *3C（rs1142345）TT、*2（rs1800462）CC、*3B（rs1800460）CC；NUDT15 rs116855232 CC</div>
+              <div class="drug-affected">影響を受ける薬剤：アザチオプリンやメルカプトプリンによる骨髄毒性。</div>
+            </div>
+            <div class="drug-card-body">
+              <p class="drug-narrative">検査したTPMTのバリアントはいずれも通常の遺伝子型で、NUDT15 rs116855232はCCです（リスクアレルはT）。検査した部位にリスクはありませんが、治療前に通常行われる酵素検査の代わりにはなりません。</p>
+              <p class="drug-narrative">
+              <em>検証できなかったこと：</em> TPMTとNUDT15のほかのバリアント。</p>
+              <div class="drug-action">
+                <strong>臨床的な意義：</strong> この薬が処方される場合は、このカードを処方する医師や薬剤師に伝えてください。このページを理由に薬を変更することは、決してしないでください。</div>
+            </div>
+          </div>
+          <div class="drug-card">
+            <div class="drug-card-head">
+              <div class="drug-card-top">
+                <span class="drug-enzyme">DPYD</span>
+                <span class="risk-pill" style="background:#8a7f72;">部分的にのみ評価可能</span>
+              </div>
+              <div class="drug-genotype">D949V（rs67376798）TT；*2A（rs3918290）はファイルにない</div>
+              <div class="drug-affected">影響を受ける薬剤：フルオロウラシルやカペシタビンによる重い毒性。</div>
+            </div>
+            <div class="drug-card-body">
+              <p class="drug-narrative">D949Vバリアントのコピーはありません。主なバリアントであるDPYD *2Aはファイルにないため、ここでの正常な結果で安心できるわけではありません。治療前の検査が通常の対応です。</p>
+              <p class="drug-narrative">
+              <em>検証できなかったこと：</em> DPYD *2A.</p>
+              <div class="drug-action">
+                <strong>臨床的な意義：</strong> この薬が処方される場合は、このカードを処方する医師や薬剤師に伝えてください。このページを理由に薬を変更することは、決してしないでください。</div>
+            </div>
+          </div>
+          <div class="drug-card">
+            <div class="drug-card-head">
+              <div class="drug-card-top">
+                <span class="drug-enzyme">HLA-B*57:01</span>
+                <span class="risk-pill" style="background:#2d7a4f;">代理マーカーのアレルなし</span>
+              </div>
+              <div class="drug-genotype">代理マーカーrs2395029 TT</div>
+              <div class="drug-affected">影響を受ける薬剤：アバカビルへの過敏症；フルクロキサシリンによる肝障害。</div>
+            </div>
+            <div class="drug-card-body">
+              <p class="drug-narrative">代理マーカーのGアレルは持っていません（参照集団で0.04。カタログではこのSNPがフルクロキサシリンによる肝障害と関連）。代理マーカーはHLAタイピングではありません。</p>
+              <p class="drug-narrative">
+              <em>検証できなかったこと：</em> HLA-B*57:01のタイピングそのもの。</p>
+              <div class="drug-action">
+                <strong>臨床的な意義：</strong> アバカビルやフルクロキサシリンが検討される場合は、臨床的なHLA検査が確実な検査です。このページを理由に薬を変更することは、決してしないでください。</div>
+            </div>
+          </div>
+          <div class="drug-card">
+            <div class="drug-card-head">
+              <div class="drug-card-top">
+                <span class="drug-enzyme">G6PD</span>
+                <span class="risk-pill" style="background:#8a7f72;">評価不可</span>
+              </div>
+              <div class="drug-genotype">rs1050828とrs5030868はファイルにない</div>
+              <div class="drug-affected">影響を受ける薬剤：特定の薬やそら豆による溶血。</div>
+            </div>
+            <div class="drug-card-body">
+              <p class="drug-narrative">G6PDの主要なバリアントはファイルにないため、このページからG6PDについて言えることはありません。</p>
+              <p class="drug-narrative">
+              <em>検証できなかったこと：</em> G6PDのすべてのバリアント。</p>
+              <div class="drug-action">
+                <strong>臨床的な意義：</strong> この薬が処方される場合は、このカードを処方する医師や薬剤師に伝えてください。このページを理由に薬を変更することは、決してしないでください。</div>
+            </div>
+          </div>
+          <div class="drug-card">
+            <div class="drug-card-head">
+              <div class="drug-card-top">
+                <span class="drug-enzyme">CYP3A5 / CYP1A2</span>
+                <span class="risk-pill" style="background:#2d7a4f;">通常のヨーロッパ人の遺伝子型</span>
+              </div>
+              <div class="drug-genotype">CYP3A5 rs776746 CC; CYP1A2 rs762551 AA</div>
+              <div class="drug-affected">影響を受ける薬剤：タクロリムスの用量（CYP3A5）とカフェインの代謝（CYP1A2）。</div>
+            </div>
+            <div class="drug-card-body">
+              <p class="drug-narrative">CYP3A5 rs776746はCCです。参照集団でのCは0.95のため、ヨーロッパ人に一般的な非発現型と合致します（頻度からの推定。未検証）。 CYP1A2 rs762551はAAで、カフェインの代謝が速いと一般に言われる型です（文献に基づく。未検証）。どちらも変更を求めるものではありません。</p>
+              <p class="drug-narrative">
+              <em>検証できなかったこと：</em> どちらについても、どの文字がどのアレルかは、カタログの行に基づきます。</p>
+              <div class="drug-action">
+                <strong>臨床的な意義：</strong> この薬が処方される場合は、このカードを処方する医師や薬剤師に伝えてください。このページを理由に薬を変更することは、決してしないでください。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
