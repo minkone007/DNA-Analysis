@@ -220,7 +220,7 @@
     <p class="cover-sub">Genetic Health Guide</p>
     <div class="cover-stats">
       <div class="cs">
-        <span class="cs-val">49</span>
+        <span class="cs-val">50</span>
         <span class="cs-lbl">Traits scored</span>
       </div>
       <div class="cs">
@@ -269,7 +269,7 @@
         </div>
         <div class="zchart">
           <h3 class="zchart-title">Where your tiered scores fall</h3>
-          <p class="zchart-note">Each dot is your score for one trait against the Tuscan reference, where zero is typical and the shaded band is the typical range (within one standard deviation). A hollow ring shows the score without its strongest single locus; when ring and dot disagree, the score rests on one locus. Only traits with an elevated, moderate or favourable tier are shown, plus height and male-pattern hair loss. 25 traits sit in the typical range and are not plotted. The 6 traits with too few loci to rank are shown separately below.</p>
+          <p class="zchart-note">Each dot is your score for one trait against the Tuscan reference, where zero is typical and the shaded band is the typical range (within one standard deviation). A hollow ring shows the score without its strongest single locus; when ring and dot disagree, the score rests on one locus. Only traits with an elevated, moderate or favourable tier are shown, plus height and male-pattern hair loss. 25 traits sit in the typical range and are not plotted. The 7 traits with too few loci to rank are shown separately below.</p>
           <div class="zrow">
             <span class="zrow-name">Schizophrenia <span style="color:var(--ink-3);font-size:.75em">(112 loci)</span>
           </span>
@@ -555,6 +555,21 @@
             </span>
             </div>
             <span class="zrow-z">-0.28</span>
+          </div>
+          <div class="zrow">
+            <span class="zrow-name">Amyotrophic lateral sclerosis <span style="color:var(--ink-3);font-size:.75em">(6 loci)</span>
+          </span>
+            <div class="zstrip-track">
+              <span class="zstrip-band">
+            </span>
+              <span class="zstrip-tick">
+            </span>
+              <span class="zstrip-ring" style="left:53.3%;color:var(--ink-3)" title="without the strongest locus: z +0.20">
+            </span>
+              <span class="zstrip-dot" style="left:41.8%;background:var(--ink-3)" title="z -0.49">
+            </span>
+            </div>
+            <span class="zrow-z">-0.49</span>
           </div>
         </div>
         <div class="narrative-body">
@@ -1427,6 +1442,119 @@
                   <span>higher than typical</span>
                 </div>
                 <div class="zstrip-key">Filled dot: your score. Hollow ring: your score without its strongest single locus.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trait-row" id="n_als">
+          <div class="trait-spine" style="color:var(--blue)">
+            <span class="spine-dot">
+          </span>
+            <span class="spine-line">
+          </span>
+            <span class="spine-risk">Too few loci</span>
+          </div>
+          <div class="trait-content">
+            <h3 class="trait-title">Amyotrophic lateral sclerosis</h3>
+            <div class="trait-narrative">
+              <div class="narrative-unit narrative-unit--gwas">
+                <div class="narrative-kicker">Score &amp; Markers</div>
+                <div class="narrative-text">
+                  <p>
+                  <strong>Centred score (GWAS Catalog, Tuscan reference):</strong> z -0.49, 31st percentile, from 6 loci; without its strongest locus (rs3849942) z +0.20. The IBS reference gives z -0.44 (without top locus +0.11).</p>
+                  <p>Six loci were scored, which is too few to rank, so this is context only, not a tier. The strongest locus, rs3849942, sits in the C9orf72 region; you carry no copy of the risk-linked allele there, which is why the score is slightly below typical.</p>
+                  <p>
+                  <strong>Important:</strong> A six-SNP common-variant score only shows where you sit against a reference population. It is not a diagnosis and cannot rule anything out. A consumer genotyping file cannot read the C9orf72 repeat expansion (rs3849942 only tags the background haplotype) or rare high-impact variants in SOD1, TARDBP, FUS, NEK1 and TBK1.</p>
+                  <p>ALS (amyotrophic lateral sclerosis) is rare. If a close relative has had ALS or frontotemporal dementia, clinical genetic counselling is the right next step, whatever this score says.</p>
+                </div>
+              </div>
+              <div class="zstrips">
+                <div class="zstrip">
+                  <div class="zstrip-name">
+                    <span>Amyotrophic lateral sclerosis</span>
+                    <span>z -0.49 · 31st percentile · 6 loci</span>
+                  </div>
+                  <div class="zstrip-track">
+                    <span class="zstrip-band">
+                  </span>
+                    <span class="zstrip-tick">
+                  </span>
+                    <span class="zstrip-ring" style="left:53.3%;color:var(--blue)" title="without the strongest locus: z +0.20">
+                  </span>
+                    <span class="zstrip-dot" style="left:41.8%;background:var(--blue)" title="z -0.49">
+                  </span>
+                  </div>
+                </div>
+                <div class="zstrip-scale">
+                  <span>lower than typical</span>
+                  <span>typical Tuscan (TSI) range</span>
+                  <span>higher than typical</span>
+                </div>
+                <div class="zstrip-key">Filled dot: your score. Hollow ring: your score without its strongest single locus.</div>
+              </div>
+              <div class="marker-votes">
+                <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Catalog odds ratio 2.16 for the risk allele (checked).">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">C9orf72 region</span>
+                      <span class="marker-tag-rsid">rs3849942</span>
+                      <span class="marker-tag-geno">CC</span>
+                      <span class="marker-tag-weight">No risk-linked copy</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="Catalog odds ratio 1.52 for the risk allele (checked).">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">SUSD2</span>
+                      <span class="marker-tag-rsid">rs8141797</span>
+                      <span class="marker-tag-geno">AA</span>
+                      <span class="marker-tag-weight">No risk-linked copy</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="Catalog odds ratio 2.02 for the risk allele (checked).">
+                    <span class="marker-tag-dot" style="background:var(--cat-c)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">TIAM1</span>
+                      <span class="marker-tag-rsid">rs13048019</span>
+                      <span class="marker-tag-geno">CC</span>
+                      <span class="marker-tag-weight">No risk-linked copy</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--modifier" title="Catalog odds ratio 1.18 for the risk allele (checked).">
+                    <span class="marker-tag-dot" style="background:var(--cat-d)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">UNC13A</span>
+                      <span class="marker-tag-rsid">rs12608932</span>
+                      <span class="marker-tag-geno">CC</span>
+                      <span class="marker-tag-weight">Two risk-linked copies</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--modifier" title="Catalog odds ratio 1.31 for the risk allele (checked).">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">CAMK1G</span>
+                      <span class="marker-tag-rsid">rs6703183</span>
+                      <span class="marker-tag-geno">TT</span>
+                      <span class="marker-tag-weight">Two risk-linked copies</span>
+                    </div>
+                  </div>
+                  <div class="marker-tag marker-tag--modifier" title="Catalog odds ratio 1.20 for the risk allele (checked).">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)">
+                  </span>
+                    <div class="marker-tag-main">
+                      <span class="marker-tag-gene">KRT18P55</span>
+                      <span class="marker-tag-rsid">rs34517613</span>
+                      <span class="marker-tag-geno">CC</span>
+                      <span class="marker-tag-weight">No risk-linked copy</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
