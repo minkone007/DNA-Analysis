@@ -220,7 +220,7 @@
       <h1>Minko Nenov</h1>
       <p class="cover-sub">Genetic Health Guide</p>
       <div class="cover-stats">
-        <div class="cs"><span class="cs-val">54</span><span class="cs-lbl">Traits analysed</span></div>
+        <div class="cs"><span class="cs-val">55</span><span class="cs-lbl">Traits analysed</span></div>
         <div class="cs"><span class="cs-val" style="color:#f87171">3</span><span class="cs-lbl">Elevated signals</span></div>
         <div class="cs"><span class="cs-val" style="color:#86efac">3</span><span class="cs-lbl">Favourable signals</span></div>
         <div class="cs"><span class="cs-val">November 16, 2026</span><span class="cs-lbl">Generated</span></div>
@@ -249,7 +249,7 @@
           </div>
           <div class="zchart">
             <h3 class="zchart-title">Where your tiered scores fall</h3>
-            <p class="zchart-note">Each dot is your score for one trait against the Tuscan reference, where zero is typical and the shaded band is the typical range (within one standard deviation). A hollow ring shows the score without its strongest single locus; when ring and dot disagree, the score rests on one locus. Only traits with an elevated, moderate or favourable tier are shown. 27 traits sit in the typical range and are not plotted. The 7 traits with too few loci to rank are shown separately below the line.</p>
+            <p class="zchart-note">Each dot is your score for one trait against the Tuscan reference, where zero is typical and the shaded band is the typical range (within one standard deviation). A hollow ring shows the score without its strongest single locus; when ring and dot disagree, the score rests on one locus. Only traits with an elevated, moderate or favourable tier are shown. 27 traits sit in the typical range and are not plotted. The 8 traits with too few loci to rank are shown separately below the line.</p>
             <div class="zrow">
               <span class="zrow-name">Gallstones <span style="color:var(--ink-3);font-size:.75em">(11 loci)</span></span>
               <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:74.2%;color:var(--risk-moderate)" title="without the strongest locus: z +1.45"></span><span class="zstrip-dot" style="left:77.8%;background:var(--risk-elevated)" title="z +1.67"></span></div>
@@ -315,6 +315,11 @@
               <span class="zrow-name">Thyroid cancer <span style="color:var(--ink-3);font-size:.75em">(6 loci)</span></span>
               <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:54.3%;color:var(--ink-3)" title="without the strongest locus: z +0.26"></span><span class="zstrip-dot" style="left:62.7%;background:var(--ink-3)" title="z +0.76"></span></div>
               <span class="zrow-z">+0.76</span>
+            </div>
+            <div class="zrow">
+              <span class="zrow-name">Amyotrophic lateral sclerosis<span style="color:var(--ink-3);font-size:.75em">(6 loci)</span></span>
+              <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:53.3%;color:var(--ink-3)" title="without the strongest locus: z +0.20"></span><span class="zstrip-dot" style="left:61.2%;background:var(--ink-3)" title="z +0.67"></span></div>
+              <span class="zrow-z">+0.67</span>
             </div>
             <div class="zrow">
               <span class="zrow-name">Gastric cancer <span style="color:var(--ink-3);font-size:.75em">(1 loci)</span></span>
@@ -1568,6 +1573,64 @@
                   </div>
                 </div>
                 <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog restless-legs scores (3 loci); no direction labels were re-checked beyond the score table.</p>
+              </div>
+            </div>
+          </div>
+          <div class="trait-row" id="n_als">
+            <div class="trait-spine" style="color:var(--ink-3)"><span class="spine-dot"></span><span class="spine-line"></span><span class="spine-risk">Limited coverage</span></div>
+            <div class="trait-content">
+              <h3 class="trait-title">Amyotrophic Lateral Sclerosis</h3>
+              <div class="trait-narrative">
+                <div class="narrative-unit narrative-unit--gwas">
+                  <div class="narrative-kicker">Score &amp; Markers</div>
+                  <div class="narrative-text">
+                    <p><strong>Centred score (GWAS Catalog, Tuscan reference):</strong> z +0.67 across only 6 loci, so no tier is given. Without the strongest locus (rs3849942) the score is z +0.20, so most of the positive tilt comes from that one locus. The Iberian reference gives z +0.72 (without top locus +0.11).</p>
+                    <p>At the strongest locus, rs3849942 in the C9orf72 region, you carry one risk T (OR 2.16, frequency 0.27). You carry two risk C at UNC13A and two risk T at CAMK1G, and none at SUSD2, TIAM1 or KRT18P55.</p>
+                  </div>
+                </div>
+                <div class="zstrips">
+                  <div class="zstrip">
+                    <div class="zstrip-name"><span>Amyotrophic lateral sclerosis</span><span>z +0.67 · 75th percentile · 6 loci · limited coverage</span></div>
+                    <div class="zstrip-track"><span class="zstrip-band"></span><span class="zstrip-tick"></span><span class="zstrip-ring" style="left:53.3%;color:var(--ink-3)" title="without the strongest locus: z +0.20"></span><span class="zstrip-dot" style="left:61.2%;background:var(--ink-3)" title="z +0.67"></span></div>
+                  </div>
+                  <div class="zstrip-scale"><span>lower than typical</span><span>typical Tuscan (TSI) range</span><span>higher than typical</span></div>
+                  <div class="zstrip-key">Filled dot: your score. Hollow ring: your score without its strongest single locus.</div>
+                </div>
+                <div class="marker-votes">
+                  <div class="marker-tag-grid">
+                  <div class="marker-tag marker-tag--primary" title="Risk T carried once (OR 2.16, frequency 0.27).">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                    <div class="marker-tag-main"><span class="marker-tag-gene">C9orf72 region</span><span class="marker-tag-rsid">rs3849942</span><span class="marker-tag-geno">1 of 2</span><span class="marker-tag-weight">One risk copy</span></div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="Risk T carried zero times (OR 2.02, frequency 0.16).">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                    <div class="marker-tag-main"><span class="marker-tag-gene">TIAM1</span><span class="marker-tag-rsid">rs13048019</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No risk copy</span></div>
+                  </div>
+                  <div class="marker-tag marker-tag--secondary" title="Risk G carried zero times (OR 1.52, frequency 0.06).">
+                    <span class="marker-tag-dot" style="background:var(--cat-c)"></span>
+                    <div class="marker-tag-main"><span class="marker-tag-gene">SUSD2</span><span class="marker-tag-rsid">rs8141797</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No risk copy</span></div>
+                  </div>
+                  <div class="marker-tag marker-tag--minor" title="Risk C carried twice (OR 1.18, frequency 0.30).">
+                    <span class="marker-tag-dot" style="background:var(--cat-d)"></span>
+                    <div class="marker-tag-main"><span class="marker-tag-gene">UNC13A</span><span class="marker-tag-rsid">rs12608932</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two risk copies</span></div>
+                  </div>
+                  <div class="marker-tag marker-tag--minor" title="Risk T carried twice (OR 1.31, frequency 0.64).">
+                    <span class="marker-tag-dot" style="background:var(--cat-a)"></span>
+                    <div class="marker-tag-main"><span class="marker-tag-gene">CAMK1G</span><span class="marker-tag-rsid">rs6703183</span><span class="marker-tag-geno">2 of 2</span><span class="marker-tag-weight">Two risk copies</span></div>
+                  </div>
+                  <div class="marker-tag marker-tag--minor" title="Risk T carried zero times (OR 1.20, frequency 0.16).">
+                    <span class="marker-tag-dot" style="background:var(--cat-b)"></span>
+                    <div class="marker-tag-main"><span class="marker-tag-gene">KRT18P55</span><span class="marker-tag-rsid">rs34517613</span><span class="marker-tag-geno">0 of 2</span><span class="marker-tag-weight">No risk copy</span></div>
+                  </div>
+                  </div>
+                </div>
+                <div class="narrative-unit narrative-unit--deep">
+                  <div class="narrative-kicker">Deeper Analysis</div>
+                  <div class="narrative-text">
+                    <p>ALS (amyotrophic lateral sclerosis) is rare, and a six-SNP common-variant score only shows where you sit against a reference population: it is not a diagnosis and cannot rule anything out. A consumer genotyping file cannot read the C9orf72 repeat expansion (rs3849942 only tags the background haplotype) or rare high-impact variants in SOD1, TARDBP, FUS, NEK1 and TBK1. If a close relative has had ALS or frontotemporal dementia, clinical genetic counselling is the right next step, whatever this score says.</p>
+                  </div>
+                </div>
+                <p style="font-size:.78rem;color:var(--ink-3);margin-top:10px"><strong>Evidence:</strong> GWAS Catalog ALS scores (6 loci, strand concordance checked, HLA excluded); no direction labels were re-checked beyond the score table.</p>
               </div>
             </div>
           </div>
