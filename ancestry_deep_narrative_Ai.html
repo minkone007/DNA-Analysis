@@ -342,16 +342,16 @@ body{color:var(--ink)}
   <a href="#s_summary" class="nav-link">Executive Summary</a>
   <a href="#s_surface" class="nav-link"> 0 — The Surface</a>
   <a href="#s_modern" class="nav-link"> 1 — Living Populations</a>
-  <a href="#s_historic" class="nav-link"> 2 — Kofun to Heian</a>
+  <a href="#s_historic" class="nav-link"> 2 — Historic Era</a>
   <a href="#s_yayoi" class="nav-link"> 3 — Yayoi</a>
-  <a href="#s_jomon_late" class="nav-link"> 4 — Later Jomon</a>
-  <a href="#s_jomon_early" class="nav-link"> 5 — Earlier Jomon</a>
+  <a href="#s_yellow" class="nav-link"> 4 — Yellow River</a>
+  <a href="#s_jomon" class="nav-link"> 5 — Jomon</a>
   <a href="#s_archaic" class="nav-link"> 6 — Archaic</a>
   <hr class="nav-divider">
   <a href="#s_surprises" class="nav-link">Notable Findings</a>
   <a href="#s_snps" class="nav-link">Ancestry SNPs</a>
-  <a href="#s_methods" class="nav-link">How This Was Measured</a>
   <a href="#s_synthesis" class="nav-link">The Full Picture</a>
+  <a href="#s_methods" class="nav-link">Appendix: Methods and Data</a>
 </nav>
 
 <div class="main-content">
@@ -363,26 +363,26 @@ body{color:var(--ink)}
   <p class="cover-sub2">East Asia · The Japanese Archipelago · 50,000 Years</p>
   <div class="cover-meta">
     <div class="cover-stat">
-      <span class="cover-stat-val">0.025</span>
-      <span class="cover-stat-label">G25 distance to Japanese (simulated)</span>
+      <span class="cover-stat-val">Japanese</span>
+      <span class="cover-stat-label">Closest living match</span>
     </div>
     <div class="cover-stat">
-      <span class="cover-stat-val">0.022</span>
-      <span class="cover-stat-label">Closest ancient (Kofun, Honshu)</span>
+      <span class="cover-stat-val">Kofun Japan</span>
+      <span class="cover-stat-label">Closest ancient Japanese match</span>
     </div>
     <div class="cover-stat">
       <span class="cover-stat-val">7</span>
       <span class="cover-stat-label">Layers of time</span>
     </div>
     <div class="cover-stat">
-      <span class="cover-stat-val">Nov 2026</span>
+      <span class="cover-stat-val">November 2026</span>
       <span class="cover-stat-label">Generated</span>
     </div>
   </div>
 </div>
 
 <div class="disclaimer">
-  Sources: MyHeritage ethnicity estimate and raw DNA file (low-pass whole-genome sequencing, build 37). GEDmatch calculators (World9, Eurogenes K13, MDLP K16, Dodecad V3, HarappaWorld). Simulated Global25 coordinate Ai_Consensus_G25_v1_sim_scaled, built as a weighted average of coordinates simulated from Eurogenes K15, K13, K36 and HarappaWorld outputs (not computed from Ai’s raw SNPs with the original Global25 PCA). Vahaduo Global25 scaled population averages and ancient samples (including Kofun, Yayoi, Jomon and Nagabaka samples from Japan). Context: Cooke et al. 2021, Science Advances (Jomon, Yayoi and Kofun origins of Japanese populations). Ancient DNA ancestry models are statistical approximations describing genetic relationships, not direct genealogical descent. Generated November 2026.
+  <strong>Sources and methods:</strong> Single-gene results (the “Ancestry SNPs” layer) are read directly from Ai’s MyHeritage raw DNA file (human reference build 37, forward strand). The file contains no Y-chromosome or mitochondrial calls. Population and ancient-DNA comparisons use Vahaduo Global25 scaled averages, plus eight Yellow River Late Neolithic individuals, nine Nagabaka individuals from Miyako Island and a published modern Ryukyuan average. Ai’s Global25-style coordinate is simulated from GEDmatch calculator results (Eurogenes K15, K13, K36 and HarappaWorld), not projected directly from her raw file, so every distance is an approximate, model-based measure with a margin of a few hundredths, and some findings are explored rather than proven. The appendix lists the data, the checks and what is still missing. Main references: Cooke et al. 2021 and 2023, Ning et al. 2020, Liu et al. 2024, Gelabert et al. 2022. Ancient-DNA comparisons describe genetic similarity, not literal family-tree descent. Generated November 2026.
 </div>
 
 <!-- ══ EXECUTIVE SUMMARY ══ -->
@@ -507,12 +507,12 @@ body{color:var(--ink)}
           <div class="dual-shared band-deep" style="top:88.00%;">
             <div class="band-label">
               <strong>Neanderthal Admixture</strong>
-              <span>~50,000–60,000 ya · Levant / Southwest Asia · ~1–4% of the genome</span>
+              <span>~50,000–60,000 ya · Levant / Southwest Asia · roughly 1–2% of the genome</span>
               <span class="band-epoch">Admixture event window: ~50,000–60,000 ya</span>
             </div>
             <div class="dual-shared-gap"></div>
             <div class="deep-note">
-              Universal signal across non-African populations, not an analysis specific to this genome. Not measured for Ai.
+              Shared by nearly everyone with ancestry from outside Africa, not an analysis specific to this genome. Not measured for Ai.
             </div>
           </div>
 
@@ -523,7 +523,7 @@ body{color:var(--ink)}
               <div class="strata-zone strata-zone--jomon" style="top:20.00%;height:7.75%;" title="Jomon Hunter-Gatherers · Jomon period: ~16,000–2,300 ya"></div>
               <div class="strata-zone strata-zone--jomon" style="top:29.25%;height:40.25%;" title="Jomon Hunter-Gatherers · Jomon period: ~16,000–2,300 ya"></div>
               <div class="strata-zone strata-zone--deep" style="top:69.50%;height:19.00%;" title="Neanderthal Admixture · ~50,000–60,000 ya"></div>
-              <div class="strata-zone strata-zone--deep2" style="top:88.50%;height:9.00%;" title="Denisovan-related Signal · Divergence window: ~60,000–70,000 ya"></div>
+              <div class="strata-zone strata-zone--deep2" style="top:88.50%;height:9.00%;" title="Denisovan-related Signal · deep ancestry, not measured"></div>
             </div>
             <div class="strata-tick" style="top:31.50%; left:auto; right:-4px; z-index:11;" title="China YR LN · comparative reference only"></div>
 
@@ -557,7 +557,7 @@ body{color:var(--ink)}
             <div class="dual-card band-comparative" style="top:31.50%; right:100%; width:70%;">
               <div class="band-label">
                 <strong>China · Yellow River Late Neolithic</strong>
-                <span>Continental farming reference · nearest ancient sample, used to measure distance, not a layer of the lineage</span>
+                <span>Landmark on the East Asian map · eight Longshan-era individuals · not an ancestral source</span>
                 <span class="band-epoch">Late Neolithic: ~4,500 ya</span>
               </div>
               <div class="band-distance">G25: 0.055 China_YR_LN (simulated)</div>
@@ -569,18 +569,18 @@ body{color:var(--ink)}
                 <span>The archipelago’s earliest known population · the expected deep substrate of Japanese ancestry</span>
                 <span class="band-epoch">Jomon period: ~16,000–2,300 ya</span>
               </div>
-              <div class="band-distance">G25: 0.167–0.173, six Jomon samples (simulated)</div>
+              <div class="band-distance">G25: 0.167–0.173, seven Jomon-period samples (simulated)</div>
             </div>
 
             <div class="dual-card band-deep2" style="top:96.50%; right:100%; width:70%;">
               <div class="band-label">
                 <strong>Denisovan-related Signal</strong>
-                <span>Onge lineage, ~60,000–70,000 years ago · a faint thread expected via the Jomon</span>
-                <span class="band-epoch">Divergence window: ~60,000–70,000 ya</span>
+                <span>A trace, well under 1% of the genome, found in East Asian populations · deep ancestry, not dated here</span>
+                <span class="band-epoch">Deep ancestry · not measured for Ai</span>
               </div>
-              <div class="band-distance">Onge G25: not run</div>
+              <div class="band-distance">Not measured</div>
               <div class="deep-note">
-                In Julian’s model this thread is inferred from Onge-related ancestry and attributed to his maternal side. It is carried here as a hypothesis only: Onge was not run for Ai.
+                Expected as a small shared trace in East Asian populations. Nothing in Ai’s results measures it or rules it out.
               </div>
             </div>
           </div> <!-- end dual-col -->
@@ -589,41 +589,38 @@ body{color:var(--ink)}
       </div> <!-- end strat-map-wrap -->
     </section>
 
-<div class="curious"><p class="curious-label">For the curious</p>
+<div class="curious"><p class="curious-label">The Dig</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">What the whole excavation shows</h3>
 
-    <p class="descent-note">Seven layers follow, each deeper than the last. Before descending into them, here is what the whole excavation shows, top to bottom.</p>
+    <p class="descent-note">Seven layers follow, each deeper than the last. First, the whole excavation in one pass.</p>
 
-    <p>Ai’s genome sits inside the Japanese reference population in every comparison made. On her simulated Global25 coordinate the closest modern population is <strong>Japanese (0.025)</strong>, followed by <strong>Korean (0.028)</strong> and Korean_Antu (0.029). The three Han Chinese references sit further away, at 0.043–0.044. All five GEDmatch calculators examined also place a Japanese reference first. The gap between Japanese and Korean is small, between 0.002 and 0.006 depending on how the four source calculators are weighted, so “Japanese first” is supported while the order of Japanese and Korean is close.</p>
+    <p>Set against people alive today, Ai’s DNA lands closest to <strong>Japanese (0.025)</strong>, with <strong>Koreans (0.028)</strong> right behind. Manchu groups come next (0.040), and the three Han Chinese groups are further out (0.043–0.044). Five different calculators all name a Japanese reference first. The gap between Japanese and Korean is small, so the safe reading is “Japanese first, Korean a close second”. The MyHeritage labels (Japanese 87.7%, Chinese 12.3%) are one window onto this same neighborhood, not separate ancestors.</p>
 
-    <p>Among ancient samples the nearest is a Kofun-period Honshu sample, <strong>Japan_Honshu_Kofun.SG (0.022)</strong>. It sits slightly closer than the modern Japanese average does and well ahead of everything else: a historic-period sample from Miyako Island in the Ryukyus (Nagabaka) comes next at 0.040. Yayoi-period samples from northwest Kyushu follow (Shomura 0.063, Neshiko11 0.090), alongside the continental farming references (China_YR_LN 0.055, Korea_Changhang 0.100), and every Jomon sample tested sits at 0.167–0.173. That order is what history predicts: Kofun-period people were already close to modern Japanese, and their ancestry combines Jomon, Yayoi and later East Asian strands. Any model built from the continental and Jomon stand-ins fits worse (0.036) than the Kofun sample does by itself, so the earlier three-source percentages are kept only as exploratory.</p>
+    <p>Among ancient samples, the nearest are a trio from about 1,700 years ago: <strong>Gimhae in Gaya-era Korea (0.018)</strong>, <strong>Kofun-period Honshu (0.022)</strong> and a second Gimhae sample (0.023). They sit almost on top of each other, which fits what published studies describe: a period when Japan took in a large new wave of East Asian ancestry and the two sides of the Korea Strait were in close contact. A separate set of nine individuals from Miyako Island, in the southern Ryukyus, adds another close neighbor: three people who lived there around 1800 sit 0.017–0.037 from Ai, in a different coordinate system, and they look mainland-like themselves, so this is a lead and not a southern origin.</p>
 
-    <p>Two cautions run through the whole report. The coordinate is <strong>simulated</strong> from four calculator outputs, so distances are approximate, and each section says which statements are solid and which are exploratory. And percentages from calculators and mixture models describe how well a combination of reference populations fits, not shares of family ancestry.</p>
+    <p>Under the Kofun layer the history of the archipelago supplies the structure. The Yayoi rice farmers of the first centuries around 300 BC sit further away (0.063, 0.090). The Jomon hunter-gatherers, who lived in Japan for thousands of years before them, sit furthest (0.167–0.173), as they do for almost every Japanese person. Two new threads were followed this time. The <strong>Yellow River</strong> farmers of 4,000 years ago are the nearest of the continental samples, but they are equally near every East Asian group, in the same order, so they work as a landmark, not an ancestor. The <strong>Okinawan</strong> reference is too unusual to compare, so the southern question stays open. The coordinate behind all this is simulated, so each result was re-run with its least reliable dimension removed. The neighborhood and the Japanese-and-Korean pattern survive, while a small lean toward China, the Yellow River order and the Ryukyuan numbers do not.</p>
 
     <table class="dist-table">
       <tr><th></th><th>Closest match</th><th>Distance</th></tr>
-      <tr><td>Modern population</td><td>Japanese (Korean second)</td><td class="dist-val">0.025 / 0.028</td></tr>
-      <tr><td>Closest ancient sample</td><td>Japan Honshu Kofun</td><td class="dist-val">0.022</td></tr>
-      <tr><td>Continental farming reference</td><td>China YR LN (Yellow River Late Neolithic)</td><td class="dist-val">0.055</td></tr>
-      <tr><td>Yayoi-period samples (northwest Kyushu)</td><td>Shomura, Neshiko11</td><td class="dist-val">0.063 / 0.090</td></tr>
-      <tr><td>Yayoi-era continental stand-in</td><td>Korea Changhang</td><td class="dist-val">0.100</td></tr>
-      <tr><td>Jomon hunter-gatherers</td><td>Six Jomon-period samples</td><td class="dist-val">0.167–0.173</td></tr>
+      <tr><td>Living population</td><td>Japanese (Korean is next, at 0.028)</td><td class="dist-val">0.025</td></tr>
+      <tr><td>Ancient, 1,700 years ago</td><td>Gimhae (Korea) · Kofun Honshu · Gimhae</td><td class="dist-val">0.018 / 0.022 / 0.023</td></tr>
+      <tr><td>Historic Miyako (separate coordinate set)</td><td>NAG039 · NAG035 · NAG036</td><td class="dist-val">0.017 / 0.027 / 0.037</td></tr>
+      <tr><td>Yayoi farmers (northwest Kyushu)</td><td>Shomura / Neshiko11</td><td class="dist-val">0.063 / 0.090</td></tr>
+      <tr><td>Yellow River Late Neolithic (landmark)</td><td>PLTM310 / WD-WT1H16</td><td class="dist-val">0.048 / 0.049</td></tr>
+      <tr><td>Jomon hunter-gatherers</td><td>Seven samples</td><td class="dist-val">0.167–0.173</td></tr>
     </table>
 
     <div class="insight-box">
       <span class="insight-label">How to Read This Report</span>
       <strong>Lower G25 distance = genetically closer.</strong>
-      These scores measure similarity to reference populations, not “percent of your ancestors.”
-      The coordinate used here is simulated from calculator outputs, so small differences (about 0.01 or less) should not be over-read.
-      Modern labels (Japanese, Korean, Han) are names of present-day comparison groups, not proof of a particular national ancestor in a family-tree sense.
-      Ancient labels (Japan_Honshu_Kofun.SG, China_YR_LN, Korea_Changhang, the Jomon samples) are archaeological reference samples, not the actual ancestors.
+      As a rough rule of thumb, distances under about 0.03 are very close matches and above about 0.1 the populations are clearly different.
+      These scores measure similarity to reference populations, not “percent of your ancestors.” A distance cannot show descent, a migration route, or a date of contact, and similar coordinates can come from different mixtures.
+      Modern labels (Japanese, Korean, Han) are names of present-day comparison groups, and ancient labels (Kofun, Gimhae, Yayoi, Jomon) are archaeological reference samples, not ancestors.
       Work top to bottom: each layer is older than the one above it.
     </div>
 
-    <p style="margin-top:1.5rem">In short: a genome that sits within the Japanese population, whose deeper layers (continental farmers over an older Jomon base) follow the known history of the archipelago, though the available references cannot yet measure those layers precisely.</p>
-    <p>Everything that follows is the evidence behind that one sentence.</p>
-    <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> A Japanese profile that sits right on a Kofun-period Japanese sample, with continental ancestry from the Yayoi period on top of a Jomon base. Exact proportions are not yet measurable.</span></p>
+    <p style="margin-top:1.5rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> A Japanese genome that sits in the same neighborhood as Kofun-era Japan and Gaya-era Korea, built on the layers of Japan’s own history. The Yellow River and Okinawan questions stay open. Everything that follows is the evidence behind that sentence.</span></p>
 </div></div>
   </div>
 </div>
@@ -636,32 +633,28 @@ body{color:var(--ink)}
   </div>
   <div class="era-content">
 <div class="story-panel"><h2>The label on the box is the least interesting part</h2>
-<div class="story"><p>The test says: Japanese 87.7%, Chinese 12.3%. That does not mean Ai has a Chinese grandparent. The test compares her DNA with people alive today and reports who she resembles. “Chinese” here means part of her profile looks more like the mainland reference than the Japanese one, which is true of almost anyone in Japan, because Japanese ancestry itself includes continental farmers.</p><p>Try a different test and the labels change. The DNA doesn’t. So we ignore the labels and dig.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid</p></div></div>
+<div class="story"><p>The test says: Japanese 87.7%, Chinese 12.3%. That doesn’t mean Ai has a Chinese grandparent. The test compares her DNA with people alive today and reports who she resembles. “Chinese” here means that part of her profile looks more like the mainland reference group than the Japanese one, which is common for people from Japan, because Japanese ancestry itself includes continental farmers who arrived over the last 2,500 years.</p><p>Run the same DNA through a different test and the labels change. The DNA doesn’t. So the labels get set aside, and the dig begins.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid</p></div></div>
 
-<div class="curious"><p class="curious-label">For the curious</p>
+<div class="curious"><p class="curious-label">The Dig</p>
 <div class="curious-body">
-<h3 class="sub-heading" style="margin-top:.2rem">What the Labels Are Telling Us — and What They Are Not</h3>
+<h3 class="sub-heading" style="margin-top:.2rem">What the Labels Are Telling Us, and What They Are Not</h3>
 
+    <p>Every dig starts at the surface. Here the surface is the ethnicity estimate a standard DNA test hands back, and it is the least reliable part of the whole report. MyHeritage’s estimate for this kit:</p>
 
-    <p>MyHeritage’s ethnicity estimate for this kit reads as follows:</p>
-
-    <table class="data-table">
-      <tr><td>Japanese <span style="font-size:.75rem;color:var(--ink-light)">(Japan, Okinawa)</span></td><td class="pct-cell"><span class="pct-bar" style="width:88%"></span><span class="pct-val">87.7%</span></td></tr>
-      <tr><td>Chinese</td><td class="pct-cell"><span class="pct-bar" style="width:12%"></span><span class="pct-val">12.3%</span></td></tr>
+    <table class="dist-table">
+      <tbody>
+        <tr><td>Japanese (Japan, Okinawa)</td><td class="dist-val">87.7%</td></tr>
+        <tr><td>Chinese</td><td class="dist-val">12.3%</td></tr>
+      </tbody>
     </table>
 
-    <p>MyHeritage also lists four <strong>Additional Genetic Groups</strong> at lower confidence: two Southeast Asian groupings (Vietnam, Indonesia, Philippines, Cambodia, Thailand and Malaysia; Cambodia, Indonesia, Singapore and Malaysia), Germany (Freiburg), and a group combining Indonesia, Singapore and Turkey. These are the labels an algorithm attaches to very small signals. They are not evidence of ancestry from those places, and nothing in this report treats them that way.</p>
+    <p>MyHeritage also lists four Additional Genetic Groups at lower confidence: two Southeast Asian groupings, Germany (Freiburg), and a group combining Indonesia, Singapore and Turkey. These are the names an algorithm attaches to very small signals. They are not evidence of ancestry from those places, and nothing in this report treats them that way.</p>
 
-    <p><strong>Japanese (Okinawa)</strong> names the region of the reference samples that best match, not a family origin. It does not by itself show Ryukyuan descent. The Global25 sheet used here contains no modern Ryukyuan or Okinawan population, and the only Ryukyu-linked references are ancient and historic samples from Miyako Island (Nagabaka), so the label can be tested only partially (see Layer 2). <strong>Chinese (12.3%)</strong> means that part of her profile resembles the reference panel for China. That is consistent in direction with the continental ancestry present in modern Japanese populations generally, but it is not a count of Chinese ancestors, and it is measured against a different reference panel than the Global25 results later in this report.</p>
-
-    <div class="insight-box">
-      <span class="insight-label">The Bottom Line</span>
-      Read properly, the MyHeritage result says one thing: her DNA resembles Japanese reference samples far more than any other group, with a smaller continental-leaning share. The exact percentages belong to MyHeritage’s panel and would change with another tool.
-    </div>
+    <p><strong>“Japanese (Japan, Okinawa)”</strong> is the name of the reference group that Ai’s DNA matches best. It describes the panel the company built, not a family origin, and it does not by itself point to the Ryukyu Islands. Later layers test the Okinawa question properly. <strong>“Chinese (12.3%)”</strong> means part of her profile resembles the company’s reference panel for China. That is in line with the continental ancestry that modern Japanese populations carry generally, but it is not a count of Chinese ancestors, and it is measured against a different reference panel than the Global25 results later in this report.</p>
 
     <div class="plain-box">
-      <span class="plain-label">In Plain Terms</span>
-      The single idea to take from this layer is: <mark>the label is not the finding</mark>. A percentage next to a country name looks precise, but it comes from a program comparing DNA to a reference panel someone else built. “Chinese 12.3%” does not point to a Chinese ancestor. It says part of her profile looks more like the continental reference than like the Japanese one, which is what you would expect of almost anyone in Japan, since Japanese ancestry itself includes continental farmers.
+      <span class="plain-label">The Bottom Line</span>
+      Read properly, the MyHeritage result says one thing: her DNA resembles Japanese reference samples far more than any other group, with a smaller continental-leaning share. The exact percentages belong to MyHeritage’s panel and would change with another tool.
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> The label is not the finding. Country names are modern reference tags, not a family tree.</span></p>
     </div>
 </div></div>
@@ -675,15 +668,14 @@ body{color:var(--ink)}
     <span class="era-label">Layer 1<br>Living<br>Populations</span>
   </div>
   <div class="era-content">
-<div class="story-panel"><h2>At home in Japan</h2>
-<div class="story"><p>Set Ai’s DNA beside people living now and the closest match is the Japanese reference, with Koreans close behind and the three Han Chinese groups clearly further away. Five different tests, built by different people, all name a Japanese reference first.</p><p>The gap between Japanese and Korean is small, so the safe wording is “Japanese first, Korean a close second”, and nothing more precise than that.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid for Japanese first; Korean is a close second</p></div></div>
+<div class="story-panel"><h2>At home in Japan, with Korea next door</h2>
+<div class="story"><p>Set Ai’s DNA beside people living now and the closest match is the Japanese reference, with Koreans close behind. Manchu groups come next, and the three Han Chinese groups are clearly further away. Five different tests, built by different people, all name a Japanese reference first.</p><p>It works like locating a phone from several towers: no single tower gives an address, but when five of them point to the same area, you trust the area. The gap between Japanese and Korean is small, so the safe reading is “Japanese first, Korean a close second” and nothing finer.</p><p>And Okinawa? A published Ryukyuan reference was added to the comparison this time. It cannot say what one might hope, for a reason that is a story in itself, told below.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid for Japanese first; Korean a close second; the Okinawa comparison is inconclusive</p></div></div>
 
-<div class="curious"><p class="curious-label">For the curious</p>
+<div class="curious"><p class="curious-label">The Dig</p>
 <div class="curious-body">
-<h3 class="sub-heading" style="margin-top:.2rem">The Living Population Map — Where Her Genome Sits Today</h3>
+<h3 class="sub-heading" style="margin-top:.2rem">The Living Population Map: Where the Genome Sits Today</h3>
 
-
-    <p>On the simulated consensus coordinate, Japanese sits at <strong>0.025</strong>, Korean at 0.028 and Korean_Antu at 0.029. The three Han references (Shanxi, Henan and Shandong) form a separate group at 0.043–0.044. The Japanese-to-Korean gap of 0.003 is small, and the next section tests how much it depends on the weighting. No modern Ryukyuan or Okinawan population exists in this sheet, so that comparison could not be made; the Ryukyu-linked ancient samples are discussed in Layer 2.</p>
+    <p>Ai’s coordinates were compared with modern population averages in the Global25 framework. Japanese comes out nearest at <strong>0.025</strong>, then Korean at 0.028 and Korean (Antu) at 0.029. Manchu groups follow at 0.040, and the three Han references (Shanxi, Henan and Shandong) form a group at 0.043–0.044. Across several different ways of weighting the four calculators her coordinate was built from, Japanese stayed first and the Japanese-to-Korean gap stayed between 0.002 and 0.006, which is too small to rank the two with confidence.</p>
 
     <table class="dist-table">
       <thead><tr><th>Modern Population</th><th>G25 Distance</th><th></th></tr></thead>
@@ -691,34 +683,20 @@ body{color:var(--ink)}
         <tr><td>Japanese</td><td class="dist-val">0.025</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:25%"></div></div></td></tr>
         <tr><td>Korean</td><td class="dist-val">0.028</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:28%"></div></div></td></tr>
         <tr><td>Korean (Antu)</td><td class="dist-val">0.029</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:29%"></div></div></td></tr>
+        <tr><td>Manchu</td><td class="dist-val">0.040</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:40%"></div></div></td></tr>
         <tr><td>Han (Shanxi)</td><td class="dist-val">0.043</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:43%"></div></div></td></tr>
         <tr><td>Han (Henan)</td><td class="dist-val">0.044</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:44%"></div></div></td></tr>
         <tr><td>Han (Shandong)</td><td class="dist-val">0.044</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:44%"></div></div></td></tr>
+        <tr><td>Ryukyuan (Okinawan) reference</td><td class="dist-val">0.048</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:48%"></div></div></td></tr>
       </tbody>
     </table>
-
-    <h3 class="sub-heading">Does the weighting change the answer?</h3>
-
-    <p>The coordinate is a weighted average of four simulated ones (Eurogenes K15 35%, K13 30%, HarappaWorld 25%, K36 10%). Three of the four come from the same family of calculators, so three alternative weightings were also run as separate targets against the same modern sheet.</p>
-
-    <table class="dist-table">
-      <thead><tr><th>Weighting</th><th>Japanese</th><th>Korean</th><th>Gap</th><th>Han share in Japanese + Han (Shanxi) fit</th></tr></thead>
-      <tbody>
-        <tr><td>Consensus (35 / 30 / 25 / 10)</td><td class="dist-val">0.025</td><td class="dist-val">0.028</td><td class="dist-val">0.003</td><td class="dist-val">31.4%</td></tr>
-        <tr><td>Equal weights</td><td class="dist-val">0.022</td><td class="dist-val">0.028</td><td class="dist-val">0.006</td><td class="dist-val">27.2%</td></tr>
-        <tr><td>Without HarappaWorld</td><td class="dist-val">0.022</td><td class="dist-val">0.028</td><td class="dist-val">0.006</td><td class="dist-val">26.6%</td></tr>
-        <tr><td>Eurogenes 50% / HarappaWorld 50%</td><td class="dist-val">0.026</td><td class="dist-val">0.028</td><td class="dist-val">0.002</td><td class="dist-val">33.4%</td></tr>
-      </tbody>
-    </table>
-
-    <p>Japanese stays first in all four, and the Han references stay clearly behind. The Japanese-to-Korean margin ranges from 0.002 to 0.006 and is narrowest when HarappaWorld, the one calculator that differs from the three Eurogenes ones, carries the most weight. So the safe wording is: nearest to Japanese in every weighting tested, with Korean a close second.</p>
-
-    <p>The right-hand column is a different kind of number. A two-source fit of Japanese plus Han (Shanxi) gives Han a share of 27–33% depending on the weighting. That is not a measure of Chinese ancestry: modern Japanese already carry continental ancestry, and adding Han to the fit mostly measures how far Ai’s coordinate sits from the Japanese average in the Han direction. A simulated coordinate and normal individual variation can both produce an offset of this size.</p>
 
     <h3 class="sub-heading">What five calculators say</h3>
 
+    <p>Five GEDmatch calculators were also run. Each one names a Japanese reference as its closest single population. The numbers are specific to each tool and cannot be compared across rows, but the pattern can: Eurogenes K13 and Dodecad V3 put the Japanese reference well ahead of its neighbors, while MDLP K16 and HarappaWorld barely separate it from the next group.</p>
+
     <table class="dist-table">
-      <thead><tr><th>GEDmatch calculator</th><th>Closest single population</th><th>Distance</th><th>Next-closest non-Japanese reference</th></tr></thead>
+      <thead><tr><th>Calculator</th><th>Closest single population</th><th>Distance</th><th>Next-closest non-Japanese reference</th></tr></thead>
       <tbody>
         <tr><td>World9</td><td>Japanese_Dodecad</td><td class="dist-val">1.98</td><td>not in the results examined</td></tr>
         <tr><td>Eurogenes K13</td><td>Japanese</td><td class="dist-val">2.13</td><td>Tu (5.66)</td></tr>
@@ -728,12 +706,20 @@ body{color:var(--ink)}
       </tbody>
     </table>
 
-    <p>Distances are specific to each calculator and cannot be compared across rows. What can be compared is the pattern: a Japanese reference first in all five, and how far ahead of its neighbors it is. Eurogenes K13 and Dodecad V3 separate it clearly. MDLP K16 and HarappaWorld barely do, and HarappaWorld contains no Korean reference in the results examined, so it cannot speak to Japanese versus Korean at all.</p>
+    <p>The same genome gets very different component names depending on the tool. World9 reports East Asian 72.99% and Siberian 24.78%. Dodecad V3 reports Southeast Asian 68.77% and Northeast Asian 24.94%. MDLP K16 reports South East Asian 67.56%, Siberian 28.07% and Arctic 2.59%. Eurogenes K13 reports East Asian 64.73%, Siberian 32.20% and Oceanian 1.71%. HarappaWorld reports NE-Asian 67.29%, Siberian 13.71% and SE-Asian 13.46%. “Southeast Asian” runs from about 13% to 69% depending on the calculator. Those names are labels each tool invents for its own clusters, not recent ancestry from Siberia or Southeast Asia.</p>
+
+    <h3 class="sub-heading">The Okinawa Question</h3>
+
+    <p>Ryukyuan people, the native inhabitants of Okinawa and the islands to its south, are known for carrying more ancestry from the old Jomon hunter-gatherers than mainland Japanese do. A large RIKEN-led study of 3,256 whole genomes (Liu et al. 2024) found Jomon-related ancestry highest in Okinawa, at about 28.5%, against about 19% in Tohoku and about 13% in Kansai. With “Okinawa” in the label of her MyHeritage reference group, it is natural to ask whether Ai’s DNA points south.</p>
+
+    <p>A modern Ryukyuan average was published in Global25 coordinates by ExploreYourDNA in October 2026, and it was compared with Ai. The raw distance is <strong>0.048</strong>, just beyond the Han references (0.043–0.044) and well beyond Japanese (0.025). But the reference itself needs a look before the number means anything. This average sits <strong>0.057 from the standard Japanese average</strong>, more than twice Ai’s own 0.025, and its nearest neighbors in the reference sheet are Han and Korean populations, not Japanese ones. That is the opposite of what a population carrying <em>more</em> Jomon ancestry than the mainland should look like. ExploreYourDNA’s own write-up calls the single Ryukyuan average thin evidence and prefers the 28.5% figure from the large genome study. One dimension in particular is odd: the last of the 25 numbers accounts for about 40% of the gap between this reference and the Japanese average, and differs from the Japanese average by roughly 4.7 times the spread seen among East Asian populations. The reference is labeled “low resolution”, and that fits, though the files do not say why.</p>
+
+    <p>So the 0.048 cannot be read as an Okinawan affinity, or as the lack of one. In every version of the test, including ones that leave out the oddest dimension, Ai sits closer to the mainland Japanese average (0.025, or 0.018 without the last dimension) than to the Ryukyuan reference (0.048, or 0.044). Imagine trying to measure a room with a ruler you suspect is slightly bent. You can still say which wall is closer, but not by how many centimeters. A proper test needs a better Ryukyuan reference, and, ideally, Ai’s own coordinate computed the same way as the references.</p>
 
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
-      Think of finding a location with several different phone towers. No single tower gives an exact address, but when five of them point to the same area, you trust the area. Here all five say “Japanese”. What they cannot yet do is say how much closer than Korean, because the two are neighbors on the same genetic landscape and the measurements here are not fine enough to separate them with confidence.
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Closest to Japanese in every test, Korean a close second, Han clearly further. The Japanese-versus-Korean margin is thin.</span></p>
+      All the tests agree on the headline: Ai’s DNA is Japanese, with Koreans as close neighbors. They do not agree on how much she leans toward China, and the one Okinawan reference available is too unusual to say anything about a southern connection. The next layers look at what history adds.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Closest to Japanese in every test, Korean a close second. The Okinawa comparison is inconclusive, because the Ryukyuan reference does not behave like a normal population average.</span></p>
     </div>
 </div></div>
   </div>
@@ -743,36 +729,64 @@ body{color:var(--ink)}
 <div class="era-block pn-s_medieval" id="s_historic">
   <div class="era-marker">
     <span class="era-dot"></span>
-    <span class="era-label">Layer 2<br>Kofun–Heian<br>~250–1185 AD</span>
+    <span class="era-label">Layer 2<br>Historic Era<br>~250–1850 AD</span>
   </div>
   <div class="era-content">
-<div class="story-panel"><h2>The oldest sample that looks like her lived about 1,500 years ago</h2>
-<div class="story"><p>Between about the 3rd and 7th centuries, the Kofun period, a new wave of East Asian ancestry reached Japan and mixed into the people already there. A 2021 ancient-genome study found that Kofun-period individuals and modern Japanese are almost indistinguishable.</p><p>Ai’s DNA agrees. Of every ancient sample tested, the closest is a Kofun-period individual from Honshu, level with the modern Japanese average. That does not mean she descends from that person, only that her DNA sits in the same place on the map. A historic sample from Miyako Island in the southern Ryukyus is further away, so nothing here points to a special island link, though that is a weak test.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure; no Heian-period samples were tested</p></div></div>
+<div class="story-panel"><h2>Two shores of one strait, and an island to the south</h2>
+<div class="story"><p>Between the 3rd and 7th centuries, a new wave of people from the Asian mainland reached Japan, the age of the great keyhole-shaped burial mounds and of Japan’s first centralized state. A 2021 ancient-genome study found that people buried in that period already look almost exactly like modern Japanese. Ai’s DNA agrees, and adds a twist. Among the ancient samples in the reference sheet, three sit almost level with her: a Kofun-era individual from Honshu, and two people from Gimhae, in southern Korea, buried in the very same centuries. The measurements cannot say which is closest. What they say is that her DNA lands where Japan and southern Korea overlapped 1,700 years ago.</p><p>Far to the south, a separate set of coordinates adds a fascinating detail. Three people who lived on Miyako Island, in the southern Ryukyus, around 1800, are among the closest matches to Ai of any ancient or historic sample tested, the nearest of all at 0.017. They carry the same mainland-style neighborhood too, so for now this reads as a lead to follow, not a southern origin.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure of the neighborhood; the order inside it, and the Miyako link, are open</p></div></div>
 
-<div class="curious"><p class="curious-label">For the curious</p>
+<div class="curious"><p class="curious-label">The Dig</p>
 <div class="curious-body">
-<h3 class="sub-heading" style="margin-top:.2rem">The Kofun to Heian Stratum — The Archipelago Settles</h3>
+<h3 class="sub-heading" style="margin-top:.2rem">The Kofun Stratum: The Archipelago Settles</h3>
 
-    <p>Between about the 3rd and 7th centuries, the Kofun period, Japan’s first centralized state took shape, and the Heian period carried that world forward to the end of the 12th century. The big genetic question is whether new people arrived. A 2021 ancient-genome study of Japan (Cooke et al.) found they did: a later influx of East Asian ancestry in the Kofun period, on top of the Jomon and Yayoi layers. The same study found that Kofun-period individuals and modern Japanese are almost genetically indistinguishable, which suggests the genetic makeup of the archipelago has been broadly stable for about 1,400 years.</p>
+    <p>The Kofun period, from about the 3rd to the 7th century, takes its name from the enormous earthen burial mounds built across Japan, more than 160,000 of them. It was the age when a centralized state took shape and ideas, technology and people moved freely between Japan, Korea and China. The big genetic question is whether new people arrived too. The answer, from Cooke et al. (2021), is yes. They sequenced twelve ancient Japanese genomes, nine Jomon and three Kofun-period, and found that the older picture of two ancestral streams (Jomon and Yayoi farmers) was not enough. A third stream, East Asian ancestry resembling modern Han Chinese, arrived during the Kofun period. By their estimate it became the largest part of the mainland Japanese gene pool (press accounts cite about 71%), and Kofun-period individuals already look very much like modern Japanese, which suggests the mainland’s genetic make-up has been broadly stable for about 1,400 years.</p>
 
-    <p>Ai’s results agree. A Kofun-period Honshu sample, <strong>Japan_Honshu_Kofun.SG</strong>, is the closest sample of any period in the ancient sheet: <strong>0.022</strong> on the consensus coordinate, and 0.019–0.022 across the four weightings. It is nearer than the modern Japanese average in all four weightings, but only by 0.001–0.004, which is within the noise of a simulated coordinate, so the safe reading is that Ai sits level with the Kofun-period sample. The next-closest sample is Japan_Nagabaka_historic at 0.040, a historic-period population from Miyako Island in the southern Ryukyus, then a long gap to the Jomon samples at 0.167 and beyond. Because Nagabaka is on Miyako Island, it is also the only Ryukyu-linked reference that can be compared. Ai sits 0.040 from it against 0.022 from Kofun-period Honshu, so these results do not point to a closer link with the southern Ryukyus than with the Honshu Kofun population. With one historic population as the reference this is a weak test of the MyHeritage “Okinawa” label, not a verdict. A mixture of modern Japanese and Nagabaka_historic (about 79% and 21%, within a point of that in all four weightings) improves the fit by only about 0.002, against 0.007–0.009 for Japanese plus Han (Shanxi). Ai’s offset from the modern Japanese average therefore points more toward the mainland than toward the southern Ryukyus.</p>
+    <p>Ai sits right there. On her coordinate, a Kofun-period sample from Honshu (<strong>Japan_Honshu_Kofun.SG, 0.022</strong>) is the nearest of any Japanese sample, ancient or modern, nearer than the modern Japanese average itself (0.025).</p>
+
+    <h3 class="sub-heading">A Neighbor Across the Strait</h3>
+
+    <p>The wider ancient sheet adds a neighbor. Two samples from Gimhae, in the Gaya region of southern Korea, are as close or closer: <strong>SouthKorea_Gimhae_DaeseongDong (0.018)</strong> and Gimhae_YuhaRi (0.023). They come from a 2022 study (Gelabert et al.) of eight genomes from the Gaya Confederacy, dated to roughly AD 300–500, which makes them contemporaries of the Kofun-period Japanese. That study found two genetic groups in Gimhae, one of them carrying Jomon-related ancestry, a hint that the people on the two sides of the Korea Strait were closely connected. The three closest samples span only 0.005, inside the margin of a simulated coordinate, and the Kofun and Daeseong-dong samples are only 0.016 apart themselves. So Ai’s DNA cannot be placed on the Japanese side of the strait rather than the Korean side. What can be said is that she sits in the genetic neighborhood the two shared in the 4th and 5th centuries.</p>
 
     <table class="dist-table">
-      <thead><tr><th>Weighting</th><th>Kofun (Honshu)</th><th>Modern Japanese</th><th>Nagabaka, Miyako (historic)</th></tr></thead>
+      <thead><tr><th>Ancient sample (standard sheet)</th><th>Period</th><th>Distance</th></tr></thead>
       <tbody>
-        <tr><td>Consensus (35 / 30 / 25 / 10)</td><td class="dist-val">0.022</td><td class="dist-val">0.025</td><td class="dist-val">0.040</td></tr>
-        <tr><td>Equal weights</td><td class="dist-val">0.019</td><td class="dist-val">0.022</td><td class="dist-val">0.039</td></tr>
-        <tr><td>Without HarappaWorld</td><td class="dist-val">0.021</td><td class="dist-val">0.022</td><td class="dist-val">0.040</td></tr>
-        <tr><td>Eurogenes 50% / HarappaWorld 50%</td><td class="dist-val">0.022</td><td class="dist-val">0.026</td><td class="dist-val">0.041</td></tr>
+        <tr><td>Gimhae, Korea (Daeseong-dong)</td><td>Three Kingdoms, Gaya, ~AD 300–500</td><td class="dist-val">0.018</td></tr>
+        <tr><td>Japan Honshu Kofun</td><td>Kofun period, Honshu</td><td class="dist-val">0.022</td></tr>
+        <tr><td>Gimhae, Korea (Yuha-ri)</td><td>Three Kingdoms, Gaya, ~AD 300–500</td><td class="dist-val">0.023</td></tr>
+        <tr><td>Japan Nagabaka historic (group row)</td><td>Miyako Island, around AD 1800</td><td class="dist-val">0.040</td></tr>
       </tbody>
     </table>
 
-    <p>A two-source fit of Kofun plus historic Nagabaka gives about 85% and 15%, but it improves the fit by only about 0.001 over the Kofun sample alone, so that split carries no meaning. No Heian-period sample was tested. The pull toward Han in the modern-population fit (Layer 1) points in the same direction as a Kofun-era East Asian contribution, but it does not disappear when the Kofun sample is used as the base: Kofun plus Han (Shanxi) still gives Han about a quarter (23–28%) and improves the fit by 0.005–0.007. The Kofun sample therefore explains only part of Ai’s offset, and the rest cannot be separated from the effects of the simulated coordinate or ordinary individual variation.</p>
+    <p>Between the Kofun period and 1800 there is a long silence: no Heian-, medieval- or Edo-period genomes from mainland Japan are in the sheet, so the story from the 7th century to modern times has to be inferred. The published result that mainland Japanese genetics changed little after the Kofun period is the best guide.</p>
+
+    <h3 class="sub-heading">The Southern Islands: Miyako Around 1800</h3>
+
+    <p>The Ryukyu Islands stretch for a thousand kilometers between Kyushu and Taiwan, and their history differs from the mainland’s. Four people buried at the Nagabaka rock shelter on Miyako Island in the southern Ryukyus, who lived about 150 years ago, were sequenced by Robbeets et al. (2021). Cooke et al. (2023) then asked whether the same three-stream story holds there. It does, but with different proportions: about 26.7% Jomon, 30.5% Northeast Asian and 42.8% East Asian ancestry for the group, with wide margins of error, compared with about 13% Jomon in Kofun-period individuals and 15% in modern mainland Japanese. The islanders were not direct descendants of the Jomon, since two-stream models failed for them. The authors suggest the streams reached the southern Ryukyus together, in a later movement of people who already carried all three, who then mixed with the islands’ earlier, prehistoric inhabitants, in contrast to the mainland, where each stream arrived separately. These are group-level estimates from a formal method, and they say nothing yet about Ai.</p>
+
+    <p>A separate file of nine Nagabaka individuals (DNAGENICS coordinates) lets Ai be placed among them. They fall into two clear groups:</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Nagabaka individual</th><th>Period</th><th>Distance to Ai</th></tr></thead>
+      <tbody>
+        <tr><td>NAG039</td><td>Historic (~AD 1800); best coverage</td><td class="dist-val">0.017</td></tr>
+        <tr><td>NAG035</td><td>Historic; lower coverage</td><td class="dist-val">0.027</td></tr>
+        <tr><td>NAG036</td><td>Historic; lower coverage</td><td class="dist-val">0.037</td></tr>
+        <tr><td>NAG007</td><td>Historic</td><td class="dist-val">0.073</td></tr>
+        <tr><td>NAG038, NAG019, NAG012, NAG037</td><td>Earlier, prehistoric period</td><td class="dist-val">0.121–0.143</td></tr>
+        <tr><td>NAG016</td><td>Earlier, prehistoric period</td><td class="dist-val">0.253</td></tr>
+      </tbody>
+    </table>
+
+    <p>The three nearest are the historic individuals, and the nearest of all, NAG039, is one of the closest samples to Ai in this entire report. The earlier-period individuals are much further, which fits the expectation that people of the last few centuries resemble modern people more than people of an ancient shell midden do. The historic group is not uniform, though: its four members sit from 0.017 to 0.073 from Ai, which is why the single group row in the standard sheet (0.040) falls between its nearest and farthest members. The three nearest are also close to each other (0.016–0.028), so Ai’s nearness to them is not the quirk of one noisy coordinate. These distances barely change when the finest-scale dimension of the coordinate is left out (NAG039 0.017 to 0.017, NAG035 0.027, NAG036 0.037 to 0.033).</p>
+
+    <p><strong>Does this point to the Ryukyus?</strong> It is an intriguing lead, but not yet a finding, for three reasons. First, the Nagabaka coordinates come from a different provider than the rest of this report, and providers can disagree materially (an earlier comparison of one individual across two providers found the two versions 0.167 apart), so these distances are kept within their own file and are not ranked against the Kofun and Gimhae numbers above. Second, NAG039 is one person. Third, as a rough diagnostic only, when the three nearest Nagabaka individuals are placed against the standard sheet, their closest neighbors are the Gimhae and Kofun samples (NAG039: Gimhae 0.026 and 0.028, Kofun 0.035). That is what you would expect for islanders who carry a large mainland-style East Asian share. It means Ai’s closeness to NAG039 may simply be the same neighborhood she shares with Kofun-era Japan and Gaya-era Korea, seen through a different person. The data in hand cannot tell the two readings apart.</p>
+
+    <p>One more oddity argues for caution. The five earlier-period coordinates do not line up with the sheet’s own Jomon-like Nagabaka sample from 2,800 years ago, which sits 0.16–0.22 from every individual in the nine-person file. Whatever the reason (different individuals, coverage or processing), their distances can only be read as “far”.</p>
 
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
-      Of all the ancient people tested, the one nearest Ai lived in Japan’s Kofun era, about 1,500 years ago. That matches what the published study found: the genetic makeup of Japan has changed little since. It does not mean Ai descends from that individual, only that her DNA sits in the same place on the map.
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> The nearest ancient sample is Kofun-period Honshu (0.022), level with the modern Japanese average. Heian-period references are still missing.</span></p>
+      The ancient people nearest Ai lived about 1,700 years ago, in Japan’s Kofun era and in the Gaya region of Korea across the strait. They are too close to each other for this test to pick a winner, and that fits what published studies found: the two shores were closely connected and Japan’s gene pool changed little afterwards. A separate set of Miyako Island people from around 1800 also sits very close to her, closest of all at one individual. Those islanders were themselves a mix of the same three streams that shaped mainland Japan, so being near one of them may mean Ai and he share a mainland-style background, not that her family came from the islands. It is worth testing properly. It is not yet a conclusion.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Kofun-era Japan, Gaya-era Korea (0.018–0.023) and historic Miyako individuals (0.017–0.037, separate coordinate set) all sit in Ai’s neighborhood. The Miyako link is a lead, not a conclusion.</span></p>
     </div>
 </div></div>
   </div>
@@ -785,57 +799,123 @@ body{color:var(--ink)}
     <span class="era-label">Layer 3<br>Yayoi<br>~300 BC–300 AD</span>
   </div>
   <div class="era-content">
-<div class="story-panel"><h2>Rice farmers from the continent</h2>
-<div class="story"><p>About 2,300 years ago, farmers crossed from the Korean peninsula bringing rice, and mixed with the Jomon people already living in Japan. Two Yayoi-period individuals from northwest Kyushu are in the comparison, at 0.063 and 0.090 from Ai.</p><p>Both sit further from her than the Kofun sample does. They belong to a Jomon-leaning branch of the Yayoi, and Ai sits on the continental side of them, which fits a later East Asian layer on top. How much Yayoi ancestry she carries cannot be given as a percentage.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure of the story; no percentage</p></div></div>
+<div class="story-panel"><h2>Rice farmers on the front line</h2>
+<div class="story"><p>About 2,300 years ago, farmers from the continent reached northern Kyushu by way of the Korean peninsula, bringing wet-rice farming and bronze, and settled among the Jomon hunter-gatherers already living there. They did not sweep the Jomon away. For several centuries, on the same small islands, there were people who carried continental ancestry, people who carried none at all, and families mixing in between.</p><p>Four Yayoi-period individuals from the islands off northwest Kyushu are in the comparison. Two of them sit 0.063 and 0.090 from Ai, further than the Kofun samples, and two are as far from her as the Jomon themselves (about 0.165). That is what the history predicts: Ai’s DNA is dominated by the later, Kofun-era layer, not by the first farmers.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure of the story; no percentage can be given</p></div></div>
 
-<div class="curious"><p class="curious-label">For the curious</p>
+<div class="curious"><p class="curious-label">The Dig</p>
 <div class="curious-body">
-<h3 class="sub-heading" style="margin-top:.2rem">The Yayoi Stratum — Rice Farmers from the Continent</h3>
+<h3 class="sub-heading" style="margin-top:.2rem">The Yayoi Stratum: Rice Farmers from the Continent</h3>
 
-    <p>Rice farming reached the archipelago from the continent, through the Korean peninsula, and with it came people. The period is traditionally dated from about 300 BC, though some radiocarbon work places its start earlier. Unlike many places where incoming farmers replaced local hunter-gatherers, the Yayoi newcomers appear to have mixed with the Jomon population already living there.</p>
+    <p>Rice farming reached the archipelago from the continent, through the Korean peninsula, and with it came people. The period is traditionally dated from about 300 BC, though radiocarbon dates place the start of continental gene flow earlier, around 2,500 years ago. Cooke et al. (2021) linked the Yayoi stream to Northeast Asian ancestry resembling ancient populations of the West Liao River region and the Amur basin. In their model the Northeast Asian stream dominates the continental ancestry of the Yayoi period, and the East Asian stream takes over in the Kofun period.</p>
 
-    <p>Yayoi-period samples are now part of the comparison: two individuals from northwest Kyushu (Nagasaki Prefecture), dated to roughly 2,300–2,500 years ago, from the Shomura and Neshiko sites. They are <strong>Shomura (0.063)</strong> and <strong>Neshiko11 (0.090)</strong> from Ai’s coordinate. Two further Neshiko individuals are strongly Jomon-like and sit about 0.165 away, at the level of the Jomon samples. This northwest Kyushu group is a Jomon-leaning branch of the Yayoi and is not representative of every Yayoi migrant population, so continental stand-ins are kept alongside them: <strong>China_YR_LN (0.055)</strong> and <strong>Korea_Changhang (0.100)</strong>. The Kofun sample (0.022) is still the nearest of all.</p>
+    <p>The Yayoi samples in the comparison come from northwest Kyushu, exactly where the first migrants would have landed: <strong>Shomura</strong>, on Iki Island (0.063), and individuals from the Neshiko site on Hirado Island. A 2026 study of four genomes from these islands (Kim et al., as summarized by ExploreYourDNA) found a striking picture: two Hirado individuals, Neshiko 13 and Neshiko 16, are essentially unmixed Jomon despite living in the farming era, while Neshiko 11, a century later, and the Shomura man carry substantial continental ancestry. Individual families were mixing in both directions. On Ai’s coordinate, Neshiko11 sits at <strong>0.090</strong>, and the two Jomon-like Neshiko individuals at about 0.165, level with the Jomon samples.</p>
 
     <table class="dist-table">
-      <thead><tr><th>Ancient Reference</th><th>Note</th><th>Distance</th><th></th></tr></thead>
+      <thead><tr><th>Reference</th><th>Note</th><th>Distance</th><th></th></tr></thead>
       <tbody>
-        <tr><td>Japan Honshu Kofun</td><td>Kofun-period Japanese sample (Layer 2)</td><td class="dist-val">0.022</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:13%"></div></div></td></tr>
-        <tr><td>China YR LN</td><td>Yellow River, Late Neolithic farmers</td><td class="dist-val">0.055</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:32%"></div></div></td></tr>
-        <tr><td>Japan NW Kyushu Yayoi (Shomura)</td><td>Yayoi period, Iki Island, Nagasaki</td><td class="dist-val">0.063</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:37%"></div></div></td></tr>
-        <tr><td>Japan NW Kyushu Yayoi (Neshiko11)</td><td>Yayoi period, Hirado Island, Nagasaki</td><td class="dist-val">0.090</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:52%"></div></div></td></tr>
-        <tr><td>Korea Changhang</td><td>Korean peninsula, Yayoi-era continental stand-in</td><td class="dist-val">0.100</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:58%"></div></div></td></tr>
-        <tr><td>Japan HG Jomon</td><td>Jomon hunter-gatherer reference</td><td class="dist-val">0.167</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:97%"></div></div></td></tr>
+        <tr><td>Japan Honshu Kofun</td><td>Kofun period (Layer 2)</td><td class="dist-val">0.022</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:13%"></div></div></td></tr>
+        <tr><td>Japan NW Kyushu Yayoi (Shomura)</td><td>Yayoi period, Iki Island</td><td class="dist-val">0.063</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:37%"></div></div></td></tr>
+        <tr><td>Japan NW Kyushu Yayoi (Neshiko11)</td><td>Yayoi period, Hirado Island</td><td class="dist-val">0.090</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:52%"></div></div></td></tr>
+        <tr><td>Korea Changhang</td><td>Older Korean peninsula sample</td><td class="dist-val">0.100</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:58%"></div></div></td></tr>
+        <tr><td>Neshiko 13 and 16 (Jomon-like)</td><td>Yayoi period, Hirado Island</td><td class="dist-val">~0.165</td><td><div class="dist-bar-bg"><div class="dist-bar-fill" style="width:95%"></div></div></td></tr>
       </tbody>
     </table>
 
-    <p>The distances to these samples are the same under all four weightings (Shomura 0.061–0.063, Neshiko11 0.089–0.091). Measured along the line from the two Jomon-like Neshiko individuals to Shomura, Ai sits beyond Shomura, on the continental side, in all four weightings, and about 0.04 off that line, so other directions matter too. This is a geometric position and not an ancestry estimate. It fits Ai carrying proportionally less Jomon-related ancestry than these early, Jomon-leaning Yayoi individuals, which is what the later Kofun-era arrivals would predict.</p>
-
-    <p>An earlier three-source model, before any Japanese ancient sample was included, gave 72.8% China_YR_LN, 15.0% Korea_Changhang and 12.2% Japan_HG_Jomon, with a fit distance of 0.036. The Kofun sample alone now fits better (0.022), which means continental stand-ins plus a Jomon reference are a poorer description of Ai than a population that already combines those strands. That model is kept as an exploratory result only. China_YR_LN and Korea_Changhang are also similar to each other, which made the split between them unstable. A two-source model of China_YR_LN with the averaged Jomon-like Neshiko individuals gives about 80% and 20% (79.2–79.8 and 20.2–20.8 across the four weightings), but its fit is poor (0.037). Korea_Changhang with the same Jomon-like source gives 100% and 0%.</p>
+    <p>Why are the Yayoi individuals further from Ai than the Kofun samples? Because they were the front edge of an ongoing process. The two Yayoi individuals who already carried continental ancestry were mixed with a lot of Jomon ancestry, and the later Kofun-era arrivals brought a different, more Han-like stream that dominates the modern profile. A Kofun-period person is a better stand-in for Ai than an early Yayoi one, which is just what the published model predicts. None of this yields a Yayoi percentage for Ai; with a simulated coordinate and only four Yayoi individuals, from one corner of Kyushu, it would be false precision.</p>
 
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
-      The farmers who came from the continent are part of the story, and two Yayoi-period individuals from northwest Kyushu are now measured. They are further from Ai than the Kofun-era sample, whose ancestry already combines the Yayoi and Jomon layers and describes her better than any Yayoi sample or combination of stand-ins does.
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Yayoi-period samples (0.063, 0.090) and continental stand-ins are all further away than the Kofun sample, as expected. No Yayoi percentage can be given.</span></p>
+      The first rice farmers are part of Ai’s story, but they are not its loudest voice. The people who matter most for her DNA arrived later, in the Kofun era, and mixed into a population that already contained the Yayoi and the Jomon. The Yayoi individuals measured here sit further from her than Kofun-era people do.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Yayoi-period individuals (0.063, 0.090) sit further from Ai than Kofun-era samples, as the three-stream history predicts. No Yayoi percentage can be given.</span></p>
     </div>
 </div></div>
   </div>
 </div>
 
 <!-- ══ LAYER 4 ══ -->
-<div class="era-block pn-s_neolithic" id="s_jomon_late">
+<div class="era-block pn-s_bronze" id="s_yellow">
   <div class="era-marker">
     <span class="era-dot"></span>
-    <span class="era-label">Layer 4<br>Later<br>Jomon</span>
+    <span class="era-label">Layer 4<br>Yellow River<br>~2300–1800 BC</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel"><h2>Millet farmers of the Central Plain: a clue that turned out to be a map</h2>
+<div class="story"><p>Four thousand years ago, along the middle Yellow River in China, farmers of the Longshan culture grew millet and lived in walled towns, in the region that later became the heart of Chinese civilization. Eight of them, from three sites, have had their DNA read and placed on the same map as Ai.</p><p>Ai sits closest to two of them, PLTM310 and WD-WT1H16, and the order of the eight is steady from one test to the next. That is tempting. But when the same eight are measured against Koreans, against Han Chinese, and against a Kofun-era Japanese, the order is the same. These two individuals are simply the ones nearest the middle of East Asia, and Ai is on that map like everyone else in the region. For now the Yellow River people read as a landmark, not as a thread leading to Ai.</p><p class="sure"><span class="meter m1"><i></i><i></i><i></i></span>Interesting, but not specific to Ai</p></div></div>
+
+<div class="curious"><p class="curious-label">The Dig</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">The Yellow River Stratum: Who Are the Eight?</h3>
+
+    <p>The samples come from Ning et al. (2020), who analysed 55 ancient genomes from northern China covering the last 7,500 years. The Late Neolithic group of the Yellow River region (Longshan culture, roughly 2300–1800 BC) has eight individuals from three sites: two from Haojiatai, four from Pingliangtai and two from Wadian, matching the eight coordinate records used here. They are not a random sample of the people of the region, only the individuals who happened to be recovered and sequenced. The original paper found the Yellow River population to be broadly stable over time, with some input from southern-China-related groups since the Middle Neolithic. A 2023 study of the southern Ryukyus did not use this group as a source of Japanese ancestry; it used ancient Amur-related individuals and present-day Han Chinese. An earlier version of this report named the Yellow River Late Neolithic group as the nearest continental reference. With the eight individuals available it can be looked at properly, and the answer is more nuanced.</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Individual</th><th>Site</th><th>Catalogue class</th><th>Distance to Ai</th></tr></thead>
+      <tbody>
+        <tr><td>PLTM310</td><td>Pingliangtai</td><td>Inlier</td><td class="dist-val">0.048</td></tr>
+        <tr><td>WD-WT1H16</td><td>Wadian</td><td>Inlier</td><td class="dist-val">0.049</td></tr>
+        <tr><td>PLTM313</td><td>Pingliangtai</td><td>Inlier</td><td class="dist-val">0.052</td></tr>
+        <tr><td>PLTM311</td><td>Pingliangtai</td><td>Inlier</td><td class="dist-val">0.052</td></tr>
+        <tr><td>PLTM312</td><td>Pingliangtai</td><td>Outlier</td><td class="dist-val">0.059</td></tr>
+        <tr><td>HJTM107</td><td>Haojiatai</td><td>Inlier</td><td class="dist-val">0.063</td></tr>
+        <tr><td>HJTM109</td><td>Haojiatai</td><td>Outlier</td><td class="dist-val">0.070</td></tr>
+        <tr><td>WD-WT5M2</td><td>Wadian</td><td>Outlier</td><td class="dist-val">0.071</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">The Pattern, and What It Is</h3>
+
+    <p>Two features stand out. First, the order is remarkably steady. In four earlier runs of Ai’s coordinate (derived from four different calculators), PLTM310 and WD-WT1H16 were always the two nearest, PLTM311 and PLTM313 always came next, PLTM312 was always fifth and HJTM107 always sixth. Second, the catalogue’s “inliers”, the individuals that sit with the group’s core, are on average closer to Ai than its “outliers”, the individuals flagged as atypical (an average of 0.053 against 0.066 here). The pattern is not perfectly tidy: the outlier PLTM312 ranks fifth, ahead of the inlier HJTM107. The four calculator runs are four ways of reading the same underlying genome, so their agreement shows the result is stable within this approach, not that it was independently reproduced.</p>
+
+    <p>The outliers are further for a straightforward reason. “Outlier” means the individual sits apart from the group’s core in the genetic map, and the outliers here are 0.032–0.040 from the group’s center, against 0.014–0.021 for the inliers. They are far from everyone, so being far from Ai says something about them, not about her. Individuals like these often reflect a mix of ancestries that differs from the group’s majority, which fits the picture in the original paper of a region in contact with neighbors to the north and south, though one person cannot confirm that. The catalogue’s labels were never meant to rank similarity to Ai.</p>
+
+    <h3 class="sub-heading">Why It Is Not a Yellow River Thread</h3>
+
+    <p>The key test is a simple one: does the same order appear for other groups? It does, almost exactly. Ranking the eight individuals by distance from modern Koreans, from a Kofun-period Japanese sample, from the Gimhae sample or from Han Chinese from Henan gives the same order as Ai’s (a rank correlation of 1.00 for Koreans, Kofun and Gimhae, 0.98 for Han Henan, 0.95 for the standard Japanese average). PLTM310 and WD-WT1H16 are simply the most central individuals of the eight, the nearest to the middle of the East Asian map for nearly everyone. The table shows how far several groups are from the two:</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Group</th><th>Distance to PLTM310</th><th>Distance to WD-WT1H16</th></tr></thead>
+      <tbody>
+        <tr><td>Han (Henan)</td><td class="dist-val">0.023</td><td class="dist-val">0.025</td></tr>
+        <tr><td>Korean</td><td class="dist-val">0.033</td><td class="dist-val">0.034</td></tr>
+        <tr><td><strong>Ai</strong></td><td class="dist-val">0.048</td><td class="dist-val">0.049</td></tr>
+        <tr><td>Kofun, Honshu</td><td class="dist-val">0.052</td><td class="dist-val">0.053</td></tr>
+        <tr><td>Japanese (standard average)</td><td class="dist-val">0.056</td><td class="dist-val">0.056</td></tr>
+        <tr><td>Ryukyuan reference</td><td class="dist-val">0.062</td><td class="dist-val">0.058</td></tr>
+      </tbody>
+    </table>
+
+    <p>The ladder is what geography predicts. The closer a group is to the Chinese mainland, the closer it is to the Yellow River people: Han Chinese nearest, then Koreans, then Ai, then Japanese. Ai sits between Koreans and the mainland Japanese average, in the same place she occupies in Layer 1. Her position at 0.048 against the Japanese average’s 0.056 would mean she leans slightly toward the continent, but that lean is fragile. When the finest-scale dimension of her simulated coordinate is left out, the advantage disappears (0.048 for Ai against 0.046 for the Japanese average, averaged over the eight), the order of the eight individuals reshuffles, and the gap between inliers and outliers shrinks. Using only the coarsest dimensions, the gap is gone and an outlier, WD-WT5M2, becomes the nearest. The pattern lives in the part of the coordinate that a calculator-based simulation is least able to pin down, so it cannot carry a historical claim.</p>
+
+    <h3 class="sub-heading">What Can Be Said</h3>
+
+    <p>Quite a lot, as long as it stays modest. The Yellow River farmers of 4,000 years ago are a snapshot of the northern part of the East Asian gene pool, from which later Han Chinese populations descend. Cooke et al. (2021) found that the Kofun-era arrivals in Japan resembled modern Han Chinese, so a Han-like continental element has long been part of Japan’s gene pool. Ai’s closeness to these individuals is consistent with that. It does not say that any of these people were her ancestors, that a Yellow River population moved to Japan, or that she has more Yellow River ancestry than other Japanese. No migration route can be read from it. Confidence in “Ai sits within the East Asian range, near the Yellow River group like every other East Asian population” is high; confidence in anything specific to the Yellow River is low.</p>
+
+    <div class="plain-box">
+      <span class="plain-label">In Plain Terms</span>
+      Imagine eight villagers standing in a field, and a ninth person walking in from the sea. Two of the villagers are standing nearest the middle of the field, so almost anyone walking in from any direction ends up closest to those two. That is what the Yellow River comparison shows. It tells you that Ai is on the East Asian map, near its middle, and not that she came from a particular village.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Ai is nearest PLTM310 and WD-WT1H16 (0.048–0.049), but so is every East Asian group, in the same order, and the pattern fades when the finest part of her coordinate is removed. The Yellow River is a useful landmark and not an ancestral source.</span></p>
+    </div>
+</div></div>
+  </div>
+</div>
+
+<!-- ══ LAYER 5 ══ -->
+<div class="era-block pn-s_neolithic" id="s_jomon">
+  <div class="era-marker">
+    <span class="era-dot"></span>
+    <span class="era-label">Layer 5<br>Jomon<br>~14,000–300 BC</span>
   </div>
   <div class="era-content">
 <div class="story-panel"><h2>The people who were already here</h2>
-<div class="story"><p>Before rice, Japan belonged to the Jomon, hunter-gatherer-fishers who lived there for thousands of years. Every Jomon sample tested is about equally far from Ai, and whenever a Japanese population is on offer, the models give the Jomon-like samples no weight.</p><p>That is normal and does not mean she has no Jomon ancestry. Modern Japanese carry some, but a simple model with these references cannot measure it, so no Jomon percentage is claimed.</p><p class="sure"><span class="meter m1"><i></i><i></i><i></i></span>Not measurable with these results</p></div></div>
+<div class="story"><p>Before rice, Japan belonged to the Jomon, hunter-gatherer-fishers who lived in the archipelago for thousands of years, made some of the oldest pottery in the world, and stayed remarkably isolated. Every Jomon sample tested sits about equally far from Ai, as far as nearly any Japanese person sits from them, because the Jomon were a very distinctive population.</p><p>That distance does not mean she has no Jomon ancestry. Published estimates put the Jomon share at roughly 13–19% for mainland Japanese and higher in Okinawa, but a simple comparison with a simulated coordinate cannot measure it for one person, so no Jomon percentage is claimed here.</p><p>The Ryukyu islands tell the most striking Jomon story: on Miyako Island, people living 2,800 years ago were almost purely Jomon-like, while the people living there around 1800 were a mix of three streams.</p><p class="sure"><span class="meter m1"><i></i><i></i><i></i></span>Present in Japanese ancestry generally; not measurable for Ai with these data</p></div></div>
 
-<div class="curious"><p class="curious-label">For the curious</p>
+<div class="curious"><p class="curious-label">The Dig</p>
 <div class="curious-body">
-<h3 class="sub-heading" style="margin-top:.2rem">The Later Jomon Stratum — The People Already Here</h3>
+<h3 class="sub-heading" style="margin-top:.2rem">The Jomon Stratum: Fifteen Thousand Years Alone</h3>
 
-    <p>Before rice, the archipelago was home to the Jomon, hunter-gatherer-fishers who lived there for thousands of years in relative isolation. Seven Jomon-period samples were tested, and every one is far from Ai’s coordinate, at 0.167–0.173. That is normal. The Jomon were a very distinct population, and modern Japanese are mostly something else, so a large distance does not mean there is no Jomon ancestry.</p>
+    <p>The Jomon were hunter-gatherer-fishers who lived in the archipelago from about 16,000 years ago, and they made pottery from about 16,500 years ago, some of the oldest in the world. Their ancestors separated from other East Asians more than 15,000 years ago, and they stayed small and isolated for many thousands of years, which is why Jomon individuals who lived thousands of years apart, at opposite ends of the archipelago, look so alike genetically. Cooke et al. (2021) estimated about 13.1% Jomon ancestry in Kofun-period individuals and 15.0% in modern mainland Japanese. The RIKEN study (Liu et al. 2024) found the share ranges regionally, from about 13% in Kansai through about 19% in Tohoku to about 28.5% in Okinawa. Those are group estimates from formal methods and are not applied to Ai.</p>
+
+    <p>Seven Jomon-period samples were compared with Ai. All sit at 0.167–0.173, the same range as the standard Japanese average sits from the Jomon (0.165). The Jomon were so distinctive that nearly any modern Japanese person is about this far away.</p>
 
     <table class="dist-table">
       <thead><tr><th>Jomon-period Sample</th><th>Period</th><th>Distance</th></tr></thead>
@@ -846,45 +926,24 @@ body{color:var(--ink)}
         <tr><td>Japan Jomon</td><td>Jomon</td><td class="dist-val">0.172</td></tr>
         <tr><td>Japan Shikoku LateJomon</td><td>Late Jomon, Shikoku</td><td class="dist-val">0.172</td></tr>
         <tr><td>Japan Shikoku InitialJomon</td><td>Initial Jomon, Shikoku</td><td class="dist-val">0.173</td></tr>
-        <tr><td>Japan Nagabaka 2800BP</td><td>Miyako Island (Ryukyu), about 2,800 years ago, Jomon-like</td><td class="dist-val">0.173</td></tr>
+        <tr><td>Japan Nagabaka 2800BP</td><td>Miyako Island, ~2,800 years ago</td><td class="dist-val">0.173</td></tr>
       </tbody>
     </table>
 
-    <p>Several models were run to see whether a Jomon-like source is needed. <strong>Whenever a Japanese population is available, the Jomon-like references receive no weight.</strong> Modern Japanese with the averaged Jomon-like Neshiko individuals gives 100% and 0%. Kofun with those individuals gives 100% and 0%, and Kofun with Nagabaka_2800BP, a Jomon-like Miyako Island sample, also gives 100% and 0%, in all four weightings. A Jomon-like share (about 20%) appears only when no Japanese population is offered, in China_YR_LN plus the Neshiko individuals, and that model fits poorly (0.037 against 0.022 for Kofun alone).</p>
+    <p>Early and late Jomon are indistinguishable here. The spread across all seven is only 0.007, smaller than the effect of re-weighting the calculators, so there is no consistent difference between earlier and later Jomon in Ai’s results. Separating them would need a genuine Global25 coordinate for her.</p>
 
-    <p>The earlier figure of about 12% Jomon from a three-source model should therefore not be repeated as an estimate for Ai. It came from a loose fit that the Kofun sample has since outperformed, the published picture is more complex (Jomon, Yayoi and Kofun contributions), and a simulated coordinate cannot resolve proportions that fine. A Jomon signal may be present, but these results do not measure it.</p>
+    <h3 class="sub-heading">The Southern Ryukyus Across 2,800 Years</h3>
 
-    <div class="plain-box">
-      <span class="plain-label">In Plain Terms</span>
-      The Jomon are the oldest people in this story who can still be tested, and Ai’s DNA is about as far from all of them as nearly everyone’s is. Whether she carries more or less Jomon ancestry than other people in Japan is a question for a proper test, not for this one.
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Every Jomon sample is about equally far (0.167–0.173), and Jomon-like sources get no weight alongside a Japanese population. No Jomon percentage is claimed.</span></p>
-    </div>
-</div></div>
-  </div>
-</div>
+    <p>Miyako Island gives a rare time series from a single place. The earliest Nagabaka sample, from about 2,800 years ago, is almost purely Jomon-like: an independent but non-peer-reviewed Global25 model by ExploreYourDNA puts two people buried there between about 800 and 680 BC at about 99% Jomon, as unmixed as mainland Jomon of two thousand years earlier. By about 1800 the picture had changed: Cooke et al. (2023) estimate about 27% Jomon, with continental ancestry accounting for the rest, and they conclude that the later arrivals were people who already carried the mainland streams. The estimate for modern Okinawa from the RIKEN study (about 28.5%) is similar in size to the 1800 value, though it concerns a different island and was made by a different method.</p>
 
-<!-- ══ LAYER 5 ══ -->
-<div class="era-block pn-s_mesolithic" id="s_jomon_early">
-  <div class="era-marker">
-    <span class="era-dot"></span>
-    <span class="era-label">Layer 5<br>Earlier<br>Jomon</span>
-  </div>
-  <div class="era-content">
-<div class="story-panel"><h2>Earlier or later Jomon: no way to tell</h2>
-<div class="story"><p>The Jomon period stretches back about 16,000 years. Samples from the early and the late phases are all about equally far from Ai, so these results cannot say which phase she is closer to. The layer stays on the map as a marker for finer tests.</p><p class="sure"><span class="meter m1"><i></i><i></i><i></i></span>Not resolved</p></div></div>
+    <p>The standard sheet agrees with that picture in outline. The old Miyako sample sits 0.137 from the historic Miyako group and 0.171 from the standard Japanese average; the historic group sits 0.042 from Japanese and 0.040 from Kofun-period Honshu, and the Ryukyuan average sits 0.055 from the historic group and 0.167 from the old sample. In words: the southern islands changed from a Jomon-like population to a mainland-like one, and the modern Ryukyuan reference sits much nearer the 1800 state than the 2,800-year-old one. As elsewhere, the Ryukyuan average itself behaves oddly, so this is a rough guide to continuity, not a measurement of it.</p>
 
-<div class="curious"><p class="curious-label">For the curious</p>
-<div class="curious-body">
-<h3 class="sub-heading" style="margin-top:.2rem">The Earlier Jomon Stratum — Can the Phases Be Told Apart?</h3>
-
-    <p>The Jomon period runs for many thousands of years, from about 16,000 years ago to somewhere between 3,000 and 2,300 years ago, depending on how the transition to farming is dated. The samples in Layer 4 span that range: Initial and Early Jomon (0.173 and 0.169) against Middle–Late and Late Jomon (0.171 and 0.172). The spread across all seven is only 0.007, smaller than the shifts caused by simply changing the weighting of the source coordinates, so there is no consistent difference between earlier and later Jomon in these results.</p>
-
-    <p>This layer is therefore kept on the map as a placeholder for finer resolution, not as a finding. Separating earlier from later Jomon ancestry would need a genuine Global25 coordinate, and probably a model built specifically for the Jomon phases.</p>
+    <p>Where does Ai fall? At 0.173 from the old Miyako sample and 0.040 from the historic group, she sits with the modern, mixed end of that sequence, with nothing to suggest a profile unusually close to the old Jomon-like islanders.</p>
 
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
-      Earlier and later Jomon samples are all equally far from Ai, so these results cannot say which phase she is closer to, or whether the question is even meaningful at this resolution.
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> No separation between Early and Late Jomon in these results. Needs a genuine G25 coordinate.</span></p>
+      The Jomon are the oldest people in this story who can still be measured, and Ai’s DNA is about as far from all of them as nearly everyone in Japan’s is. Whether she carries more or less Jomon ancestry than other people in Japan is a question for a proper test, not this one. On Miyako Island the Jomon lasted longest and then changed quickly, and Ai sits with the later, mixed state.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Every Jomon sample is about equally far (0.167–0.173), so no Jomon percentage is claimed. Miyako Island went from Jomon-like to mixed, and Ai sits with the mixed end.</span></p>
     </div>
 </div></div>
   </div>
@@ -898,20 +957,18 @@ body{color:var(--ink)}
   </div>
   <div class="era-content">
 <div class="story-panel"><h2>What everyone outside Africa shares</h2>
-<div class="story"><p>Beneath everything sits a small slice of Neanderthal DNA, about 1 to 4%, carried by almost everyone with ancestry from outside Africa. Ai almost certainly carries it too, though it has not been mapped in her results.</p><p>The map also holds a faint Denisovan-related thread, carried over from Julian’s analysis as a hypothesis only. Nothing in Ai’s results supports it or rules it out.</p><p class="sure"><span class="meter m1"><i></i><i></i><i></i></span>Expected, not measured</p></div></div>
+<div class="story"><p>Beneath everything sits a small slice of Neanderthal DNA, roughly 1 to 2%, carried by almost everyone with ancestry from outside Africa. Ai almost certainly carries it too, though this analysis hasn’t mapped it. East Asian populations also carry a faint trace of Denisovan DNA, well under 1%.</p><p class="sure"><span class="meter m1"><i></i><i></i><i></i></span>Expected, not measured</p></div></div>
 
-<div class="curious"><p class="curious-label">For the curious</p>
+<div class="curious"><p class="curious-label">The Dig</p>
 <div class="curious-body">
-<h3 class="sub-heading" style="margin-top:.2rem">The Archaic Sediment — What Everyone Outside Africa Shares</h3>
+<h3 class="sub-heading" style="margin-top:.2rem">The Archaic Sediment: What Everyone Outside Africa Shares</h3>
 
-    <p>Beneath the Jomon sits the deepest layer, which is shared. Around 50,000–60,000 years ago, ancestors of people outside Africa mixed with Neanderthals, and almost everyone outside Africa still carries a small share of that DNA, about 1–4% of the genome. On average East Asian genomes carry somewhat more of it than European ones. Ai almost certainly carries it too, but <strong>it has not been measured in her results</strong>, and no segment-level test was run.</p>
-
-    <p>The map also holds a faint Denisovan-related thread, taken from Julian’s analysis, where it was inferred from Onge-related ancestry and attributed to his maternal side. It is carried here as a hypothesis only. Onge was not run for Ai, so nothing in her results supports it or rules it out.</p>
+    <p>Around 50,000–60,000 years ago, the ancestors of people outside Africa mixed with Neanderthals, and almost everyone outside Africa still carries a small share of that DNA, roughly 1–2% of the genome. On average East Asian genomes carry slightly more of it than European ones. A second archaic thread, from Denisovans, is present in East Asian populations at a much lower level, well under 1%, and far below what is seen in Oceanian populations. Neither was measured in Ai’s results, and nothing in them suggests a larger share than is typical.</p>
 
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
-      This layer is the same for almost everyone outside Africa, so it says little about where in Japan or Asia a person’s ancestors lived. It is on the map for completeness, not as a finding about Ai.
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> A small shared Neanderthal background is expected but unmeasured. The Denisovan thread is a hypothesis carried over from Julian’s analysis.</span></p>
+      This layer is the same for almost everyone outside Africa, so it says little about where in Japan or Asia a person’s ancestors lived. It is on the map for completeness.
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> A small shared Neanderthal background and a fainter Denisovan trace are expected but unmeasured.</span></p>
     </div>
 </div></div>
   </div>
@@ -924,40 +981,34 @@ body{color:var(--ink)}
     <span class="era-label">Notable<br>Findings</span>
   </div>
   <div class="era-content">
-<div class="story-panel"><h2>The things that don’t fit neatly</h2>
-<div class="story"><p>Two findings stand out. First, a gentle lean toward the mainland: even measured against the Kofun sample, about a quarter of the fit goes to Han Chinese, and MyHeritage’s 12.3% Chinese points the same way. It may be real, ordinary individual variation, or a quirk of the method. It is not solved.</p><p>Second, the five calculators describe the same genome in very different words, with “Southeast Asian” anywhere from 13% to 69%. The names belong to the tools, not to Ai.</p><p class="sure"><span class="meter m1"><i></i><i></i><i></i></span>Open puzzles</p></div></div>
+<div class="story-panel"><h2>Three things worth a second look</h2>
+<div class="story"><p>The first is a neighborhood. Kofun-era Japan, Gaya-era Korea and historic Miyako Island all sit within a few hundredths of Ai’s coordinate. That is a real pattern, and it is the part of this report that holds up under every test, but it is a neighborhood, not an address.</p><p>The second is two clues that dissolved under testing. The Yellow River people and the Ryukyuan reference both looked, at first glance, like connections. Looked at closely, the first is a landmark every East Asian group is near, and the second is a reference that doesn’t behave like a normal population average.</p><p>The third is a lean. In the full coordinate Ai sits a little toward the Han end of the map, but most of that lean comes from one fine-scale dimension and fades when it is removed. It may be real, ordinary variation, or an artifact. It is not solved.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>One solid pattern; two clues and a lean left open</p></div></div>
 
-<div class="curious"><p class="curious-label">For the curious</p>
+<div class="curious"><p class="curious-label">The Dig</p>
 <div class="curious-body">
-<h3 class="sub-heading" style="margin-top:.2rem">The Unexpected Signals</h3>
+<h3 class="sub-heading" style="margin-top:.2rem">The Neighborhood That Holds Up</h3>
+    <p>Ai’s results were re-run several ways: with all 25 dimensions of her coordinate, with the last (finest-scale) one removed, and with only the first ten (the broadest). Some findings survive every version. Japanese stays the nearest modern population, and the Gimhae and Kofun samples stay the nearest ancient ones (0.016 and 0.019 without the last dimension, 0.011 and 0.014 with only the first ten). The three nearest historic Miyako individuals barely move (NAG039 0.017, 0.017 and 0.015 across the three versions). Whatever else is uncertain about this coordinate, the neighborhood is not.</p>
+    <p><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> A Kofun–Gaya–Miyako neighborhood that survives every version of the test.</span></p>
 
-    <h3 class="sub-heading">Four calculators, four vocabularies</h3>
-    <p>The same genome gets very different component names depending on the calculator. World9 reports East Asian 72.99% and Siberian 24.78%. Dodecad V3 reports Southeast Asian 68.77% and Northeast Asian 24.94%. MDLP K16 reports South East Asian 67.56%, Siberian 28.07% and Arctic 2.59%. Eurogenes K13 reports East Asian 64.73%, Siberian 32.20% and Oceanian 1.71%. HarappaWorld reports NE-Asian 67.29%, Siberian 13.71% and SE-Asian 13.46%. “Southeast Asian” runs from about 13% to 69% depending on the tool, and “Siberian” from 14% to 32%. Component names are labels each calculator invents for its own clusters, and they should not be read as recent ancestry from Siberia or Southeast Asia.</p>
-    <p><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Component names belong to the calculator, not to Ai.</span></p>
+    <h3 class="sub-heading">Two Clues That Dissolved</h3>
+    <p><strong>The Yellow River.</strong> Ai’s closeness to two Yellow River individuals looks like a pattern, and the stable order across four calculator runs makes it look like a result. But the same order appears for Koreans, Han and Kofun-era Japanese, so it describes the individuals, not Ai, and it reshuffles when the finest dimension is removed (Layer 4).</p>
+    <p><strong>The Ryukyuan average.</strong> The reference sits 0.057 from the Japanese average, nearer to Han and Korean populations than to Japanese ones, although the Ryukyuan people carry more Jomon ancestry than the mainland does. Its last dimension alone accounts for about 40% of that gap. Ai’s 0.048 distance to it says nothing about a southern connection (Layer 1).</p>
+    <p><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Both are worth revisiting with better references, and neither is a finding.</span></p>
 
-    <h3 class="sub-heading">A Han-leaning offset, and what it is not</h3>
-    <p>Two methods show a modest continental-leaning component beyond the reference Japanese population: the Japanese + Han fit and MyHeritage’s 12.3% Chinese. The magnitudes differ because the references differ, and neither is a literal ancestry percentage. To test whether the Kofun-era arrivals explain it, the same Han test was run with the Kofun-period sample as the base, along with a Late Neolithic Yellow River source and a Ryukyu-linked one. Ranges are across the four weightings.</p>
+    <h3 class="sub-heading">A Lean That Comes and Goes</h3>
+    <p>Earlier versions of this report noted a modest continental lean: a mixture of the Japanese average and Han Chinese fits Ai better than the Japanese average alone. The size of that lean depends on how much of the coordinate is used. The weights below describe how the geometry fits, and they are not shares of ancestry.</p>
 
     <table class="dist-table">
-      <thead><tr><th>Two-source model</th><th>Shares</th><th>Fit</th><th>Improvement on first source alone</th></tr></thead>
+      <thead><tr><th>Dimensions used</th><th>Japanese alone</th><th>Japanese + Han (Shanxi) fit</th><th>Han weight</th></tr></thead>
       <tbody>
-        <tr><td>Kofun alone</td><td class="dist-val">100%</td><td class="dist-val">0.019–0.022</td><td class="dist-val">—</td></tr>
-        <tr><td>Kofun + China_YR_LN</td><td class="dist-val">82–86% / 14–18%</td><td class="dist-val">0.017–0.019</td><td class="dist-val">0.002–0.003</td></tr>
-        <tr><td>Japanese + Han (Shanxi)</td><td class="dist-val">67–73% / 27–33%</td><td class="dist-val">0.015–0.017</td><td class="dist-val">0.007–0.009</td></tr>
-        <tr><td>Kofun + Han (Shanxi)</td><td class="dist-val">72–77% / 23–28%</td><td class="dist-val">0.014–0.016</td><td class="dist-val">0.005–0.007</td></tr>
-        <tr><td>Japanese + Nagabaka (historic)</td><td class="dist-val">77–81% / 19–23%</td><td class="dist-val">0.020–0.024</td><td class="dist-val">about 0.002</td></tr>
+        <tr><td>All 25</td><td class="dist-val">0.025</td><td class="dist-val">0.016</td><td class="dist-val">31%</td></tr>
+        <tr><td>Without the last one</td><td class="dist-val">0.018</td><td class="dist-val">0.016</td><td class="dist-val">23%</td></tr>
+        <tr><td>First ten only</td><td class="dist-val">0.011</td><td class="dist-val">0.011</td><td class="dist-val">6%</td></tr>
       </tbody>
     </table>
 
-    <p>The offset survives the Kofun test. Han still takes about a quarter when Kofun is the base, the best fit overall is Kofun plus Han, and modern Han improves the fit more than the Late Neolithic Yellow River source does. So the Kofun-period sample explains only part of the lean toward the mainland. The rest could be real continental ancestry beyond the Japanese average, ordinary individual variation, or an artifact of the simulated coordinate: the calculators it was built from have no Jomon-specific component, which could pull a simulated coordinate toward the mainland East Asian cluster. Only a genuine Global25 coordinate would separate those, and none was used here.</p>
-    <p><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> A continental lean that survives against the Kofun sample. Direction supported; size and cause not settled.</span></p>
-
-    <h3 class="sub-heading">Small recurring Oceanian signals</h3>
-    <p>Two calculators report a small Papuan or Oceanian component: HarappaWorld 1.14% and Eurogenes K13 1.71% (Oceanian). Low components like these are often within noise and can reflect deep ancestry shared with Southeast Asian lineages. They are not treated as evidence of Papuan or Denisovan ancestry, and the Denisovan thread on the map does not rely on them.</p>
-    <p><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Noted, not interpreted.</span></p>
-
-    <h3 class="sub-heading">A Note on Family Context</h3>
-    <p>Ai is Julian’s mother. His map showed a maternal side built from proxies (Han Henan, Jomon) because no maternal data existed. This report replaces proxies with her own results where available, but the methods are not yet identical across the family: her coordinate is a weighted average of four simulated sets, and a direct vector comparison with Minko, Stayko or Julian has not been done here.</p>
+    <p>On the broadest dimensions Ai sits right on the Japanese average, and adding Han helps nothing. The lean grows as the finest dimension is included, and that dimension alone accounts for 46% of the squared gap between Ai and the Japanese average. A plausible reason is that the finest dimensions are the ones a calculator-based simulation is least able to pin down, though the files cannot confirm that. MyHeritage’s 12.3% Chinese points the same way, but it is a different company’s label and cannot settle the question. The honest summary is that any continental lean beyond the Japanese average is small, uncertain, and not established by this coordinate.</p>
+    <p><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> A small continental lean in the full coordinate that shrinks when its least reliable dimension is dropped. Left open.</span></p>
 </div></div>
   </div>
 </div>
@@ -970,115 +1021,156 @@ body{color:var(--ink)}
   </div>
   <div class="era-content">
 <div class="story-panel"><h2>Clues written in single letters</h2>
-<div class="story"><p>Eight clues are single letters in the DNA, read straight from Ai’s raw data. All fit East Asian ancestry. The strongest is EDAR, an East Asian hair and sweat-gland variant that she carries on both chromosomes.</p><p>These are direct readings, not estimates. But one gene is a hint about one trait, never a percentage of ancestry.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid, read from the DNA (some calls inferred from low-pass sequencing)</p></div></div>
+<div class="story"><p>Some clues are single letters in the DNA, read straight from Ai’s raw file. She carries two copies of the East Asian EDAR variant, the one linked to thicker hair and extra sweat glands. At the genes where European ancestry would show (skin, eyes, milk digestion), she carries the ancestral versions every time.</p><p>These are direct readings, not estimates. But one gene is a hint about one trait, never a percentage of ancestry, and none of them can tell Jomon, Yayoi and Kofun ancestry apart.</p><p class="sure"><span class="meter m3"><i></i><i></i><i></i></span>Solid, read straight from the DNA</p></div></div>
 
-<div class="curious"><p class="curious-label">For the curious</p>
+<div class="curious"><p class="curious-label">The Dig</p>
 <div class="curious-body">
 <h3 class="sub-heading" style="margin-top:.2rem">Key Ancestry-Informative Genotypes</h3>
-    <p class="descent-note">Direct genotype calls from the MyHeritage raw DNA file, which comes from low-pass whole-genome sequencing, so some calls are statistically inferred. These are readings, not estimates, but each marker is a hint about one trait and not a percentage of ancestry.</p>
+    <p class="descent-note">Direct calls from the MyHeritage raw file (build 37, forward strand). Each genotype is the pair of letters actually read from the file, not an estimate. The file comes from low-pass whole-genome sequencing, so a few calls are statistically inferred.</p>
 
     <div class="snp-table-wrap">
       <table class="snp-table">
         <thead><tr><th>rsID</th><th>Gene</th><th>Genotype</th><th>Significance</th></tr></thead>
         <tbody>
-          <tr><td class="snp-rsid">rs3827760</td><td class="snp-gene">EDAR</td><td class="snp-geno snp-found">GG</td><td class="snp-desc">East Asian hair-thickness and sweat-gland variant (EDAR 370A), homozygous derived. Near-universal in East Asians and almost absent in Europeans. A 2021 study reported that six Jomon individuals did not carry it, so it is consistent with continental ancestry on both of her chromosomes.</td></tr>
-          <tr><td class="snp-rsid">rs17822931</td><td class="snp-gene">ABCC11</td><td class="snp-geno snp-found">TC</td><td class="snp-desc">Earwax gene: one dry-earwax (T) copy, one wet (C). The dry variant is common in East Asia, so carrying one copy is ordinary.</td></tr>
-          <tr><td class="snp-rsid">rs1426654</td><td class="snp-gene">SLC24A5</td><td class="snp-geno snp-found">GG</td><td class="snp-desc">Major European skin-lightening locus: ancestral genotype, no derived allele, as expected with East Asian ancestry.</td></tr>
-          <tr><td class="snp-rsid">rs16891982</td><td class="snp-gene">SLC45A2</td><td class="snp-geno snp-found">CC</td><td class="snp-desc">Second European skin-lightening locus: ancestral genotype.</td></tr>
-          <tr><td class="snp-rsid">rs12913832</td><td class="snp-gene">HERC2</td><td class="snp-geno snp-found">AA</td><td class="snp-desc">Blue-eye switch: AA is the ancestral brown-eye genotype, the usual one in East Asia.</td></tr>
-          <tr><td class="snp-rsid">rs4988235</td><td class="snp-gene">LCT/MCM6</td><td class="snp-geno snp-found">GG</td><td class="snp-desc">European lactase-persistence variant not present: ancestral genotype, the usual one in East Asia.</td></tr>
-          <tr><td class="snp-rsid">rs1800414</td><td class="snp-gene">OCA2</td><td class="snp-geno snp-found">TT</td><td class="snp-desc">East Asia-specific skin-lightening variant not carried. Common but not universal in East Asians, so uninformative on its own.</td></tr>
-          <tr><td class="snp-rsid">rs1042602</td><td class="snp-gene">TYR</td><td class="snp-geno snp-found">CC</td><td class="snp-desc">Tyrosinase: ancestral genotype. The derived allele is common in Europeans and absent in East Asians.</td></tr>
-          <tr><td class="snp-rsid">rs1805007</td><td class="snp-gene">MC1R</td><td class="snp-geno snp-missing">NOT IN FILE</td><td class="snp-desc">Red hair variant, not present in this file.</td></tr>
+          <tr><td class="snp-rsid">rs3827760</td><td class="snp-gene">EDAR</td><td class="snp-geno snp-found">GG</td><td class="snp-desc">The East Asian variant (EDAR 370A, linked to thicker hair, more sweat glands and shovel-shaped incisors) reads as G on this strand, and Ai carries two copies. Found in nearly all East Asians and almost no Europeans or Africans, so it fits her ancestry, but it cannot say how much is Jomon, Yayoi or Kofun.</td></tr>
+          <tr><td class="snp-rsid">rs17822931</td><td class="snp-gene">ABCC11</td><td class="snp-geno snp-found">TC</td><td class="snp-desc">Earwax gene: one dry-earwax (T) copy and one wet (C). The dry variant is common in East Asia, so carrying one copy is ordinary.</td></tr>
+          <tr><td class="snp-rsid">rs671</td><td class="snp-gene">ALDH2</td><td class="snp-geno snp-found">GG</td><td class="snp-desc">The common version. The A allele (the East Asian alcohol-flush variant) is carried by a sizable minority in East Asia, and Ai has none, which is unremarkable.</td></tr>
+          <tr><td class="snp-rsid">rs1800414</td><td class="snp-gene">OCA2</td><td class="snp-geno snp-found">TT</td><td class="snp-desc">The East Asia-specific skin-lightening variant (C allele) is not carried. It is common but not universal in East Asians, so it is uninformative on its own.</td></tr>
+          <tr><td class="snp-rsid">rs1426654</td><td class="snp-gene">SLC24A5</td><td class="snp-geno snp-found">GG</td><td class="snp-desc">Major European skin-lightening locus: the ancestral version, as expected with East Asian ancestry.</td></tr>
+          <tr><td class="snp-rsid">rs16891982</td><td class="snp-gene">SLC45A2</td><td class="snp-geno snp-found">CC</td><td class="snp-desc">Second European skin-lightening locus: also the ancestral version.</td></tr>
+          <tr><td class="snp-rsid">rs1042602</td><td class="snp-gene">TYR</td><td class="snp-geno snp-found">CC</td><td class="snp-desc">Tyrosinase: ancestral. The derived (A) allele is common in Europeans and absent in East Asians.</td></tr>
+          <tr><td class="snp-rsid">rs12913832</td><td class="snp-gene">HERC2</td><td class="snp-geno snp-found">AA</td><td class="snp-desc">The blue-eye switch: AA is the ancestral brown-eye genotype, the usual one in East Asia.</td></tr>
+          <tr><td class="snp-rsid">rs4988235</td><td class="snp-gene">LCT/MCM6</td><td class="snp-geno snp-found">GG</td><td class="snp-desc">The European lactase-persistence variant (A allele) is not present. This is the usual state in East Asia.</td></tr>
+          <tr><td class="snp-rsid">rs2814778</td><td class="snp-gene">DARC</td><td class="snp-geno snp-found">TT</td><td class="snp-desc">The usual non-African version. The C allele (Duffy-null) is near-universal in West and Central Africa and absent here.</td></tr>
+          <tr><td class="snp-rsid">rs1805007</td><td class="snp-gene">MC1R</td><td class="snp-geno snp-missing">NOT IN FILE</td><td class="snp-desc">Red-hair variant. This position is not on the MyHeritage array.</td></tr>
         </tbody>
       </table>
     </div>
 
+    <p>The file holds about 585,000 positions across the 22 numbered chromosomes and the X chromosome, with no Y-chromosome or mitochondrial calls. Paternal and maternal haplogroups cannot be read from it and would need a separate Y-DNA or mtDNA test.</p>
+
     <div class="plain-box">
       <span class="plain-label">In Plain Terms</span>
-      Eight markers, all consistent with East Asian ancestry, and none of them surprising. The most informative is EDAR: she carries the East Asian version on both chromosomes, a version the Jomon individuals tested in one study did not have. Even so, one gene says nothing about how much Jomon, Yayoi or Kofun ancestry she carries, and none of the eight separates those three.
+      Eleven positions were checked, and all fit East Asian ancestry without surprises. The most informative is EDAR: Ai carries the East Asian version on both chromosomes. Even so, one gene says nothing about how much Jomon, Yayoi or Kofun ancestry she carries, and none of these separates those three.
       <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> Single-gene clues match East Asian ancestry. They are hints, not a measured ancestry percentage.</span></p>
     </div>
 </div></div>
   </div>
 </div>
 
-<!-- ══ METHODS ══ -->
-<div class="era-block pn-s_methods" id="s_methods">
-  <div class="era-marker">
-    <span class="era-dot era-dot--special"></span>
-    <span class="era-label">How This<br>Was Measured</span>
-  </div>
-  <div class="era-content">
-<div class="story-panel"><h2>How sure can we be?</h2>
-<div class="story"><p>This report mixes evidence of very different strengths: direct DNA readings, commercial labels, calculators, and a coordinate simulated from calculators. We keep them apart so you can see which statements are solid and which are rough.</p><p>The short version: the direction (Japanese, with a Kofun-era sample nearest) is well supported, the exact distances are approximate, and no ancestry percentage is claimed.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Read the table before quoting a number</p></div></div>
-
-<div class="curious"><p class="curious-label">For the curious</p>
-<div class="curious-body">
-<h3 class="sub-heading" style="margin-top:.2rem">Kinds of Evidence, Kept Apart</h3>
-
-    <p class="descent-note">Different parts of this report rest on evidence of very different strength. This table keeps them separate.</p>
-
-    <table class="dist-table">
-      <thead><tr><th>Evidence</th><th>What it is</th><th>How far to trust it</th></tr></thead>
-      <tbody>
-        <tr><td>MyHeritage estimate</td><td>Commercial ethnicity percentages from MyHeritage’s own panel</td><td>Labels only. Used in Layer 0.</td></tr>
-        <tr><td>GEDmatch calculators</td><td>Five admixture calculators with component percentages and nearest-population distances</td><td>Direction is consistent. Scales and names are calculator-specific. Used in Layer 1.</td></tr>
-        <tr><td>Simulated Global25 coordinate</td><td>Weighted average of coordinates simulated from calculator outputs (K15 35%, K13 30%, HarappaWorld 25%, K36 10%)</td><td>Approximate. Differences of about 0.01 or less should not be over-read. Used in Layers 1–5.</td></tr>
-        <tr><td>Genuine Global25 coordinate</td><td>Coordinate computed from raw SNP data with the original method</td><td>Not used in this report.</td></tr>
-        <tr><td>Ancient Japanese samples</td><td>Kofun, Yayoi (northwest Kyushu), Nagabaka and Jomon-period samples, compared by distance. The two Yayoi rows were added to the source sheet by hand.</td><td>Distance ranking is informative. Used in Layers 2–5.</td></tr>
-        <tr><td>Vahaduo mixture models</td><td>Best-fitting combinations of reference populations</td><td>Mathematical fits, not ancestry shares. Exploratory.</td></tr>
-        <tr><td>Direct genotype calls</td><td>Single-letter DNA readings from the raw file</td><td>Eight ancestry-informative markers, read from a low-pass whole-genome sequencing file (some calls are inferred). Used in the Ancestry SNPs section. The file has no mitochondrial or Y markers.</td></tr>
-      </tbody>
-    </table>
-
-    <div class="insight-box">
-      <span class="insight-label">What Would Settle the Open Questions</span>
-      A genuine Global25 coordinate would show how much of the simulated result survives. Modern Ryukyuan or Okinawan reference populations would test the MyHeritage “Okinawa” label properly; the Miyako Island samples give only a partial test. More Yayoi-period samples, especially from regions other than northwest Kyushu, would broaden Layer 3, and Heian-period references would do the same for the rest of Layer 2. An Onge comparison would test the Denisovan-related thread.
-    </div>
-</div></div>
-  </div>
-</div>
-
 <!-- ══ SYNTHESIS ══ -->
-<div class="era-block pn-s_synthesis" id="s_synthesis" style="border-bottom:none">
+<div class="era-block pn-s_synthesis" id="s_synthesis">
   <div class="era-marker">
     <span class="era-dot era-dot--special"></span>
     <span class="era-label">The Full<br>Picture</span>
   </div>
   <div class="era-content">
-<div class="story-panel"><h2>A Japanese genome that follows Japan’s history</h2>
-<div class="story"><p>Beneath the label, Ai’s closest matches are Japanese, then a Kofun-era sample from Honshu. Under that lie the Yayoi rice farmers and, under them, the Jomon. The nearest ancient people sit where history says they should, though the measurements cannot yet say how much of each layer she carries.</p><p>Beneath it all, as for almost everyone with ancestry from outside Africa, sits a small shared slice of Neanderthal DNA.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure overall</p></div></div>
+<div class="story-panel"><h2>A Japanese genome, in a neighborhood that spans a strait</h2>
+<div class="story"><p>Hunter-gatherers who were here first, rice farmers who arrived from the continent, and a later wave of East Asian newcomers in the age of the burial mounds, layered together and mixed. Ai’s DNA is not one people. It is the meeting place of several, which is how Japan itself was made.</p><p>Nearest to her are the Japanese, then the Koreans next door, and among ancient people a group from about 1,700 years ago on both sides of the Korea Strait. The Yellow River and the Ryukyus are interesting side roads that this data can’t yet follow.</p><p>Beneath it all, as for almost everyone with ancestry from outside Africa, sits a small slice of Neanderthal DNA, around 1 to 2%.</p><p class="sure"><span class="meter m2"><i></i><i></i><i></i></span>Fairly sure overall</p></div></div>
 
-<div class="curious"><p class="curious-label">For the curious</p>
+<div class="curious"><p class="curious-label">The Dig</p>
 <div class="curious-body">
-<h3 class="sub-heading" style="margin-top:.2rem">The Complete Excavation — What All Seven Layers Tell Together</h3>
+<h3 class="sub-heading" style="margin-top:.2rem">The Complete Excavation: What All Seven Layers Tell Together</h3>
 
-    <p>At the surface, MyHeritage describes Ai as Japanese with a smaller Chinese share, labels that say more about its reference panel than about her family tree. The Global25 distances cut through the labelling: her coordinate is nearest to Japanese (0.025), with Korean close behind (0.028) and the Han references clearly further. Five GEDmatch calculators agree on Japanese first, and the order held under every weighting tested, though the margin over Korean is thin.</p>
+    <p>At the surface, MyHeritage describes Ai as Japanese with a smaller Chinese share, labels that say more about its reference panel than about her family tree. The Global25 distances are more precise: Japanese at 0.025, Korean close behind at 0.028, Manchu and Han further out. Five calculators agree on Japanese first, and the order held in every version of the test. The Okinawan reference added in this edition is too unusual to say anything about a southern connection.</p>
 
-    <p>Beneath the modern layer, the history of the archipelago supplies the structure: a Kofun-era East Asian influx on top of Yayoi continental farmers, who themselves mixed with the Jomon population already living there. The ancient samples fit that story in order. The nearest of all is a Kofun-period Honshu sample (0.022), level with the modern Japanese average; the continental farming references follow (China YR LN 0.055, Korea Changhang 0.100), and the Jomon samples are furthest (0.167–0.173) with no consistent difference between earlier and later phases. Eight direct genotypes all point to East Asian ancestry. The measurements cannot yet put numbers on the layers: the Yayoi-period samples come from one Jomon-leaning region, the Jomon share in the exploratory model is a model output, and the coordinate behind the distances is simulated.</p>
+    <p>Beneath the modern layer the published history of the archipelago supplies the structure: Jomon hunter-gatherers, Yayoi farmers from Northeast Asia, and a Kofun-era influx of East Asian ancestry resembling modern Han Chinese. The ancient samples fit that order. The nearest are a trio from about 1,700 years ago, Gimhae in Gaya-era Korea (0.018), Kofun-period Honshu (0.022) and a second Gimhae sample (0.023), and their closeness to each other fits the picture of two shores in close contact. Historic individuals from Miyako Island in the southern Ryukyus also sit close (0.017–0.037, a separate coordinate set), mixed in their ancestry and with more Jomon than the mainland, which makes them a lead for future testing, not a southern origin. The Yayoi samples (0.063, 0.090) follow, the Yellow River farmers of 4,000 years ago (0.048–0.071) are a landmark that every East Asian group sits near, in the same order, and the Jomon are furthest (0.167–0.173), as they are for almost everyone in Japan. Eleven direct genotypes all fit East Asian ancestry.</p>
+
+    <p>The measurements cannot yet put numbers on the layers: the Yayoi individuals come from one corner of Kyushu, the coordinate behind the distances is simulated, and the finest dimension of it is the least reliable. What survives every version of the test is the neighborhood.</p>
 
     <div class="plain-box">
-      <span class="plain-label">In Plain Terms — The Whole Excavation, Start to Finish</span>
-      <p>Start at the surface: a person whose closest living relatives are Japanese, with Koreans close behind. Peel back a little and there is the Kofun era, when a further wave of East Asian ancestry arrived. Peel back further and there are the Yayoi rice farmers, who came from the continent and mixed with the people already there. Beneath them are the Jomon, hunter-gatherer-fishers who had the islands to themselves for thousands of years.</p>
-      <p style="margin-top:.8rem">Beneath even that, as for almost everyone outside Africa, is a small shared slice of Neanderthal DNA. Each layer is real history. Ai’s DNA places her within the Japanese population and fits that history in direction. What it cannot yet do is say how much of each layer she carries.</p>
-      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> A Japanese genome that follows the known layers of Japanese history. The proportions need better references and a genuine Global25 coordinate.</span></p>
+      <span class="plain-label">In Plain Terms: The Whole Excavation, Start to Finish</span>
+      <p>Run the story from the top down and it reads like peeling paint off an old house. Each coat is newer than the one beneath it, and none has erased the others. At the surface is a woman whose closest living relatives are Japanese, with Koreans close behind. Peel back a little and there are the Kofun years, when the burial mounds went up and new people arrived from the mainland, and across the strait the Gaya people of Korea, who look almost the same in this test. Peel back further and there are the Yayoi rice farmers who had come before, mixing with the people already there.</p>
+      <p style="margin-top:.8rem">Beneath them are the Jomon, who lived in the islands for thousands of years in near isolation, and whose last unmixed descendants may have been on islands like Miyako, until newcomers reached them too. Beneath even that, as for almost everyone outside Africa, is a faint trace of Neanderthal ancestry. Each layer is real history, and Ai’s DNA places her within the Japanese population in the neighborhood those layers built.</p>
+      <p style="margin-top:.75rem"><span style="background-color:var(--parchment); padding:2px 5px;"><strong>Takeaway:</strong> One continuous story: Jomon → Yayoi farmers → Kofun-era newcomers → the modern Japanese population, with Korea and the southern islands as close neighbors. The Yellow River and Ryukyu connections are open questions, not findings.</span></p>
     </div>
 
     <div class="insight-box insight-box--final">
       <span class="insight-label insight-label--white">The Ancestral Equation</span>
       <div class="equation">
         Jomon hunter-gatherers — the archipelago’s first settled people<br>
-        + Yayoi continental farmers — rice farming, from ~300 BC<br>
-        + Kofun-era East Asian arrivals — ~3rd–7th century AD<br>
+        + Yayoi farmers — rice farming from the continent, ~300 BC<br>
+        + Kofun-era East Asian newcomers — ~3rd–7th century AD<br>
         = <strong>The Japanese archipelago population</strong><br><br>
         <strong>Closest modern: Japanese 0.025 · Korean 0.028</strong><br>
-        <strong>Closest ancient: Japan Honshu Kofun 0.022</strong><br>
-        <strong>Continental references: China YR LN 0.055 · Korea Changhang 0.100</strong><br>
-        <strong>Jomon samples: 0.167–0.173</strong><br>
+        <strong>Closest ancient: Gimhae, Korea 0.018 · Kofun Honshu 0.022</strong><br>
+        <strong>Southern Ryukyu lead: Miyako NAG039 0.017 (separate coordinate set)</strong><br>
+        <strong>Yellow River landmark: 0.048–0.071 · Jomon samples: 0.167–0.173</strong><br>
         <strong>All distances from a simulated G25 coordinate</strong>
       </div>
     </div>
+</div></div>
+  </div>
+</div>
+
+<!-- ══ METHODS AND DATA ══ -->
+<div class="era-block pn-s_methods" id="s_methods" style="border-bottom:none">
+  <div class="era-marker">
+    <span class="era-dot era-dot--special"></span>
+    <span class="era-label">Appendix<br>Methods<br>and Data</span>
+  </div>
+  <div class="era-content">
+<div class="story-panel"><h2>How the measurements were made</h2>
+<div class="story"><p>Everything in the layers above rests on a handful of data files and a few simple checks. This appendix lists them, says what was tested, and names what is still missing.</p></div></div>
+
+<div class="curious"><p class="curious-label">Appendix</p>
+<div class="curious-body">
+<h3 class="sub-heading" style="margin-top:.2rem">Data Sets and Their Origins</h3>
+
+    <table class="dist-table">
+      <thead><tr><th>Data</th><th>What it is</th><th>How far to trust it</th></tr></thead>
+      <tbody>
+        <tr><td>Raw DNA file</td><td>MyHeritage low-pass whole-genome file, build 37, about 585,000 positions (chromosomes 1–22 and X)</td><td>Direct readings. Used for the single-gene table only.</td></tr>
+        <tr><td>Ai’s coordinate</td><td>Ai_Consensus_G25_v1_sim_scaled, a weighted average of coordinates simulated from four calculator outputs (Eurogenes K15, K13, K36 and HarappaWorld). It is not projected from her raw file.</td><td>Approximate. The leading dimensions are well constrained; the finest ones are not (see below). Differences of about 0.01 or less should not be over-read.</td></tr>
+        <tr><td>Standard sheet</td><td>Vahaduo Global25 scaled averages (modern and ancient), including Japanese, Korean, Han, Kofun, Gimhae, Jomon, China_YR_LN and Nagabaka rows</td><td>The main reference frame for Layers 1–3, 5.</td></tr>
+        <tr><td>Yayoi rows</td><td>Shomura and three Neshiko individuals, added to the sheet by hand</td><td>Provider not recorded in the files supplied.</td></tr>
+        <tr><td>Yellow River individuals</td><td>Eight Late Neolithic individuals (Genoplot catalogue; Ning et al. 2020): Haojiatai (2), Pingliangtai (4), Wadian (2)</td><td>Sites and counts match the paper’s summary table. Sex, coverage and the outlier labels were not verified against the supplementary tables.</td></tr>
+        <tr><td>Nagabaka coordinates</td><td>Nine individuals from Miyako Island, DNAGENICS (Nagabaka9 file)</td><td>A different provider. Kept within its own file. Dating of the earlier-period five comes from the supplied sample list.</td></tr>
+        <tr><td>Ryukyuan reference</td><td>“Ryukyuan (low res)” average, published by ExploreYourDNA, October 2026; sample count and island composition unknown</td><td>Behaves unusually (see below). Treated as inconclusive.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">What Was Checked Before Trusting the Distances</h3>
+
+    <p>Global25 describes each genome with 25 numbers, ordered from the broadest differences between populations to the finest. Sharing 25 numbers does not make two coordinate sets compatible. Three checks were made. The eight Yellow River individuals average to a point only 0.005 from the sheet’s own China_YR_LN row, so that file sits in the same space as the sheet. The Ryukyuan average does not: it is 0.057 from the Japanese average, nearer to Han Shanxi and Yugur than to any Japanese population, with its last dimension about 4.7 spreads away from the Japanese average. The sheet’s Nagabaka historic row sits 0.037–0.054 from the three nearest DNAGENICS individuals, but the sheet’s 2,800-year-old Nagabaka row sits 0.16–0.22 from all nine, so the earlier-period DNAGENICS coordinates do not match it.</p>
+
+    <p>Ai’s own coordinate is the largest unknown. In it, the last dimension alone makes up 46% of the squared gap to the Japanese average, so every result was re-run on all 25 dimensions, without the last one, and with the first ten only:</p>
+
+    <table class="dist-table">
+      <thead><tr><th>Result</th><th>All 25</th><th>Without last</th><th>First 10</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Nearest modern population</td><td>Japanese 0.025</td><td>Japanese 0.018</td><td>Japanese 0.011 (Tibetan-region groups tied)</td><td>Holds</td></tr>
+        <tr><td>Nearest ancient (Gimhae, Kofun)</td><td>0.018, 0.022</td><td>0.016, 0.019</td><td>0.011, 0.014</td><td>Holds</td></tr>
+        <tr><td>Nearest Nagabaka (NAG039, 035, 036)</td><td>0.017, 0.027, 0.037</td><td>0.017, 0.027, 0.033</td><td>0.015, 0.026, 0.029</td><td>Holds</td></tr>
+        <tr><td>Ai nearer to Japanese than to Ryukyuan reference</td><td>0.025 vs 0.048</td><td>0.018 vs 0.044</td><td>0.011 vs 0.031</td><td>Holds</td></tr>
+        <tr><td>Han weight in Japanese + Han fit</td><td>31%</td><td>23%</td><td>6%</td><td>Not stable</td></tr>
+        <tr><td>Yellow River order (nearest individual)</td><td>PLTM310</td><td>PLTM311</td><td>WD-WT5M2</td><td>Not stable</td></tr>
+        <tr><td>Mean distance, inliers vs outliers</td><td>0.053 vs 0.066</td><td>0.044 vs 0.054</td><td>0.034 vs 0.034</td><td>Not stable</td></tr>
+        <tr><td>Ai nearer to Yellow River group than Japanese average is</td><td>0.058 vs 0.067</td><td>0.048 vs 0.046</td><td>0.034 vs 0.028</td><td>Not stable</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">Yellow River: The Four Calculator Runs</h3>
+
+    <p>The per-calculator tables supplied with the request (HarappaWorld, K13, K15, K36) were used as given; the four coordinate files behind them were not available, so those numbers were not recomputed here. The mean ranks are PLTM310 1.25, WD-WT1H16 1.75, PLTM311 and PLTM313 3.50, PLTM312 5.00, HJTM107 6.00, HJTM109 and WD-WT5M2 7.50, and the mean inlier distance is lower than the mean outlier distance in all four (0.050–0.061 against 0.064–0.074). The four are transformations of the same data and are not independent tests. The consensus values in Layer 4 are recomputed from the supplied files and agree with that ordering.</p>
+
+    <h3 class="sub-heading">Files Still Missing</h3>
+
+    <p>Four reference files named in the request were not supplied as coordinate files: <strong>Japanese_modern_n476</strong>, <strong>Kofun_Honshu_AD571_625_average</strong>, <strong>Okinawa_Nagabaka_BC800_average</strong> and <strong>Okinawa_Nagabaka_historic_AD1800_average</strong>. The standard sheet’s Japanese, Kofun and Nagabaka rows were used in their place, and they are not guaranteed to match those averages. The four Ai calculator coordinate files (HW, K13, K15 and K36) were also not supplied. No coordinates were typed in by hand.</p>
+
+    <div class="insight-box">
+      <span class="insight-label">What Would Settle the Open Questions</span>
+      A genuine Global25 coordinate for Ai, computed from her raw file through the same pipeline as the reference sheet, would show how much of the finest-dimension signal survives, and would let the Yellow River, Ryukyuan and Nagabaka comparisons be made properly. A Ryukyuan reference with documented samples and normal behavior, plus Okinawa-island ancient samples, would test the southern question. Per-individual Yellow River comparisons with the same pipeline, and formal admixture modeling against published sources, would test whether any Yellow River-specific signal exists. Until then, every Yellow River and Ryukyuan statement here is a lead and not a finding.
+    </div>
+
+    <h3 class="sub-heading">References</h3>
+    <p>Cooke NP, Mattiangeli V, Cassidy LM, Okazaki K, Stokes CA, Onbe S, Hatakeyama S, Machida K, Kasai K, Tomioka N, Matsumoto A, Ito M, Kojima Y, Bradley DG, Gakuhari T, Nakagome S (2021). Ancient genomics reveals tripartite origins of Japanese populations. <em>Science Advances</em> 7: eabh2419. doi:10.1126/sciadv.abh2419.</p>
+    <p>Cooke NP, Mattiangeli V, Cassidy LM, Okazaki K, Kasai K, Bradley DG, Gakuhari T, Nakagome S (2023). Genomic insights into a tripartite ancestry in the Southern Ryukyu Islands. <em>Evolutionary Human Sciences</em> 5: e23. doi:10.1017/ehs.2023.18. Source of the Nagabaka group estimates and the later-movement proposal.</p>
+    <p>Ning C, Li T, Wang K, Zhang F, Li T, Wu X, Gao S, Zhang Q, Zhang H, Hudson MJ, Dong G, Wu S, Fang Y, Liu C, Feng C, Li W, Han T, Li R, Wei J, Zhu Y, Zhou Y, Wang C-C, Fan S, Xiong Z, Sun Z, Ye M, Sun L, Wu X, Liang F, Cao Y, Wei X, Zhu H, Zhou H, Krause J, Robbeets M, Jeong C, Cui Y (2020). Ancient genomes from northern China suggest links between subsistence changes and human migration. <em>Nature Communications</em> 11: 2700. doi:10.1038/s41467-020-16557-2.</p>
+    <p>Liu X, et al. (2024). Decoding triancestral origins, archaic introgression, and natural selection in the Japanese population by whole-genome sequencing. <em>Science Advances</em> 10(16): eadi8419. Regional Jomon-ancestry estimates (about 28.5% Okinawa, 18.9% Tohoku, 13.4% Kansai), as summarized by ExploreYourDNA.</p>
+    <p>Gelabert P, et al. (2022). Northeastern Asian and Jomon-related genetic structure in the Three Kingdoms period Gaya Confederacy. <em>Current Biology</em>. Source of the Gimhae genomes.</p>
+    <p>Robbeets M, et al. (2021). Triangulation supports agricultural spread of the Transeurasian languages. <em>Nature</em> 599: 616–621. Original publication of the Nagabaka sequence data, as cited by Cooke et al. (2023).</p>
+    <p>Kim J, et al. (2026). Ancient genomes reveal early-stage admixture and genetic diversity in the Northwestern Kyushu Yayoi. <em>Scientific Reports</em> 16: 4833, as summarized by ExploreYourDNA (2026), “Japan Is Made of Three Peoples, Not Two”, which also supplies the Ryukyuan reference and an independent, non-peer-reviewed Global25 model of Jomon ancestry.</p>
 </div></div>
   </div>
 </div>
